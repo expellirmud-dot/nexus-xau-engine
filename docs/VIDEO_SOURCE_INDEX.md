@@ -19,7 +19,7 @@
 | 16KoS7d-koI | https://youtu.be/16KoS7d-koI | ยังไม่ยืนยันชื่อ | UNVERIFIED | ต้องดึง title/transcript ก่อน |
 | vcdN51_OrPE | https://youtu.be/vcdN51_OrPE | EP.พิเศษ ขยี้ให้แหลก #SmatTrderToSuccess #ระบบแม่ปลาปากกาเขียว; ญาติระบุ “อันนี้สรุป ทั้งหมด” | VERIFIED TITLE + USER LABEL | High-value recap; ใช้ cross-check terminology และ rule conflicts |
 | h9gwEq52AWQ | https://youtu.be/h9gwEq52AWQ | ยังไม่ยืนยันชื่อ | UNVERIFIED | ต้องดึง title/transcript ก่อน |
-| 1E_PYPor1qQ | https://youtu.be/1E_PYPor1qQ | ยังไม่ยืนยันชื่อ | UNVERIFIED | ต้องดึง title/transcript ก่อน |
+| 1E_PYPor1qQ | https://youtu.be/1E_PYPor1qQ | ผู้ใช้ระบุโดยตรงว่า P1 / PAT1 | USER-CONFIRMED LABEL; TITLE UNVERIFIED | Primary source candidate for PAT1 candle-by-candle extraction; ต้องดึง transcript ทุก ~8 วินาทีเพื่อสร้าง deterministic OHLC rule |
 | 1QZ8elWm1fM | https://youtu.be/1QZ8elWm1fM | ยังไม่ยืนยันชื่อ | UNVERIFIED | ต้องดึง title/transcript ก่อน |
 | CzsnaRh8egw | https://youtu.be/CzsnaRh8egw | ยังไม่ยืนยันชื่อ | UNVERIFIED | ต้องดึง title/transcript ก่อน |
 | im3ebGY12j4 | https://youtu.be/im3ebGY12j4 | ยังไม่ยืนยันชื่อ | UNVERIFIED | ต้องดึง title/transcript ก่อน |
@@ -28,19 +28,40 @@
 | -CZ5laDyzjs | https://youtu.be/-CZ5laDyzjs | ยังไม่ยืนยันชื่อ | UNVERIFIED | ต้องดึง title/transcript ก่อน |
 | Zila-zxvNx0 | https://youtu.be/Zila-zxvNx0 | ยังไม่ยืนยันชื่อ | UNVERIFIED | ต้องดึง title/transcript ก่อน |
 
-## Immediate gap noted in chat
+## PAT source resolution
 
-ญาติ/ผู้ใช้มีคำถามว่า “PAT1 อันไหนนะครับ” แต่จาก metadata ที่ตรวจได้ตอนนี้ยังระบุไม่ได้ว่า video ID ใดในชุดด้านบนเป็นบท PAT1 โดยตรง จึงห้ามเดา ต้อง resolve จาก title/transcript ของรายการ UNVERIFIED หรือคำยืนยันจากญาติ
+- PAT1: `1E_PYPor1qQ` — ผู้ใช้ยืนยันในแชตว่า “P1”. ถือเป็น source mapping ที่ยืนยันจากผู้ใช้/ญาติแล้ว แต่ตัวกฎ PAT1 ยังต้องสกัดจาก transcript/ภาพ ไม่ให้อนุมานจาก label เพียงอย่างเดียว
+- PAT2: ยังไม่ resolve video source โดยตรง
+- PAT3: ยังไม่ resolve video source โดยตรง
 
 ## Priority transcript extraction order
 
-1. UV5NijhjfJ8 — EP.4 เบรก M5 เงินล้าน / การเข้าออเดอร์
-2. vcdN51_OrPE — EP.พิเศษ ขยี้ให้แหลก / สรุปทั้งหมด
-3. ESHDuiVPJow — EP.2 เทรน ชนะ กรอบ กรอบ ชนะ Sig
-4. jBEM-vWYj_o — EP.3 แนวรับ-แนวต้าน
-5. Resolve PAT1/PAT2/PAT3 source among remaining videos
-6. Sideway full lesson
-7. Half-retrace / swing-retrace / Fibonacci full lesson
+1. 1E_PYPor1qQ — PAT1 (ใหม่: source ถูก resolve แล้ว)
+2. UV5NijhjfJ8 — EP.4 เบรก M5 เงินล้าน / การเข้าออเดอร์
+3. vcdN51_OrPE — EP.พิเศษ ขยี้ให้แหลก / สรุปทั้งหมด
+4. ESHDuiVPJow — EP.2 เทรน ชนะ กรอบ กรอบ ชนะ Sig
+5. jBEM-vWYj_o — EP.3 แนวรับ-แนวต้าน
+6. Resolve PAT2/PAT3 source among remaining videos
+7. Sideway full lesson
+8. Half-retrace / swing-retrace / Fibonacci full lesson
+
+## PAT1 extraction checklist
+
+เมื่อได้ transcript ของ `1E_PYPor1qQ` ให้หาเฉพาะกฎที่แปลงเป็นโค้ดได้:
+- จำนวนแท่งใน PAT1 Buy / PAT1 Sell
+- สีแท่งเป็นข้อบังคับหรือไม่
+- body ratio / wick ratio
+- ต้องเกิดที่ support/resistance/frame/TP-complete context แบบใด
+- candle close ต้องอยู่ตรงไหน
+- การกลืนกิน body/wick มีหรือไม่
+- pattern completion candle
+- invalidation
+- “ไส้หลัง SIG” อยู่แท่งใด
+- SIG_RUN_ANCHOR สำหรับ PAT1
+- body collection หลัง PAT1
+- lower-TF M1/M5 confirmation
+- entry / SL reference
+- negative examples: หน้าตาคล้าย PAT1 แต่ใช้ไม่ได้
 
 ## Transcript rule-extraction format
 
