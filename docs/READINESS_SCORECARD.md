@@ -2,7 +2,7 @@
 
 Last reviewed: 2026-09-01
 
-This scorecard now separates two different measures that had previously been mixed together:
+This scorecard separates two measures:
 
 1. **Workflow / conceptual coverage** — how well the project understands the sequence and role of the system components.
 2. **Deterministic coding readiness** — how much can be encoded into exact research/backtest rules without guessing missing OHLC/state mechanics.
@@ -11,11 +11,11 @@ These are NOT win rates, profit probabilities, or live-EA readiness scores.
 
 ## Canonical headline
 
-- **Workflow / conceptual coverage: ~70%**
-- **Deterministic coding readiness: ~59%**
-- **Remaining deterministic gap: ~41%**
+- **Workflow / conceptual coverage: ~75%**
+- **Deterministic coding readiness: ~63%**
+- **Remaining deterministic gap: ~37%**
 
-The former ~55% score is retained in historical update files, but the canonical score now uses the dual-metric interpretation because recent direct relative chat + primary images materially improved workflow understanding while exact PAT/PA detector rules remain unresolved.
+The increase from the prior 59% canonical coding score comes from new primary training-slide evidence that materially resolves the PAT family map, BUY/SELL topology, and post-SIG reference-candle index. Exact body/wick/close geometry remains unresolved, so PAT is not yet production-deterministic.
 
 ## Deterministic coding coverage
 
@@ -23,8 +23,8 @@ The former ~55% score is retained in historical update files, but the canonical 
 |---|---:|---:|---:|---|
 | Broker / symbol / data metadata | 5% | 95% | 4.75 | XAUUSD reference spec strong; server/account metadata must remain runtime-configurable |
 | Core cycle / state names | 5% | 90% | 4.50 | SIDEWAY→SIG→TP→พักตัว definitions directly supported; exact transitions still partial |
-| SIG anchor / run-distance logic | 10% | 90% | 9.00 | Run table direct; PAT2 Buy candle #3 post-SIG anchor directly clarified; other PAT anchors incomplete |
-| PA / PAT1-PAT5 definitions | 15% | 20% | 3.00 | Largest dependency blocker; exact candle geometry still missing |
+| SIG anchor / run-distance logic | 10% | 95% | 9.50 | Run table direct; primary slide now states PAT1→candle2, PAT2→candle3, PAT3→candle4 post-SIG reference counting |
+| PA / PAT definitions | 15% | 45% | 6.75 | Primary slide identifies PAT1, PAT2, PAT3 variants 1–3 and mirrored BUY/SELL topology; exact OHLC ratios/invalidation still missing |
 | Body collection | 10% | 65% | 6.50 | Workflow/lifecycle strong; pair geometry and completion event unresolved |
 | Sideway state machine | 10% | 45% | 4.50 | Frame-complete + two-side confirmation + Over-round handling stronger; exact construction/break rules missing |
 | Half / swing retrace + Fibonacci | 10% | 75% | 7.50 | Classification + midpoint semantics strong; swing-anchor/extreme/entry/Fib details open |
@@ -32,30 +32,31 @@ The former ~55% score is retained in historical update files, but the canonical 
 | Multi-timeframe relationship | 7% | 50% | 3.50 | TF roles clearer; full conflict matrix and M15/M30 metric incomplete |
 | Por Chon / Mae Pla frame algorithms | 7% | 75% | 5.25 | Daily frame + ATH prerequisites materially supported; snapping/timezone/tie-breaks open |
 | SL / TP / risk-management mechanics | 5% | 55% | 2.75 | TP ranges direct; 300-point SL example-specific; universal risk logic unresolved |
-| Ground-truth labeled examples | 6% | 15% | 0.90 | More direct examples exist, but dataset remains too small for robust validation |
+| Ground-truth labeled examples | 6% | 20% | 1.20 | Primary schematic positives now exist for five PA shapes, but historical positive/negative chart dataset remains too small |
 
-Weighted total = **58.65%**
+Weighted total = **63.20%**
 
-Rounded deterministic coding readiness = **59%**
+Rounded deterministic coding readiness = **63%**
 
 ## Workflow / conceptual coverage
 
-Analyst estimate = **~70%**.
+Analyst estimate = **~75%**.
 
-This higher score reflects that the system-level sequence is now relatively clear:
+The system-level sequence is now relatively clear, and the PAT family map is no longer fully unknown:
 
-- XAUUSD environment and runtime symbol metadata;
+- target XAUUSD environment and runtime metadata;
 - frame preparation;
 - Daily / Por Chon ATH roles;
 - PA location context;
+- visible PA pattern families: PAT1, PAT2, PAT3 variant 1/2/3;
 - body-collection workflow;
-- SIG / post-SIG anchor / run counting;
+- SIG / post-SIG reference / run counting;
 - M5/M15/M30/H1 entry relationship;
-- Sideway as a distinct setup family;
+- Sideway setup family;
 - TP / Over-round handling;
-- Half vs Swing retrace conceptual classification.
+- Half vs Swing retrace classification.
 
-The difference between 70% workflow understanding and 59% coding readiness is intentional. Missing PA/PAT definitions affect several downstream modules simultaneously.
+The gap between workflow understanding and coding readiness remains because visual topology is not the same as an exact OHLC detector.
 
 ## Strongly supported rules now
 
@@ -68,9 +69,11 @@ The difference between 70% workflow understanding and 59% coding readiness is in
 - H1 run = 1,000 points.
 - H4 = 1,500 (100%) toward 3,000.
 - Day = 5,000–10,000; Week = 15,000–30,000; MN = 30,000–50,000.
-- Run measured from post-SIG wick.
+- Run measured from post-SIG wick/reference.
 - PA Buy at support; PA Sell at resistance or TP-complete area.
-- Shown PA Buy PAT2: candle #3 post-SIG wick is run/check/SL reference.
+- Primary slide shows five PA shapes total: `PAT1`, `PAT2`, `PAT3 รูปแบบที่ 1`, `PAT3 รูปแบบที่ 2`, `PAT3 รูปแบบที่ 3`.
+- BUY and SELL pattern rows are directional mirrors around support/resistance context.
+- Primary slide explicitly states post-SIG reference counting: `PAT1 นับแท่งที่ 2`, `PAT2 นับแท่งที่ 3`, `PAT3 นับแท่งที่ 4`.
 - Entry workflow includes <=~200-point frame proximity, M5 break first, M15/M30 same direction, H1 follow-through.
 - Half retrace: overrun + opposite PA; post-SIG wick→extreme midpoint.
 - Swing retrace: overrun + no opposite PA; qualifying same-direction candle wick→extreme midpoint.
@@ -83,26 +86,28 @@ The difference between 70% workflow understanding and 59% coding readiness is in
 
 Do not hard-code until primary evidence resolves them:
 
-- PAT1 single-bar <=50% formula;
-- PAT2 fixed generic 2-bar/3-bar formula;
-- PAT3 generic move-consolidation-confirm formula;
+- prior assumption that the system has separately numbered `PAT1–PAT5`; the new primary slide instead shows five shapes as PAT1 + PAT2 + three PAT3 variants;
+- PAT1 generic single-bar <=50% formula;
+- PAT2 generic 50%-body rule;
+- PAT3 generic move-consolidation-confirm threshold rule;
 - generic M5 `close beyond frame` definition;
 - generic fixed RR 1:1/1:2;
 - universal 10–30 point SL buffer;
 - universal 300-point SL;
 - Fib 38.2/61.8 as mandatory entry rules;
-- prior mixed-source ATH cutoff around `12:00 UTC` — now **UNVERIFIED/CONFLICTING** against stronger primary 19:00–19:00 wording.
+- prior mixed-source ATH cutoff around `12:00 UTC` — **UNVERIFIED/CONFLICTING** against stronger primary 19:00–19:00 wording.
 
 ## P0 blockers
 
-1. Exact `PA` qualification and `PAT1–PAT5` candle geometry/invalidation/anchors.
+1. Exact PA/PAT OHLC geometry: body ratio, wick ratio, open/close relations, support/resistance tolerance and invalidation for PAT1, PAT2 and PAT3 variants 1–3.
 2. Exact `M5 break` rule: edge, wick/body/close, buffer and same-candle sequencing.
 3. Exact Sideway frame construction/completion and false-break rules.
-4. Swing-retrace starting-candle selection and extreme-finalization rule.
-5. Exact Daily statistical 0/5 snapping/tie algorithm.
-6. Exact ATH 19:00 boundary timezone/day-window semantics.
-7. Exact `คู่` geometry and `body_collection_completed()` event.
-8. Enough positive + negative labeled historical ground truth.
+4. Exact `คู่` geometry and `body_collection_completed()` event.
+5. Swing-retrace starting-candle selection and extreme-finalization rule.
+6. Half/Swing entry and invalidation rules plus whether any Fib levels other than 50% are operational.
+7. Exact Daily statistical 0/5 snapping/tie algorithm.
+8. Exact ATH 19:00 boundary timezone/day-window semantics.
+9. Enough positive + negative labeled historical ground truth.
 
 ## Safe to prototype now
 
@@ -110,6 +115,9 @@ Do not hard-code until primary evidence resolves them:
 - replay/data event model;
 - cycle/state objects;
 - run-distance config;
+- PAT family data model: `PAT1`, `PAT2`, `PAT3.variant={1,2,3}`;
+- source-backed `post_sig_reference_index`: PAT1=2, PAT2=3, PAT3=4;
+- topology-only PAT candidate labeling with `CANDIDATE_ONLY` status;
 - source-confirmed SIG anchor storage;
 - Daily-frame first-pass calculator with unresolved flags;
 - Por Chon ATH candidate-state logic with unresolved time-window flag;
@@ -117,10 +125,14 @@ Do not hard-code until primary evidence resolves them:
 - Body Collection / Sideway / Entry state-machine shells;
 - evidence-tagged replay logging.
 
-## Placeholder-only interfaces
+## Placeholder / candidate-only interfaces
 
-- `detect_PA()`
-- `detect_PAT1()` ... `detect_PAT5()`
+- `detect_PA_exact()`
+- `detect_PAT1_exact()`
+- `detect_PAT2_exact()`
+- `detect_PAT3_v1_exact()`
+- `detect_PAT3_v2_exact()`
+- `detect_PAT3_v3_exact()`
 - `confirm_m5_break()`
 - `sideway_frame_complete()`
 - `sideway_false_break()`
@@ -129,4 +141,4 @@ Do not hard-code until primary evidence resolves them:
 - `body_collection_completed()`
 - universal execution / risk engine
 
-Current engineering stage: **workflow mostly mapped; detector prototype/replay preparation underway; full strategy and live EA still premature.**
+Current engineering stage: **workflow substantially mapped; topology-level PAT detector prototypes are now justified; exact OHLC signal detector and full historical backtest still require unresolved geometry and negative examples.**
