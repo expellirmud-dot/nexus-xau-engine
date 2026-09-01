@@ -28,7 +28,10 @@ Purpose: preserve the exact source set supplied by the project owner and separat
    - WEB-METADATA: EP.พิเศษ ขยี้ให้แหลก #SmatTrderToSuccess #ระบบแม่ปลาปากกาเขียว
    - Priority: HIGHEST for terminology/system map, then verify against dedicated lessons.
 8. `h9gwEq52AWQ` — https://youtu.be/h9gwEq52AWQ?si=wLLEMO54bPmCLh7O — pending.
-9. `1E_PYPor1qQ` — https://youtu.be/1E_PYPor1qQ?si=G0DjGfKPMj15V9oE — pending.
+9. `1E_PYPor1qQ` — https://youtu.be/1E_PYPor1qQ?si=G0DjGfKPMj15V9oE
+   - USER-LABEL (2026-09-01): `P1` / PAT1 source, supplied directly by project owner.
+   - Evidence status: PAT1 VIDEO MAPPING = CONFIRMED BY OWNER; video metadata/transcript/timestamp rules still pending.
+   - Priority: HIGHEST for extracting deterministic PAT1 definition and positive/negative examples.
 10. `1QZ8elWm1fM` — https://youtu.be/1QZ8elWm1fM?si=UqQ1aiPlXQJN5Ocl — pending.
 11. `CzsnaRh8egw` — https://youtu.be/CzsnaRh8egw?si=-FtNA3XzKscNORi7 — pending.
 12. `im3ebGY12j4` — https://youtu.be/im3ebGY12j4?si=VmiphuRru0AX0W-2 — pending.
@@ -38,15 +41,16 @@ Purpose: preserve the exact source set supplied by the project owner and separat
 16. `Zila-zxvNx0` — https://youtu.be/Zila-zxvNx0?si=qtsOPS_4zuZayxJw — pending.
 
 ## Chat-context clue
-At 22:57: `PAT1 อันไหนนะคับ` followed by `!!`. The supplied excerpt does not contain the actual answer. This supports that PAT1 was expected to map to one of the shared materials, but the exact video is UNKNOWN. Do not guess the mapping.
+At 22:57: `PAT1 อันไหนนะคับ` followed by `!!`. The supplied excerpt did not contain the actual answer. This ambiguity is now resolved by the project owner's direct mapping on 2026-09-01: `1E_PYPor1qQ = P1/PAT1`.
 
 ## Transcript-forensics order
-1. `vcdN51_OrPE` — summary/all-system map.
-2. `UV5NijhjfJ8` — entry order / M5 break.
-3. `ESHDuiVPJow` — trend/frame/SIG hierarchy.
-4. `jBEM-vWYj_o` — support/resistance/frame construction.
-5. `oCcG3dUjrgw` — body collection and match against existing transcript evidence.
-6. Remaining videos: identify topic, then target PAT1/PAT2/PAT3, พักครึ่ง, พักสวิง, Fibonacci, ช่องแม่ปลา, เพาะ, invalidation, SL/TP.
+1. `1E_PYPor1qQ` — PAT1/P1 dedicated source; extract exact OHLC rules, bar count, wick/body/close conditions, valid/invalid examples, SIG relationship and cancellation.
+2. `vcdN51_OrPE` — summary/all-system map.
+3. `UV5NijhjfJ8` — entry order / M5 break.
+4. `ESHDuiVPJow` — trend/frame/SIG hierarchy.
+5. `jBEM-vWYj_o` — support/resistance/frame construction.
+6. `oCcG3dUjrgw` — body collection and match against existing transcript evidence.
+7. Remaining videos: identify topic, then target PAT2/PAT3, พักครึ่ง, พักสวิง, Fibonacci, ช่องแม่ปลา, เพาะ, invalidation, SL/TP.
 
 ## Mandatory extraction schema
 `video_id | title | timestamp_start | timestamp_end | exact_term | transcript_excerpt | visual_context_if_known | timeframe | direction | construct | condition | invalidation | evidence_type | confidence | notes`
@@ -56,4 +60,4 @@ At 22:57: `PAT1 อันไหนนะคับ` followed by `!!`. The supplie
 - Visual context required where speech refers to the chart.
 - Summary video identifies relationships but does not override dedicated lesson evidence.
 - Never assume `เพาะ = PA` or `ช่องแม่ปลา = กรอบแม่` without direct evidence.
-- PAT1/2/3 remain UNKNOWN until timestamp-level source evidence is recovered.
+- PAT1 video mapping is confirmed by owner, but PAT1 deterministic OHLC definition remains UNKNOWN until timestamp-level source evidence is recovered.
