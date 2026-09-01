@@ -103,3 +103,63 @@ Priority order:
 ### Repository status
 
 The GitHub repository was initially empty. This checkpoint created the durable project documentation so future work can update rather than overwrite prior learning.
+
+---
+
+## 2026-09-01 — Full EP.5 transcript analyst review
+
+Source reviewed end-to-end: user-supplied EP.5 body-collection transcript, `0:00–2:02:38`.
+
+Detailed timestamp extraction saved at:
+
+`docs/transcripts/EP5_BODY_COLLECTION_FULL_ANALYSIS.md`
+
+### Material changes to the research model
+
+1. Body collection should be modeled as its own setup family rather than as a vague generic retest.
+2. The demonstrated H4 method requires the historical zone concept `ซอก + ไส้ + คู่`.
+3. Same-timeframe structure is preferred; fallback hierarchy appears as H4 -> H1 -> M30 when the required structure is missing.
+4. The teaching gives a first search window of roughly 2–4 historical candles.
+5. Current method favors two projected body-collection zones.
+6. At the zone, M1/M5 PA aligned with H4 is used before entry; M5 is the safer confirmation path.
+7. The video repeatedly requires waiting for the analyzed candle to close.
+8. Body collection is not based on 0/5 price endings.
+9. Used body-collection zones are retired; untouched zones may persist across days.
+10. Body collection should not be blindly applied inside Sideway. A separate Sideway setup exists and must be modeled separately.
+11. In the demonstrated H4 sequence, the retrace/body collection helps form the post-SIG wick before the run toward TP.
+12. A direct PAT3 Sell example states that the third candle body engulfs/closes through the prior wick; however, this does not close the full PAT3 algorithm.
+13. The video explicitly says the next lesson covers half-retrace, swing-retrace, and Fibonacci retracement/extension, confirming that those rules should be sourced from the next transcript rather than inferred from EP.5.
+
+### Analyst decision after review
+
+The project's biggest blocker shifted slightly.
+
+Before full EP.5 review, “body collection” was mostly conceptual. After the review, the workflow/state model is strong enough to scaffold in code, but the exact geometry is still missing.
+
+Current blocker order:
+
+1. exact PAT1/PAT2/PAT3 candle rules and invalidations;
+2. exact OHLC/tolerance formula for `ซอก + ไส้ + คู่` and exact M5 break rule;
+3. full Sideway state machine / separate Sideway setup;
+4. half/swing + Fibonacci next lesson;
+5. Por Chon/Mae Pla frame algorithms;
+6. labeled truth-set examples.
+
+### Coding implication
+
+Safe to begin now:
+
+- closed-bar evaluation framework;
+- body-collection state/schema;
+- H4 -> H1 -> M30 search pipeline shell;
+- two-zone candidate storage;
+- zone lifecycle state tracking;
+- replay logging for zone arrival and M1/M5 PA events.
+
+Still unsafe:
+
+- automatic PAT classification;
+- automatic `ซอกไส้คู่` geometry detector;
+- automatic M5 break detector;
+- automatic Sideway detector;
+- live entry/SL execution.
