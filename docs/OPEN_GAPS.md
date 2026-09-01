@@ -1,10 +1,33 @@
 # Open Gaps / Coding Blockers
 
-Last reviewed: 2026-09-01
+Last reviewed: 2026-09-01 after full EP.5 body-collection transcript review (`0:00–2:02:38`).
 
 This file is the authoritative list of what is still missing. A missing item is more important than an invented answer.
 
-## Priority 0 — PAT definitions (largest blocker)
+## What EP.5 materially closed
+
+The full transcript now provides strong direct evidence for these points:
+
+- closed-candle evaluation is required on the timeframe being analyzed;
+- body collection is a distinct H4-focused setup family;
+- historical left-side candles are used as reference points;
+- the demonstrated body-collection zone uses `ซอก + ไส้ + คู่`;
+- search is same-TF first, with an explicit H4 -> H1 -> M30 fallback appearing in examples/Q&A;
+- the first search window is described as roughly 2–4 historical candles;
+- the current lesson favors two projected zones rather than three head/middle/tail entry bands;
+- body collection is not based on price endings 0/5;
+- at the projected zone, M1/M5 PA aligned with the H4 direction is required before the body-collection entry; M5 is the safer confirmation path in the teaching;
+- used/completed body-collection zones are retired, while untouched zones may persist across days;
+- body collection should not be blindly applied inside Sideway; a separate Sideway setup exists;
+- in the demonstrated H4 flow, the body-collection retrace helps form the post-SIG wick before the run toward TP;
+- a PAT3 Sell example states that the third candle body engulfs/closes through the previous wick; this is a partial discriminator, not a complete PAT3 formula;
+- the video explicitly defers full `พักครึ่ง / พักสวิง + Fibonacci` rules to the next lesson.
+
+Detailed timestamp evidence is stored in `docs/transcripts/EP5_BODY_COLLECTION_FULL_ANALYSIS.md`.
+
+---
+
+## Priority 0 — PAT definitions (still the largest blocker)
 
 Need primary examples / explicit rules for every PA/PAT family.
 
@@ -22,21 +45,90 @@ Required fields per pattern:
 - which candle supplies `ไส้หลัง SIG`,
 - whether candle numbering differs by PAT.
 
+### New evidence from EP.5
+
+- PAT3 Sell example: instructor rejects a PAT1 interpretation and waits for candle #3 because its body closes through / engulfs the previous wick, showing sell force.
+- PAT2 Sell and PAT3 Buy are visually labeled in examples, but the transcript does not verbalize their complete formulas.
+- instructor explicitly says detailed candle/PAT reading will be taught later.
+
 Specific unresolved questions:
 
 1. What exactly are all “5 PA forms” mentioned in public material?
-2. Is PAT1 one candle or a multi-candle confirmed structure in the actual teaching?
-3. Is PAT2 truly defined by a >50% prior-body close, and is that strict or approximate?
-4. What exactly completes PAT3?
+2. What is the actual full PAT1 rule? The user has now mapped video `1E_PYPor1qQ` as P1/PAT1, so its transcript is highest priority.
+3. What is the exact PAT2 Buy/Sell candle sequence and >50% rule, if any?
+4. What exactly completes PAT3 on BUY and SELL, beyond the partial Sell example from EP.5?
 5. Does wick size matter for PAT2/PAT3?
 6. Which visual look-alikes are explicitly rejected?
 7. What makes a SIG fake / broken?
+8. Which candle supplies the post-SIG wick for PAT1 and PAT3?
 
 Until these are answered, no production PAT detector should be written.
 
 ---
 
-## Priority 1 — Sideway state machine
+## Priority 1 — Body-collection detector geometry
+
+Concept and workflow are now substantially stronger, but exact OHLC geometry remains missing.
+
+Need deterministic definitions for:
+
+- exact `ซอก` formula and price tolerance;
+- exact `คู่` formula and equality/tolerance rules;
+- exact geometric relation among `ซอก + ไส้ + คู่` inside one valid zone;
+- how to rank/select zone 1 and zone 2 when many historical candidates exist;
+- whether stated H1 300–500 / H4 500–1,000 / Day 1,000–2,000 point widths are hard bounds or examples;
+- exact event that marks a zone `TOUCHED`, `COLLECTED`, and `RETIRED`;
+- whether a near miss of ~100 points is generally valid or only an example;
+- exact invalidation rule before entry;
+- exact invalidation after entry;
+- whether lower-TF PA is mandatory for every body-collection setup or whether an advanced frame-entry variant exists.
+
+Working coding shell is now safe:
+
+`H4 PA -> find historical zone -> H4 first, else H1, else M30 -> 1–2 zones -> wait retrace -> M1/M5 PA aligned -> break/confirm -> entry consideration -> post-SIG wick -> run`
+
+The shell is safe; the detectors inside it are not.
+
+---
+
+## Priority 2 — Exact M5 break / Entry mechanics
+
+EP.5 strengthens the role of M5 but does not fully define break geometry.
+
+Need exact answers for:
+
+- whether `เบรกกรอบ` requires wick breach, body breach, or candle close;
+- which exact frame/reference price is broken;
+- whether failure to make a new high/low is mandatory or only an example;
+- whether `Zone + PA = กด` means immediate market order after closed PA or after a separate break candle;
+- exact distance-to-frame tolerance;
+- whether the ~100–200 point zone distance in the example is a hard threshold;
+- whether the prior project rule `ชิดกรอบ <=200` applies to this body-collection setup or another setup family;
+- market vs pending order conditions;
+- first-entry candle/index;
+- re-entry after breakeven / stop / zone remains valid.
+
+### SL questions still open
+
+EP.5 provides several setup-specific examples but not a universal rule:
+
+- around 200–300 points from frame in one body-collection explanation;
+- SL at wick in one example, body also discussed as possible in that setup;
+- around 300 points in an M5 example;
+- adding/scaling limited to around 200 points in one recap example.
+
+Need to determine which are universal, which are setup-specific, and which are personal discretion.
+
+---
+
+## Priority 3 — Sideway state machine
+
+EP.5 clarifies an important distinction but does not define Sideway fully.
+
+Confirmed distinction:
+
+- do not blindly apply `BODY_COLLECTION_SETUP` inside Sideway;
+- a separate `SIDEWAY_SETUP` exists and can use zones under its own conditions.
 
 Need exact system-specific rules for:
 
@@ -53,31 +145,16 @@ Need exact system-specific rules for:
 - whether break must be by wick or close,
 - point tolerance outside the frame,
 - required confirming TF after breakout,
-- what ends Sideway and creates a new SIG state.
+- what ends Sideway and creates a new SIG state,
+- exact rules of the separate Sideway entry method mentioned in EP.5 Q&A.
 
 Do not use generic “2–3 swings” as a system rule without primary confirmation.
 
 ---
 
-## Priority 2 — Body collection (`เก็บบอดี้`)
+## Priority 4 — Half retrace / Swing retrace / Fibonacci
 
-Need deterministic geometry:
-
-- Which candle's body is the target?
-- Is the target full body, head/middle/tail zone, or a named sub-zone?
-- Does wick contact count?
-- Must candle body overlap the zone?
-- Must a candle close inside / through the zone?
-- Is 50% penetration relevant?
-- What exact event means “เก็บเสร็จ”?
-- What invalidates the zone?
-- Is lower-TF PA mandatory after the retest?
-- Which lower TF is selected under each higher-TF setup?
-- How many times can the zone be revisited before invalidation?
-
----
-
-## Priority 3 — Half retrace / Swing retrace
+EP.5 does not close these; it explicitly points to the next lesson.
 
 ### Half retrace
 
@@ -107,43 +184,29 @@ Need:
 
 Need primary confirmation of whether 23.6 / 38.2 / 61.8 / extensions are formal rules or merely chart aids. Current direct evidence only proves the arithmetic midpoint example.
 
----
-
-## Priority 4 — Execution rules
-
-Need exact answer for each setup family:
-
-- first-entry trigger,
-- market vs pending order,
-- whether entry waits for candle close,
-- exact role of M5 break,
-- exact meaning of M15/M30 moving in the same direction,
-- distance-to-frame calculation,
-- whether ≤200 points is universal or setup-specific,
-- whether additional positions are allowed,
-- if yes, under what risk constraints,
-- if no, when the “do not add” warning applies,
-- exact SL anchor,
-- whether SL is at wick or offset beyond it,
-- whether the 300-point slide is an example or a universal buffer,
-- TP timeframe selection,
-- partial exit rules, if any,
-- handling of Over-round / overrun,
-- re-entry after stop / retrace / new SIG.
+Highest-value next source: the lesson immediately after EP.5 described at `1:58:08–1:58:57` as `พักครึ่ง / พักสวิง` plus Fibonacci retracement/extension.
 
 ---
 
 ## Priority 5 — Multi-timeframe relationship
 
-Need exact conflict rules:
+EP.5 adds examples but not a complete conflict resolver.
+
+New evidence:
+
+- H4 is the main setup TF in the body-collection lesson;
+- M5 is used primarily for entry confirmation;
+- H1 and M30 can supply historical zone structure when H4 cannot;
+- one example shows H4 SIG direction eventually dominating while H1 is Sideway, with M5 confirming failure to make a higher high.
+
+Still need exact conflict rules:
 
 - H1 Buy vs H4 Sell,
 - H4 vs D conflict,
 - D vs W conflict,
 - which timeframe owns the current run,
 - whether smaller TF may be traded counter to higher TF,
-- exact M5 break condition,
-- exact M15/M30 confirmation metric: PA, candle direction, structure break, or another condition,
+- exact M15/M30 confirmation metric in the other entry setup: PA, candle direction, structure break, or another condition,
 - whether H1 PA must close before the setup is upgraded.
 
 ---
@@ -165,6 +228,8 @@ Need primary confirmation for:
 - role of 7–14 point wick contact,
 - priority / confluence behavior when Por Chon and Mae Pla frames are close.
 
+EP.5's statement that body collection itself does not use 0/5 must not be generalized to the separate Mae Pla statistical-frame method.
+
 ---
 
 ## Priority 7 — Labeled ground-truth examples
@@ -173,13 +238,13 @@ Need 20–50 real historical examples with instructor/relative labels.
 
 Minimum desired dataset:
 
-- PAT1 Buy positive examples,
-- PAT1 Sell positive examples,
-- PAT2 Buy positive examples,
-- PAT2 Sell positive examples,
-- PAT3 Buy positive examples,
-- PAT3 Sell positive examples,
+- PAT1 Buy/Sell positive examples,
+- PAT2 Buy/Sell positive examples,
+- PAT3 Buy/Sell positive examples,
 - pattern look-alikes that are explicitly invalid,
+- body-collection valid zones,
+- body-collection near misses that are accepted/rejected,
+- M5 break valid/invalid examples,
 - half-retrace examples,
 - swing-retrace examples,
 - Sideway valid frames,
@@ -199,16 +264,17 @@ Each labeled case should ideally include:
 - teacher/relative label,
 - reason,
 - anchor price,
-- frame price,
+- frame/zone price,
 - outcome only for validation, not for defining the label.
 
 ---
 
-# Current readiness matrix
+# Current readiness matrix after EP.5
 
 | Module | Research status | Safe to code? |
 |---|---|---|
 | Broker metadata / point conversion | Good, environment-specific | Yes |
+| Closed-bar evaluation framework | Strong | Yes |
 | SIG event data model | Good | Yes |
 | H1 run measurement | Strong | Yes |
 | Run-distance config | Moderate/strong | Yes, evidence-tagged |
@@ -216,11 +282,15 @@ Each labeled case should ideally include:
 | Half classification | Partial | No |
 | Swing midpoint math | Strong if anchors supplied | Yes |
 | Swing anchor selection | Missing | No |
-| PAT detector | Missing exact rules | No |
-| Body collection detector | Partial concept only | No |
+| PAT detector | Partial examples only | No |
+| Body-collection state/schema | Stronger | Yes |
+| Body-collection geometry detector | Missing exact OHLC rules | No |
+| H4->H1->M30 zone-search shell | Strong enough | Yes |
+| Zone lifecycle schema | Strong enough | Yes, geometry parameterized |
 | Sideway detector | Partial concept only | No |
+| M5 break detector | Partial examples | No |
 | Entry engine | Partial | No |
-| SL engine | Partial | No |
+| SL engine | Setup-specific examples only | No |
 | TP measurement | Moderate | Partially |
 | Multi-TF resolver | Missing conflict rules | No |
 | Por Chon frame engine | Partial | No |
@@ -231,10 +301,13 @@ Each labeled case should ideally include:
 
 ## Short answer: what is still missing most?
 
-The three highest-value missing pieces remain:
+After the full EP.5 transcript, the highest-value missing pieces are now:
 
-1. **exact PA/PAT1-2-3 definitions and invalidations**,
-2. **exact Sideway frame / breakout state rules**,
-3. **exact Entry + body-collection + SL trigger rules**.
+1. **PAT1/PAT2/PAT3 exact candle rules and invalidations** — PAT1 transcript first (`1E_PYPor1qQ`).
+2. **Exact `ซอก + ไส้ + คู่` OHLC geometry and M5 break rule** — this is now the core body-collection coding blocker.
+3. **Full Sideway lesson/state machine** — importantly separate from body-collection logic.
+4. **Next lesson: Half/Swing + Fibonacci** — explicitly deferred by EP.5.
+5. **Por Chon/Mae Pla exact frame algorithms**.
+6. **20–50 labeled positive/negative examples for truth-set validation**.
 
-With those three resolved, the project can move from framework coding to meaningful detector/replay validation.
+With items 1–3 resolved, the project can start meaningful detector/replay backtesting without inventing the core rules.
