@@ -11,16 +11,16 @@
 
 | Video ID | URL | Title / Label | Status | Research use |
 |---|---|---|---|---|
-| NwMl2cUMb-A | https://youtu.be/NwMl2cUMb-A | ผู้ใช้ส่งซ้ำหลังจากมี primary slide PA; บริบทก่อนหน้าผูกคลิปนี้กับพื้นฐานระบบ/PA แต่ title จาก YouTube ยังดึงไม่ได้ในรอบปัจจุบัน | USER-SUPPLIED; TITLE/TRANSCRIPT NOT FETCHED | **P0 source candidate for PA/PAT exact qualification.** ใช้เทียบกับสไลด์ที่ยืนยัน PAT1, PAT2, PAT3 v1/v2/v3 และ anchor #2/#3/#4; ต้องดึง transcript ก่อนเลื่อน OHLC thresholds เป็น FACT |
-| oCcG3dUjrgw | https://youtu.be/oCcG3dUjrgw | ผู้ใช้ส่งเดิม; เปิดไม่ได้ในฝั่งญาติ | REPLACED | เก็บไว้เพื่อ trace history; ใช้ jBEM-vWYj_o แทนตามข้อความญาติ |
-| jBEM-vWYj_o | https://youtu.be/jBEM-vWYj_o | EP.3 แนวรับ - แนวต้าน #SmatTrderToSuccess #ระบบแม่ปลาปากกาเขียว | VERIFIED TITLE | สำคัญต่อ support/resistance, body-collection reference zone, left-side candle references |
+| NwMl2cUMb-A | https://youtu.be/NwMl2cUMb-A | ผู้ใช้ส่งซ้ำหลังจากมี primary slide PA; บริบทผูกกับพื้นฐานระบบ/PA | USER-SUPPLIED; transcript ถูกใช้ใน PA/PAT forensic รอบก่อน | PA/PAT qualification / anchor / invalidation cross-check |
+| oCcG3dUjrgw | https://youtu.be/oCcG3dUjrgw | ผู้ใช้ส่งเดิม; เปิดไม่ได้ในฝั่งญาติ | REPLACED | เก็บไว้ trace history; ใช้ jBEM-vWYj_o แทนตามข้อความญาติ |
+| jBEM-vWYj_o | https://youtu.be/jBEM-vWYj_o | EP.3 แนวรับ - แนวต้าน #SmatTrderToSuccess #ระบบแม่ปลาปากกาเขียว | VERIFIED TITLE | support/resistance, body-collection reference zones |
 | ESHDuiVPJow | https://youtu.be/ESHDuiVPJow | EP.2 เทรน ชนะ กรอบ กรอบ ชนะ Sig #SmatTrderToSuccess #ระบบแม่ปลาปากกาเขียว | VERIFIED TITLE | Trend vs Frame vs SIG priority |
-| UV5NijhjfJ8 | https://youtu.be/UV5NijhjfJ8 | EP.4 เบรก M5 เงินล้าน #SmatTrderToSuccess #ระบบแม่ปลาปากกาเขียว; ญาติระบุ “อันนี้เป็น การเข้าออเดอร์” | VERIFIED TITLE + USER LABEL | Highest priority for exact M5 break, entry trigger, <=200pt proximity, SL/confirmation |
+| UV5NijhjfJ8 | https://youtu.be/UV5NijhjfJ8 | EP.4 เบรก M5 เงินล้าน #SmatTrderToSuccess #ระบบแม่ปลาปากกาเขียว; ญาติระบุ “อันนี้เป็น การเข้าออเดอร์” | VERIFIED TITLE + USER LABEL | M5 brake / entry cross-check; ยังมีค่าเพื่อเทียบกับ transcript 16KoS7d-koI |
 | a9hPolrjNwU | https://youtu.be/a9hPolrjNwU | ยังไม่ยืนยันชื่อ | UNVERIFIED | ต้องดึง title/transcript ก่อน |
-| 16KoS7d-koI | https://youtu.be/16KoS7d-koI | ยังไม่ยืนยันชื่อ | UNVERIFIED | ต้องดึง title/transcript ก่อน |
-| vcdN51_OrPE | https://youtu.be/vcdN51_OrPE | EP.พิเศษ ขยี้ให้แหลก #SmatTrderToSuccess #ระบบแม่ปลาปากกาเขียว; ญาติระบุ “อันนี้สรุป ทั้งหมด” | VERIFIED TITLE + USER LABEL | High-value recap; ใช้ cross-check terminology และ rule conflicts |
+| 16KoS7d-koI | https://youtu.be/16KoS7d-koI | **Primary transcript supplied: บทขยี้จุดเข้า M1/M5 / เบรก M5**; transcript พูดคำว่า “เบรก M5 เงินล้าน” และสอน 5-step candle-force / retest / ยืนกรอบ | **PRIMARY TIMESTAMP TRANSCRIPT AVAILABLE (0:00–~1:53:52); exact public title not independently verified** | **P0 discovery largely closed for M5 brake / entry / frame-standing.** Forensic: `docs/M5_BRAKE_TRANSCRIPT_FORENSICS_2026-09-01.md` |
+| vcdN51_OrPE | https://youtu.be/vcdN51_OrPE | EP.พิเศษ ขยี้ให้แหลก #SmatTrderToSuccess #ระบบแม่ปลาปากกาเขียว; ญาติระบุ “อันนี้สรุป ทั้งหมด” | VERIFIED TITLE + USER LABEL | High-value recap; cross-check terminology/rule conflicts |
 | h9gwEq52AWQ | https://youtu.be/h9gwEq52AWQ | ยังไม่ยืนยันชื่อ | UNVERIFIED | ต้องดึง title/transcript ก่อน |
-| 1E_PYPor1qQ | https://youtu.be/1E_PYPor1qQ | ผู้ใช้ระบุโดยตรงว่า P1 / PAT1 | USER-CONFIRMED LABEL; TITLE UNVERIFIED | Primary source candidate for PAT1 candle-by-candle extraction; ต้องดึง transcript ทุก ~8 วินาทีเพื่อสร้าง deterministic OHLC rule |
+| 1E_PYPor1qQ | https://youtu.be/1E_PYPor1qQ | ผู้ใช้ระบุโดยตรงว่า P1 / PAT1 | USER-CONFIRMED LABEL; TITLE UNVERIFIED | PAT1 dedicated geometry source candidate |
 | 1QZ8elWm1fM | https://youtu.be/1QZ8elWm1fM | ยังไม่ยืนยันชื่อ | UNVERIFIED | ต้องดึง title/transcript ก่อน |
 | CzsnaRh8egw | https://youtu.be/CzsnaRh8egw | ยังไม่ยืนยันชื่อ | UNVERIFIED | ต้องดึง title/transcript ก่อน |
 | im3ebGY12j4 | https://youtu.be/im3ebGY12j4 | ยังไม่ยืนยันชื่อ | UNVERIFIED | ต้องดึง title/transcript ก่อน |
@@ -31,42 +31,44 @@
 
 ## PAT source resolution
 
-- Pattern taxonomy จาก primary slide ปัจจุบัน: `PAT1`, `PAT2`, `PAT3 variant 1`, `PAT3 variant 2`, `PAT3 variant 3`; ยังไม่มีหลักฐานต้นทางให้สร้าง PAT4/PAT5 แยก
-- Generic post-SIG reference index จาก primary slide: PAT1=#2, PAT2=#3, PAT3=#4
-- PAT1 dedicated source: `1E_PYPor1qQ` — ผู้ใช้ยืนยันว่า “P1”
-- PA/PAT foundational source candidate: `NwMl2cUMb-A` — ผู้ใช้ส่งโดยตรง; ใช้ค้น exact qualification/threshold/invalidation เมื่อมี transcript
+- Strongest current taxonomy: `PAT1`, `PAT2`, `PAT3 variant 1`, `PAT3 variant 2`, `PAT3 variant 3`; no primary support for separate PAT4/PAT5 families.
+- Post-SIG reference index: PAT1=#2, PAT2=#3, PAT3=#4.
+- PAT1 dedicated source: `1E_PYPor1qQ` — user-confirmed P1 label.
+- PA/PAT foundational evidence has been materially extracted from supplied transcript + primary slide; remaining problem is exact quantitative geometry.
 
-## Priority transcript extraction order
+## M5 / entry source resolution
 
-1. NwMl2cUMb-A — PA/PAT foundations; P0 เพราะอาจปิด exact qualification ของหลาย PAT พร้อมกัน
-2. 1E_PYPor1qQ — PAT1 dedicated source
-3. UV5NijhjfJ8 — EP.4 เบรก M5 เงินล้าน / การเข้าออเดอร์
-4. vcdN51_OrPE — EP.พิเศษ ขยี้ให้แหลก / สรุปทั้งหมด
-5. ESHDuiVPJow — EP.2 เทรน ชนะ กรอบ กรอบ ชนะ Sig
-6. jBEM-vWYj_o — EP.3 แนวรับ-แนวต้าน
-7. Sideway full lesson
-8. Half-retrace / swing-retrace / Fibonacci full lesson
+Primary transcript `16KoS7d-koI` now directly supports:
 
-## PA/PAT extraction checklist
+- zone first, then brake/pattern search;
+- M1 and M5 same abstract pattern logic;
+- five logical stages: `ใหญ่ยาว → อ่อนแรง → Reject → เปลี่ยนสี → Retest`;
+- stages 2/3/4 may combine in one candle;
+- first brake is higher-risk; phase-2/retest entry is preferred;
+- structural retest definition;
+- frame-standing count begins at first frame touch and commonly uses 4–10 candles;
+- body-standing primary, wick-on-line secondary;
+- local structure confirmation (higher-low/lower-high / prior high-low destruction);
+- overlap / false first brake / reevaluation;
+- frame-brake entry is distinct from SIG entry;
+- M5 is safer/less noisy than M1; M1 uses trendline/structure refinement.
 
-เมื่อได้ transcript ของ `NwMl2cUMb-A` หรือ `1E_PYPor1qQ` ให้หาเฉพาะกฎที่แปลงเป็นโค้ดได้:
-- PAT1 Buy/Sell: exact wick/body/location rule
-- PAT2 Buy/Sell: exact candle 1/2 relation, body percentage if any, close threshold
-- PAT3 variants 1–3: exact distinction and candle-3 completion rule
-- body ratio / wick ratio / required colors
-- must occur at support/resistance/frame/TP-complete context แบบใด
-- pattern completion candle and closed-candle requirement
-- invalidation / fake-PA examples
-- post-SIG reference candle #2/#3/#4: exact wick side and minimum geometry
-- body collection after PAT
-- lower-TF M1/M5 confirmation
-- entry / SL reference
-- negative examples: หน้าตาคล้าย PAT แต่ใช้ไม่ได้
+See `docs/M5_BRAKE_TRANSCRIPT_FORENSICS_2026-09-01.md` and `docs/ANALYST_GAP_REVIEW_M5_BRAKE_2026-09-01.md`.
+
+## Priority transcript extraction order — updated
+
+1. PAT3 detailed geometry / close-up candle lesson.
+2. Dedicated Sideway frame construction/completion lesson.
+3. Half-retrace / swing-retrace / Fibonacci full lesson.
+4. Multi-timeframe authority/conflict lesson.
+5. `vcdN51_OrPE` recap for conflict checking.
+6. `UV5NijhjfJ8` M5 lesson as cross-check against the now-extracted 16Ko transcript.
+7. Remaining unverified IDs: identify title/transcript before assigning system rules.
 
 ## Transcript rule-extraction format
 
 For each ~8-second segment:
-- Video ID / title
+- Video ID / source label
 - Timestamp start-end
 - Exact system term used
 - Rule candidate
@@ -78,4 +80,4 @@ For each ~8-second segment:
 - Confidence: CONFIRMED / PARTIAL / INFERENCE / UNKNOWN
 - Conflict with prior rulebook if any
 
-Do not promote instructor performance claims or anecdotal win-rate statements into strategy rules without independent evidence.
+Do not promote instructor performance claims, win-rate claims, or anecdotal probabilities into strategy statistics without independent backtest evidence.
