@@ -11,6 +11,7 @@
 
 | Video ID | URL | Title / Label | Status | Research use |
 |---|---|---|---|---|
+| NwMl2cUMb-A | https://youtu.be/NwMl2cUMb-A | ผู้ใช้ส่งซ้ำหลังจากมี primary slide PA; บริบทก่อนหน้าผูกคลิปนี้กับพื้นฐานระบบ/PA แต่ title จาก YouTube ยังดึงไม่ได้ในรอบปัจจุบัน | USER-SUPPLIED; TITLE/TRANSCRIPT NOT FETCHED | **P0 source candidate for PA/PAT exact qualification.** ใช้เทียบกับสไลด์ที่ยืนยัน PAT1, PAT2, PAT3 v1/v2/v3 และ anchor #2/#3/#4; ต้องดึง transcript ก่อนเลื่อน OHLC thresholds เป็น FACT |
 | oCcG3dUjrgw | https://youtu.be/oCcG3dUjrgw | ผู้ใช้ส่งเดิม; เปิดไม่ได้ในฝั่งญาติ | REPLACED | เก็บไว้เพื่อ trace history; ใช้ jBEM-vWYj_o แทนตามข้อความญาติ |
 | jBEM-vWYj_o | https://youtu.be/jBEM-vWYj_o | EP.3 แนวรับ - แนวต้าน #SmatTrderToSuccess #ระบบแม่ปลาปากกาเขียว | VERIFIED TITLE | สำคัญต่อ support/resistance, body-collection reference zone, left-side candle references |
 | ESHDuiVPJow | https://youtu.be/ESHDuiVPJow | EP.2 เทรน ชนะ กรอบ กรอบ ชนะ Sig #SmatTrderToSuccess #ระบบแม่ปลาปากกาเขียว | VERIFIED TITLE | Trend vs Frame vs SIG priority |
@@ -30,38 +31,37 @@
 
 ## PAT source resolution
 
-- PAT1: `1E_PYPor1qQ` — ผู้ใช้ยืนยันในแชตว่า “P1”. ถือเป็น source mapping ที่ยืนยันจากผู้ใช้/ญาติแล้ว แต่ตัวกฎ PAT1 ยังต้องสกัดจาก transcript/ภาพ ไม่ให้อนุมานจาก label เพียงอย่างเดียว
-- PAT2: ยังไม่ resolve video source โดยตรง
-- PAT3: ยังไม่ resolve video source โดยตรง
+- Pattern taxonomy จาก primary slide ปัจจุบัน: `PAT1`, `PAT2`, `PAT3 variant 1`, `PAT3 variant 2`, `PAT3 variant 3`; ยังไม่มีหลักฐานต้นทางให้สร้าง PAT4/PAT5 แยก
+- Generic post-SIG reference index จาก primary slide: PAT1=#2, PAT2=#3, PAT3=#4
+- PAT1 dedicated source: `1E_PYPor1qQ` — ผู้ใช้ยืนยันว่า “P1”
+- PA/PAT foundational source candidate: `NwMl2cUMb-A` — ผู้ใช้ส่งโดยตรง; ใช้ค้น exact qualification/threshold/invalidation เมื่อมี transcript
 
 ## Priority transcript extraction order
 
-1. 1E_PYPor1qQ — PAT1 (ใหม่: source ถูก resolve แล้ว)
-2. UV5NijhjfJ8 — EP.4 เบรก M5 เงินล้าน / การเข้าออเดอร์
-3. vcdN51_OrPE — EP.พิเศษ ขยี้ให้แหลก / สรุปทั้งหมด
-4. ESHDuiVPJow — EP.2 เทรน ชนะ กรอบ กรอบ ชนะ Sig
-5. jBEM-vWYj_o — EP.3 แนวรับ-แนวต้าน
-6. Resolve PAT2/PAT3 source among remaining videos
+1. NwMl2cUMb-A — PA/PAT foundations; P0 เพราะอาจปิด exact qualification ของหลาย PAT พร้อมกัน
+2. 1E_PYPor1qQ — PAT1 dedicated source
+3. UV5NijhjfJ8 — EP.4 เบรก M5 เงินล้าน / การเข้าออเดอร์
+4. vcdN51_OrPE — EP.พิเศษ ขยี้ให้แหลก / สรุปทั้งหมด
+5. ESHDuiVPJow — EP.2 เทรน ชนะ กรอบ กรอบ ชนะ Sig
+6. jBEM-vWYj_o — EP.3 แนวรับ-แนวต้าน
 7. Sideway full lesson
 8. Half-retrace / swing-retrace / Fibonacci full lesson
 
-## PAT1 extraction checklist
+## PA/PAT extraction checklist
 
-เมื่อได้ transcript ของ `1E_PYPor1qQ` ให้หาเฉพาะกฎที่แปลงเป็นโค้ดได้:
-- จำนวนแท่งใน PAT1 Buy / PAT1 Sell
-- สีแท่งเป็นข้อบังคับหรือไม่
-- body ratio / wick ratio
-- ต้องเกิดที่ support/resistance/frame/TP-complete context แบบใด
-- candle close ต้องอยู่ตรงไหน
-- การกลืนกิน body/wick มีหรือไม่
-- pattern completion candle
-- invalidation
-- “ไส้หลัง SIG” อยู่แท่งใด
-- SIG_RUN_ANCHOR สำหรับ PAT1
-- body collection หลัง PAT1
+เมื่อได้ transcript ของ `NwMl2cUMb-A` หรือ `1E_PYPor1qQ` ให้หาเฉพาะกฎที่แปลงเป็นโค้ดได้:
+- PAT1 Buy/Sell: exact wick/body/location rule
+- PAT2 Buy/Sell: exact candle 1/2 relation, body percentage if any, close threshold
+- PAT3 variants 1–3: exact distinction and candle-3 completion rule
+- body ratio / wick ratio / required colors
+- must occur at support/resistance/frame/TP-complete context แบบใด
+- pattern completion candle and closed-candle requirement
+- invalidation / fake-PA examples
+- post-SIG reference candle #2/#3/#4: exact wick side and minimum geometry
+- body collection after PAT
 - lower-TF M1/M5 confirmation
 - entry / SL reference
-- negative examples: หน้าตาคล้าย PAT1 แต่ใช้ไม่ได้
+- negative examples: หน้าตาคล้าย PAT แต่ใช้ไม่ได้
 
 ## Transcript rule-extraction format
 
