@@ -53,9 +53,16 @@ def _audit_csv(args: argparse.Namespace) -> int:
     print(f"1-minute steps: {result.one_minute_steps}")
     print(f"Gaps > 1 minute: {result.gaps_over_one_minute}")
     print(f"Largest gap: {result.largest_gap_seconds:.0f}s")
+    for gap in result.gap_records:
+        print(
+            "Gap: "
+            f"{gap.previous_utc} -> {gap.next_utc} "
+            f"({gap.gap_seconds:.0f}s, missing_m1={gap.missing_m1_slots})"
+        )
     print(
         "Resampled bars: "
-        f"M5={result.m5_bars} / H1={result.h1_bars} / H4={result.h4_bars}"
+        f"M5={result.m5_bars} / H1={result.h1_bars} / "
+        f"H4={result.h4_bars} / D1={result.d1_bars}"
     )
     if args.processed_dir:
         print(f"Processed: {args.processed_dir}")
@@ -112,7 +119,7 @@ def main() -> int:
 
     audit_parser = sub.add_parser(
         "audit-csv",
-        help="audit an M1 OHLC CSV and build M5/H1/H4 validation outputs",
+        help="audit an M1 OHLC CSV and build M5/H1/H4/D1 validation outputs",
     )
     audit_parser.add_argument("--input", required=True)
     audit_parser.add_argument("--processed-dir", default=None)
@@ -120,7 +127,7 @@ def main() -> int:
 
     validate_parser = sub.add_parser(
         "validate-mt5-resample",
-        help="compare local M1->M5/H1/H4 bars with MT5 native timeframe bars",
+        help="compare local M1->M5/H1/H4/D1 bars with MT5 native timeframe bars",
     )
     validate_parser.add_argument("--input", required=True)
     validate_parser.add_argument("--symbol", required=True)
