@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nexus XAU Engine Dashboard
 
-## Getting Started
+Mobile-first Next.js web app / PWA that **displays** the output of the Nexus XAU Python trading engine.
 
-First, run the development server:
+**Display-only.** This app does not trade, does not compute BUY/SELL decisions, does not guess rules, and never writes signals. The Python engine is the single source of truth — the dashboard only reads what the engine publishes (via Supabase).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Stack
+
+- **Next.js 16** (App Router, React 19, TypeScript, Tailwind CSS v4)
+- **Supabase** — the engine writes signals / engine status / events; this app reads them through RLS-protected clients.
+- **PWA** — web manifest + safe-area viewport theming (installable on mobile when icons/worker added)
+
+## Environment
+
+Copy `.env.example` → `.env.local`:
+
+| Variable | Client | Purpose |
+|---|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL` | browser + server | Project URL |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | browser + server | RLS-restricted anon key |
+| `SUPABASE_SERVICE_ROLE_KEY` | server-only | Service-role key (only for server-admin routes; never shipped to the browser |
+
+## Routes
+
+| Route | What it shows |
+|---|---|
+| `/` | Live dashboard — latest signal hero, engine status freshness, recent engine events |
+| `/signals` | Signal history grouped by day |
+| `/signals/[id]` | Signal detail — entry/SL/TP, engine reason (JSON), linked event timeline |
+| `/system` | System status — engine connectivity, heartbeat / market-data freshness, recent events |
+
+## Data flow
+
+```
+Python trading engine → Supabase (signals, engine_status, engine_events) → this app (server-side reads) → UI
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+All queries run server-side (`getSignalHistory`, `getEngineStatus`, `getRecentEvents`, `getSignalById` in `src/lib/api.ts`) through RLS-protected Supabase clients. The browser layer never holds a service-role credential.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+cp .env.example .env.local  # add real keys
+npm run dev
+```
 
-## Learn More
+```bash
+npm run build && npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Layout notes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Views are server-rendered (dynamic) and refresh on navigation; a `RefreshButton` revalidates the current route in place.
+- Freshness thresholds live in `src/lib/types.ts` (`ENGINE_HEARTBEAT_MAX_AGE_MS`, `ENGINE_MARKET_DATA_MAX_AGE_MS`)
+- Safe areas: sticky header + bottom nav respect `env(safe-area-inset-bottom)`; theme-color matches the app background for full-bleed PWAs.
