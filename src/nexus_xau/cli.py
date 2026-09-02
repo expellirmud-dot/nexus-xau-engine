@@ -6,6 +6,7 @@ import pandas as pd
 
 from nexus_xau.data.audit import audit_ohlc_csv
 from nexus_xau.data.mt5_export import export_mt5_m1, parse_aware_datetime
+from nexus_xau.data.mt5_validate import validate_resample_against_mt5
 from nexus_xau.detectors.pat import PatDetector
 from nexus_xau.replay.engine import ReplayEngine
 
@@ -63,6 +64,27 @@ def _audit_csv(args: argparse.Namespace) -> int:
     return 0
 
 
+def _validate_mt5_resample(args: argparse.Namespace) -> int:
+    result = validate_resample_against_mt5(
+        args.input,
+        symbol=args.symbol,
+        report_path=args.report,
+        tolerance=args.tolerance,
+    )
+    print(f"MT5 resample validation: {result.symbol}")
+    print(f"UTC range: {result.start_utc} -> {result.end_utc}")
+    for item in result.comparisons:
+        print(
+            f"{item.timeframe}: local={item.local_bars} mt5={item.mt5_bars} "
+            f"common={item.common_timestamps} only_local={item.only_local_timestamps} "
+            f"only_mt5={item.only_mt5_timestamps} mismatches={item.ohlc_mismatch_rows} "
+            f"max_diff={item.max_abs_ohlc_diff:.12g}"
+        )
+    if args.report:
+        print(f"Report: {args.report}")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(prog="nexus-xau")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -96,6 +118,15 @@ def main() -> int:
     audit_parser.add_argument("--processed-dir", default=None)
     audit_parser.add_argument("--report", default=None)
 
+    validate_parser = sub.add_parser(
+        "validate-mt5-resample",
+        help="compare local M1->M5/H1/H4 bars with MT5 native timeframe bars",
+    )
+    validate_parser.add_argument("--input", required=True)
+    validate_parser.add_argument("--symbol", required=True)
+    validate_parser.add_argument("--report", default=None)
+    validate_parser.add_argument("--tolerance", type=float, default=1e-9)
+
     args = parser.parse_args()
 
     if args.command == "smoke":
@@ -104,6 +135,8 @@ def main() -> int:
         return _export_mt5(args)
     if args.command == "audit-csv":
         return _audit_csv(args)
+    if args.command == "validate-mt5-resample":
+        return _validate_mt5_resample(args)
     return 1
 
 
