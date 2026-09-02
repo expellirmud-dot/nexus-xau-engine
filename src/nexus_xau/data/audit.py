@@ -45,7 +45,7 @@ def audit_ohlc_csv(
         raise ValueError("Dataset is empty")
 
     deltas = frame.index.to_series().diff().dropna()
-    one_minute = pd.Timedelta(minutes=1)
+    one_minute = pd.Timedelta("1min")
     gap_mask = deltas > one_minute
 
     m5 = resample_ohlc(frame, "M5")
