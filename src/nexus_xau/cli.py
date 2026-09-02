@@ -9,6 +9,7 @@ from nexus_xau.data.mt5_export import export_mt5_m1, parse_aware_datetime
 from nexus_xau.data.mt5_validate import validate_resample_against_mt5
 from nexus_xau.detectors.pat import PatDetector
 from nexus_xau.replay.engine import ReplayEngine
+from nexus_xau.research.pat_topology_scan import run_pat_topology_research
 
 
 def _smoke() -> int:
@@ -92,6 +93,32 @@ def _validate_mt5_resample(args: argparse.Namespace) -> int:
     return 0
 
 
+def _scan_pat_topology(args: argparse.Namespace) -> int:
+    result = run_pat_topology_research(
+        args.input,
+        report_path=args.report,
+        hits_path=args.hits,
+    )
+    print("PAT research scan: COLOR TOPOLOGY ONLY / NOT A SIGNAL")
+    print(f"UTC range: {result.start_utc} -> {result.end_utc}")
+    for item in result.summaries:
+        print(
+            f"{item.timeframe}: bars={item.bars} "
+            f"PAT2 BUY={item.pat2_buy_color_candidates} SELL={item.pat2_sell_color_candidates} "
+            f"PAT3 BUY={item.pat3_buy_color_candidates} SELL={item.pat3_sell_color_candidates}"
+        )
+    print(f"Total topology hits: {result.total_hits}")
+    print(
+        "Omitted by design: S/R location, >50% basis/tolerance, "
+        "PAT3 small-body/equal-wick thresholds, PAT1 geometry."
+    )
+    if args.report:
+        print(f"Report: {args.report}")
+    if args.hits:
+        print(f"Hits: {args.hits}")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(prog="nexus-xau")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -134,6 +161,14 @@ def main() -> int:
     validate_parser.add_argument("--report", default=None)
     validate_parser.add_argument("--tolerance", type=float, default=1e-9)
 
+    scan_parser = sub.add_parser(
+        "scan-pat-topology",
+        help="research-only PAT2/PAT3 candle-color topology scan across M1/M5/H1/H4/D1",
+    )
+    scan_parser.add_argument("--input", required=True)
+    scan_parser.add_argument("--report", default=None)
+    scan_parser.add_argument("--hits", default=None)
+
     args = parser.parse_args()
 
     if args.command == "smoke":
@@ -144,6 +179,8 @@ def main() -> int:
         return _audit_csv(args)
     if args.command == "validate-mt5-resample":
         return _validate_mt5_resample(args)
+    if args.command == "scan-pat-topology":
+        return _scan_pat_topology(args)
     return 1
 
 
