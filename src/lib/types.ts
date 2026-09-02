@@ -43,6 +43,7 @@ export interface EngineEvent {
   decision: string | null;
   reason_json: Record<string, unknown>;
   rule_version: string | null;
+    signal_id: string | null;
 }
 
 export interface EngineStatus {
@@ -52,6 +53,7 @@ export interface EngineStatus {
   last_market_data: string | null;
   engine_version: string | null;
   rule_version: string | null;
+    updated_at: string;
 }
 
 export interface SignalWithEvents extends Signal {

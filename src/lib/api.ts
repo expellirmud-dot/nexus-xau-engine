@@ -40,7 +40,7 @@ export async function getEngineStatus(): Promise<EngineStatus | null> {
 	 const supabase = await createServerSupabase();
 	 const { data } = await supabase
     .from('engine_status')
-    .select('*')
+    .select('*').order('updated_at', { ascending: false })
     .limit(1)
     .maybeSingle();
 	return (data as EngineStatus | null) ?? null;
@@ -50,7 +50,7 @@ export async function getRecentEvents(limit: number = 25): Promise<EngineEvent[]
 	 const supabase = await createServerSupabase();
 	 const { data } = await supabase
     .from('engine_events')
-    .select('*')
+    .select('*').order('updated_at', { ascending: false })
     .order('timestamp', { ascending: false })
     .limit(limit);
 	return data ?? [];
