@@ -91,7 +91,7 @@ def validate_resample_against_mt5(
     report_path: str | Path | None = None,
     tolerance: float = 1e-9,
 ) -> Mt5ResampleValidation:
-    """Compare UTC local M1->M5/H1/H4 resampling with MT5 native timeframe bars.
+    """Compare UTC local M1->M5/H1/H4/D1 resampling with MT5 native bars.
 
     This is specifically a boundary/timezone validation step. A mismatch is not
     automatically a data error: if timestamps differ systematically, it can reveal
@@ -123,6 +123,7 @@ def validate_resample_against_mt5(
             "M5": mt5.TIMEFRAME_M5,
             "H1": mt5.TIMEFRAME_H1,
             "H4": mt5.TIMEFRAME_H4,
+            "D1": mt5.TIMEFRAME_D1,
         }
         comparisons: list[TimeframeComparison] = []
 
