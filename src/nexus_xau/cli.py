@@ -4,6 +4,7 @@ import argparse
 
 import pandas as pd
 
+from nexus_xau.data.audit import audit_ohlc_csv
 from nexus_xau.data.mt5_export import export_mt5_m1, parse_aware_datetime
 from nexus_xau.detectors.pat import PatDetector
 from nexus_xau.replay.engine import ReplayEngine
@@ -40,6 +41,28 @@ def _export_mt5(args: argparse.Namespace) -> int:
     return 0
 
 
+def _audit_csv(args: argparse.Namespace) -> int:
+    result = audit_ohlc_csv(
+        args.input,
+        processed_dir=args.processed_dir,
+        report_path=args.report,
+    )
+    print(f"Dataset audit OK: {result.rows} M1 bars")
+    print(f"UTC range: {result.start_utc} -> {result.end_utc}")
+    print(f"1-minute steps: {result.one_minute_steps}")
+    print(f"Gaps > 1 minute: {result.gaps_over_one_minute}")
+    print(f"Largest gap: {result.largest_gap_seconds:.0f}s")
+    print(
+        "Resampled bars: "
+        f"M5={result.m5_bars} / H1={result.h1_bars} / H4={result.h4_bars}"
+    )
+    if args.processed_dir:
+        print(f"Processed: {args.processed_dir}")
+    if args.report:
+        print(f"Report: {args.report}")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(prog="nexus-xau")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -65,12 +88,22 @@ def main() -> int:
         default="data/raw/XAUUSD_M1_mt5_sample.csv",
     )
 
+    audit_parser = sub.add_parser(
+        "audit-csv",
+        help="audit an M1 OHLC CSV and build M5/H1/H4 validation outputs",
+    )
+    audit_parser.add_argument("--input", required=True)
+    audit_parser.add_argument("--processed-dir", default=None)
+    audit_parser.add_argument("--report", default=None)
+
     args = parser.parse_args()
 
     if args.command == "smoke":
         return _smoke()
     if args.command == "export-mt5":
         return _export_mt5(args)
+    if args.command == "audit-csv":
+        return _audit_csv(args)
     return 1
 
 
