@@ -16,6 +16,9 @@ dev = [
   "pytest>=8.3,<9.0",
   "ruff>=0.9,<1.0",
 ]
+mt5 = [
+  "MetaTrader5>=5.0",
+]
 
 [project.scripts]
 nexus-xau = "nexus_xau.cli:main"
