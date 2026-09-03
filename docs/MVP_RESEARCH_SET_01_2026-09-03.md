@@ -113,3 +113,35 @@ What can be measured?
 ```
 
 The purpose is to reduce uncertainty one controlled component at a time rather than reconstructing the entire trading methodology before any evidence can be tested.
+
+
+## Material refinement — remaining SIG run state
+
+Direct relative guidance later clarified that the 07:00 Daily Frame is not evaluated in isolation. Before using it, the trader checks whether an existing SIG/run on H1/H4/D still has unfinished run distance.
+
+Updated safe research chain:
+
+```text
+ACTIVE SIG/RUN CONTEXT (H1/H4/D)
+-> measure run already consumed before 07:00
+-> remaining_run > 0
+-> 07:00 Daily Frame
+-> SW / Location
+-> qualifying PA on allowed entry timeframe(s)
+-> candidate entry toward the remaining inherited run
+```
+
+Example supplied by the relative:
+
+```text
+H4 nominal TP1 run = 1,500 project points
+run already completed before 07:00 = 1,000 points
+remaining H4 TP1 run = 500 points
+after 07:00, qualifying PA Buy around Daily Frame -> candidate entry for the remaining 500 points
+```
+
+Therefore the research engine must not automatically reset a fresh 1,500-point H4 objective from every new Daily-Frame entry. The originating SIG anchor and consumed/remaining run must be reconstructed first.
+
+The phrase `H1 30 15 5 ปิด PA buy` remains mechanically ambiguous: it is not yet known whether any one of H1/M30/M15/M5 is sufficient, whether several/all must align, or whether these are examples in a hierarchy. This must remain parameterized until confirmed.
+
+Source: `docs/DIRECT_RELATIVE_REMAINING_SIG_RUN_DAILY_FRAME_2026-09-03.md`.

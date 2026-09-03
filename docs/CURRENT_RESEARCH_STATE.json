@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-03T21:59:00+07:00",
+  "updated_at": "2026-09-03T22:00:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "MVP_RESEARCH_SET_01_USER_APPROVED",
+  "completed_checkpoint": "MVP_SET_01_REMAINING_SIG_RUN_REFINEMENT",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -91,10 +91,10 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Build a frozen MVP Set #1 measurement specification using 07:00 Daily Frame -> SW/Location -> SIG H1/H4 -> 1000/1500 objectives.",
-    "Parameterize unresolved SW/Location/SIG geometry rather than inventing production thresholds.",
-    "Run historical component tests and compare with negative controls before any Win/Loss claim.",
-    "Continue higher-complexity Por Chon/post-SIG/half-vs-swing research independently; do not require it for the first MVP test unless evidence shows it is necessary."
+    "Freeze a remaining-run state model: origin SIG anchor -> nominal round -> consumed run before 07:00 -> remaining run.",
+    "Confirm the mechanically ambiguous H1/M30/M15/M5 PA qualification rule before production logic; keep variants parameterized meanwhile.",
+    "Then run historical component tests comparing inherited remaining-run entries against naïve fresh-target-from-entry controls.",
+    "Continue SW/Location geometry and SIG qualification evidence work without inventing thresholds."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -116,7 +116,7 @@
     "docs/MAE_PLA_0700_USER_CONFIRMATION_2026-09-03.md",
     "src/nexus_xau/research/evidence_provenance.py"
   ],
-  "resume_instruction": "Load maintenance policy -> current state -> canonical claim register. MVP Research Set #1 is now user-approved: 07:00 Daily Frame -> SW/Location -> SIG H1/H4 -> H1 1000 / H4 1500 project-point objectives, with a separate one-target-per-day variant. Treat 90% wording as scope acceptance, not performance. Build measurable frozen variants without inventing unresolved SW/Location/SIG thresholds, then test historical data.",
+  "resume_instruction": "Load maintenance policy -> current state -> canonical claim register. MVP Set #1 now requires inherited unfinished SIG/run context before the 07:00 Daily Frame. Do not reset a fresh 1000/1500 target from every new Daily-Frame entry; reconstruct the originating SIG run, consumed distance, and remaining run. H1/M30/M15/M5 PA qualification is still ambiguous and must be parameterized/confirmed.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -163,15 +163,22 @@
   "mvp_research_set_01": {
     "status": "ACTIVE_USER_APPROVED_FIRST_RESEARCH_SET",
     "scope": [
+      "Active unfinished SIG/run context on H1/H4/D",
+      "Measure run consumed before 07:00 and remaining_run",
       "Daily Frame 07:00",
       "SW/Location",
-      "SIG H1/H4",
-      "H1 objective 1000 project points",
-      "H4 objective 1500 project points",
+      "Qualifying PA on allowed entry timeframe(s)",
+      "H1 nominal run 1000 project points / H4 nominal run 1500 project points; late Daily-Frame entry targets the inherited remaining run rather than automatically resetting a full new run",
       "ONE_TARGET_PER_DAY variant stops evaluating later entries after first qualifying daily objective is reached"
     ],
     "source_ref": "docs/MVP_RESEARCH_SET_01_2026-09-03.md",
     "guard": "Owner wording about 90% is not a win-rate or accuracy claim; it only indicates acceptable simplification for first testing.",
-    "live_money_separation": "Relative suggestion to withdraw achieved money is preserved as practical guidance, not a backtest signal rule."
+    "live_money_separation": "Relative suggestion to withdraw achieved money is preserved as practical guidance, not a backtest signal rule.",
+    "remaining_run_refinement": {
+      "source_ref": "docs/DIRECT_RELATIVE_REMAINING_SIG_RUN_DAILY_FRAME_2026-09-03.md",
+      "status": "DIRECT_RELATIVE_GUIDANCE_MATERIAL_REFINEMENT",
+      "example": "H4 nominal 1500, consumed 1000 before 07:00, remaining 500; PA Buy at Daily Frame after 07:00 is candidate entry for remaining 500.",
+      "open_question": "Does H1/M30/M15/M5 PA wording mean any one timeframe qualifies, multiple/all must align, or a hierarchy?"
+    }
   }
 }
