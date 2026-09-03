@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import asdict, dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -22,12 +22,12 @@ class Mt5ExportResult:
 
 def parse_aware_datetime(value: str) -> datetime:
     """Parse an ISO-8601 datetime and require an explicit timezone."""
-    parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    parsed = datetime.fromisoformat(value)
     if parsed.tzinfo is None:
         raise ValueError(
             "Datetime must include timezone, e.g. 2026-08-24T00:00:00+00:00"
         )
-    return parsed.astimezone(timezone.utc)
+    return parsed.astimezone(UTC)
 
 
 def export_mt5_m1(
@@ -46,8 +46,8 @@ def export_mt5_m1(
     if start.tzinfo is None or end.tzinfo is None:
         raise ValueError("start/end must be timezone-aware")
 
-    start_utc = start.astimezone(timezone.utc)
-    end_utc = end.astimezone(timezone.utc)
+    start_utc = start.astimezone(UTC)
+    end_utc = end.astimezone(UTC)
     if end_utc <= start_utc:
         raise ValueError("end must be later than start")
 

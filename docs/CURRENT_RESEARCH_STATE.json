@@ -1,0 +1,73 @@
+{
+  "updated_at": "2026-09-03T15:59:00+07:00",
+  "project": "NEXUS XAU Research Engine",
+  "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH",
+  "completed_checkpoint": "MAE_PLA_0700_USER_DIRECT_TIME_CONFIRMATION_AND_REPO_MAINTENANCE_POLICY",
+  "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
+  "validated_dataset": {
+    "symbol": "XAUUSDm",
+    "start_utc": "2026-05-26T00:00:00+00:00",
+    "end_utc": "2026-09-01T23:59:00+00:00",
+    "m1_bars": 97341,
+    "native_mismatches": {"M5": 0, "H1": 0, "H4": 0, "D1": 0}
+  },
+  "provenance_correction": {
+    "youtube_transcript_source_chain": "Original instructor YouTube live/video -> YouTube auto-generated captions/ASR -> YouTube Show transcript with timestamps -> later analyst extraction.",
+    "youtube_transcript_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
+    "analyst_summary_status": "DERIVED unless exact source wording/timestamp remains attached."
+  },
+  "mae_pla_time_mapping": {
+    "source_wording": "07:00 / เจ็ดโมงเช้า in Thai teaching context",
+    "project_owner_clarification": "เจ็ดโมงเช้า means ordinary Thailand local time in this teaching context.",
+    "canonical_project_timezone": "Asia/Bangkok",
+    "canonical_local_time": "07:00",
+    "normalized_utc_time": "00:00",
+    "status": "USER_DIRECT_CONFIRMED_INTERPRETATION",
+    "canonical_for_research_replay": true,
+    "instructor_explicit_words_thai_time": false,
+    "provenance_note": "Do not rewrite this as an instructor quote saying 'เวลาไทย'; the timezone interpretation is closed by project-owner direct clarification."
+  },
+  "repository_maintenance": {
+    "policy_file": "docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md",
+    "owner": "NEXUS",
+    "standing_authorization": "After a coherent validated checkpoint, perform routine non-destructive Git status/stage/commit/push to the existing configured remote/branch without asking again.",
+    "destructive_history_changes_require_explicit_user_approval": true,
+    "preserve_history": true,
+    "never_commit_secrets": true
+  },
+  "location_truth_set": {
+    "seed_cases": 5,
+    "text_labeled_cases": 5,
+    "ohlc_aligned_cases": 0,
+    "numeric_location_ready": false
+  },
+  "validation_status": {
+    "pytest_previous": "74/74 passed",
+    "ruff_previous": "passed",
+    "provenance_guard": "active",
+    "repository_maintenance_policy": "active"
+  },
+  "next_steps": [
+    "Complete repository maintenance for accumulated validated checkpoints: test/lint, stage intended files only, commit, push.",
+    "Use Asia/Bangkok 07:00 -> UTC00 as canonical Mae Pla daily-preparation timing in research/replay.",
+    "Audit 19:00-19:00 timezone/day-window semantics separately; do not infer it from the 07:00 closure.",
+    "Continue location truth-set OHLC alignment.",
+    "Continue post-SIG frame/wick validity and entry/invalidation evidence work before canonical Win/Loss scoring."
+  ],
+  "blocked_from_claiming": [
+    "canonical valid PAT count",
+    "full valid SIG count",
+    "strategy Win rate",
+    "strategy Loss rate",
+    "trade expectancy"
+  ],
+  "key_files": [
+    "docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md",
+    "docs/MAE_PLA_0700_USER_CONFIRMATION_2026-09-03.md",
+    "docs/EVIDENCE_PROVENANCE_AUDIT_2026-09-03.md",
+    "docs/MAE_PLA_TIMING_EVIDENCE_2026-09-03.md",
+    "docs/MAE_PLA_TIME_EXTERNAL_CORROBORATION_2026-09-03.md",
+    "docs/PRIMARY_IMAGE_EVIDENCE_2026-09-01.md"
+  ],
+  "resume_instruction": "Read NEXUS_PROJECT_MAINTENANCE_POLICY.md first. If validated work is uncommitted/unpushed, complete routine repository maintenance before unrelated research. 07:00 is closed for project research as Asia/Bangkok local time by direct project-owner clarification and normalizes to UTC00."
+}

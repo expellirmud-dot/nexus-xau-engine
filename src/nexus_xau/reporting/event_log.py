@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -15,7 +15,7 @@ class JsonlEventLogger:
 
     def write(self, event_type: str, payload: dict[str, Any]) -> None:
         record = {
-            "logged_at_utc": datetime.now(timezone.utc).isoformat(),
+            "logged_at_utc": datetime.now(UTC).isoformat(),
             "event_type": event_type,
             "payload": payload,
         }
