@@ -7,8 +7,10 @@ from datetime import date
 import pytest
 
 from nexus_xau.data.dukascopy_export import (
+    _no_data_marker,
     decode_dukascopy_m1_bi5,
     dukascopy_m1_day_url,
+    export_dukascopy_m1,
     price_divisor_for_symbol,
 )
 
@@ -68,3 +70,47 @@ def test_decode_rejects_impossible_seconds_offset() -> None:
             day=date(2022, 9, 1),
             price_divisor=1000.0,
         )
+
+
+def test_export_rejects_nonpositive_workers(tmp_path) -> None:
+    with pytest.raises(ValueError, match="workers must be at least 1"):
+        export_dukascopy_m1(
+            symbol="XAUUSD",
+            side="BID",
+            start_date=date(2022, 9, 1),
+            end_date=date(2022, 9, 1),
+            output_path=tmp_path / "out.csv",
+            cache_dir=tmp_path / "cache",
+            workers=0,
+        )
+
+
+def test_no_data_marker_is_restart_safe(tmp_path, monkeypatch) -> None:
+    cache_dir = tmp_path / "cache"
+    day = date(2022, 9, 1)
+    marker = _no_data_marker(
+        cache_dir=cache_dir,
+        symbol="XAUUSD",
+        day=day,
+        side="BID",
+    )
+    marker.parent.mkdir(parents=True, exist_ok=True)
+    marker.write_text("no data\n", encoding="utf-8")
+
+    def fail_if_called(*args, **kwargs):
+        raise AssertionError("network should not be called for cached no-data marker")
+
+    monkeypatch.setattr("nexus_xau.data.dukascopy_export._download_bytes", fail_if_called)
+    result = export_dukascopy_m1(
+        symbol="XAUUSD",
+        side="BID",
+        start_date=day,
+        end_date=day,
+        output_path=tmp_path / "out.csv",
+        cache_dir=cache_dir,
+        workers=2,
+    )
+
+    assert result.rows == 0
+    assert result.days_no_data == 1
+    assert result.days_failed == 0

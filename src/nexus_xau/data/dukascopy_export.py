@@ -7,6 +7,7 @@ import struct
 import time
 import urllib.error
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import asdict, dataclass
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
@@ -196,6 +197,46 @@ def _cache_path(*, cache_dir: Path, symbol: str, day: date, side: str) -> Path:
     )
 
 
+def _no_data_marker(*, cache_dir: Path, symbol: str, day: date, side: str) -> Path:
+    return _cache_path(cache_dir=cache_dir, symbol=symbol, day=day, side=side).with_suffix(
+        ".bi5.no_data"
+    )
+
+
+def _fetch_day_to_cache(
+    *,
+    cache_dir: Path,
+    symbol: str,
+    day: date,
+    side: str,
+    timeout_seconds: float,
+    retries: int,
+) -> tuple[date, str]:
+    cached = _cache_path(cache_dir=cache_dir, symbol=symbol, day=day, side=side)
+    no_data = _no_data_marker(cache_dir=cache_dir, symbol=symbol, day=day, side=side)
+    if cached.exists():
+        return day, "CACHED"
+    if no_data.exists():
+        return day, "NO_DATA_CACHED"
+
+    url = dukascopy_m1_day_url(symbol=symbol, day=day, side=side)
+    try:
+        payload = _download_bytes(url, timeout_seconds=timeout_seconds, retries=retries)
+    except RuntimeError:
+        return day, "FAILED"
+
+    if payload is None or len(payload) == 0:
+        no_data.parent.mkdir(parents=True, exist_ok=True)
+        no_data.write_text("no data\n", encoding="utf-8")
+        return day, "NO_DATA"
+
+    cached.parent.mkdir(parents=True, exist_ok=True)
+    cached.write_bytes(payload)
+    if no_data.exists():
+        no_data.unlink()
+    return day, "DOWNLOADED"
+
+
 def _iter_days(start_date: date, end_date: date) -> list[date]:
     if end_date < start_date:
         raise ValueError("end_date must be on or after start_date")
@@ -215,6 +256,8 @@ def export_dukascopy_m1(
     timeout_seconds: float = 30.0,
     retries: int = 3,
     pause_seconds: float = 0.10,
+    workers: int = 8,
+    show_progress: bool = False,
 ) -> DukascopyExportResult:
     """Download and merge an inclusive date range of Dukascopy M1 candles.
 
@@ -233,51 +276,60 @@ def export_dukascopy_m1(
     output.parent.mkdir(parents=True, exist_ok=True)
     cache_root.mkdir(parents=True, exist_ok=True)
 
+    if workers < 1:
+        raise ValueError("workers must be at least 1")
+
+    statuses: dict[date, str] = {}
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        futures = {
+            executor.submit(
+                _fetch_day_to_cache,
+                cache_dir=cache_root,
+                symbol=normalized_symbol,
+                day=day,
+                side=normalized_side,
+                timeout_seconds=timeout_seconds,
+                retries=retries,
+            ): day
+            for day in days
+        }
+        for completed, future in enumerate(as_completed(futures), start=1):
+            day, status = future.result()
+            statuses[day] = status
+            if show_progress:
+                print(
+                    f"[{completed}/{len(days)}] {day.isoformat()} {status}",
+                    flush=True,
+                )
+            if pause_seconds > 0 and status == "DOWNLOADED":
+                time.sleep(pause_seconds / max(workers, 1))
+
     frames: list[pd.DataFrame] = []
     no_data_dates: list[str] = []
     failed_dates: list[str] = []
     days_with_data = 0
-
-    for index, day in enumerate(days):
-        cached = _cache_path(
-            cache_dir=cache_root,
-            symbol=normalized_symbol,
-            day=day,
-            side=normalized_side,
-        )
-        payload: bytes | None
-        downloaded_now = False
-        if cached.exists():
-            payload = cached.read_bytes()
-        else:
-            url = dukascopy_m1_day_url(symbol=normalized_symbol, day=day, side=normalized_side)
-            try:
-                payload = _download_bytes(
-                    url,
-                    timeout_seconds=timeout_seconds,
-                    retries=retries,
-                )
-            except RuntimeError:
-                failed_dates.append(day.isoformat())
-                continue
-            if payload is not None:
-                cached.parent.mkdir(parents=True, exist_ok=True)
-                cached.write_bytes(payload)
-                downloaded_now = True
-
-        if payload is None or len(payload) == 0:
+    for day in days:
+        status = statuses.get(day, "FAILED")
+        if status == "FAILED":
+            failed_dates.append(day.isoformat())
+            continue
+        if status in {"NO_DATA", "NO_DATA_CACHED"}:
             no_data_dates.append(day.isoformat())
             continue
 
+        cached = _cache_path(
+            cache_dir=cache_root, symbol=normalized_symbol, day=day, side=normalized_side
+        )
+        if not cached.exists():
+            failed_dates.append(day.isoformat())
+            continue
+        payload = cached.read_bytes()
         frame = decode_dukascopy_m1_bi5(payload, day=day, price_divisor=divisor)
         if frame.empty:
             no_data_dates.append(day.isoformat())
             continue
         frames.append(frame)
         days_with_data += 1
-
-        if pause_seconds > 0 and index < len(days) - 1 and downloaded_now:
-            time.sleep(pause_seconds)
 
     if frames:
         merged = pd.concat(frames, ignore_index=True).sort_values("timestamp")
@@ -341,6 +393,8 @@ def main() -> int:
     parser.add_argument("--timeout", type=float, default=30.0)
     parser.add_argument("--retries", type=int, default=3)
     parser.add_argument("--pause", type=float, default=0.10)
+    parser.add_argument("--workers", type=int, default=8)
+    parser.add_argument("--quiet", action="store_true")
     args = parser.parse_args()
 
     result = export_dukascopy_m1(
@@ -354,6 +408,8 @@ def main() -> int:
         timeout_seconds=args.timeout,
         retries=args.retries,
         pause_seconds=args.pause,
+        workers=args.workers,
+        show_progress=not args.quiet,
     )
     print(
         f"Dukascopy export: {result.rows} M1 bars / "
