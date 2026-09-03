@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-03T16:39:00+07:00",
+  "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
+  "rules": {
+    "historical_docs_are_not_canonical_by_default": true,
+    "superseded_claims_must_not_drive_engine_logic": true,
+    "unknown_or_parameterized_claims_must_not_be_silently_filled": true,
+    "asr_or_stt_material_ambiguity_requires_crosscheck_or_user_confirmation": true,
+    "outcome_performance_cannot_upgrade_provenance": true
+  },
+  "claims": [
+    {
+      "claim_id": "TIME_MAEPLA_0700",
+      "canonical_statement": "Mae Pla daily preparation uses 07:00 Asia/Bangkok, normalized to 00:00 UTC for the validated dataset.",
+      "status": "ACTIVE_CONFIRMED_INTERPRETATION",
+      "engine_permission": "CANONICAL_RESEARCH_REPLAY",
+      "source_refs": [
+        "docs/MAE_PLA_0700_USER_CONFIRMATION_2026-09-03.md",
+        "docs/PRIMARY_IMAGE_EVIDENCE_2026-09-01.md"
+      ],
+      "provenance_note": "Source uses 07:00 / เจ็ดโมงเช้า in Thai teaching context; project owner directly confirmed local Thailand clock interpretation. Do not rewrite as an instructor quote saying เวลาไทย.",
+      "risk_flags": []
+    },
+    {
+      "claim_id": "PA_BUY_LOCATION",
+      "canonical_statement": "BUY PA/PAT is valid only at support.",
+      "status": "ACTIVE_CONFIRMED_SEMANTICS",
+      "engine_permission": "CANONICAL_SEMANTIC_RULE",
+      "source_refs": [
+        "docs/DIRECT_RELATIVE_PA_LOCATION_CLARIFICATION_2026-09-01.md",
+        "docs/DIRECT_PAT_GEOMETRY_RULES_2026-09-01.md"
+      ],
+      "risk_flags": []
+    },
+    {
+      "claim_id": "PA_SELL_LOCATION",
+      "canonical_statement": "SELL PA/PAT is valid only at resistance.",
+      "status": "ACTIVE_CONFIRMED_SEMANTICS",
+      "engine_permission": "CANONICAL_SEMANTIC_RULE",
+      "source_refs": [
+        "docs/DIRECT_RELATIVE_PA_LOCATION_CLARIFICATION_2026-09-01.md",
+        "docs/DIRECT_PAT_GEOMETRY_RULES_2026-09-01.md"
+      ],
+      "supersedes": [
+        "older wording in docs/EVIDENCE_REGISTER.md allowing SELL at resistance OR TP-complete frame"
+      ],
+      "risk_flags": []
+    },
+    {
+      "claim_id": "YOUTUBE_TRANSCRIPT_PROVENANCE",
+      "canonical_statement": "YouTube Show transcript evidence is generated from YouTube auto-caption/ASR and remains attributable to the original video/timestamp but carries ASR risk.",
+      "status": "ACTIVE_METHODOLOGY",
+      "engine_permission": "PROVENANCE_GUARD",
+      "source_refs": [
+        "docs/EVIDENCE_PROVENANCE_AUDIT_2026-09-03.md"
+      ],
+      "risk_flags": ["ASR_RISK"]
+    },
+    {
+      "claim_id": "PAT2_GEOMETRY",
+      "canonical_statement": "PAT2 is two candles; BUY red->green and SELL green->red; candle #2 closes around/beyond the 50% reference of candle #1. Exact 50% denominator and equality/tolerance remain unresolved.",
+      "status": "ACTIVE_PARAMETERIZED",
+      "engine_permission": "RESEARCH_VARIANTS_ONLY",
+      "source_refs": [
+        "docs/DIRECT_PAT_GEOMETRY_RULES_2026-09-01.md",
+        "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md"
+      ],
+      "risk_flags": ["MEASUREMENT_BASIS_UNRESOLVED"]
+    },
+    {
+      "claim_id": "PAT3_GEOMETRY",
+      "canonical_statement": "PAT3 uses three candles; direct project wording constrains candle colors, small-body middle candle and >50% relations, but exact small-body/equal-wick thresholds and 50% denominator remain unresolved.",
+      "status": "ACTIVE_PARAMETERIZED",
+      "engine_permission": "RESEARCH_VARIANTS_ONLY",
+      "source_refs": [
+        "docs/DIRECT_PAT_GEOMETRY_RULES_2026-09-01.md",
+        "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md"
+      ],
+      "risk_flags": ["NUMERIC_THRESHOLDS_UNRESOLVED"]
+    },
+    {
+      "claim_id": "POST_SIG_INDEX",
+      "canonical_statement": "Post-SIG reference candle index is PAT1->2, PAT2->3, PAT3->4; BUY anchor uses low and SELL anchor uses high when the directional wick is absent.",
+      "status": "ACTIVE_SOURCE_BACKED",
+      "engine_permission": "CAN_ENCODE_WITH_PROVENANCE",
+      "source_refs": [
+        "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md"
+      ],
+      "risk_flags": ["YOUTUBE_ASR_SOURCE_WORDING"]
+    },
+    {
+      "claim_id": "POST_SIG_INVALIDATION",
+      "canonical_statement": "A post-SIG reference that disturbs/exceeds the PA invalidates the old setup and triggers re-evaluation/new-PA handling; exact numeric predicate is not fully closed.",
+      "status": "ACTIVE_PARTIAL",
+      "engine_permission": "SAFE_PARTIAL_REJECT_ONLY",
+      "source_refs": [
+        "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md"
+      ],
+      "risk_flags": ["EXACT_GEOMETRY_UNRESOLVED"]
+    },
+    {
+      "claim_id": "M5_BRAKE",
+      "canonical_statement": "M5/M1 brake is a zone-first stopping/reversal process with force weakening, rejection, color shift and retest/confirmation; it is not equivalent to generic breakout.",
+      "status": "ACTIVE_STATE_MACHINE_PARTIAL",
+      "engine_permission": "FEATURE_STATE_RESEARCH",
+      "source_refs": [
+        "docs/M5_BRAKE_TRANSCRIPT_FORENSICS_2026-09-01.md"
+      ],
+      "risk_flags": ["QUALITATIVE_THRESHOLDS_UNRESOLVED", "YOUTUBE_ASR_SOURCE_WORDING"]
+    },
+    {
+      "claim_id": "POR_CHON_ATH_1900_WINDOW",
+      "canonical_statement": "Por Chon ATH construction uses a stated 19:00-19:00 interval and roughly 1,000-point prior-frame run condition; exact timezone/day-boundary semantics remain unresolved.",
+      "status": "ACTIVE_UNRESOLVED",
+      "engine_permission": "PARAMETERIZED_OR_HUMAN_CONFIRM",
+      "source_refs": [
+        "docs/PRIMARY_IMAGE_EVIDENCE_2026-09-01.md",
+        "docs/PA_LOCATION_SR_EVIDENCE_SYNTHESIS_2026-09-03.md"
+      ],
+      "risk_flags": ["TIME_BOUNDARY_UNRESOLVED"]
+    },
+    {
+      "claim_id": "SYSTEM_WIN_RATE",
+      "canonical_statement": "No canonical full-system win rate is currently established.",
+      "status": "ACTIVE_BLOCKER",
+      "engine_permission": "DO_NOT_CLAIM",
+      "source_refs": [
+        "docs/WIN_LOSS_PROOF_PROTOCOL_2026-09-03.md",
+        "docs/OUT_OF_SAMPLE_NEGATIVE_CONTROL_2026-09-03.md"
+      ],
+      "risk_flags": ["ENTRY_SL_LOCATION_STATE_INCOMPLETE"]
+    }
+  ]
+}

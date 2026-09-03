@@ -1,7 +1,10 @@
 from nexus_xau.research.evidence_provenance import (
+    ClaimLifecycle,
     CodingPermission,
+    CrosscheckStatus,
     EvidenceClaim,
     InterpretationLevel,
+    SourceRisk,
     coding_permission,
 )
 
@@ -62,3 +65,34 @@ def test_unknown_interpretation_is_quarantined() -> None:
         extraction_method="unknown",
     )
     assert coding_permission(claim) is CodingPermission.QUARANTINE
+
+
+def test_superseded_claim_is_quarantined_even_if_old_source_was_direct() -> None:
+    claim = _claim(lifecycle=ClaimLifecycle.SUPERSEDED)
+    assert coding_permission(claim) is CodingPermission.QUARANTINE
+
+
+def test_uncrosschecked_youtube_asr_direct_claim_requires_crosscheck() -> None:
+    claim = _claim(
+        source_origin="ORIGINAL_INSTRUCTOR_VIDEO",
+        capture_method="YOUTUBE_SHOW_TRANSCRIPT",
+        extraction_method="YOUTUBE_AUTO_CAPTION_ASR",
+        source_risks=(SourceRisk.ASR_RISK,),
+        verbatim_available=True,
+        source_media_available=False,
+        crosscheck_status=CrosscheckStatus.PENDING,
+    )
+    assert coding_permission(claim) is CodingPermission.REQUIRES_SOURCE_CROSSCHECK
+
+
+def test_user_confirmed_asr_claim_can_return_to_direct_permission() -> None:
+    claim = _claim(
+        source_origin="ORIGINAL_INSTRUCTOR_VIDEO",
+        capture_method="YOUTUBE_SHOW_TRANSCRIPT",
+        extraction_method="YOUTUBE_AUTO_CAPTION_ASR",
+        source_risks=(SourceRisk.ASR_RISK,),
+        verbatim_available=True,
+        source_media_available=False,
+        crosscheck_status=CrosscheckStatus.USER_CONFIRMED,
+    )
+    assert coding_permission(claim) is CodingPermission.CAN_CONSIDER_CONFIRMED

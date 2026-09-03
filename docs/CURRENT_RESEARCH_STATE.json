@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-03T15:59:00+07:00",
+  "updated_at": "2026-09-03T16:59:00+07:00",
   "project": "NEXUS XAU Research Engine",
-  "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH",
-  "completed_checkpoint": "MAE_PLA_0700_USER_DIRECT_TIME_CONFIRMATION_AND_REPO_MAINTENANCE_POLICY",
+  "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
+  "completed_checkpoint": "ROUND0_PROVENANCE_AND_LOOP_GUARD_VALIDATED",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -11,11 +11,32 @@
     "m1_bars": 97341,
     "native_mismatches": {"M5": 0, "H1": 0, "H4": 0, "D1": 0}
   },
-  "provenance_correction": {
+  "research_loop": {
+    "policy_file": "docs/RESEARCH_LOOP_PROTOCOL_2026-09-03.md",
+    "canonical_claim_index": "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
+    "operating_rule": "Continue bounded independent research without repeated user interruption; ask only for material ambiguity that cannot be resolved from existing evidence.",
+    "load_order": [
+      "docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md",
+      "docs/CURRENT_RESEARCH_STATE.json",
+      "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
+      "latest relevant checkpoint",
+      "closest available original source evidence"
+    ]
+  },
+  "provenance_guard": {
     "youtube_transcript_source_chain": "Original instructor YouTube live/video -> YouTube auto-generated captions/ASR -> YouTube Show transcript with timestamps -> later analyst extraction.",
     "youtube_transcript_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
-    "analyst_summary_status": "DERIVED unless exact source wording/timestamp remains attached."
+    "analyst_summary_status": "DERIVED unless exact source wording/timestamp remains attached.",
+    "historical_docs_are_not_canonical_by_default": true,
+    "superseded_claims_have_no_active_coding_authority": true,
+    "speech_recognition_material_ambiguity_requires_crosscheck": true,
+    "outcomes_cannot_upgrade_provenance": true
   },
+  "round0_audit_findings": [
+    "Historical EVIDENCE_REGISTER still preserves an older SELL-location wording that was later superseded; history is retained but canonical authority now comes from the claim register.",
+    "Older provenance audit preserved 07:00 timezone as unknown; later project-owner clarification closes the project interpretation as Asia/Bangkok. Historical audit remains preserved as chronology, not current state.",
+    "Existing evidence_provenance guard lacked explicit SUPERSEDED lifecycle and ASR/STT risk gating; code has been extended to prevent those claims from silently regaining confirmation authority."
+  ],
   "mae_pla_time_mapping": {
     "source_wording": "07:00 / เจ็ดโมงเช้า in Thai teaching context",
     "project_owner_clarification": "เจ็ดโมงเช้า means ordinary Thailand local time in this teaching context.",
@@ -24,8 +45,7 @@
     "normalized_utc_time": "00:00",
     "status": "USER_DIRECT_CONFIRMED_INTERPRETATION",
     "canonical_for_research_replay": true,
-    "instructor_explicit_words_thai_time": false,
-    "provenance_note": "Do not rewrite this as an instructor quote saying 'เวลาไทย'; the timezone interpretation is closed by project-owner direct clarification."
+    "instructor_explicit_words_thai_time": false
   },
   "repository_maintenance": {
     "policy_file": "docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md",
@@ -42,17 +62,17 @@
     "numeric_location_ready": false
   },
   "validation_status": {
-    "pytest_previous": "74/74 passed",
-    "ruff_previous": "passed",
-    "provenance_guard": "active",
+    "pytest_current": "77/77 passed",
+    "ruff_current": "passed",
+    "round0_validation": "PASSED",
+    "provenance_guard": "extended with lifecycle and ASR/STT risk gates",
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Complete repository maintenance for accumulated validated checkpoints: test/lint, stage intended files only, commit, push.",
-    "Use Asia/Bangkok 07:00 -> UTC00 as canonical Mae Pla daily-preparation timing in research/replay.",
-    "Audit 19:00-19:00 timezone/day-window semantics separately; do not infer it from the 07:00 closure.",
-    "Continue location truth-set OHLC alignment.",
-    "Continue post-SIG frame/wick validity and entry/invalidation evidence work before canonical Win/Loss scoring."
+    "Commit/push the validated round0 provenance/loop checkpoint.",
+    "Begin loop puzzle #1: Por Chon 19:00-19:00 timezone/day-window semantics without inferring it from Mae Pla 07:00.",
+    "If 19:00 cannot be closed from existing evidence, quarantine only the unresolved clock mapping and continue independently with PAT2/PAT3 50% measurement-basis evidence.",
+    "Continue location truth-set OHLC alignment and post-SIG measurable invalidation work as independent branches of the research queue."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -62,12 +82,12 @@
     "trade expectancy"
   ],
   "key_files": [
+    "docs/RESEARCH_LOOP_PROTOCOL_2026-09-03.md",
+    "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
     "docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md",
-    "docs/MAE_PLA_0700_USER_CONFIRMATION_2026-09-03.md",
     "docs/EVIDENCE_PROVENANCE_AUDIT_2026-09-03.md",
-    "docs/MAE_PLA_TIMING_EVIDENCE_2026-09-03.md",
-    "docs/MAE_PLA_TIME_EXTERNAL_CORROBORATION_2026-09-03.md",
-    "docs/PRIMARY_IMAGE_EVIDENCE_2026-09-01.md"
+    "docs/MAE_PLA_0700_USER_CONFIRMATION_2026-09-03.md",
+    "src/nexus_xau/research/evidence_provenance.py"
   ],
-  "resume_instruction": "Read NEXUS_PROJECT_MAINTENANCE_POLICY.md first. If validated work is uncommitted/unpushed, complete routine repository maintenance before unrelated research. 07:00 is closed for project research as Asia/Bangkok local time by direct project-owner clarification and normalizes to UTC00."
+  "resume_instruction": "Run the active research loop. Load maintenance policy -> current state -> canonical claim register. Historical docs are not current authority by themselves. Finish one bounded claim checkpoint, validate, update register/state, commit/push, then continue to the next independent unresolved claim. Ask the project owner only when material ambiguity cannot be resolved from available evidence."
 }
