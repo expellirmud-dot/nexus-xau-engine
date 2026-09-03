@@ -4,6 +4,8 @@ import pandas as pd
 
 _RULES = {
     "M5": "5min",
+    "M15": "15min",
+    "M30": "30min",
     "H1": "1h",
     "H4": "4h",
     "D1": "1D",

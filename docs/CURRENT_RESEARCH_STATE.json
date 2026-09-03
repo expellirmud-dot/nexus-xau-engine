@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-03T23:37:37+07:00",
+  "updated_at": "2026-09-04T06:52:13+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "DUKASCOPY_MULTYEAR_BID_PIPELINE_RUNTIME_VALIDATED",
+  "completed_checkpoint": "MTF_ALIGNMENT_VARIANT_ROUND_01_CLOSED",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -91,11 +91,10 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Download XAUUSD BID M1 from 2022-09-01 through 2026-09-01 using restart-safe Dukascopy cache.",
-    "Audit merged multi-year dataset for missing/duplicate timestamps, market-closure patterns and resampling consistency.",
-    "Freeze multi-year discovery/validation/final-holdout partitions before using the new periods to tune hypotheses.",
-    "Rerun the MVP hypothesis ladder on the larger dataset, separating source-rule identification from outcome usefulness.",
-    "Only build ASK/tick reconstruction when spread/execution research materially requires it."
+    "Build a bounded SW proxy-family experiment (small candidate set) and separately evaluate source consistency vs outcome usefulness.",
+    "Test PAT2 BODY MTF alignment conditionally with Daily-Frame/Location state instead of as a standalone filter.",
+    "Retry/audit the remaining 18 failed Dukascopy dates before treating this one-year export as complete confirmatory data.",
+    "Continue multi-year Dukascopy acquisition and freeze discovery/validation/final-holdout partitions before new confirmatory claims."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -117,9 +116,14 @@
     "docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md",
     "docs/EVIDENCE_PROVENANCE_AUDIT_2026-09-03.md",
     "docs/MAE_PLA_0700_USER_CONFIRMATION_2026-09-03.md",
-    "src/nexus_xau/research/evidence_provenance.py"
+    "src/nexus_xau/research/evidence_provenance.py",
+    "docs/DIRECT_USER_UNKNOWN_VARIANT_RELATION_METHOD_2026-09-04.md",
+    "docs/MTF_ALIGNMENT_VARIANT_TEST_PLAN_2026-09-04.md",
+    "docs/MTF_ALIGNMENT_VARIANT_ROUND_01_CLOSURE_2026-09-04.md",
+    "src/nexus_xau/research/mtf_alignment_variant_relation_test.py",
+    "src/nexus_xau/research/mtf_alignment_event_summary.py"
   ],
-  "resume_instruction": "Load maintenance policy -> current state -> canonical claim register -> MVP_TEST_ROUND_01_CLOSURE. Round01 closures: Q1 Daily-Frame proximity MIXED/INCONCLUSIVE; Q2 H1 expected-side near-frame SUPPORTED as research representation, H4 INCONCLUSIVE sample-size; Q2b source-backed <=200 proximity INCONCLUSIVE H1/H4; Q3 SW NOT_TESTABLE_WITH_CURRENT_EVIDENCE; Q4a H1 PAT2 BODY midpoint SUPPORTED as research variant, all other tested midpoint variants INCONCLUSIVE. Outcome results do not choose canonical teaching definitions. Proceed to Q5 descriptive H1=1000/H4=1500 behavior and keep newly invented interactions exploratory on the already-inspected TEST period.",
+  "resume_instruction": "Load maintenance policy -> CURRENT_RESEARCH_STATE -> canonical claim register -> MTF_ALIGNMENT_VARIANT_ROUND_01_CLOSURE. Round01 MTF PAT2-BODY proxy variants all INCONCLUSIVE: VAL does not consistently confirm the positive relation seen in TEST. Next prioritize bounded SW proxy families and conditional MTF interaction with Daily-Frame/Location; do not choose a production aligned-TF threshold.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -295,5 +299,21 @@
     },
     "restart_safe": "Daily bi5 cache allows interrupted downloads to resume without re-downloading successful days.",
     "research_use": "Multi-year hypothesis discovery, rule-space narrowing, validation and fresh holdout testing; not execution-quality feed."
+  },
+  "mtf_alignment_variant_round_01": {
+    "status": "CLOSED_ALL_VARIANTS_INCONCLUSIVE",
+    "source_ref": "docs/MTF_ALIGNMENT_VARIANT_ROUND_01_CLOSURE_2026-09-04.md",
+    "plan_ref": "docs/MTF_ALIGNMENT_VARIANT_TEST_PLAN_2026-09-04.md",
+    "dataset": "Dukascopy XAUUSD BID 2022-09-01 through 2023-08-31 export; volume>0 active M1 only; failed-date-intersecting horizons excluded",
+    "measured_unique_h1_anchors": 1789,
+    "event_rows_across_three_variants": 5367,
+    "variants": {
+      "EXACT_COMPLETION": "INCONCLUSIVE: VAL opposed, TEST supported",
+      "RECENT_1_TF_BAR": "INCONCLUSIVE: VAL mixed, TEST supported",
+      "RECENT_2_TF_BARS": "INCONCLUSIVE: VAL mixed, TEST supported"
+    },
+    "interpretation": "PAT2 BODY MTF alignment is not established as a robust standalone filter. Favorable TEST-period relation plus weaker/opposite VAL relation makes a conditional/state interaction more plausible than a universal standalone effect.",
+    "guard": "Does not refute the user-direct semantic that more true PA alignment is stronger; PAT2 BODY is only a proxy and no production minimum count may be selected from this result.",
+    "next_question": "Test MTF alignment conditionally with Daily-Frame/Location and bounded SW state proxies rather than continuing threshold search in isolation."
   }
 }
