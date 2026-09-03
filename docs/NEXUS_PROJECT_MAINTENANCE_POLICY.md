@@ -47,6 +47,26 @@ Examples:
 
 A successful commit/push does not promote uncertain evidence to CONFIRMED. Evidence status, provenance, test status, and unresolved blockers must remain explicit in the repository.
 
+## STT ambiguity handling
+
+The project owner commonly uses speech-to-text (STT), and STT can mis-hear or distort spoken wording.
+
+NEXUS must not silently normalize or guess a suspicious STT phrase when that ambiguity could materially change:
+
+- a trading/system rule;
+- a number, price, point distance, percentage or threshold;
+- a time, date, timezone or timeframe;
+- a proper name, source name or proprietary term;
+- BUY/SELL direction;
+- wick/body/close/open/high/low terminology;
+- an instruction to create, modify, delete, commit, push, execute or otherwise act on the project.
+
+If the intended wording is not clear enough from context, ask the project owner to confirm the phrase before treating it as evidence or executing a materially different action.
+
+Minor STT errors that are semantically obvious and cannot change the research/engineering conclusion may be normalized without interrupting the workflow.
+
+When a user clarification corrects an earlier STT interpretation, preserve the correction in the relevant evidence/checkpoint rather than silently treating the earlier wording as authoritative.
+
 ## Resume rule
 
 On a resumed session, read this policy together with `docs/CURRENT_RESEARCH_STATE.json` and the latest checkpoint before continuing. If validated work from the prior session is still uncommitted/unpushed, complete repository maintenance before starting a new unrelated checkpoint when practical.
