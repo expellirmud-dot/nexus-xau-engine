@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-03T22:18:00+07:00",
+  "updated_at": "2026-09-03T22:20:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "HYPOTHESIS_FIRST_RESEARCH_SHIFT_AND_DAILY_FRAME_Q1",
+  "completed_checkpoint": "MVP_SET_01_HYPOTHESIS_TEST_CONTRACT_FROZEN",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -91,10 +91,10 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Build remaining-run reconstruction: origin SIG anchor -> nominal run -> consumed run before 07:00 -> remaining run.",
-    "Run Q2 interaction test: remaining-run context + Daily Frame versus corresponding controls.",
-    "Then test graded H1/M30/M15/M5 alignment as an incremental feature, not as an invented mandatory threshold.",
-    "Request new source/human clarification only when a specific ambiguity blocks one of those bounded tests."
+    "Run Q2 direction-correct Daily-Frame Location component test using frozen held-out criteria.",
+    "Run Q3 SW incremental-value test only if SW can be represented reproducibly; otherwise close as NOT_TESTABLE_WITH_CURRENT_EVIDENCE.",
+    "Run Q4 incremental SIG-qualification tests on top of Location.",
+    "Run Q5 H1 1000/H4 1500 objective behavior, then Q6 full-chain held-out comparison."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -117,7 +117,7 @@
     "docs/MAE_PLA_0700_USER_CONFIRMATION_2026-09-03.md",
     "src/nexus_xau/research/evidence_provenance.py"
   ],
-  "resume_instruction": "Load maintenance policy -> current state -> canonical claim register. Research method is now hypothesis-first: every question must terminate as SUPPORTED/NOT_SUPPORTED/INCONCLUSIVE. Q1 Daily-Frame proximity-only component test is complete and MIXED/INCONCLUSIVE; do not reopen it merely by asking for more evidence. Next target is Q2: reconstruct unfinished inherited SIG run at 07:00 and test whether Daily Frame adds value conditional on remaining-run context.",
+  "resume_instruction": "Load maintenance policy -> current state -> canonical claim register -> MVP_SET_01_HYPOTHESIS_TEST_PLAN. Use hypothesis-first closure states. Q1 Daily Frame proximity alone is closed MIXED/INCONCLUSIVE; proceed to Q2 Location rather than collecting broad new evidence.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -210,5 +210,18 @@
     "events": "results/MVP_Q1_DAILY_FRAME_PROXIMITY_COMPONENT_EVENTS_2026-05-26_2026-09-01.csv",
     "interpretation": "Daily-Frame proximity alone is not established as a robust standalone filter in this topology-only representation. H4 target-first behavior is interesting but does not satisfy the frozen multi-metric held-out rule.",
     "next_question": "Does Daily-Frame proximity become informative specifically when an inherited H1/H4/D SIG still has remaining run at 07:00?"
+  },
+  "mvp_hypothesis_test_plan": {
+    "source_ref": "docs/MVP_SET_01_HYPOTHESIS_TEST_PLAN_2026-09-03.md",
+    "target": "Daily Frame 07:00 -> SW/Location -> SIG H1/H4 -> H1 1000 / H4 1500 project points",
+    "closure_states": [
+      "SUPPORTED",
+      "NOT_SUPPORTED",
+      "INCONCLUSIVE",
+      "NOT_TESTABLE_WITH_CURRENT_EVIDENCE"
+    ],
+    "q1_daily_frame_proximity": "INCONCLUSIVE_MIXED",
+    "next_question": "Q2 Location relation: direction-correct Daily Frame location vs wrong/non-location candidates",
+    "operating_rule": "Each bounded hypothesis is closed by a declared result; do not default to indefinite evidence collection before testing."
   }
 }
