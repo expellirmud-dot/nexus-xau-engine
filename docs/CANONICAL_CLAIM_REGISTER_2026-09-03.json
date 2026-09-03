@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-03T21:10:00+07:00",
+  "updated_at": "2026-09-03T21:25:00+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -10,6 +10,19 @@
     "outcome_performance_cannot_upgrade_provenance": true
   },
   "claims": [
+    {
+      "claim_id": "POR_CHON_VIDEO_SPEAKER_IDENTITY",
+      "canonical_statement": "The speaker in the supplied UNLOCK TRADER lesson on Por Chon frame construction is Por Chon himself, per direct project-owner clarification.",
+      "status": "ACTIVE_USER_DIRECT_SOURCE_IDENTITY",
+      "engine_permission": "PROVENANCE_SOURCE_AUTHORITY",
+      "source_refs": [
+        "docs/DIRECT_USER_POR_CHON_SPEAKER_IDENTITY_2026-09-03.md"
+      ],
+      "risk_flags": [
+        "TRANSCRIPT_STILL_HAS_YOUTUBE_ASR_RISK"
+      ],
+      "provenance_note": "Speaker authority is first-party Por Chon for this video; transcript wording accuracy remains a separate ASR-risk dimension."
+    },
     {
       "claim_id": "TIME_MAEPLA_0700",
       "canonical_statement": "Mae Pla daily preparation uses 07:00 Asia/Bangkok, normalized to 00:00 UTC for the validated dataset.",
@@ -128,6 +141,7 @@
       "status": "ACTIVE_SOURCE_BACKED_CUTOFF",
       "engine_permission": "CANONICAL_RESEARCH_REPLAY_WITH_BOUNDARY_VALIDATION",
       "source_refs": [
+        "docs/DIRECT_USER_POR_CHON_SPEAKER_IDENTITY_2026-09-03.md",
         "docs/POR_CHON_1900_TRANSCRIPT_CLOSURE_2026-09-03.md",
         "docs/PRIMARY_IMAGE_EVIDENCE_2026-09-01.md"
       ],
@@ -135,7 +149,7 @@
         "YOUTUBE_ASR_SOURCE_WORDING",
         "H4_CUTOFF_BAR_INCLUSION_NEEDS_VALIDATION"
       ],
-      "provenance_note": "Core cutoff/high-selection/>1000 semantics are repeated many times in the YouTube Show transcript and are robust despite ASR risk. Asia/Bangkok mapping is a project contextual interpretation, not a literal instructor timezone quote."
+      "provenance_note": "The project owner directly identifies the video speaker as Por Chon himself. Core cutoff/high-selection/>1000 semantics are therefore first-party Por Chon teaching, while the YouTube Show transcript still carries ASR risk. Asia/Bangkok mapping is a project contextual interpretation, not a literal timezone quote."
     },
     {
       "claim_id": "POR_CHON_OVERROUND_USAGE",

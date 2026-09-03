@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-03T21:10:00+07:00",
+  "updated_at": "2026-09-03T21:25:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
   "completed_checkpoint": "POR_CHON_1900_DAILY_CUTOFF_SEMANTICS_CLOSED",
@@ -104,6 +104,7 @@
     "trade expectancy"
   ],
   "key_files": [
+    "docs/DIRECT_USER_POR_CHON_SPEAKER_IDENTITY_2026-09-03.md",
     "docs/POR_CHON_1900_TRANSCRIPT_CLOSURE_2026-09-03.md",
     "docs/DIRECT_RELATIVE_POR_CHON_OVERROUND_USAGE_2026-09-03.md",
     "docs/RESEARCH_LOOP_PROTOCOL_2026-09-03.md",
@@ -135,5 +136,11 @@
       "Tie handling for identical H4 highs.",
       "Detailed old-frame retirement/replacement policy."
     ]
+  },
+  "por_chon_source_identity": {
+    "speaker": "Por Chon",
+    "status": "USER_DIRECT_CONFIRMED_SOURCE_IDENTITY",
+    "source_ref": "docs/DIRECT_USER_POR_CHON_SPEAKER_IDENTITY_2026-09-03.md",
+    "research_effect": "Por Chon rules spoken in this video are first-party teaching evidence; exact transcript wording still carries YouTube ASR risk."
   }
 }
