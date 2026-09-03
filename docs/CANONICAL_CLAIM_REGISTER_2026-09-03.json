@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-03T21:25:00+07:00",
+  "updated_at": "2026-09-03T21:35:00+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -150,6 +150,21 @@
         "H4_CUTOFF_BAR_INCLUSION_NEEDS_VALIDATION"
       ],
       "provenance_note": "The project owner directly identifies the video speaker as Por Chon himself. Core cutoff/high-selection/>1000 semantics are therefore first-party Por Chon teaching, while the YouTube Show transcript still carries ASR risk. Asia/Bangkok mapping is a project contextual interpretation, not a literal timezone quote."
+    },
+    {
+      "claim_id": "POR_CHON_FRAME_STANDING_BODY_PRIMARY",
+      "canonical_statement": "Por Chon frame standing/break evaluation is body-sensitive: wick penetration alone is not sufficient to declare frame failure, while candle-body relation to the frame is a primary criterion. Exact body/close geometry remains unresolved.",
+      "status": "ACTIVE_FIRST_PARTY_VISUAL_PARTIAL",
+      "engine_permission": "SAFE_PARTIAL_FEATURE_RULE",
+      "source_refs": [
+        "docs/POR_CHON_VISUAL_STANDING_FRAME_EVIDENCE_2026-09-03.md",
+        "docs/DIRECT_USER_POR_CHON_SPEAKER_IDENTITY_2026-09-03.md"
+      ],
+      "risk_flags": [
+        "EXACT_BODY_GEOMETRY_UNRESOLVED",
+        "YOUTUBE_ASR_WORDING_NEEDS_AUDIO_CHECK_FOR_FINAL_PREDICATE"
+      ],
+      "provenance_note": "First-party Por Chon video screenshot shows H4 chart together with transcript context around 19:00/23:00 and repeated wording about candle body standing/not breaking the frame. Do not reduce to close-only or wick-touch logic yet."
     },
     {
       "claim_id": "POR_CHON_OVERROUND_USAGE",

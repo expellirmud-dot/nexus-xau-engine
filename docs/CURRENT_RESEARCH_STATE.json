@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-03T21:25:00+07:00",
+  "updated_at": "2026-09-03T21:35:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "POR_CHON_1900_DAILY_CUTOFF_SEMANTICS_CLOSED",
+  "completed_checkpoint": "POR_CHON_VISUAL_STANDING_BODY_PRIMARY_PARTIAL_CLOSED",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -91,10 +91,9 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Validate H4 candle inclusion around the Por Chon 19:00 local cutoff against the referenced chart/broker schedule; do not guess a one-bar boundary.",
-    "Continue PAT2/PAT3 50% measurement-basis evidence work.",
-    "Continue location truth-set OHLC alignment and post-SIG measurable invalidation work.",
-    "Use the direct-relative Por Chon over-round/no-touch/Sideway evidence together with the newly closed daily-cutoff semantics when building the Por Chon state/context model."
+    "Audio-check ~19:15-20:50 to close exact Por Chon frame-standing body predicate and the role of the 23:00 H4 close.",
+    "Then audio/visual-check ~47:35-48:10 for post-SIG invalidation and ~51:30-52:45 for half-vs-swing conditions.",
+    "Continue PAT2/PAT3 50% measurement-basis evidence work and location truth-set alignment independently."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -104,6 +103,7 @@
     "trade expectancy"
   ],
   "key_files": [
+    "docs/POR_CHON_VISUAL_STANDING_FRAME_EVIDENCE_2026-09-03.md",
     "docs/DIRECT_USER_POR_CHON_SPEAKER_IDENTITY_2026-09-03.md",
     "docs/POR_CHON_1900_TRANSCRIPT_CLOSURE_2026-09-03.md",
     "docs/DIRECT_RELATIVE_POR_CHON_OVERROUND_USAGE_2026-09-03.md",
@@ -114,7 +114,7 @@
     "docs/MAE_PLA_0700_USER_CONFIRMATION_2026-09-03.md",
     "src/nexus_xau/research/evidence_provenance.py"
   ],
-  "resume_instruction": "Load maintenance policy -> current state -> canonical claim register. Por Chon 19:00 daily cutoff semantics are now source-backed: highest completed H4 high before cutoff, >1,000 project points above prior frame required, post-cutoff movement rolls to next window. Asia/Bangkok 19:00 -> UTC12 is the project contextual mapping, not a literal instructor timezone quote. Validate exact H4 cutoff-bar inclusion before production use, then continue the next unresolved claim.",
+  "resume_instruction": "Load maintenance policy -> current state -> canonical claim register. Por Chon standing is now safely partial-closed as body-sensitive and not wick-touch-only, but exact body/close geometry still requires the 19:15-20:50 audio check. Continue with post-SIG and half/swing visual-audio evidence after that.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -142,5 +142,20 @@
     "status": "USER_DIRECT_CONFIRMED_SOURCE_IDENTITY",
     "source_ref": "docs/DIRECT_USER_POR_CHON_SPEAKER_IDENTITY_2026-09-03.md",
     "research_effect": "Por Chon rules spoken in this video are first-party teaching evidence; exact transcript wording still carries YouTube ASR risk."
+  },
+  "por_chon_visual_standing_update": {
+    "source": "First-party Por Chon H4 video screenshot with synchronized YouTube transcript context around 19:34-20:41.",
+    "closed_safe_partial": [
+      "Wick penetration alone is not sufficient to declare Por Chon frame failure.",
+      "Candle-body relation is a primary criterion for standing/break evaluation.",
+      "The 19:00->23:00 H4 sequence is operationally used to assess post-cutoff standing/retest behavior at a completed H4 checkpoint."
+    ],
+    "still_open": [
+      "Whether both open and close must stay on the valid side.",
+      "Whether body intersection with the frame is allowed.",
+      "Whether close alone is sufficient.",
+      "Whether 23:00 is universally required or simply the next H4 close in this example."
+    ],
+    "source_ref": "docs/POR_CHON_VISUAL_STANDING_FRAME_EVIDENCE_2026-09-03.md"
   }
 }
