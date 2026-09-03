@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-03T22:30:00+07:00",
+  "updated_at": "2026-09-03T23:02:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "RESEARCH_EVIDENCE_OUTPUT_ARCHITECTURE_DESIGNED",
+  "completed_checkpoint": "MVP_TEST_ROUND_01_Q5_DESCRIPTIVE_COMPLETE",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -91,9 +91,10 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Run Q2 direction-correct Daily-Frame Location component test using the CSV/JSON-first evidence pipeline.",
-    "Standardize event-table and closure-report schemas as needed by Q2-Q6.",
-    "Add static case-chart export only when a hypothesis needs visual audit; defer MT5 inspector until a concrete question requires it."
+    "Do not treat broad Q5 target-reach rates as system edge; use them as baseline showing 1000/1500 are common forward-path distances under the current horizon.",
+    "Next highest-value build is a reproducible remaining-run state measurement (origin SIG anchor -> consumed before 07:00 -> remaining) without inventing unresolved SIG qualification.",
+    "Keep SW Q3 closed NOT_TESTABLE until reproducible geometry exists.",
+    "Reserve newly invented component interactions for exploratory status on the already-inspected TEST period; fresh confirmation needs untouched later data."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -103,6 +104,7 @@
     "trade expectancy"
   ],
   "key_files": [
+    "docs/MVP_TEST_ROUND_01_CLOSURE_2026-09-03.md",
     "docs/MVP_RESEARCH_SET_01_2026-09-03.md",
     "docs/DIRECT_USER_MTF_ALIGNMENT_CLARIFICATION_2026-09-03.md",
     "docs/POR_CHON_VISUAL_STANDING_FRAME_EVIDENCE_2026-09-03.md",
@@ -116,7 +118,7 @@
     "docs/MAE_PLA_0700_USER_CONFIRMATION_2026-09-03.md",
     "src/nexus_xau/research/evidence_provenance.py"
   ],
-  "resume_instruction": "Load maintenance policy -> current state -> canonical claim register -> MVP_SET_01_HYPOTHESIS_TEST_PLAN. Use hypothesis-first closure states. Q1 Daily Frame proximity alone is closed MIXED/INCONCLUSIVE; proceed to Q2 Location rather than collecting broad new evidence.",
+  "resume_instruction": "Load maintenance policy -> current state -> canonical claim register -> MVP_TEST_ROUND_01_CLOSURE. Round01 closures: Q1 Daily-Frame proximity MIXED/INCONCLUSIVE; Q2 H1 expected-side near-frame SUPPORTED as research representation, H4 INCONCLUSIVE sample-size; Q2b source-backed <=200 proximity INCONCLUSIVE H1/H4; Q3 SW NOT_TESTABLE_WITH_CURRENT_EVIDENCE; Q4a H1 PAT2 BODY midpoint SUPPORTED as research variant, all other tested midpoint variants INCONCLUSIVE. Outcome results do not choose canonical teaching definitions. Proceed to Q5 descriptive H1=1000/H4=1500 behavior and keep newly invented interactions exploratory on the already-inspected TEST period.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -233,5 +235,37 @@
     ],
     "rule": "Use the smallest tool that can defensibly close the hypothesis; MT5 is optional and never the statistical judge.",
     "mt5_compatibility": "Selected CSV/JSON query results can later be exported to an MT5 inspector for chart display."
+  },
+  "mvp_test_round_01": {
+    "source_ref": "docs/MVP_TEST_ROUND_01_CLOSURE_2026-09-03.md",
+    "status": "CLOSED_RESEARCH_ROUND_NOT_SYSTEM_BACKTEST",
+    "dataset": "XAUUSDm 2026-05-26T00:00Z -> 2026-09-01T23:59Z, 97341 M1 bars",
+    "q1_daily_frame_proximity": "INCONCLUSIVE_MIXED",
+    "q2_location_relation": {
+      "H1": "SUPPORTED_RESEARCH_REPRESENTATION",
+      "H4": "INCONCLUSIVE_DUE_SAMPLE_SIZE",
+      "report": "results/MVP_Q2_DAILY_FRAME_LOCATION_RELATION_2026-05-26_2026-09-01.json"
+    },
+    "q2b_source_backed_200pt": {
+      "H1": "INCONCLUSIVE",
+      "H4": "INCONCLUSIVE_DUE_SAMPLE_SIZE",
+      "report": "results/MVP_Q2B_DAILY_FRAME_200PT_2026-05-26_2026-09-01.json"
+    },
+    "q3_sw_incremental_value": "NOT_TESTABLE_WITH_CURRENT_EVIDENCE",
+    "q4a_pat_midpoint": {
+      "H1_PAT2_BODY": "SUPPORTED_RESEARCH_VARIANT",
+      "all_other_tested_variants": "INCONCLUSIVE",
+      "report": "results/MVP_Q4A_PAT_MIDPOINT_OUTCOME_2026-05-26_2026-09-01.json",
+      "guard": "Do not infer BODY is canonical teaching basis from outcome performance."
+    },
+    "data_leakage_guard": "Current TEST period has been inspected for Q1/Q2/Q2b/Q4a. New hypotheses invented from these outcomes are exploratory on this dataset and need an untouched later period for fresh confirmation.",
+    "q5_run_objective_descriptive": {
+      "status": "DESCRIPTIVE_BASELINE_ESTABLISHED",
+      "report": "results/MVP_Q5_RUN_OBJECTIVE_DESCRIPTIVE_2026-05-26_2026-09-01.json",
+      "H1_target_points": 1000,
+      "H4_target_points": 1500,
+      "interpretation": "Teaching distances are common in broad topology forward paths; edge question shifts toward state/direction/location/timing and adverse path, not distance existence.",
+      "guard": "Not a system win rate; topology candidates and fresh-target control anchors only."
+    }
   }
 }
