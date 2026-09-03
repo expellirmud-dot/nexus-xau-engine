@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-03T22:20:00+07:00",
+  "updated_at": "2026-09-03T22:30:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "MVP_SET_01_HYPOTHESIS_TEST_CONTRACT_FROZEN",
+  "completed_checkpoint": "RESEARCH_EVIDENCE_OUTPUT_ARCHITECTURE_DESIGNED",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -91,10 +91,9 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Run Q2 direction-correct Daily-Frame Location component test using frozen held-out criteria.",
-    "Run Q3 SW incremental-value test only if SW can be represented reproducibly; otherwise close as NOT_TESTABLE_WITH_CURRENT_EVIDENCE.",
-    "Run Q4 incremental SIG-qualification tests on top of Location.",
-    "Run Q5 H1 1000/H4 1500 objective behavior, then Q6 full-chain held-out comparison."
+    "Run Q2 direction-correct Daily-Frame Location component test using the CSV/JSON-first evidence pipeline.",
+    "Standardize event-table and closure-report schemas as needed by Q2-Q6.",
+    "Add static case-chart export only when a hypothesis needs visual audit; defer MT5 inspector until a concrete question requires it."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -223,5 +222,16 @@
     "q1_daily_frame_proximity": "INCONCLUSIVE_MIXED",
     "next_question": "Q2 Location relation: direction-correct Daily Frame location vs wrong/non-location candidates",
     "operating_rule": "Each bounded hypothesis is closed by a declared result; do not default to indefinite evidence collection before testing."
+  },
+  "research_output_architecture": {
+    "source_ref": "docs/RESEARCH_EVIDENCE_OUTPUT_ARCHITECTURE_2026-09-03.md",
+    "primary": "Python + Pandas event table CSV and JSON closure reports",
+    "visual_escalation": [
+      "no visual for purely numerical questions",
+      "static annotated chart for selected cases",
+      "MT5 visual inspector only when native replay/platform context adds value"
+    ],
+    "rule": "Use the smallest tool that can defensibly close the hypothesis; MT5 is optional and never the statistical judge.",
+    "mt5_compatibility": "Selected CSV/JSON query results can later be exported to an MT5 inspector for chart display."
   }
 }
