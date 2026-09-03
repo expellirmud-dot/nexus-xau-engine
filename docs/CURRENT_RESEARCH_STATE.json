@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-03T23:02:00+07:00",
+  "updated_at": "2026-09-03T23:37:37+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "MVP_TEST_ROUND_01_Q5_DESCRIPTIVE_COMPLETE",
+  "completed_checkpoint": "DUKASCOPY_MULTYEAR_BID_PIPELINE_RUNTIME_VALIDATED",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -84,17 +84,18 @@
     "numeric_location_ready": false
   },
   "validation_status": {
-    "pytest_current": "77/77 passed at round0",
-    "ruff_current": "passed at round0",
+    "pytest_current": "82/82 passed after Dukascopy downloader tests",
+    "ruff_current": "passed for Dukascopy downloader and tests",
     "current_checkpoint_json_validation": "PASSED",
     "provenance_guard": "extended with lifecycle and ASR/STT risk gates",
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Do not treat broad Q5 target-reach rates as system edge; use them as baseline showing 1000/1500 are common forward-path distances under the current horizon.",
-    "Next highest-value build is a reproducible remaining-run state measurement (origin SIG anchor -> consumed before 07:00 -> remaining) without inventing unresolved SIG qualification.",
-    "Keep SW Q3 closed NOT_TESTABLE until reproducible geometry exists.",
-    "Reserve newly invented component interactions for exploratory status on the already-inspected TEST period; fresh confirmation needs untouched later data."
+    "Download XAUUSD BID M1 from 2022-09-01 through 2026-09-01 using restart-safe Dukascopy cache.",
+    "Audit merged multi-year dataset for missing/duplicate timestamps, market-closure patterns and resampling consistency.",
+    "Freeze multi-year discovery/validation/final-holdout partitions before using the new periods to tune hypotheses.",
+    "Rerun the MVP hypothesis ladder on the larger dataset, separating source-rule identification from outcome usefulness.",
+    "Only build ASK/tick reconstruction when spread/execution research materially requires it."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -267,5 +268,32 @@
       "interpretation": "Teaching distances are common in broad topology forward paths; edge question shifts toward state/direction/location/timing and adverse path, not distance existence.",
       "guard": "Not a system win rate; topology candidates and fresh-target control anchors only."
     }
+  },
+  "dukascopy_multiyear_pipeline": {
+    "source_ref": "docs/DUKASCOPY_MULTIYEAR_DATA_PIPELINE_2026-09-03.md",
+    "module": "src/nexus_xau/data/dukascopy_export.py",
+    "status": "BID_M1_RUNTIME_VALIDATED_READY_FOR_MULTIYEAR_DOWNLOAD",
+    "target_symbol": "XAUUSD",
+    "target_range": "2022-09-01 through 2026-09-01 inclusive",
+    "direct_bid_m1_status": "VERIFIED",
+    "direct_ask_m1_status": "NOT_YET_VERIFIED",
+    "single_day_validation": {
+      "date": "2022-09-01",
+      "side": "BID",
+      "rows": 1440,
+      "failed_days": 0
+    },
+    "cross_feed_validation": {
+      "date_utc": "2026-08-24",
+      "dukascopy_bid_rows": 1440,
+      "exness_mt5_rows": 1378,
+      "common_timestamps": 1378,
+      "abs_close_diff_median_usd": 0.2435,
+      "abs_close_diff_p95_usd": 0.564,
+      "abs_close_diff_max_usd": 1.151,
+      "interpretation": "Timestamp/price scale operationally aligned; feeds are distinct and must remain source-tagged."
+    },
+    "restart_safe": "Daily bi5 cache allows interrupted downloads to resume without re-downloading successful days.",
+    "research_use": "Multi-year hypothesis discovery, rule-space narrowing, validation and fresh holdout testing; not execution-quality feed."
   }
 }
