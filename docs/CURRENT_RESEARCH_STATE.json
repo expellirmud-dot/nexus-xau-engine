@@ -1,15 +1,20 @@
 {
-  "updated_at": "2026-09-03T16:59:00+07:00",
+  "updated_at": "2026-09-03T20:40:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "ROUND0_PROVENANCE_AND_LOOP_GUARD_VALIDATED",
+  "completed_checkpoint": "DIRECT_RELATIVE_POR_CHON_OVERROUND_USAGE_CAPTURED",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
     "start_utc": "2026-05-26T00:00:00+00:00",
     "end_utc": "2026-09-01T23:59:00+00:00",
     "m1_bars": 97341,
-    "native_mismatches": {"M5": 0, "H1": 0, "H4": 0, "D1": 0}
+    "native_mismatches": {
+      "M5": 0,
+      "H1": 0,
+      "H4": 0,
+      "D1": 0
+    }
   },
   "research_loop": {
     "policy_file": "docs/RESEARCH_LOOP_PROTOCOL_2026-09-03.md",
@@ -35,7 +40,7 @@
   "round0_audit_findings": [
     "Historical EVIDENCE_REGISTER still preserves an older SELL-location wording that was later superseded; history is retained but canonical authority now comes from the claim register.",
     "Older provenance audit preserved 07:00 timezone as unknown; later project-owner clarification closes the project interpretation as Asia/Bangkok. Historical audit remains preserved as chronology, not current state.",
-    "Existing evidence_provenance guard lacked explicit SUPERSEDED lifecycle and ASR/STT risk gating; code has been extended to prevent those claims from silently regaining confirmation authority."
+    "Existing evidence_provenance guard lacked explicit SUPERSEDED lifecycle and ASR/STT risk gating; code was extended to prevent those claims from silently regaining confirmation authority."
   ],
   "mae_pla_time_mapping": {
     "source_wording": "07:00 / เจ็ดโมงเช้า in Thai teaching context",
@@ -46,6 +51,23 @@
     "status": "USER_DIRECT_CONFIRMED_INTERPRETATION",
     "canonical_for_research_replay": true,
     "instructor_explicit_words_thai_time": false
+  },
+  "por_chon_direct_relative_update": {
+    "source": "Relative chat plus annotated M5 chart; project owner confirmed the images are the same event/evidence package.",
+    "closed": [
+      "Por Chon ATH is used as counter/reversal context after a substantial over-round move.",
+      "ATH line touch is not mandatory when a valid reversal signal forms in this evidenced usage.",
+      "Sideway is not preferred for this Por Chon reversal usage; wording does not establish a universal prohibition."
+    ],
+    "example_specific": [
+      "M5 PA Sell example: relative states SL below ATH line. ATH is visibly above the reversal/entry area, so the relation is compatible with Sell; exact buffer and universality remain unresolved."
+    ],
+    "still_unresolved": [
+      "Por Chon 19:00-19:00 timezone/day boundary.",
+      "Exact numeric definition of substantial over-round magnitude.",
+      "Complete reversal-signal detector for all Por Chon cases.",
+      "BUY-side SL mirror and universal SL relation."
+    ]
   },
   "repository_maintenance": {
     "policy_file": "docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md",
@@ -62,17 +84,17 @@
     "numeric_location_ready": false
   },
   "validation_status": {
-    "pytest_current": "77/77 passed",
-    "ruff_current": "passed",
-    "round0_validation": "PASSED",
+    "pytest_current": "77/77 passed at round0",
+    "ruff_current": "passed at round0",
+    "current_checkpoint_json_validation": "PASSED",
     "provenance_guard": "extended with lifecycle and ASR/STT risk gates",
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Commit/push the validated round0 provenance/loop checkpoint.",
-    "Begin loop puzzle #1: Por Chon 19:00-19:00 timezone/day-window semantics without inferring it from Mae Pla 07:00.",
-    "If 19:00 cannot be closed from existing evidence, quarantine only the unresolved clock mapping and continue independently with PAT2/PAT3 50% measurement-basis evidence.",
-    "Continue location truth-set OHLC alignment and post-SIG measurable invalidation work as independent branches of the research queue."
+    "Audit Por Chon 19:00-19:00 timezone/day-window semantics separately; do not infer it solely from Mae Pla 07:00.",
+    "Use the new direct-relative no-touch/over-round/Sideway evidence to refine Por Chon state/context modeling without inventing numeric thresholds.",
+    "If 19:00 cannot be closed from available evidence, continue independently with PAT2/PAT3 50% measurement-basis evidence.",
+    "Continue location truth-set OHLC alignment and post-SIG measurable invalidation work."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -82,6 +104,7 @@
     "trade expectancy"
   ],
   "key_files": [
+    "docs/DIRECT_RELATIVE_POR_CHON_OVERROUND_USAGE_2026-09-03.md",
     "docs/RESEARCH_LOOP_PROTOCOL_2026-09-03.md",
     "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
     "docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md",
@@ -89,5 +112,5 @@
     "docs/MAE_PLA_0700_USER_CONFIRMATION_2026-09-03.md",
     "src/nexus_xau/research/evidence_provenance.py"
   ],
-  "resume_instruction": "Run the active research loop. Load maintenance policy -> current state -> canonical claim register. Historical docs are not current authority by themselves. Finish one bounded claim checkpoint, validate, update register/state, commit/push, then continue to the next independent unresolved claim. Ask the project owner only when material ambiguity cannot be resolved from available evidence."
+  "resume_instruction": "Load maintenance policy -> current state -> canonical claim register. Treat the new direct-relative Por Chon over-round/no-touch/Sideway evidence as current context rules while keeping 19:00 timing and numeric thresholds unresolved. Finish one bounded claim checkpoint, validate, update register/state, commit/push, then continue to the next independent unresolved claim."
 }

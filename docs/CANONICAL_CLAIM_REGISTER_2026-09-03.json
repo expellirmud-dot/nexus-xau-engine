@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-03T16:39:00+07:00",
+  "updated_at": "2026-09-03T20:40:00+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -55,7 +55,9 @@
       "source_refs": [
         "docs/EVIDENCE_PROVENANCE_AUDIT_2026-09-03.md"
       ],
-      "risk_flags": ["ASR_RISK"]
+      "risk_flags": [
+        "ASR_RISK"
+      ]
     },
     {
       "claim_id": "PAT2_GEOMETRY",
@@ -66,7 +68,9 @@
         "docs/DIRECT_PAT_GEOMETRY_RULES_2026-09-01.md",
         "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md"
       ],
-      "risk_flags": ["MEASUREMENT_BASIS_UNRESOLVED"]
+      "risk_flags": [
+        "MEASUREMENT_BASIS_UNRESOLVED"
+      ]
     },
     {
       "claim_id": "PAT3_GEOMETRY",
@@ -77,7 +81,9 @@
         "docs/DIRECT_PAT_GEOMETRY_RULES_2026-09-01.md",
         "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md"
       ],
-      "risk_flags": ["NUMERIC_THRESHOLDS_UNRESOLVED"]
+      "risk_flags": [
+        "NUMERIC_THRESHOLDS_UNRESOLVED"
+      ]
     },
     {
       "claim_id": "POST_SIG_INDEX",
@@ -87,7 +93,9 @@
       "source_refs": [
         "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md"
       ],
-      "risk_flags": ["YOUTUBE_ASR_SOURCE_WORDING"]
+      "risk_flags": [
+        "YOUTUBE_ASR_SOURCE_WORDING"
+      ]
     },
     {
       "claim_id": "POST_SIG_INVALIDATION",
@@ -97,7 +105,9 @@
       "source_refs": [
         "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md"
       ],
-      "risk_flags": ["EXACT_GEOMETRY_UNRESOLVED"]
+      "risk_flags": [
+        "EXACT_GEOMETRY_UNRESOLVED"
+      ]
     },
     {
       "claim_id": "M5_BRAKE",
@@ -107,7 +117,10 @@
       "source_refs": [
         "docs/M5_BRAKE_TRANSCRIPT_FORENSICS_2026-09-01.md"
       ],
-      "risk_flags": ["QUALITATIVE_THRESHOLDS_UNRESOLVED", "YOUTUBE_ASR_SOURCE_WORDING"]
+      "risk_flags": [
+        "QUALITATIVE_THRESHOLDS_UNRESOLVED",
+        "YOUTUBE_ASR_SOURCE_WORDING"
+      ]
     },
     {
       "claim_id": "POR_CHON_ATH_1900_WINDOW",
@@ -118,7 +131,59 @@
         "docs/PRIMARY_IMAGE_EVIDENCE_2026-09-01.md",
         "docs/PA_LOCATION_SR_EVIDENCE_SYNTHESIS_2026-09-03.md"
       ],
-      "risk_flags": ["TIME_BOUNDARY_UNRESOLVED"]
+      "risk_flags": [
+        "TIME_BOUNDARY_UNRESOLVED"
+      ]
+    },
+    {
+      "claim_id": "POR_CHON_OVERROUND_USAGE",
+      "canonical_statement": "Por Chon ATH is used as counter/reversal context after price has run substantially beyond its normal round; over-round context alone is not sufficient without reversal evidence.",
+      "status": "ACTIVE_DIRECT_RELATIVE_SEMANTICS",
+      "engine_permission": "CANONICAL_CONTEXT_RULE",
+      "source_refs": [
+        "docs/DIRECT_RELATIVE_POR_CHON_OVERROUND_USAGE_2026-09-03.md"
+      ],
+      "risk_flags": [
+        "EXACT_OVERROUND_MAGNITUDE_UNRESOLVED"
+      ]
+    },
+    {
+      "claim_id": "POR_CHON_ATH_TOUCH_FOR_OVERROUND_REVERSAL",
+      "canonical_statement": "In the evidenced Por Chon over-round reversal usage, price does not have to touch the ATH line before a valid reversal signal can be acted on.",
+      "status": "ACTIVE_DIRECT_RELATIVE_SEMANTICS",
+      "engine_permission": "CANONICAL_CONTEXT_RULE",
+      "source_refs": [
+        "docs/DIRECT_RELATIVE_POR_CHON_OVERROUND_USAGE_2026-09-03.md"
+      ],
+      "risk_flags": [
+        "REVERSAL_SIGNAL_DETECTOR_NOT_FULLY_CLOSED"
+      ]
+    },
+    {
+      "claim_id": "POR_CHON_SIDEWAY_PREFERENCE",
+      "canonical_statement": "Por Chon ATH reversal usage is not normally preferred during Sideway; this is a preference statement, not a proven universal prohibition.",
+      "status": "ACTIVE_DIRECT_RELATIVE_SEMANTICS",
+      "engine_permission": "CANONICAL_STATE_PREFERENCE",
+      "source_refs": [
+        "docs/DIRECT_RELATIVE_POR_CHON_OVERROUND_USAGE_2026-09-03.md"
+      ],
+      "risk_flags": [
+        "NOT_A_HARD_PROHIBITION"
+      ]
+    },
+    {
+      "claim_id": "POR_CHON_SELL_SL_BELOW_ATH_EXAMPLE",
+      "canonical_statement": "In the supplied M5 PA Sell over-round example, the relative states to place SL below the ATH line; the ATH line is visibly above the reversal/entry area, so this relation is geometrically compatible with Sell. Exact buffer and universality remain unresolved.",
+      "status": "ACTIVE_EXAMPLE_SUPPORTED",
+      "engine_permission": "EXAMPLE_METADATA_ONLY",
+      "source_refs": [
+        "docs/DIRECT_RELATIVE_POR_CHON_OVERROUND_USAGE_2026-09-03.md"
+      ],
+      "risk_flags": [
+        "SL_BUFFER_UNRESOLVED",
+        "DO_NOT_MIRROR_TO_BUY",
+        "NOT_PROVEN_UNIVERSAL"
+      ]
     },
     {
       "claim_id": "SYSTEM_WIN_RATE",
@@ -129,7 +194,9 @@
         "docs/WIN_LOSS_PROOF_PROTOCOL_2026-09-03.md",
         "docs/OUT_OF_SAMPLE_NEGATIVE_CONTROL_2026-09-03.md"
       ],
-      "risk_flags": ["ENTRY_SL_LOCATION_STATE_INCOMPLETE"]
+      "risk_flags": [
+        "ENTRY_SL_LOCATION_STATE_INCOMPLETE"
+      ]
     }
   ]
 }
