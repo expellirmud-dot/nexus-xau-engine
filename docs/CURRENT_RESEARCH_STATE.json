@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-03T22:00:00+07:00",
+  "updated_at": "2026-09-03T22:08:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "MVP_SET_01_REMAINING_SIG_RUN_REFINEMENT",
+  "completed_checkpoint": "MVP_SET_01_MTF_ALIGNMENT_GRADED_CONFLUENCE",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -92,8 +92,8 @@
   },
   "next_steps": [
     "Freeze a remaining-run state model: origin SIG anchor -> nominal round -> consumed run before 07:00 -> remaining run.",
-    "Confirm the mechanically ambiguous H1/M30/M15/M5 PA qualification rule before production logic; keep variants parameterized meanwhile.",
-    "Then run historical component tests comparing inherited remaining-run entries against naïve fresh-target-from-entry controls.",
+    "Encode H1/M30/M15/M5 same-direction PA alignment as measurable graded confluence (aligned_tf_count and aligned_tf_set), without inventing a mandatory minimum count.",
+    "Run historical component tests comparing inherited remaining-run entries across 1/2/3/4 aligned-TF buckets and against naive fresh-target-from-entry controls.",
     "Continue SW/Location geometry and SIG qualification evidence work without inventing thresholds."
   ],
   "blocked_from_claiming": [
@@ -105,6 +105,7 @@
   ],
   "key_files": [
     "docs/MVP_RESEARCH_SET_01_2026-09-03.md",
+    "docs/DIRECT_USER_MTF_ALIGNMENT_CLARIFICATION_2026-09-03.md",
     "docs/POR_CHON_VISUAL_STANDING_FRAME_EVIDENCE_2026-09-03.md",
     "docs/DIRECT_USER_POR_CHON_SPEAKER_IDENTITY_2026-09-03.md",
     "docs/POR_CHON_1900_TRANSCRIPT_CLOSURE_2026-09-03.md",
@@ -116,7 +117,7 @@
     "docs/MAE_PLA_0700_USER_CONFIRMATION_2026-09-03.md",
     "src/nexus_xau/research/evidence_provenance.py"
   ],
-  "resume_instruction": "Load maintenance policy -> current state -> canonical claim register. MVP Set #1 now requires inherited unfinished SIG/run context before the 07:00 Daily Frame. Do not reset a fresh 1000/1500 target from every new Daily-Frame entry; reconstruct the originating SIG run, consumed distance, and remaining run. H1/M30/M15/M5 PA qualification is still ambiguous and must be parameterized/confirmed.",
+  "resume_instruction": "Load maintenance policy -> current state -> canonical claim register. MVP Set #1 requires inherited unfinished SIG/run context before the 07:00 Daily Frame. H1/M30/M15/M5 PA agreement is graded confluence: more same-direction TF alignment is better, but no exact minimum aligned-TF count is yet canonical. Measure aligned_tf_count/aligned_tf_set and compare historical outcomes; do not invent a production threshold.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -178,7 +179,13 @@
       "source_ref": "docs/DIRECT_RELATIVE_REMAINING_SIG_RUN_DAILY_FRAME_2026-09-03.md",
       "status": "DIRECT_RELATIVE_GUIDANCE_MATERIAL_REFINEMENT",
       "example": "H4 nominal 1500, consumed 1000 before 07:00, remaining 500; PA Buy at Daily Frame after 07:00 is candidate entry for remaining 500.",
-      "open_question": "Does H1/M30/M15/M5 PA wording mean any one timeframe qualifies, multiple/all must align, or a hierarchy?"
+      "mtf_alignment_clarification": {
+        "source_ref": "docs/DIRECT_USER_MTF_ALIGNMENT_CLARIFICATION_2026-09-03.md",
+        "status": "USER_DIRECT_GRADED_CONFLUENCE_CLARIFICATION",
+        "semantics": "More H1/M30/M15/M5 PA alignment in the inherited SIG direction is preferable/stronger.",
+        "research_representation": "Measure aligned_tf_count (0..4) and aligned_tf_set.",
+        "still_open": "Exact minimum aligned-TF count, if any, for a production entry is not established."
+      }
     }
   }
 }

@@ -142,6 +142,9 @@ after 07:00, qualifying PA Buy around Daily Frame -> candidate entry for the rem
 
 Therefore the research engine must not automatically reset a fresh 1,500-point H4 objective from every new Daily-Frame entry. The originating SIG anchor and consumed/remaining run must be reconstructed first.
 
-The phrase `H1 30 15 5 ปิด PA buy` remains mechanically ambiguous: it is not yet known whether any one of H1/M30/M15/M5 is sufficient, whether several/all must align, or whether these are examples in a hierarchy. This must remain parameterized until confirmed.
+The phrase `H1 30 15 5 ปิด PA buy` was later clarified by the project owner as graded multi-timeframe confluence: the more of H1/M30/M15/M5 that point in the same direction, the better. This does not establish that all four are mandatory, and it does not establish an exact minimum required count. For research, measure `aligned_tf_count` and the aligned TF set rather than hard-coding an all-or-nothing gate.
 
 Source: `docs/DIRECT_RELATIVE_REMAINING_SIG_RUN_DAILY_FRAME_2026-09-03.md`.
+
+
+Multi-timeframe clarification source: `docs/DIRECT_USER_MTF_ALIGNMENT_CLARIFICATION_2026-09-03.md`.

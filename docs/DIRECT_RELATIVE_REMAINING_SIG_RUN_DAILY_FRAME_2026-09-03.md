@@ -100,3 +100,23 @@ For MVP Set #1, D should therefore be preserved as a possible higher-timeframe a
 This is direct relative guidance relayed by the project owner. It is not yet first-party instructor evidence unless independently matched to original teaching material.
 
 It is strong enough to revise the research hypothesis and measurement plan, but unresolved multi-timeframe PA qualification must remain parameterized/blocked from canonical production logic.
+
+
+## Direct user clarification — multi-timeframe alignment
+
+The project owner subsequently clarified:
+
+> หลายtf ไปในทางเดียวกันยิ่งดี
+
+This resolves the prior ambiguity to the following safe semantics:
+
+```text
+H1 / M30 / M15 / M5 alignment is graded confluence.
+More same-direction PA alignment is preferable/stronger.
+The clarification does NOT establish that all listed timeframes are mandatory.
+It also does NOT establish an exact minimum number of aligned timeframes required for a production entry.
+```
+
+For research, record the identity and count of aligned timeframes and compare outcomes by alignment strength. Do not invent a minimum-count gate from backtest performance alone.
+
+Direct clarification source: `docs/DIRECT_USER_MTF_ALIGNMENT_CLARIFICATION_2026-09-03.md`.
