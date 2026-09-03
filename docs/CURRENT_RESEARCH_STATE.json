@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-03T21:35:00+07:00",
+  "updated_at": "2026-09-03T21:59:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "POR_CHON_VISUAL_STANDING_BODY_PRIMARY_PARTIAL_CLOSED",
+  "completed_checkpoint": "MVP_RESEARCH_SET_01_USER_APPROVED",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -91,9 +91,10 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Audio-check ~19:15-20:50 to close exact Por Chon frame-standing body predicate and the role of the 23:00 H4 close.",
-    "Then audio/visual-check ~47:35-48:10 for post-SIG invalidation and ~51:30-52:45 for half-vs-swing conditions.",
-    "Continue PAT2/PAT3 50% measurement-basis evidence work and location truth-set alignment independently."
+    "Build a frozen MVP Set #1 measurement specification using 07:00 Daily Frame -> SW/Location -> SIG H1/H4 -> 1000/1500 objectives.",
+    "Parameterize unresolved SW/Location/SIG geometry rather than inventing production thresholds.",
+    "Run historical component tests and compare with negative controls before any Win/Loss claim.",
+    "Continue higher-complexity Por Chon/post-SIG/half-vs-swing research independently; do not require it for the first MVP test unless evidence shows it is necessary."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -103,6 +104,7 @@
     "trade expectancy"
   ],
   "key_files": [
+    "docs/MVP_RESEARCH_SET_01_2026-09-03.md",
     "docs/POR_CHON_VISUAL_STANDING_FRAME_EVIDENCE_2026-09-03.md",
     "docs/DIRECT_USER_POR_CHON_SPEAKER_IDENTITY_2026-09-03.md",
     "docs/POR_CHON_1900_TRANSCRIPT_CLOSURE_2026-09-03.md",
@@ -114,7 +116,7 @@
     "docs/MAE_PLA_0700_USER_CONFIRMATION_2026-09-03.md",
     "src/nexus_xau/research/evidence_provenance.py"
   ],
-  "resume_instruction": "Load maintenance policy -> current state -> canonical claim register. Por Chon standing is now safely partial-closed as body-sensitive and not wick-touch-only, but exact body/close geometry still requires the 19:15-20:50 audio check. Continue with post-SIG and half/swing visual-audio evidence after that.",
+  "resume_instruction": "Load maintenance policy -> current state -> canonical claim register. MVP Research Set #1 is now user-approved: 07:00 Daily Frame -> SW/Location -> SIG H1/H4 -> H1 1000 / H4 1500 project-point objectives, with a separate one-target-per-day variant. Treat 90% wording as scope acceptance, not performance. Build measurable frozen variants without inventing unresolved SW/Location/SIG thresholds, then test historical data.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -157,5 +159,19 @@
       "Whether 23:00 is universally required or simply the next H4 close in this example."
     ],
     "source_ref": "docs/POR_CHON_VISUAL_STANDING_FRAME_EVIDENCE_2026-09-03.md"
+  },
+  "mvp_research_set_01": {
+    "status": "ACTIVE_USER_APPROVED_FIRST_RESEARCH_SET",
+    "scope": [
+      "Daily Frame 07:00",
+      "SW/Location",
+      "SIG H1/H4",
+      "H1 objective 1000 project points",
+      "H4 objective 1500 project points",
+      "ONE_TARGET_PER_DAY variant stops evaluating later entries after first qualifying daily objective is reached"
+    ],
+    "source_ref": "docs/MVP_RESEARCH_SET_01_2026-09-03.md",
+    "guard": "Owner wording about 90% is not a win-rate or accuracy claim; it only indicates acceptable simplification for first testing.",
+    "live_money_separation": "Relative suggestion to withdraw achieved money is preserved as practical guidance, not a backtest signal rule."
   }
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-03T21:35:00+07:00",
+  "updated_at": "2026-09-03T21:59:00+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -215,6 +215,20 @@
         "DO_NOT_MIRROR_TO_BUY",
         "NOT_PROVEN_UNIVERSAL"
       ]
+    },
+    {
+      "claim_id": "MVP_RESEARCH_SET_01_SCOPE",
+      "canonical_statement": "The first approved research subset is 07:00 Daily Frame -> SW/Location -> SIG H1/H4 -> H1 1,000-point / H4 1,500-point objectives, with a separate one-target-per-day variant that stops after the first qualifying daily objective is achieved.",
+      "status": "ACTIVE_USER_APPROVED_RESEARCH_SCOPE",
+      "engine_permission": "RESEARCH_SCOPE_ONLY",
+      "source_refs": [
+        "docs/MVP_RESEARCH_SET_01_2026-09-03.md"
+      ],
+      "risk_flags": [
+        "SW_LOCATION_SIG_EXACT_GEOMETRY_NOT_FULLY_FROZEN",
+        "DO_NOT_INTERPRET_90_PERCENT_AS_WIN_RATE"
+      ],
+      "provenance_note": "This is a project research-scope decision supported by direct owner approval and relative guidance. It is not evidence of strategy profitability. The withdrawal suggestion is excluded from signal logic."
     },
     {
       "claim_id": "SYSTEM_WIN_RATE",
