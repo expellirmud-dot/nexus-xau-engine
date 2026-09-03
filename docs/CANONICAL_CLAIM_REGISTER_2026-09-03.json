@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-03T20:40:00+07:00",
+  "updated_at": "2026-09-03T21:10:00+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -124,16 +124,18 @@
     },
     {
       "claim_id": "POR_CHON_ATH_1900_WINDOW",
-      "canonical_statement": "Por Chon ATH construction uses a stated 19:00-19:00 interval and roughly 1,000-point prior-frame run condition; exact timezone/day-boundary semantics remain unresolved.",
-      "status": "ACTIVE_UNRESOLVED",
-      "engine_permission": "PARAMETERIZED_OR_HUMAN_CONFIRM",
+      "canonical_statement": "Por Chon uses a daily 19:00 cutoff. For each completed cutoff window, if the highest H4 wick/high made before 19:00 exceeds the previous Por Chon high frame by more than 1,000 project points, that highest H4 high becomes the new Por Chon New-High/ATH frame; otherwise keep the prior frame. Post-19:00 movement rolls into the next cutoff window.",
+      "status": "ACTIVE_SOURCE_BACKED_CUTOFF",
+      "engine_permission": "CANONICAL_RESEARCH_REPLAY_WITH_BOUNDARY_VALIDATION",
       "source_refs": [
-        "docs/PRIMARY_IMAGE_EVIDENCE_2026-09-01.md",
-        "docs/PA_LOCATION_SR_EVIDENCE_SYNTHESIS_2026-09-03.md"
+        "docs/POR_CHON_1900_TRANSCRIPT_CLOSURE_2026-09-03.md",
+        "docs/PRIMARY_IMAGE_EVIDENCE_2026-09-01.md"
       ],
       "risk_flags": [
-        "TIME_BOUNDARY_UNRESOLVED"
-      ]
+        "YOUTUBE_ASR_SOURCE_WORDING",
+        "H4_CUTOFF_BAR_INCLUSION_NEEDS_VALIDATION"
+      ],
+      "provenance_note": "Core cutoff/high-selection/>1000 semantics are repeated many times in the YouTube Show transcript and are robust despite ASR risk. Asia/Bangkok mapping is a project contextual interpretation, not a literal instructor timezone quote."
     },
     {
       "claim_id": "POR_CHON_OVERROUND_USAGE",

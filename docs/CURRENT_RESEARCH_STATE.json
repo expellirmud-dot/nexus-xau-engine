@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-03T20:40:00+07:00",
+  "updated_at": "2026-09-03T21:10:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "DIRECT_RELATIVE_POR_CHON_OVERROUND_USAGE_CAPTURED",
+  "completed_checkpoint": "POR_CHON_1900_DAILY_CUTOFF_SEMANTICS_CLOSED",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -91,10 +91,10 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Audit Por Chon 19:00-19:00 timezone/day-window semantics separately; do not infer it solely from Mae Pla 07:00.",
-    "Use the new direct-relative no-touch/over-round/Sideway evidence to refine Por Chon state/context modeling without inventing numeric thresholds.",
-    "If 19:00 cannot be closed from available evidence, continue independently with PAT2/PAT3 50% measurement-basis evidence.",
-    "Continue location truth-set OHLC alignment and post-SIG measurable invalidation work."
+    "Validate H4 candle inclusion around the Por Chon 19:00 local cutoff against the referenced chart/broker schedule; do not guess a one-bar boundary.",
+    "Continue PAT2/PAT3 50% measurement-basis evidence work.",
+    "Continue location truth-set OHLC alignment and post-SIG measurable invalidation work.",
+    "Use the direct-relative Por Chon over-round/no-touch/Sideway evidence together with the newly closed daily-cutoff semantics when building the Por Chon state/context model."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -104,6 +104,7 @@
     "trade expectancy"
   ],
   "key_files": [
+    "docs/POR_CHON_1900_TRANSCRIPT_CLOSURE_2026-09-03.md",
     "docs/DIRECT_RELATIVE_POR_CHON_OVERROUND_USAGE_2026-09-03.md",
     "docs/RESEARCH_LOOP_PROTOCOL_2026-09-03.md",
     "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
@@ -112,5 +113,27 @@
     "docs/MAE_PLA_0700_USER_CONFIRMATION_2026-09-03.md",
     "src/nexus_xau/research/evidence_provenance.py"
   ],
-  "resume_instruction": "Load maintenance policy -> current state -> canonical claim register. Treat the new direct-relative Por Chon over-round/no-touch/Sideway evidence as current context rules while keeping 19:00 timing and numeric thresholds unresolved. Finish one bounded claim checkpoint, validate, update register/state, commit/push, then continue to the next independent unresolved claim."
+  "resume_instruction": "Load maintenance policy -> current state -> canonical claim register. Por Chon 19:00 daily cutoff semantics are now source-backed: highest completed H4 high before cutoff, >1,000 project points above prior frame required, post-cutoff movement rolls to next window. Asia/Bangkok 19:00 -> UTC12 is the project contextual mapping, not a literal instructor timezone quote. Validate exact H4 cutoff-bar inclusion before production use, then continue the next unresolved claim.",
+  "por_chon_1900_transcript_closure": {
+    "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
+    "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
+    "closed": [
+      "19:00 is a daily cutoff/change boundary for Por Chon New-High frame evaluation.",
+      "Use the highest H4 wick/high made before the cutoff.",
+      "A new frame requires the candidate high to exceed the previous Por Chon high frame by more than 1,000 project points.",
+      "If the threshold is not met, no new Por Chon high frame is drawn.",
+      "Movement after 19:00 is evaluated in the next daily cutoff window."
+    ],
+    "project_time_mapping": {
+      "local_clock": "19:00 Asia/Bangkok",
+      "normalized_utc": "12:00 UTC",
+      "status": "CONTEXTUALLY_CONFIRMED_PROJECT_INTERPRETATION_NOT_LITERAL_INSTRUCTOR_TIMEZONE_QUOTE"
+    },
+    "still_open": [
+      "Exact H4 candle inclusion/labeling at the cutoff in the referenced broker/chart environment.",
+      "Exact equality behavior at precisely 1,000 points; source repeatedly says more than 1,000.",
+      "Tie handling for identical H4 highs.",
+      "Detailed old-frame retirement/replacement policy."
+    ]
+  }
 }
