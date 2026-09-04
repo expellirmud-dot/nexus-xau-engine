@@ -9,7 +9,9 @@ from pathlib import Path
 import pandas as pd
 
 from nexus_xau.research.mtf_alignment_variant_relation_test import LOOKBACK_VARIANTS
-from nexus_xau.research.path_remaining_daily_side_mtf_relation_v2 import run as run_period
+from nexus_xau.research.path_remaining_daily_side_mtf_relation_v2 import (
+    run as run_period,
+)
 
 
 @dataclass(frozen=True, slots=True)
@@ -47,7 +49,8 @@ def _filename_bounds(path: Path) -> tuple[pd.Timestamp, pd.Timestamp] | None:
     if len(dates) < 2:
         return None
     parsed = sorted(_utc_day(value) for value in dates)
-    return parsed[0], parsed[-1]
+    end_of_last_day = parsed[-1] + pd.Timedelta("1D") - pd.Timedelta("1min")
+    return parsed[0], end_of_last_day
 
 
 def _csv_timestamp_bounds(path: Path) -> tuple[pd.Timestamp, pd.Timestamp] | None:
@@ -112,7 +115,11 @@ def _interaction_candidate_stats(
         raw = pd.read_csv(path, usecols=["candidate_known_at"])
     except (ValueError, OSError, pd.errors.EmptyDataError):
         return None
-    known_at = pd.to_datetime(raw["candidate_known_at"], utc=True, errors="coerce").dropna()
+    known_at = pd.to_datetime(
+        raw["candidate_known_at"],
+        utc=True,
+        errors="coerce",
+    ).dropna()
     if known_at.empty:
         return None
     end_exclusive = end + pd.Timedelta("1D")
@@ -215,10 +222,7 @@ def run_known_periods(
 
     cross_variant: dict[str, object] = {}
     for variant in LOOKBACK_VARIANTS:
-        states = [
-            str(period["period_states"][variant])
-            for period in period_outputs
-        ]
+        states = [str(period["period_states"][variant]) for period in period_outputs]
         cross_variant[variant] = {
             "period_states": states,
             "decision": cross_period_decision(states),
@@ -242,7 +246,10 @@ def run_known_periods(
             "otherwise": "INCONCLUSIVE",
         },
         "interpretation_guard": [
-            "These periods have prior project use; this is replication/interaction evidence, not untouched final holdout confirmation.",
+            (
+                "These periods have prior project use; this is replication/interaction "
+                "evidence, not untouched final holdout confirmation."
+            ),
             "No aligned-TF production minimum is selected.",
             "PAT2 BODY and PATH_REMAINING remain research representations.",
             "Outcome cannot identify the instructor's canonical freshness rule.",
