@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-04T06:52:13+07:00",
+  "updated_at": "2026-09-04T06:59:36+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "MTF_ALIGNMENT_VARIANT_ROUND_01_CLOSED",
+  "completed_checkpoint": "SW_PROXY_VARIANT_ROUND_01_EXPLORATORY_CLOSED",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -91,10 +91,11 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Build a bounded SW proxy-family experiment (small candidate set) and separately evaluate source consistency vs outcome usefulness.",
-    "Test PAT2 BODY MTF alignment conditionally with Daily-Frame/Location state instead of as a standalone filter.",
-    "Retry/audit the remaining 18 failed Dukascopy dates before treating this one-year export as complete confirmatory data.",
-    "Continue multi-year Dukascopy acquisition and freeze discovery/validation/final-holdout partitions before new confirmatory claims."
+    "Acquire/prepare a genuinely untouched later Dukascopy period for fresh confirmation of W6 Oscillation Strength.",
+    "Retry/audit the remaining 18 failed dates in the 2022-09 to 2023-08 export without using this period for further SW threshold tuning.",
+    "Fresh-confirm W6 Oscillation Strength before promoting it beyond exploratory candidate status.",
+    "If fresh confirmation survives, test Daily-Frame/Location + W6 oscillation + H1 PAT2 BODY + MTF alignment interaction.",
+    "Continue source-rule identification separately when chart-aligned SW positive/negative labels become available."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -121,9 +122,12 @@
     "docs/MTF_ALIGNMENT_VARIANT_TEST_PLAN_2026-09-04.md",
     "docs/MTF_ALIGNMENT_VARIANT_ROUND_01_CLOSURE_2026-09-04.md",
     "src/nexus_xau/research/mtf_alignment_variant_relation_test.py",
-    "src/nexus_xau/research/mtf_alignment_event_summary.py"
+    "src/nexus_xau/research/mtf_alignment_event_summary.py",
+    "docs/SW_PROXY_VARIANT_TEST_PLAN_2026-09-04.md",
+    "docs/SW_PROXY_VARIANT_ROUND_01_CLOSURE_2026-09-04.md",
+    "src/nexus_xau/research/sw_proxy_variant_relation_test.py"
   ],
-  "resume_instruction": "Load maintenance policy -> CURRENT_RESEARCH_STATE -> canonical claim register -> MTF_ALIGNMENT_VARIANT_ROUND_01_CLOSURE. Round01 MTF PAT2-BODY proxy variants all INCONCLUSIVE: VAL does not consistently confirm the positive relation seen in TEST. Next prioritize bounded SW proxy families and conditional MTF interaction with Daily-Frame/Location; do not choose a production aligned-TF threshold.",
+  "resume_instruction": "Load maintenance policy -> CURRENT_RESEARCH_STATE -> canonical claim register -> SW_PROXY_VARIANT_ROUND_01_CLOSURE. MTF Round01 all three variants were INCONCLUSIVE. SW proxy Round01 tested 9 combinations; only W6 Oscillation Strength passed the within-round positive relation rule, but the same Duka VAL/TEST outcomes had already been inspected in MTF Round01, so project status is EXPLORATORY_SUPPORTED_CANDIDATE, not fresh confirmation. Acquire untouched later data before confirmation; do not tune more SW thresholds on the same period.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -315,5 +319,19 @@
     "interpretation": "PAT2 BODY MTF alignment is not established as a robust standalone filter. Favorable TEST-period relation plus weaker/opposite VAL relation makes a conditional/state interaction more plausible than a universal standalone effect.",
     "guard": "Does not refute the user-direct semantic that more true PA alignment is stronger; PAT2 BODY is only a proxy and no production minimum count may be selected from this result.",
     "next_question": "Test MTF alignment conditionally with Daily-Frame/Location and bounded SW state proxies rather than continuing threshold search in isolation."
+  },
+  "sw_proxy_variant_round_01": {
+    "status": "EXPLORATORY_SUPPORTED_CANDIDATE_NOT_FRESH_CONFIRMATION",
+    "source_ref": "docs/SW_PROXY_VARIANT_ROUND_01_CLOSURE_2026-09-04.md",
+    "plan_ref": "docs/SW_PROXY_VARIANT_TEST_PLAN_2026-09-04.md",
+    "dataset": "Dukascopy XAUUSD BID 2022-09-01 through 2023-08-31; positive-volume active M1; failed-date-crossing prehistory excluded",
+    "unique_source_h1_anchors": 1789,
+    "measured_anchor_window_rows": 5297,
+    "candidate_grid": "3 windows (6/12/24 active H1) x 3 shape features (oscillation strength / direction flip / candle overlap)",
+    "surviving_candidate": "W6_OSCILLATION_STRENGTH",
+    "raw_within_round_closure": "SUPPORTED_POSITIVE_RELATION on VAL and TEST under frozen rule",
+    "project_level_guard": "Same Dukascopy held-out outcome periods were already inspected in MTF Round 01, so this is exploratory and requires a genuinely untouched later period before confirmation.",
+    "other_eight_candidates": "INCONCLUSIVE and deprioritized for immediate threshold search",
+    "next_question": "Confirm W6 oscillation strength on an untouched later Dukascopy period; only if it survives, test interaction with Daily Frame/Location and MTF alignment."
   }
 }
