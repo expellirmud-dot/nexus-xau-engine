@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-04T06:59:36+07:00",
+  "updated_at": "2026-09-04T16:30:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "SW_PROXY_VARIANT_ROUND_01_EXPLORATORY_CLOSED",
+  "completed_checkpoint": "SW_W6_FRESH_CONFIRMATION_NOT_CONFIRMED",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -91,11 +91,10 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Acquire/prepare a genuinely untouched later Dukascopy period for fresh confirmation of W6 Oscillation Strength.",
-    "Retry/audit the remaining 18 failed dates in the 2022-09 to 2023-08 export without using this period for further SW threshold tuning.",
-    "Fresh-confirm W6 Oscillation Strength before promoting it beyond exploratory candidate status.",
-    "If fresh confirmation survives, test Daily-Frame/Location + W6 oscillation + H1 PAT2 BODY + MTF alignment interaction.",
-    "Continue source-rule identification separately when chart-aligned SW positive/negative labels become available."
+    "Freeze and test an inherited remaining-run representation rather than continuing W6 threshold search.",
+    "Use older viewed data only for formulation/discovery and reserve a later untouched cache segment for confirmation of the remaining-run equation.",
+    "Test Daily Frame / Location interaction with inherited remaining run before reintroducing MTF as a conditional confluence feature.",
+    "Continue source-rule identification separately when chart-aligned SW labels become available."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -125,9 +124,12 @@
     "src/nexus_xau/research/mtf_alignment_event_summary.py",
     "docs/SW_PROXY_VARIANT_TEST_PLAN_2026-09-04.md",
     "docs/SW_PROXY_VARIANT_ROUND_01_CLOSURE_2026-09-04.md",
-    "src/nexus_xau/research/sw_proxy_variant_relation_test.py"
+    "src/nexus_xau/research/sw_proxy_variant_relation_test.py",
+    "docs/SW_W6_FRESH_CONFIRMATION_CLOSURE_2026-09-04.md",
+    "src/nexus_xau/data/dukascopy_cache_export.py",
+    "src/nexus_xau/research/sw_w6_frozen_confirmation.py"
   ],
-  "resume_instruction": "Load maintenance policy -> CURRENT_RESEARCH_STATE -> canonical claim register -> SW_PROXY_VARIANT_ROUND_01_CLOSURE. MTF Round01 all three variants were INCONCLUSIVE. SW proxy Round01 tested 9 combinations; only W6 Oscillation Strength passed the within-round positive relation rule, but the same Duka VAL/TEST outcomes had already been inspected in MTF Round01, so project status is EXPLORATORY_SUPPORTED_CANDIDATE, not fresh confirmation. Acquire untouched later data before confirmation; do not tune more SW thresholds on the same period.",
+  "resume_instruction": "Load maintenance policy -> CURRENT_RESEARCH_STATE -> canonical claim register -> SW_W6_FRESH_CONFIRMATION_CLOSURE. W6 Oscillation Strength failed frozen fresh confirmation on 2023-09-01..2023-11-23 and must not be retuned there. Next bounded question is inherited remaining-run state and its Daily-Frame/Location interaction. Commit/push every coherent checkpoint.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -333,5 +335,22 @@
     "project_level_guard": "Same Dukascopy held-out outcome periods were already inspected in MTF Round 01, so this is exploratory and requires a genuinely untouched later period before confirmation.",
     "other_eight_candidates": "INCONCLUSIVE and deprioritized for immediate threshold search",
     "next_question": "Confirm W6 oscillation strength on an untouched later Dukascopy period; only if it survives, test interaction with Daily Frame/Location and MTF alignment."
+  },
+  "sw_w6_fresh_confirmation": {
+    "status": "NOT_CONFIRMED_ON_FRESH_PERIOD",
+    "source_ref": "docs/SW_W6_FRESH_CONFIRMATION_CLOSURE_2026-09-04.md",
+    "dataset": "Dukascopy XAUUSD BID cached M1 2023-09-01 through 2023-11-23; cache-complete chosen range; positive-volume active M1 for analysis",
+    "frozen_window_h1": 6,
+    "frozen_low_threshold": 0.3133975223863906,
+    "frozen_high_threshold": 0.7837295932951441,
+    "events": 449,
+    "low_events": 132,
+    "high_events": 119,
+    "spearman_target_first": -0.03229630692400073,
+    "spearman_target_reach": 0.010950782890796864,
+    "spearman_mfe": 0.03412393143958889,
+    "spearman_mae": -0.018426202630403347,
+    "decision": "NOT_CONFIRMED",
+    "guard": "Do not retune W6 thresholds on this confirmation period. This rejects only the W6 standalone proxy, not canonical Sideway semantics."
   }
 }
