@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-04T16:30:00+07:00",
+  "updated_at": "2026-09-04T16:40:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "SW_W6_FRESH_CONFIRMATION_NOT_CONFIRMED",
+  "completed_checkpoint": "REMAINING_RUN_STATE_ROUND_01_CLOSED",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -91,10 +91,10 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Freeze and test an inherited remaining-run representation rather than continuing W6 threshold search.",
-    "Use older viewed data only for formulation/discovery and reserve a later untouched cache segment for confirmation of the remaining-run equation.",
-    "Test Daily Frame / Location interaction with inherited remaining run before reintroducing MTF as a conditional confluence feature.",
-    "Continue source-rule identification separately when chart-aligned SW labels become available."
+    "Test Daily Frame / Location interaction conditional on PATH_REMAINING state using bounded predeclared variants.",
+    "Keep ORIGIN_TARGET_LEVEL as comparator; do not delete or silently replace it as canonical teacher intent.",
+    "Reintroduce MTF alignment only after state/location interaction is measured.",
+    "Continue source-rule identification for post-SIG invalidation and canonical remaining-run target semantics."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -127,9 +127,13 @@
     "src/nexus_xau/research/sw_proxy_variant_relation_test.py",
     "docs/SW_W6_FRESH_CONFIRMATION_CLOSURE_2026-09-04.md",
     "src/nexus_xau/data/dukascopy_cache_export.py",
-    "src/nexus_xau/research/sw_w6_frozen_confirmation.py"
+    "src/nexus_xau/research/sw_w6_frozen_confirmation.py",
+    "docs/REMAINING_RUN_STATE_TEST_PLAN_2026-09-04.md",
+    "docs/REMAINING_RUN_STATE_ROUND_01_CLOSURE_2026-09-04.md",
+    "src/nexus_xau/research/remaining_run_state_relation_test.py",
+    "tests/test_remaining_run_state_relation.py"
   ],
-  "resume_instruction": "Load maintenance policy -> CURRENT_RESEARCH_STATE -> canonical claim register -> SW_W6_FRESH_CONFIRMATION_CLOSURE. W6 Oscillation Strength failed frozen fresh confirmation on 2023-09-01..2023-11-23 and must not be retuned there. Next bounded question is inherited remaining-run state and its Daily-Frame/Location interaction. Commit/push every coherent checkpoint.",
+  "resume_instruction": "Load maintenance policy -> CURRENT_RESEARCH_STATE -> canonical claim register -> REMAINING_RUN_STATE_ROUND_01_CLOSURE. W6 SW proxy failed fresh confirmation. Remaining Run standalone state is inconclusive/regime-dependent; carry PATH_REMAINING as research representation only, not canonical teacher formula. Next bounded test: Daily Frame/Location + PATH_REMAINING + H1 PAT2 BODY. Commit/push every coherent checkpoint.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -352,5 +356,38 @@
     "spearman_mae": -0.018426202630403347,
     "decision": "NOT_CONFIRMED",
     "guard": "Do not retune W6 thresholds on this confirmation period. This rejects only the W6 standalone proxy, not canonical Sideway semantics."
+  },
+  "remaining_run_state_round_01": {
+    "status": "INCONCLUSIVE_REGIME_DEPENDENT_PATH_REMAINING_RETAINED_AS_RESEARCH_REPRESENTATION",
+    "source_ref": "docs/REMAINING_RUN_STATE_ROUND_01_CLOSURE_2026-09-04.md",
+    "plan_ref": "docs/REMAINING_RUN_STATE_TEST_PLAN_2026-09-04.md",
+    "periods": {
+      "2022-09_to_2023-03": {
+        "decision": "INCONCLUSIVE_INSUFFICIENT",
+        "inherited": 285,
+        "control": 15,
+        "path_remaining_reach": 0.7263157894736842,
+        "origin_level_reach": 0.45614035087719296
+      },
+      "2024-09_to_2024-11": {
+        "decision": "INCONCLUSIVE_INSUFFICIENT",
+        "inherited": 47,
+        "control": 24,
+        "path_remaining_reach": 0.8297872340425532,
+        "origin_level_reach": 0.425531914893617
+      },
+      "2025-09_to_2025-11": {
+        "decision": "INCONCLUSIVE_INSUFFICIENT",
+        "inherited": 29,
+        "control": 45,
+        "path_remaining_reach": 0.9655172413793104,
+        "origin_level_reach": 0.4482758620689655
+      }
+    },
+    "primary_state_effect": "NOT_ESTABLISHED; directions vary by period and minimum sample rule fails in every period.",
+    "research_representation": "PATH_REMAINING",
+    "research_representation_reason": "Directly operationalizes nominal run minus consumed progress and remains deterministic/no-lookahead. Outcome cannot establish teacher intent.",
+    "canonical_formula_status": "STILL_OPEN",
+    "next_question": "Daily Frame / Location + PATH_REMAINING state + qualifying H1 PAT2 BODY interaction."
   }
 }
