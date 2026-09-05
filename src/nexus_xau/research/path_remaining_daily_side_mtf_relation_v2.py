@@ -8,7 +8,9 @@ import pandas as pd
 
 from nexus_xau.data.csv_loader import load_ohlc_csv
 from nexus_xau.research.mtf_alignment_variant_relation_test import LOOKBACK_VARIANTS, TIMEFRAMES
-from nexus_xau.research.path_remaining_daily_side_mtf_relation import enrich_events_with_mtf_alignment
+from nexus_xau.research.path_remaining_daily_side_mtf_relation import (
+    enrich_events_with_mtf_alignment,
+)
 
 # Inherit the already-frozen parent Daily-Frame-side minimum instead of inventing
 # a new 40-event gate for this conditional relation test.
