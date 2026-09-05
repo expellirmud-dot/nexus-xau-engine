@@ -11,9 +11,14 @@ $Python = ".\.venv\Scripts\python.exe"
 $OutputRoot = "results\PATH_REMAINING_DAILY_SIDE_MTF_V2"
 $Summary = "$OutputRoot\CROSS_PERIOD_SUMMARY.json"
 $Closure = "$OutputRoot\EMPIRICAL_CLOSURE.md"
+$PytestBaseTemp = ".pytest-tmp-nexus-xau"
 
-Write-Host "[1/4] pytest"
-& $Python -m pytest
+# Some Windows environments deny access to pytest's default
+# %LOCALAPPDATA%\Temp\pytest-of-<user> directory. Keep pytest temporary
+# files inside this repository instead. The path is already covered by
+# .gitignore via .pytest-tmp-*/.
+Write-Host "[1/4] pytest (repo-local basetemp: $PytestBaseTemp)"
+& $Python -m pytest --basetemp $PytestBaseTemp
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 Write-Host "[2/4] ruff"
