@@ -8,10 +8,12 @@ if (-not (Test-Path ".\.venv\Scripts\python.exe")) {
 }
 
 $Python = ".\.venv\Scripts\python.exe"
-$PytestTemp = ".pytest-tmp-post-sig-invalidation"
+$RunId = [guid]::NewGuid().ToString("N")
+$PytestTemp = ".pytest-tmp-post-sig-invalidation-$RunId"
 $OutputRoot = "results\POST_SIG_INVALIDATION_CONFLICT_SCAN"
 
 Write-Host "[1/3] pytest"
+Write-Host "pytest basetemp: $PytestTemp"
 & $Python -m pytest --basetemp $PytestTemp
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
