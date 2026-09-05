@@ -4,6 +4,8 @@ import argparse
 import json
 from pathlib import Path
 
+import pandas as pd
+
 from nexus_xau.research.inherited_origin_context_batch import (
     KNOWN_PERIODS,
     discover_remaining_events_file,
@@ -56,8 +58,8 @@ def run_known_periods(
             remaining_events_path=remaining_path,
             report_path=report_path,
             scan_path=scan_path,
-            period_start=__import__("pandas").Timestamp(period.start, tz="UTC"),
-            period_end=__import__("pandas").Timestamp(period.end, tz="UTC"),
+            period_start=pd.Timestamp(period.start, tz="UTC"),
+            period_end=pd.Timestamp(period.end, tz="UTC"),
         )
         summary = report["summary"]
         state = str(summary["period_state"])
