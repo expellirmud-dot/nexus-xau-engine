@@ -10,6 +10,8 @@ import pandas as pd
 from nexus_xau.research.inherited_origin_context_relation import (
     REQUIRED_DAILY_COLUMNS,
     REQUIRED_REMAINING_COLUMNS,
+)
+from nexus_xau.research.inherited_origin_context_relation import (
     run as run_period,
 )
 
