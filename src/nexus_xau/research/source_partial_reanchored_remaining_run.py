@@ -4,6 +4,7 @@ import argparse
 import json
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 from nexus_xau.data.csv_loader import load_ohlc_csv
@@ -78,6 +79,100 @@ def select_source_partial_origin(
     return None
 
 
+def _first_true_timestamp(
+    index: pd.DatetimeIndex,
+    *,
+    start: int,
+    mask: np.ndarray,
+) -> pd.Timestamp | None:
+    if mask.size == 0 or not bool(mask.any()):
+        return None
+    return pd.Timestamp(index[start + int(mask.argmax())])
+
+
+def _build_origin_lifecycle_cache(
+    active_m1: pd.DataFrame,
+    origins: list[OriginRun],
+) -> dict[OriginRun, tuple[int, pd.Timestamp | None, pd.Timestamp | None]]:
+    """Precompute first nominal completion and strict destruction timestamps per origin.
+
+    The cached timestamps preserve the frozen interval semantics used by the reference
+    selector: an event at exactly `end` is not counted because the original slices use
+    `[origin.anchor_known_at, end)`.
+    """
+
+    index = active_m1.index
+    highs = active_m1["high"].to_numpy(dtype=float, copy=False)
+    lows = active_m1["low"].to_numpy(dtype=float, copy=False)
+    target_distance = H1_TARGET_POINTS * PROJECT_POINT_SIZE
+    cache: dict[OriginRun, tuple[int, pd.Timestamp | None, pd.Timestamp | None]] = {}
+
+    for origin in origins:
+        start = int(index.searchsorted(origin.anchor_known_at, side="left"))
+        if start >= len(index):
+            cache[origin] = (start, None, None)
+            continue
+
+        if origin.side == "BUY":
+            completion_mask = highs[start:] >= origin.anchor_price + target_distance
+            destruction_mask = lows[start:] < origin.anchor_price
+        else:
+            completion_mask = lows[start:] <= origin.anchor_price - target_distance
+            destruction_mask = highs[start:] > origin.anchor_price
+
+        completion_at = _first_true_timestamp(
+            index,
+            start=start,
+            mask=completion_mask,
+        )
+        destruction_at = _first_true_timestamp(
+            index,
+            start=start,
+            mask=destruction_mask,
+        )
+        cache[origin] = (start, completion_at, destruction_at)
+
+    return cache
+
+
+def _select_source_partial_origin_cached(
+    *,
+    active_m1: pd.DataFrame,
+    origins: list[OriginRun],
+    lifecycle_cache: dict[
+        OriginRun,
+        tuple[int, pd.Timestamp | None, pd.Timestamp | None],
+    ],
+    side: str,
+    cutoff_utc: pd.Timestamp,
+    candidate_known_at: pd.Timestamp,
+) -> OriginRun | None:
+    side = side.upper()
+    candidate_pos = int(active_m1.index.searchsorted(candidate_known_at, side="left"))
+    eligible = [
+        origin
+        for origin in origins
+        if origin.side == side and origin.anchor_known_at <= cutoff_utc
+    ]
+
+    for origin in reversed(eligible):
+        start_pos, completion_at, destruction_at = lifecycle_cache[origin]
+
+        # The reference destruction helper returns None for an empty
+        # [anchor, candidate) path and the selector rejects that origin.
+        if candidate_pos <= start_pos:
+            continue
+        if completion_at is not None and completion_at < cutoff_utc:
+            continue
+        if completion_at is not None and completion_at < candidate_known_at:
+            continue
+        if destruction_at is not None and destruction_at < candidate_known_at:
+            continue
+        return origin
+
+    return None
+
+
 def _impact_label(
     *,
     old_state: str,
@@ -118,6 +213,7 @@ def rebuild_events(
     active = m1[m1["volume"] > 0].copy() if "volume" in m1.columns else m1.copy()
     h1 = resample_ohlc(active, "H1")
     origins = _build_origins(h1)
+    lifecycle_cache = _build_origin_lifecycle_cache(active, origins)
 
     parent = parent_events.copy()
     parent["cutoff_utc"] = pd.to_datetime(parent["cutoff_utc"], utc=True)
@@ -137,9 +233,10 @@ def rebuild_events(
         if horizon_end is None:
             continue
 
-        selected = select_source_partial_origin(
+        selected = _select_source_partial_origin_cached(
             active_m1=active,
             origins=origins,
+            lifecycle_cache=lifecycle_cache,
             side=side,
             cutoff_utc=cutoff,
             candidate_known_at=candidate_known_at,
