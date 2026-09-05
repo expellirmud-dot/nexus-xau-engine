@@ -149,9 +149,11 @@ def render_closure(summary: dict[str, object]) -> str:
         [
             "## Interpretation discipline",
             "",
-            "The cross-period decision above is copied from the frozen batch decision rule. "
-            "This document does not upgrade evidence provenance, choose a freshness variant as canonical, "
-            "or convert any historical relationship into a production entry threshold.",
+            (
+                "The cross-period decision above is copied from the frozen batch decision rule. "
+                "This document does not upgrade evidence provenance, choose a freshness variant as canonical, "
+                "or convert any historical relationship into a production entry threshold."
+            ),
             "",
         ]
     )
