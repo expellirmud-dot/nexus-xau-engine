@@ -69,6 +69,7 @@ def run_known_periods(
     periods: list[dict[str, object]] = []
     side_states: list[str] = []
     for period in KNOWN_PERIODS:
+        print(f"PROGRESS {period.label} START", flush=True)
         m1_path = discover_m1_file(m1_root, start=period.start, end=period.end)
         parent_path = discover_parent_remaining_events(
             results_root,
@@ -85,6 +86,11 @@ def run_known_periods(
             events_path=reanchor_events_path,
             period_start=_utc_day(period.start),
             period_end=_utc_day(period.end),
+        )
+        print(
+            f"PROGRESS {period.label} REANCHOR_DONE "
+            f"{json.dumps(reanchor_report['summary'], ensure_ascii=False)}",
+            flush=True,
         )
 
         daily_report_path = output_root / f"{period.label}_DAILY_INTERACTION_REPORT.json"
@@ -120,6 +126,10 @@ def run_known_periods(
                 "daily_side_state": side_state,
                 "daily_side_groups": side_report["groups"],
             }
+        )
+        print(
+            f"PROGRESS {period.label} DAILY_SIDE_DONE {side_state}",
+            flush=True,
         )
 
     result: dict[str, object] = {
