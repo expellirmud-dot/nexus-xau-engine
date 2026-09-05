@@ -131,9 +131,9 @@ def summarize_scan(scan: pd.DataFrame) -> dict[str, object]:
             "period_state": "NOT_TESTABLE_WITH_CURRENT_EVIDENCE",
         }
 
-    evaluable = scan[scan["evaluable"] == True]  # noqa: E712
-    destroyed = evaluable[evaluable["destroyed_before_candidate"] == True]  # noqa: E712
-    intact = evaluable[evaluable["destroyed_before_candidate"] == False]  # noqa: E712
+    evaluable = scan[scan["evaluable"] == True]
+    destroyed = evaluable[evaluable["destroyed_before_candidate"] == True]
+    intact = evaluable[evaluable["destroyed_before_candidate"] == False]
     if evaluable.empty:
         state = "NOT_TESTABLE_WITH_CURRENT_EVIDENCE"
         fraction = None
