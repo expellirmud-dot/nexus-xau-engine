@@ -92,9 +92,9 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Investigate source-backed post-SIG lifecycle semantics: full reset versus older-origin re-evaluation after destruction.",
-    "If continuing empirically without a new source rule, measure threshold-free relationships among origin survival/destruction, origin age, consumed progress, and candidate timing without selecting thresholds from outcomes.",
-    "Do not resume graded-MTF conditional testing as if legacy inherited-state support remained confirmed; first establish a defensible active-origin population or retain INCONCLUSIVE."
+    "Review the existing five local video+transcript source pairs first, prioritizing source evidence relevant to post-SIG lifecycle/reset/re-evaluation semantics.",
+    "Classify each unresolved mechanic as SOURCE_CLOSED, SOURCE_PARTIAL, VISUAL_AMBIGUOUS, NUMERICALLY_UNDEFINED, EMPIRICAL_RELATION_NEEDED, or IMPLEMENTATION_VALIDATION_NEEDED before running data.",
+    "Only after source/visual review, run bounded threshold-free or multi-variant computation for residual ambiguity; do not select thresholds from favorable outcomes."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -141,7 +141,8 @@
     "docs/SOURCE_PARTIAL_REANCHORED_DAILY_SIDE_CLOSURE_2026-09-08.md",
     "tests/test_daily_frame_remaining_run_interaction.py",
     "TOOLS.md",
-    "docs/VIDEO_EVIDENCE_PIPELINE_2026-09-08.md"
+    "docs/VIDEO_EVIDENCE_PIPELINE_2026-09-08.md",
+    "docs/SOURCE_FIRST_VISUAL_FIRST_RESEARCH_PROTOCOL_2026-09-08.md"
   ],
   "resume_instruction": "Load maintenance policy -> TOOLS.md -> CURRENT_RESEARCH_STATE -> canonical claim register -> SOURCE_PARTIAL_REANCHORED_DAILY_SIDE_CLOSURE_2026-09-08. Reuse registered tools before building duplicates. Load maintenance policy -> CURRENT_RESEARCH_STATE -> canonical claim register -> SOURCE_PARTIAL_REANCHORED_DAILY_SIDE_CLOSURE_2026-09-08. The invalidation-aware re-anchor closed INCONCLUSIVE_AFTER_SOURCE_PARTIAL_REANCHOR with all three Daily-side periods INSUFFICIENT; legacy Daily-side SUPPORT is historical/confounded and not current confirmation. Next bounded step: source-backed post-SIG lifecycle/older-origin semantics, or threshold-free relationship diagnostics without inventing thresholds. Commit/push every coherent checkpoint.",
   "por_chon_1900_transcript_closure": {
@@ -483,5 +484,17 @@
     ],
     "local_video_vault": "D:\\nexus-xau-engine-repo\\youtube",
     "guard": "Read TOOLS.md before concluding a required utility is absent or creating a duplicate implementation."
+  },
+  "research_method_priority": {
+    "source_ref": "docs/SOURCE_FIRST_VISUAL_FIRST_RESEARCH_PROTOCOL_2026-09-08.md",
+    "status": "ACTIVE_USER_DIRECT",
+    "default_order": [
+      "PRIMARY_SOURCE_REVIEW",
+      "SYNCHRONIZED_VIDEO_TRANSCRIPT_VISUAL_REVIEW",
+      "CLOSE_SOURCE_BACKED_SEMANTICS",
+      "CLASSIFY_RESIDUAL_AMBIGUITY",
+      "BOUNDED_COMPUTATION_ONLY_IF_NEEDED"
+    ],
+    "guard": "Do not run broad historical variant searches for questions that primary video/audio/visual evidence can close directly. Do not force visual examples into exact numeric thresholds when the source does not define them."
   }
 }
