@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-09T04:41:38+07:00",
+  "updated_at": "2026-09-09T04:46:08+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION",
+  "completed_checkpoint": "RQ009_EXECUTION_FILL_SOURCE_BOUNDARY",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -29,6 +29,7 @@
       "docs/CURRENT_RESEARCH_STATE.json",
       "research_queue/QUEUE.json",
       "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
+      "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md",
       "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md",
       "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
       "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
@@ -104,11 +105,11 @@
     "research_preflight": "PASS"
   },
   "next_steps": [
-    "Continue RQ-009 with exact lower-timeframe execution/fill and structural tolerance after source-backed confirmation; keep source signal time separate from analyst/replay fill convention.",
-    "Do not re-open Body Collection exact touched->used lifecycle geometry from the same current batch; reopen only with materially new source/clarification. Preserve the semantic state machine without automatic OHLC transition.",
-    "Do not re-open PAT >50% denominator from the same already-reviewed transcript/visual evidence; it remains unresolved until a discriminating source case or direct clarification appears.",
-    "After execution/fill, re-rank remaining blockers including broker/feed equality normalization, Sideway deterministic entry geometry, and cross-frame priority.",
-    "Do not run/report canonical full-system Win/Loss until deterministic source geometry/execution conventions are frozen and a pristine holdout exists."
+    "Continue RQ-009 with broker/feed price normalization for already source-backed equality/contact relations: ซอก close/open same-price, คู่ equilibrium, post-SIG point-check contact, and same-level retest structures.",
+    "Keep source signal/knowledge time separate from execution fill model. Exact universal broker fill is source-incomplete in the current batch; do not re-scan without materially new evidence.",
+    "Mode 1 SIG entry is intrinsically intrabar in the source; do not silently replace it with next-bar-open in a bar-only replay. Mode 2 and M5 Entry2 still require an explicit labeled execution model after source-backed signal time.",
+    "Do not re-open Body Collection exact touched->used lifecycle geometry or PAT >50% denominator from the same already-reviewed evidence without a reopen trigger.",
+    "Do not run/report canonical full-system Win/Loss until deterministic source geometry plus explicit execution conventions are frozen and a pristine holdout exists."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -207,9 +208,10 @@
     "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
     "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
     "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
-    "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md"
+    "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md",
+    "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md"
   ],
-  "resume_instruction": "After zero-context preflight, resume RQ-009 from the Body Collection lifecycle-geometry source-exhaustion checkpoint. Do not repeat the exact touched->used lifecycle scan without new source. Next target is exact lower-TF execution/fill and structural tolerance after a source-backed confirmation event.",
+  "resume_instruction": "After zero-context preflight, resume RQ-009 from the execution-fill source-boundary checkpoint. Exact universal fill is current-batch source-incomplete. Next target is broker/feed price normalization needed to implement source-backed equality/contact semantics without outcome-fitted tolerances.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -732,9 +734,9 @@
     "guard": "Do not run/report a canonical full-system Win/Loss result by filling unresolved fields with analyst-selected thresholds or by relabeling component research statistics."
   },
   "rq009_source_gap_closure": {
-    "status": "ACTIVE_LIFECYCLE_GEOMETRY_SOURCE_INCOMPLETE_EXECUTION_FILL_NEXT",
+    "status": "ACTIVE_EXECUTION_FILL_SOURCE_INCOMPLETE_BROKER_NORMALIZATION_NEXT",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-    "checkpoint_ref": "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md",
+    "checkpoint_ref": "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md",
     "source_batch": [
       "vcdN51_OrPE",
       "1E_PYPor1qQ",
@@ -795,7 +797,8 @@
       "EP.5 explicitly routes out of normal Body Collection when the setup becomes Sideway.",
       "EP.5 separately allows the structural/forecast zone to remain location context for a Sideway-style entry workflow, while genuine PA/SIG state must still be assessed.",
       "The apparent conflict is resolved by separating structural zone memory from market-state-specific entry workflow.",
-      "Targeted current-batch lifecycle scan establishes a durable negative/source-incomplete result: no universal OHLC event is taught for Body Collection TOUCHED/REVALIDATED -> COLLECTED/USED, and no exact post-touch S/R revalidation predicate is taught. Semantic lifecycle remains valid; machine transition requires new source."
+      "Targeted current-batch lifecycle scan establishes a durable negative/source-incomplete result: no universal OHLC event is taught for Body Collection TOUCHED/REVALIDATED -> COLLECTED/USED, and no exact post-touch S/R revalidation predicate is taught. Semantic lifecycle remains valid; machine transition requires new source.",
+      "Current source batch closes family-specific signal knowledge timing but not one universal exact broker fill: SIG Mode1 is intrabar/forming-candle, Mode2 uses the following candle after point-check confirmation, M5 Entry2 becomes signal-ready only after closed confirmation, and EP5 lower-TF execution requires PA/brake confirmation. Exact fill price and universal structural tick tolerance remain source-incomplete/implementation-layer decisions."
     ],
     "still_open": [
       "Exact PAT2/PAT3 >50% denominator/arithmetic and feed-equality convention.",
@@ -804,11 +807,11 @@
       "Body Collection-specific priority when multiple same-TF or lower-TF candidates coexist; EP.6 nearest-first evidence is currently S/R-context guidance only.",
       "Universal support/resistance certification geometry for every คู่ candidate and universal wick selection when several wicks qualify.",
       "Exact OHLC transition from touched/revalidated zone to completed/used Body Collection and exact post-touch S/R revalidation are SOURCE_INCOMPLETE_IN_CURRENT_BATCH; new primary source/clarification is required rather than further same-batch scanning.",
-      "Exact broker fill price and structural point tolerance after a source-backed confirmation event.",
+      "Exact universal broker fill price and universal structural point/tick tolerance are SOURCE_INCOMPLETE_IN_CURRENT_BATCH; explicit execution/broker normalization conventions are required and must remain labeled implementation assumptions.",
       "Exact Body Collection-to-Sideway transition geometry, Sideway frame-complete/false-break detector, and deterministic Sideway entry eligibility remain open despite route separation.",
       "Cross-timeframe/source-frame priority where multiple location/Sideway/Body Collection structures coexist."
     ],
-    "proof_readiness": "LIFECYCLE_SEMANTICS_CLOSED_EXACT_TRANSITION_SOURCE_INCOMPLETE_EXECUTION_FILL_EQUALITY_PRIORITY_AND_SIDEWAY_GEOMETRY_OPEN",
+    "proof_readiness": "SIGNAL_KNOWLEDGE_TIMING_CLOSED_EXACT_FILL_SOURCE_INCOMPLETE_BROKER_NORMALIZATION_PRIORITY_AND_SIDEWAY_GEOMETRY_OPEN",
     "body_collection_audit_ref": "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
     "sideway_audit_ref": "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
     "external_source_target": {
@@ -851,7 +854,8 @@
     "cross_tf_alignment_shown_form_ref": "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
     "partial_sr_reconciliation_ref": "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
     "body_collection_sideway_routing_ref": "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
-    "body_collection_lifecycle_geometry_source_exhaustion_ref": "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md"
+    "body_collection_lifecycle_geometry_source_exhaustion_ref": "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md",
+    "execution_fill_source_boundary_ref": "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md"
   },
   "agent_bootstrap": {
     "entrypoint": "AGENTS.md",
@@ -876,5 +880,5 @@
     "coverage_scope": "PARTIAL_SEED_RQ009_CURRENT_RESEARCH_WINDOWS",
     "coverage_backfill_guard": "Do not infer missing historical coverage metadata; backfill only from preserved evidence."
   },
-  "maintenance_checkpoint": "RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09"
+  "maintenance_checkpoint": "RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09"
 }

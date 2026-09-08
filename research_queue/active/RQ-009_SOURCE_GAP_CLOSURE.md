@@ -364,3 +364,22 @@ and does not define one exact OHLC predicate for post-touch support/resistance r
 Decision: `CURRENT_BATCH_SOURCE_INCOMPLETE / SEMANTIC_LIFECYCLE_CLOSED`.
 
 Do not re-scan the same source windows for this exact question without a reopen trigger. Next decision-critical target is exact lower-timeframe execution/fill and structural tolerance after a source-backed confirmation event.
+
+## Latest execution-fill source-boundary checkpoint
+
+Ref: `docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md`
+
+A targeted current-batch execution scan separates source signal timing from actual broker fill:
+
+```text
+SIG MODE 1: PA confirmed -> entry may occur intrabar while next/prospective post-SIG candle body-collects
+SIG MODE 2: post-SIG/point-check confirms -> entry family uses the following candle during body collection
+M5 ENTRY #2: retest confirmation must close -> ENTRY_2_SIGNAL_READY
+EP5 BODY COLLECTION: forecast zone alone is insufficient -> lower-TF PA/brake/structure confirmation required
+```
+
+No source-backed universal rule was found equating actual broker fill with confirmation close, next open, exact Point #2, first post-confirmation touch, or a fixed point offset. Worked/live entry prices remain contextual examples. Exact structural tick tolerance for equal/same-level/close-to-frame relations is likewise not stated.
+
+Decision: `SOURCE_SIGNAL_TIMING_CLOSED / EXACT_BROKER_FILL_SOURCE_INCOMPLETE_CURRENT_BATCH`.
+
+Replay must store `signal_known_at` separately from an explicitly labeled `execution_fill_model`. Next RQ-009 target is broker/feed normalization for already source-backed equality/contact semantics.

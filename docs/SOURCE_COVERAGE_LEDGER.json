@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T04:41:38+07:00",
+  "updated_at": "2026-09-09T04:46:08+07:00",
   "purpose": "Durable source-review memory. Records which source windows/topics have already been screened or reviewed, what they established, what remains unresolved, and when a review may be reopened. This ledger prevents future agents from restarting source research from zero.",
   "rules": {
     "closed_windows_are_not_researched_from_zero_without_reopen_trigger": true,
@@ -602,6 +602,40 @@
         "CLEARER_SYNCHRONIZED_AUDIO_OR_VISUAL",
         "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION",
         "SOURCE_OR_TIMESTAMP_MAPPING_ERROR"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "RQ009_EXECUTION_FILL_SIGNAL_TIMING_CURRENT_BATCH",
+      "source_id": "1E_PYPor1qQ+UV5NijhjfJ8+16KoS7d-koI+oCcG3dUjrgw+vcdN51_OrPE",
+      "source_title": "PA/PAT + EP.4 M5 brake + EP.6 M1/M5 entry + EP.5 Body Collection + system summary",
+      "topic": "Family-specific signal/knowledge timing versus exact broker execution fill",
+      "window": "targeted full-transcript execution scan; key windows 1E 00:53:09-01:06:40; EP4 00:38:25-00:45:17 and 01:08:28+; EP6 entry/retest examples; EP5 00:56:35-00:59:43",
+      "reviewed_modalities": [
+        "LOCAL_TRANSCRIPTS",
+        "YOUTUBE_RENDERED_TRANSCRIPT",
+        "PRIOR_SYNCHRONIZED_VISUAL_CONTEXT"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Source closes family-specific entry timing: SIG Mode1 can enter during the forming next/post-SIG body-collection candle after PA confirmation; SIG Mode2 waits for post-SIG confirmation then uses the following candle; M5 Entry2 signal is known after closed retest confirmation; EP5 zone requires lower-TF PA/brake confirmation. No universal exact broker-fill equation or structural tick tolerance is taught. Worked/live entry prices are contextual examples.",
+      "residual_unknowns": [
+        "EXACT_BROKER_FILL_MODEL_REQUIRES_EXPLICIT_IMPLEMENTATION_SPEC",
+        "MODE1_INTRABAR_TRIGGER_PRICE_SOURCE_INCOMPLETE",
+        "UNIVERSAL_STRUCTURAL_EQUALITY_TOUCH_TOLERANCE_REQUIRES_BROKER_NORMALIZATION_OR_NEW_SOURCE"
+      ],
+      "claim_ids": [
+        "EXECUTION_FILL_SOURCE_BOUNDARY",
+        "SIG_ENTRY_TWO_MODES",
+        "M5_BRAKE_ENTRY2_RETEST_SIGNAL"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "NEW_PRIMARY_SOURCE_EVIDENCE",
+        "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION",
+        "SOURCE_OR_TIMESTAMP_MAPPING_ERROR",
+        "MATERIALLY_NEW_EXECUTION_FAMILY_NOT_COVERED_BY_THIS_REVIEW"
       ],
       "last_reviewed_at": "2026-09-09"
     }

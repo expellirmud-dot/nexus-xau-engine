@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T04:41:38+07:00",
+  "updated_at": "2026-09-09T04:46:08+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -144,14 +144,16 @@
       "source_refs": [
         "docs/M5_BRAKE_TRANSCRIPT_FORENSICS_2026-09-01.md",
         "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md",
-        "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md"
+        "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
+        "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
         "QUALITATIVE_FORCE_THRESHOLDS_UNRESOLVED",
         "EXACT_FILL_PRICE_UNRESOLVED",
         "STRUCTURAL_POINT_TOLERANCE_UNRESOLVED",
         "FOUR_TO_TEN_HARD_GATE_NOT_PROVEN_UNIVERSAL",
-        "YOUTUBE_ASR_SOURCE_WORDING"
+        "YOUTUBE_ASR_SOURCE_WORDING",
+        "EXACT_FILL_PRICE_SOURCE_INCOMPLETE_CURRENT_BATCH"
       ],
       "provenance_note": "RQ-009 adds synchronized EP.4 visuals at ~38:25, ~51:04 and ~1:29:45 plus EP.4/EP.6 transcript cross-check. Point2 entry / Point1 structural SL topology and closed-candle knowledge time are source-backed; execution fill convention remains an analyst/replay choice unless separately sourced."
     },
@@ -270,7 +272,7 @@
     },
     {
       "claim_id": "SYSTEM_WIN_RATE",
-      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 now distinguishes complete/strong higher-reference ซอก+ไส้+คู่ zones from weaker lower-TF partial S/R component structures and separates normal Body Collection from Sideway routing. The current source batch also fails to define an exact Body Collection TOUCHED/REVALIDATED -> COLLECTED/USED OHLC transition. Arbitrary Body Collection component merging, broker/feed equality normalization, unseen two-reference selection, Body Collection-specific candidate priority, exact lower-TF fill, PAT denominator/arithmetic, Sideway/cross-frame geometry, and a pristine final holdout remain unresolved.",
+      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 now closes semantic Body Collection lifecycle while marking its exact used-transition source-incomplete, and closes family-specific entry signal/knowledge timing while marking exact universal broker fill and structural tick tolerance source-incomplete in the current batch. Arbitrary Body Collection component merging, broker/feed equality normalization, unseen two-reference selection, Body Collection-specific candidate priority, PAT denominator/arithmetic, Sideway/cross-frame geometry, explicit execution-model freezing, and a pristine final holdout remain unresolved.",
       "status": "ACTIVE_BLOCKER_NOT_TESTABLE_WITH_CURRENT_EVIDENCE",
       "engine_permission": "DO_NOT_CLAIM",
       "source_refs": [
@@ -293,7 +295,8 @@
         "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
         "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
-        "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md"
+        "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md",
+        "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
         "UNIVERSAL_BODY_COLLECTION_CANDIDATE_PRIORITY_OPEN",
@@ -309,7 +312,8 @@
         "BODY_COLLECTION_OTHER_CROSS_TF_COMPONENT_PERMUTATIONS_OPEN",
         "PARTIAL_SR_COMPONENTS_DO_NOT_CLOSE_BODY_COLLECTION_ARBITRARY_MERGE",
         "SIDEWAY_ROUTE_SEPARATION_CLOSED_BUT_SIDEWAY_ENTRY_GEOMETRY_OPEN",
-        "BODY_COLLECTION_LIFECYCLE_EXACT_TRANSITION_SOURCE_INCOMPLETE_CURRENT_BATCH"
+        "BODY_COLLECTION_LIFECYCLE_EXACT_TRANSITION_SOURCE_INCOMPLETE_CURRENT_BATCH",
+        "EXACT_EXECUTION_FILL_SOURCE_INCOMPLETE_CURRENT_BATCH"
       ],
       "provenance_note": "EP.4/EP.6 partial-component S/R evidence narrows context but does not supply a complete trade construction or universal Body Collection assembly algorithm. RQ-008 readiness stop remains in force."
     },
@@ -377,19 +381,23 @@
     {
       "claim_id": "SIG_ENTRY_TWO_MODES",
       "canonical_statement": "The source explicitly teaches two SIG-entry modes. Mode 1: after PA confirmation, enter during body collection while the prospective post-SIG candle is still forming; structural SL reference is the longest PA wick, or a nearby source-defined frame when applicable. Mode 2: after the post-SIG candle confirms and its wick becomes the point-check, enter on the following candle/body-collection move; for the discussed setup the confirmed post-SIG wick, point-check and structural SL reference are the same structural reference, with nearby source-defined frame routing when applicable. Example point buffers are contextual, not universal.",
-      "status": "ACTIVE_SOURCE_BACKED_ENTRY_STATE_MACHINE",
-      "engine_permission": "CANONICAL_RESEARCH_REPLAY_WITH_ENTRY_PRICE_AND_CONTEXT_GUARDS",
+      "status": "ACTIVE_SOURCE_BACKED_ENTRY_STATE_MACHINE_EXACT_FILL_SOURCE_INCOMPLETE_CURRENT_BATCH",
+      "engine_permission": "CANONICAL_SIGNAL_STATE_MACHINE_EXPLICIT_FILL_MODEL_REQUIRED",
       "source_refs": [
         "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
-        "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md"
+        "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
+        "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
         "EXACT_ENTRY_PRICE_WITHIN_BODY_COLLECTION_ZONE_UNRESOLVED",
         "SL_BUFFER_CONTEXT_SPECIFIC_NOT_UNIVERSAL",
         "LOCATION_CONTEXT_REQUIRED",
-        "DO_NOT_BLEND_WITH_FRAME_BRAKE_ENTRY"
+        "DO_NOT_BLEND_WITH_FRAME_BRAKE_ENTRY",
+        "MODE1_INTRABAR_EXACT_TRIGGER_PRICE_SOURCE_INCOMPLETE",
+        "MODE2_FOLLOWING_CANDLE_EXACT_FILL_SOURCE_INCOMPLETE",
+        "DO_NOT_REPLACE_MODE1_WITH_NEXT_OPEN_SILENTLY"
       ],
-      "provenance_note": "Direct instructor transcript ~53:01-1:06:40 plus synchronized method-1/method-2 teaching slides; later direct Q&A explicitly equates point-check, post-SIG wick and SL reference for the discussed setup. Precise execution price within the body-collection area remains open."
+      "provenance_note": "Direct 1E_PYPor1qQ sequence closes two timing families: Mode 1 acts while the prospective post-SIG candle is forming/body-collecting after PA confirmation; Mode 2 confirms the post-SIG/point-check first and enters on the following candle during body collection. Current-batch source scan still does not specify a universal exact fill tick/price."
     },
     {
       "claim_id": "SIDEWAY_FRAME_SOURCE_METHODS",
@@ -447,21 +455,25 @@
     {
       "claim_id": "M5_BRAKE_ENTRY2_RETEST_SIGNAL",
       "canonical_statement": "For the preferred Frame-Brake Entry #2 family, the source-supported signal topology is: prepared zone -> Point #1 first brake/structural extreme -> move away through local structure -> test opposing support/resistance -> return to the switched level -> Point #2 retest candidate -> wait for the relevant confirmation candle to close with directional PA/standing/local-structure hold -> Entry #2 signal-ready. In the standard taught form Point #1 is the structural SL reference; overlap variants preserve structural-extreme SL logic but are a separate branch. Exact broker fill price is not source-fixed.",
-      "status": "ACTIVE_SOURCE_VISUAL_SIGNAL_TOPOLOGY_EXACT_FILL_OPEN",
-      "engine_permission": "CANONICAL_EVENT_STATE_MACHINE_RESEARCH_FILL_CONVENTION_REQUIRED",
+      "status": "ACTIVE_SOURCE_VISUAL_SIGNAL_TOPOLOGY_KNOWLEDGE_TIME_CLOSED_EXACT_FILL_SOURCE_INCOMPLETE",
+      "engine_permission": "CANONICAL_EVENT_STATE_MACHINE_EXPLICIT_EXECUTION_MODEL_REQUIRED",
       "source_refs": [
         "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md",
         "docs/RQ004_M5_BRAKE_FRAME_STANDING_SOURCE_CLOSURE_2026-09-08.md",
-        "docs/M5_BRAKE_TRANSCRIPT_FORENSICS_2026-09-01.md"
+        "docs/M5_BRAKE_TRANSCRIPT_FORENSICS_2026-09-01.md",
+        "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
         "EXACT_FILL_PRICE_UNRESOLVED",
         "STRUCTURAL_POINT_TOLERANCE_UNRESOLVED",
         "OVERLAP_BRANCH_SEPARATE",
         "FOUR_TO_TEN_HARD_GATE_NOT_PROVEN_UNIVERSAL",
-        "DO_NOT_FIT_FILL_FROM_OUTCOME"
+        "DO_NOT_FIT_FILL_FROM_OUTCOME",
+        "SIGNAL_READY_AFTER_CLOSED_CONFIRMATION_NOT_EQUAL_TO_EXACT_FILL",
+        "EXACT_FILL_PRICE_SOURCE_INCOMPLETE_CURRENT_BATCH",
+        "UNIVERSAL_RETEST_TICK_TOLERANCE_SOURCE_INCOMPLETE"
       ],
-      "provenance_note": "Direct EP.4 teaching diagram visibly labels Point 2 as entry and Point 1 as SL; worked BUY visual labels Point 2 retest after move-away/return, while transcript explicitly requires completed-candle confirmation on every timeframe. SELL mirror is supported in transcript. Exact trade fill remains outside the literal source rule."
+      "provenance_note": "EP.4 source+visual closes Point2 retest topology and direct Q&A closes completed-candle knowledge time. A targeted current-batch execution scan found no universal equation for actual broker fill at confirmation close, next open, exact Point2, first post-confirmation touch, or fixed offset."
     },
     {
       "claim_id": "BODY_COLLECTION_COMPONENT_GEOMETRY",
@@ -601,6 +613,23 @@
         "DO_NOT_TREAT_ZONE_PRESENCE_AS_ENTRY"
       ],
       "provenance_note": "Direct EP.5 rendered transcript: ~44:12-44:19 normal Body Collection route-out when setup becomes Sideway; ~1:19:37-1:20:01 zone can still support a separate Sideway entry context, with genuine PA/SIG focus required."
+    },
+    {
+      "claim_id": "EXECUTION_FILL_SOURCE_BOUNDARY",
+      "canonical_statement": "The current source batch closes family-specific signal/knowledge timing but does not define one universal exact broker-fill equation. SIG Entry Mode 1 may act intrabar during the forming post-SIG/body-collection candle after PA confirmation; Mode 2 waits for the post-SIG/point-check candle to confirm and uses the following candle; M5 Frame-Brake Entry #2 requires the relevant confirmation candle to close before ENTRY_2_SIGNAL_READY; EP.5 Body Collection requires lower-TF PA/brake/structure confirmation rather than zone touch alone. Exact fill tick/price, confirmation-close versus next-open execution, and universal structural tick tolerance remain implementation conventions/source-incomplete in the current batch.",
+      "status": "ACTIVE_SOURCE_BACKED_SIGNAL_TIMING_EXACT_FILL_SOURCE_INCOMPLETE_CURRENT_BATCH",
+      "engine_permission": "SIGNAL_EVENT_TIMING_ONLY_EXPLICIT_EXECUTION_MODEL_REQUIRED",
+      "source_refs": [
+        "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md"
+      ],
+      "risk_flags": [
+        "DO_NOT_EQUATE_SIGNAL_TIME_WITH_BROKER_FILL",
+        "MODE1_INTRABAR_REQUIRES_INTRABAR_TRIGGER_OR_FINER_DATA",
+        "CLOSED_CANDLE_FAMILIES_STILL_REQUIRE_EXPLICIT_FILL_CONVENTION",
+        "UNIVERSAL_STRUCTURAL_TICK_TOLERANCE_SOURCE_INCOMPLETE",
+        "DO_NOT_SELECT_FILL_FROM_OUTCOMES"
+      ],
+      "provenance_note": "Targeted current-batch scan across 1E_PYPor1qQ, UV5NijhjfJ8, 16KoS7d-koI, oCcG3dUjrgw and vcdN51_OrPE. Concrete entry prices in worked/live examples remain contextual examples rather than universal execution equations."
     }
   ]
 }

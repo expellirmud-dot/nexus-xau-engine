@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T04:41:38+07:00",
+  "updated_at": "2026-09-09T04:46:08+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
@@ -8,8 +8,8 @@
     "id": "RQ-009",
     "title": "Source Gap Closure from Current Five-Video Batch",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-    "status": "ACTIVE_LIFECYCLE_GEOMETRY_SOURCE_INCOMPLETE_EXECUTION_FILL_NEXT",
-    "latest_checkpoint": "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md"
+    "status": "ACTIVE_EXECUTION_FILL_SOURCE_INCOMPLETE_BROKER_NORMALIZATION_NEXT",
+    "latest_checkpoint": "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md"
   },
   "priority_order": [
     "RQ-009"
@@ -158,7 +158,7 @@
       "id": "RQ-009",
       "title": "Source Gap Closure from Current Five-Video Batch",
       "type": "RESEARCH",
-      "status": "ACTIVE_LIFECYCLE_GEOMETRY_SOURCE_INCOMPLETE_EXECUTION_FILL_NEXT",
+      "status": "ACTIVE_EXECUTION_FILL_SOURCE_INCOMPLETE_BROKER_NORMALIZATION_NEXT",
       "why_now": "Direct review of the current five local instructor sources revealed material evidence that narrows blockers left by RQ-002/RQ-007, especially two explicit SIG entry modes and touch-based point-check destruction.",
       "depends_on": [],
       "blocks": [
@@ -168,8 +168,8 @@
       ],
       "preferred_method": "Transcript/timestamp map -> synchronized visual window -> original audio only if material ASR ambiguity remains -> explicit source closure/UNKNOWN -> targeted computation only for residual source-compatible representations.",
       "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-      "checkpoint_ref": "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md",
-      "current_summary": "Body Collection lifecycle semantics are source-backed, but a targeted scan of the current EP.5/EP.4/EP.6/system-summary batch found no exact universal OHLC transition from touched/revalidated to collected/used and no exact post-touch S/R revalidation predicate. This blocker is now current-batch source-incomplete and should not be re-scanned without new evidence. Next target is exact lower-TF execution/fill and structural tolerance after confirmation.",
+      "checkpoint_ref": "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md",
+      "current_summary": "Family-specific entry signal/knowledge timing is now source-backed, but exact universal broker fill and structural tick tolerance are source-incomplete in the current batch. Mode1 is intrabar, Mode2 uses the following candle after confirmed point-check, M5 Entry2 waits for closed confirmation, and EP5 Body Collection requires lower-TF confirmation. Next target is broker/feed normalization for equality/contact semantics.",
       "secondary_refs": [
         "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
         "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
@@ -186,7 +186,8 @@
         "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
         "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
-        "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md"
+        "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md",
+        "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md"
       ]
     }
   ],
