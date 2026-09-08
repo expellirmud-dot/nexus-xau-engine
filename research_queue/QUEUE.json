@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T05:00:38+07:00",
+  "updated_at": "2026-09-09T05:08:00+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
@@ -8,8 +8,8 @@
     "id": "RQ-009",
     "title": "Source Gap Closure from Current Five-Video Batch",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-    "status": "ACTIVE_SIDEWAY_EXIT_SHELL_CLOSED_BODY_COLLECTION_CANDIDATE_PRIORITY_NEXT",
-    "latest_checkpoint": "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md"
+    "status": "ACTIVE_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_INCOMPLETE_CROSS_FRAME_PRIORITY_NEXT",
+    "latest_checkpoint": "docs/RQ009_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_EXHAUSTION_2026-09-09.md"
   },
   "priority_order": [
     "RQ-009"
@@ -158,7 +158,7 @@
       "id": "RQ-009",
       "title": "Source Gap Closure from Current Five-Video Batch",
       "type": "RESEARCH",
-      "status": "ACTIVE_SIDEWAY_EXIT_SHELL_CLOSED_BODY_COLLECTION_CANDIDATE_PRIORITY_NEXT",
+      "status": "ACTIVE_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_INCOMPLETE_CROSS_FRAME_PRIORITY_NEXT",
       "why_now": "Direct review of the current five local instructor sources revealed material evidence that narrows blockers left by RQ-002/RQ-007, especially two explicit SIG entry modes and touch-based point-check destruction.",
       "depends_on": [],
       "blocks": [
@@ -168,8 +168,8 @@
       ],
       "preferred_method": "Transcript/timestamp map -> synchronized visual window -> original audio only if material ASR ambiguity remains -> explicit source closure/UNKNOWN -> targeted computation only for residual source-compatible representations.",
       "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-      "checkpoint_ref": "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md",
-      "current_summary": "Sideway exit confirmation shell is closed: internal SIG is not exit, carrying SIG is known after actual escape, a shown wick-only excursion returning inside is insufficient clean exit, and post-break retest/role flip is source-backed. Exact universal frame-complete/false-break/breakout geometry remains current-batch source-incomplete. Next target is Body Collection candidate/reference selection for unseen configurations.",
+      "checkpoint_ref": "docs/RQ009_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_EXHAUSTION_2026-09-09.md",
+      "current_summary": "Body Collection search hierarchy is deterministic and source-backed, but the current source batch does not define a universal Body Collection-specific winner among multiple same-TF candidates, multiple lower-TF completions, or unseen two-reference configurations. EP6 nearest-first is S/R-only context. Preserve all valid candidates and explicit ambiguity. Next target is cross-frame/setup-family priority.",
       "secondary_refs": [
         "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
         "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
@@ -189,7 +189,8 @@
         "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md",
         "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md",
         "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md",
-        "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md"
+        "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md",
+        "docs/RQ009_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_EXHAUSTION_2026-09-09.md"
       ]
     }
   ],

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T05:00:38+07:00",
+  "updated_at": "2026-09-09T05:08:00+07:00",
   "purpose": "Durable source-review memory. Records which source windows/topics have already been screened or reviewed, what they established, what remains unresolved, and when a review may be reopened. This ledger prevents future agents from restarting source research from zero.",
   "rules": {
     "closed_windows_are_not_researched_from_zero_without_reopen_trigger": true,
@@ -708,6 +708,40 @@
         "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION",
         "SOURCE_OR_TIMESTAMP_MAPPING_ERROR",
         "NEW_SOURCE_EXPLICITLY_DEFINES_FRAME_COMPLETE_OR_FALSE_BREAK_GEOMETRY"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "RQ009_BODY_COLLECTION_CANDIDATE_PRIORITY_CURRENT_BATCH",
+      "source_id": "oCcG3dUjrgw+UV5NijhjfJ8+16KoS7d-koI",
+      "source_title": "EP.5 Body Collection + EP.4 M5 brake + EP.6 M1/M5 entry",
+      "topic": "Body Collection same-TF candidate winner, lower-TF completion priority, unseen two-reference resolver",
+      "window": "targeted candidate-priority transcript scan; EP5 full relevant windows including ~00:40:42-00:43:49, 01:05:57, 01:19:13-01:19:37; EP6 S/R comparison ~01:10:53-01:15:32",
+      "reviewed_modalities": [
+        "YOUTUBE_RENDERED_TRANSCRIPT",
+        "LOCAL_TRANSCRIPTS",
+        "PRIOR_SYNCHRONIZED_VISUAL_CONTEXT"
+      ],
+      "status": "REVIEWED_UNRESOLVED_CURRENT_BATCH_EXHAUSTED",
+      "finding": "Body Collection search hierarchy is source-backed, but no universal Body Collection-specific winner rule was found for multiple same-TF candidates, multiple lower-TF completion candidates, or unseen multi-reference configurations. EP6 nearest-first language is explicitly retained as S/R-selection guidance only. Engine should enumerate all remaining valid candidates and mark ambiguity rather than choosing by nearest/newest/freshest/backtest.",
+      "residual_unknowns": [
+        "UNIVERSAL_BODY_COLLECTION_SAME_TF_WINNER_REQUIRES_NEW_SOURCE",
+        "UNIVERSAL_LOWER_TF_COMPLETION_WINNER_REQUIRES_NEW_SOURCE",
+        "UNSEEN_TWO_REFERENCE_SELECTION_REQUIRES_NEW_SOURCE_OR_FAMILY_SPECIFIC_SHOWN_FORM"
+      ],
+      "claim_ids": [
+        "BODY_COLLECTION_CANDIDATE_SEARCH_ORDER",
+        "BODY_COLLECTION_COMPONENT_GEOMETRY",
+        "BODY_COLLECTION_CROSS_TF_SHOWN_ALIGNMENT"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_EXHAUSTION_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "NEW_BODY_COLLECTION_PRIMARY_SOURCE",
+        "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION",
+        "NEW_VISUAL_FAMILY_RESOLVES_MULTI_CANDIDATE_CASE",
+        "SOURCE_OR_TIMESTAMP_MAPPING_ERROR"
       ],
       "last_reviewed_at": "2026-09-09"
     }

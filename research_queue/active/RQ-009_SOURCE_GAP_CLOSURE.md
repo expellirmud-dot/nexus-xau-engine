@@ -432,3 +432,27 @@ Body/frame-standing relation is source-relevant, but the current batch still doe
 Decision: `EXIT_CONFIRMATION_SHELL_SOURCE_BACKED / EXACT_FALSE_BREAK_AND_FRAME_COMPLETE_GEOMETRY_SOURCE_INCOMPLETE`.
 
 Do not re-scan the same source windows for an exact universal Sideway exit predicate without a reopen trigger. Next decision-critical target is Body Collection candidate/reference selection for unseen configurations.
+
+## Latest Body Collection candidate-priority source-exhaustion checkpoint
+
+Ref: `docs/RQ009_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_EXHAUSTION_2026-09-09.md`
+
+Targeted EP.5/EP.4/EP.6 review closes the evidence boundary between **search hierarchy** and **winner ranking**:
+
+```text
+SOURCE-BACKED SEARCH:
+  same setup/reference TF first
+  ~2-4 prior candles initially, then farther back if needed
+  sequential fallback shown H4 -> H1 -> M30
+
+NOT SOURCE-BACKED AS UNIVERSAL BODY COLLECTION WINNER:
+  nearest / newest / oldest / freshest / narrowest / strongest-looking / best-backtest
+```
+
+EP.6 does contain `เลือกที่ใกล้ที่สุดก่อน`, but the reviewed passage is S/R-zone construction and nearby alternative S/R selection. It is not promoted to Body Collection candidate ranking.
+
+Safe engine behavior: enumerate all source-compatible candidates after the search hierarchy. If more than one remains and no source-specific shown-form resolver applies, emit `AMBIGUOUS_MULTI_CANDIDATE`; if multiple component/reference prices cannot be source-resolved to the two-reference topology, emit `UNRESOLVED_REFERENCE_SELECTION`.
+
+Decision: `SEARCH_HIERARCHY_CLOSED / UNIVERSAL_BODY_COLLECTION_WINNER_SOURCE_INCOMPLETE_CURRENT_BATCH`.
+
+Next target: cross-frame/setup-family priority.
