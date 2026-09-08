@@ -1,6 +1,6 @@
 # RQ-009 — Source Gap Closure from Current Five-Video Batch
 
-Status: ACTIVE
+Status: ACTIVE — EP.5 semantic closure complete; exact visual zone/execution geometry still open
 
 ## Objective
 
@@ -80,3 +80,26 @@ Either:
 
 1. at least one complete source-backed trade family has deterministic setup -> entry -> SL/invalidation -> exit semantics suitable for a bounded proof, with any remaining non-material execution assumptions explicitly stated; or
 2. the current five-video batch has been exhausted for the named blockers and every unresolved item is mapped to the specific missing source needed next.
+
+## Latest EP.5 browser-source checkpoint
+
+Source closure: `docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md`
+
+Direct review of the original EP.5 YouTube `Show transcript` now establishes without outcome fitting:
+
+- Body Collection output is a forecast **zone/area**, not one exact price;
+- the zone is constructed from `ซอก + ไส้ + คู่`;
+- use same-TF structure first, then fall back one TF when incomplete (`H4 -> H1`, and later `H1 -> M30` in the source Q&A);
+- the current EP.5 method uses two projected zones;
+- price arriving at the zone is not sufficient; lower-TF PA aligned with H4 plus brake/confirmation is required;
+- no PA means no entry even when price is inside the zone;
+- normal Body Collection is distinct from Sideway entry handling.
+
+Still visually blocked:
+
+- exact machine OHLC predicate for `ซอก`;
+- exact machine OHLC predicate for `คู่`;
+- exact zone upper/lower boundaries from `ซอก + ไส้ + คู่`;
+- exact executable lower-TF brake/entry geometry.
+
+`agent-browser` successfully exposed the original transcript/timestamps, but headless YouTube playback failed and is not accepted as visual source evidence. Exact geometry must therefore come from a playable EP.5 visual source, not from outcome fitting.

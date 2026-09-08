@@ -80,6 +80,50 @@ Purpose:
 
 Important: this is a bridge patch with its own apply/restore scripts. Do not re-patch or replace it merely because image-reading capability is not obvious from the research repo.
 
+### Agent Browser CLI
+
+Canonical executable:
+
+`C:\Users\Expellirmud\AppData\Roaming\npm\agent-browser.cmd`
+
+Validated version:
+
+`0.33.2`
+
+Purpose:
+
+- browser automation optimized for AI agents;
+- open/read/snapshot/click/find/eval YouTube and other rendered web sources;
+- extract rendered YouTube `Show transcript` content with timestamps;
+- inspect page metadata and accessibility-tree refs without building a second browser wrapper.
+
+Preferred NEXUS research use:
+
+`agent-browser -> YouTube metadata/transcript/timestamps`
+
+For current YouTube research, the validated CDP path uses a separate NEXUS Chrome profile rather than the owner's normal Chrome profile:
+
+- Chrome: `C:\Program Files\Google\Chrome\Application\chrome.exe`
+- remote debugging: `9222`
+- NEXUS profile: `D:\tools\nexus-agent-chrome-profile`
+- session name used in validation: `nexus-youtube`
+
+Validated pattern:
+
+`Chrome --remote-debugging-port=9222 --user-data-dir=D:\tools\nexus-agent-chrome-profile -> agent-browser --cdp 9222`
+
+Important limitation discovered on EP.5 (`oCcG3dUjrgw`): the headless YouTube page exposed the full rendered transcript successfully, but the video player itself returned a playback error and did not provide reliable visual frames. Therefore:
+
+- use `agent-browser` as the preferred browser/transcript/metadata layer;
+- use local MP4 + `nexus-video-evidence` for chart visual evidence when available;
+- do not treat a failed/headless player screenshot as source visual proof.
+
+Local helper/fallback experiments live under:
+
+`D:\tools\nexus-browser-evidence`
+
+This helper directory is NOT the canonical browser engine. Reuse `agent-browser` first and only extend helpers for bounded evidence capture/encoding needs.
+
 ## Local source vault
 
 Path:

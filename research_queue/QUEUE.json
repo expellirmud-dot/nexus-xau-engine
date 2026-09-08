@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T00:13:41+07:00",
+  "updated_at": "2026-09-09T00:59:16+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
@@ -8,8 +8,8 @@
     "id": "RQ-009",
     "title": "Source Gap Closure from Current Five-Video Batch",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-    "status": "ACTIVE_SOURCE_REVIEW",
-    "latest_checkpoint": "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md"
+    "status": "ACTIVE_SOURCE_REVIEW_EP5_SEMANTIC_CLOSURE_VISUAL_GEOMETRY_OPEN",
+    "latest_checkpoint": "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md"
   },
   "priority_order": [
     "RQ-009"
@@ -158,7 +158,7 @@
       "id": "RQ-009",
       "title": "Source Gap Closure from Current Five-Video Batch",
       "type": "RESEARCH",
-      "status": "ACTIVE_SOURCE_REVIEW",
+      "status": "ACTIVE_SOURCE_REVIEW_EP5_SEMANTIC_CLOSURE_VISUAL_GEOMETRY_OPEN",
       "why_now": "Direct review of the current five local instructor sources revealed material evidence that narrows blockers left by RQ-002/RQ-007, especially two explicit SIG entry modes and touch-based point-check destruction.",
       "depends_on": [],
       "blocks": [
@@ -168,11 +168,12 @@
       ],
       "preferred_method": "Transcript/timestamp map -> synchronized visual window -> original audio only if material ASR ambiguity remains -> explicit source closure/UNKNOWN -> targeted computation only for residual source-compatible representations.",
       "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-      "checkpoint_ref": "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
-      "current_summary": "Current sources recover two explicit SIG entry modes, structural SL references, contact-based post-SIG point-check destruction, body-sensitive post-SIG validity, and multiple source-backed Sideway frame methods. Dedicated EP.5 body-collection transcript exists but its local video is missing; exact body-collection geometry/entry price still needs visual closure.",
+      "checkpoint_ref": "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
+      "current_summary": "Direct EP.5 YouTube Show-transcript review closes Body Collection as a two-zone forecast-area method built from ซอก+ไส้+คู่, same-TF-first with one-TF fallback, and lower-TF PA+brake confirmation before entry. Zone arrival alone is not an entry and normal Body Collection is distinct from Sideway. Exact drawn OHLC zone boundaries and executable brake/entry geometry remain visually open.",
       "secondary_refs": [
         "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
-        "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md"
+        "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
+        "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md"
       ]
     }
   ],

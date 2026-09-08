@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-09T00:13:41+07:00",
+  "updated_at": "2026-09-09T00:59:16+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "RQ009_SIG_ENTRY_AND_SIDEWAY_SOURCE_METHOD_CHECKPOINT",
+  "completed_checkpoint": "RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -26,6 +26,7 @@
       "docs/CURRENT_RESEARCH_STATE.json",
       "research_queue/QUEUE.json",
       "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
+      "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
       "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
       "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
       "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
@@ -96,10 +97,10 @@
   },
   "next_steps": [
     "Continue the single RQ-009 worksheet; do not split into additional RQ IDs unless a truly independent blocker appears.",
-    "Highest-value missing visual source is EP.5 body collection (oCcG3dUjrgw): inspect the pre-mapped five evidence windows if/when the actual video is available locally.",
-    "Meanwhile continue extracting exact location/protected-body semantics from the current five local videos where they can close Mode-2 mechanics without Sideway assumptions.",
-    "Keep Sideway source methods separate (BODY_PRIMARY vs BODY_CORE_WITH_OPTIONAL_WICK_LAYER); do not select one from backtest performance.",
-    "Do not run final Win/Loss until deterministic trade construction and a genuinely pristine holdout period exist."
+    "EP.5 Body Collection state/routing semantics are now source-backed from the original YouTube Show transcript; do not recompute these semantics from outcomes.",
+    "Highest-value EP.5 remainder is visual closure of exact ซอก/คู่ OHLC predicates and zone boundaries. Current headless YouTube playback is not reliable visual evidence, so use the actual playable video/local MP4 if obtained or another faithful visual access path.",
+    "Meanwhile continue exact protected-body/PAT/Sideway and lower-TF brake geometry review in the current five local videos where visual evidence is already available.",
+    "Do not run final Win/Loss until deterministic visual zone/entry construction and a genuinely pristine holdout period exist."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -178,9 +179,10 @@
     "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
     "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
     "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
-    "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md"
+    "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
+    "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md"
   ],
-  "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> active RQ-009 worksheet -> canonical claim register -> RQ009 SIG-entry checkpoint -> RQ009 body-collection audit -> RQ009 Sideway source-method audit. Continue source-first. Do not treat RQ-008 as current; it is a historical readiness boundary. Do not fit unresolved geometry from outcomes.",
+  "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> active RQ-009 worksheet -> canonical claim register -> RQ009 EP.5 browser-source closure -> RQ009 SIG-entry checkpoint -> Sideway source-method audit. Continue source-first. Treat agent-browser as the preferred browser transcript/metadata layer and local MP4 tooling as visual evidence. Do not fit unresolved OHLC/zone/brake geometry from outcomes.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -516,10 +518,19 @@
     "policy": "REUSE_BEFORE_BUILD",
     "external_tool_roots": [
       "D:\\tools\\nexus-video-evidence",
-      "D:\\tools\\ie-coder-bridge-image-patch"
+      "D:\\tools\\ie-coder-bridge-image-patch",
+      "D:\\tools\\nexus-browser-evidence"
     ],
     "local_video_vault": "D:\\nexus-xau-engine-repo\\youtube",
-    "guard": "Read TOOLS.md before concluding a required utility is absent or creating a duplicate implementation."
+    "guard": "Read TOOLS.md before concluding a required utility is absent or creating a duplicate implementation.",
+    "agent_browser_cli": {
+      "executable": "C:\\Users\\Expellirmud\\AppData\\Roaming\\npm\\agent-browser.cmd",
+      "version": "0.33.2",
+      "purpose": "Preferred AI browser CLI for YouTube/web transcript, metadata, timestamps and rendered-page interaction.",
+      "validated_cdp_port": 9222,
+      "validated_nexus_profile": "D:\\tools\\nexus-agent-chrome-profile",
+      "visual_guard": "EP.5 headless YouTube player playback failed; use local MP4/video evidence tool for chart visuals when available."
+    }
   },
   "research_method_priority": {
     "source_ref": "docs/SOURCE_FIRST_VISUAL_FIRST_RESEARCH_PROTOCOL_2026-09-08.md",
@@ -535,15 +546,15 @@
   },
   "operational_research_queue": {
     "source_ref": "research_queue/QUEUE.json",
-    "active_id": null,
-    "active_worksheet": null,
+    "active_id": "RQ-009",
+    "active_worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
     "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
     "selection_rule": "NEXUS owns worksheet creation, prioritization, promotion, and method choice. Promote the highest-value unblocked item after each closure; re-rank when new evidence changes dependencies.",
     "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
     "guard": "Do not require the project owner to know which tool, video, formula, or dataset to request in advance.",
     "last_closed_id": "RQ-008",
     "last_closure_ref": "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
-    "queue_state": "EXHAUSTED_AT_CURRENT_EVIDENCE_BOUNDARY"
+    "queue_state": "ACTIVE_SOURCE_GAP_CLOSURE"
   },
   "post_sig_lifecycle_source_visual_closure": {
     "status": "SOURCE_SUPPORTS_OTHER_EXPLICIT_LIFECYCLE",
@@ -690,7 +701,7 @@
     "guard": "Do not run/report a canonical full-system Win/Loss result by filling unresolved fields with analyst-selected thresholds or by relabeling component research statistics."
   },
   "rq009_source_gap_closure": {
-    "status": "ACTIVE_SOURCE_REVIEW",
+    "status": "ACTIVE_SOURCE_REVIEW_EP5_SEMANTIC_CLOSURE_COMPLETE_VISUAL_GEOMETRY_OPEN",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
     "checkpoint_ref": "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
     "source_batch": [
@@ -707,16 +718,22 @@
       "Valid post-SIG candidate must not disturb/contact the protected PA/SIG body region; exact multi-candle body boundary remains partial.",
       "PAT2/PAT3 >half source language strongly uses candle-body/body-volume semantics; exact universal multi-candle arithmetic remains partial.",
       "Sideway is dynamic/multi-level and source methods include BODY_PRIMARY and BODY_CORE_WITH_OPTIONAL_WICK_LAYER; full wick extrema are not universally the frame boundaries.",
-      "Sideway may expand and old resistance/support can role-flip after actual break/retest."
+      "Sideway may expand and old resistance/support can role-flip after actual break/retest.",
+      "EP.5 closes Body Collection as a forecast-zone method built from ซอก + ไส้ + คู่ rather than one exact projection price.",
+      "Same-timeframe Body Collection structure is searched first; source gives fallback H4->H1 and H1->M30 when the three conditions are incomplete.",
+      "Current EP.5 method uses two projected zones; reaction may occur at either zone or between them, so the zone is explicitly not a dead/fixed price.",
+      "Zone arrival alone is insufficient: lower-TF PA aligned with H4 plus brake/confirmation is required; no PA means no entry even inside the zone.",
+      "Normal Body Collection is not the Sideway entry method."
     ],
     "still_open": [
-      "Exact deterministic entry price inside the source-defined body-collection / near-point-check area.",
-      "Exact OHLC geometry for ซอก + ไส้ + คู่ and body-collection zone boundaries; dedicated EP.5 video visuals are the highest-value missing source.",
+      "Exact OHLC geometry for ซอก and คู่, including valid orientations and feed-equality normalization.",
+      "Exact upper/lower boundaries of each Body Collection zone from ซอก + ไส้ + คู่; EP.5 chart drawing/visual closure remains the highest-value missing evidence.",
+      "Exact lower-TF brake/body-wick-close predicate and executable price after PA confirmation.",
       "Exact protected-body boundary for all multi-candle PAT2/PAT3 variants.",
       "Universal routing between Sideway BODY_PRIMARY and BODY_CORE_WITH_OPTIONAL_WICK_LAYER methods, plus exact frame-complete/false-break detector.",
-      "Cross-timeframe/source-frame priority where multiple location/Sideway structures coexist."
+      "Cross-timeframe/source-frame priority where multiple location/Sideway/Body Collection structures coexist."
     ],
-    "proof_readiness": "BOUNDED_SIG_ENTRY_MODE_2_CLOSER_BUT_ENTRY_ZONE_GEOMETRY_STILL_OPEN",
+    "proof_readiness": "BODY_COLLECTION_STATE_ROUTING_SOURCE_BACKED_EXACT_VISUAL_ZONE_AND_EXECUTION_GEOMETRY_OPEN",
     "body_collection_audit_ref": "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
     "sideway_audit_ref": "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
     "external_source_target": {
@@ -730,7 +747,18 @@
         "46:40-51:27",
         "56:35-59:43",
         "1:19:13-1:20:01"
-      ]
+      ],
+      "browser_transcript_status": "REVIEWED_DIRECTLY_FROM_ORIGINAL_YOUTUBE_SHOW_TRANSCRIPT",
+      "browser_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
+      "visual_status": "LOCAL_MP4_MISSING_AND_HEADLESS_BROWSER_PLAYER_NOT_RELIABLE"
+    },
+    "ep5_browser_source_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
+    "browser_evidence": {
+      "cli": "C:\\Users\\Expellirmud\\AppData\\Roaming\\npm\\agent-browser.cmd",
+      "source": "Original YouTube EP.5 rendered Show transcript",
+      "transcript_status": "CAPTURED_UTF8_WITH_TIMESTAMPS_ASR_RISK",
+      "local_evidence": "youtube/_evidence/oCcG3dUjrgw/agent-browser/ep5_rendered_transcript_utf8.txt",
+      "visual_status": "HEADLESS_PLAYER_PLAYBACK_FAILED_NOT_VISUAL_EVIDENCE"
     }
   }
 }

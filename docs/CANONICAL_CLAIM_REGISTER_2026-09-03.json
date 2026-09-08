@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T00:13:41+07:00",
+  "updated_at": "2026-09-09T00:59:16+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -262,7 +262,7 @@
     },
     {
       "claim_id": "SYSTEM_WIN_RATE",
-      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 materially narrows SIG-entry and Sideway semantics, but exact body-collection/entry-zone geometry, some cross-frame routing, and a pristine final holdout remain unresolved.",
+      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 now closes the source-level Body Collection state/routing architecture as zone-based (ซอก+ไส้+คู่, same-TF-first fallback, lower-TF PA/brake confirmation), but exact visual OHLC zone boundaries, executable lower-TF brake/entry geometry, some Sideway/cross-frame routing, and a pristine final holdout remain unresolved.",
       "status": "ACTIVE_BLOCKER_NOT_TESTABLE_WITH_CURRENT_EVIDENCE",
       "engine_permission": "DO_NOT_CLAIM",
       "source_refs": [
@@ -272,15 +272,17 @@
         "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
         "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
         "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
-        "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md"
+        "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
+        "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md"
       ],
       "risk_flags": [
-        "EXACT_BODY_COLLECTION_ENTRY_ZONE_STILL_OPEN",
+        "EXACT_BODY_COLLECTION_VISUAL_ZONE_OHLC_STILL_OPEN",
+        "LOWER_TF_BRAKE_EXECUTION_GEOMETRY_OPEN",
         "SIDEWAY_METHOD_ROUTING_PARTIAL",
         "CROSS_FRAME_PRIORITY_PARTIAL",
         "FINAL_PRISTINE_HOLDOUT_REQUIRED"
       ],
-      "provenance_note": "RQ-008 readiness gate intentionally stopped before a full-system outcome run. Component/control results remain component evidence and must not be relabeled as system Win/Loss."
+      "provenance_note": "RQ-009 EP.5 direct YouTube Show-transcript review materially closes Body Collection semantics without outcome fitting. The headless player did not provide reliable EP.5 chart visuals, so exact drawable zone geometry remains open; RQ-008 readiness stop remains in force for full-system Win/Loss."
     },
     {
       "claim_id": "YOUTUBE_ASR_THAI_SPOKEN_TIME_NORMALIZATION",
@@ -376,6 +378,24 @@
         "DO_NOT_SELECT_METHOD_FROM_OUTCOME_PERFORMANCE"
       ],
       "provenance_note": "RQ-009 synchronized video inspection shows a body/envelope zone with long wicks extending outside the drawn frame, while separate transcript/video source explicitly states body-only preference. Differences are preserved as source methods rather than silently reconciled."
+    },
+    {
+      "claim_id": "BODY_COLLECTION_ZONE_ROUTING",
+      "canonical_statement": "EP.5 teaches Body Collection as a forecast-zone method built from ซอก + ไส้ + คู่, not as one exact entry price. Use same-timeframe structure first; if unavailable, fall back one timeframe (e.g. H4->H1 and, when still incomplete, H1->M30). The current lesson uses two projected zones. Zone arrival alone is insufficient: lower-timeframe PA aligned with the H4 thesis and brake/confirmation context are required before entry consideration; no PA means no entry even inside the zone. Normal Body Collection is distinct from Sideway entry handling.",
+      "status": "ACTIVE_SOURCE_BACKED_STATE_MACHINE_VISUAL_GEOMETRY_PARTIAL",
+      "engine_permission": "CANONICAL_STATE_ROUTING_RESEARCH_ONLY_UNTIL_ZONE_GEOMETRY_FROZEN",
+      "source_refs": [
+        "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
+        "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md"
+      ],
+      "risk_flags": [
+        "EXACT_SOK_PAIR_OHLC_PREDICATES_UNRESOLVED",
+        "EXACT_ZONE_BOUNDARIES_REQUIRE_VISUAL_CROSSCHECK",
+        "LOWER_TF_BRAKE_EXECUTION_PRICE_UNRESOLVED",
+        "EP5_NUMERIC_RANGES_CONTEXTUAL_UNTIL_CROSS_LESSON_VALIDATED",
+        "YOUTUBE_ASR_RISK"
+      ],
+      "provenance_note": "Direct original YouTube EP.5 Show-transcript review via agent-browser at 20:33-32:40, 40:42-44:19, 46:40-51:27, 56:35-59:43 and 1:19:13-1:20:01. Browser transcript is source-attributable with ASR risk. Headless playback failed, so drawn OHLC boundaries are not promoted from transcript alone."
     }
   ]
 }
