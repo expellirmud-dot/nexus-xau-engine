@@ -1,6 +1,6 @@
 # RQ-009 — Source Gap Closure from Current Five-Video Batch
 
-Status: ACTIVE — EP.5 hierarchical cross-TF component completion source-backed; exact alignment/reference selection/equality/execution geometry still open
+Status: CLOSED — current source batch exhausted for named blockers; evidence-boundary audit complete; minimal deterministic V0 selected
 
 ## Objective
 
@@ -478,3 +478,28 @@ If multiple still-valid timeframe/setup families remain and no source-specific r
 Decision: `CONTEXT_HIERARCHY_SOURCE_BACKED / UNIVERSAL_CONFLICT_RESOLVER_SOURCE_INCOMPLETE_CURRENT_BATCH`.
 
 Next task is an RQ-009 evidence-boundary audit and minimal executable-scope decision, not another same-source rescan.
+
+## RQ-009 closure — evidence-boundary audit
+
+Ref: `docs/RQ009_EVIDENCE_BOUNDARY_AUDIT_MINIMAL_EXECUTABLE_SCOPE_2026-09-09.md`
+
+The current source batch has reached the worksheet's terminal condition #2: the named blockers have either been closed, represented explicitly as ambiguity, or classified as source-incomplete with a reopen trigger. No further same-source rescan is justified for the exhausted questions.
+
+Final RQ-009 boundary:
+
+```text
+A = source-backed deterministic / deterministic engineering contracts
+B = ambiguity the engine can preserve explicitly
+C = source-incomplete family geometry requiring new evidence
+D = implementation convention requiring a frozen research specification
+```
+
+The smallest next executable scope is:
+
+```text
+SIG_MODE2_EXTERNALLY_LABELED_SIGNAL_RUN_V0
+```
+
+This is a signal/run replay only. It is not an autonomous PAT/location detector, not a broker execution simulator, and not a system Win/Loss backtest.
+
+RQ-009 is therefore closed. Engineering/research continuation moves to `RQ-010 — Minimal Deterministic SIG Mode-2 Signal/Run Replay V0`.
