@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T01:28:58+07:00",
+  "updated_at": "2026-09-09T01:43:00+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -396,14 +396,15 @@
     },
     {
       "claim_id": "BODY_COLLECTION_ZONE_ROUTING",
-      "canonical_statement": "EP.5 teaches Body Collection as a forecast-zone method built from ซอก + ไส้ + คู่, not as one exact entry price. Source+visual review closes the shown ซอก form as a same-color close/open body junction and the shown คู่ forms as opposite-color reversal pairs sharing a close/open equilibrium level at support/resistance. The lesson visually demonstrates two forecast levels on both PA Buy PAT3 and PA Sell PAT2 examples. Use same-timeframe structure first; if unavailable, fall back one timeframe (H4->H1 and, when still incomplete, H1->M30). Zone arrival alone is insufficient: lower-timeframe PA aligned with the H4 thesis and brake/confirmation context are required before entry consideration. Zone instances retain lifecycle history: a fresh/unused zone may remain relevant across days; touch alone does not automatically retire it and requires support/resistance revalidation; once Body Collection has completed/been used, that zone instance is retired and the view should be replanned. Universal candidate priority, exact collected-completion geometry and exact broker fill remain unresolved.",
-      "status": "ACTIVE_SOURCE_VISUAL_COMPONENT_GEOMETRY_AND_LIFECYCLE_PARTIAL_PRIORITY_OPEN",
+      "canonical_statement": "Body Collection search authority is same-timeframe first. Begin with approximately 2-4 prior candles; if the required structure is absent, continue farther back. When the current timeframe cannot provide the required structure, fall back sequentially H4->H1->M30 in the taught H4 workflow. A universal winner rule among multiple simultaneously valid same-timeframe candidates is not established.",
+      "status": "ACTIVE_SOURCE_BACKED_SEARCH_HIERARCHY_MULTI_CANDIDATE_PRIORITY_OPEN",
       "engine_permission": "RESEARCH_CANDIDATE_DETECTORS_AND_ZONE_STATE_MACHINE_WITH_MANUAL_VALIDATION",
       "source_refs": [
         "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
         "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
-        "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md"
+        "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md",
+        "docs/RQ009_EP5_BODY_COLLECTION_CANDIDATE_SEARCH_ORDER_CLOSURE_2026-09-09.md"
       ],
       "risk_flags": [
         "BROKER_FEED_EQUALITY_NORMALIZATION_REQUIRED",
@@ -414,7 +415,10 @@
         "MAX_TOUCH_COUNT_UNRESOLVED",
         "LOWER_TF_EXACT_FILL_PRICE_UNRESOLVED",
         "DO_NOT_INVENT_AGE_EXPIRY",
-        "YOUTUBE_ASR_RISK"
+        "YOUTUBE_ASR_RISK",
+        "DO_NOT_RANK_SAME_TF_CANDIDATES_FROM_OUTCOMES",
+        "INITIAL_2_4_CANDLES_NOT_HARD_EXPIRY",
+        "FRESHNESS_IS_ATTRIBUTE_NOT_PROVEN_WINNER_RULE"
       ],
       "provenance_note": "Direct YouTube Show-transcript evidence plus original-video visual review through the separate headed Chrome CDP session. BUY and SELL examples both show two forecast levels. Direct Q&A at ~1:13 and ~2:01-2:02 closes fresh/touched/used zone lifecycle semantics. No outcome fitting is permitted for touch count, age expiry, candidate priority or completion geometry."
     },
@@ -473,6 +477,20 @@
         "DO_NOT_INVENT_FIXED_AGE_EXPIRY"
       ],
       "provenance_note": "Direct source wording at ~1:13:16-1:13:41 and ~2:01:22-2:02:03, with synchronized original-video visual review. The state vocabulary FRESH/TOUCHED/COLLECTED/RETIRED is a minimum research representation of those direct semantics; exact OHLC transition predicates remain open."
+    },
+    {
+      "claim_id": "BODY_COLLECTION_CANDIDATE_SEARCH_ORDER",
+      "status": "ACTIVE_SOURCE_BACKED_PARTIAL_PRIORITY_OPEN",
+      "canonical_statement": "Search the setup timeframe first. Start with roughly 2-4 prior candles and extend farther back if not found. Only then step down one timeframe as taught. Preserve multiple valid same-TF candidates because no universal newest/nearest/freshest/strongest winner rule is established.",
+      "source_refs": [
+        "docs/RQ009_EP5_BODY_COLLECTION_CANDIDATE_SEARCH_ORDER_CLOSURE_2026-09-09.md"
+      ],
+      "engine_permission": "SEARCH_HIERARCHY_AND_MULTI_CANDIDATE_ENUMERATION_ONLY",
+      "risk_flags": [
+        "NO_CANONICAL_SAME_TF_WINNER_RULE",
+        "DO_NOT_SELECT_WINNER_BY_BACKTEST",
+        "DO_NOT_TREAT_2_4_CANDLES_AS_MAX_AGE"
+      ]
     }
   ]
 }

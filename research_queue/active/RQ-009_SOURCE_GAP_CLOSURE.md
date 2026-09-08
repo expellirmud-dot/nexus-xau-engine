@@ -174,3 +174,16 @@ Still open:
 - Sideway/cross-frame priority.
 
 Do not invent a one-day expiry, max-touch count, or age threshold from backtest outcomes.
+
+## Latest EP.5 candidate search-order checkpoint
+
+Ref: `docs/RQ009_EP5_BODY_COLLECTION_CANDIDATE_SEARCH_ORDER_CLOSURE_2026-09-09.md`
+
+Source-backed now:
+
+- search the setup timeframe first;
+- inspect roughly 2-4 prior candles as the initial window, then continue farther back if absent;
+- when incomplete, use sequential fallback H4 -> H1 -> M30 in the taught H4 workflow;
+- preserve multiple valid same-TF candidates because no universal newest/nearest/freshest/strongest winner rule is established.
+
+Still open: same-timeframe multi-candidate ranking and universal zone assembly/OHLC geometry. Do not select a winner from historical outcomes.

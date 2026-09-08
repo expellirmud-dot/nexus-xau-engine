@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-09T01:28:58+07:00",
+  "updated_at": "2026-09-09T01:43:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "RQ009_EP5_BODY_COLLECTION_BUY_SELL_MIRROR_AND_ZONE_LIFECYCLE",
+  "completed_checkpoint": "RQ009_EP5_CANDIDATE_SEARCH_HIERARCHY",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -97,12 +97,11 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Continue the single RQ-009 worksheet source-first; do not split into extra RQ IDs unless a genuinely independent blocker appears.",
-    "Use Body Collection zone instances with explicit freshness/touch/used history. Do not expire zones merely because a day changed, and do not retire on first touch without source-valid support/resistance revalidation.",
-    "Highest-value remaining Body Collection blocker is candidate priority and exact state-transition geometry when multiple historical ซอก/ไส้/คู่ zones coexist; do not infer max touches or age from outcomes.",
-    "PAT >50% denominator/arithmetic remains unresolved; do not choose body vs full-range from prior backtest performance.",
-    "Continue Sideway/cross-frame priority closure and retain exact broker fill price as an explicit execution convention until source evidence closes it.",
-    "Do not run/report canonical full-system Win/Loss until deterministic source geometry/execution conventions are frozen and a genuinely pristine holdout exists."
+    "Continue RQ-009 source-first. Candidate search hierarchy is now closed; do not invent a same-TF candidate winner rule from outcomes.",
+    "Highest-value remaining Body Collection blocker: universal zone assembly/OHLC geometry plus same-TF multi-candidate priority if source evidence exists.",
+    "PAT >50% denominator remains unresolved and must not be selected from backtest performance.",
+    "Exact broker fill after source-backed lower-TF confirmation remains an execution convention until source evidence closes it.",
+    "Do not run/report canonical full-system Win/Loss until deterministic source geometry/execution conventions are frozen and a pristine holdout exists."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -186,7 +185,8 @@
     "docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md",
     "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md",
     "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
-    "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md"
+    "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md",
+    "docs/RQ009_EP5_BODY_COLLECTION_CANDIDATE_SEARCH_ORDER_CLOSURE_2026-09-09.md"
   ],
   "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> active RQ-009 worksheet -> canonical claim register -> latest EP5 mirror/lifecycle closure -> EP5 visual geometry closure -> M5 retest closure + PAT50 diagnostic. Continue source-first; never let outcome performance select unresolved denominator, equality tolerance, touch count, age expiry, candidate priority, fill, or universal zone assembly.",
   "por_chon_1900_transcript_closure": {
@@ -711,7 +711,7 @@
     "guard": "Do not run/report a canonical full-system Win/Loss result by filling unresolved fields with analyst-selected thresholds or by relabeling component research statistics."
   },
   "rq009_source_gap_closure": {
-    "status": "ACTIVE_EP5_COMPONENT_AND_LIFECYCLE_CLOSED_CANDIDATE_PRIORITY_PAT_DENOMINATOR_OPEN",
+    "status": "ACTIVE_SOURCE_REVIEW_BODY_COLLECTION_SEARCH_HIERARCHY_CLOSED_MULTI_CANDIDATE_PRIORITY_OPEN",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
     "checkpoint_ref": "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md",
     "source_batch": [
@@ -747,7 +747,10 @@
       "Touch alone does not automatically retire a Body Collection zone; continued relevance depends on whether the structure still functions as support/resistance.",
       "Once Body Collection has completed/been used, the source explicitly says not to reuse that zone and to change/update the current perspective.",
       "Fresh unused zones are described as especially responsive, while touch history matters qualitatively; no universal numeric max-touch rule is source-backed.",
-      "A new/current valid PA context can trigger a new Body Collection plan after prior used-zone retirement/replanning."
+      "A new/current valid PA context can trigger a new Body Collection plan after prior used-zone retirement/replanning.",
+      "EP.5 source-backed Body Collection search hierarchy is same-TF first, initial ~2-4 historical candles, then continue farther back if absent.",
+      "In the taught H4 workflow, fallback is sequential H4 -> H1 -> M30 when the required structure is incomplete.",
+      "Multiple valid same-TF candidates must remain explicit because the source does not yet establish a universal newest/nearest/freshest/strongest winner rule."
     ],
     "still_open": [
       "Exact PAT2/PAT3 >50% denominator/arithmetic and feed-equality convention.",
@@ -757,7 +760,8 @@
       "Wick-selection and BUY/SELL mirror completeness across all Body Collection pattern variants.",
       "Exact broker fill price and structural point tolerance after a source-backed confirmation event.",
       "Universal routing between Sideway source methods and exact frame-complete/false-break detector.",
-      "Cross-timeframe/source-frame priority where multiple location/Sideway/Body Collection structures coexist."
+      "Cross-timeframe/source-frame priority where multiple location/Sideway/Body Collection structures coexist.",
+      "Universal same-timeframe winner/priority rule when multiple valid Body Collection candidate zones coexist."
     ],
     "proof_readiness": "BODY_COLLECTION_COMPONENT_AND_ZONE_LIFECYCLE_CLOSED_PRIORITY_TRANSITION_AND_EXACT_FILL_OPEN",
     "body_collection_audit_ref": "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
@@ -793,6 +797,7 @@
     "m5_retest_entry_closure_ref": "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md",
     "pat50_visual_diagnostic_ref": "docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md",
     "ep5_visual_geometry_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
-    "ep5_mirror_lifecycle_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md"
+    "ep5_mirror_lifecycle_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md",
+    "candidate_search_order_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_CANDIDATE_SEARCH_ORDER_CLOSURE_2026-09-09.md"
   }
 }
