@@ -1,6 +1,6 @@
 # RQ-004 — M5 brake and frame-standing state machine
 
-Status: ACTIVE
+Status: CLOSED / SOURCE_BACKED_STATE_MACHINE_PARAMETERIZED
 
 ## Why this matters
 
@@ -17,3 +17,7 @@ The transition/state representation is source-backed enough to replay, or explic
 ## Current source position
 
 `docs/M5_BRAKE_TRANSCRIPT_FORENSICS_2026-09-01.md` already provides a timestamped state-machine shell from EP.6. Current task is to classify which transitions are source-backed versus threshold-parameterized and close the worksheet without turning example values into universal thresholds.
+
+## Closure — 2026-09-08
+
+See `docs/RQ004_M5_BRAKE_FRAME_STANDING_SOURCE_CLOSURE_2026-09-08.md`. Replayable state/features are source-backed; exact numeric gates remain parameterized.

@@ -1,6 +1,6 @@
 # RQ-005 — Sideway construction, completion, and transition to new SIG
 
-Status: QUEUED
+Status: ACTIVE
 
 ## Why this matters
 
@@ -13,3 +13,7 @@ Use source-first visual review to identify how sideway begins, persists, ends, a
 ## Done when
 
 A replayable state transition is established, conditionally parameterized, or closed inconclusive with exact missing evidence named.
+
+## Current first action
+
+Consolidate explicit Sideway lifecycle statements from `PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md`, `M5_BRAKE_TRANSCRIPT_FORENSICS_2026-09-01.md`, the system summary and EP.2 visuals. Distinguish state/lifecycle facts from unresolved exact upper/lower frame geometry.
