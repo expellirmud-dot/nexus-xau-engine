@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T01:22:42+07:00",
+  "updated_at": "2026-09-09T01:28:58+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -270,7 +270,7 @@
     },
     {
       "claim_id": "SYSTEM_WIN_RATE",
-      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 now closes the source-level Body Collection routing architecture and visually closes the shown ซอก/คู่ component forms plus one worked two-reference zone assembly. However universal Body Collection candidate selection/assembly, exact lower-TF executable fill, PAT denominator/arithmetic, Sideway/cross-frame routing, and a pristine final holdout remain unresolved.",
+      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 now closes Body Collection routing, the shown ซอก/คู่ component forms, two-level BUY/SELL forecast availability, and source-level zone lifetime semantics (fresh/touched/completed-retired). However universal candidate priority/assembly, exact touched-to-collected transition geometry, exact lower-TF executable fill, PAT denominator/arithmetic, Sideway/cross-frame routing, and a pristine final holdout remain unresolved.",
       "status": "ACTIVE_BLOCKER_NOT_TESTABLE_WITH_CURRENT_EVIDENCE",
       "engine_permission": "DO_NOT_CLAIM",
       "source_refs": [
@@ -284,18 +284,20 @@
         "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
         "docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md",
         "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md",
-        "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md"
+        "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
+        "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md"
       ],
       "risk_flags": [
-        "UNIVERSAL_BODY_COLLECTION_CANDIDATE_SELECTION_OPEN",
+        "UNIVERSAL_BODY_COLLECTION_CANDIDATE_PRIORITY_OPEN",
         "UNIVERSAL_BODY_COLLECTION_ZONE_ASSEMBLY_OPEN",
+        "BODY_COLLECTION_COLLECTED_TRANSITION_GEOMETRY_OPEN",
         "LOWER_TF_EXACT_EXECUTION_PRICE_OPEN",
         "PAT_DENOMINATOR_ARITHMETIC_OPEN",
         "SIDEWAY_METHOD_ROUTING_PARTIAL",
         "CROSS_FRAME_PRIORITY_PARTIAL",
         "FINAL_PRISTINE_HOLDOUT_REQUIRED"
       ],
-      "provenance_note": "RQ-009 headed original-video review removes the prior EP.5 visual-source blocker for shown component geometry. This does not create a universal automatic zone detector or a complete trade tuple, so RQ-008 readiness stop remains in force."
+      "provenance_note": "RQ-009 source+visual work materially narrows Body Collection uncertainty without outcome fitting. Zone age is not a one-day expiry; completed/used zones retire, while mere touch requires revalidation. A complete source-faithful trade tuple is still not frozen, so RQ-008 readiness stop remains in force."
     },
     {
       "claim_id": "YOUTUBE_ASR_THAI_SPOKEN_TIME_NORMALIZATION",
@@ -394,24 +396,27 @@
     },
     {
       "claim_id": "BODY_COLLECTION_ZONE_ROUTING",
-      "canonical_statement": "EP.5 teaches Body Collection as a forecast-zone method built from ซอก + ไส้ + คู่, not as one exact entry price. Headed source-video review now visually closes the shown ซอก form as a same-color close/open body junction and the shown คู่ forms as opposite-color reversal pairs sharing a close/open equilibrium level at support/resistance. In the worked PA Sell example, คู่ and ซอก share the upper forecast reference (~3563.59) while a wick-derived second reference participates in the lower forecast level (~3560.31), forming the demonstrated interval. This closes the shown component geometry and one worked zone assembly, but does not prove that every valid zone must assemble identically or solve candidate priority when multiple historical clusters exist. Use same-timeframe structure first; if unavailable, fall back one timeframe (H4->H1 and, when still incomplete, H1->M30). Zone arrival alone is insufficient: lower-timeframe PA aligned with the H4 thesis and brake/confirmation context are required before entry consideration; no PA means no entry even inside the zone. Normal Body Collection is distinct from Sideway entry handling.",
-      "status": "ACTIVE_SOURCE_VISUAL_COMPONENT_GEOMETRY_PARTIAL_UNIVERSAL_ASSEMBLY_OPEN",
-      "engine_permission": "RESEARCH_CANDIDATE_DETECTORS_FOR_SHOWN_FORMS_WITH_MANUAL_VALIDATION",
+      "canonical_statement": "EP.5 teaches Body Collection as a forecast-zone method built from ซอก + ไส้ + คู่, not as one exact entry price. Source+visual review closes the shown ซอก form as a same-color close/open body junction and the shown คู่ forms as opposite-color reversal pairs sharing a close/open equilibrium level at support/resistance. The lesson visually demonstrates two forecast levels on both PA Buy PAT3 and PA Sell PAT2 examples. Use same-timeframe structure first; if unavailable, fall back one timeframe (H4->H1 and, when still incomplete, H1->M30). Zone arrival alone is insufficient: lower-timeframe PA aligned with the H4 thesis and brake/confirmation context are required before entry consideration. Zone instances retain lifecycle history: a fresh/unused zone may remain relevant across days; touch alone does not automatically retire it and requires support/resistance revalidation; once Body Collection has completed/been used, that zone instance is retired and the view should be replanned. Universal candidate priority, exact collected-completion geometry and exact broker fill remain unresolved.",
+      "status": "ACTIVE_SOURCE_VISUAL_COMPONENT_GEOMETRY_AND_LIFECYCLE_PARTIAL_PRIORITY_OPEN",
+      "engine_permission": "RESEARCH_CANDIDATE_DETECTORS_AND_ZONE_STATE_MACHINE_WITH_MANUAL_VALIDATION",
       "source_refs": [
         "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
         "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
-        "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md"
+        "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
+        "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md"
       ],
       "risk_flags": [
         "BROKER_FEED_EQUALITY_NORMALIZATION_REQUIRED",
         "UNIVERSAL_ZONE_ASSEMBLY_NOT_PROVEN",
         "MULTIPLE_CANDIDATE_PRIORITY_UNRESOLVED",
-        "WICK_SELECTION_ACROSS_VARIANTS_UNRESOLVED",
+        "EXACT_COLLECTED_COMPLETION_GEOMETRY_OPEN",
+        "S_R_REVALIDATION_GEOMETRY_OPEN",
+        "MAX_TOUCH_COUNT_UNRESOLVED",
         "LOWER_TF_EXACT_FILL_PRICE_UNRESOLVED",
-        "EP5_NUMERIC_RANGES_CONTEXTUAL_UNTIL_CROSS_LESSON_VALIDATED",
+        "DO_NOT_INVENT_AGE_EXPIRY",
         "YOUTUBE_ASR_RISK"
       ],
-      "provenance_note": "Direct YouTube Show-transcript evidence plus original-video visual review through a separate headed Chrome CDP session. Visual frames at ~23:49, 28:03-29:44, 49:48-50:24 and 56:51-58:47 materially close the shown component geometry without outcome fitting. Do not universalize the single worked zone assembly to every BUY/SELL candidate."
+      "provenance_note": "Direct YouTube Show-transcript evidence plus original-video visual review through the separate headed Chrome CDP session. BUY and SELL examples both show two forecast levels. Direct Q&A at ~1:13 and ~2:01-2:02 closes fresh/touched/used zone lifecycle semantics. No outcome fitting is permitted for touch count, age expiry, candidate priority or completion geometry."
     },
     {
       "claim_id": "M5_BRAKE_ENTRY2_RETEST_SIGNAL",
@@ -449,6 +454,25 @@
         "DO_NOT_FIT_TOLERANCE_FROM_OUTCOMES"
       ],
       "provenance_note": "Source wording is synchronized with original-video drawings captured from the YouTube <video> element in a headed CDP browser. This claim is intentionally limited to the forms actually shown."
+    },
+    {
+      "claim_id": "BODY_COLLECTION_ZONE_LIFECYCLE",
+      "canonical_statement": "EP.5 treats Body Collection zones as stateful instances rather than timeless reusable lines. A fresh/unused zone can remain relevant across multiple days. Mere touch does not automatically retire a zone; continued use depends on whether the structure still acts as support/resistance. Once Body Collection has completed/been used, that zone instance is no longer reused and the current view should be updated/replanned. The source says touch history matters and fresh unused zones can be especially responsive, but provides no universal numeric maximum touch count or fixed age expiry.",
+      "status": "ACTIVE_SOURCE_BACKED_FRESH_TOUCH_USED_LIFECYCLE_PARTIAL_GEOMETRY",
+      "engine_permission": "CANONICAL_STATE_MACHINE_SEMANTICS_WITH_OPEN_TRANSITION_GEOMETRY",
+      "source_refs": [
+        "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md",
+        "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
+        "docs/transcripts/EP5_BODY_COLLECTION_FULL_ANALYSIS.md"
+      ],
+      "risk_flags": [
+        "MAX_TOUCH_COUNT_UNRESOLVED",
+        "EXACT_COLLECTED_COMPLETION_GEOMETRY_OPEN",
+        "S_R_REVALIDATION_GEOMETRY_OPEN",
+        "MULTIPLE_ZONE_PRIORITY_UNRESOLVED",
+        "DO_NOT_INVENT_FIXED_AGE_EXPIRY"
+      ],
+      "provenance_note": "Direct source wording at ~1:13:16-1:13:41 and ~2:01:22-2:02:03, with synchronized original-video visual review. The state vocabulary FRESH/TOUCHED/COLLECTED/RETIRED is a minimum research representation of those direct semantics; exact OHLC transition predicates remain open."
     }
   ]
 }

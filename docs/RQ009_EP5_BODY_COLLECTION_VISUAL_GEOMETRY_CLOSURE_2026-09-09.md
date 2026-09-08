@@ -268,3 +268,11 @@ It is not yet defensible to claim a universal automatic Body Collection detector
 `PARTIAL SOURCE+VISUAL CLOSURE`.
 
 This checkpoint materially reduces the Body Collection geometry blocker without inventing a universal formula. RQ-009 remains ACTIVE.
+
+## Follow-up: BUY/SELL mirror and zone lifecycle
+
+A later same-RQ checkpoint reviewed source visuals at `1:12-1:13` and direct Q&A at `2:01-2:02`.
+
+It closes two-level BUY/SELL availability and the fresh/touched/completed-retired zone lifecycle while keeping candidate priority and exact transition geometry open.
+
+See: `docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md`

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T01:22:42+07:00",
+  "updated_at": "2026-09-09T01:28:58+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
@@ -8,8 +8,8 @@
     "id": "RQ-009",
     "title": "Source Gap Closure from Current Five-Video Batch",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-    "status": "ACTIVE_EP5_COMPONENT_GEOMETRY_CLOSED_UNIVERSAL_ASSEMBLY_PAT_DENOMINATOR_OPEN",
-    "latest_checkpoint": "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md"
+    "status": "ACTIVE_EP5_COMPONENT_AND_LIFECYCLE_CLOSED_CANDIDATE_PRIORITY_PAT_DENOMINATOR_OPEN",
+    "latest_checkpoint": "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md"
   },
   "priority_order": [
     "RQ-009"
@@ -158,7 +158,7 @@
       "id": "RQ-009",
       "title": "Source Gap Closure from Current Five-Video Batch",
       "type": "RESEARCH",
-      "status": "ACTIVE_EP5_COMPONENT_GEOMETRY_CLOSED_UNIVERSAL_ASSEMBLY_PAT_DENOMINATOR_OPEN",
+      "status": "ACTIVE_EP5_COMPONENT_AND_LIFECYCLE_CLOSED_CANDIDATE_PRIORITY_PAT_DENOMINATOR_OPEN",
       "why_now": "Direct review of the current five local instructor sources revealed material evidence that narrows blockers left by RQ-002/RQ-007, especially two explicit SIG entry modes and touch-based point-check destruction.",
       "depends_on": [],
       "blocks": [
@@ -168,15 +168,16 @@
       ],
       "preferred_method": "Transcript/timestamp map -> synchronized visual window -> original audio only if material ASR ambiguity remains -> explicit source closure/UNKNOWN -> targeted computation only for residual source-compatible representations.",
       "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-      "checkpoint_ref": "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
-      "current_summary": "EP.5 original-video visual review now closes the shown ซอก and คู่ component forms and the geometry of one worked PA Sell forecast interval. Universal Body Collection candidate selection/assembly remains open, as do PAT >50% denominator/arithmetic, exact broker fill/tolerance, Sideway/cross-frame routing, and final pristine holdout requirements.",
+      "checkpoint_ref": "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md",
+      "current_summary": "EP.5 source+visual review now closes shown component geometry, two-level BUY/SELL forecast availability, and zone lifecycle semantics: zones can persist across days, touch is not automatic retirement, and completed/used Body Collection retires the zone and requires replanning. Universal candidate priority/assembly, touched-to-collected geometry, PAT >50% denominator/arithmetic, exact broker fill/tolerance, Sideway/cross-frame routing and final pristine holdout remain open.",
       "secondary_refs": [
         "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
         "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
         "docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md",
         "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md",
-        "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md"
+        "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
+        "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md"
       ]
     }
   ],

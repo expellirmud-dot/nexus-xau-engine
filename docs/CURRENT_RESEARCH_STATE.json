@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-09T01:22:42+07:00",
+  "updated_at": "2026-09-09T01:28:58+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "RQ009_EP5_BODY_COLLECTION_VISUAL_COMPONENT_GEOMETRY",
+  "completed_checkpoint": "RQ009_EP5_BODY_COLLECTION_BUY_SELL_MIRROR_AND_ZONE_LIFECYCLE",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -26,10 +26,10 @@
       "docs/CURRENT_RESEARCH_STATE.json",
       "research_queue/QUEUE.json",
       "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
+      "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md",
       "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
       "docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md",
       "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md",
-      "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
       "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
       "latest new source evidence if any"
     ]
@@ -98,8 +98,8 @@
   },
   "next_steps": [
     "Continue the single RQ-009 worksheet source-first; do not split into extra RQ IDs unless a genuinely independent blocker appears.",
-    "Use the newly source+visual-closed shown forms of ซอก and คู่ only as research candidate detectors with explicit feed-equality normalization and manual source validation; do not outcome-fit a tolerance.",
-    "Highest-value remaining Body Collection blocker is universal candidate selection/zone assembly when several historical ซอก/ไส้/คู่ clusters coexist; the single worked PA Sell assembly must not be universalized.",
+    "Use Body Collection zone instances with explicit freshness/touch/used history. Do not expire zones merely because a day changed, and do not retire on first touch without source-valid support/resistance revalidation.",
+    "Highest-value remaining Body Collection blocker is candidate priority and exact state-transition geometry when multiple historical ซอก/ไส้/คู่ zones coexist; do not infer max touches or age from outcomes.",
     "PAT >50% denominator/arithmetic remains unresolved; do not choose body vs full-range from prior backtest performance.",
     "Continue Sideway/cross-frame priority closure and retain exact broker fill price as an explicit execution convention until source evidence closes it.",
     "Do not run/report canonical full-system Win/Loss until deterministic source geometry/execution conventions are frozen and a genuinely pristine holdout exists."
@@ -185,9 +185,10 @@
     "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
     "docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md",
     "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md",
-    "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md"
+    "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
+    "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md"
   ],
-  "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> active RQ-009 worksheet -> canonical claim register -> latest EP5 visual-geometry closure -> M5 retest closure + PAT50 diagnostic. Continue source-first; never let outcome performance select unresolved denominator, equality tolerance, candidate priority, fill, or universal zone assembly.",
+  "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> active RQ-009 worksheet -> canonical claim register -> latest EP5 mirror/lifecycle closure -> EP5 visual geometry closure -> M5 retest closure + PAT50 diagnostic. Continue source-first; never let outcome performance select unresolved denominator, equality tolerance, touch count, age expiry, candidate priority, fill, or universal zone assembly.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -710,9 +711,9 @@
     "guard": "Do not run/report a canonical full-system Win/Loss result by filling unresolved fields with analyst-selected thresholds or by relabeling component research statistics."
   },
   "rq009_source_gap_closure": {
-    "status": "ACTIVE_EP5_COMPONENT_GEOMETRY_SOURCE_VISUAL_CLOSED_UNIVERSAL_ASSEMBLY_PAT_DENOMINATOR_OPEN",
+    "status": "ACTIVE_EP5_COMPONENT_AND_LIFECYCLE_CLOSED_CANDIDATE_PRIORITY_PAT_DENOMINATOR_OPEN",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-    "checkpoint_ref": "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
+    "checkpoint_ref": "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md",
     "source_batch": [
       "vcdN51_OrPE",
       "1E_PYPor1qQ",
@@ -740,18 +741,25 @@
       "Shown ซอก form is source+visual closed as a same-color close/open body junction after feed normalization.",
       "Shown คู่ forms are source+visual closed as opposite-color reversal pairs sharing the close/open equilibrium level at support/resistance; body heights need not match.",
       "Worked PA Sell Body Collection example visually places คู่ and ซอก on the upper ~3563.59 reference and a wick-derived second reference around ~3560.31, yielding the demonstrated forecast interval; this is example geometry, not a universal assembly law.",
-      "EP.5 lower-TF visual strengthens Zone + PA confirmation: failure to make a higher high plus PA Sell/engulfing structure precedes continuation in the shown M5 example; exact broker fill remains open."
+      "EP.5 lower-TF visual strengthens Zone + PA confirmation: failure to make a higher high plus PA Sell/engulfing structure precedes continuation in the shown M5 example; exact broker fill remains open.",
+      "EP.5 visually demonstrates the current two-forecast-level Body Collection concept on both PA Buy PAT3 and PA Sell PAT2 examples.",
+      "Body Collection zones are stateful instances: a fresh/unused zone may remain relevant across multiple days; no one-day or fixed candle-age expiry is source-backed.",
+      "Touch alone does not automatically retire a Body Collection zone; continued relevance depends on whether the structure still functions as support/resistance.",
+      "Once Body Collection has completed/been used, the source explicitly says not to reuse that zone and to change/update the current perspective.",
+      "Fresh unused zones are described as especially responsive, while touch history matters qualitatively; no universal numeric max-touch rule is source-backed.",
+      "A new/current valid PA context can trigger a new Body Collection plan after prior used-zone retirement/replanning."
     ],
     "still_open": [
       "Exact PAT2/PAT3 >50% denominator/arithmetic and feed-equality convention.",
-      "Universal Body Collection candidate selection and zone assembly when multiple historical ซอก/ไส้/คู่ clusters exist; do not universalize the single worked PA Sell example.",
-      "Wick-selection and BUY/SELL mirror completeness across all Body Collection variants.",
+      "Universal Body Collection candidate priority and zone assembly when multiple historical fresh/active ซอก/ไส้/คู่ clusters coexist.",
+      "Exact OHLC transition from touched/revalidated zone to completed/used Body Collection and exact support/resistance revalidation after touch.",
+      "Any universal numeric maximum-touch rule; current source provides qualitative touch-history semantics only.",
+      "Wick-selection and BUY/SELL mirror completeness across all Body Collection pattern variants.",
       "Exact broker fill price and structural point tolerance after a source-backed confirmation event.",
-      "Exact quantitative force/weakening/rejection thresholds and whether 4-10 candles is ever a hard universal gate.",
       "Universal routing between Sideway source methods and exact frame-complete/false-break detector.",
       "Cross-timeframe/source-frame priority where multiple location/Sideway/Body Collection structures coexist."
     ],
-    "proof_readiness": "BODY_COLLECTION_SHOWN_COMPONENT_GEOMETRY_CLOSED_UNIVERSAL_ASSEMBLY_AND_EXACT_FILL_OPEN",
+    "proof_readiness": "BODY_COLLECTION_COMPONENT_AND_ZONE_LIFECYCLE_CLOSED_PRIORITY_TRANSITION_AND_EXACT_FILL_OPEN",
     "body_collection_audit_ref": "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
     "sideway_audit_ref": "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
     "external_source_target": {
@@ -768,9 +776,10 @@
       ],
       "browser_transcript_status": "REVIEWED_DIRECTLY_FROM_ORIGINAL_YOUTUBE_SHOW_TRANSCRIPT",
       "browser_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
-      "visual_status": "ORIGINAL_YOUTUBE_PLAYABLE_AND_CAPTURED_VIA_HEADED_CDP_9223",
+      "visual_status": "ORIGINAL_YOUTUBE_PLAYABLE_BUY_SELL_MIRROR_AND_ZONE_LIFECYCLE_REVIEWED",
       "headed_cdp_profile": "D:\\tools\\nexus-agent-chrome-profile-headed",
-      "visual_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md"
+      "visual_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
+      "lifecycle_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md"
     },
     "ep5_browser_source_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
     "browser_evidence": {
@@ -783,6 +792,7 @@
     },
     "m5_retest_entry_closure_ref": "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md",
     "pat50_visual_diagnostic_ref": "docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md",
-    "ep5_visual_geometry_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md"
+    "ep5_visual_geometry_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
+    "ep5_mirror_lifecycle_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md"
   }
 }

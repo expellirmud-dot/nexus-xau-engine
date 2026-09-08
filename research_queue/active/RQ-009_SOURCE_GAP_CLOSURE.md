@@ -146,3 +146,31 @@ Still open and deliberately not inferred from the worked example:
 - Sideway/cross-frame priority.
 
 Therefore RQ-009 remains ACTIVE. Do not run a canonical Win/Loss proof yet.
+
+## Latest EP.5 BUY/SELL mirror + zone lifecycle checkpoint
+
+Ref: `docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md`
+
+Source+visual closure now establishes:
+
+- the current two-forecast-level concept is demonstrated on both `PA Buy PAT3` and `PA Sell PAT2` examples;
+- `2-4` prior candles is an initial search window, not a hard age/expiry rule;
+- a fresh/unused zone can remain relevant across multiple days;
+- touch alone does not automatically retire the zone — the source says to re-evaluate whether it continues to act as support/resistance;
+- after Body Collection has completed/been used, that zone instance is explicitly not reused and the current view should be updated/replanned;
+- fresh unused zones are described as especially responsive, but no universal numeric max-touch threshold is given;
+- a new/current valid PA can lead to construction of a new Body Collection plan.
+
+Research state representation may therefore track `FRESH_UNUSED -> TOUCHED_REVALIDATE -> COLLECTED_USED -> RETIRED_REPLAN`, but exact OHLC transitions for revalidation/completion remain parameterized.
+
+Still open:
+
+- multiple-zone candidate priority;
+- universal zone assembly across all variants;
+- exact touched-to-collected OHLC transition;
+- exact support/resistance revalidation after touch;
+- PAT >50% denominator/arithmetic;
+- exact broker fill/tolerance;
+- Sideway/cross-frame priority.
+
+Do not invent a one-day expiry, max-touch count, or age threshold from backtest outcomes.
