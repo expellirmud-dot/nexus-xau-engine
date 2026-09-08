@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-09T04:12:35+07:00",
+  "updated_at": "2026-09-09T04:24:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "RQ009_EP5_SHOWN_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION",
+  "completed_checkpoint": "RQ009_PARTIAL_SR_COMPONENT_BODY_COLLECTION_RECONCILIATION",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -29,11 +29,11 @@
       "docs/CURRENT_RESEARCH_STATE.json",
       "research_queue/QUEUE.json",
       "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
+      "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
       "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
       "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
       "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md",
       "docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md",
-      "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md",
       "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
       "latest new source evidence if any"
     ]
@@ -102,10 +102,10 @@
     "research_preflight": "PASS"
   },
   "next_steps": [
-    "Continue RQ-009 source-first by searching for alternate cross-TF Body Collection component permutations beyond the now-closed shown parent-SOK+WICK / lower-PAIR topology.",
-    "If the current source batch contains no direct alternate-permutation rule, close it as MISSING_SOURCE_RULE rather than inventing a universal alignment or reference-selection algorithm.",
-    "Keep broker/feed equality normalization and priority when multiple lower-TF components align to one parent candidate unresolved; do not fit either from outcomes.",
-    "Then continue with the next decision-critical blockers: PAT >50% denominator/arithmetic, exact lower-TF fill, Sideway/cross-frame routing, and zone touched-to-used geometry.",
+    "Keep the shown EP.5 Body Collection cross-TF merge topology source-backed, but do not convert EP.4/EP.6 partial lower-TF S/R components into arbitrary Body Collection merge permission.",
+    "Close the current cross-TF/two-reference goal as arbitrary Body Collection component permutation merging still UNRESOLVED unless a Body Collection-specific source explicitly supplies another permutation or merge rule.",
+    "Do not upgrade EP.6 nearest-first S/R guidance into a universal Body Collection candidate-priority rule without Body Collection-specific evidence.",
+    "Next highest-value source blocker is PAT >50% denominator: direct wording now strongly supports real-body semantics for PAT2 while PAT3 multi-candle arithmetic remains open.",
     "Do not run/report canonical full-system Win/Loss until deterministic source geometry/execution conventions are frozen and a pristine holdout exists."
   ],
   "blocked_from_claiming": [
@@ -202,9 +202,10 @@
     "docs/SOURCE_COVERAGE_LEDGER.json",
     "scripts/research_preflight.py",
     "docs/AGENT_ZERO_CONTEXT_BOOTSTRAP_2026-09-09.md",
-    "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md"
+    "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
+    "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md"
   ],
-  "resume_instruction": "Run zero-context bootstrap/preflight, then continue RQ-009 from the latest shown cross-TF alignment checkpoint. Treat parent SOK+WICK -> two references + lower-PAIR aligned to an existing reference as source-backed only for the repeated shown topology. Search for alternate component permutations; if absent, record MISSING_SOURCE_RULE. Never invent equality tolerance, priority, or unseen reference selection from outcomes.",
+  "resume_instruction": "After zero-context preflight, resume RQ-009 from the partial-S/R versus Body Collection reconciliation. Preserve the distinction: full three-component higher/reference zone, weaker lower-TF partial S/R, and only one explicitly closed Body Collection cross-TF merge topology. Do not invent arbitrary merge, alignment tolerance, or Body Collection priority from S/R guidance or outcomes.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -727,9 +728,9 @@
     "guard": "Do not run/report a canonical full-system Win/Loss result by filling unresolved fields with analyst-selected thresholds or by relabeling component research statistics."
   },
   "rq009_source_gap_closure": {
-    "status": "ACTIVE_SHOWN_CROSS_TF_ALIGNMENT_CLOSED_UNIVERSAL_PERMUTATIONS_REFERENCE_SELECTION_OPEN",
+    "status": "ACTIVE_PARTIAL_SR_RECONCILED_ARBITRARY_BODY_COLLECTION_MERGE_UNRESOLVED",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-    "checkpoint_ref": "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
+    "checkpoint_ref": "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
     "source_batch": [
       "vcdN51_OrPE",
       "1E_PYPor1qQ",
@@ -782,21 +783,24 @@
       "Repeated EP.5 source+visual topology shows parent/reference-TF ซอก+ไส้ defining two forecast/reference levels before the lower-TF คู่ is found.",
       "In the reviewed H1->M30 example, the lower-TF คู่ is described as ตรงกัน and visually aligns/co-locates with an existing parent reference; no third forecast line is introduced.",
       "A second PA Sell example repeats parent ซอก+ไส้ two-reference structure with lower-TF completion, supporting the topology family independently.",
-      "Therefore lower-TF component completion can validate an existing reference rather than necessarily create a new forecast price; this is not universalized to unshown component permutations."
+      "Therefore lower-TF component completion can validate an existing reference rather than necessarily create a new forecast price; this is not universalized to unshown component permutations.",
+      "EP.4/EP.6 explicitly distinguish full/strong three-component ซอก+ไส้+คู่ zones from weaker lower-timeframe/minor S/R built from partial component subsets.",
+      "Explicit partial S/R examples include คู่ alone, ไส้+คู่, and คู่+ซอก; these do not establish arbitrary Body Collection cross-TF merge semantics.",
+      "EP.6 says component references can lie in the same area/zone and gives nearest-first guidance for S/R selection while allowing nearby alternatives; exact numeric zone tolerance remains unstated.",
+      "EP.6 qualitatively describes overlapping Day+H4 references as stronger, but exact overlap geometry and Body Collection-specific priority remain open."
     ],
     "still_open": [
       "Exact PAT2/PAT3 >50% denominator/arithmetic and feed-equality convention.",
-      "Universal cross-TF alignment/reference-selection rule for Body Collection component permutations other than the shown parent ซอก+ไส้ / lower คู่ topology.",
-      "Broker/feed normalization or allowed tick difference for Body Collection same-price/equilibrium relations.",
-      "Priority when multiple lower-TF components align with the same higher-level partial candidate.",
-      "Universal same-timeframe winner/priority rule when multiple valid Body Collection candidate zones coexist.",
+      "Universal Body Collection cross-TF merge/reference-selection rule for arbitrary component permutations beyond the shown parent ซอก+ไส้ / lower คู่ topology.",
+      "Broker/feed normalization or allowed tick difference for Body Collection same-price/equilibrium relations and same-zone grouping.",
+      "Body Collection-specific priority when multiple same-TF or lower-TF candidates coexist; EP.6 nearest-first evidence is currently S/R-context guidance only.",
       "Universal support/resistance certification geometry for every คู่ candidate and universal wick selection when several wicks qualify.",
       "Exact OHLC transition from touched/revalidated zone to completed/used Body Collection and exact support/resistance revalidation after touch.",
       "Exact broker fill price and structural point tolerance after a source-backed confirmation event.",
       "Universal routing between Sideway source methods and exact frame-complete/false-break detector.",
       "Cross-timeframe/source-frame priority where multiple location/Sideway/Body Collection structures coexist."
     ],
-    "proof_readiness": "SHOWN_PARENT_SOK_WICK_LOWER_PAIR_ALIGNMENT_SOURCE_BACKED_UNIVERSAL_PERMUTATIONS_EQUALITY_PRIORITY_FILL_OPEN",
+    "proof_readiness": "FULL_VS_PARTIAL_SR_CONTEXT_SOURCE_BACKED_ARBITRARY_BODY_COLLECTION_MERGE_EQUALITY_PRIORITY_FILL_OPEN",
     "body_collection_audit_ref": "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
     "sideway_audit_ref": "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
     "external_source_target": {
@@ -836,7 +840,8 @@
     "component_definition_reconciliation_ref": "docs/RQ009_EP5_COMPONENT_DEFINITION_SOURCE_RECONCILIATION_2026-09-09.md",
     "two_reference_method_rationale_ref": "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md",
     "cross_tf_component_completion_ref": "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
-    "cross_tf_alignment_shown_form_ref": "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md"
+    "cross_tf_alignment_shown_form_ref": "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
+    "partial_sr_reconciliation_ref": "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md"
   },
   "agent_bootstrap": {
     "entrypoint": "AGENTS.md",
@@ -861,5 +866,5 @@
     "coverage_scope": "PARTIAL_SEED_RQ009_CURRENT_RESEARCH_WINDOWS",
     "coverage_backfill_guard": "Do not infer missing historical coverage metadata; backfill only from preserved evidence."
   },
-  "maintenance_checkpoint": "RQ009_EP5_SHOWN_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_2026-09-09"
+  "maintenance_checkpoint": "RQ009_PARTIAL_SR_COMPONENT_BODY_COLLECTION_RECONCILIATION_2026-09-09"
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T04:12:35+07:00",
+  "updated_at": "2026-09-09T04:24:00+07:00",
   "purpose": "Durable source-review memory. Records which source windows/topics have already been screened or reviewed, what they established, what remains unresolved, and when a review may be reopened. This ledger prevents future agents from restarting source research from zero.",
   "rules": {
     "closed_windows_are_not_researched_from_zero_without_reopen_trigger": true,
@@ -453,6 +453,89 @@
         "NEW_PRIMARY_SOURCE_EVIDENCE",
         "CLEARER_SYNCHRONIZED_AUDIO_OR_VISUAL",
         "CONTRADICTION_WITH_CURRENT_CANONICAL_CLAIM",
+        "MATERIALLY_NEW_QUESTION_NOT_COVERED_BY_PRIOR_REVIEW"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "EP4_COMPONENT_COMPLETENESS_TF_DISTINCTION_1208_11809",
+      "source_id": "UV5NijhjfJ8",
+      "source_title": "EP.4 เบรก M5 เงินล้าน",
+      "topic": "Complete three-component higher/reference zone versus partial lower-TF minor S/R",
+      "window": "00:12:08-00:12:24; 01:17:45-01:18:09",
+      "reviewed_modalities": [
+        "LOCAL_TRANSCRIPT"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Source says full ซอก+ไส้+คู่ is required for the strong/full zone, then explicitly distinguishes lower-TF minor S/R where pair alone or wick+pair can be used; higher TF should retain the complete set.",
+      "residual_unknowns": [
+        "EXACT_ZONE_BOUNDARY_TOLERANCE",
+        "UNIVERSAL_BODY_COLLECTION_MERGE_SEMANTICS_FOR_PARTIAL_COMPONENTS"
+      ],
+      "claim_ids": [
+        "SOK_WICK_PAIR_COMPONENT_COMPLETENESS_STRENGTH",
+        "BODY_COLLECTION_COMPONENT_GEOMETRY"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "CLEARER_SYNCHRONIZED_AUDIO_OR_VISUAL",
+        "CONTRADICTION_WITH_CURRENT_CANONICAL_CLAIM",
+        "MATERIALLY_NEW_QUESTION_NOT_COVERED_BY_PRIOR_REVIEW"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "EP6_PARTIAL_COMPONENT_STRENGTH_NEAREST_11149_11633",
+      "source_id": "16KoS7d-koI",
+      "source_title": "EP.6 ขยี้จุดเข้า M1 M5",
+      "topic": "Partial component combinations, same-zone grouping, nearest-first S/R selection, and TF overlap strength",
+      "window": "01:11:49-01:16:33",
+      "reviewed_modalities": [
+        "LOCAL_TRANSCRIPT"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Source explicitly names incomplete combinations such as wick+pair and pair+sok as weaker than full three-component structure; says pair/sok/wicks can lie in the same area; accepts nearby alternatives; says choose nearest first in the reviewed S/R context; and describes Day+H4 overlap as stronger. None of this establishes a universal Body Collection candidate winner or numeric alignment tolerance.",
+      "residual_unknowns": [
+        "EXACT_ZONE_DISTANCE_TOLERANCE",
+        "BODY_COLLECTION_SPECIFIC_CANDIDATE_PRIORITY",
+        "EXACT_MULTI_TF_OVERLAP_GEOMETRY"
+      ],
+      "claim_ids": [
+        "SOK_WICK_PAIR_COMPONENT_COMPLETENESS_STRENGTH",
+        "SR_ZONE_NEAREST_FIRST_CONTEXT"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "CLEARER_SYNCHRONIZED_AUDIO_OR_VISUAL",
+        "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION",
+        "MATERIALLY_NEW_QUESTION_NOT_COVERED_BY_PRIOR_REVIEW"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "EP6_BODY_COLLECTION_TWO_ZONES_PA_GUARD_12833_12855",
+      "source_id": "16KoS7d-koI",
+      "source_title": "EP.6 ขยี้จุดเข้า M1 M5",
+      "topic": "Body Collection two zones remain separate from PA confirmation",
+      "window": "01:28:33-01:28:55",
+      "reviewed_modalities": [
+        "LOCAL_TRANSCRIPT"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Source discusses old H1/H4 structural overlap and says Body Collection has two zones, but the example had almost no PA Sell at those zones. This supports zone-first plus confirmation and does not turn S/R component presence into automatic entry.",
+      "residual_unknowns": [
+        "EXACT_TWO_REFERENCE_SELECTION_FOR_UNSEEN_CONFIGURATION",
+        "EXACT_ENTRY_FILL"
+      ],
+      "claim_ids": [],
+      "checkpoint_refs": [
+        "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md"
+      ],
+      "reopen_triggers": [
         "MATERIALLY_NEW_QUESTION_NOT_COVERED_BY_PRIOR_REVIEW"
       ],
       "last_reviewed_at": "2026-09-09"

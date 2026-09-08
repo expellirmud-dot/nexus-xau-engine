@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T04:12:35+07:00",
+  "updated_at": "2026-09-09T04:24:00+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -270,7 +270,7 @@
     },
     {
       "claim_id": "SYSTEM_WIN_RATE",
-      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 now closes one repeated Body Collection cross-TF shown form: parent ซอก+ไส้ can define the two reference levels and a lower-TF คู่ can align with an existing parent reference to complete the structure without a third line. However other component-permutation alignment rules, broker/feed equality normalization, unseen two-reference selection, candidate priority, exact touched-to-collected transition, exact lower-TF fill, PAT denominator/arithmetic, Sideway/cross-frame routing, and a pristine final holdout remain unresolved.",
+      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 now distinguishes complete/strong higher-reference ซอก+ไส้+คู่ zones from weaker lower-TF partial S/R component structures, while preserving the single source+visual Body Collection cross-TF merge topology already closed. Arbitrary Body Collection component merging, broker/feed equality normalization, unseen two-reference selection, Body Collection-specific candidate priority, exact touched-to-collected transition, exact lower-TF fill, PAT denominator/arithmetic, Sideway/cross-frame routing, and a pristine final holdout remain unresolved.",
       "status": "ACTIVE_BLOCKER_NOT_TESTABLE_WITH_CURRENT_EVIDENCE",
       "engine_permission": "DO_NOT_CLAIM",
       "source_refs": [
@@ -290,7 +290,8 @@
         "docs/RQ009_EP5_COMPONENT_DEFINITION_SOURCE_RECONCILIATION_2026-09-09.md",
         "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md",
         "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
-        "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md"
+        "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
+        "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md"
       ],
       "risk_flags": [
         "UNIVERSAL_BODY_COLLECTION_CANDIDATE_PRIORITY_OPEN",
@@ -303,9 +304,10 @@
         "FINAL_PRISTINE_HOLDOUT_REQUIRED",
         "BODY_COLLECTION_EQUALITY_NORMALIZATION_OPEN",
         "BODY_COLLECTION_REFERENCE_SELECTION_FOR_UNSEEN_CONFIGURATIONS_OPEN",
-        "BODY_COLLECTION_OTHER_CROSS_TF_COMPONENT_PERMUTATIONS_OPEN"
+        "BODY_COLLECTION_OTHER_CROSS_TF_COMPONENT_PERMUTATIONS_OPEN",
+        "PARTIAL_SR_COMPONENTS_DO_NOT_CLOSE_BODY_COLLECTION_ARBITRARY_MERGE"
       ],
-      "provenance_note": "Shown cross-TF alignment is now narrower than the previous generic blocker, but the source does not yet provide a universal alignment/reference-selection algorithm for all component permutations. RQ-008 readiness stop remains in force."
+      "provenance_note": "EP.4/EP.6 partial-component S/R evidence narrows context but does not supply a complete trade construction or universal Body Collection assembly algorithm. RQ-008 readiness stop remains in force."
     },
     {
       "claim_id": "YOUTUBE_ASR_THAI_SPOKEN_TIME_NORMALIZATION",
@@ -404,8 +406,8 @@
     },
     {
       "claim_id": "BODY_COLLECTION_ZONE_ROUTING",
-      "canonical_statement": "Body Collection search authority is setup-timeframe first. Begin with approximately 2-4 prior candles and continue farther back if required. When the required structure is incomplete, step down sequentially as taught (H4->H1->M30 in the reviewed workflow). Valid parent partial structure may be preserved while a lower timeframe supplies a missing aligned component. In the repeated shown parent-SOK+WICK fallback, the parent already carries two forecast/reference lines and the lower-TF PAIR aligns/co-locates with an existing parent reference to complete the structure without adding a third line. Multiple candidates and other component-permutation alignments remain explicit because no universal winner/alignment rule is established.",
-      "status": "ACTIVE_SOURCE_BACKED_HIERARCHICAL_SEARCH_SHOWN_ALIGNMENT_PRIORITY_UNIVERSAL_OPEN",
+      "canonical_statement": "Body Collection search authority is setup/reference-timeframe first. Begin with approximately 2-4 prior candles and continue farther back if required. When the required structure is incomplete, step down sequentially as taught (H4->H1->M30 in the reviewed EP.5 workflow). Valid parent partial structure may be preserved while a lower timeframe supplies a missing aligned component in the shown parent ซอก+ไส้ / lower คู่ topology. Separately, EP.4/EP.6 teach that lower-timeframe minor S/R may exist from partial component subsets and that the complete three-component higher/reference structure is stronger. Those partial S/R references are contextual evidence only and do not establish a universal Body Collection merge or candidate-winner algorithm.",
+      "status": "ACTIVE_SOURCE_BACKED_HIERARCHICAL_SEARCH_PARTIAL_SR_CONTEXT_ARBITRARY_MERGE_OPEN",
       "engine_permission": "RESEARCH_CANDIDATE_DETECTORS_AND_ZONE_STATE_MACHINE_WITH_MANUAL_VALIDATION",
       "source_refs": [
         "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
@@ -414,26 +416,23 @@
         "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_CANDIDATE_SEARCH_ORDER_CLOSURE_2026-09-09.md",
         "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
-        "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md"
+        "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
+        "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md"
       ],
       "risk_flags": [
         "BROKER_FEED_EQUALITY_NORMALIZATION_REQUIRED",
-        "UNIVERSAL_ZONE_ASSEMBLY_NOT_PROVEN",
+        "PARTIAL_SR_VS_BODY_COLLECTION_ROUTING_MUST_NOT_BE_CONFLATED",
+        "ARBITRARY_BODY_COLLECTION_COMPONENT_MERGE_UNRESOLVED",
         "MULTIPLE_CANDIDATE_PRIORITY_UNRESOLVED",
         "EXACT_COLLECTED_COMPLETION_GEOMETRY_OPEN",
         "S_R_REVALIDATION_GEOMETRY_OPEN",
-        "MAX_TOUCH_COUNT_UNRESOLVED",
         "LOWER_TF_EXACT_FILL_PRICE_UNRESOLVED",
         "DO_NOT_INVENT_AGE_EXPIRY",
-        "YOUTUBE_ASR_RISK",
-        "DO_NOT_RANK_SAME_TF_CANDIDATES_FROM_OUTCOMES",
+        "DO_NOT_RANK_BODY_COLLECTION_CANDIDATES_FROM_OUTCOMES",
         "INITIAL_2_4_CANDLES_NOT_HARD_EXPIRY",
-        "FRESHNESS_IS_ATTRIBUTE_NOT_PROVEN_WINNER_RULE",
-        "SHOWN_PARENT_SOK_WICK_LOWER_PAIR_ALIGNMENT_CLOSED",
-        "OTHER_COMPONENT_PERMUTATION_ALIGNMENT_OPEN",
-        "MULTI_LEVEL_COMPLETION_PRIORITY_UNRESOLVED"
+        "SHOWN_PARENT_SOK_WICK_LOWER_PAIR_ALIGNMENT_CLOSED"
       ],
-      "provenance_note": "Direct EP.5 transcript plus synchronized H1/M30 screenshots. The shown fallback demonstrates component completion at an existing parent reference. Do not infer a numeric alignment tolerance or generalize to other missing-component permutations."
+      "provenance_note": "EP.5 closes the shown hierarchical Body Collection completion topology. EP.4/EP.6 add a separate timeframe-strength distinction for S/R components, including partial lower-TF structures. No source currently licenses arbitrary subset merging into Body Collection."
     },
     {
       "claim_id": "M5_BRAKE_ENTRY2_RETEST_SIGNAL",
@@ -456,9 +455,9 @@
     },
     {
       "claim_id": "BODY_COLLECTION_COMPONENT_GEOMETRY",
-      "canonical_statement": "EP.5 directly defines the shown Body Collection ingredients and separately teaches a current two-forecast-reference placement method. ซอก is a same-color candle price joint where prior close and next open are the same normalized reference price. คู่ is an opposite-color pair at support/resistance with an equal/aligned open-close equilibrium reference; residual/overhanging body extension may differ. ไส้ is the completed-candle wick structural price. The source requires ซอก + ไส้ + คู่. In repeated shown fallback forms, the parent/reference timeframe already supplies ซอก + ไส้ and two forecast/reference lines; the missing lower-timeframe คู่ is described as ตรงกัน and visually aligns/co-locates with an existing parent reference, completing the structure without adding a third forecast line. This closes that shown topology only. Exact broker/feed equality normalization, other component-permutation alignment rules, universal candidate priority, and unseen two-reference selection remain unresolved.",
-      "status": "ACTIVE_SOURCE_VISUAL_SHOWN_CROSS_TF_ALIGNMENT_PARTIAL_UNIVERSAL_OPEN",
-      "engine_permission": "RESEARCH_SHOWN_FORM_PARENT_SOK_WICK_PLUS_LOWER_PAIR_WITH_MANUAL_EQUALITY_VALIDATION",
+      "canonical_statement": "EP.5 directly defines the shown Body Collection ingredients and teaches a current two-forecast-reference placement method. ซอก is a same-color candle price joint where prior close and next open share the normalized reference price; คู่ is an opposite-color support/resistance pair with an equal/aligned open-close equilibrium reference; ไส้ is completed-candle wick structure. For the full/strong higher/reference-timeframe zone, the reviewed sources require the complete ซอก + ไส้ + คู่ set. EP.4/EP.6 additionally clarify that weaker lower-timeframe/minor S/R can exist from partial component subsets such as คู่ alone, ไส้+คู่, or คู่+ซอก. These partial S/R structures must not be treated as automatic Body Collection cross-TF merge permission. The only source+visual cross-TF Body Collection merge topology closed so far remains parent ซอก+ไส้ with two existing references plus a lower-TF คู่ aligned to an existing parent reference.",
+      "status": "ACTIVE_SOURCE_BACKED_FULL_ZONE_WITH_PARTIAL_SR_DISTINCTION_MERGE_OPEN",
+      "engine_permission": "RESEARCH_COMPONENT_METADATA_AND_SHOWN_BODY_COLLECTION_TOPOLOGY_ONLY",
       "source_refs": [
         "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
@@ -466,22 +465,23 @@
         "docs/RQ009_EP5_COMPONENT_DEFINITION_SOURCE_RECONCILIATION_2026-09-09.md",
         "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md",
         "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
-        "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md"
+        "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
+        "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md"
       ],
       "risk_flags": [
         "BROKER_FEED_EQUALITY_NORMALIZATION_REQUIRED",
-        "UNIVERSAL_ORIENTATION_SET_NOT_PROVEN",
+        "FULL_ZONE_VS_PARTIAL_SR_CONTEXT_MUST_BE_PRESERVED",
+        "PARTIAL_SR_COMPONENTS_DO_NOT_GRANT_ARBITRARY_BODY_COLLECTION_MERGE",
         "UNIVERSAL_ZONE_ASSEMBLY_NOT_PROVEN",
         "MULTIPLE_CANDIDATE_PRIORITY_UNRESOLVED",
-        "DO_NOT_FIT_TOLERANCE_FROM_OUTCOMES",
         "UNIVERSAL_WICK_SELECTION_UNRESOLVED",
         "UNIVERSAL_SUPPORT_RESISTANCE_CERTIFICATION_UNRESOLVED",
         "EXACT_TWO_REFERENCE_SELECTION_FOR_UNSEEN_CONFIGURATIONS_UNRESOLVED",
         "SHOWN_PARENT_SOK_WICK_LOWER_PAIR_COLOCATION_SOURCE_BACKED",
         "UNIVERSAL_CROSS_TF_ALIGNMENT_FOR_OTHER_COMPONENT_PERMUTATIONS_OPEN",
-        "DO_NOT_FLATTEN_COMPONENT_TF_PROVENANCE"
+        "DO_NOT_FIT_TOLERANCE_FROM_OUTCOMES"
       ],
-      "provenance_note": "Latest EP.5 source+visual review compares the H1 view at ~1:02:17-1:02:35 with the M30 view at ~1:02:45-1:02:53. Two parent reference lines are present before the M30 pair is identified; the pair is then called ตรงกัน and shown at an existing reference rather than producing a third line. A second PA Sell example around ~1:12:57-1:13:16 repeats parent ซอก+ไส้ with a lower-TF completion. Exact tick equality and unshown permutations remain open."
+      "provenance_note": "EP.4 ~12:08-12:24 and ~1:17:45-1:18:09 distinguish the complete three-component higher/reference zone from weaker lower-TF partial S/R. EP.6 ~1:11:49-1:12:36 independently names partial two-component combinations as weaker than the full set. This narrows earlier all-three-required wording without deleting it: all three remains the full/strong-zone rule, while partial lower-TF S/R is a separate source-backed context."
     },
     {
       "claim_id": "BODY_COLLECTION_ZONE_LIFECYCLE",
@@ -523,16 +523,50 @@
       "engine_permission": "RESEARCH_SHOWN_FORM_ONLY_AFTER_EXPLICIT_FEED_NORMALIZATION",
       "source_refs": [
         "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
-        "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md"
+        "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
+        "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md"
       ],
       "risk_flags": [
         "EXACT_BROKER_TICK_EQUALITY_OPEN",
-        "OTHER_COMPONENT_PERMUTATIONS_NOT_ESTABLISHED",
+        "OTHER_COMPONENT_PERMUTATIONS_NOT_ESTABLISHED_FOR_BODY_COLLECTION_MERGE",
+        "PARTIAL_LOWER_TF_SR_COMPONENTS_EXIST_BUT_ARE_NOT_AUTOMATIC_MERGE_INPUTS",
         "MULTIPLE_LOWER_TF_COMPLETION_PRIORITY_OPEN",
         "REFERENCE_1_2_ORDERING_NOT_UNIVERSAL",
         "DO_NOT_FIT_ALIGNMENT_TOLERANCE_FROM_OUTCOMES"
       ],
-      "provenance_note": "Primary evidence: EP.5 transcript ~1:02:17-1:02:53 plus synchronized H1 and M30 screenshots. Secondary repeated shown form: ~1:12:57-1:13:16 and later recap ~1:56:13-1:56:28."
+      "provenance_note": "Primary Body Collection cross-TF evidence remains EP.5 ~1:02:17-1:02:53. EP.4/EP.6 later-reviewed S/R teaching confirms that incomplete component subsets may exist as weaker lower-TF S/R, but does not establish arbitrary Body Collection merging of those subsets."
+    },
+    {
+      "claim_id": "SOK_WICK_PAIR_COMPONENT_COMPLETENESS_STRENGTH",
+      "canonical_statement": "Across reviewed EP.4/EP.6 teaching, a complete ซอก + ไส้ + คู่ structure is the stronger/full higher/reference-timeframe zone. Weaker lower-timeframe/minor S/R may still be formed from partial component subsets; explicit source examples include คู่ alone, ไส้+คู่, and คู่+ซอก. Components may be described asอยู่ในระยะเดียวกัน within a zone without an exact numeric equality/tolerance being taught. This strength/context rule does not itself define Body Collection cross-TF assembly.",
+      "status": "ACTIVE_SOURCE_BACKED_TIMEFRAME_STRENGTH_PARTIAL_ROUTING_OPEN",
+      "engine_permission": "RESEARCH_ZONE_STRENGTH_METADATA_ONLY_NO_AUTOMATIC_BODY_COLLECTION_MERGE",
+      "source_refs": [
+        "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md"
+      ],
+      "risk_flags": [
+        "BODY_COLLECTION_MERGE_SEMANTICS_NOT_IMPLIED",
+        "EXACT_ZONE_BOUNDARY_TOLERANCE_OPEN",
+        "UNIVERSAL_STRENGTH_RANKING_BEYOND_SHOWN_CONTEXT_OPEN",
+        "NEAREST_FIRST_GUIDANCE_IS_SR_CONTEXT_NOT_UNIVERSAL_BODY_COLLECTION_PRIORITY",
+        "MULTI_TIMEFRAME_OVERLAP_GEOMETRY_OPEN"
+      ],
+      "provenance_note": "EP.4 ~12:08-12:24: complete three components for strong/full zone; ~1:17:45-1:18:09: lower TF may use pair only or wick+pair while higher TF should be complete. EP.6 ~1:11:49-1:12:36 independently names incomplete two-component combinations as weaker."
+    },
+    {
+      "claim_id": "SR_ZONE_NEAREST_FIRST_CONTEXT",
+      "canonical_statement": "In the reviewed EP.6 support/resistance homework context, when several nearby candidate reference areas are available the instructor says to choose the nearest first, while nearby alternative pair/sok choices can still be acceptable because they occupy a close zone. Day+H4 overlap is described as stronger. This guidance is contextual S/R selection evidence and is not a universal Body Collection candidate-priority rule.",
+      "status": "ACTIVE_SOURCE_BACKED_CONTEXTUAL_GUIDANCE",
+      "engine_permission": "RESEARCH_SR_SELECTION_CONTEXT_ONLY",
+      "source_refs": [
+        "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md"
+      ],
+      "risk_flags": [
+        "DO_NOT_GENERALIZE_TO_BODY_COLLECTION_CANDIDATE_WINNER",
+        "EXACT_ZONE_DISTANCE_TOLERANCE_OPEN",
+        "MULTI_TF_OVERLAP_GEOMETRY_OPEN"
+      ],
+      "provenance_note": "EP.6 ~1:14:38-1:15:32 and ~1:10:46-1:11:29 contextual S/R selection guidance."
     }
   ]
 }

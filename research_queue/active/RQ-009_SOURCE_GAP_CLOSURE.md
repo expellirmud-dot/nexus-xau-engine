@@ -286,3 +286,30 @@ Still deliberately open:
 - same-TF multi-candidate priority and universal wick choice.
 
 Do not generalize this shown topology into a universal merge/alignment algorithm. The next source task is to look explicitly for alternate component permutations; if the current source batch does not contain them, record `MISSING_SOURCE_RULE` rather than fitting a rule from outcomes.
+
+## Latest partial S/R vs Body Collection component reconciliation
+
+Ref: `docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md`
+
+EP.4/EP.6 source review prevents an incorrect `MISSING_SOURCE_RULE` conclusion for all alternate component combinations. The sources explicitly acknowledge partial structures, but in a different context:
+
+```text
+higher/reference TF full/strong zone:
+    ซอก + ไส้ + คู่ complete
+
+lower-TF/minor S/R:
+    partial subsets may exist and are weaker
+    examples: คู่ only, ไส้+คู่, คู่+ซอก
+```
+
+EP.6 also says nearby components may lie in the same zone/range, gives `เลือกที่ใกล้ที่สุดก่อน` in the reviewed S/R-selection context, and describes overlapping Day+H4 references as stronger. None of those statements yet establish universal Body Collection merge/priority/tolerance rules.
+
+Therefore the current Body Collection result is:
+
+```text
+shown EP.5 parent ซอก+ไส้ + lower คู่ merge = SOURCE+VISUAL CLOSED
+arbitrary partial-component Body Collection merge = UNRESOLVED
+partial lower-TF S/R structures = SOURCE BACKED, separate context
+```
+
+Do not use S/R nearest-first guidance to silently choose a Body Collection winner. Do not invent numeric same-zone/alignment tolerance.

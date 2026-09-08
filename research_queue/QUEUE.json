@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T04:12:35+07:00",
+  "updated_at": "2026-09-09T04:24:00+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
@@ -8,8 +8,8 @@
     "id": "RQ-009",
     "title": "Source Gap Closure from Current Five-Video Batch",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-    "status": "ACTIVE_SHOWN_CROSS_TF_ALIGNMENT_CLOSED_UNIVERSAL_PERMUTATIONS_REFERENCE_SELECTION_OPEN",
-    "latest_checkpoint": "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md"
+    "status": "ACTIVE_PARTIAL_SR_RECONCILED_ARBITRARY_BODY_COLLECTION_MERGE_UNRESOLVED",
+    "latest_checkpoint": "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md"
   },
   "priority_order": [
     "RQ-009"
@@ -158,7 +158,7 @@
       "id": "RQ-009",
       "title": "Source Gap Closure from Current Five-Video Batch",
       "type": "RESEARCH",
-      "status": "ACTIVE_SHOWN_CROSS_TF_ALIGNMENT_CLOSED_UNIVERSAL_PERMUTATIONS_REFERENCE_SELECTION_OPEN",
+      "status": "ACTIVE_PARTIAL_SR_RECONCILED_ARBITRARY_BODY_COLLECTION_MERGE_UNRESOLVED",
       "why_now": "Direct review of the current five local instructor sources revealed material evidence that narrows blockers left by RQ-002/RQ-007, especially two explicit SIG entry modes and touch-based point-check destruction.",
       "depends_on": [],
       "blocks": [
@@ -168,8 +168,8 @@
       ],
       "preferred_method": "Transcript/timestamp map -> synchronized visual window -> original audio only if material ASR ambiguity remains -> explicit source closure/UNKNOWN -> targeted computation only for residual source-compatible representations.",
       "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-      "checkpoint_ref": "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
-      "current_summary": "EP.5 source+visual review now closes one repeated cross-TF topology: parent/reference TF supplies ซอก+ไส้ and two forecast/reference levels; lower-TF คู่ is ตรงกัน/aligned with an existing parent reference and completes the structure without a third line. Other component permutations, machine equality, multi-candidate priority, PAT denominator, exact fill, lifecycle transition, and Sideway/cross-frame routing remain open.",
+      "checkpoint_ref": "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
+      "current_summary": "EP.4/EP.6 now reconcile component completeness: full/strong higher-reference zones use all ซอก+ไส้+คู่, while weaker lower-TF/minor S/R may use partial subsets such as pair alone, wick+pair, or pair+sok. This does not establish arbitrary Body Collection merging. The only source+visual Body Collection cross-TF merge topology closed remains parent sok+wick with two existing references plus lower-TF pair aligned to an existing reference.",
       "secondary_refs": [
         "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
         "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
@@ -183,7 +183,8 @@
         "docs/RQ009_EP5_COMPONENT_DEFINITION_SOURCE_RECONCILIATION_2026-09-09.md",
         "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md",
         "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
-        "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md"
+        "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
+        "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md"
       ]
     }
   ],
