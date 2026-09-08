@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T05:19:53+07:00",
+  "updated_at": "2026-09-09T05:28:34+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -274,7 +274,7 @@
     },
     {
       "claim_id": "SYSTEM_WIN_RATE",
-      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 is now closed at the current-source evidence boundary and the project has selected a minimal externally labeled SIG Mode-2 signal/run V0. This V0 intentionally avoids autonomous PAT/location gaps and avoids broker fill/cost assumptions, so it can produce signal/run outcomes only. Trade/system Win rate remains blocked until a trade-level executable specification, costs/execution, autonomous or pre-locked setup qualification, and a pristine holdout are frozen.",
+      "canonical_statement": "No canonical full-system win rate is currently established. SIG_MODE2_SIGNAL_RUN_V0.1 is now implementation-frozen, but it is only a pre-outcome-labeled signal/run replay with no broker fill, costs, P&L, autonomous PAT/location truth, or pristine scored holdout. Trade/system Win rate remains blocked.",
       "status": "ACTIVE_BLOCKER_NOT_TESTABLE_WITH_CURRENT_EVIDENCE",
       "engine_permission": "DO_NOT_CLAIM",
       "source_refs": [
@@ -303,7 +303,8 @@
         "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md",
         "docs/RQ009_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_EXHAUSTION_2026-09-09.md",
         "docs/RQ009_CROSS_FRAME_SETUP_PRIORITY_SOURCE_BOUNDARY_2026-09-09.md",
-        "docs/RQ009_EVIDENCE_BOUNDARY_AUDIT_MINIMAL_EXECUTABLE_SCOPE_2026-09-09.md"
+        "docs/RQ009_EVIDENCE_BOUNDARY_AUDIT_MINIMAL_EXECUTABLE_SCOPE_2026-09-09.md",
+        "docs/RQ010_SIG_MODE2_SIGNAL_RUN_V0_IMPLEMENTATION_2026-09-09.md"
       ],
       "risk_flags": [
         "UNIVERSAL_BODY_COLLECTION_CANDIDATE_PRIORITY_OPEN",
@@ -759,6 +760,27 @@
         "SYSTEM_WIN_RATE_NOT_CLAIMABLE"
       ],
       "provenance_note": "This is a project research-scope decision produced by evidence-boundary synthesis. It does not upgrade unresolved source geometry and does not convert implementation conventions into instructor claims."
+    },
+    {
+      "claim_id": "RQ010_SIG_MODE2_SIGNAL_RUN_V0_IMPLEMENTATION",
+      "canonical_statement": "SIG_MODE2_SIGNAL_RUN_V0.1 is a frozen research implementation for externally pre-outcome-labeled H1/H4 Mode-2 SIG signal/run events. It enforces timezone-aware knowledge time, BUY-at-valid-support/SELL-at-valid-resistance labels, provenance, exact runtime broker-tick alignment, literal point-check contact destruction, directional frozen target crossing, same-bar ambiguity, and MFE/MAE in broker ticks. It contains no broker execution fill, costs, P&L, autonomous PAT/location detection, or trade/system Win-rate semantics.",
+      "status": "ACTIVE_ENGINEERING_CONTRACT",
+      "engine_permission": "RUN_DEVELOPMENT_AND_FUTURE_LOCKED_HOLDOUT_SIGNAL_RUN_REPLAY_ONLY_AFTER_HOLDOUT_PROTOCOL_FREEZE",
+      "source_refs": [
+        "docs/RQ009_EVIDENCE_BOUNDARY_AUDIT_MINIMAL_EXECUTABLE_SCOPE_2026-09-09.md",
+        "docs/RQ010_SIG_MODE2_SIGNAL_RUN_V0_IMPLEMENTATION_2026-09-09.md",
+        "src/nexus_xau/research/sig_mode2_signal_run_v0.py",
+        "tests/test_sig_mode2_signal_run_v0.py"
+      ],
+      "risk_flags": [
+        "EXTERNALLY_LABELED_INPUT_REQUIRED",
+        "LABEL_MUST_BE_LOCKED_BEFORE_FORWARD_OUTCOME",
+        "BROKER_TICKS_NOT_PROJECT_POINTS",
+        "NO_BROKER_FILL_OR_COST_MODEL",
+        "NOT_TRADE_WIN_RATE",
+        "PRISTINE_HOLDOUT_UNOPENED_AT_FREEZE"
+      ],
+      "provenance_note": "Engineering/research representation frozen after 142-test full-suite pass and full Ruff pass. Source-incomplete PAT/location geometry is not promoted; V0 requires externally pre-outcome-labeled setup/location inputs."
     }
   ]
 }

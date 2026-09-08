@@ -1,6 +1,6 @@
 # RQ-010 — Minimal Deterministic SIG Mode-2 Signal/Run Replay V0
 
-Status: ACTIVE — implementation and freeze before any new holdout outcome inspection
+Status: CLOSED — V0.1 implementation frozen; 142 tests pass; Ruff pass; pristine holdout unopened
 
 ## Objective
 
@@ -120,3 +120,17 @@ A replacement/new SIG is a new `signal_id`; do not silently mutate/re-anchor an 
 - full test suite and Ruff pass;
 - implementation checkpoint is committed/pushed;
 - holdout is still unopened.
+
+
+## Closure
+
+Ref: `docs/RQ010_SIG_MODE2_SIGNAL_RUN_V0_IMPLEMENTATION_2026-09-09.md`
+
+Implementation is frozen at schema `SIG_MODE2_SIGNAL_RUN_V0.1` with full-repository validation:
+
+```text
+142 passed, 116 warnings
+Ruff: All checks passed
+```
+
+The pristine holdout was not opened, labeled from future outcome, or scored during RQ-010. Holdout methodology moves to RQ-011 before any outcome collection/scoring is authorized.
