@@ -1,6 +1,6 @@
 # RQ-009 — Source Gap Closure from Current Five-Video Batch
 
-Status: ACTIVE — EP.5 repeated two-reference component pattern closed; universal three-to-two assembly/execution geometry still open
+Status: ACTIVE — EP.5 component definitions reconciled from direct source; equality normalization and universal three-to-two assembly/execution geometry still open
 
 ## Objective
 
@@ -131,7 +131,7 @@ The original EP.5 YouTube player is now visually available through a separate he
 New source+visual closure:
 
 - shown `ซอก`: same-color adjacent candle body junction; normalized prior close / next open share the reference price;
-- shown `คู่`: opposite-color reversal pair at support/resistance; normalized prior close / next open share the equilibrium/reversal price; body heights do not have to match in the whiteboard forms;
+- earlier visual-only `คู่` checkpoint: opposite-color reversal pair at support/resistance with a shared close/open equilibrium reference; its shorthand “body heights do not have to match” is now **narrowed by the later direct-source reconciliation** — the equal/aligned open-close relation at support/resistance is material, while only residual/overhanging body extension is explicitly allowed to differ;
 - worked PA Sell example: `คู่` and `ซอก` are both annotated on the upper forecast reference (~3563.59), with a distinct wick/reference participating in the lower forecast level (~3560.31); the interval between the two is the demonstrated forecast area;
 - lower-TF M5 visual strengthens `Zone + PA` confirmation and shows failure to make a higher high plus PA Sell/engulfing structure before continuation.
 
@@ -203,3 +203,20 @@ Source+visual closure now establishes:
 Safe research representation: preserve component provenance and all candidate levels. Only use a two-level shown-form assembly when the source-reviewed cluster naturally resolves to two unique levels; otherwise mark `UNRESOLVED_THREE_TO_TWO`. Do not choose a merge/ranking rule from historical outcomes.
 
 RQ-009 remains ACTIVE. Next source target is an explicit example/statement that resolves the three-distinct-component case; if the source batch contains none, record that missing-source requirement and move to the next decision-critical blocker rather than forcing a formula.
+
+## Latest EP.5 direct component-definition reconciliation
+
+Ref: `docs/RQ009_EP5_COMPONENT_DEFINITION_SOURCE_RECONCILIATION_2026-09-09.md`
+
+A direct re-read of the dedicated EP.5 definition block (~20:33-36:32) materially narrows the earlier visual-only interpretation:
+
+- `ซอก`: source-defined same-color price joint; prior close and next open are the same reference price in the taught form;
+- `คู่`: opposite-color pair at support/resistance with an equal/aligned open-close equilibrium reference; the source immediately says the residual/overhanging body portion may differ, so the older shorthand “body heights need not match” is too broad and is preserved only as historical wording;
+- `ไส้`: completed-candle wick structural price; later Q&A confirms it is not merely zone-spacing metadata;
+- source explicitly says `ซอก + ไส้ + คู่` must all occur in the taught Body Collection zone;
+- source says whichever component prices are found are used as forecast points/references, while the current method still uses two forecast distances;
+- no generic merge/min/max/ranking rule is stated for a case where the three component prices remain distinct.
+
+Current guard: use source-defined shown forms only with explicit broker/feed equality normalization. Keep `UNRESOLVED_THREE_TO_TWO` for a three-distinct-price cluster and do not select equality tolerance or assembly from historical outcomes.
+
+The prior visual checkpoint remains in history; this source-definition checkpoint is the current authority where the two differ.

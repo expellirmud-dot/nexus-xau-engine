@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T02:19:06+07:00",
+  "updated_at": "2026-09-09T02:25:38+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
@@ -8,8 +8,8 @@
     "id": "RQ-009",
     "title": "Source Gap Closure from Current Five-Video Batch",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-    "status": "ACTIVE_SOURCE_REVIEW_COMPONENT_ASSEMBLY_REPEATED_PATTERN_CLOSED_UNIVERSAL_REDUCTION_OPEN",
-    "latest_checkpoint": "docs/RQ009_EP5_BODY_COLLECTION_COMPONENT_ASSEMBLY_REPEATED_PATTERN_2026-09-09.md"
+    "status": "ACTIVE_SOURCE_REVIEW_COMPONENT_DEFINITIONS_RECONCILED_UNIVERSAL_ASSEMBLY_OPEN",
+    "latest_checkpoint": "docs/RQ009_EP5_COMPONENT_DEFINITION_SOURCE_RECONCILIATION_2026-09-09.md"
   },
   "priority_order": [
     "RQ-009"
@@ -158,7 +158,7 @@
       "id": "RQ-009",
       "title": "Source Gap Closure from Current Five-Video Batch",
       "type": "RESEARCH",
-      "status": "ACTIVE_SOURCE_REVIEW_COMPONENT_ASSEMBLY_REPEATED_PATTERN_CLOSED_UNIVERSAL_REDUCTION_OPEN",
+      "status": "ACTIVE_SOURCE_REVIEW_COMPONENT_DEFINITIONS_RECONCILED_UNIVERSAL_ASSEMBLY_OPEN",
       "why_now": "Direct review of the current five local instructor sources revealed material evidence that narrows blockers left by RQ-002/RQ-007, especially two explicit SIG entry modes and touch-based point-check destruction.",
       "depends_on": [],
       "blocks": [
@@ -168,8 +168,8 @@
       ],
       "preferred_method": "Transcript/timestamp map -> synchronized visual window -> original audio only if material ASR ambiguity remains -> explicit source closure/UNKNOWN -> targeted computation only for residual source-compatible representations.",
       "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-      "checkpoint_ref": "docs/RQ009_EP5_BODY_COLLECTION_COMPONENT_ASSEMBLY_REPEATED_PATTERN_2026-09-09.md",
-      "current_summary": "EP.5 repeatedly closes a complete ซอก+ไส้+คู่ input set with two forecast references on SELL/BUY/M30 examples. One worked SELL case naturally has only two unique levels because ซอก+คู่ coincide and wick is distinct. A universal reduction when all three component prices are distinct remains unresolved; same-TF candidate ranking, exact transition/fill, PAT denominator, Sideway/cross-frame routing also remain open.",
+      "checkpoint_ref": "docs/RQ009_EP5_COMPONENT_DEFINITION_SOURCE_RECONCILIATION_2026-09-09.md",
+      "current_summary": "EP.5 direct definition now narrows component geometry: ซอก is a same-color close/open price joint; คู่ is an opposite-color support/resistance pair with an equal/aligned open-close equilibrium reference while residual body extension may differ; ไส้ is a closed-candle wick reference. All three are required inputs and their prices are used as forecast references, but the current method uses two forecast distances and no universal three-distinct-price -> two-reference transform is sourced. Equality normalization, same-TF candidate ranking, transition/fill, PAT denominator, Sideway/cross-frame routing remain open.",
       "secondary_refs": [
         "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
         "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
@@ -179,7 +179,8 @@
         "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_CANDIDATE_SEARCH_ORDER_CLOSURE_2026-09-09.md",
-        "docs/RQ009_EP5_BODY_COLLECTION_COMPONENT_ASSEMBLY_REPEATED_PATTERN_2026-09-09.md"
+        "docs/RQ009_EP5_BODY_COLLECTION_COMPONENT_ASSEMBLY_REPEATED_PATTERN_2026-09-09.md",
+        "docs/RQ009_EP5_COMPONENT_DEFINITION_SOURCE_RECONCILIATION_2026-09-09.md"
       ]
     }
   ],
