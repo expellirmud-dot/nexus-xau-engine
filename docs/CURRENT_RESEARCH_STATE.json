@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-09T04:33:00+07:00",
+  "updated_at": "2026-09-09T04:41:38+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "RQ009_BODY_COLLECTION_SIDEWAY_ROUTE_SEPARATION",
+  "completed_checkpoint": "RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -29,6 +29,7 @@
       "docs/CURRENT_RESEARCH_STATE.json",
       "research_queue/QUEUE.json",
       "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
+      "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md",
       "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
       "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
       "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
@@ -103,10 +104,10 @@
     "research_preflight": "PASS"
   },
   "next_steps": [
-    "Do not re-open PAT >50% denominator from the same already-reviewed transcript/visual evidence; current denominator remains unresolved until a discriminating source case or direct clarification appears.",
-    "Continue RQ-009 with Body Collection zone lifecycle geometry: seek an exact source event for touched/revalidated -> collected/used -> retired/replan without inventing a touch-count or age rule.",
-    "If lifecycle geometry remains source-incomplete, move to exact lower-TF execution/fill and structural tolerance while preserving source/implementation separation.",
-    "Sideway route separation is now source-backed: normal Body Collection routes out when Sideway takes over, but zone context may remain for a distinct Sideway workflow; exact Sideway entry geometry remains open.",
+    "Continue RQ-009 with exact lower-timeframe execution/fill and structural tolerance after source-backed confirmation; keep source signal time separate from analyst/replay fill convention.",
+    "Do not re-open Body Collection exact touched->used lifecycle geometry from the same current batch; reopen only with materially new source/clarification. Preserve the semantic state machine without automatic OHLC transition.",
+    "Do not re-open PAT >50% denominator from the same already-reviewed transcript/visual evidence; it remains unresolved until a discriminating source case or direct clarification appears.",
+    "After execution/fill, re-rank remaining blockers including broker/feed equality normalization, Sideway deterministic entry geometry, and cross-frame priority.",
     "Do not run/report canonical full-system Win/Loss until deterministic source geometry/execution conventions are frozen and a pristine holdout exists."
   ],
   "blocked_from_claiming": [
@@ -205,9 +206,10 @@
     "docs/AGENT_ZERO_CONTEXT_BOOTSTRAP_2026-09-09.md",
     "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
     "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
-    "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md"
+    "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
+    "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md"
   ],
-  "resume_instruction": "After zero-context preflight, resume RQ-009 from the latest Body Collection/Sideway route-separation checkpoint. Do not repeat the already-reviewed PAT denominator test without new discriminating evidence. Next target is exact Body Collection touched/revalidated-to-used lifecycle geometry, then lower-TF execution/fill if lifecycle remains source-incomplete.",
+  "resume_instruction": "After zero-context preflight, resume RQ-009 from the Body Collection lifecycle-geometry source-exhaustion checkpoint. Do not repeat the exact touched->used lifecycle scan without new source. Next target is exact lower-TF execution/fill and structural tolerance after a source-backed confirmation event.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -730,9 +732,9 @@
     "guard": "Do not run/report a canonical full-system Win/Loss result by filling unresolved fields with analyst-selected thresholds or by relabeling component research statistics."
   },
   "rq009_source_gap_closure": {
-    "status": "ACTIVE_BODY_COLLECTION_SIDEWAY_ROUTE_CLOSED_LIFECYCLE_GEOMETRY_NEXT",
+    "status": "ACTIVE_LIFECYCLE_GEOMETRY_SOURCE_INCOMPLETE_EXECUTION_FILL_NEXT",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-    "checkpoint_ref": "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
+    "checkpoint_ref": "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md",
     "source_batch": [
       "vcdN51_OrPE",
       "1E_PYPor1qQ",
@@ -792,7 +794,8 @@
       "EP.6 qualitatively describes overlapping Day+H4 references as stronger, but exact overlap geometry and Body Collection-specific priority remain open.",
       "EP.5 explicitly routes out of normal Body Collection when the setup becomes Sideway.",
       "EP.5 separately allows the structural/forecast zone to remain location context for a Sideway-style entry workflow, while genuine PA/SIG state must still be assessed.",
-      "The apparent conflict is resolved by separating structural zone memory from market-state-specific entry workflow."
+      "The apparent conflict is resolved by separating structural zone memory from market-state-specific entry workflow.",
+      "Targeted current-batch lifecycle scan establishes a durable negative/source-incomplete result: no universal OHLC event is taught for Body Collection TOUCHED/REVALIDATED -> COLLECTED/USED, and no exact post-touch S/R revalidation predicate is taught. Semantic lifecycle remains valid; machine transition requires new source."
     ],
     "still_open": [
       "Exact PAT2/PAT3 >50% denominator/arithmetic and feed-equality convention.",
@@ -800,12 +803,12 @@
       "Broker/feed normalization or allowed tick difference for Body Collection same-price/equilibrium relations and same-zone grouping.",
       "Body Collection-specific priority when multiple same-TF or lower-TF candidates coexist; EP.6 nearest-first evidence is currently S/R-context guidance only.",
       "Universal support/resistance certification geometry for every คู่ candidate and universal wick selection when several wicks qualify.",
-      "Exact OHLC transition from touched/revalidated zone to completed/used Body Collection and exact support/resistance revalidation after touch.",
+      "Exact OHLC transition from touched/revalidated zone to completed/used Body Collection and exact post-touch S/R revalidation are SOURCE_INCOMPLETE_IN_CURRENT_BATCH; new primary source/clarification is required rather than further same-batch scanning.",
       "Exact broker fill price and structural point tolerance after a source-backed confirmation event.",
       "Exact Body Collection-to-Sideway transition geometry, Sideway frame-complete/false-break detector, and deterministic Sideway entry eligibility remain open despite route separation.",
       "Cross-timeframe/source-frame priority where multiple location/Sideway/Body Collection structures coexist."
     ],
-    "proof_readiness": "BODY_COLLECTION_SIDEWAY_ROUTE_SEPARATED_LIFECYCLE_EQUALITY_PRIORITY_FILL_AND_SIDEWAY_ENTRY_GEOMETRY_OPEN",
+    "proof_readiness": "LIFECYCLE_SEMANTICS_CLOSED_EXACT_TRANSITION_SOURCE_INCOMPLETE_EXECUTION_FILL_EQUALITY_PRIORITY_AND_SIDEWAY_GEOMETRY_OPEN",
     "body_collection_audit_ref": "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
     "sideway_audit_ref": "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
     "external_source_target": {
@@ -847,7 +850,8 @@
     "cross_tf_component_completion_ref": "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
     "cross_tf_alignment_shown_form_ref": "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
     "partial_sr_reconciliation_ref": "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
-    "body_collection_sideway_routing_ref": "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md"
+    "body_collection_sideway_routing_ref": "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
+    "body_collection_lifecycle_geometry_source_exhaustion_ref": "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md"
   },
   "agent_bootstrap": {
     "entrypoint": "AGENTS.md",
@@ -872,5 +876,5 @@
     "coverage_scope": "PARTIAL_SEED_RQ009_CURRENT_RESEARCH_WINDOWS",
     "coverage_backfill_guard": "Do not infer missing historical coverage metadata; backfill only from preserved evidence."
   },
-  "maintenance_checkpoint": "RQ009_BODY_COLLECTION_SIDEWAY_ROUTE_SEPARATION_2026-09-09"
+  "maintenance_checkpoint": "RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09"
 }

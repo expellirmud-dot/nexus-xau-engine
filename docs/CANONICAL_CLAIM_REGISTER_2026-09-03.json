@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T04:33:00+07:00",
+  "updated_at": "2026-09-09T04:41:38+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -270,7 +270,7 @@
     },
     {
       "claim_id": "SYSTEM_WIN_RATE",
-      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 now distinguishes complete/strong higher-reference ซอก+ไส้+คู่ zones from weaker lower-TF partial S/R component structures, while preserving the single source+visual Body Collection cross-TF merge topology already closed. Arbitrary Body Collection component merging, broker/feed equality normalization, unseen two-reference selection, Body Collection-specific candidate priority, exact touched-to-collected transition, exact lower-TF fill, PAT denominator/arithmetic, Sideway/cross-frame routing, and a pristine final holdout remain unresolved.",
+      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 now distinguishes complete/strong higher-reference ซอก+ไส้+คู่ zones from weaker lower-TF partial S/R component structures and separates normal Body Collection from Sideway routing. The current source batch also fails to define an exact Body Collection TOUCHED/REVALIDATED -> COLLECTED/USED OHLC transition. Arbitrary Body Collection component merging, broker/feed equality normalization, unseen two-reference selection, Body Collection-specific candidate priority, exact lower-TF fill, PAT denominator/arithmetic, Sideway/cross-frame geometry, and a pristine final holdout remain unresolved.",
       "status": "ACTIVE_BLOCKER_NOT_TESTABLE_WITH_CURRENT_EVIDENCE",
       "engine_permission": "DO_NOT_CLAIM",
       "source_refs": [
@@ -292,7 +292,8 @@
         "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
         "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
         "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
-        "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md"
+        "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
+        "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md"
       ],
       "risk_flags": [
         "UNIVERSAL_BODY_COLLECTION_CANDIDATE_PRIORITY_OPEN",
@@ -307,7 +308,8 @@
         "BODY_COLLECTION_REFERENCE_SELECTION_FOR_UNSEEN_CONFIGURATIONS_OPEN",
         "BODY_COLLECTION_OTHER_CROSS_TF_COMPONENT_PERMUTATIONS_OPEN",
         "PARTIAL_SR_COMPONENTS_DO_NOT_CLOSE_BODY_COLLECTION_ARBITRARY_MERGE",
-        "SIDEWAY_ROUTE_SEPARATION_CLOSED_BUT_SIDEWAY_ENTRY_GEOMETRY_OPEN"
+        "SIDEWAY_ROUTE_SEPARATION_CLOSED_BUT_SIDEWAY_ENTRY_GEOMETRY_OPEN",
+        "BODY_COLLECTION_LIFECYCLE_EXACT_TRANSITION_SOURCE_INCOMPLETE_CURRENT_BATCH"
       ],
       "provenance_note": "EP.4/EP.6 partial-component S/R evidence narrows context but does not supply a complete trade construction or universal Body Collection assembly algorithm. RQ-008 readiness stop remains in force."
     },
@@ -493,22 +495,27 @@
     },
     {
       "claim_id": "BODY_COLLECTION_ZONE_LIFECYCLE",
-      "canonical_statement": "EP.5 treats Body Collection zones as stateful instances rather than timeless reusable lines. A fresh/unused zone can remain relevant across multiple days. Mere touch does not automatically retire a zone; continued use depends on whether the structure still acts as support/resistance. Once Body Collection has completed/been used, that zone instance is no longer reused and the current view should be updated/replanned. The source says touch history matters and fresh unused zones can be especially responsive, but provides no universal numeric maximum touch count or fixed age expiry.",
-      "status": "ACTIVE_SOURCE_BACKED_FRESH_TOUCH_USED_LIFECYCLE_PARTIAL_GEOMETRY",
-      "engine_permission": "CANONICAL_STATE_MACHINE_SEMANTICS_WITH_OPEN_TRANSITION_GEOMETRY",
+      "canonical_statement": "EP.5 treats Body Collection zones as stateful instances rather than timeless reusable lines. A fresh/unused zone can remain relevant across multiple days. Mere touch does not automatically retire a zone; continued use depends on whether the structure still acts as support/resistance. Once Body Collection has completed/been used, that zone instance is no longer reused and the current view should be updated/replanned. The source says touch history matters and fresh unused zones can be especially responsive, but provides no universal numeric maximum touch count or fixed age expiry. A targeted scan of the current EP.5/EP.4/EP.6/system-summary batch does not establish an exact OHLC event for TOUCHED/REVALIDATED -> COLLECTED/USED or an exact post-touch support/resistance revalidation predicate; those machine transitions are source-incomplete in the current batch.",
+      "status": "ACTIVE_SOURCE_BACKED_LIFECYCLE_EXACT_TRANSITION_SOURCE_INCOMPLETE_CURRENT_BATCH",
+      "engine_permission": "STATE_MACHINE_SEMANTICS_ONLY_NO_AUTOMATIC_COLLECTED_TRANSITION",
       "source_refs": [
         "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
-        "docs/transcripts/EP5_BODY_COLLECTION_FULL_ANALYSIS.md"
+        "docs/transcripts/EP5_BODY_COLLECTION_FULL_ANALYSIS.md",
+        "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md"
       ],
       "risk_flags": [
         "MAX_TOUCH_COUNT_UNRESOLVED",
         "EXACT_COLLECTED_COMPLETION_GEOMETRY_OPEN",
         "S_R_REVALIDATION_GEOMETRY_OPEN",
         "MULTIPLE_ZONE_PRIORITY_UNRESOLVED",
-        "DO_NOT_INVENT_FIXED_AGE_EXPIRY"
+        "DO_NOT_INVENT_FIXED_AGE_EXPIRY",
+        "EXACT_COLLECTED_COMPLETION_GEOMETRY_SOURCE_INCOMPLETE_CURRENT_BATCH",
+        "S_R_REVALIDATION_GEOMETRY_SOURCE_INCOMPLETE_CURRENT_BATCH",
+        "CURRENT_BATCH_EXHAUSTED_FOR_EXACT_LIFECYCLE_TRANSITION",
+        "DO_NOT_MAP_ZONE_CONTACT_OR_PA_CONFIRMATION_TO_USED_WITHOUT_NEW_SOURCE"
       ],
-      "provenance_note": "Direct source wording at ~1:13:16-1:13:41 and ~2:01:22-2:02:03, with synchronized original-video visual review. The state vocabulary FRESH/TOUCHED/COLLECTED/RETIRED is a minimum research representation of those direct semantics; exact OHLC transition predicates remain open."
+      "provenance_note": "Direct EP.5 wording at ~1:13:16-1:13:41 and ~2:01:22-2:02:03 closes semantic lifecycle. A later targeted current-batch scan across EP.5, EP.4, EP.6 and the system summary found no universal exact OHLC transition into COLLECTED_USED. This unresolved result is durable knowledge; reopen only with materially new source/clarification, not outcomes."
     },
     {
       "claim_id": "BODY_COLLECTION_CANDIDATE_SEARCH_ORDER",

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T04:33:00+07:00",
+  "updated_at": "2026-09-09T04:41:38+07:00",
   "purpose": "Durable source-review memory. Records which source windows/topics have already been screened or reviewed, what they established, what remains unresolved, and when a review may be reopened. This ledger prevents future agents from restarting source research from zero.",
   "rules": {
     "closed_windows_are_not_researched_from_zero_without_reopen_trigger": true,
@@ -570,6 +570,38 @@
         "CLEARER_SYNCHRONIZED_AUDIO_OR_VISUAL",
         "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION",
         "MATERIALLY_NEW_QUESTION_NOT_COVERED_BY_PRIOR_REVIEW"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "RQ009_BODY_COLLECTION_LIFECYCLE_EXACT_TRANSITION_CURRENT_BATCH",
+      "source_id": "oCcG3dUjrgw+UV5NijhjfJ8+16KoS7d-koI+vcdN51_OrPE",
+      "source_title": "EP.5 Body Collection + EP.4 M5 brake + EP.6 M1/M5 entry + system summary",
+      "topic": "Exact Body Collection touched/revalidated -> collected/used lifecycle geometry",
+      "window": "targeted full-transcript keyword scan with EP.5 focus at 01:13:16-01:13:41; 01:17:31-01:21:46; 02:01:22-02:02:03",
+      "reviewed_modalities": [
+        "YOUTUBE_RENDERED_TRANSCRIPT",
+        "LOCAL_TRANSCRIPTS",
+        "PRIOR_SYNCHRONIZED_VISUAL_CONTEXT"
+      ],
+      "status": "REVIEWED_UNRESOLVED",
+      "finding": "Current batch closes semantic lifecycle (touch is not automatic retirement; completed/used is retired/replanned; fresh unused may persist) but does not state a universal OHLC event for TOUCHED/REVALIDATED -> COLLECTED/USED or exact post-touch S/R revalidation. Zone arrival/contact and PA confirmation cannot be silently promoted to the missing lifecycle transition.",
+      "residual_unknowns": [
+        "EXACT_TOUCHED_TO_COLLECTED_OHLC_TRANSITION_REQUIRES_NEW_SOURCE",
+        "EXACT_SUPPORT_RESISTANCE_REVALIDATION_AFTER_TOUCH_REQUIRES_NEW_SOURCE",
+        "ANY_UNIVERSAL_NUMERIC_MAX_TOUCH_RULE_NOT_SOURCE_BACKED"
+      ],
+      "claim_ids": [
+        "BODY_COLLECTION_ZONE_LIFECYCLE"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "NEW_PRIMARY_SOURCE_EVIDENCE",
+        "CLEARER_SYNCHRONIZED_AUDIO_OR_VISUAL",
+        "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION",
+        "SOURCE_OR_TIMESTAMP_MAPPING_ERROR"
       ],
       "last_reviewed_at": "2026-09-09"
     }

@@ -340,3 +340,27 @@ normal Body Collection entry workflow does not continue unchanged inside Sideway
 Exact Body Collection->Sideway handoff geometry, Sideway frame-complete/false-break, and deterministic Sideway entry remain unresolved.
 
 PAT denominator was also re-checked against the existing RQ-002/RQ-009 coverage and **not reopened**: the same source wording/visual has already been reviewed and remains non-discriminating between candidate machine denominators. This is durable unresolved knowledge, not a reason to repeat the identical test.
+
+## Latest Body Collection lifecycle-geometry source-exhaustion checkpoint
+
+Ref: `docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md`
+
+A targeted scan of EP.5 plus EP.4, EP.6 and the system-summary transcript closes the current-batch evidence boundary:
+
+```text
+TOUCH != automatic retirement
+COMPLETED / USED -> RETIRED / REPLAN
+ZONE ARRIVAL / CONTACT != automatic executable use
+```
+
+However, the current batch does **not** define a universal exact OHLC event for:
+
+```text
+TOUCHED / REVALIDATED -> COLLECTED / USED
+```
+
+and does not define one exact OHLC predicate for post-touch support/resistance revalidation. No source-backed rule was found equating collection completion with first touch, body penetration, reference-1/2 reach, full-zone traversal, PA confirmation, order entry, target completion, or a fixed touch count.
+
+Decision: `CURRENT_BATCH_SOURCE_INCOMPLETE / SEMANTIC_LIFECYCLE_CLOSED`.
+
+Do not re-scan the same source windows for this exact question without a reopen trigger. Next decision-critical target is exact lower-timeframe execution/fill and structural tolerance after a source-backed confirmation event.
