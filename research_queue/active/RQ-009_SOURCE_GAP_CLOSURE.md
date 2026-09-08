@@ -103,3 +103,21 @@ Still visually blocked:
 - exact executable lower-TF brake/entry geometry.
 
 `agent-browser` successfully exposed the original transcript/timestamps, but headless YouTube playback failed and is not accepted as visual source evidence. Exact geometry must therefore come from a playable EP.5 visual source, not from outcome fitting.
+
+## Latest M5 Entry #2 + PAT50 diagnostic checkpoint
+
+Refs:
+- `docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md`
+- `docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md`
+
+Closed at source+visual signal level:
+- Point #2 is the preferred retest entry signal; Point #1 is the structural SL reference in the standard taught form.
+- Full retest requires move-away/opposing-structure interaction and return to the switched level, not merely standing on a line.
+- Entry #2 becomes knowable only after the relevant PA/confirmation candle closes.
+- Exact broker fill price remains an execution/replay convention, not a source-fixed price.
+
+PAT50 diagnostic:
+- source wording remains strongly body-oriented and strict `>half`;
+- the measured PAT2 schematic reclaims ~69% of the prior body;
+- however it also appears to pass the prior full-range midpoint, so this image cannot distinguish the canonical denominator;
+- denominator remains `UNRESOLVED`, and must not be selected from backtest outcomes.
