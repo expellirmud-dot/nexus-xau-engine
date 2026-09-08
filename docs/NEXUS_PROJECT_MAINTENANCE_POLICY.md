@@ -2,6 +2,7 @@
 
 Status: USER-DIRECT OPERATING AUTHORIZATION
 Effective: 2026-09-03
+Updated: 2026-09-08
 
 ## Ownership
 
@@ -16,6 +17,35 @@ After a coherent research/engineering checkpoint is complete, NEXUS should norma
 5. create a descriptive Git commit for the completed checkpoint;
 6. push the commit to the already-configured remote/branch when normal authentication/network access permits;
 7. if commit or push cannot be completed, preserve all local work and record/report the concrete blocker.
+
+## Local Bridge / GitHub execution policy
+
+The project owner authorizes NEXUS to choose the faster or more suitable execution path for each step and to mix both paths when useful.
+
+Default operating preference:
+
+```text
+local workspace through IE Coder / Bridge
+-> inspect sources / files / media
+-> edit / run / test / analyze locally
+-> create coherent checkpoint
+-> Git commit
+-> push to configured GitHub remote
+-> verify local/remote synchronization
+```
+
+This is a preference, not a restriction. GitHub-side inspection or other normal repository workflows may be used when they are faster or clearer for history, diffs, remote state, review, or cross-machine continuity.
+
+The invariant is **synchronization**, not which path performed the work:
+
+- do not assume local and remote are synchronized merely because a command succeeded earlier;
+- after each coherent checkpoint, verify repository status and branch/upstream state;
+- when push succeeds, prefer ending with a clean working tree and local branch aligned with its configured upstream;
+- if intentional local-only artifacts exist, keep them explicitly ignored or documented rather than leaving ambiguous untracked files;
+- if local and remote cannot be synchronized, preserve the local checkpoint and report the exact blocker instead of silently continuing as if sync succeeded;
+- never trade evidence integrity for speed.
+
+For NEXUS XAU research specifically, large local datasets, video sources, extracted evidence frames, and other local evidence assets remain local unless a project policy explicitly says otherwise. GitHub stores code, manifests, research state, evidence references, and checkpoint history rather than unnecessary large media copies.
 
 ## Standing authorization
 
@@ -69,4 +99,4 @@ When a user clarification corrects an earlier STT interpretation, preserve the c
 
 ## Resume rule
 
-On a resumed session, read this policy together with `docs/CURRENT_RESEARCH_STATE.json` and the latest checkpoint before continuing. If validated work from the prior session is still uncommitted/unpushed, complete repository maintenance before starting a new unrelated checkpoint when practical.
+On a resumed session, read this policy together with `TOOLS.md`, `docs/CURRENT_RESEARCH_STATE.json`, `research_queue/QUEUE.json`, the active worksheet, and the latest checkpoint before continuing. If validated work from the prior session is still uncommitted/unpushed, complete repository maintenance before starting a new unrelated checkpoint when practical.
