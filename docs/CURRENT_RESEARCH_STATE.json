@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-08T23:29:00+07:00",
+  "updated_at": "2026-09-08T23:34:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "RQ002_PAT_GEOMETRY_SOURCE_BACKED_PARTIAL_PARAMETERIZED",
+  "completed_checkpoint": "RQ003_DAILY_FRAME_LOCATION_SOURCE_BACKED_CONSTRUCTION_PARAMETERIZED",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -25,9 +25,9 @@
       "TOOLS.md",
       "docs/CURRENT_RESEARCH_STATE.json",
       "research_queue/QUEUE.json",
-      "research_queue/active/RQ-003_DAILY_FRAME_LOCATION_GEOMETRY.md",
+      "research_queue/active/RQ-004_M5_BRAKE_FRAME_STANDING.md",
       "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
-      "latest relevant checkpoint",
+      "docs/M5_BRAKE_TRANSCRIPT_FORENSICS_2026-09-01.md",
       "closest available original source evidence"
     ]
   },
@@ -94,9 +94,9 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Run RQ-003 source-first review of Daily Frame and Location construction using local video+transcript+visual evidence.",
-    "Separate source-backed frame/standing/location semantics from historical 0/5 snapping, <=200 proximity and other research representations.",
-    "If the current bounded source batch cannot uniquely close numeric zone geometry, close RQ-003 parameterized/inconclusive and name the exact missing evidence rather than inventing a threshold."
+    "Close RQ-004 M5 brake/frame-standing from EP.4/EP.6 source evidence as a state machine without inventing force thresholds.",
+    "Preserve 4–10 as an observation window and body-standing as primary evidence; do not invent all-vs-majority or point tolerance.",
+    "Then rerank and promote the next unblocked queue item."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -154,9 +154,12 @@
     "docs/RQ002_PAT_GEOMETRY_SOURCE_MAP_CHECKPOINT_2026-09-08.md",
     "docs/RQ002_PAT_GEOMETRY_SOURCE_CLOSURE_2026-09-08.md",
     "research_queue/closed/RQ-002_PAT2_PAT3_GEOMETRY.md",
-    "research_queue/active/RQ-003_DAILY_FRAME_LOCATION_GEOMETRY.md"
+    "research_queue/active/RQ-003_DAILY_FRAME_LOCATION_GEOMETRY.md",
+    "docs/RQ003_DAILY_FRAME_LOCATION_SOURCE_CLOSURE_2026-09-08.md",
+    "research_queue/closed/RQ-003_DAILY_FRAME_LOCATION_GEOMETRY.md",
+    "research_queue/active/RQ-004_M5_BRAKE_FRAME_STANDING.md"
   ],
-  "resume_instruction": "Load maintenance policy -> TOOLS.md -> CURRENT_RESEARCH_STATE -> research_queue/QUEUE.json -> active RQ-003 worksheet -> canonical claim register -> latest Daily Frame/Location evidence. RQ-002 is closed source-backed partial/parameterized: strict >half semantics are supported, while exact denominator/tolerances remain unresolved. Continue source-first and do not infer location geometry from historical outcome performance.",
+  "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> active RQ-004 -> canonical claims -> M5 brake transcript forensics -> original EP.4/EP.6 evidence. RQ-003 is closed source-backed construction/parameterized; do not universalize 7–14 or <=200 as PAT location tolerance.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -511,14 +514,14 @@
   },
   "operational_research_queue": {
     "source_ref": "research_queue/QUEUE.json",
-    "active_id": "RQ-003",
-    "active_worksheet": "research_queue/active/RQ-003_DAILY_FRAME_LOCATION_GEOMETRY.md",
+    "active_id": "RQ-004",
+    "active_worksheet": "research_queue/active/RQ-004_M5_BRAKE_FRAME_STANDING.md",
     "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
     "selection_rule": "NEXUS owns worksheet creation, prioritization, promotion, and method choice. Promote the highest-value unblocked item after each closure; re-rank when new evidence changes dependencies.",
     "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
     "guard": "Do not require the project owner to know which tool, video, formula, or dataset to request in advance.",
-    "last_closed_id": "RQ-002",
-    "last_closure_ref": "docs/RQ002_PAT_GEOMETRY_SOURCE_CLOSURE_2026-09-08.md"
+    "last_closed_id": "RQ-003",
+    "last_closure_ref": "docs/RQ003_DAILY_FRAME_LOCATION_SOURCE_CLOSURE_2026-09-08.md"
   },
   "post_sig_lifecycle_source_visual_closure": {
     "status": "SOURCE_SUPPORTS_OTHER_EXPLICIT_LIFECYCLE",
@@ -572,5 +575,20 @@
       "Numeric Doji/small-body/equal-wick tolerances and exact tick equality handling."
     ],
     "research_guard": "Do not upgrade PAT2-BODY proxy to canonical detector or choose denominator/tolerances from backtest performance."
+  },
+  "rq003_daily_frame_location_closure": {
+    "status": "SOURCE_BACKED_CONSTRUCTION_PARAMETERIZED",
+    "source_ref": "docs/RQ003_DAILY_FRAME_LOCATION_SOURCE_CLOSURE_2026-09-08.md",
+    "closed_safe": [
+      "07:00 Asia/Bangkok Daily preparation context.",
+      "Nearby 0/5 statistical/minor S/R reference with upper +500 and lower -500 project points.",
+      "BUY PA only at support; SELL PA only at resistance.",
+      "7–14 project points belongs to wick-contact frame-strength context, not universal location tolerance."
+    ],
+    "still_unresolved": [
+      "0/5 snap/tie/rounding rule.",
+      "Exact PAT-to-frame touch/body/close/penetration qualification by source family.",
+      "Generic location tolerance and multi-family conflict priority."
+    ]
   }
 }

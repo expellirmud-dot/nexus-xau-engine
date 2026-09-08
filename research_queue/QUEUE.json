@@ -1,17 +1,16 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-08T23:29:00+07:00",
+  "updated_at": "2026-09-08T23:34:00+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
   "active": {
-    "id": "RQ-003",
-    "title": "Daily Frame and Location exact construction semantics",
-    "worksheet": "research_queue/active/RQ-003_DAILY_FRAME_LOCATION_GEOMETRY.md",
+    "id": "RQ-004",
+    "title": "M5 brake and frame-standing state machine",
+    "worksheet": "research_queue/active/RQ-004_M5_BRAKE_FRAME_STANDING.md",
     "status": "ACTIVE"
   },
   "priority_order": [
-    "RQ-003",
     "RQ-004",
     "RQ-005",
     "RQ-006",
@@ -56,7 +55,7 @@
       "id": "RQ-003",
       "title": "Daily Frame and Location exact construction semantics",
       "type": "RESEARCH",
-      "status": "ACTIVE",
+      "status": "CLOSED_SOURCE_BACKED_CONSTRUCTION_PARAMETERIZED",
       "why_now": "BUY-at-support and SELL-at-resistance semantics are confirmed, but exact measurable Daily Frame/Location construction remains incomplete. Downstream entry studies need a defensible geometric representation.",
       "depends_on": [
         "RQ-002 if PA geometry is required by the source example being decoded"
@@ -65,13 +64,15 @@
         "location truth-set OHLC alignment",
         "Daily Frame entry logic"
       ],
-      "worksheet": "research_queue/active/RQ-003_DAILY_FRAME_LOCATION_GEOMETRY.md"
+      "worksheet": "research_queue/closed/RQ-003_DAILY_FRAME_LOCATION_GEOMETRY.md",
+      "closure_ref": "docs/RQ003_DAILY_FRAME_LOCATION_SOURCE_CLOSURE_2026-09-08.md",
+      "closure_summary": "07:00 Daily Frame construction using nearby 0/5 statistical reference and +/-500 project points is source-backed; snap/tie, PAT-to-frame interaction/tolerance and cross-family priority remain parameterized."
     },
     {
       "id": "RQ-004",
       "title": "M5 brake and frame-standing state machine",
       "type": "RESEARCH",
-      "status": "QUEUED",
+      "status": "ACTIVE",
       "why_now": "Existing evidence establishes a qualitative zone-first stopping/reversal process, but measurable transition features remain incomplete. This is important for turning source language into replayable entry context.",
       "depends_on": [
         "RQ-003 for reliable zone/location context where required"
@@ -80,7 +81,7 @@
         "entry confirmation state",
         "replayable M5/M1 brake logic"
       ],
-      "worksheet": "research_queue/queued/RQ-004_M5_BRAKE_FRAME_STANDING.md"
+      "worksheet": "research_queue/active/RQ-004_M5_BRAKE_FRAME_STANDING.md"
     },
     {
       "id": "RQ-005",

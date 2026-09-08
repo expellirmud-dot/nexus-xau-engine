@@ -1,6 +1,6 @@
 # RQ-004 — M5 brake and frame-standing state machine
 
-Status: QUEUED
+Status: ACTIVE
 
 ## Why this matters
 
@@ -13,3 +13,7 @@ Review EP.4 / EP.6 and system-summary visual windows first. Identify state trans
 ## Done when
 
 The transition/state representation is source-backed enough to replay, or explicitly closed as partial/inconclusive with unresolved geometry listed.
+
+## Current source position
+
+`docs/M5_BRAKE_TRANSCRIPT_FORENSICS_2026-09-01.md` already provides a timestamped state-machine shell from EP.6. Current task is to classify which transitions are source-backed versus threshold-parameterized and close the worksheet without turning example values into universal thresholds.
