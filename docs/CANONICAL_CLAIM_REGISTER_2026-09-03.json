@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-08T23:14:00+07:00",
+  "updated_at": "2026-09-08T23:29:00+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -76,31 +76,35 @@
     {
       "claim_id": "PAT2_GEOMETRY",
       "canonical_statement": "PAT2 is two candles; BUY red->green and SELL green->red. Full engulfing is stronger/cleaner but not mandatory. The confirming second candle must exceed half (>50%) of the first-candle reference in the reviewed source semantics; a candle that does not exceed half is explicitly insufficient for PAT2. Exact 50% denominator (real body vs full high-low/source visual construction) remains unresolved.",
-      "status": "ACTIVE_PARAMETERIZED",
+      "status": "ACTIVE_SOURCE_BACKED_PARTIAL_PARAMETERIZED",
       "engine_permission": "RESEARCH_VARIANTS_ONLY",
       "source_refs": [
         "docs/DIRECT_PAT_GEOMETRY_RULES_2026-09-01.md",
         "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md",
-        "docs/RQ002_PAT_GEOMETRY_SOURCE_MAP_CHECKPOINT_2026-09-08.md"
+        "docs/RQ002_PAT_GEOMETRY_SOURCE_MAP_CHECKPOINT_2026-09-08.md",
+        "docs/RQ002_PAT_GEOMETRY_SOURCE_CLOSURE_2026-09-08.md"
       ],
       "risk_flags": [
         "MEASUREMENT_BASIS_UNRESOLVED",
         "OHLC_EQUALITY_IMPLEMENTATION_CONVENTION_OPEN"
-      ]
+      ],
+      "provenance_note": "RQ-002 source review closes topology and strict >half semantics while intentionally leaving exact denominator/combined arithmetic/tolerances unresolved; outcome performance cannot select those remaining parameters."
     },
     {
       "claim_id": "PAT3_GEOMETRY",
       "canonical_statement": "PAT3 uses three candles and three reviewed source variants. Full engulfing is preferred/stronger in several examples but not universally mandatory; the source also accepts >half relations, including combined prior/confirmation candle structures depending on variant. Exact combined-candle arithmetic, 50% denominator, small-body/Doji threshold and equal-wick tolerance remain unresolved.",
-      "status": "ACTIVE_PARAMETERIZED",
+      "status": "ACTIVE_SOURCE_BACKED_PARTIAL_PARAMETERIZED",
       "engine_permission": "RESEARCH_VARIANTS_ONLY",
       "source_refs": [
         "docs/DIRECT_PAT_GEOMETRY_RULES_2026-09-01.md",
         "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md",
-        "docs/RQ002_PAT_GEOMETRY_SOURCE_MAP_CHECKPOINT_2026-09-08.md"
+        "docs/RQ002_PAT_GEOMETRY_SOURCE_MAP_CHECKPOINT_2026-09-08.md",
+        "docs/RQ002_PAT_GEOMETRY_SOURCE_CLOSURE_2026-09-08.md"
       ],
       "risk_flags": [
         "NUMERIC_THRESHOLDS_UNRESOLVED"
-      ]
+      ],
+      "provenance_note": "RQ-002 source review closes topology and strict >half semantics while intentionally leaving exact denominator/combined arithmetic/tolerances unresolved; outcome performance cannot select those remaining parameters."
     },
     {
       "claim_id": "POST_SIG_INDEX",

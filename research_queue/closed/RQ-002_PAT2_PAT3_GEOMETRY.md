@@ -1,6 +1,6 @@
 # RQ-002 — PAT2/PAT3 exact geometry and 50% measurement basis
 
-Status: ACTIVE
+Status: CLOSED / SOURCE_BACKED_PARTIAL_PARAMETERIZED
 
 ## Why this matters
 
@@ -44,3 +44,7 @@ Still open:
 No historical variant computation is allowed yet because the remaining blocker is source geometry.
 
 Checkpoint: `docs/RQ002_PAT_GEOMETRY_SOURCE_MAP_CHECKPOINT_2026-09-08.md`
+
+## Closure — 2026-09-08
+
+Closed as `SOURCE_BACKED_PARTIAL_PARAMETERIZED`. See `docs/RQ002_PAT_GEOMETRY_SOURCE_CLOSURE_2026-09-08.md`. Source-backed strict >half semantics are retained; exact denominator, combined-candle arithmetic and numeric tolerances remain unresolved and must not be selected from outcome performance.

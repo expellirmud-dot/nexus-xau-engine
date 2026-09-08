@@ -1,17 +1,16 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-08T23:06:00+07:00",
+  "updated_at": "2026-09-08T23:29:00+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
   "active": {
-    "id": "RQ-002",
-    "title": "PAT2/PAT3 exact geometry and 50% measurement basis",
-    "worksheet": "research_queue/active/RQ-002_PAT2_PAT3_GEOMETRY.md",
+    "id": "RQ-003",
+    "title": "Daily Frame and Location exact construction semantics",
+    "worksheet": "research_queue/active/RQ-003_DAILY_FRAME_LOCATION_GEOMETRY.md",
     "status": "ACTIVE"
   },
   "priority_order": [
-    "RQ-002",
     "RQ-003",
     "RQ-004",
     "RQ-005",
@@ -41,7 +40,7 @@
       "id": "RQ-002",
       "title": "PAT2/PAT3 exact geometry and 50% measurement basis",
       "type": "RESEARCH",
-      "status": "ACTIVE",
+      "status": "CLOSED_SOURCE_BACKED_PARTIAL_PARAMETERIZED",
       "why_now": "Reliable PA/PAT detection depends on the exact 50% reference, equality behavior, and middle-candle geometry. Current PAT2 BODY success is a research representation, not canonical source geometry.",
       "depends_on": [],
       "blocks": [
@@ -49,13 +48,15 @@
         "canonical SIG detector",
         "production entry qualification"
       ],
-      "worksheet": "research_queue/active/RQ-002_PAT2_PAT3_GEOMETRY.md"
+      "worksheet": "research_queue/closed/RQ-002_PAT2_PAT3_GEOMETRY.md",
+      "closure_ref": "docs/RQ002_PAT_GEOMETRY_SOURCE_CLOSURE_2026-09-08.md",
+      "closure_summary": "PAT2/PAT3 topology and strict >half semantics are source-backed; exact denominator, combined-candle arithmetic, Doji/small-body/equal-wick and tick-equality tolerances remain explicit parameters/unknowns."
     },
     {
       "id": "RQ-003",
       "title": "Daily Frame and Location exact construction semantics",
       "type": "RESEARCH",
-      "status": "QUEUED",
+      "status": "ACTIVE",
       "why_now": "BUY-at-support and SELL-at-resistance semantics are confirmed, but exact measurable Daily Frame/Location construction remains incomplete. Downstream entry studies need a defensible geometric representation.",
       "depends_on": [
         "RQ-002 if PA geometry is required by the source example being decoded"
@@ -64,7 +65,7 @@
         "location truth-set OHLC alignment",
         "Daily Frame entry logic"
       ],
-      "worksheet": "research_queue/queued/RQ-003_DAILY_FRAME_LOCATION_GEOMETRY.md"
+      "worksheet": "research_queue/active/RQ-003_DAILY_FRAME_LOCATION_GEOMETRY.md"
     },
     {
       "id": "RQ-004",
