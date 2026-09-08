@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T03:18:00+07:00",
+  "updated_at": "2026-09-09T04:12:35+07:00",
   "purpose": "Durable source-review memory. Records which source windows/topics have already been screened or reviewed, what they established, what remains unresolved, and when a review may be reopened. This ledger prevents future agents from restarting source research from zero.",
   "rules": {
     "closed_windows_are_not_researched_from_zero_without_reopen_trigger": true,
@@ -153,16 +153,18 @@
         "ORIGINAL_YOUTUBE_VISUAL"
       ],
       "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
-      "finding": "Source directly demonstrates H4 incomplete -> H1 supplies ซอก + ไส้ -> M30 supplies an aligned คู่ -> completed Body Collection zone. Same-timeframe-only completion is therefore not a safe universal rule, and component-level timeframe provenance must be preserved.",
+      "finding": "Source directly demonstrates H4 incomplete -> H1 supplies ซอก + ไส้ -> M30 supplies คู่ -> completed Body Collection zone. Synchronized comparison now further shows two H1 reference lines already present before the M30 pair is identified; the pair is called ตรงกัน and aligns/co-locates with an existing parent reference, with no third forecast line added. This closes the shown parent-SOK+WICK/lower-PAIR topology but not machine equality or other component permutations.",
       "residual_unknowns": [
-        "EXACT_CROSS_TF_ALIGNMENT_GEOMETRY_OR_TOLERANCE",
-        "PRIORITY_WHEN_MULTIPLE_LOWER_TF_COMPONENTS_CAN_COMPLETE_ONE_PARTIAL_CANDIDATE"
+        "BROKER_FEED_EQUALITY_NORMALIZATION",
+        "UNIVERSAL_ALIGNMENT_FOR_OTHER_COMPONENT_PERMUTATIONS",
+        "PRIORITY_WHEN_MULTIPLE_LOWER_TF_PAIRS_ALIGN_TO_ONE_PARENT_CANDIDATE"
       ],
       "claim_ids": [
         "BODY_COLLECTION_COMPONENT_GEOMETRY"
       ],
       "checkpoint_refs": [
-        "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md"
+        "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
+        "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md"
       ],
       "reopen_triggers": [
         "NEW_PRIMARY_SOURCE_EVIDENCE",
@@ -421,6 +423,37 @@
         "NEW_PRIMARY_SOURCE_EVIDENCE",
         "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION",
         "CONTRADICTION_WITH_CURRENT_CANONICAL_CLAIM"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "EP5_SECOND_PARENT_SOK_WICK_LOWER_COMPLETION_11257_11316",
+      "source_id": "oCcG3dUjrgw",
+      "source_title": "EP.5 วิชาเก็บบอดี้",
+      "topic": "Second shown parent ซอก+ไส้ two-reference structure with lower-TF completion",
+      "window": "01:12:57-01:13:16",
+      "reviewed_modalities": [
+        "YOUTUBE_RENDERED_TRANSCRIPT",
+        "ORIGINAL_YOUTUBE_VISUAL"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "PA Sell PAT2 example visibly has two forecast/reference lines before lower-TF completion is discussed. The instructor identifies one as ไส้ and one as ซอก, then says the missing structure also exists in H1. This independently repeats the family in which the parent/reference TF supplies two levels and a lower-TF component completes the set rather than adding a third visible line.",
+      "residual_unknowns": [
+        "EXACT_LOWER_TF_COMPONENT_PRICE_EQUALITY_NORMALIZATION",
+        "UNIVERSAL_OTHER_COMPONENT_PERMUTATIONS"
+      ],
+      "claim_ids": [
+        "BODY_COLLECTION_CROSS_TF_SHOWN_ALIGNMENT",
+        "BODY_COLLECTION_COMPONENT_GEOMETRY"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "NEW_PRIMARY_SOURCE_EVIDENCE",
+        "CLEARER_SYNCHRONIZED_AUDIO_OR_VISUAL",
+        "CONTRADICTION_WITH_CURRENT_CANONICAL_CLAIM",
+        "MATERIALLY_NEW_QUESTION_NOT_COVERED_BY_PRIOR_REVIEW"
       ],
       "last_reviewed_at": "2026-09-09"
     }

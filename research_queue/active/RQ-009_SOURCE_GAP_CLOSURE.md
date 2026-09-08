@@ -259,3 +259,30 @@ Direct source+visual evidence at ~1:01:43-1:02:53 closes a material fallback amb
 Therefore `all three components must always come from exactly one timeframe` is not a safe universal rule. Current research representation must preserve component-level timeframe provenance and allow sequential lower-TF completion of missing aligned components in the source-shown hierarchy.
 
 Still open: exact alignment geometry/tolerance, priority among several possible lower-TF completing components, broker equality normalization, and exact two-reference selection/assembly. Do not infer these from outcomes.
+
+## Latest EP.5 shown cross-TF alignment + reference-selection checkpoint
+
+Ref: `docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md`
+
+Source+visual comparison now closes one repeated fallback topology more tightly than the prior generic `ตรงกัน` wording:
+
+```text
+parent/reference TF: ซอก + ไส้ -> two reference lines already drawn
+lower TF: คู่ -> ตรงกัน / aligns with one existing parent reference
+no third forecast line is added
+-> complete ซอก + ไส้ + คู่ structure
+```
+
+The H1->M30 worked example at ~1:02:17-1:02:53 is the primary synchronized evidence. A PA Sell example at ~1:12:57-1:13:16 independently repeats parent `ไส้ + ซอก` two-reference structure followed by lower-TF completion.
+
+This means a missing lower-TF component can validate/complete an existing reference rather than necessarily contribute a new forecast price.
+
+Still deliberately open:
+
+- exact broker/tick equality for `ตรงกัน`;
+- other component permutations (for example parent only `ซอก`, or parent only `ไส้`);
+- multiple lower-TF completing-component priority;
+- unseen two-reference selection when the parent does not naturally provide two references;
+- same-TF multi-candidate priority and universal wick choice.
+
+Do not generalize this shown topology into a universal merge/alignment algorithm. The next source task is to look explicitly for alternate component permutations; if the current source batch does not contain them, record `MISSING_SOURCE_RULE` rather than fitting a rule from outcomes.
