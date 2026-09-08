@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-09T02:32:22+07:00",
+  "updated_at": "2026-09-09T02:44:41+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_QUESTION_REFRAMED",
+  "completed_checkpoint": "RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -33,6 +33,7 @@
       "docs/RQ009_EP5_BODY_COLLECTION_COMPONENT_ASSEMBLY_REPEATED_PATTERN_2026-09-09.md",
       "docs/RQ009_EP5_COMPONENT_DEFINITION_SOURCE_RECONCILIATION_2026-09-09.md",
       "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md",
+      "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
       "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
       "latest new source evidence if any"
     ]
@@ -100,10 +101,10 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Continue RQ-009 source-first with the corrected question: find the exact rule for selecting/assembling the two forecast references from source-valid historical ซอก/ไส้/คู่ structure; do not assume a mathematical 3->2 transform.",
-    "When the headed YouTube/CDP path recovers, inspect the ~46:40-48:04 head/middle/tail versus Body Collection comparison diagram for visual selection geometry not represented in transcript.",
-    "Keep broker/feed equality normalization and same-TF multi-candidate priority explicit and unresolved; do not fit them from outcomes.",
-    "PAT >50% denominator, exact lower-TF broker fill, Sideway method routing/cross-frame priority, and pristine final holdout remain open.",
+    "Continue RQ-009 source-first with hierarchical component provenance: same-TF first, then sequential fallback may complete missing aligned components across H4->H1->M30 in the shown workflow.",
+    "Highest-value Body Collection blocker is now exact cross-TF alignment and exact two-reference selection when several source-valid component references coexist; do not flatten all components to one TF or invent alignment tolerance.",
+    "Keep broker/feed equality normalization and same-level/fallback candidate priority unresolved; do not fit them from outcomes.",
+    "PAT >50% denominator, exact lower-TF broker fill, Sideway/cross-frame routing, and pristine final holdout remain open.",
     "Do not run/report canonical full-system Win/Loss until deterministic source geometry/execution conventions are frozen and a pristine holdout exists."
   ],
   "blocked_from_claiming": [
@@ -192,9 +193,10 @@
     "docs/RQ009_EP5_BODY_COLLECTION_CANDIDATE_SEARCH_ORDER_CLOSURE_2026-09-09.md",
     "docs/RQ009_EP5_BODY_COLLECTION_COMPONENT_ASSEMBLY_REPEATED_PATTERN_2026-09-09.md",
     "docs/RQ009_EP5_COMPONENT_DEFINITION_SOURCE_RECONCILIATION_2026-09-09.md",
-    "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md"
+    "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md",
+    "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md"
   ],
-  "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> active RQ-009 worksheet -> canonical claim register -> latest EP5 two-reference method-rationale checkpoint -> component-definition reconciliation -> prior component-assembly/lifecycle/visual/search closures. Use EXACT_TWO_REFERENCE_SELECTION as the open source question; do not resurrect a generic 3->2 arithmetic assumption or let outcomes select equality, reference selection, candidate priority, PAT denominator, fill, touch count, or age expiry.",
+  "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> active RQ-009 worksheet -> canonical claim register -> latest EP5 cross-TF component-completion checkpoint -> two-reference rationale -> component-definition reconciliation -> prior visual/lifecycle/search closures. Preserve per-component timeframe provenance; do not invent cross-TF alignment tolerance, reference selection, candidate priority, PAT denominator, fill, touch count, or age expiry from outcomes.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -717,9 +719,9 @@
     "guard": "Do not run/report a canonical full-system Win/Loss result by filling unresolved fields with analyst-selected thresholds or by relabeling component research statistics."
   },
   "rq009_source_gap_closure": {
-    "status": "ACTIVE_SOURCE_REVIEW_TWO_REFERENCE_METHOD_REFRAMED_EXACT_SELECTION_OPEN",
+    "status": "ACTIVE_SOURCE_REVIEW_CROSS_TF_COMPONENT_COMPLETION_CLOSED_ALIGNMENT_SELECTION_OPEN",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-    "checkpoint_ref": "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md",
+    "checkpoint_ref": "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
     "source_batch": [
       "vcdN51_OrPE",
       "1E_PYPor1qQ",
@@ -766,13 +768,16 @@
       "Current EP.5 teaching still uses two forecast references/distances, but the reviewed definition block gives no universal three-distinct-component -> two-reference transform.",
       "EP.5 explicitly contrasts the current two-forecast-reference Body Collection method with an older generic three-part head/middle/tail placement method.",
       "The current two-reference method is justified from historical candle structure through ซอก/ไส้/คู่; the source does not state a generic arithmetic three-component-price -> two-reference reduction.",
-      "Research blocker is therefore reframed as exact two-reference selection/assembly from source-valid structure, not an assumed 3->2 transform."
+      "Research blocker is therefore reframed as exact two-reference selection/assembly from source-valid structure, not an assumed 3->2 transform.",
+      "EP.5 directly demonstrates hierarchical cross-timeframe component completion: after H4 is incomplete, H1 supplies ซอก+ไส้ and M30 supplies an aligned คู่, together completing the Body Collection zone.",
+      "A lower-timeframe fallback does not necessarily discard valid higher-level partial components; component timeframe provenance must be preserved."
     ],
     "still_open": [
       "Exact PAT2/PAT3 >50% denominator/arithmetic and feed-equality convention.",
+      "Exact geometric criterion/tolerance for a lower-TF component to align with a higher-TF partial Body Collection candidate.",
+      "Priority when multiple lower-TF components could complete the same higher-level partial candidate.",
       "Broker/feed normalization or allowed tick difference for Body Collection same-price/equilibrium relations.",
       "Exact source rule for selecting/assembling the two forecast references when several valid Body Collection component/reference prices coexist.",
-      "Whether source-valid setup families exist with three distinct component prices and, if so, how the instructor handles them; do not assume a generic arithmetic reduction.",
       "Universal support/resistance certification geometry for every คู่ candidate and universal wick selection when several wicks qualify.",
       "Universal same-timeframe winner/priority rule when multiple valid Body Collection candidate zones coexist.",
       "Exact OHLC transition from touched/revalidated zone to completed/used Body Collection and exact support/resistance revalidation after touch.",
@@ -780,7 +785,7 @@
       "Universal routing between Sideway source methods and exact frame-complete/false-break detector.",
       "Cross-timeframe/source-frame priority where multiple location/Sideway/Body Collection structures coexist."
     ],
-    "proof_readiness": "BODY_COLLECTION_TWO_REFERENCE_METHOD_SOURCE_BACKED_EXACT_SELECTION_EQUALITY_PRIORITY_TRANSITION_AND_FILL_OPEN",
+    "proof_readiness": "BODY_COLLECTION_HIERARCHICAL_COMPONENT_COMPLETION_SOURCE_BACKED_ALIGNMENT_REFERENCE_SELECTION_EQUALITY_PRIORITY_TRANSITION_AND_FILL_OPEN",
     "body_collection_audit_ref": "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
     "sideway_audit_ref": "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
     "external_source_target": {
@@ -818,6 +823,7 @@
     "candidate_search_order_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_CANDIDATE_SEARCH_ORDER_CLOSURE_2026-09-09.md",
     "component_assembly_repeated_pattern_ref": "docs/RQ009_EP5_BODY_COLLECTION_COMPONENT_ASSEMBLY_REPEATED_PATTERN_2026-09-09.md",
     "component_definition_reconciliation_ref": "docs/RQ009_EP5_COMPONENT_DEFINITION_SOURCE_RECONCILIATION_2026-09-09.md",
-    "two_reference_method_rationale_ref": "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md"
+    "two_reference_method_rationale_ref": "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md",
+    "cross_tf_component_completion_ref": "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md"
   }
 }

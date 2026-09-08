@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T02:32:22+07:00",
+  "updated_at": "2026-09-09T02:44:41+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -288,7 +288,8 @@
         "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_COMPONENT_ASSEMBLY_REPEATED_PATTERN_2026-09-09.md",
         "docs/RQ009_EP5_COMPONENT_DEFINITION_SOURCE_RECONCILIATION_2026-09-09.md",
-        "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md"
+        "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md",
+        "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md"
       ],
       "risk_flags": [
         "UNIVERSAL_BODY_COLLECTION_CANDIDATE_PRIORITY_OPEN",
@@ -300,7 +301,8 @@
         "CROSS_FRAME_PRIORITY_PARTIAL",
         "FINAL_PRISTINE_HOLDOUT_REQUIRED",
         "BODY_COLLECTION_EQUALITY_NORMALIZATION_OPEN",
-        "BODY_COLLECTION_TWO_REFERENCE_SELECTION_OPEN"
+        "BODY_COLLECTION_TWO_REFERENCE_SELECTION_OPEN",
+        "CROSS_TF_COMPONENT_ALIGNMENT_OPEN"
       ],
       "provenance_note": "RQ-009 source+visual work continues to narrow Body Collection uncertainty without outcome fitting. The latest source scan corrects the research framing: current evidence does not teach a generic three-component-price reduction; it teaches two forecast references anchored to historical Body Collection structure. Exact reference selection remains unsourced, so a complete source-faithful trade tuple is not frozen and RQ-008 readiness stop remains in force."
     },
@@ -401,15 +403,16 @@
     },
     {
       "claim_id": "BODY_COLLECTION_ZONE_ROUTING",
-      "canonical_statement": "Body Collection search authority is same-timeframe first. Begin with approximately 2-4 prior candles; if the required structure is absent, continue farther back. When the current timeframe cannot provide the required structure, fall back sequentially H4->H1->M30 in the taught H4 workflow. A universal winner rule among multiple simultaneously valid same-timeframe candidates is not established.",
-      "status": "ACTIVE_SOURCE_BACKED_SEARCH_HIERARCHY_MULTI_CANDIDATE_PRIORITY_OPEN",
+      "canonical_statement": "Body Collection search authority is setup-timeframe first. Begin with approximately 2-4 prior candles and continue farther back if required. When the required structure is incomplete, step down sequentially as taught (H4->H1->M30 in the reviewed workflow). A direct EP.5 example shows that valid partial higher-level structure can be preserved while the next lower timeframe supplies a missing aligned component, rather than necessarily restarting the full component search from zero. Multiple same-TF or fallback candidates remain explicit because no universal winner rule is established.",
+      "status": "ACTIVE_SOURCE_BACKED_HIERARCHICAL_SEARCH_AND_COMPONENT_COMPLETION_PRIORITY_OPEN",
       "engine_permission": "RESEARCH_CANDIDATE_DETECTORS_AND_ZONE_STATE_MACHINE_WITH_MANUAL_VALIDATION",
       "source_refs": [
         "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
         "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md",
-        "docs/RQ009_EP5_BODY_COLLECTION_CANDIDATE_SEARCH_ORDER_CLOSURE_2026-09-09.md"
+        "docs/RQ009_EP5_BODY_COLLECTION_CANDIDATE_SEARCH_ORDER_CLOSURE_2026-09-09.md",
+        "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md"
       ],
       "risk_flags": [
         "BROKER_FEED_EQUALITY_NORMALIZATION_REQUIRED",
@@ -423,7 +426,9 @@
         "YOUTUBE_ASR_RISK",
         "DO_NOT_RANK_SAME_TF_CANDIDATES_FROM_OUTCOMES",
         "INITIAL_2_4_CANDLES_NOT_HARD_EXPIRY",
-        "FRESHNESS_IS_ATTRIBUTE_NOT_PROVEN_WINNER_RULE"
+        "FRESHNESS_IS_ATTRIBUTE_NOT_PROVEN_WINNER_RULE",
+        "CROSS_TF_ALIGNMENT_GEOMETRY_OPEN",
+        "MULTI_LEVEL_COMPLETION_PRIORITY_UNRESOLVED"
       ],
       "provenance_note": "Direct YouTube Show-transcript evidence plus original-video visual review through the separate headed Chrome CDP session. BUY and SELL examples both show two forecast levels. Direct Q&A at ~1:13 and ~2:01-2:02 closes fresh/touched/used zone lifecycle semantics. No outcome fitting is permitted for touch count, age expiry, candidate priority or completion geometry."
     },
@@ -448,15 +453,16 @@
     },
     {
       "claim_id": "BODY_COLLECTION_COMPONENT_GEOMETRY",
-      "canonical_statement": "EP.5 directly defines the shown Body Collection ingredients and separately teaches a current two-forecast-reference placement method. ซอก is a same-color candle price joint where prior close and next open are the same normalized reference price. คู่ is an opposite-color pair at support/resistance with an equal/aligned open-close equilibrium reference; residual/overhanging body extension may differ, so full absolute body-length equality is not established. ไส้ is the completed-candle wick structural price. The source requires ซอก + ไส้ + คู่ in the taught Body Collection zone and uses historical candle structure as reference authority. The source explicitly contrasts the current two-reference method with an older generic three-part head/middle/tail placement method; it does not state a generic arithmetic three-component-price-to-two-reference reduction. Exact two-reference selection/assembly when several valid component prices coexist remains unresolved.",
-      "status": "ACTIVE_SOURCE_DEFINITION_TWO_REFERENCE_METHOD_PARTIAL_ASSEMBLY",
-      "engine_permission": "RESEARCH_DETECTOR_SOURCE_DEFINED_SHOWN_FORMS_EXACT_REFERENCE_SELECTION_OPEN",
+      "canonical_statement": "EP.5 directly defines the shown Body Collection ingredients and separately teaches a current two-forecast-reference placement method. ซอก is a same-color candle price joint where prior close and next open are the same normalized reference price. คู่ is an opposite-color pair at support/resistance with an equal/aligned open-close equilibrium reference; residual/overhanging body extension may differ, so full absolute body-length equality is not established. ไส้ is the completed-candle wick structural price. The source requires ซอก + ไส้ + คู่ and uses historical candle structure as reference authority. In a direct worked fallback example, the complete set is assembled hierarchically across timeframes: H1 supplies ซอก+ไส้ and an aligned M30 คู่ completes the Body Collection zone. Therefore all three components are not universally required to originate from one timeframe. Exact lower-TF alignment tolerance and exact two-reference selection when several valid component references coexist remain unresolved.",
+      "status": "ACTIVE_SOURCE_DEFINITION_CROSS_TF_COMPLETION_PARTIAL_ASSEMBLY",
+      "engine_permission": "RESEARCH_DETECTOR_HIERARCHICAL_COMPONENT_PROVENANCE_ALIGNMENT_OPEN",
       "source_refs": [
         "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_COMPONENT_ASSEMBLY_REPEATED_PATTERN_2026-09-09.md",
         "docs/RQ009_EP5_COMPONENT_DEFINITION_SOURCE_RECONCILIATION_2026-09-09.md",
-        "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md"
+        "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md",
+        "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md"
       ],
       "risk_flags": [
         "BROKER_FEED_EQUALITY_NORMALIZATION_REQUIRED",
@@ -469,9 +475,11 @@
         "UNIVERSAL_SUPPORT_RESISTANCE_CERTIFICATION_UNRESOLVED",
         "EXACT_TWO_REFERENCE_SELECTION_UNRESOLVED",
         "THREE_TO_TWO_REDUCTION_FRAMING_NOT_SOURCE_STATED",
-        "DO_NOT_FIT_REFERENCE_SELECTION_FROM_OUTCOMES"
+        "DO_NOT_FIT_REFERENCE_SELECTION_FROM_OUTCOMES",
+        "CROSS_TF_COMPONENT_ALIGNMENT_GEOMETRY_UNRESOLVED",
+        "DO_NOT_FLATTEN_COMPONENT_TF_PROVENANCE"
       ],
-      "provenance_note": "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md reframes the earlier analyst question after a full EP.5 keyword scan found the explicit ~46:40-48:04 method comparison. Current source authority is: two forecast references are an intentional Body Collection placement method anchored to historical ซอก/ไส้/คู่ structure, contrasted with an older generic head/middle/tail three-part method. Do not assume a mathematical 3->2 reduction; exact two-reference selection across unseen component configurations remains open. Prior checkpoints are preserved as research chronology."
+      "provenance_note": "Latest EP.5 source+visual checkpoint closes hierarchical cross-timeframe completion for a shown H4 workflow: after H4 is incomplete, H1 supplies ซอก+ไส้ and M30 supplies an aligned คู่, which the instructor calls a completed ซอกไส้คู่ zone. This supersedes any universal same-TF-only reading. Exact alignment/equality and two-reference selection remain open and must not be fitted from outcomes."
     },
     {
       "claim_id": "BODY_COLLECTION_ZONE_LIFECYCLE",

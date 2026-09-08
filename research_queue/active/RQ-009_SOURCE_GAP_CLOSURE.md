@@ -1,6 +1,6 @@
 # RQ-009 — Source Gap Closure from Current Five-Video Batch
 
-Status: ACTIVE — EP.5 two-reference method rationale source-backed; exact reference selection/equality/execution geometry still open
+Status: ACTIVE — EP.5 hierarchical cross-TF component completion source-backed; exact alignment/reference selection/equality/execution geometry still open
 
 ## Objective
 
@@ -242,3 +242,20 @@ CURRENT SOURCE-FAITHFUL QUESTION: how are the 2 forecast references selected/ass
 Do not assume `min/max`, averaging, nearest/farthest, newest/oldest, or any generic 3->2 merge. If an unseen candidate cannot be resolved by a source-backed shown topology, mark `UNRESOLVED_REFERENCE_SELECTION`.
 
 A fresh headed-browser capture attempt for the ~46:48 diagram returned upstream `502`, so this checkpoint makes no new visual claim from that window. Add the diagram later if browser access recovers; the semantic closure comes from the original rendered YouTube transcript.
+
+
+## Latest EP.5 cross-timeframe component-completion checkpoint
+
+Ref: `docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md`
+
+Direct source+visual evidence at ~1:01:43-1:02:53 closes a material fallback ambiguity:
+
+- H4 does not provide the needed complete structure;
+- the instructor steps down to H1;
+- H1 supplies `ซอก` + `ไส้`;
+- the missing `คู่` is found in M30;
+- the instructor says the M30 pair aligns (`ตรงกัน`) and together they produce the `โซนซอกไส้คู่`.
+
+Therefore `all three components must always come from exactly one timeframe` is not a safe universal rule. Current research representation must preserve component-level timeframe provenance and allow sequential lower-TF completion of missing aligned components in the source-shown hierarchy.
+
+Still open: exact alignment geometry/tolerance, priority among several possible lower-TF completing components, broker equality normalization, and exact two-reference selection/assembly. Do not infer these from outcomes.

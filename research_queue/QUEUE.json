@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T02:32:22+07:00",
+  "updated_at": "2026-09-09T02:44:41+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
@@ -8,8 +8,8 @@
     "id": "RQ-009",
     "title": "Source Gap Closure from Current Five-Video Batch",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-    "status": "ACTIVE_SOURCE_REVIEW_TWO_REFERENCE_METHOD_REFRAMED_EXACT_SELECTION_OPEN",
-    "latest_checkpoint": "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md"
+    "status": "ACTIVE_SOURCE_REVIEW_CROSS_TF_COMPONENT_COMPLETION_CLOSED_ALIGNMENT_SELECTION_OPEN",
+    "latest_checkpoint": "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md"
   },
   "priority_order": [
     "RQ-009"
@@ -158,7 +158,7 @@
       "id": "RQ-009",
       "title": "Source Gap Closure from Current Five-Video Batch",
       "type": "RESEARCH",
-      "status": "ACTIVE_SOURCE_REVIEW_TWO_REFERENCE_METHOD_REFRAMED_EXACT_SELECTION_OPEN",
+      "status": "ACTIVE_SOURCE_REVIEW_CROSS_TF_COMPONENT_COMPLETION_CLOSED_ALIGNMENT_SELECTION_OPEN",
       "why_now": "Direct review of the current five local instructor sources revealed material evidence that narrows blockers left by RQ-002/RQ-007, especially two explicit SIG entry modes and touch-based point-check destruction.",
       "depends_on": [],
       "blocks": [
@@ -168,8 +168,8 @@
       ],
       "preferred_method": "Transcript/timestamp map -> synchronized visual window -> original audio only if material ASR ambiguity remains -> explicit source closure/UNKNOWN -> targeted computation only for residual source-compatible representations.",
       "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-      "checkpoint_ref": "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md",
-      "current_summary": "EP.5 source scan reframes the Body Collection assembly blocker. Current method intentionally uses two forecast references and explicitly contrasts this with an older generic head/middle/tail three-part placement. Historical ซอก/ไส้/คู่ structure provides reference authority, but the source does not state a generic arithmetic 3-component-price -> 2-reference reduction. Exact two-reference selection/assembly, equality normalization, same-TF candidate ranking, transition/fill, PAT denominator, Sideway/cross-frame routing remain open.",
+      "checkpoint_ref": "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
+      "current_summary": "EP.5 directly demonstrates hierarchical component completion: after H4 is incomplete, H1 supplies ซอก+ไส้ and M30 supplies an aligned คู่, completing the Body Collection zone. Same-TF-only is therefore not universal. Exact cross-TF alignment, two-reference selection, equality normalization, candidate priority, transition/fill, PAT denominator and Sideway/cross-frame routing remain open.",
       "secondary_refs": [
         "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
         "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
@@ -181,7 +181,8 @@
         "docs/RQ009_EP5_BODY_COLLECTION_CANDIDATE_SEARCH_ORDER_CLOSURE_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_COMPONENT_ASSEMBLY_REPEATED_PATTERN_2026-09-09.md",
         "docs/RQ009_EP5_COMPONENT_DEFINITION_SOURCE_RECONCILIATION_2026-09-09.md",
-        "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md"
+        "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md",
+        "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md"
       ]
     }
   ],
