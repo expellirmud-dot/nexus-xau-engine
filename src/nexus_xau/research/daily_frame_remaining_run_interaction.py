@@ -14,6 +14,24 @@ PROJECT_POINT_SIZE = 0.01
 SOURCE_PROXIMITY_POINTS = 200.0
 MIN_GROUP = 10
 
+INTERACTION_EVENT_COLUMNS = [
+    "cutoff_utc",
+    "candidate_known_at",
+    "side",
+    "candidate_close",
+    "frame_open_price",
+    "pattern_location_price",
+    "daily_frame_directional_line",
+    "signed_valid_side_distance_points",
+    "absolute_distance_points",
+    "location_group",
+    "remaining_at_entry_points",
+    "path_remaining_reached",
+    "path_remaining_first_hit",
+    "fresh_mfe_points",
+    "fresh_mae_points",
+]
+
 
 def _outcome_summary(group: pd.DataFrame) -> dict[str, float | int | None]:
     resolved = group[group["path_remaining_first_hit"].isin(["TARGET_FIRST", "STOP_FIRST"])]
@@ -132,7 +150,7 @@ def run(
             }
         )
 
-    events = pd.DataFrame(rows)
+    events = pd.DataFrame(rows, columns=INTERACTION_EVENT_COLUMNS)
     Path(events_path).parent.mkdir(parents=True, exist_ok=True)
     events.to_csv(events_path, index=False)
 
