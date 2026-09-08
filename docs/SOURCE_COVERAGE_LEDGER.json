@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T04:46:08+07:00",
+  "updated_at": "2026-09-09T04:55:03+07:00",
   "purpose": "Durable source-review memory. Records which source windows/topics have already been screened or reviewed, what they established, what remains unresolved, and when a review may be reopened. This ledger prevents future agents from restarting source research from zero.",
   "rules": {
     "closed_windows_are_not_researched_from_zero_without_reopen_trigger": true,
@@ -636,6 +636,43 @@
         "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION",
         "SOURCE_OR_TIMESTAMP_MAPPING_ERROR",
         "MATERIALLY_NEW_EXECUTION_FAMILY_NOT_COVERED_BY_THIS_REVIEW"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "RQ009_BROKER_PRICE_GRID_NORMALIZATION_XAUUSDM",
+      "source_id": "EXNESS_MT5TRIAL6_XAUUSDM_RUNTIME_METADATA",
+      "source_title": "Exness-MT5Trial6 XAUUSDm runtime symbol metadata + validated M1 pipeline",
+      "topic": "Broker/feed normalization for literal source equality and contact semantics",
+      "window": "runtime metadata captured 2026-09-02; XAUUSDm M1 validation sample 2026-08-24 through 2026-08-28",
+      "reviewed_modalities": [
+        "USER_DIRECT_RUNTIME_OUTPUT",
+        "MT5_SPECIFICATION_SCREENSHOT",
+        "VALIDATED_M1_BAR_DATA"
+      ],
+      "status": "ENGINEERING_BOUNDARY_CLOSED_WITH_EXECUTION_RESIDUAL_OPEN",
+      "finding": "For verified runtime metadata, literal same-price relations can use zero broker-tick difference and literal Bid-chart bar contact can use normalized High-Low inclusion. Current XAUUSDm has digits=3 and trade_tick_size=0.001. No positive fuzzy tolerance is added. Bid/Ask execution, same-bar ordering, generic zone tolerance, production-symbol equivalence, and course-point conversion remain separate/open.",
+      "residual_unknowns": [
+        "GENERIC_STRUCTURAL_ZONE_TOLERANCE_REQUIRES_SOURCE_GEOMETRY",
+        "ACTUAL_BID_ASK_FILL_SPREAD_SLIPPAGE_REQUIRES_EXECUTION_DATA_MODEL",
+        "PRODUCTION_SYMBOL_METADATA_REQUIRES_RUNTIME_REVERIFICATION",
+        "SYSTEM_POINT_TO_PRICE_MAPPING_MUST_REMAIN_SEPARATE_FROM_BROKER_POINT"
+      ],
+      "claim_ids": [
+        "BROKER_PRICE_GRID_NORMALIZATION",
+        "POST_SIG_POINT_CHECK_TOUCH_DESTRUCTION",
+        "BODY_COLLECTION_COMPONENT_GEOMETRY"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md",
+        "src/nexus_xau/data/price_grid.py",
+        "tests/test_price_grid.py"
+      ],
+      "reopen_triggers": [
+        "TARGET_BROKER_OR_SYMBOL_CHANGES",
+        "RUNTIME_TICK_SIZE_OR_CHART_MODE_CHANGES",
+        "BID_ASK_TICK_DATA_BECOMES_AVAILABLE_FOR_EXECUTION_RESEARCH",
+        "NEW_SOURCE_DEFINES_POSITIVE_ZONE_TOLERANCE"
       ],
       "last_reviewed_at": "2026-09-09"
     }

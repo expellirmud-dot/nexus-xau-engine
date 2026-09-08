@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T04:46:08+07:00",
+  "updated_at": "2026-09-09T04:55:03+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -272,7 +272,7 @@
     },
     {
       "claim_id": "SYSTEM_WIN_RATE",
-      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 now closes semantic Body Collection lifecycle while marking its exact used-transition source-incomplete, and closes family-specific entry signal/knowledge timing while marking exact universal broker fill and structural tick tolerance source-incomplete in the current batch. Arbitrary Body Collection component merging, broker/feed equality normalization, unseen two-reference selection, Body Collection-specific candidate priority, PAT denominator/arithmetic, Sideway/cross-frame geometry, explicit execution-model freezing, and a pristine final holdout remain unresolved.",
+      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 now closes semantic Body Collection lifecycle while marking its exact used-transition source-incomplete; closes family-specific signal/knowledge timing while marking exact broker fill source-incomplete; and closes broker-specific literal equality/chart-contact normalization for the verified XAUUSDm Bid/tick grid without adding fuzzy tolerance. Arbitrary Body Collection component merging, unseen two-reference selection, Body Collection candidate priority, structural-zone/cross-TF tolerance, PAT denominator/arithmetic, Sideway/cross-frame deterministic geometry, explicit execution/cost model freezing, production-feed equivalence, and a pristine final holdout remain unresolved.",
       "status": "ACTIVE_BLOCKER_NOT_TESTABLE_WITH_CURRENT_EVIDENCE",
       "engine_permission": "DO_NOT_CLAIM",
       "source_refs": [
@@ -296,7 +296,8 @@
         "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
         "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md",
-        "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md"
+        "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md",
+        "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
         "UNIVERSAL_BODY_COLLECTION_CANDIDATE_PRIORITY_OPEN",
@@ -307,13 +308,13 @@
         "SIDEWAY_METHOD_ROUTING_PARTIAL",
         "CROSS_FRAME_PRIORITY_PARTIAL",
         "FINAL_PRISTINE_HOLDOUT_REQUIRED",
-        "BODY_COLLECTION_EQUALITY_NORMALIZATION_OPEN",
         "BODY_COLLECTION_REFERENCE_SELECTION_FOR_UNSEEN_CONFIGURATIONS_OPEN",
         "BODY_COLLECTION_OTHER_CROSS_TF_COMPONENT_PERMUTATIONS_OPEN",
         "PARTIAL_SR_COMPONENTS_DO_NOT_CLOSE_BODY_COLLECTION_ARBITRARY_MERGE",
         "SIDEWAY_ROUTE_SEPARATION_CLOSED_BUT_SIDEWAY_ENTRY_GEOMETRY_OPEN",
         "BODY_COLLECTION_LIFECYCLE_EXACT_TRANSITION_SOURCE_INCOMPLETE_CURRENT_BATCH",
-        "EXACT_EXECUTION_FILL_SOURCE_INCOMPLETE_CURRENT_BATCH"
+        "EXACT_EXECUTION_FILL_SOURCE_INCOMPLETE_CURRENT_BATCH",
+        "LITERAL_BROKER_GRID_NORMALIZATION_CLOSED_STRUCTURAL_ZONE_TOLERANCE_OPEN"
       ],
       "provenance_note": "EP.4/EP.6 partial-component S/R evidence narrows context but does not supply a complete trade construction or universal Body Collection assembly algorithm. RQ-008 readiness stop remains in force."
     },
@@ -355,28 +356,32 @@
       "engine_permission": "CANONICAL_SEMANTIC_REJECT_RULE_WITH_PARTIAL_BODY_MAPPING",
       "source_refs": [
         "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
-        "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md"
+        "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md",
+        "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
         "MULTI_CANDLE_PROTECTED_BODY_BOUNDARY_UNRESOLVED",
-        "FEED_EQUALITY_NORMALIZATION_REQUIRED"
+        "LITERAL_LEVEL_PRICE_GRID_NORMALIZED_PROTECTED_BODY_MAPPING_STILL_OPEN"
       ],
       "provenance_note": "Direct repeated instructor wording in vcdN51_OrPE plus complementary positive example in 1E_PYPor1qQ. No numeric destruction buffer inferred."
     },
     {
       "claim_id": "POST_SIG_POINT_CHECK_TOUCH_DESTRUCTION",
       "canonical_statement": "Once a post-SIG wick/reference is confirmed as an active point-check, touch/contact of that reference destroys the point-check; a near miss without contact leaves it active. No universal positive point buffer is source-backed for this destruction event.",
-      "status": "ACTIVE_SOURCE_BACKED_CONTACT_SEMANTICS",
-      "engine_permission": "CANONICAL_RESEARCH_REPLAY_AFTER_PRICE_PRECISION_NORMALIZATION",
+      "status": "ACTIVE_SOURCE_BACKED_CONTACT_SEMANTICS_RUNTIME_PRICE_GRID_NORMALIZED",
+      "engine_permission": "CANONICAL_RESEARCH_REPLAY_ON_VERIFIED_BID_PRICE_GRID",
       "source_refs": [
         "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
-        "docs/POST_SIG_LIFECYCLE_SOURCE_VISUAL_CLOSURE_2026-09-08.md"
+        "docs/POST_SIG_LIFECYCLE_SOURCE_VISUAL_CLOSURE_2026-09-08.md",
+        "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
-        "BROKER_PRICE_PRECISION_NORMALIZATION_REQUIRED",
-        "DO_NOT_ADD_OUTCOME_FITTED_BUFFER"
+        "DO_NOT_ADD_OUTCOME_FITTED_BUFFER",
+        "CURRENT_XAUUSDM_LITERAL_CONTACT_PRICE_GRID_NORMALIZED",
+        "BID_BAR_CONTACT_NOT_ORDER_FILL",
+        "SAME_BAR_EVENT_ORDERING_OPEN_WITHOUT_TICKS"
       ],
-      "provenance_note": "Direct wording says a small touch/nick is sufficient; synchronized visual window shows the instructor pointing at the contact region. A separate near-miss example is explicitly not destroyed."
+      "provenance_note": "Source directly closes touch/contact destruction and near-miss survival. RQ-009 broker normalization now supplies a broker-specific zero-extra-tolerance chart-price representation: normalize to runtime trade_tick_size and treat Bid-bar High/Low inclusion as contact presence. This still does not prove Bid/Ask order fill or same-bar event ordering."
     },
     {
       "claim_id": "SIG_ENTRY_TWO_MODES",
@@ -433,10 +438,10 @@
         "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
         "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
         "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
-        "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md"
+        "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
+        "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
-        "BROKER_FEED_EQUALITY_NORMALIZATION_REQUIRED",
         "PARTIAL_SR_VS_BODY_COLLECTION_ROUTING_MUST_NOT_BE_CONFLATED",
         "ARBITRARY_BODY_COLLECTION_COMPONENT_MERGE_UNRESOLVED",
         "MULTIPLE_CANDIDATE_PRIORITY_UNRESOLVED",
@@ -448,7 +453,8 @@
         "INITIAL_2_4_CANDLES_NOT_HARD_EXPIRY",
         "SHOWN_PARENT_SOK_WICK_LOWER_PAIR_ALIGNMENT_CLOSED",
         "SIDEWAY_ROUTE_SEPARATION_SOURCE_BACKED_ENTRY_GEOMETRY_OPEN",
-        "ZONE_CONTEXT_REUSE_DOES_NOT_MEAN_NORMAL_BODY_COLLECTION_CONTINUES"
+        "ZONE_CONTEXT_REUSE_DOES_NOT_MEAN_NORMAL_BODY_COLLECTION_CONTINUES",
+        "LITERAL_COMPONENT_EQUALITY_NORMALIZED_STRUCTURAL_ALIGNMENT_TOLERANCE_OPEN"
       ],
       "provenance_note": "EP.5 closes the shown hierarchical Body Collection completion topology. EP.4/EP.6 add a separate timeframe-strength distinction for S/R components, including partial lower-TF structures. No source currently licenses arbitrary subset merging into Body Collection."
     },
@@ -488,10 +494,10 @@
         "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md",
         "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
         "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
-        "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md"
+        "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
+        "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
-        "BROKER_FEED_EQUALITY_NORMALIZATION_REQUIRED",
         "FULL_ZONE_VS_PARTIAL_SR_CONTEXT_MUST_BE_PRESERVED",
         "PARTIAL_SR_COMPONENTS_DO_NOT_GRANT_ARBITRARY_BODY_COLLECTION_MERGE",
         "UNIVERSAL_ZONE_ASSEMBLY_NOT_PROVEN",
@@ -501,9 +507,11 @@
         "EXACT_TWO_REFERENCE_SELECTION_FOR_UNSEEN_CONFIGURATIONS_UNRESOLVED",
         "SHOWN_PARENT_SOK_WICK_LOWER_PAIR_COLOCATION_SOURCE_BACKED",
         "UNIVERSAL_CROSS_TF_ALIGNMENT_FOR_OTHER_COMPONENT_PERMUTATIONS_OPEN",
-        "DO_NOT_FIT_TOLERANCE_FROM_OUTCOMES"
+        "DO_NOT_FIT_TOLERANCE_FROM_OUTCOMES",
+        "LITERAL_SOK_PAIR_EQUALITY_PRICE_GRID_NORMALIZED_CURRENT_XAUUSDM",
+        "CROSS_TF_STRUCTURAL_ALIGNMENT_TOLERANCE_STILL_OPEN"
       ],
-      "provenance_note": "EP.4 ~12:08-12:24 and ~1:17:45-1:18:09 distinguish the complete three-component higher/reference zone from weaker lower-TF partial S/R. EP.6 ~1:11:49-1:12:36 independently names partial two-component combinations as weaker than the full set. This narrows earlier all-three-required wording without deleting it: all three remains the full/strong-zone rule, while partial lower-TF S/R is a separate source-backed context."
+      "provenance_note": "EP.4 ~12:08-12:24 and ~1:17:45-1:18:09 distinguish the complete three-component higher/reference zone from weaker lower-TF partial S/R. EP.6 ~1:11:49-1:12:36 independently names partial two-component combinations as weaker than the full set. This narrows earlier all-three-required wording without deleting it: all three remains the full/strong-zone rule, while partial lower-TF S/R is a separate source-backed context. RQ-009 broker normalization now closes only literal same-price/equilibrium implementation on a verified runtime tick grid; it does not close cross-TF area alignment, zone boundaries, candidate priority, or universal wick/SR selection."
     },
     {
       "claim_id": "BODY_COLLECTION_ZONE_LIFECYCLE",
@@ -547,21 +555,22 @@
       "claim_id": "BODY_COLLECTION_CROSS_TF_SHOWN_ALIGNMENT",
       "canonical_statement": "In the repeatedly reviewed EP.5 fallback topology where the parent/reference timeframe supplies ซอก + ไส้, two forecast/reference levels already exist before the missing คู่ is found on the next lower timeframe. The instructor describes the lower-TF คู่ as ตรงกัน, and synchronized visuals show it aligning/co-locating with an existing parent reference; no third forecast line is introduced. Thus the lower-TF component can complete/validate the required structural set at an existing reference rather than necessarily creating a new forecast price. This claim is limited to the shown topology.",
       "status": "ACTIVE_SOURCE_VISUAL_REPEATED_SHOWN_FORM",
-      "engine_permission": "RESEARCH_SHOWN_FORM_ONLY_AFTER_EXPLICIT_FEED_NORMALIZATION",
+      "engine_permission": "RESEARCH_SHOWN_FORM_WITH_LITERAL_COMPONENT_GRID_NORMALIZATION_ONLY",
       "source_refs": [
         "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
         "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
-        "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md"
+        "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
+        "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
-        "EXACT_BROKER_TICK_EQUALITY_OPEN",
         "OTHER_COMPONENT_PERMUTATIONS_NOT_ESTABLISHED_FOR_BODY_COLLECTION_MERGE",
         "PARTIAL_LOWER_TF_SR_COMPONENTS_EXIST_BUT_ARE_NOT_AUTOMATIC_MERGE_INPUTS",
         "MULTIPLE_LOWER_TF_COMPLETION_PRIORITY_OPEN",
         "REFERENCE_1_2_ORDERING_NOT_UNIVERSAL",
-        "DO_NOT_FIT_ALIGNMENT_TOLERANCE_FROM_OUTCOMES"
+        "DO_NOT_FIT_ALIGNMENT_TOLERANCE_FROM_OUTCOMES",
+        "CROSS_TF_ALIGNMENT_STRUCTURAL_AREA_TOLERANCE_OPEN"
       ],
-      "provenance_note": "Primary Body Collection cross-TF evidence remains EP.5 ~1:02:17-1:02:53. EP.4/EP.6 later-reviewed S/R teaching confirms that incomplete component subsets may exist as weaker lower-TF S/R, but does not establish arbitrary Body Collection merging of those subsets."
+      "provenance_note": "Primary Body Collection cross-TF evidence remains EP.5 ~1:02:17-1:02:53. EP.4/EP.6 later-reviewed S/R teaching confirms that incomplete component subsets may exist as weaker lower-TF S/R, but does not establish arbitrary Body Collection merging of those subsets. Broker-grid normalization can represent literal component prices exactly, but the source's cross-TF word 'ตรงกัน' is not automatically reduced to a universal same-tick rule; the shown area/alignment geometry remains topology-specific."
     },
     {
       "claim_id": "SOK_WICK_PAIR_COMPONENT_COMPLETENESS_STRENGTH",
@@ -630,6 +639,29 @@
         "DO_NOT_SELECT_FILL_FROM_OUTCOMES"
       ],
       "provenance_note": "Targeted current-batch scan across 1E_PYPor1qQ, UV5NijhjfJ8, 16KoS7d-koI, oCcG3dUjrgw and vcdN51_OrPE. Concrete entry prices in worked/live examples remain contextual examples rather than universal execution equations."
+    },
+    {
+      "claim_id": "BROKER_PRICE_GRID_NORMALIZATION",
+      "canonical_statement": "For a verified runtime broker symbol, literal source relations such as 'same price' and literal chart-price contact may be normalized to the symbol's exact trade-tick grid without adding a positive fuzzy tolerance. For the captured Exness-MT5Trial6 XAUUSDm environment, digits=3, point=0.001, trade_tick_size=0.001 and chart mode=Bid. Literal equality is same integer broker tick; bar-resolution Bid-chart contact is normalized Low <= level <= High. Off-grid values fail closed rather than being silently rounded. This is an engineering normalization contract, not a new instructor trading rule and not a broker-fill model.",
+      "status": "ACTIVE_ENGINEERING_CONTRACT_BROKER_SPECIFIC_LITERAL_EQUALITY_CONTACT_CLOSED",
+      "engine_permission": "CANONICAL_RESEARCH_PRICE_GRID_FOR_VERIFIED_RUNTIME_METADATA_ONLY",
+      "source_refs": [
+        "docs/BROKER_METADATA_EXNESS_MT5TRIAL6_XAUUSDM_2026-09-02.md",
+        "docs/DATA_PIPELINE_VALIDATION_2026-09-02.md",
+        "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md",
+        "src/nexus_xau/data/price_grid.py",
+        "tests/test_price_grid.py"
+      ],
+      "risk_flags": [
+        "ENVIRONMENT_SPECIFIC_DO_NOT_GENERALIZE_XAUUSDM_METADATA",
+        "BID_BAR_CONTACT_IS_NOT_BID_ASK_ORDER_FILL",
+        "SAME_BAR_INTRABAR_ORDERING_UNKNOWN_WITHOUT_TICKS",
+        "GENERIC_ZONE_STRUCTURAL_TOLERANCE_STILL_OPEN",
+        "SYSTEM_POINT_IS_NOT_BROKER_POINT",
+        "RUNTIME_SYMBOL_METADATA_MUST_BE_REVERIFIED",
+        "DO_NOT_ADD_OUTCOME_FITTED_TOLERANCE"
+      ],
+      "provenance_note": "User-direct MT5 runtime metadata and specification screenshot establish the current XAUUSDm tick grid and Bid chart mode. The implementation maps only literal equality/contact to that verified grid; it deliberately excludes fuzzy zone geometry and execution assumptions."
     }
   ]
 }

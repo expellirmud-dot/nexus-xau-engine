@@ -383,3 +383,33 @@ No source-backed universal rule was found equating actual broker fill with confi
 Decision: `SOURCE_SIGNAL_TIMING_CLOSED / EXACT_BROKER_FILL_SOURCE_INCOMPLETE_CURRENT_BATCH`.
 
 Replay must store `signal_known_at` separately from an explicitly labeled `execution_fill_model`. Next RQ-009 target is broker/feed normalization for already source-backed equality/contact semantics.
+
+## Latest broker/feed normalization checkpoint
+
+Ref: `docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md`
+
+User-direct MT5 runtime evidence for the current research environment establishes:
+
+```text
+server = Exness-MT5Trial6
+symbol = XAUUSDm
+digits = 3
+trade_tick_size = 0.001
+chart_mode = Bid
+```
+
+Engineering boundary:
+
+```text
+literal_same_price(a, b) := same normalized broker tick
+literal_bid_bar_contact(level) := normalized Low <= level <= normalized High
+positive fuzzy tolerance := NOT added
+```
+
+This closes mechanical normalization for literal `same price` and literal chart contact only. It does not turn structural wording such as `ชิดกรอบ`, cross-TF `ตรงกัน`, or same support/resistance zone into same-tick rules, and it does not model Bid/Ask order fill or same-bar event ordering.
+
+Implementation: `src/nexus_xau/data/price_grid.py` with `tests/test_price_grid.py`.
+
+Decision: `BROKER_TICK_NORMALIZATION_CLOSED_FOR_LITERAL_EQUALITY_CONTACT / ZONE_TOLERANCE_AND_EXECUTION_OPEN`.
+
+Next decision-critical target: deterministic Sideway/structural-zone geometry from source evidence.

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T04:46:08+07:00",
+  "updated_at": "2026-09-09T04:55:03+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
@@ -8,8 +8,8 @@
     "id": "RQ-009",
     "title": "Source Gap Closure from Current Five-Video Batch",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-    "status": "ACTIVE_EXECUTION_FILL_SOURCE_INCOMPLETE_BROKER_NORMALIZATION_NEXT",
-    "latest_checkpoint": "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md"
+    "status": "ACTIVE_BROKER_NORMALIZATION_CLOSED_SIDEWAY_GEOMETRY_NEXT",
+    "latest_checkpoint": "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md"
   },
   "priority_order": [
     "RQ-009"
@@ -158,7 +158,7 @@
       "id": "RQ-009",
       "title": "Source Gap Closure from Current Five-Video Batch",
       "type": "RESEARCH",
-      "status": "ACTIVE_EXECUTION_FILL_SOURCE_INCOMPLETE_BROKER_NORMALIZATION_NEXT",
+      "status": "ACTIVE_BROKER_NORMALIZATION_CLOSED_SIDEWAY_GEOMETRY_NEXT",
       "why_now": "Direct review of the current five local instructor sources revealed material evidence that narrows blockers left by RQ-002/RQ-007, especially two explicit SIG entry modes and touch-based point-check destruction.",
       "depends_on": [],
       "blocks": [
@@ -168,8 +168,8 @@
       ],
       "preferred_method": "Transcript/timestamp map -> synchronized visual window -> original audio only if material ASR ambiguity remains -> explicit source closure/UNKNOWN -> targeted computation only for residual source-compatible representations.",
       "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-      "checkpoint_ref": "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md",
-      "current_summary": "Family-specific entry signal/knowledge timing is now source-backed, but exact universal broker fill and structural tick tolerance are source-incomplete in the current batch. Mode1 is intrabar, Mode2 uses the following candle after confirmed point-check, M5 Entry2 waits for closed confirmation, and EP5 Body Collection requires lower-TF confirmation. Next target is broker/feed normalization for equality/contact semantics.",
+      "checkpoint_ref": "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md",
+      "current_summary": "Broker-specific literal price normalization is closed for verified XAUUSDm metadata: same-price is same tick and Bid-bar literal contact is normalized High-Low inclusion with no positive fuzzy tolerance. This does not solve generic zone/cross-TF structural tolerance or actual broker fill. Next target is Sideway/structural-zone deterministic geometry.",
       "secondary_refs": [
         "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
         "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
@@ -187,7 +187,8 @@
         "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
         "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md",
-        "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md"
+        "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md",
+        "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md"
       ]
     }
   ],
