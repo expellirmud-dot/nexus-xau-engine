@@ -1,17 +1,16 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-08T23:47:00+07:00",
+  "updated_at": "2026-09-08T23:55:00+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
   "active": {
-    "id": "RQ-007",
-    "title": "Entry, SL, and invalidation geometry",
-    "worksheet": "research_queue/active/RQ-007_ENTRY_SL_INVALIDATION.md",
-    "status": "ACTIVE"
+    "id": "RQ-008",
+    "title": "Full-system replay and out-of-sample Win/Loss proof",
+    "worksheet": "research_queue/active/RQ-008_FULL_SYSTEM_PROOF.md",
+    "status": "ACTIVE_READINESS_DECISION"
   },
   "priority_order": [
-    "RQ-007",
     "RQ-008"
   ],
   "items": [
@@ -118,7 +117,7 @@
       "id": "RQ-007",
       "title": "Entry, SL, and invalidation geometry",
       "type": "RESEARCH",
-      "status": "ACTIVE",
+      "status": "CLOSED_SOURCE_BACKED_ENTRY_FAMILIES_SL_GEOMETRY_INCOMPLETE",
       "why_now": "Entry/SL proof should be downstream of setup, state, and location semantics. Current evidence includes example-specific relations but not a complete universal execution rule.",
       "depends_on": [
         "RQ-001",
@@ -131,13 +130,15 @@
         "full trade definition",
         "system Win/Loss proof"
       ],
-      "worksheet": "research_queue/active/RQ-007_ENTRY_SL_INVALIDATION.md"
+      "worksheet": "research_queue/closed/RQ-007_ENTRY_SL_INVALIDATION.md",
+      "closure_ref": "docs/RQ007_ENTRY_SL_INVALIDATION_SOURCE_CLOSURE_2026-09-08.md",
+      "closure_summary": "SIG_ENTRY and FRAME_BRAKE_ENTRY are source-backed distinct families, but universal SL and several exact entry/invalidation geometries remain incomplete; full-system trade outcomes are not yet source-faithfully measurable."
     },
     {
       "id": "RQ-008",
       "title": "Full-system replay and out-of-sample Win/Loss proof",
       "type": "RESEARCH",
-      "status": "QUEUED_LAST",
+      "status": "ACTIVE_READINESS_DECISION",
       "why_now": "This is the final validation layer and must not begin while upstream rules are still being represented by unresolved proxies.",
       "depends_on": [
         "RQ-001",
@@ -148,7 +149,7 @@
         "RQ-007"
       ],
       "blocks": [],
-      "worksheet": "research_queue/queued/RQ-008_FULL_SYSTEM_PROOF.md"
+      "worksheet": "research_queue/active/RQ-008_FULL_SYSTEM_PROOF.md"
     }
   ],
   "conditional_infrastructure": [

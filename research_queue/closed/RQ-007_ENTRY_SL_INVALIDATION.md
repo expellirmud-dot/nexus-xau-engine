@@ -1,6 +1,6 @@
 # RQ-007 — Entry, SL, and invalidation geometry
 
-Status: ACTIVE
+Status: CLOSED / SOURCE_BACKED_ENTRY_FAMILIES_SL_GEOMETRY_INCOMPLETE
 
 ## Why this matters
 
@@ -21,3 +21,7 @@ Entry, SL, and invalidation are measurable enough to define a complete trade out
 ## Current first action
 
 Consolidate entry and invalidation evidence by setup family. Do not collapse `FRAME_BRAKE_ENTRY` and `SIG_ENTRY`, and do not universalize example-specific 50/100/150/200/300-point SL values. Determine whether any complete source-backed trade definition is ready for outcome proof.
+
+## Closure — 2026-09-08
+
+See `docs/RQ007_ENTRY_SL_INVALIDATION_SOURCE_CLOSURE_2026-09-08.md`. Entry families are source-backed, but universal/setup-complete SL and several exact invalidation geometries are unresolved; full-system Win/Loss is not yet source-faithfully measurable.
