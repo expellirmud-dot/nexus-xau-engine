@@ -134,3 +134,11 @@ Priority:
 1. visually inspect the five EP.5 windows above when the actual EP.5 video becomes locally available;
 2. until then, continue extracting any remaining source-visible location / Sideway semantics from the current five local videos;
 3. do not fit the missing zone geometry from Win/Loss outcomes.
+
+## Follow-up — visual source recovered without local MP4
+
+The local five-video batch still does not contain an EP.5 MP4, so the original filesystem statement remains true. However, the original YouTube video is now playable through the separate headed Chrome CDP research profile and has been visually reviewed at the priority windows.
+
+See: `docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md`
+
+This closes the shown `ซอก/คู่` component geometry and one worked forecast-zone assembly at source+visual level while leaving universal candidate selection/assembly open.

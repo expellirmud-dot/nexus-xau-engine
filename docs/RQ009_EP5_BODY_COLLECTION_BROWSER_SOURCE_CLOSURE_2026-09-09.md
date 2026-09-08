@@ -261,3 +261,13 @@ FINAL DETERMINISTIC EXECUTION PRICE: still open
 ```
 
 Do not run/report a canonical Win/Loss result until the remaining visual geometry and execution predicate are frozen without outcome fitting.
+
+## Follow-up visual availability update — same date
+
+The headless-player limitation documented above remains historically accurate for this checkpoint, but it is no longer the current project blocker.
+
+A later RQ-009 checkpoint validated a separate **headed** NEXUS Chrome CDP path on port `9223`, successfully played the original EP.5 YouTube video, sought to source timestamps, and captured the rendered `<video>` element for source visual review.
+
+Current visual closure: `docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md`
+
+Do not delete or rewrite the earlier headless failure; it is retained as tooling chronology.

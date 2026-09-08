@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-09T01:10:24+07:00",
+  "updated_at": "2026-09-09T01:22:42+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "RQ009_M5_RETEST_SIGNAL_AND_PAT50_DIAGNOSTIC",
+  "completed_checkpoint": "RQ009_EP5_BODY_COLLECTION_VISUAL_COMPONENT_GEOMETRY",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -26,12 +26,11 @@
       "docs/CURRENT_RESEARCH_STATE.json",
       "research_queue/QUEUE.json",
       "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
+      "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
       "docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md",
       "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md",
       "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
       "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
-      "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
-      "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
       "latest new source evidence if any"
     ]
   },
@@ -99,9 +98,10 @@
   },
   "next_steps": [
     "Continue the single RQ-009 worksheet source-first; do not split into extra RQ IDs unless a genuinely independent blocker appears.",
-    "Do not recompute PAT >50% denominator from outcomes: the measured teaching schematic is non-discriminating between body-midpoint and full-range-midpoint, so denominator remains unresolved.",
-    "Use the newly source+visual-closed Entry #2 event topology for feature/event detection; keep exact broker fill price and point tolerance as explicit research execution conventions, not instructor rules.",
-    "Highest-value remaining visual blocker is exact Body Collection ซอก/คู่/zone OHLC geometry from a playable EP.5 visual source; continue Sideway/cross-frame routing and protected-body PAT geometry from current playable local videos in parallel.",
+    "Use the newly source+visual-closed shown forms of ซอก and คู่ only as research candidate detectors with explicit feed-equality normalization and manual source validation; do not outcome-fit a tolerance.",
+    "Highest-value remaining Body Collection blocker is universal candidate selection/zone assembly when several historical ซอก/ไส้/คู่ clusters coexist; the single worked PA Sell assembly must not be universalized.",
+    "PAT >50% denominator/arithmetic remains unresolved; do not choose body vs full-range from prior backtest performance.",
+    "Continue Sideway/cross-frame priority closure and retain exact broker fill price as an explicit execution convention until source evidence closes it.",
     "Do not run/report canonical full-system Win/Loss until deterministic source geometry/execution conventions are frozen and a genuinely pristine holdout exists."
   ],
   "blocked_from_claiming": [
@@ -184,9 +184,10 @@
     "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
     "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
     "docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md",
-    "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md"
+    "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md",
+    "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md"
   ],
-  "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> active RQ-009 worksheet -> canonical claim register -> latest RQ009 M5 retest closure + PAT50 diagnostic -> EP5 browser-source closure -> prior SIG-entry/Sideway audits. Continue source-first; never let outcome performance select unresolved denominator, fill, tolerance or geometry.",
+  "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> active RQ-009 worksheet -> canonical claim register -> latest EP5 visual-geometry closure -> M5 retest closure + PAT50 diagnostic. Continue source-first; never let outcome performance select unresolved denominator, equality tolerance, candidate priority, fill, or universal zone assembly.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -533,7 +534,11 @@
       "purpose": "Preferred AI browser CLI for YouTube/web transcript, metadata, timestamps and rendered-page interaction.",
       "validated_cdp_port": 9222,
       "validated_nexus_profile": "D:\\tools\\nexus-agent-chrome-profile",
-      "visual_guard": "EP.5 headless YouTube player playback failed; use local MP4/video evidence tool for chart visuals when available."
+      "visual_guard": "Headless EP.5 player previously failed, but a separate headed Chrome CDP path on port 9223 is now validated for original YouTube visual evidence. Keep headless failure as historical tooling evidence; prefer headed CDP for web-video visuals and local MP4 extractor when a local source exists.",
+      "validated_headed_cdp_port": 9223,
+      "validated_headed_nexus_profile": "D:\\tools\\nexus-agent-chrome-profile-headed",
+      "headed_ep5_playback_status": "VALIDATED_READY4_NO_PLAYBACK_ERROR",
+      "headed_visual_capture": "agent-browser screenshot video <path> after timestamp seek"
     }
   },
   "research_method_priority": {
@@ -705,9 +710,9 @@
     "guard": "Do not run/report a canonical full-system Win/Loss result by filling unresolved fields with analyst-selected thresholds or by relabeling component research statistics."
   },
   "rq009_source_gap_closure": {
-    "status": "ACTIVE_SOURCE_REVIEW_M5_ENTRY2_SIGNAL_CLOSED_PAT_DENOMINATOR_STILL_OPEN",
+    "status": "ACTIVE_EP5_COMPONENT_GEOMETRY_SOURCE_VISUAL_CLOSED_UNIVERSAL_ASSEMBLY_PAT_DENOMINATOR_OPEN",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-    "checkpoint_ref": "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
+    "checkpoint_ref": "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
     "source_batch": [
       "vcdN51_OrPE",
       "1E_PYPor1qQ",
@@ -730,17 +735,23 @@
       "Normal Body Collection is not the Sideway entry method.",
       "EP.4/EP.6 + synchronized visuals close the preferred Entry #2 topology: Point1 brake/SL structural reference -> move away -> opposing-structure test -> return/retest Point2 -> closed-candle PA/standing confirmation -> signal-ready.",
       "Source explicitly requires the retest confirmation candle to finish before acting, regardless of timeframe.",
-      "PAT teaching schematic pixel measurement confirms >50% body reclaim in the example but also appears to pass full-range midpoint, so the image cannot resolve the denominator."
+      "PAT teaching schematic pixel measurement confirms >50% body reclaim in the example but also appears to pass full-range midpoint, so the image cannot resolve the denominator.",
+      "Original EP.5 YouTube video is now visually reviewable through a separate headed Chrome CDP path; the prior headless visual blocker is no longer current.",
+      "Shown ซอก form is source+visual closed as a same-color close/open body junction after feed normalization.",
+      "Shown คู่ forms are source+visual closed as opposite-color reversal pairs sharing the close/open equilibrium level at support/resistance; body heights need not match.",
+      "Worked PA Sell Body Collection example visually places คู่ and ซอก on the upper ~3563.59 reference and a wick-derived second reference around ~3560.31, yielding the demonstrated forecast interval; this is example geometry, not a universal assembly law.",
+      "EP.5 lower-TF visual strengthens Zone + PA confirmation: failure to make a higher high plus PA Sell/engulfing structure precedes continuation in the shown M5 example; exact broker fill remains open."
     ],
     "still_open": [
       "Exact PAT2/PAT3 >50% denominator/arithmetic and feed-equality convention.",
-      "Exact OHLC geometry for EP.5 ซอก and คู่ plus exact Body Collection zone upper/lower boundaries.",
-      "Exact broker fill price and structural point tolerance after the source-backed Entry #2 closed-candle signal event.",
+      "Universal Body Collection candidate selection and zone assembly when multiple historical ซอก/ไส้/คู่ clusters exist; do not universalize the single worked PA Sell example.",
+      "Wick-selection and BUY/SELL mirror completeness across all Body Collection variants.",
+      "Exact broker fill price and structural point tolerance after a source-backed confirmation event.",
       "Exact quantitative force/weakening/rejection thresholds and whether 4-10 candles is ever a hard universal gate.",
       "Universal routing between Sideway source methods and exact frame-complete/false-break detector.",
       "Cross-timeframe/source-frame priority where multiple location/Sideway/Body Collection structures coexist."
     ],
-    "proof_readiness": "ENTRY2_SIGNAL_EVENT_SOURCE_VISUAL_CLOSED_EXACT_FILL_AND_OTHER_GEOMETRY_OPEN",
+    "proof_readiness": "BODY_COLLECTION_SHOWN_COMPONENT_GEOMETRY_CLOSED_UNIVERSAL_ASSEMBLY_AND_EXACT_FILL_OPEN",
     "body_collection_audit_ref": "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
     "sideway_audit_ref": "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
     "external_source_target": {
@@ -757,7 +768,9 @@
       ],
       "browser_transcript_status": "REVIEWED_DIRECTLY_FROM_ORIGINAL_YOUTUBE_SHOW_TRANSCRIPT",
       "browser_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
-      "visual_status": "LOCAL_MP4_MISSING_AND_HEADLESS_BROWSER_PLAYER_NOT_RELIABLE"
+      "visual_status": "ORIGINAL_YOUTUBE_PLAYABLE_AND_CAPTURED_VIA_HEADED_CDP_9223",
+      "headed_cdp_profile": "D:\\tools\\nexus-agent-chrome-profile-headed",
+      "visual_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md"
     },
     "ep5_browser_source_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
     "browser_evidence": {
@@ -765,9 +778,11 @@
       "source": "Original YouTube EP.5 rendered Show transcript",
       "transcript_status": "CAPTURED_UTF8_WITH_TIMESTAMPS_ASR_RISK",
       "local_evidence": "youtube/_evidence/oCcG3dUjrgw/agent-browser/ep5_rendered_transcript_utf8.txt",
-      "visual_status": "HEADLESS_PLAYER_PLAYBACK_FAILED_NOT_VISUAL_EVIDENCE"
+      "visual_status": "HEADED_ORIGINAL_YOUTUBE_VIDEO_CAPTURE_VALIDATED",
+      "visual_local_evidence": "youtube/_evidence/oCcG3dUjrgw/visual_ep5/"
     },
     "m5_retest_entry_closure_ref": "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md",
-    "pat50_visual_diagnostic_ref": "docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md"
+    "pat50_visual_diagnostic_ref": "docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md",
+    "ep5_visual_geometry_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md"
   }
 }

@@ -121,3 +121,28 @@ PAT50 diagnostic:
 - the measured PAT2 schematic reclaims ~69% of the prior body;
 - however it also appears to pass the prior full-range midpoint, so this image cannot distinguish the canonical denominator;
 - denominator remains `UNRESOLVED`, and must not be selected from backtest outcomes.
+
+## Latest EP.5 headed-browser visual geometry checkpoint
+
+Ref: `docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md`
+
+The original EP.5 YouTube player is now visually available through a separate headed NEXUS Chrome CDP session (`9223`). This supersedes only the old **current visual availability** blocker; the earlier headless-player failure remains preserved as historical tooling evidence.
+
+New source+visual closure:
+
+- shown `ซอก`: same-color adjacent candle body junction; normalized prior close / next open share the reference price;
+- shown `คู่`: opposite-color reversal pair at support/resistance; normalized prior close / next open share the equilibrium/reversal price; body heights do not have to match in the whiteboard forms;
+- worked PA Sell example: `คู่` and `ซอก` are both annotated on the upper forecast reference (~3563.59), with a distinct wick/reference participating in the lower forecast level (~3560.31); the interval between the two is the demonstrated forecast area;
+- lower-TF M5 visual strengthens `Zone + PA` confirmation and shows failure to make a higher high plus PA Sell/engulfing structure before continuation.
+
+Still open and deliberately not inferred from the worked example:
+
+- universal candidate selection when several historical `ซอก/ไส้/คู่` clusters exist;
+- universal zone assembly / whether `คู่+ซอก` must always coincide;
+- wick choice across all BUY/SELL variants;
+- broker-feed equality tolerance;
+- exact broker fill price;
+- PAT >50% denominator/arithmetic;
+- Sideway/cross-frame priority.
+
+Therefore RQ-009 remains ACTIVE. Do not run a canonical Win/Loss proof yet.

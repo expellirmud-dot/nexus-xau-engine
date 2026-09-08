@@ -118,6 +118,22 @@ Important limitation discovered on EP.5 (`oCcG3dUjrgw`): the headless YouTube pa
 - use local MP4 + `nexus-video-evidence` for chart visual evidence when available;
 - do not treat a failed/headless player screenshot as source visual proof.
 
+Follow-up validated visual path for the same source:
+
+- Chrome headed research profile: `D:\tools\nexus-agent-chrome-profile-headed`
+- remote debugging: `9223`
+- validated session: `nexus-youtube-headed`
+- EP.5 original YouTube `<video>`: `readyState=4`, no playback error
+- visual capture pattern: timestamp seek with `eval` -> `screenshot video <path>`
+
+Current preferred split:
+
+- `agent-browser` headless/CDP: transcript, metadata, DOM;
+- `agent-browser` + separate headed CDP Chrome: original web-video visual evidence when playback works;
+- local MP4 + `nexus-video-evidence`: preferred reproducible visual source when a lawful local file is already available.
+
+Do not erase the headless failure from history; headless and headed playback are distinct validated behaviors.
+
 Local helper/fallback experiments live under:
 
 `D:\tools\nexus-browser-evidence`

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T01:10:24+07:00",
+  "updated_at": "2026-09-09T01:22:42+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -138,12 +138,13 @@
     },
     {
       "claim_id": "M5_BRAKE",
-      "canonical_statement": "M5/M1 brake is a zone-first stopping/reversal process with force weakening, rejection, color shift and retest/confirmation; it is not equivalent to generic breakout. The preferred Entry #2 branch is source+visual supported as Point #1 brake/structural extreme -> move away -> opposing-structure test -> return/retest at the switched level -> closed-candle PA/standing/structure confirmation -> Entry #2 signal-ready. Exact broker fill price and numeric point tolerance remain unresolved.",
+      "canonical_statement": "M5/M1 brake is a zone-first stopping/reversal process with force weakening, rejection, color shift and retest/confirmation; it is not equivalent to generic breakout. EP.5 visual evidence further shows a lower-timeframe sell example inside the projected zone with failure to make a higher high, PA Sell/engulfing confirmation, then continuation; M1 may be used earlier while M5 is presented as the more conservative confirmation path. Exact quantitative thresholds and broker fill price remain unresolved.",
       "status": "ACTIVE_SOURCE_VISUAL_STATE_MACHINE_ENTRY2_SIGNAL_PARTIAL_EXECUTION",
       "engine_permission": "FEATURE_STATE_RESEARCH",
       "source_refs": [
         "docs/M5_BRAKE_TRANSCRIPT_FORENSICS_2026-09-01.md",
-        "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md"
+        "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md",
+        "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md"
       ],
       "risk_flags": [
         "QUALITATIVE_FORCE_THRESHOLDS_UNRESOLVED",
@@ -269,7 +270,7 @@
     },
     {
       "claim_id": "SYSTEM_WIN_RATE",
-      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 closes Body Collection state/routing semantics and now also closes the preferred M5/M1 Entry #2 retest signal topology and closed-candle knowledge time. Remaining blockers include exact Body Collection visual OHLC zone boundaries, PAT >50% denominator arithmetic, exact brake fill/tolerance conventions, Sideway/cross-frame routing, and a pristine final holdout.",
+      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 now closes the source-level Body Collection routing architecture and visually closes the shown ซอก/คู่ component forms plus one worked two-reference zone assembly. However universal Body Collection candidate selection/assembly, exact lower-TF executable fill, PAT denominator/arithmetic, Sideway/cross-frame routing, and a pristine final holdout remain unresolved.",
       "status": "ACTIVE_BLOCKER_NOT_TESTABLE_WITH_CURRENT_EVIDENCE",
       "engine_permission": "DO_NOT_CLAIM",
       "source_refs": [
@@ -282,17 +283,19 @@
         "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
         "docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md",
-        "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md"
+        "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md",
+        "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md"
       ],
       "risk_flags": [
-        "EXACT_BODY_COLLECTION_VISUAL_ZONE_OHLC_STILL_OPEN",
-        "PAT_50_PERCENT_DENOMINATOR_ARITHMETIC_OPEN",
-        "LOWER_TF_EXACT_FILL_PRICE_AND_TOLERANCE_OPEN",
+        "UNIVERSAL_BODY_COLLECTION_CANDIDATE_SELECTION_OPEN",
+        "UNIVERSAL_BODY_COLLECTION_ZONE_ASSEMBLY_OPEN",
+        "LOWER_TF_EXACT_EXECUTION_PRICE_OPEN",
+        "PAT_DENOMINATOR_ARITHMETIC_OPEN",
         "SIDEWAY_METHOD_ROUTING_PARTIAL",
         "CROSS_FRAME_PRIORITY_PARTIAL",
         "FINAL_PRISTINE_HOLDOUT_REQUIRED"
       ],
-      "provenance_note": "RQ-009 source-first work now closes Body Collection semantics and Entry #2 retest signal timing/topology without outcome fitting. PAT denominator remains explicitly unresolved because the measured source schematic is non-discriminating. Final P&L remains blocked by exact geometry/execution conventions and holdout requirements."
+      "provenance_note": "RQ-009 headed original-video review removes the prior EP.5 visual-source blocker for shown component geometry. This does not create a universal automatic zone detector or a complete trade tuple, so RQ-008 readiness stop remains in force."
     },
     {
       "claim_id": "YOUTUBE_ASR_THAI_SPOKEN_TIME_NORMALIZATION",
@@ -391,21 +394,24 @@
     },
     {
       "claim_id": "BODY_COLLECTION_ZONE_ROUTING",
-      "canonical_statement": "EP.5 teaches Body Collection as a forecast-zone method built from ซอก + ไส้ + คู่, not as one exact entry price. Use same-timeframe structure first; if unavailable, fall back one timeframe (e.g. H4->H1 and, when still incomplete, H1->M30). The current lesson uses two projected zones. Zone arrival alone is insufficient: lower-timeframe PA aligned with the H4 thesis and brake/confirmation context are required before entry consideration; no PA means no entry even inside the zone. Normal Body Collection is distinct from Sideway entry handling.",
-      "status": "ACTIVE_SOURCE_BACKED_STATE_MACHINE_VISUAL_GEOMETRY_PARTIAL",
-      "engine_permission": "CANONICAL_STATE_ROUTING_RESEARCH_ONLY_UNTIL_ZONE_GEOMETRY_FROZEN",
+      "canonical_statement": "EP.5 teaches Body Collection as a forecast-zone method built from ซอก + ไส้ + คู่, not as one exact entry price. Headed source-video review now visually closes the shown ซอก form as a same-color close/open body junction and the shown คู่ forms as opposite-color reversal pairs sharing a close/open equilibrium level at support/resistance. In the worked PA Sell example, คู่ and ซอก share the upper forecast reference (~3563.59) while a wick-derived second reference participates in the lower forecast level (~3560.31), forming the demonstrated interval. This closes the shown component geometry and one worked zone assembly, but does not prove that every valid zone must assemble identically or solve candidate priority when multiple historical clusters exist. Use same-timeframe structure first; if unavailable, fall back one timeframe (H4->H1 and, when still incomplete, H1->M30). Zone arrival alone is insufficient: lower-timeframe PA aligned with the H4 thesis and brake/confirmation context are required before entry consideration; no PA means no entry even inside the zone. Normal Body Collection is distinct from Sideway entry handling.",
+      "status": "ACTIVE_SOURCE_VISUAL_COMPONENT_GEOMETRY_PARTIAL_UNIVERSAL_ASSEMBLY_OPEN",
+      "engine_permission": "RESEARCH_CANDIDATE_DETECTORS_FOR_SHOWN_FORMS_WITH_MANUAL_VALIDATION",
       "source_refs": [
         "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md",
-        "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md"
+        "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
+        "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md"
       ],
       "risk_flags": [
-        "EXACT_SOK_PAIR_OHLC_PREDICATES_UNRESOLVED",
-        "EXACT_ZONE_BOUNDARIES_REQUIRE_VISUAL_CROSSCHECK",
-        "LOWER_TF_BRAKE_EXECUTION_PRICE_UNRESOLVED",
+        "BROKER_FEED_EQUALITY_NORMALIZATION_REQUIRED",
+        "UNIVERSAL_ZONE_ASSEMBLY_NOT_PROVEN",
+        "MULTIPLE_CANDIDATE_PRIORITY_UNRESOLVED",
+        "WICK_SELECTION_ACROSS_VARIANTS_UNRESOLVED",
+        "LOWER_TF_EXACT_FILL_PRICE_UNRESOLVED",
         "EP5_NUMERIC_RANGES_CONTEXTUAL_UNTIL_CROSS_LESSON_VALIDATED",
         "YOUTUBE_ASR_RISK"
       ],
-      "provenance_note": "Direct original YouTube EP.5 Show-transcript review via agent-browser at 20:33-32:40, 40:42-44:19, 46:40-51:27, 56:35-59:43 and 1:19:13-1:20:01. Browser transcript is source-attributable with ASR risk. Headless playback failed, so drawn OHLC boundaries are not promoted from transcript alone."
+      "provenance_note": "Direct YouTube Show-transcript evidence plus original-video visual review through a separate headed Chrome CDP session. Visual frames at ~23:49, 28:03-29:44, 49:48-50:24 and 56:51-58:47 materially close the shown component geometry without outcome fitting. Do not universalize the single worked zone assembly to every BUY/SELL candidate."
     },
     {
       "claim_id": "M5_BRAKE_ENTRY2_RETEST_SIGNAL",
@@ -425,6 +431,24 @@
         "DO_NOT_FIT_FILL_FROM_OUTCOME"
       ],
       "provenance_note": "Direct EP.4 teaching diagram visibly labels Point 2 as entry and Point 1 as SL; worked BUY visual labels Point 2 retest after move-away/return, while transcript explicitly requires completed-candle confirmation on every timeframe. SELL mirror is supported in transcript. Exact trade fill remains outside the literal source rule."
+    },
+    {
+      "claim_id": "BODY_COLLECTION_COMPONENT_GEOMETRY",
+      "canonical_statement": "For the EP.5 forms visually reviewed: ซอก is a same-color adjacent candle body junction whose normalized prior close and next open share the reference price; คู่ is an opposite-color reversal pair at support/resistance whose normalized prior close and next open share the equilibrium/reversal level. The worked PA Sell example places คู่ and ซอก on the same upper reference (~3563.59) and uses a distinct wick/reference for the second forecast level (~3560.31). Body heights of the paired candles need not be equal in the shown whiteboard forms.",
+      "status": "ACTIVE_SOURCE_VISUAL_SHOWN_FORMS",
+      "engine_permission": "RESEARCH_DETECTOR_FOR_SHOWN_FORMS_WITH_MANUAL_SOURCE_VALIDATION",
+      "source_refs": [
+        "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
+        "docs/RQ009_EP5_BODY_COLLECTION_BROWSER_SOURCE_CLOSURE_2026-09-09.md"
+      ],
+      "risk_flags": [
+        "BROKER_FEED_EQUALITY_NORMALIZATION_REQUIRED",
+        "UNIVERSAL_ORIENTATION_SET_NOT_PROVEN",
+        "UNIVERSAL_ZONE_ASSEMBLY_NOT_PROVEN",
+        "MULTIPLE_CANDIDATE_PRIORITY_UNRESOLVED",
+        "DO_NOT_FIT_TOLERANCE_FROM_OUTCOMES"
+      ],
+      "provenance_note": "Source wording is synchronized with original-video drawings captured from the YouTube <video> element in a headed CDP browser. This claim is intentionally limited to the forms actually shown."
     }
   ]
 }
