@@ -1,6 +1,6 @@
 # RQ-009 — Source Gap Closure from Current Five-Video Batch
 
-Status: ACTIVE — EP.5 component definitions reconciled from direct source; equality normalization and universal three-to-two assembly/execution geometry still open
+Status: ACTIVE — EP.5 two-reference method rationale source-backed; exact reference selection/equality/execution geometry still open
 
 ## Objective
 
@@ -217,6 +217,28 @@ A direct re-read of the dedicated EP.5 definition block (~20:33-36:32) materiall
 - source says whichever component prices are found are used as forecast points/references, while the current method still uses two forecast distances;
 - no generic merge/min/max/ranking rule is stated for a case where the three component prices remain distinct.
 
-Current guard: use source-defined shown forms only with explicit broker/feed equality normalization. Keep `UNRESOLVED_THREE_TO_TWO` for a three-distinct-price cluster and do not select equality tolerance or assembly from historical outcomes.
+Historical guard at this checkpoint: preserve component provenance and do not choose a merge from outcomes. **Later EP.5 source review reframes this blocker**: the source does not state a generic arithmetic `3 -> 2` transform. Current authority is the later `EXACT_TWO_REFERENCE_SELECTION` question below.
 
 The prior visual checkpoint remains in history; this source-definition checkpoint is the current authority where the two differ.
+
+## Latest EP.5 two-reference method rationale / question reframing
+
+Ref: `docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md`
+
+A full transcript keyword scan found a decision-critical block at ~46:40-48:04:
+
+- the instructor explicitly asks why the current method places only `2 ระยะ`;
+- the older alternative is described as a generic three-part `หัว-กลาง-ท้าย` placement;
+- the current Body Collection alternative uses historical `ซอก/ไส้/คู่` structure as reference authority rather than arbitrary spatial partition;
+- the stated practical contrast concerns SL/uncertainty, not a mathematical formula that merges three component prices into two.
+
+Research correction:
+
+```text
+OLD ANALYST QUESTION: universal 3 component prices -> 2 reference reduction?
+CURRENT SOURCE-FAITHFUL QUESTION: how are the 2 forecast references selected/assembled from source-valid historical ซอก/ไส้/คู่ structure?
+```
+
+Do not assume `min/max`, averaging, nearest/farthest, newest/oldest, or any generic 3->2 merge. If an unseen candidate cannot be resolved by a source-backed shown topology, mark `UNRESOLVED_REFERENCE_SELECTION`.
+
+A fresh headed-browser capture attempt for the ~46:48 diagram returned upstream `502`, so this checkpoint makes no new visual claim from that window. Add the diagram later if browser access recovers; the semantic closure comes from the original rendered YouTube transcript.
