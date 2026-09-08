@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T05:08:00+07:00",
+  "updated_at": "2026-09-09T05:12:19+07:00",
   "purpose": "Durable source-review memory. Records which source windows/topics have already been screened or reviewed, what they established, what remains unresolved, and when a review may be reopened. This ledger prevents future agents from restarting source research from zero.",
   "rules": {
     "closed_windows_are_not_researched_from_zero_without_reopen_trigger": true,
@@ -741,6 +741,37 @@
         "NEW_BODY_COLLECTION_PRIMARY_SOURCE",
         "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION",
         "NEW_VISUAL_FAMILY_RESOLVES_MULTI_CANDIDATE_CASE",
+        "SOURCE_OR_TIMESTAMP_MAPPING_ERROR"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "RQ009_CROSS_FRAME_SETUP_PRIORITY_CURRENT_BATCH",
+      "source_id": "ESHDuiVPJow+vcdN51_OrPE+UV5NijhjfJ8+16KoS7d-koI+1E_PYPor1qQ",
+      "source_title": "EP.2 Trend/Frame/SIG + system summary + EP.4/EP.6/PA context",
+      "topic": "Cross-frame and setup-family context hierarchy versus universal conflict resolution",
+      "window": "targeted transcript scan; key EP2 hierarchy windows ~00:04:20-00:15:24, 00:31:52-00:32:28, 01:34:21-01:34:45; system summary ~00:19:06+, 01:00:21-01:04:48, 01:29:23-01:30:13, 02:08:00+, 02:21:27-02:26:28",
+      "reviewed_modalities": [
+        "LOCAL_TRANSCRIPTS",
+        "PRIOR_SYNCHRONIZED_VISUAL_CONTEXT"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Source explicitly teaches Trend>Frame>SIG conceptual hierarchy and top-down HTF->LTF analysis. HTF context constrains LTF interpretation and frame context can supersede a damaged SIG interpretation, but HTF is not a universal veto: reviewed source allows H1/H4 SIG runs within Day Sideway. No exhaustive universal multi-TF/multi-entry-family conflict matrix is supplied.",
+      "residual_unknowns": [
+        "UNIVERSAL_MULTI_TF_CONFLICT_MATRIX_REQUIRES_NEW_SOURCE",
+        "UNIVERSAL_MULTI_ENTRY_FAMILY_WINNER_REQUIRES_NEW_SOURCE_OR_SCOPE_DECISION",
+        "FAMILY_SPECIFIC_STRUCTURAL_ZONE_GEOMETRY_REMAINS_SEPARATE"
+      ],
+      "claim_ids": [
+        "CROSS_FRAME_CONTEXT_HIERARCHY"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_CROSS_FRAME_SETUP_PRIORITY_SOURCE_BOUNDARY_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "NEW_PRIMARY_CONFLICT_ROUTING_SOURCE",
+        "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION",
+        "NEW_ENTRY_FAMILY_WITH_EXPLICIT_PRIORITY",
         "SOURCE_OR_TIMESTAMP_MAPPING_ERROR"
       ],
       "last_reviewed_at": "2026-09-09"

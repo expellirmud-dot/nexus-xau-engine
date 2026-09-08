@@ -456,3 +456,25 @@ Safe engine behavior: enumerate all source-compatible candidates after the searc
 Decision: `SEARCH_HIERARCHY_CLOSED / UNIVERSAL_BODY_COLLECTION_WINNER_SOURCE_INCOMPLETE_CURRENT_BATCH`.
 
 Next target: cross-frame/setup-family priority.
+
+## Latest cross-frame / setup-family priority source-boundary checkpoint
+
+Ref: `docs/RQ009_CROSS_FRAME_SETUP_PRIORITY_SOURCE_BOUNDARY_2026-09-09.md`
+
+Current-batch source review closes a contextual hierarchy but not an exhaustive conflict matrix:
+
+```text
+Trend > Frame > SIG
+analyze HTF -> LTF
+HTF context constrains LTF interpretation
+Frame can replace a damaged-SIG interpretation where source-defined SIG validity fails
+HTF != universal veto of every LTF setup
+```
+
+The reviewed EP.2 source explicitly allows H1/H4 SIG runs while Day is Sideway, provided the larger context is considered. Therefore the engine must not implement a generic `higher timeframe always wins/cancels lower timeframe` rule.
+
+If multiple still-valid timeframe/setup families remain and no source-specific route resolves them, emit `MULTI_FAMILY_AMBIGUITY` rather than inventing a winner.
+
+Decision: `CONTEXT_HIERARCHY_SOURCE_BACKED / UNIVERSAL_CONFLICT_RESOLVER_SOURCE_INCOMPLETE_CURRENT_BATCH`.
+
+Next task is an RQ-009 evidence-boundary audit and minimal executable-scope decision, not another same-source rescan.

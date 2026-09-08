@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-09T05:08:00+07:00",
+  "updated_at": "2026-09-09T05:12:19+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "RQ009_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_EXHAUSTION",
+  "completed_checkpoint": "RQ009_CROSS_FRAME_SETUP_PRIORITY_SOURCE_BOUNDARY",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -29,6 +29,7 @@
       "docs/CURRENT_RESEARCH_STATE.json",
       "research_queue/QUEUE.json",
       "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
+      "docs/RQ009_CROSS_FRAME_SETUP_PRIORITY_SOURCE_BOUNDARY_2026-09-09.md",
       "docs/RQ009_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_EXHAUSTION_2026-09-09.md",
       "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md",
       "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md",
@@ -108,11 +109,11 @@
     "research_preflight": "PASS"
   },
   "next_steps": [
-    "Continue RQ-009 with cross-frame/setup-family priority: when several valid timeframe/setup families coexist, determine whether source defines authority/routing or whether multi-family ambiguity must remain explicit.",
-    "For Body Collection, preserve all source-valid candidates after source-backed search hierarchy; use AMBIGUOUS_MULTI_CANDIDATE / UNRESOLVED_REFERENCE_SELECTION rather than nearest/newest/freshest or performance-based winner selection.",
-    "Do not re-open Body Collection candidate-priority, Sideway exact exit geometry, exact broker fill, touched->used lifecycle, or PAT >50% denominator from the same reviewed evidence without a reopen trigger.",
-    "Keep broker tick normalization limited to literal equality/contact; do not use it to manufacture structural-zone tolerance.",
-    "Do not run/report canonical full-system Win/Loss until source geometry plus explicit execution/cost conventions are frozen and a pristine holdout exists."
+    "Perform an RQ-009 evidence-boundary audit: classify every remaining open item as (A) source-backed deterministic, (B) explicit ambiguity that the engine can preserve, (C) source-incomplete family geometry requiring new evidence, or (D) implementation convention requiring a frozen research specification.",
+    "Use that audit to define the smallest first executable system scope; exclude source-incomplete families rather than filling gaps with analyst rules.",
+    "For included families, freeze explicit execution/cost assumptions separately from instructor claims and reserve a genuinely untouched holdout only after the executable version is frozen.",
+    "Do not re-open candidate priority, cross-frame conflict matrix, Sideway exact geometry, exact broker fill, Body Collection lifecycle transition, or PAT denominator from the same reviewed evidence without a reopen trigger.",
+    "Do not run/report canonical full-system Win/Loss until the scoped executable version passes readiness and a pristine holdout exists."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -217,9 +218,10 @@
     "src/nexus_xau/data/price_grid.py",
     "tests/test_price_grid.py",
     "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md",
-    "docs/RQ009_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_EXHAUSTION_2026-09-09.md"
+    "docs/RQ009_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_EXHAUSTION_2026-09-09.md",
+    "docs/RQ009_CROSS_FRAME_SETUP_PRIORITY_SOURCE_BOUNDARY_2026-09-09.md"
   ],
-  "resume_instruction": "After zero-context preflight, resume RQ-009 from the Body Collection candidate-priority source-exhaustion checkpoint. Search hierarchy is closed; universal winner/reference resolver is current-batch source-incomplete and must remain explicit ambiguity. Next target is cross-frame/setup-family priority.",
+  "resume_instruction": "After zero-context preflight, resume RQ-009 from the cross-frame/setup-family priority boundary. Context hierarchy is source-backed; exhaustive conflict routing is current-batch source-incomplete. Next task is an evidence-boundary audit and minimal executable-scope decision, not another same-source rescan.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -742,9 +744,9 @@
     "guard": "Do not run/report a canonical full-system Win/Loss result by filling unresolved fields with analyst-selected thresholds or by relabeling component research statistics."
   },
   "rq009_source_gap_closure": {
-    "status": "ACTIVE_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_INCOMPLETE_CROSS_FRAME_PRIORITY_NEXT",
+    "status": "ACTIVE_CROSS_FRAME_HIERARCHY_CLOSED_EVIDENCE_BOUNDARY_AUDIT_NEXT",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-    "checkpoint_ref": "docs/RQ009_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_EXHAUSTION_2026-09-09.md",
+    "checkpoint_ref": "docs/RQ009_CROSS_FRAME_SETUP_PRIORITY_SOURCE_BOUNDARY_2026-09-09.md",
     "source_batch": [
       "vcdN51_OrPE",
       "1E_PYPor1qQ",
@@ -809,7 +811,8 @@
       "Current source batch closes family-specific signal knowledge timing but not one universal exact broker fill: SIG Mode1 is intrabar/forming-candle, Mode2 uses the following candle after point-check confirmation, M5 Entry2 becomes signal-ready only after closed confirmation, and EP5 lower-TF execution requires PA/brake confirmation. Exact fill price and universal structural tick tolerance remain source-incomplete/implementation-layer decisions.",
       "Broker-specific implementation normalization is now closed for literal equality/contact: on a verified runtime tick grid, same-price means same integer tick and Bid-bar contact means normalized Low<=level<=High, with no positive fuzzy tolerance. For captured Exness-MT5Trial6 XAUUSDm, trade_tick_size=0.001 and chart mode=Bid. This does not close structural zone tolerance or actual order fill.",
       "Sideway exit confirmation shell is source-backed: internal SIG is not exit; carrying SIG becomes identifiable only after actual frame escape; a shown higher-TF wick-only excursion with body not following and return inside is insufficient clean exit evidence; break->retest->role flip is source-backed. Exact universal frame-complete/false-break/breakout OHLC geometry remains source-incomplete in the current batch.",
-      "Body Collection search hierarchy is source-backed but universal winner ranking is not: current EP5/EP4/EP6 evidence does not define same-TF or lower-TF multi-candidate priority, and EP6 nearest-first remains scoped to S/R. Engine must preserve all valid candidates and mark AMBIGUOUS_MULTI_CANDIDATE / UNRESOLVED_REFERENCE_SELECTION when no shown-form resolver applies."
+      "Body Collection search hierarchy is source-backed but universal winner ranking is not: current EP5/EP4/EP6 evidence does not define same-TF or lower-TF multi-candidate priority, and EP6 nearest-first remains scoped to S/R. Engine must preserve all valid candidates and mark AMBIGUOUS_MULTI_CANDIDATE / UNRESOLVED_REFERENCE_SELECTION when no shown-form resolver applies.",
+      "Cross-frame context hierarchy is source-backed: Trend>Frame>SIG, analyze HTF->LTF, HTF context constrains LTF, and damaged SIG may route back to frame context. HTF is not a universal veto because reviewed source allows lower-TF SIG runs inside Day Sideway. Exhaustive multi-timeframe/multi-family conflict resolution remains source-incomplete; preserve MULTI_FAMILY_AMBIGUITY."
     ],
     "still_open": [
       "Exact PAT2/PAT3 >50% denominator/arithmetic remains source-unresolved; broker tick-grid normalization is available for literal price equality but does not choose the denominator or computed-midpoint convention.",
@@ -822,7 +825,7 @@
       "Sideway exit shell is source-backed, but exact autonomous frame bounds, frame-complete, false-break/breakout body-close geometry, retest tolerance and cross-TF priority are SOURCE_INCOMPLETE_IN_CURRENT_BATCH; new source/clarification is required for a deterministic universal predicate.",
       "Cross-timeframe/source-frame priority where multiple location/Sideway/Body Collection structures coexist."
     ],
-    "proof_readiness": "BODY_COLLECTION_SEARCH_HIERARCHY_CLOSED_MULTI_CANDIDATE_AMBIGUITY_EXPLICIT_CROSS_FRAME_PRIORITY_EXECUTION_MODEL_AND_HOLDOUT_OPEN",
+    "proof_readiness": "CONTEXT_HIERARCHY_AND_AMBIGUITY_MODEL_CLOSED_EVIDENCE_BOUNDARY_SCOPE_AUDIT_EXECUTION_MODEL_AND_HOLDOUT_OPEN",
     "body_collection_audit_ref": "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
     "sideway_audit_ref": "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
     "external_source_target": {
@@ -869,7 +872,8 @@
     "execution_fill_source_boundary_ref": "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md",
     "broker_feed_normalization_ref": "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md",
     "sideway_exit_false_break_source_boundary_ref": "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md",
-    "body_collection_candidate_priority_source_exhaustion_ref": "docs/RQ009_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_EXHAUSTION_2026-09-09.md"
+    "body_collection_candidate_priority_source_exhaustion_ref": "docs/RQ009_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_EXHAUSTION_2026-09-09.md",
+    "cross_frame_setup_priority_source_boundary_ref": "docs/RQ009_CROSS_FRAME_SETUP_PRIORITY_SOURCE_BOUNDARY_2026-09-09.md"
   },
   "agent_bootstrap": {
     "entrypoint": "AGENTS.md",
@@ -894,5 +898,5 @@
     "coverage_scope": "PARTIAL_SEED_RQ009_CURRENT_RESEARCH_WINDOWS",
     "coverage_backfill_guard": "Do not infer missing historical coverage metadata; backfill only from preserved evidence."
   },
-  "maintenance_checkpoint": "RQ009_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_EXHAUSTION_2026-09-09"
+  "maintenance_checkpoint": "RQ009_CROSS_FRAME_SETUP_PRIORITY_SOURCE_BOUNDARY_2026-09-09"
 }

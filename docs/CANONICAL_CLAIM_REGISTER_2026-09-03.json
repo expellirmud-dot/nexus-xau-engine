@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T05:08:00+07:00",
+  "updated_at": "2026-09-09T05:12:19+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -145,7 +145,8 @@
         "docs/M5_BRAKE_TRANSCRIPT_FORENSICS_2026-09-01.md",
         "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md",
         "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
-        "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md"
+        "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md",
+        "docs/RQ009_CROSS_FRAME_SETUP_PRIORITY_SOURCE_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
         "QUALITATIVE_FORCE_THRESHOLDS_UNRESOLVED",
@@ -153,7 +154,8 @@
         "STRUCTURAL_POINT_TOLERANCE_UNRESOLVED",
         "FOUR_TO_TEN_HARD_GATE_NOT_PROVEN_UNIVERSAL",
         "YOUTUBE_ASR_SOURCE_WORDING",
-        "EXACT_FILL_PRICE_SOURCE_INCOMPLETE_CURRENT_BATCH"
+        "EXACT_FILL_PRICE_SOURCE_INCOMPLETE_CURRENT_BATCH",
+        "CROSS_FRAME_CONTEXT_HIERARCHY_APPLIES_UNIVERSAL_CONFLICT_MATRIX_OPEN"
       ],
       "provenance_note": "RQ-009 adds synchronized EP.4 visuals at ~38:25, ~51:04 and ~1:29:45 plus EP.4/EP.6 transcript cross-check. Point2 entry / Point1 structural SL topology and closed-candle knowledge time are source-backed; execution fill convention remains an analyst/replay choice unless separately sourced."
     },
@@ -272,7 +274,7 @@
     },
     {
       "claim_id": "SYSTEM_WIN_RATE",
-      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 closes semantic Body Collection lifecycle while exact used-transition remains source-incomplete; closes family-specific signal timing while exact broker fill remains source-incomplete; closes literal broker-grid equality/contact for verified XAUUSDm; closes the Sideway exit-confirmation shell while exact autonomous frame geometry remains source-incomplete; and now closes Body Collection search hierarchy while explicitly preserving unresolved multi-candidate/reference-selection ambiguity. Cross-frame/setup-family priority, structural-zone geometry, PAT denominator/arithmetic, explicit execution/cost model freezing, production-feed equivalence, and a pristine holdout remain unresolved.",
+      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 now closes Body Collection semantic lifecycle, family-specific signal timing, broker-grid literal equality/contact, Sideway exit shell, Body Collection search hierarchy with explicit multi-candidate ambiguity, and the Trend>Frame>SIG/top-down cross-frame context hierarchy. Exact universal broker fill, PAT denominator/arithmetic, source-incomplete structural-zone/frame geometry, universal Body Collection winner/reference reduction, exhaustive multi-timeframe/multi-family conflict routing, explicit family execution/cost model freezing, production-feed equivalence, and a pristine holdout remain unresolved.",
       "status": "ACTIVE_BLOCKER_NOT_TESTABLE_WITH_CURRENT_EVIDENCE",
       "engine_permission": "DO_NOT_CLAIM",
       "source_refs": [
@@ -299,7 +301,8 @@
         "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md",
         "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md",
         "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md",
-        "docs/RQ009_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_EXHAUSTION_2026-09-09.md"
+        "docs/RQ009_BODY_COLLECTION_CANDIDATE_PRIORITY_SOURCE_EXHAUSTION_2026-09-09.md",
+        "docs/RQ009_CROSS_FRAME_SETUP_PRIORITY_SOURCE_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
         "UNIVERSAL_BODY_COLLECTION_CANDIDATE_PRIORITY_OPEN",
@@ -318,7 +321,8 @@
         "EXACT_EXECUTION_FILL_SOURCE_INCOMPLETE_CURRENT_BATCH",
         "LITERAL_BROKER_GRID_NORMALIZATION_CLOSED_STRUCTURAL_ZONE_TOLERANCE_OPEN",
         "SIDEWAY_EXIT_SHELL_CLOSED_EXACT_AUTONOMOUS_GEOMETRY_OPEN",
-        "BODY_COLLECTION_MULTI_CANDIDATE_AMBIGUITY_REPRESENTED_NOT_RESOLVED"
+        "BODY_COLLECTION_MULTI_CANDIDATE_AMBIGUITY_REPRESENTED_NOT_RESOLVED",
+        "CROSS_FRAME_CONTEXT_HIERARCHY_CLOSED_UNIVERSAL_CONFLICT_MATRIX_OPEN"
       ],
       "provenance_note": "EP.4/EP.6 partial-component S/R evidence narrows context but does not supply a complete trade construction or universal Body Collection assembly algorithm. RQ-008 readiness stop remains in force."
     },
@@ -395,7 +399,8 @@
       "source_refs": [
         "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
         "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
-        "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md"
+        "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md",
+        "docs/RQ009_CROSS_FRAME_SETUP_PRIORITY_SOURCE_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
         "EXACT_ENTRY_PRICE_WITHIN_BODY_COLLECTION_ZONE_UNRESOLVED",
@@ -404,7 +409,8 @@
         "DO_NOT_BLEND_WITH_FRAME_BRAKE_ENTRY",
         "MODE1_INTRABAR_EXACT_TRIGGER_PRICE_SOURCE_INCOMPLETE",
         "MODE2_FOLLOWING_CANDLE_EXACT_FILL_SOURCE_INCOMPLETE",
-        "DO_NOT_REPLACE_MODE1_WITH_NEXT_OPEN_SILENTLY"
+        "DO_NOT_REPLACE_MODE1_WITH_NEXT_OPEN_SILENTLY",
+        "CROSS_FRAME_CONTEXT_HIERARCHY_APPLIES_UNIVERSAL_CONFLICT_MATRIX_OPEN"
       ],
       "provenance_note": "Direct 1E_PYPor1qQ sequence closes two timing families: Mode 1 acts while the prospective post-SIG candle is forming/body-collecting after PA confirmation; Mode 2 confirms the post-SIG/point-check first and enters on the following candle during body collection. Current-batch source scan still does not specify a universal exact fill tick/price."
     },
@@ -417,7 +423,8 @@
         "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
         "docs/RQ005_SIDEWAY_LIFECYCLE_SOURCE_CLOSURE_2026-09-08.md",
         "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
-        "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md"
+        "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md",
+        "docs/RQ009_CROSS_FRAME_SETUP_PRIORITY_SOURCE_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
         "UNIVERSAL_METHOD_ROUTING_UNRESOLVED",
@@ -429,7 +436,8 @@
         "EXACT_FALSE_BREAK_EXIT_PREDICATE_SOURCE_INCOMPLETE_CURRENT_BATCH",
         "EXACT_FRAME_COMPLETE_GEOMETRY_SOURCE_INCOMPLETE_CURRENT_BATCH",
         "INTERNAL_SIG_NOT_AUTOMATIC_EXIT",
-        "WICK_ONLY_EXCURSION_NOT_SUFFICIENT_CLEAN_EXIT_IN_SHOWN_HTF_CASE"
+        "WICK_ONLY_EXCURSION_NOT_SUFFICIENT_CLEAN_EXIT_IN_SHOWN_HTF_CASE",
+        "CROSS_FRAME_CONTEXT_HIERARCHY_APPLIES_UNIVERSAL_CONFLICT_MATRIX_OPEN"
       ],
       "provenance_note": "RQ-009 synchronized video inspection supports BODY_PRIMARY and BODY_CORE+WICK_LAYER source methods. The later exit audit closes only the lifecycle shell: internal SIG is not exit, carrying SIG is known after actual escape, and a shown wick-only excursion returning inside is insufficient clean exit evidence. Universal frame/false-break formulas remain source-incomplete."
     },
@@ -631,7 +639,8 @@
       "engine_permission": "RESEARCH_STATE_ROUTING_ONLY_NO_DETERMINISTIC_SIDEWAY_ENTRY",
       "source_refs": [
         "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
-        "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md"
+        "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md",
+        "docs/RQ009_CROSS_FRAME_SETUP_PRIORITY_SOURCE_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
         "EXACT_SIDEWAY_TRANSITION_EVENT_OPEN",
@@ -641,7 +650,8 @@
         "ZONE_REUSE_AFTER_TOUCH_OPEN",
         "CROSS_TF_SIDEWAY_PRIORITY_OPEN",
         "DO_NOT_TREAT_ZONE_PRESENCE_AS_ENTRY",
-        "SIDEWAY_EXIT_SHELL_CLOSED_EXACT_EXIT_GEOMETRY_OPEN"
+        "SIDEWAY_EXIT_SHELL_CLOSED_EXACT_EXIT_GEOMETRY_OPEN",
+        "CROSS_FRAME_CONTEXT_HIERARCHY_APPLIES_UNIVERSAL_CONFLICT_MATRIX_OPEN"
       ],
       "provenance_note": "Direct EP.5 rendered transcript: ~44:12-44:19 normal Body Collection route-out when setup becomes Sideway; ~1:19:37-1:20:01 zone can still support a separate Sideway entry context, with genuine PA/SIG focus required."
     },
@@ -693,7 +703,8 @@
       "source_refs": [
         "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md",
         "docs/RQ005_SIDEWAY_LIFECYCLE_SOURCE_CLOSURE_2026-09-08.md",
-        "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md"
+        "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
+        "docs/RQ009_CROSS_FRAME_SETUP_PRIORITY_SOURCE_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
         "EXACT_FRAME_BOUNDARIES_OPEN",
@@ -702,9 +713,28 @@
         "RETEST_ZONE_TOLERANCE_OPEN",
         "CROSS_TF_FRAME_PRIORITY_OPEN",
         "SAME_BAR_ORDERING_OPEN_WITHOUT_TICKS",
-        "DO_NOT_FIT_BREAKOUT_THRESHOLD_FROM_OUTCOMES"
+        "DO_NOT_FIT_BREAKOUT_THRESHOLD_FROM_OUTCOMES",
+        "CROSS_FRAME_CONTEXT_HIERARCHY_APPLIES_UNIVERSAL_CONFLICT_MATRIX_OPEN"
       ],
       "provenance_note": "Current-batch transcript review across vcdN51_OrPE, ESHDuiVPJow, UV5NijhjfJ8, 16KoS7d-koI and 1E_PYPor1qQ. Source repeatedly separates internal SIG from actual frame escape, demonstrates a wick-only excursion returning inside, and teaches break->retest->role-flip handling. Exact autonomous breakout/false-break geometry remains source-incomplete."
+    },
+    {
+      "claim_id": "CROSS_FRAME_CONTEXT_HIERARCHY",
+      "canonical_statement": "The source explicitly teaches contextual importance as Trend > Frame > SIG and top-down larger-to-smaller timeframe analysis. Higher-timeframe trend/cycle/frame context constrains interpretation of lower-timeframe PA/SIG and can explain apparent lower-timeframe failure. However higher timeframe is not a universal veto: the reviewed source allows H1/H4 SIG runs inside a Day Sideway while larger-timeframe trend remains contextual authority. Frame context may replace a damaged SIG interpretation when source-defined SIG validity is broken. The current source batch does not define an exhaustive deterministic multi-timeframe/multi-entry-family conflict matrix.",
+      "status": "ACTIVE_SOURCE_BACKED_CONTEXT_HIERARCHY_UNIVERSAL_CONFLICT_RESOLVER_SOURCE_INCOMPLETE",
+      "engine_permission": "TOP_DOWN_CONTEXT_EVALUATION_WITH_EXPLICIT_MULTI_FAMILY_AMBIGUITY",
+      "source_refs": [
+        "docs/RQ009_CROSS_FRAME_SETUP_PRIORITY_SOURCE_BOUNDARY_2026-09-09.md"
+      ],
+      "risk_flags": [
+        "DO_NOT_TREAT_HTF_AS_UNIVERSAL_LTF_VETO",
+        "NO_UNIVERSAL_MULTI_TF_CONFLICT_MATRIX",
+        "NO_UNIVERSAL_ENTRY_FAMILY_WINNER",
+        "TREND_IS_CONTEXT_NOT_STANDALONE_ENTRY",
+        "PRESERVE_PARENT_FRAME_TRIGGER_ENTRY_FAMILY_PROVENANCE",
+        "DO_NOT_FIT_PRIORITY_FROM_OUTCOMES"
+      ],
+      "provenance_note": "Current-batch review of EP.2 and system-summary sources directly supports Trend>Frame>SIG conceptual hierarchy, large-to-small analysis, larger-TF contextual strength, frame-over-damaged-SIG examples, and lower-TF runs inside higher-TF Sideway. It does not supply an exhaustive Boolean priority/veto table."
     }
   ]
 }
