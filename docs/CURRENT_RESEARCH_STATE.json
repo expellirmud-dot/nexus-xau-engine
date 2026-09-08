@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-08T23:06:00+07:00",
+  "updated_at": "2026-09-08T23:14:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
   "completed_checkpoint": "RQ001_POST_SIG_LIFECYCLE_SOURCE_VISUAL_CLOSED_OTHER_EXPLICIT_LIFECYCLE",
@@ -94,9 +94,9 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Execute RQ-002 source-first: close PAT2/PAT3 exact geometry and the 50% measurement basis from local video+transcript+visual evidence before historical variants.",
-    "Do not treat the previous newest-to-older origin fallback as canonical; future remaining-run reconstruction must track explicit SIG identities/active-set state.",
-    "Keep exact post-SIG destruction geometry and same-TF multi-instance priority explicitly unresolved until stronger source evidence is found."
+    "Continue RQ-002 visual review for PAT3 variants and SELL mirror; seek an actual-chart/Fibonacci example that fixes the 50% anchors.",
+    "If no primary source disambiguates real-body vs full-range denominator, close that field explicitly parameterized/unknown rather than choosing by backtest performance.",
+    "Do not begin historical PAT geometry performance selection while source geometry remains unresolved."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -150,9 +150,10 @@
     "research_queue/active/RQ-001_POST_SIG_LIFECYCLE.md",
     "docs/POST_SIG_LIFECYCLE_SOURCE_VISUAL_CLOSURE_2026-09-08.md",
     "research_queue/closed/RQ-001_POST_SIG_LIFECYCLE.md",
-    "research_queue/active/RQ-002_PAT2_PAT3_GEOMETRY.md"
+    "research_queue/active/RQ-002_PAT2_PAT3_GEOMETRY.md",
+    "docs/RQ002_PAT_GEOMETRY_SOURCE_MAP_CHECKPOINT_2026-09-08.md"
   ],
-  "resume_instruction": "Load maintenance policy -> TOOLS.md -> CURRENT_RESEARCH_STATE -> research_queue/QUEUE.json -> active RQ-002 worksheet -> canonical claim register -> latest relevant source. RQ-001 is closed SOURCE_SUPPORTS_OTHER_EXPLICIT_LIFECYCLE: use per-SIG active-set semantics; do not assume generic same-TF older-origin fallback. Continue RQ-002 source-first and commit/push every coherent checkpoint.",
+  "resume_instruction": "Load maintenance policy -> TOOLS.md -> CURRENT_RESEARCH_STATE -> research_queue/QUEUE.json -> active RQ-002 worksheet -> canonical claim register -> RQ002 source-map checkpoint. RQ-001 is closed with per-SIG active-set lifecycle semantics. RQ-002 has source-backed strict >50% semantics but the denominator and PAT3 exact combined arithmetic remain visual/source ambiguous. Continue source-first; no performance-based formula selection.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -533,5 +534,25 @@
     ],
     "research_impact": "Previous newest-to-older re-anchor fallback remains a research representation, not canonical teaching semantics. Future remaining-run work should reconstruct explicit SIG identities/active-set state.",
     "computation_required_for_this_semantic_closure": false
+  },
+  "rq002_pat_geometry_source_checkpoint": {
+    "status": "SOURCE_PARTIAL_VISUAL_AMBIGUITY_REMAINS",
+    "source_ref": "docs/RQ002_PAT_GEOMETRY_SOURCE_MAP_CHECKPOINT_2026-09-08.md",
+    "closed_safe": [
+      "PAT2 full engulfing is not mandatory.",
+      "PAT2 source semantics are strict beyond-half (>50%); a not-beyond-half candle is not yet PAT2 in the shown transition case.",
+      "PAT3 has three source variants; full engulfing is preferred/stronger but >half alternatives are also taught."
+    ],
+    "still_unresolved": [
+      "Exact 50% denominator: real body vs full high-low vs source-specific visual overlap construction.",
+      "Exact combined-candle arithmetic for PAT3 variants.",
+      "Numeric Doji/small-body/equal-wick tolerances."
+    ],
+    "computation_status": "DEFERRED_SOURCE_GEOMETRY_BLOCKER",
+    "visual_bundles": [
+      "youtube/_evidence/1E_PYPor1qQ/00-14-05/",
+      "youtube/_evidence/1E_PYPor1qQ/00-14-29/",
+      "youtube/_evidence/1E_PYPor1qQ/00-16-53/"
+    ]
   }
 }

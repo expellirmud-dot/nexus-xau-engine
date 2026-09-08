@@ -32,6 +32,10 @@ Reusable transcript context helper:
 
 `D:\tools\nexus-video-evidence\extract_transcript_context.py`
 
+Reusable visual crop/zoom helper:
+
+`D:\tools\nexus-video-evidence\crop_image_region.py`
+
 Documentation:
 
 `D:\tools\nexus-video-evidence\README-TH.txt`

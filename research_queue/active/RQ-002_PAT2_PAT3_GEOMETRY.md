@@ -24,3 +24,23 @@ The source-backed measurable geometry is closed, conditionally parameterized, or
 ## Current first action
 
 Build a source timestamp map from the PAT1/P1 lesson and system-summary video for every explicit PAT2/PAT3 50% statement, then inspect synchronized visual frames at those timestamps. Close the measurement basis from source if possible before running any historical geometry variants.
+
+## Source-first checkpoint — 2026-09-08
+
+Current classification: `SOURCE_PARTIAL_VISUAL_AMBIGUITY_REMAINS`.
+
+Closed from source so far:
+
+- full engulfing is not mandatory for PAT2;
+- source uses strict `เกินครึ่ง / >50%` semantics; a first confirmation candle that `ไม่เกินครึ่ง` is explicitly not yet PAT2;
+- PAT3 has three distinct three-candle variants and can use a >half relation when full engulfing is absent.
+
+Still open:
+
+- exact 50% denominator (real body vs full high-low vs equivalent visual construction);
+- exact arithmetic for combined two-candle PAT3 variants;
+- numeric Doji/small-body/equal-wick tolerances.
+
+No historical variant computation is allowed yet because the remaining blocker is source geometry.
+
+Checkpoint: `docs/RQ002_PAT_GEOMETRY_SOURCE_MAP_CHECKPOINT_2026-09-08.md`
