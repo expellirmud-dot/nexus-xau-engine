@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-08T23:55:00+07:00",
+  "updated_at": "2026-09-09T00:02:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "RQ007_ENTRY_FAMILIES_SOURCE_BACKED_SL_GEOMETRY_INCOMPLETE",
+  "completed_checkpoint": "RESEARCH_QUEUE_EXHAUSTED_AT_CURRENT_EVIDENCE_BOUNDARY",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -25,11 +25,9 @@
       "TOOLS.md",
       "docs/CURRENT_RESEARCH_STATE.json",
       "research_queue/QUEUE.json",
-      "research_queue/active/RQ-008_FULL_SYSTEM_PROOF.md",
       "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
-      "docs/RQ007_ENTRY_SL_INVALIDATION_SOURCE_CLOSURE_2026-09-08.md",
-      "docs/WIN_LOSS_PROOF_PROTOCOL_2026-09-03.md",
-      "docs/OUT_OF_SAMPLE_NEGATIVE_CONTROL_2026-09-03.md"
+      "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
+      "latest new source evidence if any"
     ]
   },
   "provenance_guard": {
@@ -95,9 +93,10 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Run RQ-008 as a readiness gate, not as an outcome search: verify whether complete trade construction and untouched OOS conditions exist.",
-    "If upstream fields remain unresolved, close full-system proof NOT_TESTABLE and list prerequisites; do not manufacture a blended system win rate.",
-    "Preserve all component/historical research as prior evidence without promoting it to full-system performance."
+    "Do not claim full-system Win rate; current canonical answer remains NOT ESTABLISHED / ยังสรุปไม่ได้.",
+    "Acquire or visually/audio-close the named PAT/location/post-SIG/Sideway/entry-SL geometry gaps before reopening performance proof.",
+    "When the complete executable rule version is frozen, reserve a genuinely untouched period for final full-system OOS testing.",
+    "Continue component/labeled-case research only under explicit provenance labels; do not promote component hit rates to system performance."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -170,9 +169,11 @@
     "research_queue/active/RQ-007_ENTRY_SL_INVALIDATION.md",
     "docs/RQ007_ENTRY_SL_INVALIDATION_SOURCE_CLOSURE_2026-09-08.md",
     "research_queue/closed/RQ-007_ENTRY_SL_INVALIDATION.md",
-    "research_queue/active/RQ-008_FULL_SYSTEM_PROOF.md"
+    "research_queue/active/RQ-008_FULL_SYSTEM_PROOF.md",
+    "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
+    "research_queue/closed/RQ-008_FULL_SYSTEM_PROOF.md"
   ],
-  "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> active RQ-008 -> canonical claims -> RQ007 closure -> Win/Loss proof protocol and OOS control. RQ-008 is a readiness gate. Do not run or report a full-system win rate unless every trade-construction field and untouched holdout requirement is actually satisfied.",
+  "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> canonical claim register -> RQ008 readiness closure. The decision-critical research queue is exhausted at the current evidence boundary. No active RQ remains. SYSTEM WIN RATE is not established; reopen only a bounded blocker when new source/labeled evidence or a frozen execution specification materially changes readiness.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -527,14 +528,15 @@
   },
   "operational_research_queue": {
     "source_ref": "research_queue/QUEUE.json",
-    "active_id": "RQ-008",
-    "active_worksheet": "research_queue/active/RQ-008_FULL_SYSTEM_PROOF.md",
+    "active_id": null,
+    "active_worksheet": null,
     "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
     "selection_rule": "NEXUS owns worksheet creation, prioritization, promotion, and method choice. Promote the highest-value unblocked item after each closure; re-rank when new evidence changes dependencies.",
     "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
     "guard": "Do not require the project owner to know which tool, video, formula, or dataset to request in advance.",
-    "last_closed_id": "RQ-007",
-    "last_closure_ref": "docs/RQ007_ENTRY_SL_INVALIDATION_SOURCE_CLOSURE_2026-09-08.md"
+    "last_closed_id": "RQ-008",
+    "last_closure_ref": "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
+    "queue_state": "EXHAUSTED_AT_CURRENT_EVIDENCE_BOUNDARY"
   },
   "post_sig_lifecycle_source_visual_closure": {
     "status": "SOURCE_SUPPORTS_OTHER_EXPLICIT_LIFECYCLE",
@@ -666,5 +668,18 @@
       "Complete MTF thesis-break rule and per-family exit logic."
     ],
     "full_system_implication": "No source-faithful universal setup->entry->SL->invalidation->exit tuple exists yet."
+  },
+  "rq008_full_system_proof_closure": {
+    "status": "NOT_TESTABLE_WITH_CURRENT_EVIDENCE",
+    "source_ref": "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
+    "system_win_rate": "NOT_ESTABLISHED",
+    "reason_codes": [
+      "TRADE_CONSTRUCTION_INCOMPLETE",
+      "UNIVERSAL_SL_EXIT_INVALIDATION_NOT_FROZEN",
+      "PAT_LOCATION_SIDEWAY_GEOMETRY_PARTIAL",
+      "MTF_CONFLICT_RULE_PARTIAL",
+      "NO_PRISTINE_FINAL_HOLDOUT_FOR_NEW_FULL_SYSTEM_VERSION"
+    ],
+    "guard": "Do not run/report a canonical full-system Win/Loss result by filling unresolved fields with analyst-selected thresholds or by relabeling component research statistics."
   }
 }
