@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-09T01:43:00+07:00",
+  "updated_at": "2026-09-09T02:19:06+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "RQ009_EP5_CANDIDATE_SEARCH_HIERARCHY",
+  "completed_checkpoint": "RQ009_EP5_COMPONENT_ASSEMBLY_REPEATED_PATTERN_PARTIAL",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -30,6 +30,7 @@
       "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
       "docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md",
       "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md",
+      "docs/RQ009_EP5_BODY_COLLECTION_COMPONENT_ASSEMBLY_REPEATED_PATTERN_2026-09-09.md",
       "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
       "latest new source evidence if any"
     ]
@@ -97,8 +98,8 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Continue RQ-009 source-first. Candidate search hierarchy is now closed; do not invent a same-TF candidate winner rule from outcomes.",
-    "Highest-value remaining Body Collection blocker: universal zone assembly/OHLC geometry plus same-TF multi-candidate priority if source evidence exists.",
+    "Continue RQ-009 source-first. EP.5 now repeatedly closes all-components-required + two-forecast-reference topology, but do not invent a universal three-distinct-component -> two-reference reduction.",
+    "Highest-value remaining Body Collection blockers: source-backed universal assembly for three distinct component prices if such an example exists, then same-TF multi-candidate priority if sourced.",
     "PAT >50% denominator remains unresolved and must not be selected from backtest performance.",
     "Exact broker fill after source-backed lower-TF confirmation remains an execution convention until source evidence closes it.",
     "Do not run/report canonical full-system Win/Loss until deterministic source geometry/execution conventions are frozen and a pristine holdout exists."
@@ -186,9 +187,10 @@
     "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md",
     "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
     "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md",
-    "docs/RQ009_EP5_BODY_COLLECTION_CANDIDATE_SEARCH_ORDER_CLOSURE_2026-09-09.md"
+    "docs/RQ009_EP5_BODY_COLLECTION_CANDIDATE_SEARCH_ORDER_CLOSURE_2026-09-09.md",
+    "docs/RQ009_EP5_BODY_COLLECTION_COMPONENT_ASSEMBLY_REPEATED_PATTERN_2026-09-09.md"
   ],
-  "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> active RQ-009 worksheet -> canonical claim register -> latest EP5 mirror/lifecycle closure -> EP5 visual geometry closure -> M5 retest closure + PAT50 diagnostic. Continue source-first; never let outcome performance select unresolved denominator, equality tolerance, touch count, age expiry, candidate priority, fill, or universal zone assembly.",
+  "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> active RQ-009 worksheet -> canonical claim register -> latest EP5 component-assembly repeated-pattern checkpoint -> prior EP5 lifecycle/visual/search closures. Continue source-first; never let outcome performance select unresolved three-to-two assembly, equality tolerance, candidate priority, PAT denominator, fill, touch count, or age expiry.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -711,9 +713,9 @@
     "guard": "Do not run/report a canonical full-system Win/Loss result by filling unresolved fields with analyst-selected thresholds or by relabeling component research statistics."
   },
   "rq009_source_gap_closure": {
-    "status": "ACTIVE_SOURCE_REVIEW_BODY_COLLECTION_SEARCH_HIERARCHY_CLOSED_MULTI_CANDIDATE_PRIORITY_OPEN",
+    "status": "ACTIVE_SOURCE_REVIEW_COMPONENT_ASSEMBLY_REPEATED_TWO_REFERENCE_PATTERN_CLOSED_UNIVERSAL_REDUCTION_OPEN",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-    "checkpoint_ref": "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md",
+    "checkpoint_ref": "docs/RQ009_EP5_BODY_COLLECTION_COMPONENT_ASSEMBLY_REPEATED_PATTERN_2026-09-09.md",
     "source_batch": [
       "vcdN51_OrPE",
       "1E_PYPor1qQ",
@@ -750,20 +752,24 @@
       "A new/current valid PA context can trigger a new Body Collection plan after prior used-zone retirement/replanning.",
       "EP.5 source-backed Body Collection search hierarchy is same-TF first, initial ~2-4 historical candles, then continue farther back if absent.",
       "In the taught H4 workflow, fallback is sequential H4 -> H1 -> M30 when the required structure is incomplete.",
-      "Multiple valid same-TF candidates must remain explicit because the source does not yet establish a universal newest/nearest/freshest/strongest winner rule."
+      "Multiple valid same-TF candidates must remain explicit because the source does not yet establish a universal newest/nearest/freshest/strongest winner rule.",
+      "EP.5 repeatedly requires the complete ซอก + ไส้ + คู่ structural set and repeatedly outputs two forecast references 1/2 across SELL, BUY, and M30 examples.",
+      "Direct Q&A rejects treating the wick as merely a spacing helper; the taught construction must mark/consider the full component structure.",
+      "One synchronized PA Sell worked example naturally reduces to two unique levels because ซอก and คู่ share one reference while the wick supplies the second.",
+      "No universal source-backed three-distinct-component -> two-reference reduction rule is established; unresolved clusters must remain explicit rather than being merged from outcomes."
     ],
     "still_open": [
       "Exact PAT2/PAT3 >50% denominator/arithmetic and feed-equality convention.",
-      "Universal Body Collection candidate priority and zone assembly when multiple historical fresh/active ซอก/ไส้/คู่ clusters coexist.",
+      "Universal Body Collection three-component-to-two-reference assembly when ซอก/ไส้/คู่ resolve to three distinct normalized prices.",
+      "Universal same-timeframe winner/priority rule when multiple valid Body Collection candidate zones coexist.",
       "Exact OHLC transition from touched/revalidated zone to completed/used Body Collection and exact support/resistance revalidation after touch.",
       "Any universal numeric maximum-touch rule; current source provides qualitative touch-history semantics only.",
-      "Wick-selection and BUY/SELL mirror completeness across all Body Collection pattern variants.",
+      "Universal wick-selection and BUY/SELL mirror completeness across all Body Collection variants.",
       "Exact broker fill price and structural point tolerance after a source-backed confirmation event.",
       "Universal routing between Sideway source methods and exact frame-complete/false-break detector.",
-      "Cross-timeframe/source-frame priority where multiple location/Sideway/Body Collection structures coexist.",
-      "Universal same-timeframe winner/priority rule when multiple valid Body Collection candidate zones coexist."
+      "Cross-timeframe/source-frame priority where multiple location/Sideway/Body Collection structures coexist."
     ],
-    "proof_readiness": "BODY_COLLECTION_COMPONENT_AND_ZONE_LIFECYCLE_CLOSED_PRIORITY_TRANSITION_AND_EXACT_FILL_OPEN",
+    "proof_readiness": "BODY_COLLECTION_REPEATED_TWO_REFERENCE_PATTERN_CLOSED_UNIVERSAL_THREE_TO_TWO_REDUCTION_PRIORITY_TRANSITION_AND_EXACT_FILL_OPEN",
     "body_collection_audit_ref": "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
     "sideway_audit_ref": "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
     "external_source_target": {
@@ -798,6 +804,7 @@
     "pat50_visual_diagnostic_ref": "docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md",
     "ep5_visual_geometry_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
     "ep5_mirror_lifecycle_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md",
-    "candidate_search_order_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_CANDIDATE_SEARCH_ORDER_CLOSURE_2026-09-09.md"
+    "candidate_search_order_closure_ref": "docs/RQ009_EP5_BODY_COLLECTION_CANDIDATE_SEARCH_ORDER_CLOSURE_2026-09-09.md",
+    "component_assembly_repeated_pattern_ref": "docs/RQ009_EP5_BODY_COLLECTION_COMPONENT_ASSEMBLY_REPEATED_PATTERN_2026-09-09.md"
   }
 }

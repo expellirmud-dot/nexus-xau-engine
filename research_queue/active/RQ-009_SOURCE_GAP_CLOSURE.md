@@ -1,6 +1,6 @@
 # RQ-009 — Source Gap Closure from Current Five-Video Batch
 
-Status: ACTIVE — EP.5 semantic closure complete; exact visual zone/execution geometry still open
+Status: ACTIVE — EP.5 repeated two-reference component pattern closed; universal three-to-two assembly/execution geometry still open
 
 ## Objective
 
@@ -187,3 +187,19 @@ Source-backed now:
 - preserve multiple valid same-TF candidates because no universal newest/nearest/freshest/strongest winner rule is established.
 
 Still open: same-timeframe multi-candidate ranking and universal zone assembly/OHLC geometry. Do not select a winner from historical outcomes.
+
+## Latest EP.5 component-assembly repeated-pattern checkpoint
+
+Ref: `docs/RQ009_EP5_BODY_COLLECTION_COMPONENT_ASSEMBLY_REPEATED_PATTERN_2026-09-09.md`
+
+Source+visual closure now establishes:
+
+- `ซอก + ไส้ + คู่` are repeatedly required as the complete structural input set;
+- direct Q&A at ~1:06:35 rejects treating `ไส้` as merely the spacing between zones — the construction must all be marked/considered;
+- the source repeatedly produces two forecast references `1/2` on worked SELL, BUY, and M30 examples;
+- in one synchronized PA Sell example, `ซอก` and `คู่` share the upper reference while a distinct wick-derived level supplies the second reference, so that shown cluster naturally has two unique levels;
+- the reviewed source still does not define a universal deterministic reduction if `ซอก`, `ไส้`, and `คู่` resolve to three distinct normalized prices.
+
+Safe research representation: preserve component provenance and all candidate levels. Only use a two-level shown-form assembly when the source-reviewed cluster naturally resolves to two unique levels; otherwise mark `UNRESOLVED_THREE_TO_TWO`. Do not choose a merge/ranking rule from historical outcomes.
+
+RQ-009 remains ACTIVE. Next source target is an explicit example/statement that resolves the three-distinct-component case; if the source batch contains none, record that missing-source requirement and move to the next decision-critical blocker rather than forcing a formula.
