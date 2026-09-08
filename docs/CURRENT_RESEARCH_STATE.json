@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-08T22:23:00+07:00",
+  "updated_at": "2026-09-08T22:50:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
   "completed_checkpoint": "SOURCE_PARTIAL_REANCHORED_DAILY_SIDE_CLOSED_INCONCLUSIVE",
@@ -24,6 +24,8 @@
       "docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md",
       "TOOLS.md",
       "docs/CURRENT_RESEARCH_STATE.json",
+      "research_queue/QUEUE.json",
+      "research_queue/active/RQ-001_POST_SIG_LIFECYCLE.md",
       "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
       "latest relevant checkpoint",
       "closest available original source evidence"
@@ -92,9 +94,10 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Review the existing five local video+transcript source pairs first, prioritizing source evidence relevant to post-SIG lifecycle/reset/re-evaluation semantics.",
-    "Classify each unresolved mechanic as SOURCE_CLOSED, SOURCE_PARTIAL, VISUAL_AMBIGUOUS, NUMERICALLY_UNDEFINED, EMPIRICAL_RELATION_NEEDED, or IMPLEMENTATION_VALIDATION_NEEDED before running data.",
-    "Only after source/visual review, run bounded threshold-free or multi-variant computation for residual ambiguity; do not select thresholds from favorable outcomes."
+    "Execute active worksheet RQ-001 Post-SIG lifecycle using the five local video+transcript sources first.",
+    "Activate audio extraction/alignment only if a material ASR ambiguity blocks RQ-001 after transcript+visual review.",
+    "Use targeted threshold-free computation only for residual source-compatible ambiguity; do not resume broad run-first experimentation.",
+    "On RQ-001 closure, re-rank QUEUE.json and promote the highest-value unblocked worksheet automatically."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -142,9 +145,12 @@
     "tests/test_daily_frame_remaining_run_interaction.py",
     "TOOLS.md",
     "docs/VIDEO_EVIDENCE_PIPELINE_2026-09-08.md",
-    "docs/SOURCE_FIRST_VISUAL_FIRST_RESEARCH_PROTOCOL_2026-09-08.md"
+    "docs/SOURCE_FIRST_VISUAL_FIRST_RESEARCH_PROTOCOL_2026-09-08.md",
+    "research_queue/README.md",
+    "research_queue/QUEUE.json",
+    "research_queue/active/RQ-001_POST_SIG_LIFECYCLE.md"
   ],
-  "resume_instruction": "Load maintenance policy -> TOOLS.md -> CURRENT_RESEARCH_STATE -> canonical claim register -> SOURCE_PARTIAL_REANCHORED_DAILY_SIDE_CLOSURE_2026-09-08. Reuse registered tools before building duplicates. Load maintenance policy -> CURRENT_RESEARCH_STATE -> canonical claim register -> SOURCE_PARTIAL_REANCHORED_DAILY_SIDE_CLOSURE_2026-09-08. The invalidation-aware re-anchor closed INCONCLUSIVE_AFTER_SOURCE_PARTIAL_REANCHOR with all three Daily-side periods INSUFFICIENT; legacy Daily-side SUPPORT is historical/confounded and not current confirmation. Next bounded step: source-backed post-SIG lifecycle/older-origin semantics, or threshold-free relationship diagnostics without inventing thresholds. Commit/push every coherent checkpoint.",
+  "resume_instruction": "Load maintenance policy -> TOOLS.md -> CURRENT_RESEARCH_STATE -> research_queue/QUEUE.json -> active worksheet -> canonical claim register. The operational queue is the current source of truth for what NEXUS should work on next. NEXUS owns prioritization and method selection; the project owner does not need to specify tools/formulas/videos. Current ACTIVE: RQ-001 Post-SIG lifecycle. Use source/video first, then targeted computation only for residual ambiguity. Commit/push every coherent checkpoint.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -496,5 +502,14 @@
       "BOUNDED_COMPUTATION_ONLY_IF_NEEDED"
     ],
     "guard": "Do not run broad historical variant searches for questions that primary video/audio/visual evidence can close directly. Do not force visual examples into exact numeric thresholds when the source does not define them."
+  },
+  "operational_research_queue": {
+    "source_ref": "research_queue/QUEUE.json",
+    "active_id": "RQ-001",
+    "active_worksheet": "research_queue/active/RQ-001_POST_SIG_LIFECYCLE.md",
+    "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
+    "selection_rule": "NEXUS owns worksheet creation, prioritization, promotion, and method choice. Promote the highest-value unblocked item after each closure; re-rank when new evidence changes dependencies.",
+    "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
+    "guard": "Do not require the project owner to know which tool, video, formula, or dataset to request in advance."
   }
 }

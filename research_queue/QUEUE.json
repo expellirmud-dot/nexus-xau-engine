@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-08T22:44:00+07:00",
+  "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
+  "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
+  "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
+  "active": {
+    "id": "RQ-001",
+    "title": "Post-SIG lifecycle after reference destruction",
+    "worksheet": "research_queue/active/RQ-001_POST_SIG_LIFECYCLE.md",
+    "status": "ACTIVE"
+  },
+  "priority_order": [
+    "RQ-001",
+    "RQ-002",
+    "RQ-003",
+    "RQ-004",
+    "RQ-005",
+    "RQ-006",
+    "RQ-007",
+    "RQ-008"
+  ],
+  "items": [
+    {
+      "id": "RQ-001",
+      "title": "Post-SIG lifecycle after reference destruction",
+      "type": "RESEARCH",
+      "status": "ACTIVE",
+      "why_now": "The invalidation-aware re-anchor collapsed the inherited-run sample and made the prior Daily-side support no longer current confirmation. The unresolved question of reset versus older-origin re-evaluation directly controls active inherited-state construction and blocks defensible continuation of remaining-run research.",
+      "depends_on": [],
+      "blocks": ["remaining-run active-origin state", "Daily Frame remaining-run retest", "later MTF conditional research"],
+      "preferred_method": "Review the five local video+transcript sources first; inspect synchronized visual windows; use audio crosscheck only where ASR wording is material; run targeted threshold-free computation only if multiple source-compatible lifecycle interpretations remain.",
+      "worksheet": "research_queue/active/RQ-001_POST_SIG_LIFECYCLE.md"
+    },
+    {
+      "id": "RQ-002",
+      "title": "PAT2/PAT3 exact geometry and 50% measurement basis",
+      "type": "RESEARCH",
+      "status": "QUEUED",
+      "why_now": "Reliable PA/PAT detection depends on the exact 50% reference, equality behavior, and middle-candle geometry. Current PAT2 BODY success is a research representation, not canonical source geometry.",
+      "depends_on": [],
+      "blocks": ["canonical PAT detector", "canonical SIG detector", "production entry qualification"],
+      "worksheet": "research_queue/queued/RQ-002_PAT2_PAT3_GEOMETRY.md"
+    },
+    {
+      "id": "RQ-003",
+      "title": "Daily Frame and Location exact construction semantics",
+      "type": "RESEARCH",
+      "status": "QUEUED",
+      "why_now": "BUY-at-support and SELL-at-resistance semantics are confirmed, but exact measurable Daily Frame/Location construction remains incomplete. Downstream entry studies need a defensible geometric representation.",
+      "depends_on": ["RQ-002 if PA geometry is required by the source example being decoded"],
+      "blocks": ["location truth-set OHLC alignment", "Daily Frame entry logic"],
+      "worksheet": "research_queue/queued/RQ-003_DAILY_FRAME_LOCATION_GEOMETRY.md"
+    },
+    {
+      "id": "RQ-004",
+      "title": "M5 brake and frame-standing state machine",
+      "type": "RESEARCH",
+      "status": "QUEUED",
+      "why_now": "Existing evidence establishes a qualitative zone-first stopping/reversal process, but measurable transition features remain incomplete. This is important for turning source language into replayable entry context.",
+      "depends_on": ["RQ-003 for reliable zone/location context where required"],
+      "blocks": ["entry confirmation state", "replayable M5/M1 brake logic"],
+      "worksheet": "research_queue/queued/RQ-004_M5_BRAKE_FRAME_STANDING.md"
+    },
+    {
+      "id": "RQ-005",
+      "title": "Sideway construction, completion, and transition to new SIG",
+      "type": "RESEARCH",
+      "status": "QUEUED",
+      "why_now": "Sideway is repeatedly referenced as a market state, but its explicit boundaries and transition/completion semantics remain incomplete. Incorrect sideway state would contaminate setup eligibility and lifecycle interpretation.",
+      "depends_on": ["RQ-001", "RQ-003"],
+      "blocks": ["market-state filter", "new-SIG transition logic"],
+      "worksheet": "research_queue/queued/RQ-005_SIDEWAY_LIFECYCLE.md"
+    },
+    {
+      "id": "RQ-006",
+      "title": "Por Chon remaining boundary and old-frame lifecycle details",
+      "type": "RESEARCH",
+      "status": "QUEUED",
+      "why_now": "Core 19:00 cutoff and >1000 high-selection semantics are source-backed, but exact H4 inclusion, equality/tie handling, and old-frame retirement remain open. These should be closed before using Por Chon as a deterministic production frame state.",
+      "depends_on": [],
+      "blocks": ["fully deterministic Por Chon replay"],
+      "worksheet": "research_queue/queued/RQ-006_POR_CHON_BOUNDARY_LIFECYCLE.md"
+    },
+    {
+      "id": "RQ-007",
+      "title": "Entry, SL, and invalidation geometry",
+      "type": "RESEARCH",
+      "status": "QUEUED",
+      "why_now": "Entry/SL proof should be downstream of setup, state, and location semantics. Current evidence includes example-specific relations but not a complete universal execution rule.",
+      "depends_on": ["RQ-001", "RQ-002", "RQ-003", "RQ-004", "RQ-005"],
+      "blocks": ["full trade definition", "system Win/Loss proof"],
+      "worksheet": "research_queue/queued/RQ-007_ENTRY_SL_INVALIDATION.md"
+    },
+    {
+      "id": "RQ-008",
+      "title": "Full-system replay and out-of-sample Win/Loss proof",
+      "type": "RESEARCH",
+      "status": "QUEUED_LAST",
+      "why_now": "This is the final validation layer and must not begin while upstream rules are still being represented by unresolved proxies.",
+      "depends_on": ["RQ-001", "RQ-002", "RQ-003", "RQ-004", "RQ-005", "RQ-007"],
+      "blocks": [],
+      "worksheet": "research_queue/queued/RQ-008_FULL_SYSTEM_PROOF.md"
+    }
+  ],
+  "conditional_infrastructure": [
+    {
+      "id": "ENG-001",
+      "title": "Audio evidence extraction and timestamp alignment",
+      "status": "ON_DEMAND",
+      "activation_rule": "Activate immediately when an active research worksheet reaches a material ASR ambiguity that cannot be closed from transcript plus visual frames.",
+      "tool_root": "D:/tools/nexus-video-evidence"
+    },
+    {
+      "id": "ENG-002",
+      "title": "Compact research status widget",
+      "status": "QUEUED_NON_BLOCKING",
+      "activation_rule": "Build when it does not interrupt a decision-critical research closure, or when observability becomes a practical blocker for the project owner.",
+      "purpose": "Show current active worksheet, phase, latest checkpoint, blocker, and last result in a small translucent top-right panel."
+    }
+  ],
+  "promotion_rule": "On active closure, first re-rank remaining items using the new evidence. Then promote the highest-value unblocked item; do not blindly increment the numeric ID if the dependency picture changed.",
+  "guard": "The queue organizes research; it does not grant permission to invent thresholds, upgrade provenance from outcomes, or treat historical proxy results as canonical rules."
+}

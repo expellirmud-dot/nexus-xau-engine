@@ -9,10 +9,13 @@ Purpose: allow NEXUS to continue useful research while the project owner is busy
 Before new work, read in this order:
 
 1. `docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md`
-2. `docs/CURRENT_RESEARCH_STATE.json`
-3. `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json`
-4. the latest checkpoint relevant to the selected puzzle
-5. original/closest available source evidence for any claim being changed
+2. `TOOLS.md`
+3. `docs/CURRENT_RESEARCH_STATE.json`
+4. `research_queue/QUEUE.json`
+5. the worksheet currently under `research_queue/active/`
+6. `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json`
+7. the latest checkpoint relevant to the selected puzzle
+8. original/closest available source evidence for any claim being changed
 
 Historical files are evidence/history, not automatically the current project position.
 
@@ -94,9 +97,23 @@ Rules:
 - outcome/backtest performance never upgrades source provenance;
 - unknown means unknown; do not choose a threshold because it backtests better.
 
-## Research priority queue
+## Operational research queue
 
-Current high-value order unless new evidence changes it:
+The live queue is now maintained under `research_queue/`:
+
+- `research_queue/QUEUE.json` = machine-readable operational source of truth;
+- `research_queue/active/` = current worksheet; normally one decision-critical item;
+- `research_queue/queued/` = waiting worksheets;
+- `research_queue/blocked/` and `research_queue/closed/` preserve lifecycle state.
+
+NEXUS owns worksheet creation, prioritization, promotion, and method selection. The project owner should be able to provide a goal without already knowing which video, tool, formula, dataset, or calculation is required.
+
+On closure, re-rank the remaining queue from the new evidence before promoting the next item. Do not blindly advance by numeric ID.
+
+The static list below is preserved as the **2026-09-03 historical priority seed**. It is not the current operational order unless `research_queue/QUEUE.json` agrees.
+
+### Historical priority seed — 2026-09-03
+
 
 1. **Por Chon 19:00–19:00** — timezone/day-window semantics and H4 selection.
 2. **PAT2/PAT3 geometry** — exact 50% reference basis, equality/tolerance, small-body/equal-wick thresholds.
