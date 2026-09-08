@@ -313,3 +313,30 @@ partial lower-TF S/R structures = SOURCE BACKED, separate context
 ```
 
 Do not use S/R nearest-first guidance to silently choose a Body Collection winner. Do not invent numeric same-zone/alignment tolerance.
+
+## Latest EP.5 Body Collection ↔ Sideway routing reconciliation
+
+Ref: `docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md`
+
+Direct EP.5 transcript resolves the apparent contradiction:
+
+```text
+~44:19  normal Body Collection setup becomes Sideway
+         -> "เราจะไม่เก็บบอดี้ในไซด์เวย์"
+
+~1:19:53 zone condition can still support a Sideway-style entry
+          -> but genuine PA/SIG state must be assessed first
+```
+
+Safe routing:
+
+```text
+Body Collection zone/location memory may survive
+BUT
+normal Body Collection entry workflow does not continue unchanged inside Sideway
+-> route to distinct Sideway workflow
+```
+
+Exact Body Collection->Sideway handoff geometry, Sideway frame-complete/false-break, and deterministic Sideway entry remain unresolved.
+
+PAT denominator was also re-checked against the existing RQ-002/RQ-009 coverage and **not reopened**: the same source wording/visual has already been reviewed and remains non-discriminating between candidate machine denominators. This is durable unresolved knowledge, not a reason to repeat the identical test.

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T04:24:00+07:00",
+  "updated_at": "2026-09-09T04:33:00+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -291,7 +291,8 @@
         "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md",
         "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
         "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
-        "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md"
+        "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
+        "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md"
       ],
       "risk_flags": [
         "UNIVERSAL_BODY_COLLECTION_CANDIDATE_PRIORITY_OPEN",
@@ -305,7 +306,8 @@
         "BODY_COLLECTION_EQUALITY_NORMALIZATION_OPEN",
         "BODY_COLLECTION_REFERENCE_SELECTION_FOR_UNSEEN_CONFIGURATIONS_OPEN",
         "BODY_COLLECTION_OTHER_CROSS_TF_COMPONENT_PERMUTATIONS_OPEN",
-        "PARTIAL_SR_COMPONENTS_DO_NOT_CLOSE_BODY_COLLECTION_ARBITRARY_MERGE"
+        "PARTIAL_SR_COMPONENTS_DO_NOT_CLOSE_BODY_COLLECTION_ARBITRARY_MERGE",
+        "SIDEWAY_ROUTE_SEPARATION_CLOSED_BUT_SIDEWAY_ENTRY_GEOMETRY_OPEN"
       ],
       "provenance_note": "EP.4/EP.6 partial-component S/R evidence narrows context but does not supply a complete trade construction or universal Body Collection assembly algorithm. RQ-008 readiness stop remains in force."
     },
@@ -389,24 +391,27 @@
     },
     {
       "claim_id": "SIDEWAY_FRAME_SOURCE_METHODS",
-      "canonical_statement": "Current first-party/source video evidence supports multiple Sideway frame representations rather than one universal OHLC formula. A BODY_PRIMARY/body-only preference is explicitly taught in one source; another source uses a body core with optional wick structural layer/envelope because higher-timeframe wicks may encode lower-timeframe body structure. Sideway is dynamic, may expand and contain multiple support/resistance levels, and old resistance/support can role-flip after confirmed exit/retest. Full visible wick extrema and fixed width are not universal boundaries.",
+      "canonical_statement": "Current first-party/source video evidence supports multiple Sideway frame representations rather than one universal OHLC formula. A BODY_PRIMARY/body-only preference is explicitly taught in one source; another source uses a body core with optional wick structural layer/envelope because higher-timeframe wicks may encode lower-timeframe body structure. Sideway is dynamic, may expand and contain multiple support/resistance levels, and old resistance/support can role-flip after confirmed exit/retest. Full visible wick extrema and fixed width are not universal boundaries. EP.5 further separates state routing: once a normal Body Collection setup has become Sideway, normal Body Collection entry logic stops, although the structural zone can remain location context for a distinct Sideway workflow.",
       "status": "ACTIVE_SOURCE_BACKED_MULTI_METHOD_PARTIAL_GEOMETRY",
       "engine_permission": "RESEARCH_STATE_AND_EXTERNALLY_LABELED_FRAME_METHODS_ONLY",
       "source_refs": [
         "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
-        "docs/RQ005_SIDEWAY_LIFECYCLE_SOURCE_CLOSURE_2026-09-08.md"
+        "docs/RQ005_SIDEWAY_LIFECYCLE_SOURCE_CLOSURE_2026-09-08.md",
+        "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md"
       ],
       "risk_flags": [
         "UNIVERSAL_METHOD_ROUTING_UNRESOLVED",
         "EXACT_FRAME_COMPLETE_GEOMETRY_UNRESOLVED",
         "EXACT_FALSE_BREAK_EXIT_PREDICATE_UNRESOLVED",
-        "DO_NOT_SELECT_METHOD_FROM_OUTCOME_PERFORMANCE"
+        "DO_NOT_SELECT_METHOD_FROM_OUTCOME_PERFORMANCE",
+        "EXACT_BODY_COLLECTION_TO_SIDEWAY_HANDOFF_EVENT_OPEN",
+        "SIDEWAY_ENTRY_ALGORITHM_STILL_PARTIAL"
       ],
       "provenance_note": "RQ-009 synchronized video inspection shows a body/envelope zone with long wicks extending outside the drawn frame, while separate transcript/video source explicitly states body-only preference. Differences are preserved as source methods rather than silently reconciled."
     },
     {
       "claim_id": "BODY_COLLECTION_ZONE_ROUTING",
-      "canonical_statement": "Body Collection search authority is setup/reference-timeframe first. Begin with approximately 2-4 prior candles and continue farther back if required. When the required structure is incomplete, step down sequentially as taught (H4->H1->M30 in the reviewed EP.5 workflow). Valid parent partial structure may be preserved while a lower timeframe supplies a missing aligned component in the shown parent ซอก+ไส้ / lower คู่ topology. Separately, EP.4/EP.6 teach that lower-timeframe minor S/R may exist from partial component subsets and that the complete three-component higher/reference structure is stronger. Those partial S/R references are contextual evidence only and do not establish a universal Body Collection merge or candidate-winner algorithm.",
+      "canonical_statement": "Body Collection search authority is setup/reference-timeframe first. Begin with approximately 2-4 prior candles and continue farther back if required. When the required structure is incomplete, step down sequentially as taught (H4->H1->M30 in the reviewed EP.5 workflow). Valid parent partial structure may be preserved while a lower timeframe supplies a missing aligned component in the shown parent ซอก+ไส้ / lower คู่ topology. Separately, EP.4/EP.6 teach that lower-timeframe minor S/R may exist from partial component subsets and that the complete three-component higher/reference structure is stronger. Those partial S/R references are contextual evidence only and do not establish a universal Body Collection merge or candidate-winner algorithm. EP.5 also closes state routing: if the normal Body Collection setup transitions into Sideway, route out of the normal Body Collection entry workflow; the structural zone may still be retained as location/reference context for a separate Sideway workflow.",
       "status": "ACTIVE_SOURCE_BACKED_HIERARCHICAL_SEARCH_PARTIAL_SR_CONTEXT_ARBITRARY_MERGE_OPEN",
       "engine_permission": "RESEARCH_CANDIDATE_DETECTORS_AND_ZONE_STATE_MACHINE_WITH_MANUAL_VALIDATION",
       "source_refs": [
@@ -417,7 +422,8 @@
         "docs/RQ009_EP5_BODY_COLLECTION_CANDIDATE_SEARCH_ORDER_CLOSURE_2026-09-09.md",
         "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
         "docs/RQ009_EP5_CROSS_TF_ALIGNMENT_REFERENCE_SELECTION_SHOWN_FORM_2026-09-09.md",
-        "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md"
+        "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md",
+        "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md"
       ],
       "risk_flags": [
         "BROKER_FEED_EQUALITY_NORMALIZATION_REQUIRED",
@@ -430,7 +436,9 @@
         "DO_NOT_INVENT_AGE_EXPIRY",
         "DO_NOT_RANK_BODY_COLLECTION_CANDIDATES_FROM_OUTCOMES",
         "INITIAL_2_4_CANDLES_NOT_HARD_EXPIRY",
-        "SHOWN_PARENT_SOK_WICK_LOWER_PAIR_ALIGNMENT_CLOSED"
+        "SHOWN_PARENT_SOK_WICK_LOWER_PAIR_ALIGNMENT_CLOSED",
+        "SIDEWAY_ROUTE_SEPARATION_SOURCE_BACKED_ENTRY_GEOMETRY_OPEN",
+        "ZONE_CONTEXT_REUSE_DOES_NOT_MEAN_NORMAL_BODY_COLLECTION_CONTINUES"
       ],
       "provenance_note": "EP.5 closes the shown hierarchical Body Collection completion topology. EP.4/EP.6 add a separate timeframe-strength distinction for S/R components, including partial lower-TF structures. No source currently licenses arbitrary subset merging into Body Collection."
     },
@@ -567,6 +575,25 @@
         "MULTI_TF_OVERLAP_GEOMETRY_OPEN"
       ],
       "provenance_note": "EP.6 ~1:14:38-1:15:32 and ~1:10:46-1:11:29 contextual S/R selection guidance."
+    },
+    {
+      "claim_id": "BODY_COLLECTION_SIDEWAY_ROUTING",
+      "canonical_statement": "EP.5 separates normal Body Collection entry workflow from Sideway workflow. When the Body Collection setup runs beyond the planned frame/zone and becomes Sideway, the instructor says not to continue Body Collecting in Sideway. Later Q&A says the zone condition can still be used as location/reference context for a separate Sideway-style entry, provided genuine PA/SIG state is assessed. Therefore the normal Body Collection workflow routes out when Sideway takes over, while structural zone information need not be discarded.",
+      "status": "ACTIVE_SOURCE_BACKED_ROUTE_SEPARATION_SIDEWAY_ENTRY_PARTIAL",
+      "engine_permission": "RESEARCH_STATE_ROUTING_ONLY_NO_DETERMINISTIC_SIDEWAY_ENTRY",
+      "source_refs": [
+        "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md"
+      ],
+      "risk_flags": [
+        "EXACT_SIDEWAY_TRANSITION_EVENT_OPEN",
+        "SIDEWAY_FRAME_COMPLETE_GEOMETRY_OPEN",
+        "FALSE_BREAK_BOUNDARY_OPEN",
+        "SIDEWAY_PA_SIG_ELIGIBILITY_OPEN",
+        "ZONE_REUSE_AFTER_TOUCH_OPEN",
+        "CROSS_TF_SIDEWAY_PRIORITY_OPEN",
+        "DO_NOT_TREAT_ZONE_PRESENCE_AS_ENTRY"
+      ],
+      "provenance_note": "Direct EP.5 rendered transcript: ~44:12-44:19 normal Body Collection route-out when setup becomes Sideway; ~1:19:37-1:20:01 zone can still support a separate Sideway entry context, with genuine PA/SIG focus required."
     }
   ]
 }

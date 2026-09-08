@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T04:24:00+07:00",
+  "updated_at": "2026-09-09T04:33:00+07:00",
   "purpose": "Durable source-review memory. Records which source windows/topics have already been screened or reviewed, what they established, what remains unresolved, and when a review may be reopened. This ledger prevents future agents from restarting source research from zero.",
   "rules": {
     "closed_windows_are_not_researched_from_zero_without_reopen_trigger": true,
@@ -536,6 +536,39 @@
         "docs/RQ009_BODY_COLLECTION_VS_SR_PARTIAL_COMPONENT_RECONCILIATION_2026-09-09.md"
       ],
       "reopen_triggers": [
+        "MATERIALLY_NEW_QUESTION_NOT_COVERED_BY_PRIOR_REVIEW"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "EP5_BODY_COLLECTION_SIDEWAY_ROUTING_4412_12001",
+      "source_id": "oCcG3dUjrgw",
+      "source_title": "EP.5 วิชาเก็บบอดี้",
+      "topic": "Normal Body Collection route-out versus zone reuse in separate Sideway workflow",
+      "window": "00:44:12-00:44:19; 01:19:37-01:20:01",
+      "reviewed_modalities": [
+        "YOUTUBE_RENDERED_TRANSCRIPT"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Source says not to continue normal Body Collection when the setup has become Sideway. Later Q&A says the zone condition may still be used for a Sideway-style entry, while genuine PA/SIG must be assessed. The statements reconcile as workflow routing versus retained zone/location context.",
+      "residual_unknowns": [
+        "EXACT_BODY_COLLECTION_TO_SIDEWAY_TRANSITION_EVENT",
+        "DETERMINISTIC_SIDEWAY_ENTRY_GEOMETRY",
+        "FALSE_BREAK_BOUNDARY",
+        "CROSS_TF_SIDEWAY_PRIORITY",
+        "BROKER_FEED_ZONE_CONTACT_TOLERANCE"
+      ],
+      "claim_ids": [
+        "BODY_COLLECTION_SIDEWAY_ROUTING",
+        "SIDEWAY_FRAME_SOURCE_METHODS"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "NEW_PRIMARY_SOURCE_EVIDENCE",
+        "CLEARER_SYNCHRONIZED_AUDIO_OR_VISUAL",
+        "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION",
         "MATERIALLY_NEW_QUESTION_NOT_COVERED_BY_PRIOR_REVIEW"
       ],
       "last_reviewed_at": "2026-09-09"
