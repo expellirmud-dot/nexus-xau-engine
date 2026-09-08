@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T04:55:03+07:00",
+  "updated_at": "2026-09-09T05:00:38+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -272,7 +272,7 @@
     },
     {
       "claim_id": "SYSTEM_WIN_RATE",
-      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 now closes semantic Body Collection lifecycle while marking its exact used-transition source-incomplete; closes family-specific signal/knowledge timing while marking exact broker fill source-incomplete; and closes broker-specific literal equality/chart-contact normalization for the verified XAUUSDm Bid/tick grid without adding fuzzy tolerance. Arbitrary Body Collection component merging, unseen two-reference selection, Body Collection candidate priority, structural-zone/cross-TF tolerance, PAT denominator/arithmetic, Sideway/cross-frame deterministic geometry, explicit execution/cost model freezing, production-feed equivalence, and a pristine final holdout remain unresolved.",
+      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 closes semantic Body Collection lifecycle while exact used-transition remains source-incomplete; closes family-specific signal timing while exact broker fill remains source-incomplete; closes literal broker-grid equality/contact for verified XAUUSDm; and now closes the Sideway exit-confirmation shell while exact autonomous frame-complete/false-break/breakout geometry remains source-incomplete. Arbitrary Body Collection component merging, unseen two-reference selection, Body Collection candidate priority, structural-zone/cross-TF tolerance, PAT denominator/arithmetic, Sideway exact frame bounds and cross-frame priority, explicit execution/cost model freezing, production-feed equivalence, and a pristine final holdout remain unresolved.",
       "status": "ACTIVE_BLOCKER_NOT_TESTABLE_WITH_CURRENT_EVIDENCE",
       "engine_permission": "DO_NOT_CLAIM",
       "source_refs": [
@@ -297,7 +297,8 @@
         "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
         "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md",
         "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md",
-        "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md"
+        "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md",
+        "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
         "UNIVERSAL_BODY_COLLECTION_CANDIDATE_PRIORITY_OPEN",
@@ -314,7 +315,8 @@
         "SIDEWAY_ROUTE_SEPARATION_CLOSED_BUT_SIDEWAY_ENTRY_GEOMETRY_OPEN",
         "BODY_COLLECTION_LIFECYCLE_EXACT_TRANSITION_SOURCE_INCOMPLETE_CURRENT_BATCH",
         "EXACT_EXECUTION_FILL_SOURCE_INCOMPLETE_CURRENT_BATCH",
-        "LITERAL_BROKER_GRID_NORMALIZATION_CLOSED_STRUCTURAL_ZONE_TOLERANCE_OPEN"
+        "LITERAL_BROKER_GRID_NORMALIZATION_CLOSED_STRUCTURAL_ZONE_TOLERANCE_OPEN",
+        "SIDEWAY_EXIT_SHELL_CLOSED_EXACT_AUTONOMOUS_GEOMETRY_OPEN"
       ],
       "provenance_note": "EP.4/EP.6 partial-component S/R evidence narrows context but does not supply a complete trade construction or universal Body Collection assembly algorithm. RQ-008 readiness stop remains in force."
     },
@@ -407,12 +409,13 @@
     {
       "claim_id": "SIDEWAY_FRAME_SOURCE_METHODS",
       "canonical_statement": "Current first-party/source video evidence supports multiple Sideway frame representations rather than one universal OHLC formula. A BODY_PRIMARY/body-only preference is explicitly taught in one source; another source uses a body core with optional wick structural layer/envelope because higher-timeframe wicks may encode lower-timeframe body structure. Sideway is dynamic, may expand and contain multiple support/resistance levels, and old resistance/support can role-flip after confirmed exit/retest. Full visible wick extrema and fixed width are not universal boundaries. EP.5 further separates state routing: once a normal Body Collection setup has become Sideway, normal Body Collection entry logic stops, although the structural zone can remain location context for a distinct Sideway workflow.",
-      "status": "ACTIVE_SOURCE_BACKED_MULTI_METHOD_PARTIAL_GEOMETRY",
-      "engine_permission": "RESEARCH_STATE_AND_EXTERNALLY_LABELED_FRAME_METHODS_ONLY",
+      "status": "ACTIVE_SOURCE_BACKED_MULTI_METHOD_EXIT_SHELL_PARTIAL_GEOMETRY",
+      "engine_permission": "RESEARCH_STATE_AND_EXTERNALLY_LABELED_FRAME_METHODS_WITH_EXIT_SHELL_ONLY",
       "source_refs": [
         "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
         "docs/RQ005_SIDEWAY_LIFECYCLE_SOURCE_CLOSURE_2026-09-08.md",
-        "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md"
+        "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
+        "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
         "UNIVERSAL_METHOD_ROUTING_UNRESOLVED",
@@ -420,9 +423,13 @@
         "EXACT_FALSE_BREAK_EXIT_PREDICATE_UNRESOLVED",
         "DO_NOT_SELECT_METHOD_FROM_OUTCOME_PERFORMANCE",
         "EXACT_BODY_COLLECTION_TO_SIDEWAY_HANDOFF_EVENT_OPEN",
-        "SIDEWAY_ENTRY_ALGORITHM_STILL_PARTIAL"
+        "SIDEWAY_ENTRY_ALGORITHM_STILL_PARTIAL",
+        "EXACT_FALSE_BREAK_EXIT_PREDICATE_SOURCE_INCOMPLETE_CURRENT_BATCH",
+        "EXACT_FRAME_COMPLETE_GEOMETRY_SOURCE_INCOMPLETE_CURRENT_BATCH",
+        "INTERNAL_SIG_NOT_AUTOMATIC_EXIT",
+        "WICK_ONLY_EXCURSION_NOT_SUFFICIENT_CLEAN_EXIT_IN_SHOWN_HTF_CASE"
       ],
-      "provenance_note": "RQ-009 synchronized video inspection shows a body/envelope zone with long wicks extending outside the drawn frame, while separate transcript/video source explicitly states body-only preference. Differences are preserved as source methods rather than silently reconciled."
+      "provenance_note": "RQ-009 synchronized video inspection supports BODY_PRIMARY and BODY_CORE+WICK_LAYER source methods. The later exit audit closes only the lifecycle shell: internal SIG is not exit, carrying SIG is known after actual escape, and a shown wick-only excursion returning inside is insufficient clean exit evidence. Universal frame/false-break formulas remain source-incomplete."
     },
     {
       "claim_id": "BODY_COLLECTION_ZONE_ROUTING",
@@ -610,7 +617,8 @@
       "status": "ACTIVE_SOURCE_BACKED_ROUTE_SEPARATION_SIDEWAY_ENTRY_PARTIAL",
       "engine_permission": "RESEARCH_STATE_ROUTING_ONLY_NO_DETERMINISTIC_SIDEWAY_ENTRY",
       "source_refs": [
-        "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md"
+        "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
+        "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md"
       ],
       "risk_flags": [
         "EXACT_SIDEWAY_TRANSITION_EVENT_OPEN",
@@ -619,7 +627,8 @@
         "SIDEWAY_PA_SIG_ELIGIBILITY_OPEN",
         "ZONE_REUSE_AFTER_TOUCH_OPEN",
         "CROSS_TF_SIDEWAY_PRIORITY_OPEN",
-        "DO_NOT_TREAT_ZONE_PRESENCE_AS_ENTRY"
+        "DO_NOT_TREAT_ZONE_PRESENCE_AS_ENTRY",
+        "SIDEWAY_EXIT_SHELL_CLOSED_EXACT_EXIT_GEOMETRY_OPEN"
       ],
       "provenance_note": "Direct EP.5 rendered transcript: ~44:12-44:19 normal Body Collection route-out when setup becomes Sideway; ~1:19:37-1:20:01 zone can still support a separate Sideway entry context, with genuine PA/SIG focus required."
     },
@@ -662,6 +671,27 @@
         "DO_NOT_ADD_OUTCOME_FITTED_TOLERANCE"
       ],
       "provenance_note": "User-direct MT5 runtime metadata and specification screenshot establish the current XAUUSDm tick grid and Bid chart mode. The implementation maps only literal equality/contact to that verified grid; it deliberately excludes fuzzy zone geometry and execution assumptions."
+    },
+    {
+      "claim_id": "SIDEWAY_EXIT_CONFIRMATION_SHELL",
+      "canonical_statement": "Inside an already identified Sideway frame, internal PA/SIG does not by itself terminate Sideway. The source says the carrying SIG cannot be known in advance and becomes identifiable only after price actually escapes the frame. A reviewed higher-timeframe example shows that a wick-only excursion where the body does not follow and price returns inside is insufficient clean exit evidence. Body/frame-standing relation is materially relevant. After an actual break, a pullback/retest can flip old resistance to support or old support to resistance. The current source batch does not define one universal exact OHLC formula for frame completion, valid breakout, false break, confirming candle count, or retest zone tolerance.",
+      "status": "ACTIVE_SOURCE_BACKED_EXIT_SHELL_EXACT_GEOMETRY_SOURCE_INCOMPLETE_CURRENT_BATCH",
+      "engine_permission": "STATE_MACHINE_ON_EXTERNALLY_IDENTIFIED_FRAME_ONLY",
+      "source_refs": [
+        "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md",
+        "docs/RQ005_SIDEWAY_LIFECYCLE_SOURCE_CLOSURE_2026-09-08.md",
+        "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md"
+      ],
+      "risk_flags": [
+        "EXACT_FRAME_BOUNDARIES_OPEN",
+        "EXACT_BODY_CLOSE_OUTSIDE_GEOMETRY_OPEN",
+        "UNIVERSAL_CONFIRMING_CANDLE_COUNT_NOT_PROVEN",
+        "RETEST_ZONE_TOLERANCE_OPEN",
+        "CROSS_TF_FRAME_PRIORITY_OPEN",
+        "SAME_BAR_ORDERING_OPEN_WITHOUT_TICKS",
+        "DO_NOT_FIT_BREAKOUT_THRESHOLD_FROM_OUTCOMES"
+      ],
+      "provenance_note": "Current-batch transcript review across vcdN51_OrPE, ESHDuiVPJow, UV5NijhjfJ8, 16KoS7d-koI and 1E_PYPor1qQ. Source repeatedly separates internal SIG from actual frame escape, demonstrates a wick-only excursion returning inside, and teaches break->retest->role-flip handling. Exact autonomous breakout/false-break geometry remains source-incomplete."
     }
   ]
 }

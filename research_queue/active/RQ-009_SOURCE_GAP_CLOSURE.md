@@ -413,3 +413,22 @@ Implementation: `src/nexus_xau/data/price_grid.py` with `tests/test_price_grid.p
 Decision: `BROKER_TICK_NORMALIZATION_CLOSED_FOR_LITERAL_EQUALITY_CONTACT / ZONE_TOLERANCE_AND_EXECUTION_OPEN`.
 
 Next decision-critical target: deterministic Sideway/structural-zone geometry from source evidence.
+
+## Latest Sideway exit / false-break source-boundary checkpoint
+
+Ref: `docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md`
+
+Current-batch source review closes this lifecycle shell:
+
+```text
+INTERNAL_SIG != SIDEWAY_EXIT
+CARRYING_SIG_ID = identifiable only after actual frame escape
+wick-only excursion + body does not follow + return inside = insufficient clean exit evidence in the shown HTF case
+actual break -> preferred retest -> old boundary role flip
+```
+
+Body/frame-standing relation is source-relevant, but the current batch still does not define one universal exact OHLC formula for `sideway_frame_complete()`, valid breakout, false break, confirming candle count, retest structural tolerance, or cross-timeframe frame priority.
+
+Decision: `EXIT_CONFIRMATION_SHELL_SOURCE_BACKED / EXACT_FALSE_BREAK_AND_FRAME_COMPLETE_GEOMETRY_SOURCE_INCOMPLETE`.
+
+Do not re-scan the same source windows for an exact universal Sideway exit predicate without a reopen trigger. Next decision-critical target is Body Collection candidate/reference selection for unseen configurations.

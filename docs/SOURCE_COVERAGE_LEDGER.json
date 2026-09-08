@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T04:55:03+07:00",
+  "updated_at": "2026-09-09T05:00:38+07:00",
   "purpose": "Durable source-review memory. Records which source windows/topics have already been screened or reviewed, what they established, what remains unresolved, and when a review may be reopened. This ledger prevents future agents from restarting source research from zero.",
   "rules": {
     "closed_windows_are_not_researched_from_zero_without_reopen_trigger": true,
@@ -673,6 +673,41 @@
         "RUNTIME_TICK_SIZE_OR_CHART_MODE_CHANGES",
         "BID_ASK_TICK_DATA_BECOMES_AVAILABLE_FOR_EXECUTION_RESEARCH",
         "NEW_SOURCE_DEFINES_POSITIVE_ZONE_TOLERANCE"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "RQ009_SIDEWAY_EXIT_FALSE_BREAK_CURRENT_BATCH",
+      "source_id": "vcdN51_OrPE+ESHDuiVPJow+UV5NijhjfJ8+16KoS7d-koI+1E_PYPor1qQ",
+      "source_title": "System summary + EP.2 Trend/Frame/SIG + EP.4 M5 brake + EP.6 M1/M5 entry + PA/PAT lesson",
+      "topic": "Sideway exit confirmation, internal SIG, wick-only excursion, false-break boundary",
+      "window": "targeted transcript scan; key windows vcd ~00:58:55-01:01:16 and 01:31:30-01:54:48; EP2 ~01:32:42-01:34:09 and 01:51:08-01:56:53; EP4 Sideway/retest windows",
+      "reviewed_modalities": [
+        "LOCAL_TRANSCRIPTS",
+        "PRIOR_SYNCHRONIZED_VISUAL_CONTEXT"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Internal PA/SIG inside an identified Sideway is not automatically an exit. The carrying SIG is identified after actual frame escape, not before. A reviewed higher-TF example shows wick-only excursion with body not following and return-inside as insufficient clean exit evidence. Break->retest->role-flip is source-backed. Exact universal frame-complete, false-break, breakout body/close, confirming-candle count, retest tolerance and cross-TF priority remain source-incomplete.",
+      "residual_unknowns": [
+        "EXACT_SIDEWAY_FRAME_BOUNDARIES_AND_CANDLE_SELECTION",
+        "EXACT_BODY_CLOSE_OUTSIDE_BREAKOUT_GEOMETRY",
+        "UNIVERSAL_CONFIRMING_CANDLE_COUNT_NOT_ESTABLISHED",
+        "EXACT_RETEST_ZONE_TOLERANCE",
+        "CROSS_TF_SIDEWAY_FRAME_PRIORITY",
+        "SAME_BAR_EVENT_ORDERING_WITHOUT_TICKS"
+      ],
+      "claim_ids": [
+        "SIDEWAY_EXIT_CONFIRMATION_SHELL",
+        "SIDEWAY_FRAME_SOURCE_METHODS"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "NEW_PRIMARY_SOURCE_EVIDENCE",
+        "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION",
+        "SOURCE_OR_TIMESTAMP_MAPPING_ERROR",
+        "NEW_SOURCE_EXPLICITLY_DEFINES_FRAME_COMPLETE_OR_FALSE_BREAK_GEOMETRY"
       ],
       "last_reviewed_at": "2026-09-09"
     }

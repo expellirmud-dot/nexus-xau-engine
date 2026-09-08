@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-09T04:55:03+07:00",
+  "updated_at": "2026-09-09T05:00:38+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY",
+  "completed_checkpoint": "RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -29,6 +29,7 @@
       "docs/CURRENT_RESEARCH_STATE.json",
       "research_queue/QUEUE.json",
       "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
+      "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md",
       "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md",
       "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md",
       "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md",
@@ -106,11 +107,11 @@
     "research_preflight": "PASS"
   },
   "next_steps": [
-    "Continue RQ-009 with deterministic Sideway/structural-zone geometry: exact frame-complete/false-break/entry eligibility where current source evidence can close it; keep BODY_PRIMARY and BODY_CORE+WICK_LAYER source methods separate.",
-    "Use broker tick normalization only for literal equality/contact semantics. Do not use same-tick equality as a substitute for unresolved structural phrases such as close-to-frame, same support zone, or cross-TF aligned area.",
+    "Continue RQ-009 with Body Collection candidate/reference selection for unseen configurations. Preserve multi-candidate output unless current sources explicitly establish a winner/reducer.",
+    "Do not re-open Sideway exact frame-complete/false-break/breakout geometry from the same current batch without new source or direct clarification. The exit shell is source-backed but autonomous geometry remains source-incomplete.",
+    "Keep broker tick normalization limited to literal known-price equality/contact; do not use same-tick logic as a substitute for Sideway structural-zone or retest tolerance.",
     "Do not re-open exact broker fill, Body Collection touched->used lifecycle geometry, or PAT >50% denominator from the same reviewed evidence without a reopen trigger.",
-    "Keep production broker/symbol metadata runtime-verified and keep SYSTEM/PROJECT POINT separate from BROKER POINT/TICK SIZE.",
-    "Do not run/report canonical full-system Win/Loss until source geometry plus explicit execution/cost conventions are frozen and a pristine holdout exists."
+    "Do not run/report canonical full-system Win/Loss until deterministic source geometry plus explicit execution/cost conventions are frozen and a pristine holdout exists."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -213,9 +214,10 @@
     "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md",
     "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md",
     "src/nexus_xau/data/price_grid.py",
-    "tests/test_price_grid.py"
+    "tests/test_price_grid.py",
+    "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md"
   ],
-  "resume_instruction": "After zero-context preflight, resume RQ-009 from the broker/feed normalization checkpoint. Literal equality/contact is normalized for a verified runtime tick grid; generic structural-zone tolerance and actual execution remain open. Next target is Sideway/structural-zone deterministic geometry.",
+  "resume_instruction": "After zero-context preflight, resume RQ-009 from the Sideway exit/false-break source-boundary checkpoint. Do not rescan the same Sideway exit question without new evidence. Next target is Body Collection candidate/reference selection for unseen configurations and whether the current source batch supplies any universal winner/reducer rule.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -738,9 +740,9 @@
     "guard": "Do not run/report a canonical full-system Win/Loss result by filling unresolved fields with analyst-selected thresholds or by relabeling component research statistics."
   },
   "rq009_source_gap_closure": {
-    "status": "ACTIVE_BROKER_NORMALIZATION_CLOSED_SIDEWAY_GEOMETRY_NEXT",
+    "status": "ACTIVE_SIDEWAY_EXIT_SHELL_CLOSED_BODY_COLLECTION_CANDIDATE_PRIORITY_NEXT",
     "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
-    "checkpoint_ref": "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md",
+    "checkpoint_ref": "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md",
     "source_batch": [
       "vcdN51_OrPE",
       "1E_PYPor1qQ",
@@ -803,7 +805,8 @@
       "The apparent conflict is resolved by separating structural zone memory from market-state-specific entry workflow.",
       "Targeted current-batch lifecycle scan establishes a durable negative/source-incomplete result: no universal OHLC event is taught for Body Collection TOUCHED/REVALIDATED -> COLLECTED/USED, and no exact post-touch S/R revalidation predicate is taught. Semantic lifecycle remains valid; machine transition requires new source.",
       "Current source batch closes family-specific signal knowledge timing but not one universal exact broker fill: SIG Mode1 is intrabar/forming-candle, Mode2 uses the following candle after point-check confirmation, M5 Entry2 becomes signal-ready only after closed confirmation, and EP5 lower-TF execution requires PA/brake confirmation. Exact fill price and universal structural tick tolerance remain source-incomplete/implementation-layer decisions.",
-      "Broker-specific implementation normalization is now closed for literal equality/contact: on a verified runtime tick grid, same-price means same integer tick and Bid-bar contact means normalized Low<=level<=High, with no positive fuzzy tolerance. For captured Exness-MT5Trial6 XAUUSDm, trade_tick_size=0.001 and chart mode=Bid. This does not close structural zone tolerance or actual order fill."
+      "Broker-specific implementation normalization is now closed for literal equality/contact: on a verified runtime tick grid, same-price means same integer tick and Bid-bar contact means normalized Low<=level<=High, with no positive fuzzy tolerance. For captured Exness-MT5Trial6 XAUUSDm, trade_tick_size=0.001 and chart mode=Bid. This does not close structural zone tolerance or actual order fill.",
+      "Sideway exit confirmation shell is source-backed: internal SIG is not exit; carrying SIG becomes identifiable only after actual frame escape; a shown higher-TF wick-only excursion with body not following and return inside is insufficient clean exit evidence; break->retest->role flip is source-backed. Exact universal frame-complete/false-break/breakout OHLC geometry remains source-incomplete in the current batch."
     ],
     "still_open": [
       "Exact PAT2/PAT3 >50% denominator/arithmetic remains source-unresolved; broker tick-grid normalization is available for literal price equality but does not choose the denominator or computed-midpoint convention.",
@@ -813,10 +816,10 @@
       "Universal support/resistance certification geometry, structural zone tolerance, and universal wick selection remain open; literal component same-price equality is broker-grid normalized but must not be substituted for zone geometry.",
       "Exact OHLC transition from touched/revalidated zone to completed/used Body Collection and exact post-touch S/R revalidation are SOURCE_INCOMPLETE_IN_CURRENT_BATCH; new primary source/clarification is required rather than further same-batch scanning.",
       "Exact universal broker fill price and universal structural point/tick tolerance are SOURCE_INCOMPLETE_IN_CURRENT_BATCH; explicit execution/broker normalization conventions are required and must remain labeled implementation assumptions.",
-      "Exact Body Collection-to-Sideway transition geometry, Sideway frame-complete/false-break detector, and deterministic Sideway entry eligibility remain open despite route separation.",
+      "Sideway exit shell is source-backed, but exact autonomous frame bounds, frame-complete, false-break/breakout body-close geometry, retest tolerance and cross-TF priority are SOURCE_INCOMPLETE_IN_CURRENT_BATCH; new source/clarification is required for a deterministic universal predicate.",
       "Cross-timeframe/source-frame priority where multiple location/Sideway/Body Collection structures coexist."
     ],
-    "proof_readiness": "LITERAL_PRICE_GRID_NORMALIZATION_CLOSED_STRUCTURAL_ZONE_SIDEWAY_GEOMETRY_PRIORITY_EXECUTION_MODEL_AND_HOLDOUT_OPEN",
+    "proof_readiness": "SIDEWAY_EXIT_SHELL_CLOSED_EXACT_AUTONOMOUS_GEOMETRY_SOURCE_INCOMPLETE_BODY_COLLECTION_CANDIDATE_PRIORITY_EXECUTION_MODEL_AND_HOLDOUT_OPEN",
     "body_collection_audit_ref": "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
     "sideway_audit_ref": "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
     "external_source_target": {
@@ -861,7 +864,8 @@
     "body_collection_sideway_routing_ref": "docs/RQ009_EP5_BODY_COLLECTION_SIDEWAY_ROUTING_RECONCILIATION_2026-09-09.md",
     "body_collection_lifecycle_geometry_source_exhaustion_ref": "docs/RQ009_BODY_COLLECTION_LIFECYCLE_GEOMETRY_SOURCE_EXHAUSTION_2026-09-09.md",
     "execution_fill_source_boundary_ref": "docs/RQ009_EXECUTION_FILL_SOURCE_BOUNDARY_2026-09-09.md",
-    "broker_feed_normalization_ref": "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md"
+    "broker_feed_normalization_ref": "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md",
+    "sideway_exit_false_break_source_boundary_ref": "docs/RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09.md"
   },
   "agent_bootstrap": {
     "entrypoint": "AGENTS.md",
@@ -886,5 +890,5 @@
     "coverage_scope": "PARTIAL_SEED_RQ009_CURRENT_RESEARCH_WINDOWS",
     "coverage_backfill_guard": "Do not infer missing historical coverage metadata; backfill only from preserved evidence."
   },
-  "maintenance_checkpoint": "RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09"
+  "maintenance_checkpoint": "RQ009_SIDEWAY_EXIT_FALSE_BREAK_SOURCE_BOUNDARY_2026-09-09"
 }
