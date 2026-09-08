@@ -1,7 +1,7 @@
 # RQ-001 — Post-SIG lifecycle after reference destruction
 
-Status: ACTIVE
-Priority: HIGHEST CURRENT DECISION-CRITICAL QUESTION
+Status: CLOSED / SOURCE_SUPPORTS_OTHER_EXPLICIT_LIFECYCLE
+Priority: CLOSED CHECKPOINT
 Method: SOURCE-FIRST / VISUAL-FIRST / TARGETED-COMPUTATION-ONLY-IF-NEEDED
 
 ## Exact question
@@ -170,3 +170,10 @@ Closure must include:
 ## Current next action
 
 Build the transcript timestamp map for the five local videos, beginning with `ESHDuiVPJow` and `vcdN51_OrPE`, then inspect synchronized visual windows around the strongest lifecycle passages before running any new broad historical experiment.
+
+
+## Closure result
+
+Closed as `SOURCE_SUPPORTS_OTHER_EXPLICIT_LIFECYCLE`. The source supports per-SIG / multi-instance lifecycle state rather than one global origin slot. A destroyed SIG instance stops/not-counts; other independently valid references may remain; newly confirmed SIGs create new instances; run completion is a separate terminal condition. Automatic same-timeframe newest-to-older fallback remains unresolved and must not be treated as canonical.
+
+Primary closure: `docs/POST_SIG_LIFECYCLE_SOURCE_VISUAL_CLOSURE_2026-09-08.md`

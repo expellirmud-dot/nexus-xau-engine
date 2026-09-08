@@ -28,6 +28,10 @@ Primary script:
 
 `D:\tools\nexus-video-evidence\extract_frames.py`
 
+Reusable transcript context helper:
+
+`D:\tools\nexus-video-evidence\extract_transcript_context.py`
+
 Documentation:
 
 `D:\tools\nexus-video-evidence\README-TH.txt`

@@ -1,6 +1,6 @@
 # RQ-002 — PAT2/PAT3 exact geometry and 50% measurement basis
 
-Status: QUEUED
+Status: ACTIVE
 
 ## Why this matters
 
@@ -20,3 +20,7 @@ Review local PAT/system-summary videos and synchronized chart windows first. Sep
 ## Done when
 
 The source-backed measurable geometry is closed, conditionally parameterized, or explicitly left inconclusive with exact missing evidence named.
+
+## Current first action
+
+Build a source timestamp map from the PAT1/P1 lesson and system-summary video for every explicit PAT2/PAT3 50% statement, then inspect synchronized visual frames at those timestamps. Close the measurement basis from source if possible before running any historical geometry variants.

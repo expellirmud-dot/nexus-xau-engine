@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-08T21:46:00+07:00",
+  "updated_at": "2026-09-08T23:06:00+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -113,14 +113,16 @@
     },
     {
       "claim_id": "POST_SIG_INVALIDATION",
-      "canonical_statement": "A post-SIG reference that disturbs/exceeds the PA invalidates the old setup and triggers re-evaluation/new-PA handling; exact numeric predicate is not fully closed.",
+      "canonical_statement": "Destroying a post-SIG reference invalidates/stops that SIG setup instance and triggers re-evaluation/new-PA/SIG handling; the destruction is local to that identified SIG instance rather than proof of a global reset of every other valid reference. Exact numeric destruction geometry remains unresolved.",
       "status": "ACTIVE_PARTIAL",
       "engine_permission": "SAFE_PARTIAL_REJECT_ONLY",
       "source_refs": [
-        "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md"
+        "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md",
+        "docs/POST_SIG_LIFECYCLE_SOURCE_VISUAL_CLOSURE_2026-09-08.md"
       ],
       "risk_flags": [
-        "EXACT_GEOMETRY_UNRESOLVED"
+        "EXACT_GEOMETRY_UNRESOLVED",
+        "SAME_TF_OLDER_ORIGIN_PRIORITY_UNRESOLVED"
       ]
     },
     {
@@ -276,6 +278,22 @@
         "AUDIO_VIDEO_CROSSCHECK_IF_ALGORITHMIC_BOUNDARY_MATERIAL"
       ],
       "provenance_note": "Project-owner direct clarification about YouTube ASR formatting of Thai spoken time. This normalizes speech representation, not universal timezone attribution."
+    },
+    {
+      "claim_id": "POST_SIG_LIFECYCLE_MULTI_INSTANCE",
+      "canonical_statement": "SIG/post-SIG references are tracked as individual lifecycle instances. A destroyed instance stops/not-counts; other independently valid instances may remain active, and a newly confirmed PA/SIG creates a new instance. A completed run objective independently closes further measurement even if its post-SIG reference survives. The source does not yet establish a universal same-timeframe chronological fallback from a destroyed newer instance to an older surviving instance.",
+      "status": "ACTIVE_SOURCE_BACKED_LIFECYCLE_PARTIAL",
+      "engine_permission": "CANONICAL_STATE_MACHINE_SEMANTICS_WITH_OPEN_PRIORITY_RULE",
+      "source_refs": [
+        "docs/POST_SIG_LIFECYCLE_SOURCE_VISUAL_CLOSURE_2026-09-08.md",
+        "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md"
+      ],
+      "risk_flags": [
+        "EXACT_DESTRUCTION_GEOMETRY_UNRESOLVED",
+        "SAME_TF_OLDER_ORIGIN_PRIORITY_UNRESOLVED",
+        "MULTI_TF_CONFLICT_PRIORITY_UNRESOLVED"
+      ],
+      "provenance_note": "Source+visual review of vcdN51_OrPE, 1E_PYPor1qQ and ESHDuiVPJow. Direct wording includes SIG stops/not-counted after destruction, other surviving wick/reference context, new/latest SIG handling, overlapping SIGs, and run-completion closure."
     }
   ]
 }
