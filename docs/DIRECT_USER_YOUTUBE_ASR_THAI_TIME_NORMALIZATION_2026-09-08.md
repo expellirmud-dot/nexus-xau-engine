@@ -76,3 +76,15 @@ Existing project-specific timezone mappings, such as owner-confirmed ordinary Th
 Transcript extraction should no longer treat formatted time strings as verbatim spoken clock notation. Numeric time tokens are high-risk ASR normalization points and should retain both the raw representation and the interpreted Thai spoken-time layer.
 
 This is especially important for research around `07:00`, `19:00`, `23:00`, `24:00`, session/cutoff windows, candle inclusion, and date-boundary logic.
+
+## Additional direct clarification — critical 07:00 mapping
+
+Project owner explicitly clarified that the important teaching time expression:
+
+```text
+7 โมงเช้า = 07:00
+```
+
+For transcript normalization, `7 โมงเช้า`, `7:00`, and `07:00` should therefore be treated as the same local clock expression when the surrounding teaching context is the same. Preserve the raw YouTube ASR token separately from this normalized interpretation.
+
+This clarification strengthens the existing Mae Pla 07:00 research-time mapping but does not change the separate rule that timezone attribution must remain traceable to its own source evidence.
