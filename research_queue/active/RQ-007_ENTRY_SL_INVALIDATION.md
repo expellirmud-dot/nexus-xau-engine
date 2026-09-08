@@ -1,6 +1,6 @@
 # RQ-007 — Entry, SL, and invalidation geometry
 
-Status: QUEUED
+Status: ACTIVE
 
 ## Why this matters
 
@@ -17,3 +17,7 @@ Review entry-focused source videos and visual examples first. Separate example-s
 ## Done when
 
 Entry, SL, and invalidation are measurable enough to define a complete trade outcome, or the remaining gaps are explicitly blocked/inconclusive.
+
+## Current first action
+
+Consolidate entry and invalidation evidence by setup family. Do not collapse `FRAME_BRAKE_ENTRY` and `SIG_ENTRY`, and do not universalize example-specific 50/100/150/200/300-point SL values. Determine whether any complete source-backed trade definition is ready for outcome proof.

@@ -1,17 +1,16 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-08T23:42:00+07:00",
+  "updated_at": "2026-09-08T23:47:00+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
   "active": {
-    "id": "RQ-006",
-    "title": "Por Chon remaining boundary and old-frame lifecycle details",
-    "worksheet": "research_queue/active/RQ-006_POR_CHON_BOUNDARY_LIFECYCLE.md",
+    "id": "RQ-007",
+    "title": "Entry, SL, and invalidation geometry",
+    "worksheet": "research_queue/active/RQ-007_ENTRY_SL_INVALIDATION.md",
     "status": "ACTIVE"
   },
   "priority_order": [
-    "RQ-006",
     "RQ-007",
     "RQ-008"
   ],
@@ -105,19 +104,21 @@
       "id": "RQ-006",
       "title": "Por Chon remaining boundary and old-frame lifecycle details",
       "type": "RESEARCH",
-      "status": "ACTIVE",
+      "status": "CLOSED_SOURCE_BACKED_CORE_BOUNDARY_PARTIAL_LIFECYCLE",
       "why_now": "Core 19:00 cutoff and >1000 high-selection semantics are source-backed, but exact H4 inclusion, equality/tie handling, and old-frame retirement remain open. These should be closed before using Por Chon as a deterministic production frame state.",
       "depends_on": [],
       "blocks": [
         "fully deterministic Por Chon replay"
       ],
-      "worksheet": "research_queue/active/RQ-006_POR_CHON_BOUNDARY_LIFECYCLE.md"
+      "worksheet": "research_queue/closed/RQ-006_POR_CHON_BOUNDARY_LIFECYCLE.md",
+      "closure_ref": "docs/RQ006_POR_CHON_BOUNDARY_LIFECYCLE_SOURCE_CLOSURE_2026-09-08.md",
+      "closure_summary": "Daily 19:00 cutoff, highest fully-known pre-cutoff H4 high, strict >1000 new-frame condition and persistence of older Por Chon frame instances are source-backed; exact bar-label inclusion, ties, retirement priority and body-standing geometry remain partial."
     },
     {
       "id": "RQ-007",
       "title": "Entry, SL, and invalidation geometry",
       "type": "RESEARCH",
-      "status": "QUEUED",
+      "status": "ACTIVE",
       "why_now": "Entry/SL proof should be downstream of setup, state, and location semantics. Current evidence includes example-specific relations but not a complete universal execution rule.",
       "depends_on": [
         "RQ-001",
@@ -130,7 +131,7 @@
         "full trade definition",
         "system Win/Loss proof"
       ],
-      "worksheet": "research_queue/queued/RQ-007_ENTRY_SL_INVALIDATION.md"
+      "worksheet": "research_queue/active/RQ-007_ENTRY_SL_INVALIDATION.md"
     },
     {
       "id": "RQ-008",

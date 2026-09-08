@@ -1,6 +1,6 @@
 # RQ-006 — Por Chon remaining boundary and old-frame lifecycle details
 
-Status: ACTIVE
+Status: CLOSED / SOURCE_BACKED_CORE_BOUNDARY_PARTIAL_LIFECYCLE
 
 ## Why this matters
 
@@ -17,3 +17,7 @@ The remaining boundary/lifecycle details are deterministic enough for replay, or
 ## Current first action
 
 Use `POR_CHON_1900_TRANSCRIPT_CLOSURE_2026-09-03.md` and `POR_CHON_VISUAL_STANDING_FRAME_EVIDENCE_2026-09-03.md` to close strict cutoff/high-selection/persistence facts and isolate remaining one-bar/tie/retirement ambiguities.
+
+## Closure — 2026-09-08
+
+See `docs/RQ006_POR_CHON_BOUNDARY_LIFECYCLE_SOURCE_CLOSURE_2026-09-08.md`. Core cutoff/high-selection/new-frame/persistence semantics are source-backed; bar-boundary, priority and standing geometry remain partial.
