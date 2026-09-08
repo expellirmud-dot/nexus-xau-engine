@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-09T02:44:41+07:00",
+  "updated_at": "2026-09-09T03:18:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
   "completed_checkpoint": "RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION",
@@ -21,6 +21,9 @@
     "canonical_claim_index": "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
     "operating_rule": "Continue bounded independent research without repeated user interruption; ask only for material ambiguity that cannot be resolved from existing evidence.",
     "load_order": [
+      "PROJECT_BOOTSTRAP.md",
+      "skills/nexus-xau-research/SKILL.md",
+      "docs/SOURCE_COVERAGE_LEDGER.json",
       "docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md",
       "TOOLS.md",
       "docs/CURRENT_RESEARCH_STATE.json",
@@ -98,7 +101,8 @@
     "ruff_current": "All checks passed",
     "current_checkpoint_json_validation": "PASSED",
     "provenance_guard": "extended with lifecycle and ASR/STT risk gates",
-    "repository_maintenance_policy": "active"
+    "repository_maintenance_policy": "active",
+    "research_preflight": "PASS"
   },
   "next_steps": [
     "Continue RQ-009 source-first with hierarchical component provenance: same-TF first, then sequential fallback may complete missing aligned components across H4->H1->M30 in the shown workflow.",
@@ -194,9 +198,15 @@
     "docs/RQ009_EP5_BODY_COLLECTION_COMPONENT_ASSEMBLY_REPEATED_PATTERN_2026-09-09.md",
     "docs/RQ009_EP5_COMPONENT_DEFINITION_SOURCE_RECONCILIATION_2026-09-09.md",
     "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md",
-    "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md"
+    "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md",
+    "AGENTS.md",
+    "PROJECT_BOOTSTRAP.md",
+    "skills/nexus-xau-research/SKILL.md",
+    "docs/SOURCE_COVERAGE_LEDGER.json",
+    "scripts/research_preflight.py",
+    "docs/AGENT_ZERO_CONTEXT_BOOTSTRAP_2026-09-09.md"
   ],
-  "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> active RQ-009 worksheet -> canonical claim register -> latest EP5 cross-TF component-completion checkpoint -> two-reference rationale -> component-definition reconciliation -> prior visual/lifecycle/search closures. Preserve per-component timeframe provenance; do not invent cross-TF alignment tolerance, reference selection, candidate priority, PAT denominator, fill, touch count, or age expiry from outcomes.",
+  "resume_instruction": "Read AGENTS.md -> PROJECT_BOOTSTRAP.md -> skills/nexus-xau-research/SKILL.md -> run research_preflight.py and require PASS -> read Maintenance Policy -> TOOLS -> CURRENT_RESEARCH_STATE -> CANONICAL_CLAIM_REGISTER -> SOURCE_COVERAGE_LEDGER -> QUEUE -> active worksheet -> latest checkpoint. Check coverage before reopening any source window. Continue RQ-009 from exact cross-TF alignment/two-reference selection blockers; never invent tolerances, priority, PAT denominator, fill, touch count, age expiry, or system performance from outcomes.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -825,5 +835,29 @@
     "component_definition_reconciliation_ref": "docs/RQ009_EP5_COMPONENT_DEFINITION_SOURCE_RECONCILIATION_2026-09-09.md",
     "two_reference_method_rationale_ref": "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md",
     "cross_tf_component_completion_ref": "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md"
-  }
+  },
+  "agent_bootstrap": {
+    "entrypoint": "AGENTS.md",
+    "bootstrap_doc": "PROJECT_BOOTSTRAP.md",
+    "research_skill": "skills/nexus-xau-research/SKILL.md",
+    "coverage_ledger": "docs/SOURCE_COVERAGE_LEDGER.json",
+    "preflight_script": "scripts/research_preflight.py",
+    "preflight_command_windows": ".venv\\Scripts\\python.exe scripts\\research_preflight.py",
+    "required_before_new_substantive_work": true,
+    "preflight_status": "VALIDATED_PASS",
+    "comprehension_gate": [
+      "active RQ and worksheet",
+      "latest checkpoint",
+      "relevant canonical facts",
+      "residual unresolved blockers",
+      "already-reviewed source windows",
+      "superseded/reconciled findings",
+      "full-system claim permission"
+    ],
+    "validated_at": "2026-09-09T03:18:00+07:00",
+    "checkpoint_ref": "docs/AGENT_ZERO_CONTEXT_BOOTSTRAP_2026-09-09.md",
+    "coverage_scope": "PARTIAL_SEED_RQ009_CURRENT_RESEARCH_WINDOWS",
+    "coverage_backfill_guard": "Do not infer missing historical coverage metadata; backfill only from preserved evidence."
+  },
+  "maintenance_checkpoint": "AGENT_ZERO_CONTEXT_BOOTSTRAP_2026-09-09"
 }

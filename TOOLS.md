@@ -140,6 +140,25 @@ Local helper/fallback experiments live under:
 
 This helper directory is NOT the canonical browser engine. Reuse `agent-browser` first and only extend helpers for bounded evidence capture/encoding needs.
 
+### Repository Research Preflight
+
+Canonical path:
+
+`D:\nexus-xau-engine-repo\scripts\research_preflight.py`
+
+Purpose:
+
+- validate the restart-safe core file set;
+- resolve the active RQ worksheet and latest checkpoint dynamically;
+- summarize canonical/coverage counts and blocked claims;
+- emit a SHA-256-prefixed required-read manifest for a zero-context agent.
+
+Run from repository root:
+
+`.venv\Scripts\python.exe scripts\research_preflight.py`
+
+A PASS is required by `AGENTS.md` before new substantive research. The script does not replace actually reading the files; it is the deterministic gate/discovery layer.
+
 ## Local source vault
 
 Path:

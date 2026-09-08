@@ -99,4 +99,6 @@ When a user clarification corrects an earlier STT interpretation, preserve the c
 
 ## Resume rule
 
-On a resumed session, read this policy together with `TOOLS.md`, `docs/CURRENT_RESEARCH_STATE.json`, `research_queue/QUEUE.json`, the active worksheet, and the latest checkpoint before continuing. If validated work from the prior session is still uncommitted/unpushed, complete repository maintenance before starting a new unrelated checkpoint when practical.
+On a resumed or zero-context session, start from root `AGENTS.md` and `PROJECT_BOOTSTRAP.md`, read `skills/nexus-xau-research/SKILL.md`, and run `.venv\Scripts\python.exe scripts\research_preflight.py`. Require a PASS before new substantive work. Then read this policy together with `TOOLS.md`, `docs/CURRENT_RESEARCH_STATE.json`, `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json`, `docs/SOURCE_COVERAGE_LEDGER.json`, `research_queue/QUEUE.json`, the active worksheet, and the latest checkpoint.
+
+The source coverage ledger is durable memory of what has already been reviewed. A closed or unresolved source window must not be re-researched from zero without a documented reopen trigger. If validated work from the prior session is still uncommitted/unpushed, complete repository maintenance before starting a new unrelated checkpoint when practical.

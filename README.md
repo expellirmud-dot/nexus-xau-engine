@@ -1,5 +1,9 @@
 # NEXUS XAU Engine
 
+## AI / agent entry point
+
+A zero-context agent must start with `AGENTS.md` and `PROJECT_BOOTSTRAP.md`, then run `.venv\Scripts\python.exe scripts\research_preflight.py` before new substantive work. Current knowledge lives in the canonical claim register; reviewed source windows live in `docs/SOURCE_COVERAGE_LEDGER.json`.
+
 Research-first reverse engineering of the Mae Pla Green Pen trading framework for XAUUSD on MetaTrader 5 / Exness.
 
 ## Purpose

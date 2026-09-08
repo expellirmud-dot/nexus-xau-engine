@@ -6,17 +6,20 @@ This repository is a durable evidence-first research record. Agents must preserv
 
 ## 1. Mandatory session bootstrap
 
-Before starting new research, coding, backtesting, source review, or rule interpretation, load the project state in this order:
+Before starting new research, coding, backtesting, source review, or rule interpretation, use the zero-context entry path in this order:
 
-1. `docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md`
-2. `TOOLS.md`
-3. `docs/CURRENT_RESEARCH_STATE.json`
-4. `research_queue/QUEUE.json`
-5. the active worksheet referenced by `research_queue/QUEUE.json -> active.worksheet`
-6. `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json`
-7. the latest checkpoint referenced by the active queue/current-state checkpoint fields
-8. any additional latest source/checkpoint files listed in `docs/CURRENT_RESEARCH_STATE.json -> research_loop.load_order`
-9. if `docs/SOURCE_COVERAGE_LEDGER.json` exists, load it before opening or re-reviewing any source window
+1. `PROJECT_BOOTSTRAP.md`
+2. `skills/nexus-xau-research/SKILL.md`
+3. run `.venv\Scripts\python.exe scripts\research_preflight.py` and require `NEXUS_RESEARCH_PREFLIGHT=PASS`;
+4. `docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md`
+5. `TOOLS.md`
+6. `docs/CURRENT_RESEARCH_STATE.json`
+7. `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json`
+8. `docs/SOURCE_COVERAGE_LEDGER.json`
+9. `research_queue/QUEUE.json`
+10. the active worksheet referenced by `research_queue/QUEUE.json -> active.worksheet`
+11. the latest checkpoint referenced by the active queue/current-state checkpoint fields
+12. any additional latest source/checkpoint files listed in `docs/CURRENT_RESEARCH_STATE.json -> research_loop.load_order`
 
 Do not begin a new source investigation until the mandatory state above has been loaded sufficiently to answer:
 
@@ -26,7 +29,9 @@ Do not begin a new source investigation until the mandatory state above has been
 - Which prior findings were superseded or narrowed?
 - Which source windows/checks have already been reviewed?
 
-If any mandatory file is missing, record the missing file explicitly. Do not silently substitute memory or general knowledge.
+If preflight fails or any mandatory file is missing, record the blocker explicitly and do not begin new substantive work. Do not silently substitute conversational memory or general knowledge.
+
+The preflight manifest is a discovery/gating aid, not proof that the files were cognitively read. The agent must still read the relevant files and pass the comprehension check in `PROJECT_BOOTSTRAP.md`.
 
 ## 2. Current authority hierarchy
 
@@ -50,7 +55,7 @@ Before re-opening a video, transcript, timestamp window, formula, or historical 
 1. check `CURRENT_RESEARCH_STATE`;
 2. check the canonical claim register;
 3. check the active RQ worksheet and its checkpoint references;
-4. if present, check `SOURCE_COVERAGE_LEDGER`.
+4. check `SOURCE_COVERAGE_LEDGER`.
 
 If a question/window is already source-closed, reuse that finding unless a valid reopen trigger exists.
 
@@ -126,7 +131,7 @@ After each coherent closure:
 2. update the canonical claim register if current authority changed;
 3. update `CURRENT_RESEARCH_STATE.json`;
 4. update `research_queue/QUEUE.json` and the active worksheet;
-5. update `SOURCE_COVERAGE_LEDGER` when that file exists and the source coverage changed;
+5. update `SOURCE_COVERAGE_LEDGER` whenever the source coverage changed;
 6. validate structured files;
 7. commit and push the coherent checkpoint.
 
@@ -183,6 +188,6 @@ A new agent/session must continue from the repository state, not from conversati
 
 Minimum restart invariant:
 
-`AGENTS.md -> Maintenance Policy -> TOOLS -> Current State -> Queue -> Active RQ -> Canonical Claims -> Latest Checkpoint -> Source Coverage (when available)`
+`AGENTS.md -> PROJECT_BOOTSTRAP.md -> nexus-xau-research SKILL -> preflight PASS -> Maintenance Policy -> TOOLS -> Current State -> Canonical Claims -> Source Coverage -> Queue -> Active RQ -> Latest Checkpoint`
 
 Only after this chain is loaded should new research begin.

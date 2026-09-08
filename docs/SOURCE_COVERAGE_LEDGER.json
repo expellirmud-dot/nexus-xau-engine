@@ -1,0 +1,431 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-09T03:18:00+07:00",
+  "purpose": "Durable source-review memory. Records which source windows/topics have already been screened or reviewed, what they established, what remains unresolved, and when a review may be reopened. This ledger prevents future agents from restarting source research from zero.",
+  "rules": {
+    "closed_windows_are_not_researched_from_zero_without_reopen_trigger": true,
+    "unresolved_or_inconclusive_is_durable_knowledge": true,
+    "coverage_status_does_not_itself_make_a_claim_canonical": true,
+    "canonical_authority_remains_in_canonical_claim_register": true,
+    "raw_media_remains_local_and_gitignored": true,
+    "outcomes_cannot_upgrade_source_coverage_to_source_truth": true
+  },
+  "status_values": [
+    "UNSEEN",
+    "SCREENED",
+    "REVIEWED",
+    "SOURCE_CLOSED",
+    "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+    "REVIEWED_UNRESOLVED",
+    "REOPENED",
+    "SUPERSEDED"
+  ],
+  "default_reopen_triggers": [
+    "NEW_PRIMARY_SOURCE_EVIDENCE",
+    "CLEARER_SYNCHRONIZED_AUDIO_OR_VISUAL",
+    "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION",
+    "CONTRADICTION_WITH_CURRENT_CANONICAL_CLAIM",
+    "SOURCE_OR_TIMESTAMP_MAPPING_ERROR",
+    "MATERIALLY_NEW_QUESTION_NOT_COVERED_BY_PRIOR_REVIEW"
+  ],
+  "entries": [
+    {
+      "coverage_id": "EP5_COMPONENT_DEFINITION_2033_3632",
+      "source_id": "oCcG3dUjrgw",
+      "source_title": "EP.5 วิชาเก็บบอดี้",
+      "topic": "Body Collection component definitions: ซอก / ไส้ / คู่",
+      "window": "00:20:33-00:36:32",
+      "reviewed_modalities": [
+        "YOUTUBE_RENDERED_TRANSCRIPT",
+        "ORIGINAL_YOUTUBE_VISUAL"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Source defines the shown ซอก as a same-color close/open price joint, คู่ as an opposite-color support/resistance pair with an equal/aligned open-close equilibrium reference while residual body extension may differ, and ไส้ as completed-candle wick structure. The taught Body Collection construction requires ซอก + ไส้ + คู่.",
+      "residual_unknowns": [
+        "BROKER_FEED_EQUALITY_NORMALIZATION",
+        "UNIVERSAL_SUPPORT_RESISTANCE_CERTIFICATION_FOR_ALL_PAIR_CANDIDATES",
+        "UNIVERSAL_WICK_SELECTION_WHEN_MULTIPLE_WICKS_QUALIFY"
+      ],
+      "claim_ids": [
+        "BODY_COLLECTION_COMPONENT_GEOMETRY"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_EP5_COMPONENT_DEFINITION_SOURCE_RECONCILIATION_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "CLEARER_SYNCHRONIZED_AUDIO_OR_VISUAL",
+        "CONTRADICTION_WITH_CURRENT_CANONICAL_CLAIM",
+        "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "EP5_TWO_REFERENCE_RATIONALE_4042_4804",
+      "source_id": "oCcG3dUjrgw",
+      "source_title": "EP.5 วิชาเก็บบอดี้",
+      "topic": "Why current Body Collection uses two forecast references instead of older three-part placement",
+      "window": "00:40:42-00:48:04",
+      "reviewed_modalities": [
+        "YOUTUBE_RENDERED_TRANSCRIPT",
+        "ORIGINAL_YOUTUBE_VISUAL_AT_00:46:48"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Source explicitly contrasts the current two-reference Body Collection method with an older generic head/middle/tail three-part placement. The current method is anchored to historical ซอก/ไส้/คู่ structure; reviewed source does not state a generic arithmetic three-component-price to two-reference transform. The later-reviewed 00:46:48 visual shows the three-horizontal-level versus two-horizontal-level comparison but does not establish an exact universal selection formula.",
+      "residual_unknowns": [
+        "EXACT_TWO_REFERENCE_SELECTION_WHEN_MULTIPLE_VALID_COMPONENT_PRICES_COEXIST"
+      ],
+      "claim_ids": [
+        "BODY_COLLECTION_COMPONENT_GEOMETRY"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "NEW_PRIMARY_SOURCE_EVIDENCE",
+        "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION",
+        "MATERIALLY_NEW_QUESTION_NOT_COVERED_BY_PRIOR_REVIEW"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "EP5_WORKED_SELL_ASSEMBLY_4944_5127",
+      "source_id": "oCcG3dUjrgw",
+      "source_title": "EP.5 วิชาเก็บบอดี้",
+      "topic": "Worked PA Sell Body Collection assembly and two forecast references",
+      "window": "00:49:44-00:51:27",
+      "reviewed_modalities": [
+        "YOUTUBE_RENDERED_TRANSCRIPT",
+        "ORIGINAL_YOUTUBE_VISUAL"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "In the reviewed PA Sell worked example, ซอก and คู่ share the upper shown reference around 3563.59 and a distinct wick-derived reference is around 3560.31, producing the demonstrated forecast area. This is shown-example geometry only and is not a universal assembly law.",
+      "residual_unknowns": [
+        "EXACT_TWO_REFERENCE_SELECTION_FOR_UNSEEN_CONFIGURATION",
+        "UNIVERSAL_COMPONENT_ASSEMBLY"
+      ],
+      "claim_ids": [
+        "BODY_COLLECTION_COMPONENT_GEOMETRY"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md",
+        "docs/RQ009_EP5_BODY_COLLECTION_COMPONENT_ASSEMBLY_REPEATED_PATTERN_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "NEW_PRIMARY_SOURCE_EVIDENCE",
+        "CONTRADICTION_WITH_CURRENT_CANONICAL_CLAIM"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "EP5_LOWER_TF_ENTRY_EXAMPLE_5635_5943",
+      "source_id": "oCcG3dUjrgw",
+      "source_title": "EP.5 วิชาเก็บบอดี้",
+      "topic": "Body Collection zone arrival plus M1/M5 PA/brake confirmation",
+      "window": "00:56:35-00:59:43",
+      "reviewed_modalities": [
+        "YOUTUBE_RENDERED_TRANSCRIPT",
+        "ORIGINAL_YOUTUBE_VISUAL"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Reviewed source supports zone-first confirmation rather than touch-and-enter: lower-timeframe PA/brake structure is required in the shown setup. The visual supports failure to make a higher high plus PA Sell/engulfing structure before continuation.",
+      "residual_unknowns": [
+        "EXACT_BROKER_FILL_PRICE",
+        "UNIVERSAL_LOWER_TF_BRAKE_NUMERIC_GEOMETRY"
+      ],
+      "claim_ids": [],
+      "checkpoint_refs": [
+        "docs/RQ009_EP5_BODY_COLLECTION_VISUAL_GEOMETRY_CLOSURE_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "CLEARER_SYNCHRONIZED_AUDIO_OR_VISUAL",
+        "MATERIALLY_NEW_QUESTION_NOT_COVERED_BY_PRIOR_REVIEW"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "EP5_CROSS_TF_COMPLETION_10143_10253",
+      "source_id": "oCcG3dUjrgw",
+      "source_title": "EP.5 วิชาเก็บบอดี้",
+      "topic": "Hierarchical cross-timeframe completion of ซอก + ไส้ + คู่",
+      "window": "01:01:43-01:02:53",
+      "reviewed_modalities": [
+        "YOUTUBE_RENDERED_TRANSCRIPT",
+        "ORIGINAL_YOUTUBE_VISUAL"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Source directly demonstrates H4 incomplete -> H1 supplies ซอก + ไส้ -> M30 supplies an aligned คู่ -> completed Body Collection zone. Same-timeframe-only completion is therefore not a safe universal rule, and component-level timeframe provenance must be preserved.",
+      "residual_unknowns": [
+        "EXACT_CROSS_TF_ALIGNMENT_GEOMETRY_OR_TOLERANCE",
+        "PRIORITY_WHEN_MULTIPLE_LOWER_TF_COMPONENTS_CAN_COMPLETE_ONE_PARTIAL_CANDIDATE"
+      ],
+      "claim_ids": [
+        "BODY_COLLECTION_COMPONENT_GEOMETRY"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "NEW_PRIMARY_SOURCE_EVIDENCE",
+        "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION",
+        "CONTRADICTION_WITH_CURRENT_CANONICAL_CLAIM"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "EP5_COMPONENT_ALL_REQUIRED_QA_10635_10715",
+      "source_id": "oCcG3dUjrgw",
+      "source_title": "EP.5 วิชาเก็บบอดี้",
+      "topic": "Whether wick is only spacing metadata and repeated two-reference use",
+      "window": "01:06:35-01:07:15",
+      "reviewed_modalities": [
+        "YOUTUBE_RENDERED_TRANSCRIPT"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Direct Q&A rejects treating the wick as merely a spacing helper; the source says the construction must be marked/considered as a whole. The same sequence reiterates two forecast lines/references.",
+      "residual_unknowns": [
+        "EXACT_TWO_REFERENCE_SELECTION_RULE"
+      ],
+      "claim_ids": [
+        "BODY_COLLECTION_COMPONENT_GEOMETRY"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_EP5_BODY_COLLECTION_COMPONENT_ASSEMBLY_REPEATED_PATTERN_2026-09-09.md",
+        "docs/RQ009_EP5_TWO_REFERENCE_METHOD_RATIONALE_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "NEW_PRIMARY_SOURCE_EVIDENCE",
+        "MATERIALLY_NEW_QUESTION_NOT_COVERED_BY_PRIOR_REVIEW"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "EP5_ZONE_LIFECYCLE_11316_11449",
+      "source_id": "oCcG3dUjrgw",
+      "source_title": "EP.5 วิชาเก็บบอดี้",
+      "topic": "Body Collection zone lifecycle, reuse, and replanning",
+      "window": "01:13:16-01:14:49",
+      "reviewed_modalities": [
+        "YOUTUBE_RENDERED_TRANSCRIPT",
+        "ORIGINAL_YOUTUBE_VISUAL"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Unused historical Body Collection references may remain usable; once Body Collection has completed/been used, the source says the zone is no longer reused and the view should be changed/replanned. Touch alone is not established as automatic retirement.",
+      "residual_unknowns": [
+        "EXACT_TOUCHED_TO_COLLECTED_OHLC_TRANSITION",
+        "EXACT_SUPPORT_RESISTANCE_REVALIDATION_AFTER_TOUCH",
+        "ANY_UNIVERSAL_NUMERIC_MAX_TOUCH_RULE"
+      ],
+      "claim_ids": [
+        "BODY_COLLECTION_ZONE_LIFECYCLE"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_EP5_BODY_COLLECTION_MIRROR_LIFECYCLE_CLOSURE_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "NEW_PRIMARY_SOURCE_EVIDENCE",
+        "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "EP5_SEARCH_FALLBACK_11913_12001",
+      "source_id": "oCcG3dUjrgw",
+      "source_title": "EP.5 วิชาเก็บบอดี้",
+      "topic": "Body Collection search window and H4 -> H1 -> M30 fallback",
+      "window": "01:19:13-01:20:01",
+      "reviewed_modalities": [
+        "YOUTUBE_RENDERED_TRANSCRIPT"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Source says if H4 lacks all three conditions, inspect H1; if H1 remains incomplete, inspect M30. Initial historical search is roughly 2-4 candles and may continue farther back if absent. No universal same-timeframe winner rule is established when multiple valid candidates coexist.",
+      "residual_unknowns": [
+        "SAME_TF_MULTI_CANDIDATE_PRIORITY",
+        "EXACT_CROSS_TF_ALIGNMENT"
+      ],
+      "claim_ids": [],
+      "checkpoint_refs": [
+        "docs/RQ009_EP5_BODY_COLLECTION_CANDIDATE_SEARCH_ORDER_CLOSURE_2026-09-09.md",
+        "docs/RQ009_EP5_CROSS_TF_COMPONENT_COMPLETION_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "NEW_PRIMARY_SOURCE_EVIDENCE",
+        "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "PAT2_PAT3_HALF_BASIS_1422_1756",
+      "source_id": "1E_PYPor1qQ",
+      "source_title": "PA/PAT lesson",
+      "topic": "PAT2/PAT3 strict >50% semantics and denominator basis",
+      "window": "00:14:22-00:17:56",
+      "reviewed_modalities": [
+        "LOCAL_TRANSCRIPT",
+        "SYNCHRONIZED_VISUAL",
+        "PIXEL_GEOMETRY_DIAGNOSTIC"
+      ],
+      "status": "REVIEWED_UNRESOLVED",
+      "finding": "Source supports strict beyond-half semantics and body-oriented language. The measured PAT2 schematic reclaims about 69% of the prior body, but the same image also appears to pass the full high-low midpoint, so the reviewed visual cannot distinguish the canonical denominator.",
+      "residual_unknowns": [
+        "PAT2_PAT3_EXACT_50_PERCENT_DENOMINATOR",
+        "PAT3_COMBINED_CANDLE_ARITHMETIC",
+        "TICK_EQUALITY_AND_SMALL_BODY_TOLERANCE"
+      ],
+      "claim_ids": [],
+      "checkpoint_refs": [
+        "docs/RQ002_PAT_GEOMETRY_SOURCE_CLOSURE_2026-09-08.md",
+        "docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "NEW_PRIMARY_SOURCE_EVIDENCE",
+        "CLEARER_SYNCHRONIZED_AUDIO_OR_VISUAL",
+        "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "SIG_ENTRY_TWO_MODES_5301_10640",
+      "source_id": "1E_PYPor1qQ",
+      "source_title": "PA/PAT lesson",
+      "topic": "SIG Entry two source-taught modes and structural SL reference",
+      "window": "00:53:01-01:06:40",
+      "reviewed_modalities": [
+        "LOCAL_TRANSCRIPT",
+        "SYNCHRONIZED_VISUAL"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Source teaches two SIG entry modes: entry while the prospective post-SIG candle is still forming/body-collecting, and entry after the post-SIG candle confirms with the following candle. In the discussed Mode-2 setup, confirmed post-SIG wick = point-check = structural SL reference.",
+      "residual_unknowns": [
+        "EXACT_ENTRY_PRICE_WITHIN_BODY_COLLECTION_CONTEXT",
+        "UNIVERSAL_NUMERIC_SL_BUFFER"
+      ],
+      "claim_ids": [
+        "SIG_ENTRY_TWO_MODES"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "NEW_PRIMARY_SOURCE_EVIDENCE",
+        "CLEARER_SYNCHRONIZED_AUDIO_OR_VISUAL",
+        "MATERIALLY_NEW_QUESTION_NOT_COVERED_BY_PRIOR_REVIEW"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "POST_SIG_POINT_CHECK_TOUCH_13253_13543",
+      "source_id": "vcdN51_OrPE",
+      "source_title": "System summary",
+      "topic": "Active post-SIG point-check destruction by touch/contact",
+      "window": "01:32:53-01:35:43",
+      "reviewed_modalities": [
+        "LOCAL_TRANSCRIPT",
+        "SYNCHRONIZED_VISUAL"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Source explicitly distinguishes contact/touch from near miss: even a small wick contact destroys the active point-check reference, while an almost-touch without contact survives. This rejects a universal positive 200-point destruction buffer.",
+      "residual_unknowns": [
+        "BROKER_PRICE_PRECISION_EQUALITY_NORMALIZATION"
+      ],
+      "claim_ids": [
+        "POST_SIG_POINT_CHECK_TOUCH_DESTRUCTION"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION",
+        "CONTRADICTION_WITH_CURRENT_CANONICAL_CLAIM",
+        "CLEARER_SYNCHRONIZED_AUDIO_OR_VISUAL"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "POST_SIG_SURVIVAL_NEAR_MISS_05939_10050",
+      "source_id": "1E_PYPor1qQ",
+      "source_title": "PA/PAT lesson",
+      "topic": "Independent confirmation that post-SIG point-check survives when price does not touch",
+      "window": "00:59:39-01:00:50",
+      "reviewed_modalities": [
+        "LOCAL_TRANSCRIPT",
+        "SYNCHRONIZED_VISUAL"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Independent source sequence supports the same semantic: if price returns but does not touch the post-SIG point-check/wick reference, the reference remains active.",
+      "residual_unknowns": [
+        "BROKER_PRICE_PRECISION_EQUALITY_NORMALIZATION"
+      ],
+      "claim_ids": [
+        "POST_SIG_POINT_CHECK_TOUCH_DESTRUCTION"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "CONTRADICTION_WITH_CURRENT_CANONICAL_CLAIM",
+        "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "EP4_ENTRY2_RETEST_VISUAL_SET",
+      "source_id": "UV5NijhjfJ8",
+      "source_title": "EP.4 M5 brake",
+      "topic": "Entry #2 retest topology and Point #1 structural SL reference",
+      "window": "00:38:25;00:51:04;01:29:45",
+      "reviewed_modalities": [
+        "LOCAL_TRANSCRIPT",
+        "SYNCHRONIZED_VISUAL"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Slides and chart examples confirm Point #2 as the preferred retest entry signal in the taught form and Point #1 as the structural SL reference. Retest requires break/move-away and return to the switched structural level; the relevant confirmation candle must close before acting.",
+      "residual_unknowns": [
+        "EXACT_BROKER_FILL_PRICE",
+        "UNIVERSAL_NUMERIC_RETEST_TOLERANCE"
+      ],
+      "claim_ids": [],
+      "checkpoint_refs": [
+        "docs/RQ009_M5_RETEST_ENTRY_SOURCE_VISUAL_CLOSURE_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "NEW_PRIMARY_SOURCE_EVIDENCE",
+        "MATERIALLY_NEW_QUESTION_NOT_COVERED_BY_PRIOR_REVIEW"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "SIDEWAY_FRAME_METHODS_SOURCE_SET",
+      "source_id": "ESHDuiVPJow+1E_PYPor1qQ",
+      "source_title": "EP.2 Trend/Frame/SIG plus PA/PAT lesson",
+      "topic": "Sideway frame body-primary versus body-core plus wick structural layer methods",
+      "window": "ESHDuiVPJow 01:37:49-01:44:12; 1E_PYPor1qQ around 01:29:46",
+      "reviewed_modalities": [
+        "LOCAL_TRANSCRIPT",
+        "SYNCHRONIZED_VISUAL"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Reviewed source supports body-primary/body-envelope Sideway construction and a body-core plus optional wick structural layer/envelope method. Full visible wick extrema are not universally the frame boundaries. Sideway is dynamic/multi-level and can expand or role-flip after actual break/retest.",
+      "residual_unknowns": [
+        "UNIVERSAL_ROUTING_BETWEEN_SIDEWAY_SOURCE_METHODS",
+        "EXACT_FRAME_COMPLETE_GEOMETRY",
+        "FALSE_BREAK_BOUNDARY",
+        "CROSS_TF_SIDEWAY_PRIORITY"
+      ],
+      "claim_ids": [
+        "SIDEWAY_FRAME_SOURCE_METHODS"
+      ],
+      "checkpoint_refs": [
+        "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md"
+      ],
+      "reopen_triggers": [
+        "NEW_PRIMARY_SOURCE_EVIDENCE",
+        "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION",
+        "CONTRADICTION_WITH_CURRENT_CANONICAL_CLAIM"
+      ],
+      "last_reviewed_at": "2026-09-09"
+    }
+  ],
+  "coverage_scope": "PARTIAL_SEED_RQ009_CURRENT_RESEARCH_WINDOWS",
+  "coverage_completeness": "NOT_EXHAUSTIVE_FOR_RQ001_TO_RQ008",
+  "backfill_policy": "Backfill older source windows only from preserved checkpoint evidence when the topic is next touched or through an explicit bounded backfill task. Do not invent timestamp, modality, or closure metadata to make coverage appear complete."
+}
