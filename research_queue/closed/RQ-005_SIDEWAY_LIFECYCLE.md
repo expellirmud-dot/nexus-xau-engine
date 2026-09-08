@@ -1,6 +1,6 @@
 # RQ-005 — Sideway construction, completion, and transition to new SIG
 
-Status: ACTIVE
+Status: CLOSED / SOURCE_BACKED_LIFECYCLE_GEOMETRY_UNRESOLVED
 
 ## Why this matters
 
@@ -17,3 +17,7 @@ A replayable state transition is established, conditionally parameterized, or cl
 ## Current first action
 
 Consolidate explicit Sideway lifecycle statements from `PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md`, `M5_BRAKE_TRANSCRIPT_FORENSICS_2026-09-01.md`, the system summary and EP.2 visuals. Distinguish state/lifecycle facts from unresolved exact upper/lower frame geometry.
+
+## Closure — 2026-09-08
+
+See `docs/RQ005_SIDEWAY_LIFECYCLE_SOURCE_CLOSURE_2026-09-08.md`. State transitions are source-backed; exact Sideway frame construction/completion remains unresolved.

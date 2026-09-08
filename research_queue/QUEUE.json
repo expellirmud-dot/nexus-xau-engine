@@ -1,17 +1,16 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-08T23:38:00+07:00",
+  "updated_at": "2026-09-08T23:42:00+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
   "active": {
-    "id": "RQ-005",
-    "title": "Sideway construction, completion, and transition to new SIG",
-    "worksheet": "research_queue/active/RQ-005_SIDEWAY_LIFECYCLE.md",
+    "id": "RQ-006",
+    "title": "Por Chon remaining boundary and old-frame lifecycle details",
+    "worksheet": "research_queue/active/RQ-006_POR_CHON_BOUNDARY_LIFECYCLE.md",
     "status": "ACTIVE"
   },
   "priority_order": [
-    "RQ-005",
     "RQ-006",
     "RQ-007",
     "RQ-008"
@@ -88,7 +87,7 @@
       "id": "RQ-005",
       "title": "Sideway construction, completion, and transition to new SIG",
       "type": "RESEARCH",
-      "status": "ACTIVE",
+      "status": "CLOSED_SOURCE_BACKED_LIFECYCLE_GEOMETRY_UNRESOLVED",
       "why_now": "Sideway is repeatedly referenced as a market state, but its explicit boundaries and transition/completion semantics remain incomplete. Incorrect sideway state would contaminate setup eligibility and lifecycle interpretation.",
       "depends_on": [
         "RQ-001",
@@ -98,19 +97,21 @@
         "market-state filter",
         "new-SIG transition logic"
       ],
-      "worksheet": "research_queue/active/RQ-005_SIDEWAY_LIFECYCLE.md"
+      "worksheet": "research_queue/closed/RQ-005_SIDEWAY_LIFECYCLE.md",
+      "closure_ref": "docs/RQ005_SIDEWAY_LIFECYCLE_SOURCE_CLOSURE_2026-09-08.md",
+      "closure_summary": "Sideway lifecycle and handoff to a new SIG are source-backed at state level; exact upper/lower construction, frame-complete geometry and false-break tolerance remain unresolved."
     },
     {
       "id": "RQ-006",
       "title": "Por Chon remaining boundary and old-frame lifecycle details",
       "type": "RESEARCH",
-      "status": "QUEUED",
+      "status": "ACTIVE",
       "why_now": "Core 19:00 cutoff and >1000 high-selection semantics are source-backed, but exact H4 inclusion, equality/tie handling, and old-frame retirement remain open. These should be closed before using Por Chon as a deterministic production frame state.",
       "depends_on": [],
       "blocks": [
         "fully deterministic Por Chon replay"
       ],
-      "worksheet": "research_queue/queued/RQ-006_POR_CHON_BOUNDARY_LIFECYCLE.md"
+      "worksheet": "research_queue/active/RQ-006_POR_CHON_BOUNDARY_LIFECYCLE.md"
     },
     {
       "id": "RQ-007",

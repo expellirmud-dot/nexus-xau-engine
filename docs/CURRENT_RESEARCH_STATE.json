@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-08T23:38:00+07:00",
+  "updated_at": "2026-09-08T23:42:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "RQ004_M5_BRAKE_SOURCE_BACKED_STATE_MACHINE_PARAMETERIZED",
+  "completed_checkpoint": "RQ005_SIDEWAY_SOURCE_BACKED_LIFECYCLE_GEOMETRY_UNRESOLVED",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -25,11 +25,10 @@
       "TOOLS.md",
       "docs/CURRENT_RESEARCH_STATE.json",
       "research_queue/QUEUE.json",
-      "research_queue/active/RQ-005_SIDEWAY_LIFECYCLE.md",
+      "research_queue/active/RQ-006_POR_CHON_BOUNDARY_LIFECYCLE.md",
       "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
-      "docs/M5_BRAKE_TRANSCRIPT_FORENSICS_2026-09-01.md",
-      "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md",
-      "closest original source evidence"
+      "docs/POR_CHON_1900_TRANSCRIPT_CLOSURE_2026-09-03.md",
+      "docs/POR_CHON_VISUAL_STANDING_FRAME_EVIDENCE_2026-09-03.md"
     ]
   },
   "provenance_guard": {
@@ -95,9 +94,9 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Review Sideway lifecycle source evidence for explicit begin/persist/complete/exit transitions.",
-    "Separate equal/repeated high-low examples and limited frame-entry examples from a universal Sideway construction formula.",
-    "Close RQ-005 replayable/parameterized or inconclusive; do not import generic textbook swing-count rules."
+    "Review first-party Por Chon cutoff/standing evidence for remaining H4 boundary, exact >1000 equality semantics, tie handling and old-frame persistence/retirement.",
+    "Use direct source semantics only; do not infer old-frame deletion from a newest-frame data structure.",
+    "Close RQ-006 partial/inconclusive where source remains silent, then rerank the remaining queue."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -161,9 +160,12 @@
     "research_queue/active/RQ-004_M5_BRAKE_FRAME_STANDING.md",
     "docs/RQ004_M5_BRAKE_FRAME_STANDING_SOURCE_CLOSURE_2026-09-08.md",
     "research_queue/closed/RQ-004_M5_BRAKE_FRAME_STANDING.md",
-    "research_queue/active/RQ-005_SIDEWAY_LIFECYCLE.md"
+    "research_queue/active/RQ-005_SIDEWAY_LIFECYCLE.md",
+    "docs/RQ005_SIDEWAY_LIFECYCLE_SOURCE_CLOSURE_2026-09-08.md",
+    "research_queue/closed/RQ-005_SIDEWAY_LIFECYCLE.md",
+    "research_queue/active/RQ-006_POR_CHON_BOUNDARY_LIFECYCLE.md"
   ],
-  "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> active RQ-005 -> canonical claims -> Sideway sections of PA/PAT and M5 brake source forensics -> original video evidence. RQ-004 is closed state-machine/parameterized; no universal force, overlap, standing or SL thresholds were created.",
+  "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> active RQ-006 -> canonical claims -> Por Chon transcript/visual standing evidence. RQ-005 is closed lifecycle/source-backed but exact Sideway geometry remains HUMAN_CONFIRM/unknown.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -518,14 +520,14 @@
   },
   "operational_research_queue": {
     "source_ref": "research_queue/QUEUE.json",
-    "active_id": "RQ-005",
-    "active_worksheet": "research_queue/active/RQ-005_SIDEWAY_LIFECYCLE.md",
+    "active_id": "RQ-006",
+    "active_worksheet": "research_queue/active/RQ-006_POR_CHON_BOUNDARY_LIFECYCLE.md",
     "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
     "selection_rule": "NEXUS owns worksheet creation, prioritization, promotion, and method choice. Promote the highest-value unblocked item after each closure; re-rank when new evidence changes dependencies.",
     "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
     "guard": "Do not require the project owner to know which tool, video, formula, or dataset to request in advance.",
-    "last_closed_id": "RQ-004",
-    "last_closure_ref": "docs/RQ004_M5_BRAKE_FRAME_STANDING_SOURCE_CLOSURE_2026-09-08.md"
+    "last_closed_id": "RQ-005",
+    "last_closure_ref": "docs/RQ005_SIDEWAY_LIFECYCLE_SOURCE_CLOSURE_2026-09-08.md"
   },
   "post_sig_lifecycle_source_visual_closure": {
     "status": "SOURCE_SUPPORTS_OTHER_EXPLICIT_LIFECYCLE",
@@ -609,6 +611,21 @@
       "Exact quantitative force/rejection thresholds.",
       "Frame-standing point tolerance and all-vs-majority rule.",
       "Exact pivot windows and zone-family geometry."
+    ]
+  },
+  "rq005_sideway_source_closure": {
+    "status": "SOURCE_BACKED_LIFECYCLE_GEOMETRY_UNRESOLVED",
+    "source_ref": "docs/RQ005_SIDEWAY_LIFECYCLE_SOURCE_CLOSURE_2026-09-08.md",
+    "closed_safe": [
+      "Sideway is an explicit graph-cycle state, not merely absence of trend.",
+      "Post-SIG destruction/rest/competing SIG context can lead into Sideway.",
+      "Internal PA/SIG can occur on both sides; internal SIG does not automatically imply normal full run space.",
+      "A new valid SIG leaving the Sideway frame hands off to a new directional lifecycle."
+    ],
+    "still_unresolved": [
+      "Exact upper/lower frame construction.",
+      "Exact frame-complete event and equality/tolerances.",
+      "False-break/JERID boundary and cross-TF exit priority."
     ]
   }
 }

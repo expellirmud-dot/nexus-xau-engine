@@ -1,6 +1,6 @@
 # RQ-006 — Por Chon remaining boundary and old-frame lifecycle details
 
-Status: QUEUED
+Status: ACTIVE
 
 ## Why this matters
 
@@ -13,3 +13,7 @@ Return to first-party Por Chon video evidence and synchronized transcript/visual
 ## Done when
 
 The remaining boundary/lifecycle details are deterministic enough for replay, or explicitly closed partial/inconclusive with unresolved items retained.
+
+## Current first action
+
+Use `POR_CHON_1900_TRANSCRIPT_CLOSURE_2026-09-03.md` and `POR_CHON_VISUAL_STANDING_FRAME_EVIDENCE_2026-09-03.md` to close strict cutoff/high-selection/persistence facts and isolate remaining one-bar/tie/retirement ambiguities.
