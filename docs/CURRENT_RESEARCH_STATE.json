@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-09T00:02:00+07:00",
+  "updated_at": "2026-09-09T00:13:41+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_CHECKPOINT_RESEARCH_LOOP",
-  "completed_checkpoint": "RESEARCH_QUEUE_EXHAUSTED_AT_CURRENT_EVIDENCE_BOUNDARY",
+  "completed_checkpoint": "RQ009_SIG_ENTRY_AND_SIDEWAY_SOURCE_METHOD_CHECKPOINT",
   "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -25,7 +25,9 @@
       "TOOLS.md",
       "docs/CURRENT_RESEARCH_STATE.json",
       "research_queue/QUEUE.json",
+      "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
       "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
+      "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
       "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
       "latest new source evidence if any"
     ]
@@ -93,10 +95,11 @@
     "repository_maintenance_policy": "active"
   },
   "next_steps": [
-    "Do not claim full-system Win rate; current canonical answer remains NOT ESTABLISHED / ยังสรุปไม่ได้.",
-    "Acquire or visually/audio-close the named PAT/location/post-SIG/Sideway/entry-SL geometry gaps before reopening performance proof.",
-    "When the complete executable rule version is frozen, reserve a genuinely untouched period for final full-system OOS testing.",
-    "Continue component/labeled-case research only under explicit provenance labels; do not promote component hit rates to system performance."
+    "Continue the single RQ-009 worksheet; do not split into additional RQ IDs unless a truly independent blocker appears.",
+    "Highest-value missing visual source is EP.5 body collection (oCcG3dUjrgw): inspect the pre-mapped five evidence windows if/when the actual video is available locally.",
+    "Meanwhile continue extracting exact location/protected-body semantics from the current five local videos where they can close Mode-2 mechanics without Sideway assumptions.",
+    "Keep Sideway source methods separate (BODY_PRIMARY vs BODY_CORE_WITH_OPTIONAL_WICK_LAYER); do not select one from backtest performance.",
+    "Do not run final Win/Loss until deterministic trade construction and a genuinely pristine holdout period exist."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -171,9 +174,13 @@
     "research_queue/closed/RQ-007_ENTRY_SL_INVALIDATION.md",
     "research_queue/active/RQ-008_FULL_SYSTEM_PROOF.md",
     "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
-    "research_queue/closed/RQ-008_FULL_SYSTEM_PROOF.md"
+    "research_queue/closed/RQ-008_FULL_SYSTEM_PROOF.md",
+    "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
+    "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
+    "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
+    "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md"
   ],
-  "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> canonical claim register -> RQ008 readiness closure. The decision-critical research queue is exhausted at the current evidence boundary. No active RQ remains. SYSTEM WIN RATE is not established; reopen only a bounded blocker when new source/labeled evidence or a frozen execution specification materially changes readiness.",
+  "resume_instruction": "Load maintenance policy -> TOOLS -> CURRENT_RESEARCH_STATE -> QUEUE -> active RQ-009 worksheet -> canonical claim register -> RQ009 SIG-entry checkpoint -> RQ009 body-collection audit -> RQ009 Sideway source-method audit. Continue source-first. Do not treat RQ-008 as current; it is a historical readiness boundary. Do not fit unresolved geometry from outcomes.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -681,5 +688,49 @@
       "NO_PRISTINE_FINAL_HOLDOUT_FOR_NEW_FULL_SYSTEM_VERSION"
     ],
     "guard": "Do not run/report a canonical full-system Win/Loss result by filling unresolved fields with analyst-selected thresholds or by relabeling component research statistics."
+  },
+  "rq009_source_gap_closure": {
+    "status": "ACTIVE_SOURCE_REVIEW",
+    "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
+    "checkpoint_ref": "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
+    "source_batch": [
+      "vcdN51_OrPE",
+      "1E_PYPor1qQ",
+      "ESHDuiVPJow",
+      "UV5NijhjfJ8",
+      "16KoS7d-koI"
+    ],
+    "newly_source_backed": [
+      "SIG_ENTRY has two explicit source-taught modes: PA-confirmed/forming-post-SIG body-collection entry and post-SIG-confirmed/next-candle body-collection entry.",
+      "For the discussed Mode-2 setup, confirmed post-SIG wick = point-check = structural SL reference; exact buffer remains context-specific.",
+      "Active post-SIG point-check destruction is contact/touch based; a near miss without contact survives.",
+      "Valid post-SIG candidate must not disturb/contact the protected PA/SIG body region; exact multi-candle body boundary remains partial.",
+      "PAT2/PAT3 >half source language strongly uses candle-body/body-volume semantics; exact universal multi-candle arithmetic remains partial.",
+      "Sideway is dynamic/multi-level and source methods include BODY_PRIMARY and BODY_CORE_WITH_OPTIONAL_WICK_LAYER; full wick extrema are not universally the frame boundaries.",
+      "Sideway may expand and old resistance/support can role-flip after actual break/retest."
+    ],
+    "still_open": [
+      "Exact deterministic entry price inside the source-defined body-collection / near-point-check area.",
+      "Exact OHLC geometry for ซอก + ไส้ + คู่ and body-collection zone boundaries; dedicated EP.5 video visuals are the highest-value missing source.",
+      "Exact protected-body boundary for all multi-candle PAT2/PAT3 variants.",
+      "Universal routing between Sideway BODY_PRIMARY and BODY_CORE_WITH_OPTIONAL_WICK_LAYER methods, plus exact frame-complete/false-break detector.",
+      "Cross-timeframe/source-frame priority where multiple location/Sideway structures coexist."
+    ],
+    "proof_readiness": "BOUNDED_SIG_ENTRY_MODE_2_CLOSER_BUT_ENTRY_ZONE_GEOMETRY_STILL_OPEN",
+    "body_collection_audit_ref": "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
+    "sideway_audit_ref": "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
+    "external_source_target": {
+      "video_id": "oCcG3dUjrgw",
+      "lesson": "EP.5 วิชาเก็บบอดี้",
+      "local_video_status": "MISSING_FROM_LOCAL_VISUAL_BATCH",
+      "existing_project_transcript_analysis": "docs/transcripts/EP5_BODY_COLLECTION_FULL_ANALYSIS.md",
+      "priority_visual_windows": [
+        "20:33-32:40",
+        "40:42-44:19",
+        "46:40-51:27",
+        "56:35-59:43",
+        "1:19:13-1:20:01"
+      ]
+    }
   }
 }

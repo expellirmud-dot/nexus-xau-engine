@@ -1,11 +1,19 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T00:02:00+07:00",
+  "updated_at": "2026-09-09T00:13:41+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
-  "active": null,
-  "priority_order": [],
+  "active": {
+    "id": "RQ-009",
+    "title": "Source Gap Closure from Current Five-Video Batch",
+    "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
+    "status": "ACTIVE_SOURCE_REVIEW",
+    "latest_checkpoint": "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md"
+  },
+  "priority_order": [
+    "RQ-009"
+  ],
   "items": [
     {
       "id": "RQ-001",
@@ -145,6 +153,27 @@
       "worksheet": "research_queue/closed/RQ-008_FULL_SYSTEM_PROOF.md",
       "closure_ref": "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
       "closure_summary": "Full-system Win/Loss proof is not testable without hidden assumptions because complete trade construction remains unresolved and previously used DEV/VAL/TEST periods are not a pristine final holdout for a newly frozen full-system rule set."
+    },
+    {
+      "id": "RQ-009",
+      "title": "Source Gap Closure from Current Five-Video Batch",
+      "type": "RESEARCH",
+      "status": "ACTIVE_SOURCE_REVIEW",
+      "why_now": "Direct review of the current five local instructor sources revealed material evidence that narrows blockers left by RQ-002/RQ-007, especially two explicit SIG entry modes and touch-based point-check destruction.",
+      "depends_on": [],
+      "blocks": [
+        "bounded source-faithful SIG_ENTRY proof",
+        "future full trade construction",
+        "future system Win/Loss proof"
+      ],
+      "preferred_method": "Transcript/timestamp map -> synchronized visual window -> original audio only if material ASR ambiguity remains -> explicit source closure/UNKNOWN -> targeted computation only for residual source-compatible representations.",
+      "worksheet": "research_queue/active/RQ-009_SOURCE_GAP_CLOSURE.md",
+      "checkpoint_ref": "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
+      "current_summary": "Current sources recover two explicit SIG entry modes, structural SL references, contact-based post-SIG point-check destruction, body-sensitive post-SIG validity, and multiple source-backed Sideway frame methods. Dedicated EP.5 body-collection transcript exists but its local video is missing; exact body-collection geometry/entry price still needs visual closure.",
+      "secondary_refs": [
+        "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
+        "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md"
+      ]
     }
   ],
   "conditional_infrastructure": [
@@ -165,7 +194,9 @@
   ],
   "promotion_rule": "On active closure, first re-rank remaining items using the new evidence. Then promote the highest-value unblocked item; do not blindly increment the numeric ID if the dependency picture changed.",
   "guard": "The queue organizes research; it does not grant permission to invent thresholds, upgrade provenance from outcomes, or treat historical proxy results as canonical rules.",
-  "queue_state": "EXHAUSTED_AT_CURRENT_EVIDENCE_BOUNDARY",
-  "queue_exhaustion_ref": "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
-  "reopen_rule": "Create/reopen a bounded research item only when new source evidence, new labeled examples, a frozen execution specification, or a genuinely untouched holdout materially resolves a named blocker."
+  "queue_state": "ACTIVE_SOURCE_GAP_CLOSURE",
+  "queue_exhaustion_ref": null,
+  "reopen_rule": "Create/reopen a bounded research item only when new source evidence, new labeled examples, a frozen execution specification, or a genuinely untouched holdout materially resolves a named blocker.",
+  "reopened_from_exhaustion_ref": "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
+  "reopen_reason": "Current local video/transcript batch contains previously under-extracted direct source evidence for SIG entry modes, structural SL references, post-SIG body validity, and point-check destruction."
 }

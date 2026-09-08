@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T00:02:00+07:00",
+  "updated_at": "2026-09-09T00:13:41+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -75,36 +75,38 @@
     },
     {
       "claim_id": "PAT2_GEOMETRY",
-      "canonical_statement": "PAT2 is two candles; BUY red->green and SELL green->red. Full engulfing is stronger/cleaner but not mandatory. The confirming second candle must exceed half (>50%) of the first-candle reference in the reviewed source semantics; a candle that does not exceed half is explicitly insufficient for PAT2. Exact 50% denominator (real body vs full high-low/source visual construction) remains unresolved.",
-      "status": "ACTIVE_SOURCE_BACKED_PARTIAL_PARAMETERIZED",
+      "canonical_statement": "PAT2 is two candles; BUY red->green and SELL green->red. Full engulfing is stronger/cleaner but not mandatory. The reviewed source repeatedly uses body-specific wording (เนื้อ/volume) and requires the confirming second-candle body relation to exceed half (>50%) of the first-candle reference. This strongly supports a body-based relation, but the exact universal machine denominator/arithmetic and tick-equality convention remain unresolved.",
+      "status": "ACTIVE_SOURCE_BACKED_BODY_RELATION_PARTIAL_PARAMETERIZED",
       "engine_permission": "RESEARCH_VARIANTS_ONLY",
       "source_refs": [
         "docs/DIRECT_PAT_GEOMETRY_RULES_2026-09-01.md",
         "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md",
         "docs/RQ002_PAT_GEOMETRY_SOURCE_MAP_CHECKPOINT_2026-09-08.md",
-        "docs/RQ002_PAT_GEOMETRY_SOURCE_CLOSURE_2026-09-08.md"
+        "docs/RQ002_PAT_GEOMETRY_SOURCE_CLOSURE_2026-09-08.md",
+        "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md"
       ],
       "risk_flags": [
         "MEASUREMENT_BASIS_UNRESOLVED",
         "OHLC_EQUALITY_IMPLEMENTATION_CONVENTION_OPEN"
       ],
-      "provenance_note": "RQ-002 source review closes topology and strict >half semantics while intentionally leaving exact denominator/combined arithmetic/tolerances unresolved; outcome performance cannot select those remaining parameters."
+      "provenance_note": "RQ-009 adds repeated direct body/body-volume wording plus synchronized PAT visuals. This strengthens source support for a body relation independently of prior outcome results; exact OHLC denominator remains open."
     },
     {
       "claim_id": "PAT3_GEOMETRY",
-      "canonical_statement": "PAT3 uses three candles and three reviewed source variants. Full engulfing is preferred/stronger in several examples but not universally mandatory; the source also accepts >half relations, including combined prior/confirmation candle structures depending on variant. Exact combined-candle arithmetic, 50% denominator, small-body/Doji threshold and equal-wick tolerance remain unresolved.",
-      "status": "ACTIVE_SOURCE_BACKED_PARTIAL_PARAMETERIZED",
+      "canonical_statement": "PAT3 uses three candles and three reviewed source variants. The source repeatedly uses body-specific >half semantics; variant 2 explicitly describes the confirming green body exceeding half of two red candles combined, and variant 3 can use two confirming green candles collectively exceeding half of the prior red candle. Full engulfing is stronger/prettier but not universally mandatory. Exact combined-candle OHLC arithmetic, small-body/Doji and equal-wick tolerances remain unresolved.",
+      "status": "ACTIVE_SOURCE_BACKED_BODY_RELATION_PARTIAL_PARAMETERIZED",
       "engine_permission": "RESEARCH_VARIANTS_ONLY",
       "source_refs": [
         "docs/DIRECT_PAT_GEOMETRY_RULES_2026-09-01.md",
         "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md",
         "docs/RQ002_PAT_GEOMETRY_SOURCE_MAP_CHECKPOINT_2026-09-08.md",
-        "docs/RQ002_PAT_GEOMETRY_SOURCE_CLOSURE_2026-09-08.md"
+        "docs/RQ002_PAT_GEOMETRY_SOURCE_CLOSURE_2026-09-08.md",
+        "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md"
       ],
       "risk_flags": [
         "NUMERIC_THRESHOLDS_UNRESOLVED"
       ],
-      "provenance_note": "RQ-002 source review closes topology and strict >half semantics while intentionally leaving exact denominator/combined arithmetic/tolerances unresolved; outcome performance cannot select those remaining parameters."
+      "provenance_note": "RQ-009 strengthens body-based semantics from direct transcript wording without allowing outcome performance to select unresolved arithmetic/tolerances."
     },
     {
       "claim_id": "POST_SIG_INDEX",
@@ -260,19 +262,23 @@
     },
     {
       "claim_id": "SYSTEM_WIN_RATE",
-      "canonical_statement": "No canonical full-system Win rate is currently established. Full-system trade proof is not testable with current evidence without inserting unresolved analyst assumptions.",
+      "canonical_statement": "No canonical full-system win rate is currently established. RQ-009 materially narrows SIG-entry and Sideway semantics, but exact body-collection/entry-zone geometry, some cross-frame routing, and a pristine final holdout remain unresolved.",
       "status": "ACTIVE_BLOCKER_NOT_TESTABLE_WITH_CURRENT_EVIDENCE",
       "engine_permission": "DO_NOT_CLAIM",
       "source_refs": [
         "docs/WIN_LOSS_PROOF_PROTOCOL_2026-09-03.md",
         "docs/OUT_OF_SAMPLE_NEGATIVE_CONTROL_2026-09-03.md",
         "docs/RQ007_ENTRY_SL_INVALIDATION_SOURCE_CLOSURE_2026-09-08.md",
-        "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md"
+        "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
+        "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
+        "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md",
+        "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md"
       ],
       "risk_flags": [
-        "TRADE_CONSTRUCTION_INCOMPLETE",
-        "ENTRY_SL_LOCATION_STATE_INCOMPLETE",
-        "NO_PRISTINE_FINAL_HOLDOUT_FOR_NEW_FULL_SYSTEM_VERSION"
+        "EXACT_BODY_COLLECTION_ENTRY_ZONE_STILL_OPEN",
+        "SIDEWAY_METHOD_ROUTING_PARTIAL",
+        "CROSS_FRAME_PRIORITY_PARTIAL",
+        "FINAL_PRISTINE_HOLDOUT_REQUIRED"
       ],
       "provenance_note": "RQ-008 readiness gate intentionally stopped before a full-system outcome run. Component/control results remain component evidence and must not be relabeled as system Win/Loss."
     },
@@ -306,6 +312,70 @@
         "MULTI_TF_CONFLICT_PRIORITY_UNRESOLVED"
       ],
       "provenance_note": "Source+visual review of vcdN51_OrPE, 1E_PYPor1qQ and ESHDuiVPJow. Direct wording includes SIG stops/not-counted after destruction, other surviving wick/reference context, new/latest SIG handling, overlapping SIGs, and run-completion closure."
+    },
+    {
+      "claim_id": "POST_SIG_CANDIDATE_BODY_GUARD",
+      "canonical_statement": "A valid post-SIG candidate must not disturb/contact the protected PA/SIG body region. Source repeatedly says the post-SIG wick should not reach into or exceed the SIG body; if it does, the signal interpretation can fail/shift to frame or Sideway context. Exact protected-body mapping for every multi-candle PAT variant remains partial.",
+      "status": "ACTIVE_SOURCE_BACKED_BODY_GUARD_PARTIAL_GEOMETRY",
+      "engine_permission": "CANONICAL_SEMANTIC_REJECT_RULE_WITH_PARTIAL_BODY_MAPPING",
+      "source_refs": [
+        "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
+        "docs/PA_PAT_TRANSCRIPT_FORENSICS_2026-09-01.md"
+      ],
+      "risk_flags": [
+        "MULTI_CANDLE_PROTECTED_BODY_BOUNDARY_UNRESOLVED",
+        "FEED_EQUALITY_NORMALIZATION_REQUIRED"
+      ],
+      "provenance_note": "Direct repeated instructor wording in vcdN51_OrPE plus complementary positive example in 1E_PYPor1qQ. No numeric destruction buffer inferred."
+    },
+    {
+      "claim_id": "POST_SIG_POINT_CHECK_TOUCH_DESTRUCTION",
+      "canonical_statement": "Once a post-SIG wick/reference is confirmed as an active point-check, touch/contact of that reference destroys the point-check; a near miss without contact leaves it active. No universal positive point buffer is source-backed for this destruction event.",
+      "status": "ACTIVE_SOURCE_BACKED_CONTACT_SEMANTICS",
+      "engine_permission": "CANONICAL_RESEARCH_REPLAY_AFTER_PRICE_PRECISION_NORMALIZATION",
+      "source_refs": [
+        "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
+        "docs/POST_SIG_LIFECYCLE_SOURCE_VISUAL_CLOSURE_2026-09-08.md"
+      ],
+      "risk_flags": [
+        "BROKER_PRICE_PRECISION_NORMALIZATION_REQUIRED",
+        "DO_NOT_ADD_OUTCOME_FITTED_BUFFER"
+      ],
+      "provenance_note": "Direct wording says a small touch/nick is sufficient; synchronized visual window shows the instructor pointing at the contact region. A separate near-miss example is explicitly not destroyed."
+    },
+    {
+      "claim_id": "SIG_ENTRY_TWO_MODES",
+      "canonical_statement": "The source explicitly teaches two SIG-entry modes. Mode 1: after PA confirmation, enter during body collection while the prospective post-SIG candle is still forming; structural SL reference is the longest PA wick, or a nearby source-defined frame when applicable. Mode 2: after the post-SIG candle confirms and its wick becomes the point-check, enter on the following candle/body-collection move; for the discussed setup the confirmed post-SIG wick, point-check and structural SL reference are the same structural reference, with nearby source-defined frame routing when applicable. Example point buffers are contextual, not universal.",
+      "status": "ACTIVE_SOURCE_BACKED_ENTRY_STATE_MACHINE",
+      "engine_permission": "CANONICAL_RESEARCH_REPLAY_WITH_ENTRY_PRICE_AND_CONTEXT_GUARDS",
+      "source_refs": [
+        "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
+        "docs/RQ009_BODY_COLLECTION_SOURCE_AUDIT_2026-09-09.md"
+      ],
+      "risk_flags": [
+        "EXACT_ENTRY_PRICE_WITHIN_BODY_COLLECTION_ZONE_UNRESOLVED",
+        "SL_BUFFER_CONTEXT_SPECIFIC_NOT_UNIVERSAL",
+        "LOCATION_CONTEXT_REQUIRED",
+        "DO_NOT_BLEND_WITH_FRAME_BRAKE_ENTRY"
+      ],
+      "provenance_note": "Direct instructor transcript ~53:01-1:06:40 plus synchronized method-1/method-2 teaching slides; later direct Q&A explicitly equates point-check, post-SIG wick and SL reference for the discussed setup. Precise execution price within the body-collection area remains open."
+    },
+    {
+      "claim_id": "SIDEWAY_FRAME_SOURCE_METHODS",
+      "canonical_statement": "Current first-party/source video evidence supports multiple Sideway frame representations rather than one universal OHLC formula. A BODY_PRIMARY/body-only preference is explicitly taught in one source; another source uses a body core with optional wick structural layer/envelope because higher-timeframe wicks may encode lower-timeframe body structure. Sideway is dynamic, may expand and contain multiple support/resistance levels, and old resistance/support can role-flip after confirmed exit/retest. Full visible wick extrema and fixed width are not universal boundaries.",
+      "status": "ACTIVE_SOURCE_BACKED_MULTI_METHOD_PARTIAL_GEOMETRY",
+      "engine_permission": "RESEARCH_STATE_AND_EXTERNALLY_LABELED_FRAME_METHODS_ONLY",
+      "source_refs": [
+        "docs/RQ009_SIDEWAY_FRAME_SOURCE_METHOD_AUDIT_2026-09-09.md",
+        "docs/RQ005_SIDEWAY_LIFECYCLE_SOURCE_CLOSURE_2026-09-08.md"
+      ],
+      "risk_flags": [
+        "UNIVERSAL_METHOD_ROUTING_UNRESOLVED",
+        "EXACT_FRAME_COMPLETE_GEOMETRY_UNRESOLVED",
+        "EXACT_FALSE_BREAK_EXIT_PREDICATE_UNRESOLVED",
+        "DO_NOT_SELECT_METHOD_FROM_OUTCOME_PERFORMANCE"
+      ],
+      "provenance_note": "RQ-009 synchronized video inspection shows a body/envelope zone with long wicks extending outside the drawn frame, while separate transcript/video source explicitly states body-only preference. Differences are preserved as source methods rather than silently reconciled."
     }
   ]
 }
