@@ -20,6 +20,9 @@ data/processed/*
 results/*
 !results/.gitkeep
 
+# Local primary-media evidence vault (videos, transcripts, extracted frames)
+youtube/
+
 # OS / editor
 .DS_Store
 Thumbs.db
