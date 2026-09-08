@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-03T22:08:00+07:00",
+  "updated_at": "2026-09-08T21:42:00+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -260,6 +260,21 @@
       "risk_flags": [
         "ENTRY_SL_LOCATION_STATE_INCOMPLETE"
       ]
+    },
+    {
+      "claim_id": "YOUTUBE_ASR_THAI_SPOKEN_TIME_NORMALIZATION",
+      "canonical_statement": "YouTube ASR may render ordinary Thai spoken-time expressions as formatted clock numerals; preserve the raw transcript token and a separate Thai spoken-time normalization layer. Owner examples include 18:00=6 โมงเย็น, 19:00=1 ทุ่ม, 23:00=5 ทุ่ม, and 24:00=เที่ยงคืน.",
+      "status": "ACTIVE_USER_DIRECT_METHODOLOGY",
+      "engine_permission": "TRANSCRIPT_NORMALIZATION_GUARD",
+      "source_refs": [
+        "docs/DIRECT_USER_YOUTUBE_ASR_THAI_TIME_NORMALIZATION_2026-09-08.md"
+      ],
+      "risk_flags": [
+        "DO_NOT_OVERWRITE_RAW_TRANSCRIPT",
+        "TIMEZONE_PROVENANCE_SEPARATE",
+        "AUDIO_VIDEO_CROSSCHECK_IF_ALGORITHMIC_BOUNDARY_MATERIAL"
+      ],
+      "provenance_note": "Project-owner direct clarification about YouTube ASR formatting of Thai spoken time. This normalizes speech representation, not universal timezone attribution."
     }
   ]
 }
