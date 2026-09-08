@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T05:28:34+07:00",
+  "updated_at": "2026-09-09T05:33:59+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -781,6 +781,24 @@
         "PRISTINE_HOLDOUT_UNOPENED_AT_FREEZE"
       ],
       "provenance_note": "Engineering/research representation frozen after 142-test full-suite pass and full Ruff pass. Source-incomplete PAT/location geometry is not promoted; V0 requires externally pre-outcome-labeled setup/location inputs."
+    },
+    {
+      "claim_id": "RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL",
+      "canonical_statement": "The confirmatory protocol for SIG_MODE2_SIGNAL_RUN_V0.1 is frozen before pristine outcome access: activate at the first 07:00 Asia/Bangkok boundary strictly after protocol freeze/push; label chronologically with progressive reveal and append-only audit; require outcome-blind eligibility/provenance; use a 30-calendar-day administrative horizon as a project convention; stop at the first same-known_at batch bringing eligible N to at least 100; preserve all result categories and disclose clustering; score only after manifests/data/code are sealed. This protocol produces signal/run research only, not trade/system Win rate.",
+      "status": "ACTIVE_METHODOLOGY_CONTRACT",
+      "engine_permission": "BUILD_LEDGER_AND_ACTIVATION_TOOLING_NO_OUTCOME_SCORE",
+      "source_refs": [
+        "docs/RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL_2026-09-09.md",
+        "docs/RQ010_SIG_MODE2_SIGNAL_RUN_V0_IMPLEMENTATION_2026-09-09.md"
+      ],
+      "risk_flags": [
+        "RESEARCH_CONVENTIONS_NOT_INSTRUCTOR_RULES",
+        "EVENT_DEPENDENCE_CAN_REDUCE_EFFECTIVE_SAMPLE_SIZE",
+        "HOLDOUT_UNOPENED_AT_PROTOCOL_FREEZE",
+        "NO_PASS_FAIL_EDGE_THRESHOLD",
+        "NO_TRADE_OR_SYSTEM_WIN_RATE"
+      ],
+      "provenance_note": "Methodology preregistration. Numeric horizon and sample target are project research conventions chosen before holdout outcome access, not source-derived trading rules."
     }
   ]
 }

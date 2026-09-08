@@ -1,6 +1,6 @@
 # RQ-011 — Pristine V0 Holdout Labeling and Reservation Protocol
 
-Status: ACTIVE — protocol design only; holdout outcomes remain unopened
+Status: CLOSED — prospective holdout protocol frozen; holdout remains unopened/unscored
 
 ## Objective
 
@@ -96,3 +96,21 @@ These conventions must never be described as instructor rules.
 ## Done when
 
 A versioned protocol states exactly how a future event becomes eligible, locked, corrected/excluded, sealed, and scored, with no parameter selected from holdout outcomes. Only then may a separate RQ authorize actual prospective holdout collection/scoring.
+
+
+## Closure
+
+Ref: `docs/RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL_2026-09-09.md`
+
+Protocol decisions are preregistered before outcome access:
+
+- prospective boundary is next 07:00 Asia/Bangkok strictly after protocol freeze/push;
+- chronological progressive-reveal checkpoint labeling;
+- append-only/hash-chain audit requirement;
+- outcome-blind eligibility/exclusion rules;
+- 30-calendar-day administrative horizon as explicit research convention;
+- stop at first chronological batch bringing eligible N to at least 100, including the full same-known_at batch;
+- event dependence/clustering must be disclosed; nominal Wilson intervals are descriptive, not proof of independent trials;
+- one-time sealed V0.1 signal/run scoring only after the ledger/data/code locks are complete.
+
+The pristine holdout is still `UNOPENED / UNSCORED`. Tooling and activation lock move to RQ-012.

@@ -1,18 +1,18 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T05:28:34+07:00",
+  "updated_at": "2026-09-09T05:33:59+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
   "active": {
-    "id": "RQ-011",
-    "title": "Pristine V0 Holdout Labeling and Reservation Protocol",
-    "worksheet": "research_queue/active/RQ-011_PRISTINE_V0_HOLDOUT_PROTOCOL.md",
-    "status": "ACTIVE_PROTOCOL_DESIGN_HOLDOUT_UNOPENED",
-    "latest_checkpoint": "docs/RQ010_SIG_MODE2_SIGNAL_RUN_V0_IMPLEMENTATION_2026-09-09.md"
+    "id": "RQ-012",
+    "title": "V0.1 Holdout Append-Only Ledger + Activation Lock",
+    "worksheet": "research_queue/active/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
+    "status": "ACTIVE_TOOLING_NO_OUTCOME_SCORE",
+    "latest_checkpoint": "docs/RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL_2026-09-09.md"
   },
   "priority_order": [
-    "RQ-011"
+    "RQ-012"
   ],
   "items": [
     {
@@ -216,7 +216,7 @@
       "id": "RQ-011",
       "title": "Pristine V0 Holdout Labeling and Reservation Protocol",
       "type": "METHODOLOGY",
-      "status": "ACTIVE_PROTOCOL_DESIGN_HOLDOUT_UNOPENED",
+      "status": "CLOSED_PROTOCOL_FROZEN_HOLDOUT_UNOPENED",
       "why_now": "V0.1 implementation is frozen; a prospective label-lock/reservation/stopping/scoring protocol must be preregistered before any pristine outcome is opened.",
       "depends_on": [
         "RQ-010"
@@ -226,9 +226,28 @@
         "one-time V0.1 holdout scoring"
       ],
       "preferred_method": "Freeze code hash and prospective boundary, append-only pre-outcome labels/provenance, correction policy, data contract, stopping/reporting rule, and scorer separation before outcome access.",
-      "worksheet": "research_queue/active/RQ-011_PRISTINE_V0_HOLDOUT_PROTOCOL.md",
-      "checkpoint_ref": "docs/RQ010_SIG_MODE2_SIGNAL_RUN_V0_IMPLEMENTATION_2026-09-09.md",
-      "current_summary": "Protocol design only. Holdout remains unopened and scoring is not authorized."
+      "worksheet": "research_queue/closed/RQ-011_PRISTINE_V0_HOLDOUT_PROTOCOL.md",
+      "closure_ref": "docs/RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL_2026-09-09.md",
+      "closure_summary": "Prospective V0.1 holdout protocol preregistered before outcome access: progressive reveal, append-only audit, outcome-blind eligibility, 30-day administrative horizon, >=100 chronological eligible-event target with same-time batch inclusion, clustering disclosure, sealed one-time signal/run scoring."
+    },
+    {
+      "id": "RQ-012",
+      "title": "V0.1 Holdout Append-Only Ledger + Activation Lock",
+      "type": "ENGINEERING_METHODOLOGY",
+      "status": "ACTIVE_TOOLING_NO_OUTCOME_SCORE",
+      "why_now": "RQ-011 protocol is frozen; append-only audit tooling and an activation lock are required before the prospective holdout can be considered live.",
+      "depends_on": [
+        "RQ-010",
+        "RQ-011"
+      ],
+      "blocks": [
+        "prospective holdout collection readiness",
+        "future one-time scoring authorization"
+      ],
+      "preferred_method": "Canonical JSON + SHA256 record chain + verifier + activation lock with engine/protocol commits and next 07:00 boundary; full tests before activation; scoring remains false.",
+      "worksheet": "research_queue/active/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
+      "checkpoint_ref": "docs/RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL_2026-09-09.md",
+      "current_summary": "Build audit ledger and lock only. Do not inspect or score holdout outcomes."
     }
   ],
   "conditional_infrastructure": [
@@ -249,7 +268,7 @@
   ],
   "promotion_rule": "On active closure, first re-rank remaining items using the new evidence. Then promote the highest-value unblocked item; do not blindly increment the numeric ID if the dependency picture changed.",
   "guard": "The queue organizes research; it does not grant permission to invent thresholds, upgrade provenance from outcomes, or treat historical proxy results as canonical rules.",
-  "queue_state": "ACTIVE_HOLDOUT_PROTOCOL_DESIGN_NO_OUTCOME_PEEK",
+  "queue_state": "ACTIVE_HOLDOUT_LEDGER_TOOLING_NO_OUTCOME_SCORE",
   "queue_exhaustion_ref": null,
   "reopen_rule": "Create/reopen a bounded research item only when new source evidence, new labeled examples, a frozen execution specification, or a genuinely untouched holdout materially resolves a named blocker.",
   "reopened_from_exhaustion_ref": "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
