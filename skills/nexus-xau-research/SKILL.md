@@ -211,3 +211,63 @@ Prefer this order:
 7. checkpoint/commit status.
 
 When evidence is insufficient, state `ยังสรุปไม่ได้` / `UNRESOLVED` clearly.
+
+
+## Skill scope boundary
+
+This skill stores the **method for doing research**, not the current market/system knowledge itself.
+
+Keep current knowledge in the durable structured stores:
+
+- `docs/CURRENT_RESEARCH_STATE.json` — current project/workstream position and next action;
+- `docs/0700_WORKSTREAM_STATE.json` — compact 07:00 authority and supersession map;
+- `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json` — current accepted claims and boundaries;
+- `docs/SOURCE_COVERAGE_LEDGER.json` — reviewed source/topic/window coverage;
+- `research_queue/QUEUE.json` — operational active/queued research;
+- checkpoint/closure documents — evidence chronology.
+
+Do not copy detailed market facts into this skill merely to make them easier to remember. That creates two competing authorities.
+
+## Document routing rule
+
+Do not read the entire `docs/` directory on every session.
+
+Use this routing order:
+
+```text
+bootstrap/preflight required-read set
+-> current workstream / active RQ
+-> canonical claim or source-coverage pointer
+-> only then load the specific supporting/historical document needed for the current question
+```
+
+A newly created research document is not considered current authority merely because it exists.
+
+If it changes current understanding, it must be linked from at least one durable index appropriate to its role:
+
+- Current State / Workstream;
+- Canonical Claim Register;
+- Source Coverage Ledger;
+- Queue / active worksheet.
+
+Unlinked documents are supporting/historical artifacts until intentionally routed.
+
+## When to add another skill
+
+Do not split this skill because the document count is large.
+
+Create a separate skill only when there is a **stable reusable procedure** with a materially different toolchain or execution contract, for example:
+
+- a replay/holdout operation that becomes a repeated multi-stage workflow;
+- a source-forensics workflow with its own stable browser/video evidence contract;
+- a UI/explainability workflow with a stable artifact/schema contract.
+
+Do not create a skill for:
+
+- one research question;
+- one source/video;
+- one formula;
+- one temporary experiment;
+- facts that belong in the claim register or workstream state.
+
+Until one of those workflows becomes stable and recurrent, `nexus-xau-research` remains the single core project skill.

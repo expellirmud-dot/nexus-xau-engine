@@ -14,12 +14,13 @@ CORE_PATHS = [
     Path("AGENTS.md"),
     Path("PROJECT_BOOTSTRAP.md"),
     Path("docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md"),
+    Path("skills/README.md"),
+    Path("skills/SKILLS_MANIFEST.json"),
     Path("skills/nexus-xau-research/SKILL.md"),
     Path("docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md"),
     Path("TOOLS.md"),
     Path("docs/CURRENT_RESEARCH_STATE.json"),
     Path("docs/0700_WORKSTREAM_STATE.json"),
-    Path("docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md"),
     Path("docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json"),
     Path("docs/SOURCE_COVERAGE_LEDGER.json"),
     Path("research_queue/QUEUE.json"),
@@ -116,6 +117,69 @@ def validate_state_consistency(
     }
 
 
+def validate_skill_freeze(skill_manifest: dict[str, Any]) -> dict[str, Any]:
+    status = str(skill_manifest.get("status", "")).upper()
+    if status != "FROZEN":
+        return {
+            "status": "FAIL",
+            "reason": "SKILL_MANIFEST_NOT_FROZEN",
+            "skill_manifest_status": skill_manifest.get("status"),
+        }
+
+    skills = skill_manifest.get("skills") or []
+    if not isinstance(skills, list) or not skills:
+        return {
+            "status": "FAIL",
+            "reason": "SKILL_MANIFEST_EMPTY",
+        }
+
+    verified: list[dict[str, str]] = []
+    for item in skills:
+        if not isinstance(item, dict):
+            return {
+                "status": "FAIL",
+                "reason": "SKILL_MANIFEST_ENTRY_INVALID",
+            }
+        rel = item.get("path")
+        expected = str(item.get("sha256", "")).lower()
+        if not isinstance(rel, str) or not rel or len(expected) != 64:
+            return {
+                "status": "FAIL",
+                "reason": "SKILL_MANIFEST_ENTRY_INCOMPLETE",
+                "entry": item,
+            }
+        path = ROOT / rel
+        if not path.exists():
+            return {
+                "status": "FAIL",
+                "reason": "FROZEN_SKILL_MISSING",
+                "path": rel,
+            }
+        actual = hashlib.sha256(path.read_bytes()).hexdigest()
+        if actual != expected:
+            return {
+                "status": "FAIL",
+                "reason": "FROZEN_SKILL_HASH_MISMATCH",
+                "path": rel,
+                "expected_sha256": expected,
+                "actual_sha256": actual,
+            }
+        verified.append(
+            {
+                "id": str(item.get("id", rel)),
+                "path": rel,
+                "sha256": actual,
+                "status": str(item.get("status", "")),
+            }
+        )
+
+    return {
+        "status": "PASS",
+        "manifest_status": status,
+        "verified": verified,
+    }
+
+
 def sha256_prefix(path: Path, length: int = 12) -> str:
     digest = hashlib.sha256(path.read_bytes()).hexdigest()
     return digest[:length]
@@ -159,12 +223,18 @@ def build_manifest() -> dict[str, Any]:
     canonical_path = ROOT / "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json"
     ledger_path = ROOT / "docs/SOURCE_COVERAGE_LEDGER.json"
     workstream_path = ROOT / "docs/0700_WORKSTREAM_STATE.json"
+    skill_manifest_path = ROOT / "skills/SKILLS_MANIFEST.json"
 
     state = load_json(state_path)
     queue = load_json(queue_path)
     canonical = load_json(canonical_path)
     ledger = load_json(ledger_path)
     workstream = load_json(workstream_path)
+    skill_manifest = load_json(skill_manifest_path)
+
+    skill_freeze = validate_skill_freeze(skill_manifest)
+    if skill_freeze.get("status") != "PASS":
+        return skill_freeze
 
     consistency = validate_state_consistency(
         state=state,
@@ -280,6 +350,7 @@ def build_manifest() -> dict[str, Any]:
             "entries": len(coverage_entries),
             "status_counts": dict(sorted(coverage_status_counts.items())),
         },
+        "skill_freeze": skill_freeze,
         "blocked_from_claiming": blocked,
         "next_steps": next_steps[:5],
         "required_files": manifest_files,
@@ -309,6 +380,7 @@ def print_text(manifest: dict[str, Any]) -> None:
     workstream = manifest.get("active_workstream") or {}
     canonical = manifest["canonical"]
     coverage = manifest["coverage"]
+    skill_freeze = manifest.get("skill_freeze") or {}
 
     print(f"project={manifest.get('project')}")
     print(f"state_updated_at={manifest.get('state_updated_at')}")
@@ -327,6 +399,11 @@ def print_text(manifest: dict[str, Any]) -> None:
     print(
         "source_coverage="
         f"{coverage.get('entries')} entries | {coverage.get('status_counts')}"
+    )
+    verified_skills = skill_freeze.get("verified") or []
+    print(
+        "skill_freeze="
+        f"{skill_freeze.get('manifest_status')} | {len(verified_skills)} skill(s) verified"
     )
 
     blocked = manifest.get("blocked_from_claiming") or []

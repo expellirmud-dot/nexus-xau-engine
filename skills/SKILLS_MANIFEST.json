@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-13T05:50:00+07:00",
+  "status": "FROZEN",
+  "policy": "One core project skill only. Skills store procedure; current research knowledge stays in structured project state and evidence records.",
+  "skills": [
+    {
+      "id": "nexus-xau-research",
+      "path": "skills/nexus-xau-research/SKILL.md",
+      "sha256": "79026c3997742d30941aadf0ae7863da9d8a77f3ee4a2a313fb1fba990cf1ee8",
+      "status": "FROZEN_V1",
+      "role": "restart-safe evidence-first research and checkpoint discipline"
+    }
+  ],
+  "routing": {
+    "skills_are_for": "stable reusable procedure",
+    "knowledge_is_in": [
+      "docs/CURRENT_RESEARCH_STATE.json",
+      "docs/0700_WORKSTREAM_STATE.json",
+      "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
+      "docs/SOURCE_COVERAGE_LEDGER.json",
+      "research_queue/QUEUE.json"
+    ],
+    "document_loading": "lazy-load from preflight/current pointers; do not read all docs by default"
+  },
+  "add_skill_only_when": [
+    "workflow is stable and repeated",
+    "toolchain or execution contract is materially distinct",
+    "splitting reduces rather than duplicates responsibility"
+  ],
+  "not_a_reason_to_add_skill": [
+    "one research question",
+    "one source/video",
+    "one formula",
+    "large docs directory",
+    "temporary experiment"
+  ]
+}
