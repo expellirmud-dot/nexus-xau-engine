@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T06:05:00+07:00",
+  "updated_at": "2026-09-13T06:18:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_0700_REANCHOR_MINIMAL_V2_PREP",
-  "completed_checkpoint": "0700_MINIMAL_V2_SPEC_FROZEN_PRE_OUTCOME",
+  "completed_checkpoint": "0700_MINIMAL_V2_PRE_OUTCOME_IMPLEMENTATION_FROZEN",
   "project_objective": {
     "authority": "OWNER_DIRECT",
     "ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
@@ -113,11 +113,11 @@
     "structured_state_reanchor": "PASSED"
   },
   "next_steps": [
-    "Implement 0700_MINIMAL_V2.0 exactly from the frozen spec without semantic changes.",
-    "Add and pass synthetic contract tests before interpreting any real V2 outcome.",
-    "Run 150-day discovery replay and generate terminal/PASS/failure/unknown-state map without threshold optimization.",
-    "Run unchanged code on the 60-day cross-period replication period.",
-    "Only then decide whether a named source blocker or new state requires V2.1."
+    "Run frozen 0700_MINIMAL_V2.0 on the 2022-09-01..2023-03-31 complete development period without semantic changes.",
+    "Record the 150-day terminal/PASS/failure/unknown-state map and descriptive signal/run outcomes; do not optimize thresholds.",
+    "Checkpoint and push Discovery before running replication.",
+    "Run unchanged V2.0 on the 2023-09-01..2023-11-23 complete cross-period dataset.",
+    "Only after cross-period comparison decide whether a named blocker requires V2.1 or new source work."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -1012,9 +1012,15 @@
   },
   "minimal_v2": {
     "version": "0700_MINIMAL_V2.0",
-    "status": "FROZEN_PRE_OUTCOME",
+    "status": "IMPLEMENTATION_FROZEN_SYNTHETIC_PASS_REAL_OUTCOME_UNOPENED",
     "spec": "docs/0700_MINIMAL_V2_FROZEN_SPEC_2026-09-13.md",
     "scope": "H4-only origin/run; PAT2 FULL-RANGE; M5 confirmation; existing Daily Frame; PATH_REMAINING; no consumed threshold; action lane fail-closed on unresolved location geometry.",
-    "next": "Implement V2 contract and synthetic tests without opening/summarizing discovery outcomes until synthetic suite passes."
+    "next": "Implement V2 contract and synthetic tests without opening/summarizing discovery outcomes until synthetic suite passes.",
+    "implementation": "src/nexus_xau/research/minimal_v2_0700.py",
+    "tests": "tests/test_minimal_v2_0700.py",
+    "implementation_checkpoint": "docs/0700_MINIMAL_V2_PRE_OUTCOME_IMPLEMENTATION_FREEZE_2026-09-13.md",
+    "synthetic_contract": "16_PASS",
+    "full_pytest": "EXIT_CODE_0",
+    "real_discovery_opened": false
   }
 }

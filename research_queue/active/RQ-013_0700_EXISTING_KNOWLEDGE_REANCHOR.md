@@ -141,3 +141,18 @@ Frozen pre-outcome specification:
 Version: `0700_MINIMAL_V2.0`
 
 No new V2 discovery outcome may be interpreted before the synthetic contract suite passes. Semantic changes after outcome inspection require a new version.
+
+
+## V2 pre-outcome implementation freeze
+
+Checkpoint:
+
+`docs/0700_MINIMAL_V2_PRE_OUTCOME_IMPLEMENTATION_FREEZE_2026-09-13.md`
+
+Synthetic contract: `16/16 PASS`
+
+Full pytest: `exit code 0`
+
+Real V2 discovery opened at this checkpoint: `NO`
+
+Next action: run frozen V2.0 unchanged on the 150-day complete discovery period and record the failure/unknown-state map before any replication or semantic change.
