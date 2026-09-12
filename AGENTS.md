@@ -9,13 +9,13 @@ This repository is a durable evidence-first research record. Agents must preserv
 Before starting new research, coding, backtesting, source review, or rule interpretation, use the zero-context entry path in this order:
 
 1. `PROJECT_BOOTSTRAP.md`
-2. `skills/nexus-xau-research/SKILL.md`
-3. run `.venv\Scripts\python.exe scripts\research_preflight.py` and require `NEXUS_RESEARCH_PREFLIGHT=PASS`;
-4. `docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md`
-5. `TOOLS.md`
-6. `docs/CURRENT_RESEARCH_STATE.json`
-7. the active workstream dashboard referenced by current state; currently `docs/0700_WORKSTREAM_STATE.json`
-8. `docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md` for the current 07:00 workstream purpose/success criteria
+2. `docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md`
+3. `skills/nexus-xau-research/SKILL.md`
+4. run `.venv\Scripts\python.exe scripts\research_preflight.py` and require `NEXUS_RESEARCH_PREFLIGHT=PASS`;
+5. `docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md`
+6. `TOOLS.md`
+7. `docs/CURRENT_RESEARCH_STATE.json`
+8. the active workstream dashboard referenced by current state; currently `docs/0700_WORKSTREAM_STATE.json`
 9. `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json`
 10. `docs/SOURCE_COVERAGE_LEDGER.json`
 11. `research_queue/QUEUE.json`
@@ -25,6 +25,7 @@ Before starting new research, coding, backtesting, source review, or rule interp
 
 Do not begin a new source investigation until the mandatory state above has been loaded sufficiently to answer:
 
+- What is the governing 07:00 project objective and what does PASS mean?
 - What is the active workstream and research question?
 - What does success mean for this workstream, and what is explicitly not the goal?
 - What is already source-backed?
@@ -219,6 +220,6 @@ A new agent/session must continue from the repository state, not from conversati
 
 Minimum restart invariant:
 
-`AGENTS.md -> PROJECT_BOOTSTRAP.md -> nexus-xau-research SKILL -> preflight PASS -> Maintenance Policy -> TOOLS -> Current State -> Active Workstream Dashboard -> Workstream Philosophy -> Canonical Claims -> Source Coverage -> Queue -> Active RQ -> Latest Checkpoint`
+`AGENTS.md -> PROJECT_BOOTSTRAP.md -> 07:00 Project Objective/Decision Doctrine -> nexus-xau-research SKILL -> preflight PASS -> Maintenance Policy -> TOOLS -> Current State -> Active Workstream Dashboard -> Canonical Claims -> Source Coverage -> Queue -> Active RQ -> Latest Checkpoint`
 
 Only after this chain is loaded should new research begin.

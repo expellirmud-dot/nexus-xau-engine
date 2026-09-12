@@ -2,6 +2,8 @@
 
 Status: PROJECT-LEVEL OPERATING PRINCIPLE / MUST BE READ BEFORE 07:00 RESEARCH OR IMPLEMENTATION
 
+Authority: OWNER-DIRECT PROJECT OBJECTIVE
+
 ## Why this document exists
 
 The 07:00 workstream is not a generic auto-trading application.
@@ -310,3 +312,27 @@ Start with:
 This document defines **why** the 07:00 system exists and how success is interpreted.
 
 The workstream state defines **what is currently known and what is next**.
+
+
+## Human-understandable UI / explainability requirement
+
+The owner must not be required to trust hidden equations that only NEXUS understands.
+
+A later 07:00 UI should expose, in understandable language and visual state:
+
+- current timeframe/context;
+- active origin/run;
+- consumed and remaining run state;
+- point-check status;
+- Daily Frame/location;
+- PA/PAT/SIG state and definitions;
+- relevant wick/body/zone references;
+- confirmation state;
+- conflicting or unresolved evidence;
+- final decision: ENTER / PASS / STUDY;
+- plain-language reason for that decision;
+- source links/timestamps where useful.
+
+The UI is an explainability and inspection layer. It must display the evidence used by the engine and must not invent or override research logic.
+
+This requirement exists because project success includes human auditability and shared understanding, not only correct hidden computation.

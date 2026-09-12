@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-13T05:18:16+07:00",
+  "updated_at": "2026-09-13T05:40:00+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
@@ -9,7 +9,9 @@
     "title": "07:00 Existing-Knowledge Re-anchor and Minimal V2 Freeze",
     "worksheet": "research_queue/active/RQ-013_0700_EXISTING_KNOWLEDGE_REANCHOR.md",
     "status": "ACTIVE_REANCHOR_SPEC_PREP",
-    "latest_checkpoint": "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md"
+    "latest_checkpoint": "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
+    "governing_objective_ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
+    "current_summary": "Persist owner-direct 07:00 decision doctrine, verify restart visibility, then audit historical-data sufficiency before freezing MINIMAL_V2."
   },
   "priority_order": [
     "RQ-013",
@@ -266,7 +268,8 @@
       "preferred_method": "Existing repository evidence -> chronology/reconciliation -> structured-state repair -> freeze minimal V2 -> targeted computation; no broad new source search unless a named blocker remains.",
       "worksheet": "research_queue/active/RQ-013_0700_EXISTING_KNOWLEDGE_REANCHOR.md",
       "checkpoint_ref": "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
-      "current_summary": "Re-anchor current knowledge, prevent duplicate source work, and freeze H4/PAT2-only minimal 07:00 V2 from existing evidence."
+      "current_summary": "Persist and enforce the owner-direct 07:00 decision doctrine, complete restart-safe re-anchor, then audit historical-data sufficiency and freeze MINIMAL_V2.",
+      "governing_objective_ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md"
     },
     {
       "id": "RQ-014",

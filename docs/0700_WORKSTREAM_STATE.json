@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-13T05:18:16+07:00",
+  "updated_at": "2026-09-13T05:40:00+07:00",
   "workstream": "0700_METHOD_COMPLETION",
   "status": "ACTIVE_REANCHOR_MINIMAL_V2_PREP",
   "purpose": "Single restart-safe dashboard for the 07:00 research workstream. It points to current authority, frozen historical representations, open gaps, and the next bounded task so a new agent does not restart research from zero.",
@@ -207,6 +207,7 @@
     "universal SL/TP/fill"
   ],
   "latest_completed_closures": [
+    "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
     "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
     "docs/0700_D1_DAY_RUN_SOURCE_REREVIEW_2026-09-13.md",
     "docs/0700_DAILY_FRAME_SR_SELECTOR_SOURCE_CLOSURE_2026-09-13.md",
@@ -224,5 +225,19 @@
       "hard-coding a finite list of winning historical patterns",
       "claiming guaranteed market outcomes"
     ]
+  },
+  "owner_objective": {
+    "ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
+    "system_type": "SELECTIVE_0700_EVIDENCE_DRIVEN_DECISION_SYSTEM",
+    "not": "GENERIC_24_7_AUTO_TRADER",
+    "unknown_state_action": "PASS_NO_TRADE_RECORD_AND_STUDY",
+    "success_focus": [
+      "process correctness",
+      "evidence completeness",
+      "traceability",
+      "safe handling of unknown/conflicting state",
+      "versioned learning from historical and forward evidence"
+    ],
+    "synthetic_data_role": "Controlled logic/edge-case verification only; never evidence of market frequency or profitability."
   }
 }

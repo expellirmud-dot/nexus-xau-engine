@@ -22,10 +22,13 @@ Before doing substantive work:
 
 1. read `AGENTS.md`;
 2. read `PROJECT_BOOTSTRAP.md`;
-3. run `.venv\Scripts\python.exe scripts\research_preflight.py`;
-4. read the active/current files identified by preflight, including the active workstream dashboard and current workstream philosophy/success criteria;
-5. state what the workstream already knows, what was superseded, and what must not be repeated;
-6. inspect `docs/SOURCE_COVERAGE_LEDGER.json` for the source/topic/window being considered.
+3. read `docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md`;
+4. run `.venv\Scripts\python.exe scripts\research_preflight.py`;
+5. read the active/current files identified by preflight, including the active workstream dashboard and current workstream philosophy/success criteria;
+6. state what the workstream already knows, what was superseded, and what must not be repeated;
+7. inspect `docs/SOURCE_COVERAGE_LEDGER.json` for the source/topic/window being considered.
+
+For 07:00 work, preserve the owner-direct doctrine that unresolved/novel states may terminate as PASS / NO TRADE / STUDY rather than being forced into a known rule.
 
 Do not continue if preflight fails or if the active workstream/question cannot be reconstructed from repository state. A stale central state is itself a blocker; do not compensate by broad source searching.
 

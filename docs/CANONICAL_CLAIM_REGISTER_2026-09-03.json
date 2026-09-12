@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-13T05:18:16+07:00",
+  "updated_at": "2026-09-13T05:40:00+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -858,6 +858,23 @@
         "DO_NOT_RESET_FRESH_FULL_RUN_FROM_0700_ENTRY"
       ],
       "provenance_note": "Direct project guidance supplies remaining-run semantics; Q1 provides representation-level empirical support."
+    },
+    {
+      "claim_id": "0700_OWNER_DECISION_SYSTEM_OBJECTIVE",
+      "canonical_statement": "The 07:00 project is a selective evidence-driven decision system, not a generic 24/7 auto-trader. It may use all relevant information knowable before/at 07:00 to construct state. If the current version encounters insufficient, conflicting, or materially novel state, PASS/NO TRADE/RECORD FOR RESEARCH is a correct terminal decision. Synthetic data may verify logic and edge cases but cannot establish market frequency, robustness, profitability, or win rate.",
+      "status": "ACTIVE_OWNER_DIRECT_PROJECT_OBJECTIVE",
+      "engine_permission": "GOVERNING_DECISION_AND_RESEARCH_DOCTRINE",
+      "source_refs": [
+        "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md"
+      ],
+      "risk_flags": [
+        "DO_NOT_FORCE_DAILY_TRADE",
+        "DO_NOT_HARDCODE_OUTCOME_SELECTED_PATTERN_CATALOG",
+        "DO_NOT_USE_SYNTHETIC_DATA_AS_MARKET_PERFORMANCE_EVIDENCE",
+        "UNKNOWN_STATE_MUST_BE_FAIL_CLOSED_OR_RESEARCHED",
+        "NO_PRECOMMITTED_WIN_RATE_CLAIM"
+      ],
+      "provenance_note": "Direct owner clarification recorded 2026-09-13. Highest project authority for interpreting the purpose and success criteria of the narrow 07:00 workstream."
     }
   ]
 }

@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CORE_PATHS = [
     Path("AGENTS.md"),
     Path("PROJECT_BOOTSTRAP.md"),
+    Path("docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md"),
     Path("skills/nexus-xau-research/SKILL.md"),
     Path("docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md"),
     Path("TOOLS.md"),
@@ -284,6 +285,7 @@ def build_manifest() -> dict[str, Any]:
         "required_files": manifest_files,
         "missing": missing_dynamic,
         "comprehension_gate": [
+            "State the 07:00 project objective and unknown-state/PASS doctrine.",
             "State the active 07:00 workstream and active RQ/worksheet.",
             "State the latest checkpoint.",
             "State relevant canonical facts and residual unknowns.",

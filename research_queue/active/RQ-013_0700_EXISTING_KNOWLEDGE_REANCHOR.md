@@ -12,6 +12,15 @@ This caused already-reviewed questions to appear open and created duplicate sour
 
 The active task is therefore to repair current authority and freeze the narrowest useful 07:00 V2 from existing evidence before opening new source questions.
 
+
+## Governing project objective
+
+Mandatory owner-direct authority:
+
+`docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md`
+
+This workstream is building a selective evidence-driven 07:00 decision system, not a generic always-trading EA. Unknown or insufficiently understood states must be eligible for PASS / NO TRADE / RECORD FOR RESEARCH. Real historical data is used to test market behavior; synthetic data may be used for controlled logic/edge-case verification but cannot prove market frequency or profitability.
+
 ## Current audit authority
 
 Read first:

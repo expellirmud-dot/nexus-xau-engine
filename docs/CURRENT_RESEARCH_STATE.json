@@ -1,9 +1,15 @@
 {
-  "updated_at": "2026-09-13T05:18:16+07:00",
+  "updated_at": "2026-09-13T05:40:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_0700_REANCHOR_MINIMAL_V2_PREP",
   "completed_checkpoint": "0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_REANCHORED_VALIDATED",
-  "project_objective": "QUALITY_OF_SEQUENTIAL_DECISIONS_UNDER_UNCERTAINTY",
+  "project_objective": {
+    "authority": "OWNER_DIRECT",
+    "ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
+    "summary": "Selective evidence-driven 07:00 decision system, not a generic always-trading EA. Use all relevant pre-07:00 evidence; act only when the current version understands the state sufficiently; otherwise PASS/NO TRADE/STUDY and record the novel state.",
+    "success_definition": "Maximize process completeness, traceability, deterministic handling of known states, and safe fail-closed behavior. Do not require or manufacture a target market win rate.",
+    "data_policy": "Real historical/forward data tests market behavior; synthetic data tests logic, invariants, and controlled edge cases. Synthetic data cannot establish market frequency or profitability."
+  },
   "validated_dataset": {
     "symbol": "XAUUSDm",
     "start_utc": "2026-05-26T00:00:00+00:00",
@@ -24,11 +30,11 @@
       "PROJECT_BOOTSTRAP.md",
       "skills/nexus-xau-research/SKILL.md",
       "docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md",
+      "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
       "TOOLS.md",
       "docs/CURRENT_RESEARCH_STATE.json",
       "docs/0700_WORKSTREAM_STATE.json",
       "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
-      "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
       "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
       "docs/SOURCE_COVERAGE_LEDGER.json",
       "research_queue/QUEUE.json",
