@@ -339,7 +339,46 @@ Use after `1E_PYPor1qQ` when looking for a discriminating PAT example.
 
 # B. What is STILL missing for the 07:00 system, and where should we look?
 
-## Gap 1 — Exact PAT >50% denominator
+## Gap 1 — PAT >50% denominator — PAT2 SOURCE CLOSED / PAT3 COMBINED OPEN
+
+Targeted cross-source re-review:
+
+- https://youtu.be/1E_PYPor1qQ
+- https://youtu.be/NwMl2cUMb-A
+
+Dedicated closure:
+
+`docs/0700_PAT50_DENOMINATOR_SOURCE_CLOSURE_2026-09-13.md`
+
+New source-backed PAT2 geometry:
+
+```text
+midpoint_basis = FULL CANDLE RANGE
+midpoint = (prior.high + prior.low) / 2
+wick is included in the denominator
+confirming body/close must pass the midpoint in direction
+primary semantic = >50%
+```
+
+Important distinction:
+
+- wick/body both belong to candle geometry;
+- candle-force quality is read primarily from body;
+- full engulfing is stronger but not mandatory.
+
+Still open:
+
+- PAT3 variant-2 exact “two red candles combined” arithmetic;
+- PAT3 variant-3 exact multi-candle aggregation;
+- dedicated discriminating confirmation for PAT3-v1 if needed.
+
+Status:
+
+`PAT2 FULL-RANGE DENOMINATOR SOURCE-CLOSED / PAT3 MULTI-CANDLE GEOMETRY PARAMETERIZED`
+
+---
+
+## Gap 1A — Exact PAT3 combined-candle denominator
 
 ### What is already known
 
@@ -658,8 +697,8 @@ Trend > Frame > SIG hierarchy        CLOSED SEMANTIC
 Remaining-run H4 research state      DATA-REPLICATED, NOT SOURCE THRESHOLD
 
 Still source-critical:
-PAT exact denominator
-Daily Frame exact selector/tolerance
+PAT3 exact combined-candle denominator
+Daily Frame exact 0/5 snap/tie + numeric qualification
 Universal Sideway auto-geometry
 Exact fill convention if instructor-defined
 Multi-family conflict resolver
