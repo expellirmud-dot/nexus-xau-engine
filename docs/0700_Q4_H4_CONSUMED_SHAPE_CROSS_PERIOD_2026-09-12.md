@@ -411,3 +411,29 @@ Q4 does not establish:
 - D1 run distance;
 - universal SL;
 - broker execution P&L.
+
+
+## YouTube source navigation
+
+For fast source lookup, video timestamps, and unresolved-source routing, use:
+
+`docs/0700_YOUTUBE_SOURCE_GAP_MAP_2026-09-13.md`
+
+That report is restricted to YouTube sources already recorded in the repository and separates:
+
+- topics already source-backed;
+- partially closed geometry;
+- source-exhausted but unresolved items;
+- unmapped YouTube links that remain candidates for missing 07:00 teaching material.
+
+Current source-critical gaps highlighted there include:
+
+- exact PAT >50% denominator;
+- Daily Frame exact selector/tolerance;
+- universal Sideway auto-geometry;
+- exact D1 inherited-run distance;
+- universal multi-family conflict resolver;
+- exact fill convention if it exists as instructor-defined teaching;
+- universal Body Collection candidate priority.
+
+Consult the map before re-watching sources so already exhausted source questions are not restarted from zero.
