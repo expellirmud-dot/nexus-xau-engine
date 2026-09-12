@@ -29,6 +29,24 @@ Local phone videos `VID_20260912_*.mp4` are intentionally excluded from this rep
 
 ---
 
+## Re-review rule for mapped YouTube sources
+
+A mapped YouTube source is not merely an archival citation.
+
+If the repository already maps a video to a topic, that video is an active source that may be reopened for a new bounded question using:
+
+- its saved YouTube link;
+- local `.mp4` when present;
+- local transcript `.txt` when present;
+- existing timestamp evidence/frames;
+- new targeted frame extraction around a newly discovered timestamp.
+
+A prior summary that left an item unresolved means only that the **previous bounded review did not close it**. It does not prohibit a new targeted re-review when a new question or candidate timestamp appears.
+
+Do not infer a rule from keyword hits alone. When a numeric term is context-sensitive, inspect the surrounding transcript and visual chart before promoting any source claim.
+
+---
+
 # A. Main YouTube videos relevant to the 07:00 workflow
 
 ## 1. PA / PAT / SIG entry foundation
@@ -603,3 +621,42 @@ Universal Body Collection candidate priority
 ```
 
 The report should be consulted before searching or re-watching videos so that already exhausted source questions are not restarted from zero.
+
+
+## New D1/Day-run re-review lead — EP.2
+
+A targeted source scan after building this map found that the mapped EP.2 source:
+
+https://youtu.be/ESHDuiVPJow
+
+contains a concentrated Day/run discussion around approximately `1:30–1:42`.
+
+Important candidate timestamps:
+
+- `1:31:05–1:31:51` — discussion of Day having travelled about 7,000 points, not yet 10,000, a 5,000-point “100%” phrase, and examples H4 1,500 / H1 1,000 inside larger-timeframe space.
+- `1:34:21–1:35:00` — Day Sideway width examples and ability for H1/H4 runs to complete inside it.
+- `1:36:02–1:36:38` — explicit Day examples including a first set described around 10,000 points and another set around 5,000, with larger combined movement discussed.
+- `1:41:18–1:42:24` — Day-space / PA / frame discussion.
+- `2:56:55–2:57:09` — “Day target complete; H4 remains working” lifecycle example.
+
+These transcript hits are **not yet a closed D1 run formula** because multiple numbers occur in different lifecycle/Sideway/SIG contexts.
+
+Required next action:
+
+```text
+re-open EP.2 visual + transcript around the candidate windows
+-> identify exactly what each number measures
+-> separate:
+   Day native run
+   SIG set/run
+   Sideway width
+   remaining space
+   first/second set
+-> only then decide whether D1 run distance can be source-closed
+```
+
+Status:
+
+`HIGH-PRIORITY REVIEWABLE SOURCE / D1 EXACT RUN NOT YET CLOSED`
+
+This supersedes treating D1 as merely “no mapped source found.”
