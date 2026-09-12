@@ -90,3 +90,43 @@ RQ-013 closes when:
 Complete the structured-state repair and validate it.
 
 Then freeze 0700_MINIMAL_V2 before altering the V1 generator or looking at new V2 outcomes.
+
+
+## Data-readiness checkpoint — 2026-09-13
+
+Completed:
+
+`docs/0700_HISTORICAL_DATA_READINESS_AND_TEST_STRATEGY_2026-09-13.md`
+
+Decision:
+
+- existing real history is sufficient for minimal V2 development and failure discovery;
+- complete Dukascopy 2022-09->2023-03 is the V2 development period;
+- complete Dukascopy 2023-09->2023-11-23 is the unchanged-code historical replication period;
+- MT5 2026-05-26->2026-09-01 is broker/feed engineering stress-test data;
+- 2024/2025 Dukascopy chunks are incomplete and stress-test-only unless gaps are repaired or strictly excluded;
+- no current historical period is pristine final confirmation;
+- synthetic data is explicitly approved for controlled boundary/invariant/fail-closed tests, not market-performance proof.
+
+Next action:
+
+`FREEZE 0700_MINIMAL_V2 -> SYNTHETIC CONTRACT TESTS -> REAL DISCOVERY -> UNCHANGED REPLICATION`
+
+Do not reopen broad YouTube/source work unless V2 reaches a named blocker that cannot be excluded or fail-closed.
+
+
+## Data readiness checkpoint
+
+Authority:
+
+`docs/0700_HISTORICAL_DATA_READINESS_AND_TEST_STRATEGY_2026-09-13.md`
+
+Current decision:
+
+- existing complete real historical data is sufficient to build/debug and run the first MINIMAL_V2 failure-map replay;
+- two complete periods provide 210 07:00 daily snapshots under the V1 scaffold;
+- those periods are not pristine confirmation data because Q1-Q4 already used them;
+- synthetic data is authorized for deterministic boundary/edge-case verification only;
+- new market-performance confirmation requires a repaired/reserved untouched historical range or prospective data after V2 freeze.
+
+Next action: freeze `0700_MINIMAL_V2` before changing the engine or opening new V2 outcomes.

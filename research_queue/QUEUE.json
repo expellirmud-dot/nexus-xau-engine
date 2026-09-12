@@ -8,10 +8,10 @@
     "id": "RQ-013",
     "title": "07:00 Existing-Knowledge Re-anchor and Minimal V2 Freeze",
     "worksheet": "research_queue/active/RQ-013_0700_EXISTING_KNOWLEDGE_REANCHOR.md",
-    "status": "ACTIVE_REANCHOR_SPEC_PREP",
-    "latest_checkpoint": "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
+    "status": "ACTIVE_MINIMAL_V2_SPEC_NEXT",
+    "latest_checkpoint": "docs/0700_HISTORICAL_DATA_READINESS_AND_TEST_STRATEGY_2026-09-13.md",
     "governing_objective_ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
-    "current_summary": "Persist owner-direct 07:00 decision doctrine, verify restart visibility, then audit historical-data sufficiency before freezing MINIMAL_V2."
+    "current_summary": "Owner philosophy and data-readiness audit are persisted. Existing real data is sufficient for MINIMAL_V2 development; next action is to freeze V2 before any new outcome replay or broad YouTube review."
   },
   "priority_order": [
     "RQ-013",
@@ -257,7 +257,7 @@
       "id": "RQ-013",
       "title": "07:00 Existing-Knowledge Re-anchor and Minimal V2 Freeze",
       "type": "RESEARCH_RECONCILIATION",
-      "status": "ACTIVE_REANCHOR_SPEC_PREP",
+      "status": "ACTIVE_MINIMAL_V2_SPEC_NEXT",
       "why_now": "Central restart state was stale and caused duplicate source work. Existing Q1-Q4 plus 2026-09-13 source closures indicate a narrow H4/PAT2-only 07:00 V2 may be calculable without further broad YouTube review.",
       "depends_on": [],
       "blocks": [
@@ -267,8 +267,8 @@
       ],
       "preferred_method": "Existing repository evidence -> chronology/reconciliation -> structured-state repair -> freeze minimal V2 -> targeted computation; no broad new source search unless a named blocker remains.",
       "worksheet": "research_queue/active/RQ-013_0700_EXISTING_KNOWLEDGE_REANCHOR.md",
-      "checkpoint_ref": "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
-      "current_summary": "Persist and enforce the owner-direct 07:00 decision doctrine, complete restart-safe re-anchor, then audit historical-data sufficiency and freeze MINIMAL_V2.",
+      "checkpoint_ref": "docs/0700_HISTORICAL_DATA_READINESS_AND_TEST_STRATEGY_2026-09-13.md",
+      "current_summary": "Continuity is repaired and data readiness is established. Freeze H4/PAT2-only 0700_MINIMAL_V2, then synthetic boundary tests and real-period failure-map replay.",
       "governing_objective_ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md"
     },
     {

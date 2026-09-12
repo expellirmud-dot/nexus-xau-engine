@@ -13,7 +13,7 @@
     "worksheet": "research_queue/active/RQ-013_0700_EXISTING_KNOWLEDGE_REANCHOR.md",
     "audit": "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
     "question": "Can the already-known source and research pieces be frozen into a narrow H4/PAT2-only 07:00 V2 without reopening broad YouTube research?",
-    "next_action": "Repair central structured state and freeze 0700_MINIMAL_V2 before changing the V1 generator or inspecting new V2 outcomes."
+    "next_action": "Freeze 0700_MINIMAL_V2 from existing evidence, then implement synthetic boundary tests before replaying the two complete real historical periods."
   },
   "established_source_state": [
     {
@@ -207,6 +207,7 @@
     "universal SL/TP/fill"
   ],
   "latest_completed_closures": [
+    "docs/0700_HISTORICAL_DATA_READINESS_AND_TEST_STRATEGY_2026-09-13.md",
     "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
     "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
     "docs/0700_D1_DAY_RUN_SOURCE_REREVIEW_2026-09-13.md",
@@ -239,5 +240,14 @@
       "versioned learning from historical and forward evidence"
     ],
     "synthetic_data_role": "Controlled logic/edge-case verification only; never evidence of market frequency or profitability."
+  },
+  "latest_checkpoint": "docs/0700_HISTORICAL_DATA_READINESS_AND_TEST_STRATEGY_2026-09-13.md",
+  "data_readiness": {
+    "checkpoint": "docs/0700_HISTORICAL_DATA_READINESS_AND_TEST_STRATEGY_2026-09-13.md",
+    "development": "READY",
+    "real_complete_0700_snapshots": 210,
+    "confirmatory": "NOT_PRISTINE_YET",
+    "synthetic": "ALLOWED_FOR_LOGIC_EDGE_CASES_ONLY",
+    "execution_pnl": "NOT_READY"
   }
 }

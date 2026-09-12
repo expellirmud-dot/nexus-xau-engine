@@ -2,7 +2,7 @@
   "updated_at": "2026-09-13T05:40:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_0700_REANCHOR_MINIMAL_V2_PREP",
-  "completed_checkpoint": "0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_REANCHORED_VALIDATED",
+  "completed_checkpoint": "0700_HISTORICAL_DATA_READINESS_RECORDED",
   "project_objective": {
     "authority": "OWNER_DIRECT",
     "ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
@@ -36,6 +36,7 @@
       "docs/0700_WORKSTREAM_STATE.json",
       "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
       "docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json",
+      "docs/0700_HISTORICAL_DATA_READINESS_AND_TEST_STRATEGY_2026-09-13.md",
       "docs/SOURCE_COVERAGE_LEDGER.json",
       "research_queue/QUEUE.json",
       "research_queue/active/RQ-013_0700_EXISTING_KNOWLEDGE_REANCHOR.md",
@@ -112,11 +113,11 @@
     "structured_state_reanchor": "PASSED"
   },
   "next_steps": [
-    "Complete structured 07:00 re-anchor validation and checkpoint it.",
-    "Freeze a separate 0700_MINIMAL_V2 specification using existing evidence: H4-only origin/run, PAT2 FULL-RANGE, existing Daily Frame, PATH_REMAINING, no consumed threshold.",
-    "Version the existing 0700_STATE_DATASET_V1 machinery rather than starting over; keep Q1-Q4 historical outputs unchanged.",
-    "Rerun discovery and replication under the frozen V2 without selecting a threshold from outcomes.",
-    "Only reopen YouTube/source work if the minimal V2 reaches a named blocker that cannot be excluded or fail-closed."
+    "Freeze 0700_MINIMAL_V2 specification from existing evidence: H4-only origin/run, PAT2 FULL-RANGE, existing Daily Frame, PATH_REMAINING, no consumed threshold.",
+    "Version the V1 scaffold into V2 without rewriting Q1-Q4 historical outputs.",
+    "Create synthetic boundary fixtures for no-lookahead, point-check touch/near-miss, PAT2 midpoint boundaries, ambiguous same-bar, Daily Frame tie, and unknown/PASS states.",
+    "Replay the two complete real periods (210 07:00 daily snapshots) and produce a failure/novelty map, not only an outcome percentage.",
+    "Only reopen source research for named blockers; reserve/repair new data only after V2 is frozen for confirmatory use."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -976,12 +977,37 @@
       "D1 current authority is a 5,000-10,000 run family with exact stage transition open; do not use one universal D1 scalar."
     ],
     "operating_philosophy": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
-    "method": "Build a restart-safe 07:00 state engine: use all knowable pre-07:00 context, allow PASS on unknown/unsupported states, learn from replay failures, use synthetic data for controlled logic tests and real data for market evidence."
+    "method": "Build a restart-safe 07:00 state engine: use all knowable pre-07:00 context, allow PASS on unknown/unsupported states, learn from replay failures, use synthetic data for controlled logic tests and real data for market evidence.",
+    "latest_checkpoint": "docs/0700_HISTORICAL_DATA_READINESS_AND_TEST_STRATEGY_2026-09-13.md",
+    "data_assessment": "Existing real history is sufficient for minimal V2 development, failure discovery, same-code historical replication, and MT5 engineering stress tests. Synthetic data is approved for controlled logic/boundary tests only. No current period is a pristine final confirmation set."
   },
   "rq012_holdout_state": {
     "status": "QUEUED_FROZEN_PROTOCOL_NO_OUTCOME_SCORE",
     "worksheet": "research_queue/queued/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
     "protocol": "docs/RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL_2026-09-09.md",
     "note": "Paused while owner-prioritized 07:00 workstream is re-anchored. Frozen V0.1 identities remain unchanged and outcome scoring is not authorized."
+  },
+  "data_readiness_0700": {
+    "status": "SUFFICIENT_FOR_MINIMAL_V2_DEVELOPMENT_NOT_PRISTINE_CONFIRMATION",
+    "checkpoint": "docs/0700_HISTORICAL_DATA_READINESS_AND_TEST_STRATEGY_2026-09-13.md",
+    "complete_real_periods": [
+      {
+        "range": "2022-09-01..2023-03-31",
+        "m1_rows": 305280,
+        "v1_0700_days": 150,
+        "role": "development_discovery_failure_map",
+        "pristine": false
+      },
+      {
+        "range": "2023-09-01..2023-11-23",
+        "m1_rows": 120960,
+        "v1_0700_days": 60,
+        "role": "cross_period_development_replay",
+        "pristine": false
+      }
+    ],
+    "complete_0700_snapshots": 210,
+    "synthetic_policy": "Use for deterministic logic/boundary/edge-case verification only; never for market frequency, win rate, robustness, or profitability claims.",
+    "confirmatory_gap": "Need repaired/reserved untouched historical range or future prospective/forward data after V2 freeze."
   }
 }
