@@ -130,3 +130,14 @@ Current decision:
 - new market-performance confirmation requires a repaired/reserved untouched historical range or prospective data after V2 freeze.
 
 Next action: freeze `0700_MINIMAL_V2` before changing the engine or opening new V2 outcomes.
+
+
+## MINIMAL V2 freeze
+
+Frozen pre-outcome specification:
+
+`docs/0700_MINIMAL_V2_FROZEN_SPEC_2026-09-13.md`
+
+Version: `0700_MINIMAL_V2.0`
+
+No new V2 discovery outcome may be interpreted before the synthetic contract suite passes. Semantic changes after outcome inspection require a new version.

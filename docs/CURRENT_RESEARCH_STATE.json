@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T05:40:00+07:00",
+  "updated_at": "2026-09-13T06:05:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_0700_REANCHOR_MINIMAL_V2_PREP",
-  "completed_checkpoint": "0700_HISTORICAL_DATA_READINESS_RECORDED",
+  "completed_checkpoint": "0700_MINIMAL_V2_SPEC_FROZEN_PRE_OUTCOME",
   "project_objective": {
     "authority": "OWNER_DIRECT",
     "ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
@@ -113,11 +113,11 @@
     "structured_state_reanchor": "PASSED"
   },
   "next_steps": [
-    "Freeze 0700_MINIMAL_V2 specification from existing evidence: H4-only origin/run, PAT2 FULL-RANGE, existing Daily Frame, PATH_REMAINING, no consumed threshold.",
-    "Version the V1 scaffold into V2 without rewriting Q1-Q4 historical outputs.",
-    "Create synthetic boundary fixtures for no-lookahead, point-check touch/near-miss, PAT2 midpoint boundaries, ambiguous same-bar, Daily Frame tie, and unknown/PASS states.",
-    "Replay the two complete real periods (210 07:00 daily snapshots) and produce a failure/novelty map, not only an outcome percentage.",
-    "Only reopen source research for named blockers; reserve/repair new data only after V2 is frozen for confirmatory use."
+    "Implement 0700_MINIMAL_V2.0 exactly from the frozen spec without semantic changes.",
+    "Add and pass synthetic contract tests before interpreting any real V2 outcome.",
+    "Run 150-day discovery replay and generate terminal/PASS/failure/unknown-state map without threshold optimization.",
+    "Run unchanged code on the 60-day cross-period replication period.",
+    "Only then decide whether a named source blocker or new state requires V2.1."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -1009,5 +1009,12 @@
     "complete_0700_snapshots": 210,
     "synthetic_policy": "Use for deterministic logic/boundary/edge-case verification only; never for market frequency, win rate, robustness, or profitability claims.",
     "confirmatory_gap": "Need repaired/reserved untouched historical range or future prospective/forward data after V2 freeze."
+  },
+  "minimal_v2": {
+    "version": "0700_MINIMAL_V2.0",
+    "status": "FROZEN_PRE_OUTCOME",
+    "spec": "docs/0700_MINIMAL_V2_FROZEN_SPEC_2026-09-13.md",
+    "scope": "H4-only origin/run; PAT2 FULL-RANGE; M5 confirmation; existing Daily Frame; PATH_REMAINING; no consumed threshold; action lane fail-closed on unresolved location geometry.",
+    "next": "Implement V2 contract and synthetic tests without opening/summarizing discovery outcomes until synthetic suite passes."
   }
 }
