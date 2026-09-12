@@ -477,28 +477,41 @@ If no new source states the routing, preserve ambiguity instead of inventing a w
 
 ---
 
-## Gap 5 — Exact D / D1 inherited-run distance
+## Gap 5 — D / D1 inherited-run distance — STAGED SOURCE CLOSURE
 
-Current 07:00 research preserves D as a possible origin context because the direct project guidance mentions H1/H4/D.
+Targeted re-review of:
 
-However, the current repository does **not** have a YouTube source mapping that closes one exact D1 run distance for the 07:00 inherited-run model.
+https://youtu.be/ESHDuiVPJow
+
+now supports a staged Day/D1 run representation.
+
+Dedicated closure:
+
+`docs/0700_D1_DAY_RUN_SOURCE_CLOSURE_2026-09-13.md`
+
+Source-backed future-version representation:
+
+```text
+D1 primary / 100% nominal run ≈ 5,000 project points
+D1 continuation / extended reference ≈ 10,000 project points
+```
+
+Important:
+
+- 10,000 is not a universal hard cap;
+- multi-SIG/set Day movement can exceed 10,000;
+- Day Sideway width examples are separate quantities;
+- Day target completion does not globally complete/invalidate an H4 run still working.
 
 Status:
 
-`NOT YET MAPPED TO A CLOSING YOUTUBE SOURCE`
+`SOURCE-BACKED STAGED RUN / EXACT 5K->10K STATE TRANSITION STILL OPEN`
 
-### Search priority
+The remaining D1 question is no longer “what are the run distances?”
 
-This is a good target for the remaining unmapped videos in Section C.
+It is:
 
-Search terms/topics during transcript extraction:
-
-- Day / D / Daily;
-- รอบวิ่ง;
-- TP1 / TP2;
-- พัน / พันห้า / สามพัน / larger run counts;
-- remaining run;
-- ไส้หลัง SIG / point-check.
+> How should the engine classify the transition after the first 5,000-point nominal round when the same Day lifecycle continues toward the 10,000-point reference?
 
 ---
 
@@ -616,7 +629,7 @@ Daily Frame exact selector/tolerance
 Universal Sideway auto-geometry
 Exact fill convention if instructor-defined
 Multi-family conflict resolver
-Exact D1 run distance
+D1 5K->10K continuation state transition
 Universal Body Collection candidate priority
 ```
 
