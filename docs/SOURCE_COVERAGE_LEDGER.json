@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T05:12:19+07:00",
+  "updated_at": "2026-09-13T05:18:16+07:00",
   "purpose": "Durable source-review memory. Records which source windows/topics have already been screened or reviewed, what they established, what remains unresolved, and when a review may be reopened. This ledger prevents future agents from restarting source research from zero.",
   "rules": {
     "closed_windows_are_not_researched_from_zero_without_reopen_trigger": true,
@@ -266,24 +266,24 @@
         "SYNCHRONIZED_VISUAL",
         "PIXEL_GEOMETRY_DIAGNOSTIC"
       ],
-      "status": "REVIEWED_UNRESOLVED",
-      "finding": "Source supports strict beyond-half semantics and body-oriented language. The measured PAT2 schematic reclaims about 69% of the prior body, but the same image also appears to pass the full high-low midpoint, so the reviewed visual cannot distinguish the canonical denominator.",
+      "status": "SUPERSEDED",
+      "finding": "Historical 2026-09-09 review correctly preserved ambiguity at that time. A later cross-source 2026-09-13 review closed the PAT2 single-prior-candle midpoint basis as full candle range including wick. PAT3 combined-candle arithmetic remains unresolved.",
       "residual_unknowns": [
-        "PAT2_PAT3_EXACT_50_PERCENT_DENOMINATOR",
-        "PAT3_COMBINED_CANDLE_ARITHMETIC",
-        "TICK_EQUALITY_AND_SMALL_BODY_TOLERANCE"
+        "PAT3_COMBINED_CANDLE_ARITHMETIC"
       ],
       "claim_ids": [],
       "checkpoint_refs": [
         "docs/RQ002_PAT_GEOMETRY_SOURCE_CLOSURE_2026-09-08.md",
-        "docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md"
+        "docs/RQ009_PAT50_DENOMINATOR_VISUAL_DIAGNOSTIC_2026-09-09.md",
+        "docs/0700_PAT50_DENOMINATOR_SOURCE_CLOSURE_2026-09-13.md"
       ],
       "reopen_triggers": [
         "NEW_PRIMARY_SOURCE_EVIDENCE",
         "CLEARER_SYNCHRONIZED_AUDIO_OR_VISUAL",
         "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION"
       ],
-      "last_reviewed_at": "2026-09-09"
+      "last_reviewed_at": "2026-09-13",
+      "superseded_by": "PAT2_FULL_RANGE_DENOMINATOR_20260913"
     },
     {
       "coverage_id": "SIG_ENTRY_TWO_MODES_5301_10640",
@@ -775,6 +775,101 @@
         "SOURCE_OR_TIMESTAMP_MAPPING_ERROR"
       ],
       "last_reviewed_at": "2026-09-09"
+    },
+    {
+      "coverage_id": "PAT2_FULL_RANGE_DENOMINATOR_20260913",
+      "source_id": "1E_PYPor1qQ+NwMl2cUMb-A",
+      "source_title": "Primary PA/PAT lesson + EP.1 foundation cross-check",
+      "topic": "PAT2 >50% denominator / midpoint basis",
+      "window": "1E_PYPor1qQ ~00:13:48-00:14:38; NwMl2cUMb-A ~00:56:14-00:58:14",
+      "reviewed_modalities": [
+        "YOUTUBE_TRANSCRIPT",
+        "REMOTE_CHROME",
+        "CROSS_SOURCE_RECONCILIATION"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "PAT2 single-prior-candle 50% midpoint basis is the full prior candle range including wick: midpoint=(high+low)/2. Directional confirming body/close must pass the midpoint. Full engulfing is stronger but not mandatory.",
+      "residual_unknowns": [
+        "PAT3_VARIANT2_COMBINED_DENOMINATOR",
+        "PAT3_VARIANT3_COMBINED_SEQUENCE",
+        "PAT_LOCATION_FRAME_QUALIFICATION_SEPARATE"
+      ],
+      "claim_ids": [
+        "PAT2_GEOMETRY"
+      ],
+      "checkpoint_refs": [
+        "docs/0700_PAT50_DENOMINATOR_SOURCE_CLOSURE_2026-09-13.md"
+      ],
+      "reopen_triggers": [
+        "CONTRADICTION_WITH_NEW_PRIMARY_SOURCE",
+        "DIRECT_INSTRUCTOR_CLARIFICATION",
+        "SOURCE_MAPPING_ERROR"
+      ],
+      "last_reviewed_at": "2026-09-13"
+    },
+    {
+      "coverage_id": "EP2_D1_RUN_REREVIEW_0130_0257_20260913",
+      "source_id": "ESHDuiVPJow",
+      "source_title": "EP.2 เทรน ชนะ กรอบ กรอบ ชนะ Sig",
+      "topic": "Day/D1 run magnitude family, nested H1/H4 runs, and Day-vs-H4 lifecycle",
+      "window": "~01:30:58-01:42:24; ~02:56:55-02:57:02",
+      "reviewed_modalities": [
+        "LOCAL_TRANSCRIPT",
+        "LOCAL_MP4",
+        "TARGETED_REVIEW",
+        "CROSSCHECK_WITH_PRIOR_PROJECT_EVIDENCE"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Day/D1 teaching supports magnitude references around 5,000-10,000 project points, allows nested H1/H4 runs inside larger Day/Sideway space, and shows Day completion can coexist with still-active H4. The exact 5K->10K stage/set transition is not closed and no single universal D1 scalar is promoted.",
+      "residual_unknowns": [
+        "EXACT_D1_STAGE_TRANSITION",
+        "ACTIVE_DAY_STAGE_SELECTION_AT_0700",
+        "MULTI_SIG_SET_ACCOUNTING"
+      ],
+      "claim_ids": [
+        "D1_RUN_FAMILY_0700"
+      ],
+      "checkpoint_refs": [
+        "docs/0700_D1_DAY_RUN_SOURCE_REREVIEW_2026-09-13.md",
+        "docs/0700_D1_DAY_RUN_SOURCE_CLOSURE_2026-09-13.md"
+      ],
+      "reopen_triggers": [
+        "NEW_DISCRIMINATING_DAY_STAGE_SOURCE",
+        "DIRECT_INSTRUCTOR_CLARIFICATION",
+        "SOURCE_MAPPING_ERROR"
+      ],
+      "last_reviewed_at": "2026-09-13"
+    },
+    {
+      "coverage_id": "EP3_DAILY_SR_SELECTOR_20260913",
+      "source_id": "jBEM-vWYj_o",
+      "source_title": "EP.3 แนวรับ - แนวต้าน",
+      "topic": "Daily/strong S-R zone selector semantics and lifecycle",
+      "window": "~00:20:00; ~01:25:35; ~01:38:17-01:46:13; ~02:17:03-02:35:16",
+      "reviewed_modalities": [
+        "REMOTE_CHROME",
+        "YOUTUBE_TRANSCRIPT",
+        "TARGETED_SOURCE_REVIEW"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "S/R is a zone rather than one universal dead price; cross-TF overlap and body/wick structural mapping matter; fresh/unused state matters; used zones may remain active until structural break; multiple H4 zones may coexist; reviewed strong-zone workflow searches H4 first then H1 fallback.",
+      "residual_unknowns": [
+        "EXACT_0_5_SNAP_TIE_ROUNDING",
+        "UNIVERSAL_NUMERIC_ZONE_TOLERANCE",
+        "EXACT_WICK_BODY_CLOSE_QUALIFICATION",
+        "UNIVERSAL_CROSS_FAMILY_WINNER",
+        "UNIVERSAL_7_14_POINT_GATE_NOT_CLOSED"
+      ],
+      "claim_ids": [],
+      "checkpoint_refs": [
+        "docs/0700_DAILY_FRAME_SR_SELECTOR_SOURCE_CLOSURE_2026-09-13.md"
+      ],
+      "reopen_triggers": [
+        "NEW_PRIMARY_SOURCE_WITH_EXACT_SELECTOR_GEOMETRY",
+        "DIRECT_INSTRUCTOR_CLARIFICATION",
+        "MATERIALLY_NEW_QUESTION_NOT_COVERED_BY_PRIOR_REVIEW"
+      ],
+      "last_reviewed_at": "2026-09-13"
     }
   ],
   "coverage_scope": "PARTIAL_SEED_RQ009_CURRENT_RESEARCH_WINDOWS",

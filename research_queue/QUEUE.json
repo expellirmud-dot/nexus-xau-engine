@@ -1,18 +1,20 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-09T05:33:59+07:00",
+  "updated_at": "2026-09-13T05:18:16+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
   "active": {
-    "id": "RQ-012",
-    "title": "V0.1 Holdout Append-Only Ledger + Activation Lock",
-    "worksheet": "research_queue/active/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
-    "status": "ACTIVE_TOOLING_NO_OUTCOME_SCORE",
-    "latest_checkpoint": "docs/RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL_2026-09-09.md"
+    "id": "RQ-013",
+    "title": "07:00 Existing-Knowledge Re-anchor and Minimal V2 Freeze",
+    "worksheet": "research_queue/active/RQ-013_0700_EXISTING_KNOWLEDGE_REANCHOR.md",
+    "status": "ACTIVE_REANCHOR_SPEC_PREP",
+    "latest_checkpoint": "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md"
   },
   "priority_order": [
-    "RQ-012"
+    "RQ-013",
+    "RQ-012",
+    "RQ-014"
   ],
   "items": [
     {
@@ -234,8 +236,8 @@
       "id": "RQ-012",
       "title": "V0.1 Holdout Append-Only Ledger + Activation Lock",
       "type": "ENGINEERING_METHODOLOGY",
-      "status": "ACTIVE_TOOLING_NO_OUTCOME_SCORE",
-      "why_now": "RQ-011 protocol is frozen; append-only audit tooling and an activation lock are required before the prospective holdout can be considered live.",
+      "status": "QUEUED_FROZEN_PROTOCOL_NO_OUTCOME_SCORE",
+      "why_now": "RQ-011 remains frozen. RQ-012 is preserved and queued; it is not abandoned or superseded by the 07:00 workstream.",
       "depends_on": [
         "RQ-010",
         "RQ-011"
@@ -245,9 +247,43 @@
         "future one-time scoring authorization"
       ],
       "preferred_method": "Canonical JSON + SHA256 record chain + verifier + activation lock with engine/protocol commits and next 07:00 boundary; full tests before activation; scoring remains false.",
-      "worksheet": "research_queue/active/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
+      "worksheet": "research_queue/queued/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
       "checkpoint_ref": "docs/RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL_2026-09-09.md",
-      "current_summary": "Build audit ledger and lock only. Do not inspect or score holdout outcomes."
+      "current_summary": "Frozen V0.1 holdout tooling is paused while the owner-prioritized 07:00 workstream is re-anchored. No holdout outcome scoring is authorized."
+    },
+    {
+      "id": "RQ-013",
+      "title": "07:00 Existing-Knowledge Re-anchor and Minimal V2 Freeze",
+      "type": "RESEARCH_RECONCILIATION",
+      "status": "ACTIVE_REANCHOR_SPEC_PREP",
+      "why_now": "Central restart state was stale and caused duplicate source work. Existing Q1-Q4 plus 2026-09-13 source closures indicate a narrow H4/PAT2-only 07:00 V2 may be calculable without further broad YouTube review.",
+      "depends_on": [],
+      "blocks": [
+        "restart-safe 07:00 continuity",
+        "0700_MINIMAL_V2 specification",
+        "new V2 rerun using current PAT2 source geometry"
+      ],
+      "preferred_method": "Existing repository evidence -> chronology/reconciliation -> structured-state repair -> freeze minimal V2 -> targeted computation; no broad new source search unless a named blocker remains.",
+      "worksheet": "research_queue/active/RQ-013_0700_EXISTING_KNOWLEDGE_REANCHOR.md",
+      "checkpoint_ref": "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
+      "current_summary": "Re-anchor current knowledge, prevent duplicate source work, and freeze H4/PAT2-only minimal 07:00 V2 from existing evidence."
+    },
+    {
+      "id": "RQ-014",
+      "title": "07:00 PAT3 Combined Multi-Candle Geometry",
+      "type": "SOURCE_RESEARCH",
+      "status": "QUEUED_NOT_REQUIRED_FOR_MINIMAL_V2",
+      "why_now": "PAT3 arithmetic remains a genuine source gap but the minimal H4/PAT2-only 07:00 V2 can exclude PAT3.",
+      "depends_on": [
+        "RQ-013"
+      ],
+      "blocks": [
+        "future broader autonomous PAT detector"
+      ],
+      "preferred_method": "Mapped PA/PAT sources -> transcript windows -> synchronized visual -> audio cross-check -> close exact arithmetic or retain UNKNOWN. Never select formula from outcomes.",
+      "worksheet": "research_queue/queued/RQ-014_0700_PAT3_COMBINED_GEOMETRY.md",
+      "checkpoint_ref": "docs/0700_PAT3_COMBINED_GEOMETRY_REVIEW_START_2026-09-13.md",
+      "current_summary": "Queued source gap. Do not resume until minimal V2 requires PAT3 or scope is intentionally broadened."
     }
   ],
   "conditional_infrastructure": [
@@ -268,9 +304,9 @@
   ],
   "promotion_rule": "On active closure, first re-rank remaining items using the new evidence. Then promote the highest-value unblocked item; do not blindly increment the numeric ID if the dependency picture changed.",
   "guard": "The queue organizes research; it does not grant permission to invent thresholds, upgrade provenance from outcomes, or treat historical proxy results as canonical rules.",
-  "queue_state": "ACTIVE_HOLDOUT_LEDGER_TOOLING_NO_OUTCOME_SCORE",
+  "queue_state": "ACTIVE_0700_REANCHOR_MINIMAL_V2_PREP",
   "queue_exhaustion_ref": null,
   "reopen_rule": "Create/reopen a bounded research item only when new source evidence, new labeled examples, a frozen execution specification, or a genuinely untouched holdout materially resolves a named blocker.",
   "reopened_from_exhaustion_ref": "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
-  "reopen_reason": "Current local video/transcript batch contains previously under-extracted direct source evidence for SIG entry modes, structural SL references, post-SIG body validity, and point-check destruction."
+  "reopen_reason": "Project owner prioritized the narrow 07:00 method and requested an audit of existing work before any new YouTube review. Audit found stale central state and enough existing evidence to prepare a minimal H4/PAT2-only V2."
 }

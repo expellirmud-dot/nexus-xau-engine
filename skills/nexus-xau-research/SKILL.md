@@ -23,10 +23,11 @@ Before doing substantive work:
 1. read `AGENTS.md`;
 2. read `PROJECT_BOOTSTRAP.md`;
 3. run `.venv\Scripts\python.exe scripts\research_preflight.py`;
-4. read the active/current files identified by preflight;
-5. inspect `docs/SOURCE_COVERAGE_LEDGER.json` for the source/topic/window being considered.
+4. read the active/current files identified by preflight, including the active workstream dashboard;
+5. state what the workstream already knows, what was superseded, and what must not be repeated;
+6. inspect `docs/SOURCE_COVERAGE_LEDGER.json` for the source/topic/window being considered.
 
-Do not continue if preflight fails or if the active question cannot be reconstructed from repository state.
+Do not continue if preflight fails or if the active workstream/question cannot be reconstructed from repository state. A stale central state is itself a blocker; do not compensate by broad source searching.
 
 ## Phase 1 — Duplicate/coverage check
 
@@ -144,6 +145,7 @@ For each coherent research closure, update only the durable stores that actually
 - closure/checkpoint document;
 - `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json` if current authority changed;
 - `docs/CURRENT_RESEARCH_STATE.json` if project state/next step changed;
+- the active workstream dashboard if workstream authority, supersession, gaps, or next action changed;
 - `research_queue/QUEUE.json` and active worksheet if operational research state changed;
 - `docs/SOURCE_COVERAGE_LEDGER.json` whenever a source/topic/window was screened, reviewed, closed, reopened, or found unresolved.
 

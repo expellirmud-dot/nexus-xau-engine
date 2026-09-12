@@ -1,6 +1,10 @@
 # RQ-012 — V0.1 Holdout Append-Only Ledger + Activation Lock
 
-Status: ACTIVE — tooling/activation preparation; holdout outcome scoring prohibited
+Status: QUEUED — frozen holdout tooling pending; holdout outcome scoring prohibited
+
+## Queue pause note
+
+This worksheet was moved from ACTIVE to QUEUED on 2026-09-13 when the project owner prioritized completion/reconciliation of the 07:00 method workstream. The RQ-010/RQ-011 frozen identities remain unchanged and no holdout outcome scoring is authorized. Resume this worksheet from its frozen protocol after the active 07:00 bounded question closes or when explicitly reprioritized.
 
 ## Objective
 

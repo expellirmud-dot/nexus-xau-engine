@@ -215,6 +215,6 @@ A new agent/session must continue from the repository state, not from conversati
 
 Minimum restart invariant:
 
-`AGENTS.md -> PROJECT_BOOTSTRAP.md -> nexus-xau-research SKILL -> preflight PASS -> Maintenance Policy -> TOOLS -> Current State -> Canonical Claims -> Source Coverage -> Queue -> Active RQ -> Latest Checkpoint`
+`AGENTS.md -> PROJECT_BOOTSTRAP.md -> nexus-xau-research SKILL -> preflight PASS -> Maintenance Policy -> TOOLS -> Current State -> Active Workstream Dashboard -> Canonical Claims -> Source Coverage -> Queue -> Active RQ -> Latest Checkpoint`
 
 Only after this chain is loaded should new research begin.

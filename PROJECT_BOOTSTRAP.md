@@ -16,6 +16,7 @@ Do not begin research, coding, backtesting, source review, or rule interpretatio
    - `docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md`
    - `TOOLS.md`
    - `docs/CURRENT_RESEARCH_STATE.json`
+   - the active workstream dashboard referenced by current state; currently `docs/0700_WORKSTREAM_STATE.json`
    - `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json`
    - `docs/SOURCE_COVERAGE_LEDGER.json`
    - `research_queue/QUEUE.json`
@@ -27,6 +28,7 @@ Do not begin research, coding, backtesting, source review, or rule interpretatio
 
 Before opening a new source or running a new test, the agent must be able to state from repository evidence:
 
+- current active workstream;
 - current active RQ ID and worksheet;
 - latest completed checkpoint;
 - current canonical facts relevant to that RQ;
@@ -44,11 +46,12 @@ Use these files for different kinds of project memory:
 - `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json` = what the project currently knows/accepts.
 - `docs/SOURCE_COVERAGE_LEDGER.json` = which source windows/checks have already been reviewed, what they established, and when they may be reopened.
 - `docs/CURRENT_RESEARCH_STATE.json` = where the project is now and what should happen next.
+- active workstream dashboard = compact current authority for the presently active research stream, including what is already closed, what was superseded, and what not to repeat.
 - `research_queue/QUEUE.json` = which research worksheet is operationally active.
 - RQ/checkpoint documents = detailed evidence chronology and reasoning trail.
 - `TOOLS.md` = reusable tools and evidence-access paths.
 
-Do not merge these responsibilities into one giant document.
+Do not merge these responsibilities into one giant document. The active workstream dashboard exists to prevent a zero-context agent from missing recent work that has not yet been reflected elsewhere.
 
 ## Core anti-forgetting rule
 
