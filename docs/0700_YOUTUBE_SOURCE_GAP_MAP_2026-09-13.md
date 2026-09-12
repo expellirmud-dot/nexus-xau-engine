@@ -660,3 +660,78 @@ Status:
 `HIGH-PRIORITY REVIEWABLE SOURCE / D1 EXACT RUN NOT YET CLOSED`
 
 This supersedes treating D1 as merely “no mapped source found.”
+
+
+## Unsaved YouTube sources — Remote Chrome workflow
+
+A YouTube video does **not** need to be downloaded locally before it can be used as research evidence.
+
+Verified local capability on 2026-09-13:
+
+```text
+Chrome:
+C:\Program Files\Google\Chrome\Application\chrome.exe
+
+NEXUS dedicated profile:
+D:\tools\nexus-agent-chrome-profile-headed
+
+CDP endpoint:
+127.0.0.1:9222
+
+CLI:
+C:\Users\Expellirmud\AppData\Roaming\npm\agent-browser.cmd
+```
+
+Operational path:
+
+```text
+mapped YouTube link
+-> open in NEXUS Remote Chrome
+-> agent-browser --cdp 9222
+-> inspect title / description / transcript availability
+-> target the bounded source question
+-> jump to relevant timestamp
+-> inspect chart + spoken context
+-> save only the evidence needed
+-> update source map/checkpoint
+```
+
+This is preferred for videos that are linked/indexed but do not yet have a local `.mp4`.
+
+A missing local file must therefore **not** be interpreted as missing source access.
+
+### Verified example
+
+`jBEM-vWYj_o`
+
+Remote Chrome successfully opened:
+
+`EP.3 แนวรับ - แนวต้าน #SmatTrderToSuccess #ระบบแม่ปลาปากกาเขียว`
+
+The page exposes YouTube transcript availability in the UI.
+
+Status:
+
+`REMOTE SOURCE ACCESS VERIFIED`
+
+### Evidence discipline
+
+Remote access changes acquisition method only.
+
+It does not relax evidence rules:
+
+- a mapped topic is a search route, not proof of a rule;
+- transcript keyword hits require surrounding context;
+- numeric claims require checking what quantity the instructor is measuring;
+- chart-referential speech such as “ตรงนี้ / แท่งนี้ / กรอบนี้” requires visual inspection;
+- unresolved source geometry must remain unresolved rather than being chosen from backtest performance.
+
+### Fallback order
+
+For a YouTube source:
+
+1. local transcript/evidence if already sufficient;
+2. local MP4 + frame extraction if present;
+3. Remote Chrome + CLI Browser for unsaved/current source;
+4. save targeted screenshots/transcript evidence when required;
+5. download full video only when targeted browser access is insufficient or durable offline preservation is specifically needed.
