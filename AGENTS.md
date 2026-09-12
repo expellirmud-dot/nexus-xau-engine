@@ -14,16 +14,19 @@ Before starting new research, coding, backtesting, source review, or rule interp
 4. `docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md`
 5. `TOOLS.md`
 6. `docs/CURRENT_RESEARCH_STATE.json`
-7. `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json`
-8. `docs/SOURCE_COVERAGE_LEDGER.json`
-9. `research_queue/QUEUE.json`
-10. the active worksheet referenced by `research_queue/QUEUE.json -> active.worksheet`
-11. the latest checkpoint referenced by the active queue/current-state checkpoint fields
-12. any additional latest source/checkpoint files listed in `docs/CURRENT_RESEARCH_STATE.json -> research_loop.load_order`
+7. the active workstream dashboard referenced by current state; currently `docs/0700_WORKSTREAM_STATE.json`
+8. `docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md` for the current 07:00 workstream purpose/success criteria
+9. `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json`
+10. `docs/SOURCE_COVERAGE_LEDGER.json`
+11. `research_queue/QUEUE.json`
+12. the active worksheet referenced by `research_queue/QUEUE.json -> active.worksheet`
+13. the latest checkpoint referenced by the active queue/current-state/workstream checkpoint fields
+14. any additional latest source/checkpoint files listed in `docs/CURRENT_RESEARCH_STATE.json -> research_loop.load_order`
 
 Do not begin a new source investigation until the mandatory state above has been loaded sufficiently to answer:
 
-- What is the active research question?
+- What is the active workstream and research question?
+- What does success mean for this workstream, and what is explicitly not the goal?
 - What is already source-backed?
 - What is still unresolved?
 - Which prior findings were superseded or narrowed?
@@ -52,10 +55,11 @@ Never erase old findings merely because newer evidence narrows or supersedes the
 
 Before re-opening a video, transcript, timestamp window, formula, or historical test:
 
-1. check `CURRENT_RESEARCH_STATE`;
-2. check the canonical claim register;
-3. check the active RQ worksheet and its checkpoint references;
-4. check `SOURCE_COVERAGE_LEDGER`.
+1. check `CURRENT_RESEARCH_STATE` and the active workstream dashboard;
+2. check the current workstream philosophy/success-criteria document when one exists;
+3. check the canonical claim register;
+4. check the active RQ worksheet and its checkpoint references;
+5. check `SOURCE_COVERAGE_LEDGER`.
 
 If a question/window is already source-closed, reuse that finding unless a valid reopen trigger exists.
 
@@ -129,7 +133,7 @@ After each coherent closure:
 
 1. update the closure/checkpoint document;
 2. update the canonical claim register if current authority changed;
-3. update `CURRENT_RESEARCH_STATE.json`;
+3. update `CURRENT_RESEARCH_STATE.json` and the active workstream dashboard when workstream state changed;
 4. update `research_queue/QUEUE.json` and the active worksheet;
 5. update `SOURCE_COVERAGE_LEDGER` whenever the source coverage changed;
 6. validate structured files;
@@ -215,6 +219,6 @@ A new agent/session must continue from the repository state, not from conversati
 
 Minimum restart invariant:
 
-`AGENTS.md -> PROJECT_BOOTSTRAP.md -> nexus-xau-research SKILL -> preflight PASS -> Maintenance Policy -> TOOLS -> Current State -> Active Workstream Dashboard -> Canonical Claims -> Source Coverage -> Queue -> Active RQ -> Latest Checkpoint`
+`AGENTS.md -> PROJECT_BOOTSTRAP.md -> nexus-xau-research SKILL -> preflight PASS -> Maintenance Policy -> TOOLS -> Current State -> Active Workstream Dashboard -> Workstream Philosophy -> Canonical Claims -> Source Coverage -> Queue -> Active RQ -> Latest Checkpoint`
 
 Only after this chain is loaded should new research begin.

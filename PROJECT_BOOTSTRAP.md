@@ -17,6 +17,7 @@ Do not begin research, coding, backtesting, source review, or rule interpretatio
    - `TOOLS.md`
    - `docs/CURRENT_RESEARCH_STATE.json`
    - the active workstream dashboard referenced by current state; currently `docs/0700_WORKSTREAM_STATE.json`
+   - `docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md` for current 07:00 purpose/success criteria
    - `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json`
    - `docs/SOURCE_COVERAGE_LEDGER.json`
    - `research_queue/QUEUE.json`
@@ -29,6 +30,7 @@ Do not begin research, coding, backtesting, source review, or rule interpretatio
 Before opening a new source or running a new test, the agent must be able to state from repository evidence:
 
 - current active workstream;
+- current workstream purpose/success criteria and the valid PASS/UNKNOWN behavior;
 - current active RQ ID and worksheet;
 - latest completed checkpoint;
 - current canonical facts relevant to that RQ;

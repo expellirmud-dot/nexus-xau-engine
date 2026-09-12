@@ -23,7 +23,7 @@ Before doing substantive work:
 1. read `AGENTS.md`;
 2. read `PROJECT_BOOTSTRAP.md`;
 3. run `.venv\Scripts\python.exe scripts\research_preflight.py`;
-4. read the active/current files identified by preflight, including the active workstream dashboard;
+4. read the active/current files identified by preflight, including the active workstream dashboard and current workstream philosophy/success criteria;
 5. state what the workstream already knows, what was superseded, and what must not be repeated;
 6. inspect `docs/SOURCE_COVERAGE_LEDGER.json` for the source/topic/window being considered.
 

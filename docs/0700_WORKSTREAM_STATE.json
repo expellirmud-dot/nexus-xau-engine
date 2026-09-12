@@ -212,5 +212,17 @@
     "docs/0700_DAILY_FRAME_SR_SELECTOR_SOURCE_CLOSURE_2026-09-13.md",
     "docs/0700_PAT50_DENOMINATOR_SOURCE_CLOSURE_2026-09-13.md",
     "docs/0700_Q4_H4_CONSUMED_SHAPE_CROSS_PERIOD_2026-09-12.md"
-  ]
+  ],
+  "operating_philosophy": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
+  "success_definition": {
+    "primary": "Assemble all legitimately knowable pre-07:00 information into a reproducible 07:00 state and act only when the state is sufficiently understood.",
+    "pass_is_valid": true,
+    "unknown_behavior": "PASS_NO_TRADE_RECORD_AND_RESEARCH",
+    "not_goal": [
+      "continuous auto-trading",
+      "forcing an entry every day",
+      "hard-coding a finite list of winning historical patterns",
+      "claiming guaranteed market outcomes"
+    ]
+  }
 }

@@ -18,6 +18,7 @@ CORE_PATHS = [
     Path("TOOLS.md"),
     Path("docs/CURRENT_RESEARCH_STATE.json"),
     Path("docs/0700_WORKSTREAM_STATE.json"),
+    Path("docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md"),
     Path("docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json"),
     Path("docs/SOURCE_COVERAGE_LEDGER.json"),
     Path("research_queue/QUEUE.json"),
