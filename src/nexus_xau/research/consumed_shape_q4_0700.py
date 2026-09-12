@@ -13,7 +13,7 @@ FEATURE = "consumed_ratio_at_0700"
 MFE = "post_confirmation_mfe_points"
 MAE = "post_confirmation_mae_points"
 ORIGIN_TFS = ("H4", "H1")
-QUINTILE_LABELS = ("Q1", "Q2", "Q3", "Q4", "Q5")
+TARGET_QUANTILES = 5
 
 
 def _spearman(x: pd.Series, y: pd.Series) -> float | None:
@@ -85,17 +85,33 @@ def _context_rows(frame: pd.DataFrame) -> pd.DataFrame:
 
 def _assign_quintiles(series: pd.Series) -> pd.Series:
     numeric = pd.to_numeric(series, errors="coerce")
-    if numeric.notna().sum() < 5 or numeric.nunique(dropna=True) < 5:
-        raise ValueError("Q4 requires at least five non-null unique consumed values")
-    return pd.qcut(
+    if numeric.notna().sum() < 2 or numeric.nunique(dropna=True) < 2:
+        raise ValueError("Q4 requires at least two non-null unique consumed values")
+
+    bins = pd.qcut(
         numeric,
-        q=5,
-        labels=list(QUINTILE_LABELS),
-        duplicates="raise",
+        q=TARGET_QUANTILES,
+        duplicates="drop",
     )
+    category_count = len(bins.cat.categories)
+    labels = [f"Q{index + 1}" for index in range(category_count)]
+    result = pd.Series(index=series.index, dtype="object")
+    for code, label in enumerate(labels):
+        result.loc[bins.cat.codes.eq(code)] = label
+    return result
+
+
+def _ordered_quintile_labels(series: pd.Series) -> list[str]:
+    labels = sorted(
+        {str(value) for value in series.dropna()},
+        key=lambda value: int(value.removeprefix("Q")),
+    )
+    return labels
 
 
 def _shape_classification(rates: list[float | None]) -> tuple[str, list[float | None]]:
+    if len(rates) < 2:
+        return "UNRESOLVED_INSUFFICIENT_BINS", []
     diffs: list[float | None] = []
     for left, right in pairwise(rates):
         if left is None or right is None:
@@ -119,8 +135,9 @@ def build_quintiles(feature_rows: pd.DataFrame) -> pd.DataFrame:
         if origin.empty:
             continue
         origin["quintile"] = _assign_quintiles(origin[FEATURE])
+        origin_labels = _ordered_quintile_labels(origin["quintile"])
 
-        for label in QUINTILE_LABELS:
+        for label in origin_labels:
             group = origin[origin["quintile"].astype(str).eq(label)]
             target = int((group[INDICATOR] == 1.0).sum())
             point = int((group[INDICATOR] == 0.0).sum())
@@ -150,7 +167,8 @@ def build_quintiles(feature_rows: pd.DataFrame) -> pd.DataFrame:
 
         context = _context_rows(origin)
         context["quintile"] = _assign_quintiles(context[FEATURE])
-        for label in QUINTILE_LABELS:
+        context_labels = _ordered_quintile_labels(context["quintile"])
+        for label in context_labels:
             group = context[context["quintile"].astype(str).eq(label)]
             rows.append(
                 {
@@ -253,13 +271,16 @@ def _quintile_summary(
         )
         for row in subset.itertuples(index=False)
     }
-    rates = [lookup.get(label) for label in QUINTILE_LABELS]
+    labels = _ordered_quintile_labels(subset["quintile"])
+    rates = [lookup.get(label) for label in labels]
     classification, diffs = _shape_classification(rates)
     return {
-        "rates": {label: rate for label, rate in zip(QUINTILE_LABELS, rates, strict=True)},
+        "target_quantile_count": TARGET_QUANTILES,
+        "effective_bin_count": len(labels),
+        "rates": {label: rate for label, rate in zip(labels, rates, strict=True)},
         "adjacent_differences": {
-            f"{QUINTILE_LABELS[index + 1]}-{QUINTILE_LABELS[index]}": diffs[index]
-            for index in range(4)
+            f"{labels[index + 1]}-{labels[index]}": diffs[index]
+            for index in range(len(diffs))
         },
         "shape_classification": classification,
     }
@@ -336,7 +357,8 @@ def run(
             for origin_tf in ORIGIN_TFS
         },
         "guards": [
-            "Quintile boundaries are descriptive partitions, not trading thresholds.",
+            "Target quantile count is five; duplicate empirical edges are collapsed to preserve equal feature values in the same bin.",
+            "Quantile boundaries are descriptive partitions, not trading thresholds.",
             "10th/90th percentile trim values are diagnostics, not entry limits.",
             "No bin or tail is selected as an optimal consumed range.",
             "H4 is primary; H1 is predeclared sensitivity.",

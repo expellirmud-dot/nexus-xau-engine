@@ -127,3 +127,14 @@ def test_trim_sensitivity_includes_all_frozen_variants() -> None:
 
 def test_feature_name_is_consumed_ratio() -> None:
     assert FEATURE == "consumed_ratio_at_0700"
+
+
+def test_assign_quintiles_collapses_duplicate_edges_without_splitting_equal_values() -> None:
+    series = pd.Series([0.0, 0.0, 0.0, 0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
+
+    result = _assign_quintiles(series)
+
+    zero_labels = set(result.loc[series.eq(0.0)].astype(str))
+    assert len(zero_labels) == 1
+    assert result.nunique() < 5
+    assert result.nunique() >= 2
