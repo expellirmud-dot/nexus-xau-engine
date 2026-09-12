@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-13T06:18:00+07:00",
+  "updated_at": "2026-09-13T06:31:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_0700_REANCHOR_MINIMAL_V2_PREP",
   "completed_checkpoint": "0700_MINIMAL_V2_PRE_OUTCOME_IMPLEMENTATION_FROZEN",
@@ -113,11 +113,10 @@
     "structured_state_reanchor": "PASSED"
   },
   "next_steps": [
-    "Run frozen 0700_MINIMAL_V2.0 on the 2022-09-01..2023-03-31 complete development period without semantic changes.",
-    "Record the 150-day terminal/PASS/failure/unknown-state map and descriptive signal/run outcomes; do not optimize thresholds.",
-    "Checkpoint and push Discovery before running replication.",
-    "Run unchanged V2.0 on the 2023-09-01..2023-11-23 complete cross-period dataset.",
-    "Only after cross-period comparison decide whether a named blocker requires V2.1 or new source work."
+    "Inspect the existing durable job XAU-0700-MINIMAL-V2-DISCOVERY-20260913; do not submit a duplicate while RUNNING.",
+    "When DONE, read the persisted V2 discovery outputs and record the 150-day failure/unknown-state map without semantic tuning.",
+    "Checkpoint and push Discovery before running the unchanged 60-day replication.",
+    "If the durable job fails, inspect its persisted stdout/stderr/result and reconcile before retrying; do not infer a model/algorithm defect from transport timeout alone."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -1022,5 +1021,14 @@
     "synthetic_contract": "16_PASS",
     "full_pytest": "EXIT_CODE_0",
     "real_discovery_opened": false
+  },
+  "active_durable_job": {
+    "job_id": "XAU-0700-MINIMAL-V2-DISCOVERY-20260913",
+    "job_path": "D:\\tools\\nexus-durable-work\\_agent\\jobs\\XAU-0700-MINIMAL-V2-DISCOVERY-20260913\\job.json",
+    "status": "RUNNING_AT_CHECKPOINT",
+    "execution_layer": "D:/tools/nexus-durable-work Local Work Agent",
+    "success_probe": "results/0700_MINIMAL_V2/DISCOVERY_2022_09_TO_2023_03/REPORT.json",
+    "timeout_checkpoint": "docs/0700_MINIMAL_V2_FIRST_DISCOVERY_TIMEOUT_2026-09-13.md",
+    "restart_rule": "Inspect this durable job before any retry. Do not resubmit the 150-day discovery while the job is RUNNING or before reconciling its persisted result/heartbeat."
   }
 }

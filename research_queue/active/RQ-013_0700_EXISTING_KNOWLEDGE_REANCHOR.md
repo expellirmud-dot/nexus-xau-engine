@@ -156,3 +156,29 @@ Full pytest: `exit code 0`
 Real V2 discovery opened at this checkpoint: `NO`
 
 Next action: run frozen V2.0 unchanged on the 150-day complete discovery period and record the failure/unknown-state map before any replication or semantic change.
+
+
+## Durable discovery execution
+
+The first synchronous 150-day V2 run hit the explicit 180-second Bridge execution timeout before any output was written.
+
+Authority:
+
+`docs/0700_MINIMAL_V2_FIRST_DISCOVERY_TIMEOUT_2026-09-13.md`
+
+The unchanged frozen V2.0 replay was resubmitted through the existing machine-side Local Work Agent.
+
+Durable job:
+
+`XAU-0700-MINIMAL-V2-DISCOVERY-20260913`
+
+Persisted job state:
+
+`D:\tools\nexus-durable-work\_agent\jobs\XAU-0700-MINIMAL-V2-DISCOVERY-20260913\job.json`
+
+Rule:
+
+- if RUNNING, inspect heartbeat and wait; do not submit another copy;
+- if DONE, reuse the persisted result;
+- if FAILED/BLOCKED, inspect persisted stdout/stderr/result before any retry;
+- ChatGPT/UI/Bridge turn lifetime must not control the lifetime of deterministic long replay work.

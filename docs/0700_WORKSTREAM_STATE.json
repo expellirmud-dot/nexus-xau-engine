@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-13T06:18:00+07:00",
+  "updated_at": "2026-09-13T06:31:00+07:00",
   "workstream": "0700_METHOD_COMPLETION",
   "status": "MINIMAL_V2_DISCOVERY_READY",
   "purpose": "Single restart-safe dashboard for the 07:00 research workstream. It points to current authority, frozen historical representations, open gaps, and the next bounded task so a new agent does not restart research from zero.",
@@ -9,11 +9,11 @@
   "active_question": {
     "rq_id": "RQ-013",
     "title": "Run frozen 07:00 MINIMAL V2 discovery replay",
-    "status": "ACTIVE_DISCOVERY_REPLAY_FROZEN_CODE",
+    "status": "ACTIVE_DISCOVERY_REPLAY_DURABLE_JOB_RUNNING",
     "worksheet": "research_queue/active/RQ-013_0700_EXISTING_KNOWLEDGE_REANCHOR.md",
     "audit": "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
     "question": "Across the 150-day complete discovery period, what states become research candidates, PASS, failure, or unknown under frozen V2.0?",
-    "next_action": "Run frozen V2.0 on 2022-09-01..2023-03-31 and checkpoint the descriptive failure/unknown-state map without tuning."
+    "next_action": "Inspect the existing durable job and consume its persisted result when DONE. Do not submit another discovery run while it is active."
   },
   "established_source_state": [
     {
@@ -207,6 +207,7 @@
     "universal SL/TP/fill"
   ],
   "latest_completed_closures": [
+    "docs/0700_MINIMAL_V2_FIRST_DISCOVERY_TIMEOUT_2026-09-13.md",
     "docs/0700_MINIMAL_V2_PRE_OUTCOME_IMPLEMENTATION_FREEZE_2026-09-13.md",
     "docs/0700_MINIMAL_V2_FROZEN_SPEC_2026-09-13.md",
     "docs/0700_HISTORICAL_DATA_READINESS_AND_TEST_STRATEGY_2026-09-13.md",
@@ -262,5 +263,14 @@
     "tests": "tests/test_minimal_v2_0700.py",
     "checkpoint": "docs/0700_MINIMAL_V2_PRE_OUTCOME_IMPLEMENTATION_FREEZE_2026-09-13.md",
     "synthetic_contract": "16_PASS"
+  },
+  "active_durable_job": {
+    "job_id": "XAU-0700-MINIMAL-V2-DISCOVERY-20260913",
+    "job_path": "D:\\tools\\nexus-durable-work\\_agent\\jobs\\XAU-0700-MINIMAL-V2-DISCOVERY-20260913\\job.json",
+    "status": "RUNNING_AT_CHECKPOINT",
+    "execution_layer": "D:/tools/nexus-durable-work Local Work Agent",
+    "success_probe": "results/0700_MINIMAL_V2/DISCOVERY_2022_09_TO_2023_03/REPORT.json",
+    "timeout_checkpoint": "docs/0700_MINIMAL_V2_FIRST_DISCOVERY_TIMEOUT_2026-09-13.md",
+    "restart_rule": "Inspect this durable job before any retry. Do not resubmit the 150-day discovery while the job is RUNNING or before reconciling its persisted result/heartbeat."
   }
 }

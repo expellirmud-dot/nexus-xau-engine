@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-13T06:18:00+07:00",
+  "updated_at": "2026-09-13T06:31:00+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
@@ -8,10 +8,11 @@
     "id": "RQ-013",
     "title": "07:00 Existing-Knowledge Re-anchor and Minimal V2 Freeze",
     "worksheet": "research_queue/active/RQ-013_0700_EXISTING_KNOWLEDGE_REANCHOR.md",
-    "status": "ACTIVE_MINIMAL_V2_DISCOVERY_REPLAY",
-    "latest_checkpoint": "docs/0700_MINIMAL_V2_PRE_OUTCOME_IMPLEMENTATION_FREEZE_2026-09-13.md",
+    "status": "ACTIVE_MINIMAL_V2_DISCOVERY_DURABLE_JOB_RUNNING",
+    "latest_checkpoint": "docs/0700_MINIMAL_V2_FIRST_DISCOVERY_TIMEOUT_2026-09-13.md",
     "governing_objective_ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
-    "current_summary": "V2.0 implementation is frozen and synthetic contract passed 16/16 before real outcomes. Next: run 150-day discovery unchanged and record failure/unknown map."
+    "current_summary": "The first synchronous run hit the Bridge 180-second execution timeout without opening outcomes. The same frozen V2.0 discovery is now RUNNING under the machine-side durable Local Work Agent. Inspect/reuse that job; do not duplicate-submit.",
+    "durable_job_id": "XAU-0700-MINIMAL-V2-DISCOVERY-20260913"
   },
   "priority_order": [
     "RQ-013",
@@ -257,7 +258,7 @@
       "id": "RQ-013",
       "title": "07:00 Existing-Knowledge Re-anchor and Minimal V2 Freeze",
       "type": "RESEARCH_RECONCILIATION",
-      "status": "ACTIVE_MINIMAL_V2_DISCOVERY_REPLAY",
+      "status": "ACTIVE_MINIMAL_V2_DISCOVERY_DURABLE_JOB_RUNNING",
       "why_now": "Central restart state was stale and caused duplicate source work. Existing Q1-Q4 plus 2026-09-13 source closures indicate a narrow H4/PAT2-only 07:00 V2 may be calculable without further broad YouTube review.",
       "depends_on": [],
       "blocks": [
@@ -267,9 +268,10 @@
       ],
       "preferred_method": "Existing repository evidence -> chronology/reconciliation -> structured-state repair -> freeze minimal V2 -> targeted computation; no broad new source search unless a named blocker remains.",
       "worksheet": "research_queue/active/RQ-013_0700_EXISTING_KNOWLEDGE_REANCHOR.md",
-      "checkpoint_ref": "docs/0700_MINIMAL_V2_PRE_OUTCOME_IMPLEMENTATION_FREEZE_2026-09-13.md",
-      "current_summary": "Frozen V2.0 + 16/16 synthetic contract pass. Open first 150-day discovery report next with no semantic tuning.",
-      "governing_objective_ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md"
+      "checkpoint_ref": "docs/0700_MINIMAL_V2_FIRST_DISCOVERY_TIMEOUT_2026-09-13.md",
+      "current_summary": "Frozen V2.0 discovery is running durably on the local agent after the synchronous Bridge timeout. Next action is inspection/reuse of the persisted job result.",
+      "governing_objective_ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
+      "durable_job_id": "XAU-0700-MINIMAL-V2-DISCOVERY-20260913"
     },
     {
       "id": "RQ-014",
