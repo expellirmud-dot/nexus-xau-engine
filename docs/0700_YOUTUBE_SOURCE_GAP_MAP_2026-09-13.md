@@ -748,6 +748,61 @@ Status:
 This supersedes treating D1 as merely “no mapped source found.”
 
 
+
+## Local-first source priority — EP.1 and EP.2
+
+User confirmed on 2026-09-13 that **EP.1 and EP.2 are already saved locally**.
+
+Therefore these episodes must be checked locally before Remote Chrome.
+
+### EP.2 — local files verified
+
+```text
+D:\nexus-xau-engine-repo\youtube\EP.2 เทรน ชนะ กรอบ กรอบ ชนะ Sig#SmatTrderToSuccess #ระบบแม่ปลาปากกาเขียว.mp4
+D:\nexus-xau-engine-repo\youtube\EP.2 เทรน ชนะ กรอบ กรอบ ชนะ Sig.txt
+```
+
+Mapped YouTube source:
+
+`ESHDuiVPJow`
+
+Use order:
+
+```text
+local transcript
+-> local MP4 targeted frames
+-> Remote Chrome only if external page metadata/current source is specifically needed
+```
+
+### EP.1 — local availability user-confirmed
+
+The repository `youtube` directory contains a local PA foundation video:
+
+```text
+D:\nexus-xau-engine-repo\youtube\2. Part 1 _ พฤติกรรมการเกิด PA ระบบเทรดแม่ปลาปากกาเขียว.mp4
+```
+
+and locally stored PA/PAT transcript material including:
+
+```text
+D:\nexus-xau-engine-repo\youtube\2. PAT1  P1 — 1E_PYPor1qQ.txt
+```
+
+The exact filename-to-public-video-ID pairing for the user-referred “EP.1” must be verified before assigning one specific YouTube ID solely from filename similarity.
+
+Operational rule:
+
+```text
+EP.1 question
+-> search local saved video/transcript first
+-> verify source identity
+-> inspect local frames/transcript
+-> Remote Chrome only if local source is insufficient
+```
+
+A local-source miss must be established before treating EP.1/EP.2 as browser-only sources.
+
+
 ## Unsaved YouTube sources — Remote Chrome workflow
 
 A YouTube video does **not** need to be downloaded locally before it can be used as research evidence.

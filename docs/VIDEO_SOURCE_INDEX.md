@@ -81,3 +81,21 @@ For each ~8-second segment:
 - Conflict with prior rulebook if any
 
 Do not promote instructor performance claims, win-rate claims, or anecdotal probabilities into strategy statistics without independent backtest evidence.
+
+
+## Local availability note — 2026-09-13
+
+User confirmed that EP.1 and EP.2 are already saved on the machine.
+
+Verified local EP.2 assets:
+- `youtube/EP.2 เทรน ชนะ กรอบ กรอบ ชนะ Sig#SmatTrderToSuccess #ระบบแม่ปลาปากกาเขียว.mp4`
+- `youtube/EP.2 เทรน ชนะ กรอบ กรอบ ชนะ Sig.txt`
+
+Local PA-foundation assets relevant to EP.1/PAT review include:
+- `youtube/2. Part 1 _ พฤติกรรมการเกิด PA ระบบเทรดแม่ปลาปากกาเขียว.mp4`
+- `youtube/2. PAT1  P1 — 1E_PYPor1qQ.txt`
+
+Do not assume the exact public video-ID mapping of the user-referred “EP.1” solely from local filename similarity. Verify identity before assigning a YouTube ID.
+
+Operational acquisition priority for EP.1/EP.2:
+`local transcript -> local MP4/frames -> Remote Chrome only if local evidence is insufficient`.
