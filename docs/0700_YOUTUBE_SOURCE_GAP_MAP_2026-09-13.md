@@ -515,7 +515,41 @@ It is:
 
 ---
 
-## Gap 6 — Daily Frame snap/tie and PAT-to-frame exact qualification
+## Gap 6 — Daily Frame / S-R selector — PARTIAL SOURCE CLOSURE
+
+Targeted re-review of:
+
+https://youtu.be/jBEM-vWYj_o
+
+Dedicated closure:
+
+`docs/0700_DAILY_FRAME_SR_SELECTOR_SOURCE_CLOSURE_2026-09-13.md`
+
+New source-backed selector/lifecycle semantics:
+
+- support/resistance is a **zone**, not one dead price;
+- important S/R uses cross-timeframe overlap, with at least two TFs discussed;
+- body/wick structural references can map across timeframes;
+- fresh/unused zones are preferred; used zones lose effectiveness;
+- used zones may remain active until structurally broken;
+- H4-first, H1-fallback routing is source-backed for the reviewed strong-zone workflow;
+- multiple daily H4 zones are expected rather than one universal winner;
+- a passed Daily 1,000-point frame is not immediately deleted; its role can downgrade to an ordinary 500-significance reference.
+
+Still open:
+
+- exact 0/5 snap/tie/rounding;
+- universal 7–14 point qualification threshold;
+- exact wick/body/close penetration equation;
+- universal priority across different frame families.
+
+Status:
+
+`SELECTOR SEMANTICS STRENGTHENED / EXACT NUMERIC SELECTOR STILL PARAMETERIZED`
+
+---
+
+## Gap 6A — Daily Frame snap/tie and PAT-to-frame exact qualification
 
 ### Current project closure
 
