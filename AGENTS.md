@@ -156,6 +156,19 @@ Never display, copy, or commit credentials/secrets from local files.
 
 ## 8. Long-task durability / UI-timeout invariant
 
+Before starting or resuming any local long-running/urgent work, query the global NEXUS work supervisor first:
+
+`py -3 D:\tools\nexus-durable-work\supervisor.py resume`
+
+If it returns an ACTIVE/IN_PROGRESS/BLOCKED/WAITING job for this repository, resume from its checkpoint/state/result references before starting any new duplicate work.
+The supervisor registry is the cross-session execution source of truth; the repository remains the research/evidence source of truth.
+
+Also query the machine-side executor before re-running Terminal work:
+
+`py -3 D:\tools\nexus-durable-work\local_work_agent.py status`
+
+If an agent job is already RUNNING or DONE, inspect/reuse it instead of submitting a duplicate. Long deterministic/resumable commands should be handed to the Local Work Agent so they can outlive the ChatGPT/Terminal request.
+
 For high-count, long-running, or expensive-to-repeat work, conversation context is not a valid progress store.
 
 Read and follow `docs/LONG_TASK_RESUME_PROTOCOL_2026-09-12.md`.

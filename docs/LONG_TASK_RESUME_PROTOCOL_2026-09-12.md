@@ -17,6 +17,48 @@ UI/session resets
 != restart item 1
 ```
 
+## Global supervisor
+
+Before locating a per-job state file manually, query:
+
+`py -3 D:\tools\nexus-durable-work\supervisor.py resume`
+
+Canonical supervisor state:
+
+- `D:\tools\nexus-durable-work\_supervisor\registry.json`
+- `D:\tools\nexus-durable-work\_supervisor\events.ndjson`
+
+The supervisor tracks the active job, deadline/priority metadata, checkpoint, next action, local process/Bridge job identity, result reference, and the per-job durable state path.
+
+Recovery invariant:
+
+`UI refresh / reconnect / model turn reset / new chat -> supervisor resume -> inspect existing process/job -> continue checkpoint -> never restart completed work by default`
+
+The supervisor does not bypass platform authorization; it prevents authorization/transport/UI interruptions from destroying execution continuity.
+
+## Machine-side executor
+
+For deterministic/resumable local commands that should outlive a ChatGPT/Terminal request, use the NEXUS Local Work Agent:
+
+`D:\tools\nexus-durable-work\local_work_agent.py`
+
+Status:
+
+`py -3 D:\tools\nexus-durable-work\local_work_agent.py status`
+
+The agent is kept alive by a Windows-session watchdog and a user Startup launcher. Each submitted job persists its manifest, attempts, heartbeat, stdout/stderr, and result under:
+
+`D:\tools\nexus-durable-work\_agent\jobs\<JOB-ID>\`
+
+Recovery rule:
+
+- RUNNING + fresh attempt heartbeat -> do not resubmit;
+- DONE -> reuse the recorded result;
+- interrupted + explicitly resumable/idempotent -> auto-retry is allowed;
+- unknown side effects / non-idempotent work -> reconcile evidence first; never blindly replay.
+
+This layer keeps already-submitted machine-side execution alive/recoverable. It does not keep model reasoning alive after a ChatGPT turn disappears and does not bypass platform authorization.
+
 ## Core rule
 
 For any long or high-count task whose completed work would be expensive to repeat, progress MUST live on disk, not only in conversation context.
