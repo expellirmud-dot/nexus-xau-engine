@@ -211,3 +211,34 @@ The first locally available batch contains five video/transcript pairs through `
 ## Restart rule
 
 When resuming the project, load `TOOLS.md` before deciding that a required media/vision utility does not exist.
+
+
+## Global compact project continuity
+
+Location:
+
+`D:\tools\nexus-project-continuity`
+
+Purpose:
+
+- compact reconnect/resume capsule across Projects;
+- project/git/workstream/version/next-action routing;
+- live durable-job reconciliation;
+- shared-tool capability registry;
+- prevents bulk document loading merely to recover session context.
+
+XAU command:
+
+```bat
+py -3 D:\tools\nexus-project-continuity\continuity.py resume --project xau
+```
+
+Global shortcut:
+
+```bat
+D:\tools\NEXUS-START\RESUME_WORK.cmd --project xau
+```
+
+Use this before deep Project bootstrap on reconnect.
+
+Do not duplicate Project-specific resume logic in the repo when the central registry can describe it.

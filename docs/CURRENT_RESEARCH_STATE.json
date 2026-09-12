@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T06:31:00+07:00",
+  "updated_at": "2026-09-13T06:41:51+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_0700_REANCHOR_MINIMAL_V2_PREP",
-  "completed_checkpoint": "0700_MINIMAL_V2_PRE_OUTCOME_IMPLEMENTATION_FROZEN",
+  "completed_checkpoint": "GLOBAL_COMPACT_CONTINUITY_BOOTSTRAP_INTEGRATED",
   "project_objective": {
     "authority": "OWNER_DIRECT",
     "ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
@@ -113,10 +113,10 @@
     "structured_state_reanchor": "PASSED"
   },
   "next_steps": [
-    "Inspect the existing durable job XAU-0700-MINIMAL-V2-DISCOVERY-20260913; do not submit a duplicate while RUNNING.",
-    "When DONE, read the persisted V2 discovery outputs and record the 150-day failure/unknown-state map without semantic tuning.",
-    "Checkpoint and push Discovery before running the unchanged 60-day replication.",
-    "If the durable job fails, inspect its persisted stdout/stderr/result and reconcile before retrying; do not infer a model/algorithm defect from transport timeout alone."
+    "Use the compact global continuity capsule on reconnect; do not bulk-load the docs tree.",
+    "Inspect the existing persisted V2 discovery REPORT.json; do not rerun the completed durable job.",
+    "Interpret the 150-day failure/unknown-state map only under the frozen V2.0 spec and pre-outcome checkpoint.",
+    "Checkpoint/push Discovery before unchanged 60-day replication."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -1020,15 +1020,26 @@
     "implementation_checkpoint": "docs/0700_MINIMAL_V2_PRE_OUTCOME_IMPLEMENTATION_FREEZE_2026-09-13.md",
     "synthetic_contract": "16_PASS",
     "full_pytest": "EXIT_CODE_0",
-    "real_discovery_opened": false
+    "real_discovery_opened": false,
+    "real_discovery_execution_status": "DONE_RESULT_UNOPENED"
   },
   "active_durable_job": {
     "job_id": "XAU-0700-MINIMAL-V2-DISCOVERY-20260913",
     "job_path": "D:\\tools\\nexus-durable-work\\_agent\\jobs\\XAU-0700-MINIMAL-V2-DISCOVERY-20260913\\job.json",
-    "status": "RUNNING_AT_CHECKPOINT",
+    "status": "DONE_RESULT_UNOPENED",
     "execution_layer": "D:/tools/nexus-durable-work Local Work Agent",
     "success_probe": "results/0700_MINIMAL_V2/DISCOVERY_2022_09_TO_2023_03/REPORT.json",
     "timeout_checkpoint": "docs/0700_MINIMAL_V2_FIRST_DISCOVERY_TIMEOUT_2026-09-13.md",
-    "restart_rule": "Inspect this durable job before any retry. Do not resubmit the 150-day discovery while the job is RUNNING or before reconciling its persisted result/heartbeat."
+    "restart_rule": "Do not rerun. Inspect the persisted result next. Deep-load only the frozen V2 spec/checkpoint needed for outcome interpretation.",
+    "live_status_verified": "DONE",
+    "result_exists_nonempty": true
+  },
+  "continuity_tool": {
+    "scope": "GLOBAL_SHARED_INFRASTRUCTURE",
+    "path": "D:/tools/nexus-project-continuity",
+    "project_id": "xau",
+    "default_reconnect": "py -3 D:/tools/nexus-project-continuity/continuity.py resume --project xau",
+    "boot_rule": "COMPACT_FIRST_DEEP_LOAD_ON_DEMAND",
+    "purpose": "Recover project/git/workstream/version/next-action/live durable-job/tool capability state without bulk-loading project documents."
   }
 }

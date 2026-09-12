@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-13T06:31:00+07:00",
+  "updated_at": "2026-09-13T06:41:51+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
@@ -8,10 +8,10 @@
     "id": "RQ-013",
     "title": "07:00 Existing-Knowledge Re-anchor and Minimal V2 Freeze",
     "worksheet": "research_queue/active/RQ-013_0700_EXISTING_KNOWLEDGE_REANCHOR.md",
-    "status": "ACTIVE_MINIMAL_V2_DISCOVERY_DURABLE_JOB_RUNNING",
-    "latest_checkpoint": "docs/0700_MINIMAL_V2_FIRST_DISCOVERY_TIMEOUT_2026-09-13.md",
+    "status": "ACTIVE_MINIMAL_V2_DISCOVERY_RESULT_READY_UNOPENED",
+    "latest_checkpoint": "docs/GLOBAL_PROJECT_CONTINUITY_BOOTSTRAP_2026-09-13.md",
     "governing_objective_ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
-    "current_summary": "The first synchronous run hit the Bridge 180-second execution timeout without opening outcomes. The same frozen V2.0 discovery is now RUNNING under the machine-side durable Local Work Agent. Inspect/reuse that job; do not duplicate-submit.",
+    "current_summary": "Global compact continuity is integrated. Frozen V2.0 150-day durable replay is DONE and its result exists, but outcomes remain unopened. Next: inspect persisted result once and record failure/unknown map without tuning.",
     "durable_job_id": "XAU-0700-MINIMAL-V2-DISCOVERY-20260913"
   },
   "priority_order": [
@@ -258,7 +258,7 @@
       "id": "RQ-013",
       "title": "07:00 Existing-Knowledge Re-anchor and Minimal V2 Freeze",
       "type": "RESEARCH_RECONCILIATION",
-      "status": "ACTIVE_MINIMAL_V2_DISCOVERY_DURABLE_JOB_RUNNING",
+      "status": "ACTIVE_MINIMAL_V2_DISCOVERY_RESULT_READY_UNOPENED",
       "why_now": "Central restart state was stale and caused duplicate source work. Existing Q1-Q4 plus 2026-09-13 source closures indicate a narrow H4/PAT2-only 07:00 V2 may be calculable without further broad YouTube review.",
       "depends_on": [],
       "blocks": [
@@ -268,8 +268,8 @@
       ],
       "preferred_method": "Existing repository evidence -> chronology/reconciliation -> structured-state repair -> freeze minimal V2 -> targeted computation; no broad new source search unless a named blocker remains.",
       "worksheet": "research_queue/active/RQ-013_0700_EXISTING_KNOWLEDGE_REANCHOR.md",
-      "checkpoint_ref": "docs/0700_MINIMAL_V2_FIRST_DISCOVERY_TIMEOUT_2026-09-13.md",
-      "current_summary": "Frozen V2.0 discovery is running durably on the local agent after the synchronous Bridge timeout. Next action is inspection/reuse of the persisted job result.",
+      "checkpoint_ref": "docs/GLOBAL_PROJECT_CONTINUITY_BOOTSTRAP_2026-09-13.md",
+      "current_summary": "Compact global reconnect is active. Durable V2.0 Discovery is DONE_RESULT_UNOPENED; consume persisted result next without rerun or semantic tuning.",
       "governing_objective_ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
       "durable_job_id": "XAU-0700-MINIMAL-V2-DISCOVERY-20260913"
     },

@@ -1,10 +1,32 @@
-# NEXUS XAU Engine — Zero-Context Project Bootstrap
+# NEXUS XAU Engine — Deep Project Bootstrap
 
-Purpose: this is the shortest safe entry path for an AI/agent that knows nothing about prior chats or project history.
+Purpose: this is the evidence-loading path used **after** the global compact continuity capsule when substantive research or semantic work is required.
 
-Do not begin research, coding, backtesting, source review, or rule interpretation from conversational memory alone.
+Default reconnect entry point:
 
-## Mandatory entry sequence
+`py -3 D:\tools\nexus-project-continuity\continuity.py resume --project xau`
+
+Shortcut:
+
+`D:\tools\NEXUS-START\RESUME_WORK.cmd --project xau`
+
+For simple reconnect/status/resume work, use the compact capsule and stop there if it already identifies the live job state, current version, checkpoint, and next action.
+
+Do not bulk-load Project evidence merely because a chat/session restarted.
+
+## When deep bootstrap is required
+
+Escalate to this file before:
+
+- changing/interpreting a research rule or representation;
+- opening/reopening source research;
+- changing semantic research code;
+- interpreting outcomes into a research conclusion;
+- modifying canonical claims;
+- designing a new experiment/version;
+- reconciling contradictory evidence.
+
+## Mandatory deep entry sequence
 
 1. Read `AGENTS.md`.
 2. Read `docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md`.
@@ -13,18 +35,17 @@ Do not begin research, coding, backtesting, source review, or rule interpretatio
 
    `.venv\Scripts\python.exe scripts\research_preflight.py`
 
-5. Read the files reported by preflight, at minimum:
-   - `docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md`
-   - `TOOLS.md`
+5. Read only the structured pointers material to the active question:
    - `docs/CURRENT_RESEARCH_STATE.json`
-   - the active workstream dashboard referenced by current state; currently `docs/0700_WORKSTREAM_STATE.json`
-   - `docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md` for current 07:00 purpose/success criteria
-   - `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json`
-   - `docs/SOURCE_COVERAGE_LEDGER.json`
-   - `research_queue/QUEUE.json`
-   - the active worksheet referenced by `research_queue/QUEUE.json -> active.worksheet`
-   - the latest checkpoint referenced by the active queue/current-state checkpoint fields
-6. Read any additional current checkpoint/source files named by `docs/CURRENT_RESEARCH_STATE.json -> research_loop.load_order` when they are material to the active question.
+   - active workstream dashboard;
+   - relevant canonical claims;
+   - relevant source-coverage entries;
+   - `research_queue/QUEUE.json`;
+   - active worksheet/latest checkpoint.
+
+6. Load only the specific supporting checkpoint/source documents reached through those pointers.
+
+Do not read the entire `docs/` tree on every session.
 
 ## Required pre-work comprehension check
 

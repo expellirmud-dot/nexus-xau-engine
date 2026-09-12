@@ -4,38 +4,72 @@ Scope: this file applies to the entire repository.
 
 This repository is a durable evidence-first research record. Agents must preserve research history, provenance, unresolved questions, and checkpoint continuity. Do not treat each session as a fresh start.
 
-## 1. Mandatory session bootstrap
+## 1. Session bootstrap: compact first, deep only when needed
 
-Before starting new research, coding, backtesting, source review, or rule interpretation, use the zero-context entry path in this order:
+### Tier 0 — reconnect / resume / status
+
+On every reconnect, new chat, refresh, or Bridge recovery, **do not bulk-load project documents first**.
+
+Run the global continuity capsule:
+
+`py -3 D:\tools\nexus-project-continuity\continuity.py resume --project xau`
+
+or:
+
+`D:\tools\NEXUS-START\RESUME_WORK.cmd --project xau`
+
+The Tier-0 capsule is the default reconnect entry point. It should be enough to recover:
+
+- repo / branch / head / dirty state;
+- current workstream and active RQ;
+- latest checkpoint and current frozen version;
+- next action;
+- global NEXUS capabilities already available;
+- live durable-job state versus the Project pointer.
+
+If the capsule reports `STALE_PROJECT_POINTER`, reconcile the live machine job/result **before retrying or loading broad context**.
+
+Tier 0 is sufficient for:
+
+- checking whether a durable job is still running or already done;
+- resuming an already-frozen deterministic machine task;
+- locating the exact checkpoint/output that should be inspected next;
+- answering simple status questions.
+
+### Tier 1 — substantive research / semantic change
+
+Only enter the deep bootstrap when the next action requires changing or interpreting research meaning, for example:
+
+- designing or changing a rule/representation;
+- opening/reopening source research;
+- changing research code semantics;
+- interpreting outcomes into a research conclusion;
+- modifying canonical claims;
+- creating a new version or experiment;
+- reconciling contradictory evidence.
+
+Then use the zero-context evidence path:
 
 1. `PROJECT_BOOTSTRAP.md`
 2. `docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md`
 3. `skills/nexus-xau-research/SKILL.md`
 4. run `.venv\Scripts\python.exe scripts\research_preflight.py` and require `NEXUS_RESEARCH_PREFLIGHT=PASS`;
-5. `docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md`
-6. `TOOLS.md`
-7. `docs/CURRENT_RESEARCH_STATE.json`
-8. the active workstream dashboard referenced by current state; currently `docs/0700_WORKSTREAM_STATE.json`
-9. `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json`
-10. `docs/SOURCE_COVERAGE_LEDGER.json`
-11. `research_queue/QUEUE.json`
-12. the active worksheet referenced by `research_queue/QUEUE.json -> active.worksheet`
-13. the latest checkpoint referenced by the active queue/current-state/workstream checkpoint fields
-14. any additional latest source/checkpoint files listed in `docs/CURRENT_RESEARCH_STATE.json -> research_loop.load_order`
+5. read only the Current State / Workstream / Claim / Coverage / Queue pointers that are material to the active question;
+6. load the specific supporting checkpoint/source documents reached through those pointers.
 
-Do not begin a new source investigation until the mandatory state above has been loaded sufficiently to answer:
+Do **not** read the entire `docs/` tree on every session.
+
+Before substantive work, the agent must still be able to answer:
 
 - What is the governing 07:00 project objective and what does PASS mean?
-- What is the active workstream and research question?
-- What does success mean for this workstream, and what is explicitly not the goal?
+- What is the active workstream/question/version?
 - What is already source-backed?
-- What is still unresolved?
-- Which prior findings were superseded or narrowed?
-- Which source windows/checks have already been reviewed?
+- What remains unresolved?
+- What was superseded or narrowed?
+- What source/test has already been done?
+- What claim is currently prohibited?
 
-If preflight fails or any mandatory file is missing, record the blocker explicitly and do not begin new substantive work. Do not silently substitute conversational memory or general knowledge.
-
-The preflight manifest is a discovery/gating aid, not proof that the files were cognitively read. The agent must still read the relevant files and pass the comprehension check in `PROJECT_BOOTSTRAP.md`.
+If the compact capsule cannot answer enough to locate the correct evidence, escalate to Tier 1 rather than guessing.
 
 ## 2. Current authority hierarchy
 
