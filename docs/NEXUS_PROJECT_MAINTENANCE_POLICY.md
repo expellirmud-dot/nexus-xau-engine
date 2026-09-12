@@ -47,6 +47,17 @@ The invariant is **synchronization**, not which path performed the work:
 
 For NEXUS XAU research specifically, large local datasets, video sources, extracted evidence frames, and other local evidence assets remain local unless a project policy explicitly says otherwise. GitHub stores code, manifests, research state, evidence references, and checkpoint history rather than unnecessary large media copies.
 
+
+## Long-running work durability
+
+The project owner authorizes NEXUS to create/reuse non-destructive local tooling required to inspect, verify, or persist research work without requesting repeated permission for each routine utility.
+
+For long/high-count work, completed progress must be checkpointed outside the conversation using the registered durable-work protocol. UI timeout, browser refresh, connector reconnect, or a new chat must not cause already completed items to restart from zero.
+
+Prefer item-level persistence for expensive evidence interpretation. Preserve Bridge process `jobId`/idempotency information for commands that may continue across a transport disconnect, and query existing job state before retrying an uncertain command.
+
+This authorization does not extend to destructive system actions. It does not authorize drive formatting, partition changes, destructive OS/security changes, credential bypass, authentication weakening, history destruction, or secret exposure.
+
 ## Standing authorization
 
 Routine non-destructive repository maintenance does not require repeated confirmation from the project owner. This includes normal `git status`, staging intended project files, commit, and push to the existing configured remote/branch after validation.

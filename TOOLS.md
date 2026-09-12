@@ -18,6 +18,38 @@ Do not duplicate a working external utility inside this repository merely for di
 
 ## Registered tools
 
+
+### NEXUS Durable Work / Resume Ledger
+
+Canonical path:
+
+`D:\tools\nexus-durable-work`
+
+Primary script:
+
+`D:\tools\nexus-durable-work\durable_work.py`
+
+Documentation:
+
+`D:\tools\nexus-durable-work\README-TH.txt`
+
+Project protocol:
+
+`docs/LONG_TASK_RESUME_PROTOCOL_2026-09-12.md`
+
+Purpose:
+
+- persist ordered long-task work items outside chat/UI state;
+- record `PENDING / IN_PROGRESS / DONE / AMBIGUOUS / FAILED`;
+- atomic JSON state writes plus fsynced append-only event log;
+- resume an interrupted item/session without restarting completed work;
+- store result refs and optional Bridge job IDs;
+- force uncertain STT into an explicit ambiguity state instead of silent inference.
+
+Use this for long image/frame/audio/source batches and other expensive-to-repeat work.
+For local commands, combine it with Bridge background jobs/job receipts where appropriate.
+Do not bypass authentication or platform authorization prompts as a substitute for durable progress.
+
 ### NEXUS Video Evidence
 
 Canonical path:

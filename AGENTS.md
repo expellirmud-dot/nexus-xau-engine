@@ -153,7 +153,21 @@ Local source media under `youtube/` is research evidence and is gitignored. Do n
 
 Never display, copy, or commit credentials/secrets from local files.
 
-## 8. Terminal and Git safety
+
+## 8. Long-task durability / UI-timeout invariant
+
+For high-count, long-running, or expensive-to-repeat work, conversation context is not a valid progress store.
+
+Read and follow `docs/LONG_TASK_RESUME_PROTOCOL_2026-09-12.md`.
+Use the registered `D:\tools\nexus-durable-work` utility and persist item-level progress/result references on disk.
+
+A browser/UI/connector timeout must not make a new session restart completed work. Resume an existing `IN_PROGRESS` item first, then the next `PENDING` item. Preserve `DONE` unless a documented reopen trigger exists.
+
+For local processes that may outlive the connection, preserve Bridge `jobId` / idempotency identifiers and query existing job state before retrying.
+
+Materially ambiguous STT must be marked `AMBIGUOUS`, never silently guessed or normalized into a trading/system rule. Cross-check original audio/visual or ask the owner before evidence promotion.
+
+## 9. Terminal and Git safety
 
 Before any terminal action through the IE Coder bridge, inspect `bridge_capabilities` and the current `activeTerminalMode`.
 
@@ -172,7 +186,7 @@ Before commit:
 - confirm temporary research scripts are not accidentally staged;
 - preserve chronology/provenance.
 
-## 9. Required reasoning posture
+## 10. Required reasoning posture
 
 Prefer evidence over confidence.
 
@@ -182,7 +196,7 @@ A negative or inconclusive research result is valid project knowledge and must b
 
 The project objective is quality of sequential decisions under uncertainty, not merely profit/loss optimization.
 
-## 10. Restart invariant
+## 11. Restart invariant
 
 A new agent/session must continue from the repository state, not from conversational memory alone.
 
