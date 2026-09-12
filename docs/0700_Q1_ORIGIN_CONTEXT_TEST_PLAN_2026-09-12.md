@@ -125,13 +125,23 @@ An origin that was incomplete at 07:00 may complete before the selected confirma
 
 Before outcome scoring, recompute favorable progress only through bars strictly before `event_known_at`.
 
+Also recheck literal proxy point-check contact using only M1 bars strictly before `event_known_at`.
+
+If the point-check was contacted after 07:00 but before confirmation:
+
+`POINT_CHECK_DESTROYED_BEFORE_CONFIRMATION`
+
 If nominal run is already complete:
 
 `ORIGIN_COMPLETED_BEFORE_CONFIRMATION`
 
-The row remains in the audit output but is not scored as a post-confirmation remaining-run opportunity.
+If both conditions occur within the pre-confirmation path and M1 ordering is observable, retain the earliest pre-confirmation terminal state. If both first occur in the same M1 bar, retain:
 
-This prevents falsely crediting an entry for a run that was already finished.
+`AMBIGUOUS_PRECONFIRMATION_TERMINAL_SAME_BAR`
+
+These rows remain in the audit output but are not scored as post-confirmation remaining-run opportunities.
+
+This prevents falsely crediting an entry for a run that was already completed or structurally destroyed before the entry information existed.
 
 ## Outcome horizon
 
