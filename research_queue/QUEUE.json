@@ -1,20 +1,11 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-13T11:18:00+07:00",
+  "updated_at": "2026-09-13T16:59:26+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
-  "active": {
-    "id": "RQ-012",
-    "title": "V0.1 Holdout Append-Only Ledger + Activation Lock",
-    "worksheet": "research_queue/active/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
-    "status": "ACTIVE_IMPLEMENTATION_PENDING_NO_OUTCOME_SCORE",
-    "latest_checkpoint": "docs/0700_RQ015_GEOMETRY_NULL_RESULT_2026-09-13.md",
-    "governing_objective_ref": "docs/RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL_2026-09-09.md",
-    "current_summary": "RQ-015 is closed. Resume the frozen V0.1 holdout ledger and activation-lock engineering; outcome scoring remains unauthorized."
-  },
+  "active": null,
   "priority_order": [
-    "RQ-012",
     "RQ-014"
   ],
   "items": [
@@ -237,7 +228,7 @@
       "id": "RQ-012",
       "title": "V0.1 Holdout Append-Only Ledger + Activation Lock",
       "type": "ENGINEERING_METHODOLOGY",
-      "status": "ACTIVE_IMPLEMENTATION_PENDING_NO_OUTCOME_SCORE",
+      "status": "CLOSED_TOOLING_IMPLEMENTED_ACTIVATION_RESERVED_UNSCORED",
       "why_now": "RQ-015 closed the owner-prioritized 07:00 bounded question without a valid source-gap reopen trigger. RQ-012 is the highest-value unblocked queued item and resumes the already-frozen RQ-010/RQ-011 holdout methodology path.",
       "depends_on": [
         "RQ-010",
@@ -248,9 +239,11 @@
         "future one-time scoring authorization"
       ],
       "preferred_method": "Canonical JSON + SHA256 record chain + verifier + activation lock with exact engine/protocol commits and prospective 07:00 boundary; full tests before activation; outcome scoring remains disabled.",
-      "worksheet": "research_queue/active/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
+      "worksheet": "research_queue/closed/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
       "checkpoint_ref": "docs/0700_RQ015_GEOMETRY_NULL_RESULT_2026-09-13.md",
-      "current_summary": "Promoted after RQ-015 closure. Resolve exact frozen commits, freeze the ledger/activation-lock implementation contract, implement and test without opening holdout outcomes."
+      "current_summary": "Promoted after RQ-015 closure. Resolve exact frozen commits, freeze the ledger/activation-lock implementation contract, implement and test without opening holdout outcomes.",
+      "closure_ref": "docs/RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_IMPLEMENTATION_2026-09-13.md",
+      "closure_summary": "Append-only ledger/hash-chain verifier and activation lock implemented and pushed at 1d35ab3. Prospective boundary reserved for 2026-09-14 07:00 Asia/Bangkok. Outcomes remain unopened and scoring disabled."
     },
     {
       "id": "RQ-013",
@@ -324,7 +317,7 @@
   ],
   "promotion_rule": "On active closure, first re-rank remaining items using the new evidence. Then promote the highest-value unblocked item; do not blindly increment the numeric ID if the dependency picture changed.",
   "guard": "The queue organizes research; it does not grant permission to invent thresholds, upgrade provenance from outcomes, or treat historical proxy results as canonical rules.",
-  "queue_state": "ACTIVE_RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_NO_OUTCOME_SCORE",
+  "queue_state": "NO_ACTIVE_DECISION_CRITICAL_RQ_HOLDOUT_RESERVED_UNSCORED",
   "queue_exhaustion_ref": null,
   "reopen_rule": "Create/reopen a bounded research item only when new source evidence, new labeled examples, a frozen execution specification, or a genuinely untouched holdout materially resolves a named blocker.",
   "reopened_from_exhaustion_ref": "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",

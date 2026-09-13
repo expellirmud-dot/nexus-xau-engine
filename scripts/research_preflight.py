@@ -254,6 +254,7 @@ def build_manifest() -> dict[str, Any]:
     latest_checkpoint = resolve_repo_path(
         active.get("latest_checkpoint")
         or active.get("checkpoint_ref")
+        or state.get("operational_research_queue", {}).get("latest_checkpoint")
         or state.get("rq009_source_gap_closure", {}).get("checkpoint_ref")
     )
 

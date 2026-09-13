@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T17:02:00+07:00",
+  "updated_at": "2026-09-13T16:59:26+07:00",
   "project": "NEXUS XAU Research Engine",
-  "mode": "RESTART_SAFE_RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK",
-  "completed_checkpoint": "0700_RQ015_GEOMETRY_NULL_RESULT_CLOSED",
+  "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
+  "completed_checkpoint": "RQ012_HOLDOUT_LEDGER_ACTIVATION_TOOLING_IMPLEMENTED_RESERVED_UNSCORED",
   "project_objective": {
     "authority": "OWNER_DIRECT",
     "ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
@@ -39,13 +39,14 @@
       "docs/0700_HISTORICAL_DATA_READINESS_AND_TEST_STRATEGY_2026-09-13.md",
       "docs/SOURCE_COVERAGE_LEDGER.json",
       "research_queue/QUEUE.json",
-      "research_queue/active/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
+      "research_queue/closed/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
       "docs/0700_PAT50_DENOMINATOR_SOURCE_CLOSURE_2026-09-13.md",
       "docs/0700_D1_DAY_RUN_SOURCE_REREVIEW_2026-09-13.md",
       "docs/0700_DAILY_FRAME_SR_SELECTOR_SOURCE_CLOSURE_2026-09-13.md",
       "docs/0700_Q1_ORIGIN_CONTEXT_REPLICATION_2026-09-12.md",
       "docs/0700_Q3_DISTINCT_INFORMATION_CROSS_PERIOD_2026-09-12.md",
-      "docs/0700_Q4_H4_CONSUMED_SHAPE_CROSS_PERIOD_2026-09-12.md"
+      "docs/0700_Q4_H4_CONSUMED_SHAPE_CROSS_PERIOD_2026-09-12.md",
+      "docs/RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_IMPLEMENTATION_2026-09-13.md"
     ]
   },
   "provenance_guard": {
@@ -113,10 +114,10 @@
     "structured_state_reanchor": "PASSED"
   },
   "next_steps": [
-    "Implement the frozen RQ-012 ledger/hash-chain verifier and activation-lock APIs.",
-    "Add tamper, duplicate/reorder, commit-lock, scoring-disabled, boundary, and environment validation tests.",
-    "Run focused tests, full suite, Ruff, preflight, JSON validation, and diff validation.",
-    "Generate only a reserved/collection-ready UNSCORED activation artifact; do not open holdout outcomes."
+    "Keep V0.1 holdout outcome scoring disabled.",
+    "At or after 2026-09-14T07:00:00+07:00, begin only chronological progressive-reveal collection/label locking under RQ-011 if collection is intentionally resumed.",
+    "Do not alter engine semantics, eligibility, target, horizon, tick handling, or activation identity while retaining this holdout identity.",
+    "RQ-014 remains queued; do not promote it unless a future active scope actually requires PAT3."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -241,7 +242,7 @@
     "research_queue/closed/RQ-011_PRISTINE_V0_HOLDOUT_PROTOCOL.md",
     "research_queue/active/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md"
   ],
-  "resume_instruction": "Resume RQ-012 implementation from the frozen contract docs/RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_IMPLEMENTATION_CONTRACT_FREEZE_2026-09-13.md. Engine freeze is 75866d2 and protocol freeze is 43c29be. Implement audit/activation tooling only; holdout outcomes remain unopened and scoring disabled.",
+  "resume_instruction": "RQ-012 tooling is implemented and pushed at 1d35ab3. Activation boundary is reserved for 2026-09-14T07:00:00+07:00 Asia/Bangkok, with outcome scoring disabled and no holdout outcomes opened. No decision-critical RQ is active; RQ-014 remains queued until explicitly required.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -609,17 +610,17 @@
   },
   "operational_research_queue": {
     "source_ref": "research_queue/QUEUE.json",
-    "active_id": "RQ-012",
-    "active_worksheet": "research_queue/active/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
+    "active_id": null,
+    "active_worksheet": null,
     "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
     "selection_rule": "NEXUS owns worksheet creation, prioritization, promotion, and method choice. Promote the highest-value unblocked item after each closure; re-rank when new evidence changes dependencies.",
     "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
     "guard": "Do not require the project owner to know which tool, video, formula, or dataset to request in advance.",
-    "last_closed_id": "RQ-015",
-    "last_closure_ref": "docs/0700_RQ015_GEOMETRY_NULL_RESULT_2026-09-13.md",
-    "queue_state": "ACTIVE_RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_NO_OUTCOME_SCORE",
-    "active_status": "ACTIVE_IMPLEMENTATION_PENDING_NO_OUTCOME_SCORE",
-    "latest_checkpoint": "docs/0700_RQ015_GEOMETRY_NULL_RESULT_2026-09-13.md"
+    "last_closed_id": "RQ-012",
+    "last_closure_ref": "docs/RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_IMPLEMENTATION_2026-09-13.md",
+    "queue_state": "NO_ACTIVE_DECISION_CRITICAL_RQ_HOLDOUT_RESERVED_UNSCORED",
+    "active_status": null,
+    "latest_checkpoint": "docs/RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_IMPLEMENTATION_2026-09-13.md"
   },
   "post_sig_lifecycle_source_visual_closure": {
     "status": "SOURCE_SUPPORTS_OTHER_EXPLICIT_LIFECYCLE",
@@ -956,13 +957,14 @@
     "administrative_horizon": "30 calendar days per eligible event; research convention"
   },
   "rq012_v0_holdout_ledger_activation": {
-    "status": "ACTIVE_IMPLEMENTATION_CONTRACT_FROZEN_CODE_PENDING_NO_OUTCOME_SCORE",
+    "status": "CLOSED_TOOLING_IMPLEMENTED_ACTIVATION_RESERVED_UNSCORED",
     "worksheet": "research_queue/active/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
     "engine_freeze_commit": "75866d2",
     "protocol_freeze_commit": "43c29be",
     "holdout_open": false,
     "outcome_scoring_authorized": false,
-    "implementation_contract_freeze": "docs/RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_IMPLEMENTATION_CONTRACT_FREEZE_2026-09-13.md"
+    "implementation_contract_freeze": "docs/RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_IMPLEMENTATION_CONTRACT_FREEZE_2026-09-13.md",
+    "implementation_commit": "1d35ab3"
   },
   "active_0700_workstream": {
     "status": "CLOSED_RQ015_GEOMETRY_DOMINATED_NO_REOPEN_TRIGGER",
@@ -984,8 +986,8 @@
     "data_assessment": "Existing real history is sufficient for minimal V2 development, failure discovery, same-code historical replication, and MT5 engineering stress tests. Synthetic data is approved for controlled logic/boundary tests only. No current period is a pristine final confirmation set."
   },
   "rq012_holdout_state": {
-    "status": "ACTIVE_IMPLEMENTATION_CONTRACT_FROZEN_CODE_PENDING_NO_OUTCOME_SCORE",
-    "worksheet": "research_queue/active/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
+    "status": "RESERVED_OR_COLLECTION_READY_UNSCORED",
+    "worksheet": "research_queue/closed/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
     "protocol": "docs/RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL_2026-09-09.md",
     "note": "Exact engine/protocol freeze commits resolved and implementation contract frozen. Implement tooling next; outcome scoring remains unauthorized.",
     "implementation_contract_freeze": "docs/RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_IMPLEMENTATION_CONTRACT_FREEZE_2026-09-13.md"

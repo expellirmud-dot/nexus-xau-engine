@@ -1,13 +1,14 @@
 # RQ-012 — Holdout Ledger + Activation Lock Implementation Checkpoint
 
 Date: 2026-09-13 Asia/Bangkok
-Status: `IMPLEMENTED_VALIDATED_PRE_COMMIT / UNSCORED`
+Status: `IMPLEMENTED_COMMITTED_PUSHED / RESERVED_OR_COLLECTION_READY / UNSCORED`
 
 ## Frozen identities
 
 - V0.1 engine freeze: `75866d2`
 - RQ-011 protocol freeze: `43c29be`
 - pre-code implementation contract freeze: `ed04b20`
+- implementation commit: `1d35ab3`
 - engine schema: `SIG_MODE2_SIGNAL_RUN_V0.1`
 
 ## Implemented
@@ -59,6 +60,6 @@ Current status is only:
 
 This checkpoint does not establish trade/system Win Rate, expectancy, profitability, or any V0.1 outcome distribution.
 
-## Next mechanical step
+## Closure
 
-Commit/push this implementation checkpoint, record the exact implementation commit in central state, then mark RQ-012 tooling closure without opening outcomes.
+Implementation commit `1d35ab3` is pushed to `origin/main`. RQ-012 tooling scope is closed. The prospective holdout remains UNSCORED; future collection must follow frozen RQ-011 and must not inspect or score post-boundary outcomes before its preregistered stopping/sealing conditions are met.

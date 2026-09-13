@@ -1,6 +1,6 @@
 # RQ-012 — V0.1 Holdout Append-Only Ledger + Activation Lock
 
-Status: ACTIVE — implementation contract frozen; code pending
+Status: CLOSED — tooling implemented; activation reserved; UNSCORED
 
 ## Resume note
 
@@ -63,6 +63,14 @@ Exact frozen identities:
 - engine: `75866d2`
 - protocol: `43c29be`
 
-## Immediate next action
+## Implementation closure
 
-Implement the frozen contract and tests without opening or scoring holdout outcomes.
+- implementation contract commit: `ed04b20`
+- implementation commit: `1d35ab3`
+- implementation checkpoint: `docs/RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_IMPLEMENTATION_2026-09-13.md`
+- activation lock: `docs/RQ012_V0_HOLDOUT_ACTIVATION_LOCK_2026-09-13.json`
+- prospective boundary: `2026-09-14T07:00:00+07:00`
+- holdout outcomes: unopened
+- outcome scoring: disabled
+
+RQ-012 tooling scope is complete. Future collection must follow frozen RQ-011 chronologically and remain UNSCORED until its stopping/sealing conditions are satisfied.
