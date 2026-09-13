@@ -218,6 +218,15 @@ def validate_state_consistency(
             }
 
     rq012_state = state.get("rq012_v0_holdout_ledger_activation") or {}
+    rq012_legacy = state.get("rq012_holdout_state") or {}
+    if isinstance(rq012_legacy, dict):
+        legacy_note = str(rq012_legacy.get("note", "")).lower()
+        if "implement tooling next" in legacy_note:
+            return {
+                "status": "FAIL",
+                "reason": "RQ012_STALE_IMPLEMENTATION_INSTRUCTION",
+                "note": rq012_legacy.get("note"),
+            }
     rq012_item = items_by_id.get("RQ-012")
     if rq012_state:
         if not isinstance(rq012_item, dict):
@@ -469,6 +478,11 @@ def build_manifest() -> dict[str, Any]:
     )
 
     dynamic_required: list[Path] = [ROOT / p for p in CORE_PATHS]
+    authority = state.get("state_authority") or {}
+    if isinstance(authority, dict):
+        tooling_checkpoint = resolve_repo_path(authority.get("latest_operational_tooling_checkpoint"))
+        if tooling_checkpoint is not None:
+            dynamic_required.append(tooling_checkpoint)
     if active_worksheet is not None:
         dynamic_required.append(active_worksheet)
     if latest_checkpoint is not None:

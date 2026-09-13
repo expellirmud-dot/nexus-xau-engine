@@ -1,11 +1,12 @@
 {
-  "updated_at": "2026-09-13T19:51:00+07:00",
+  "updated_at": "2026-09-13T23:46:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
     "contract": "docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md",
     "latest_state_reconciliation": "docs/STATE_DRIFT_AUDIT_2026-09-13.md",
     "project_current_research_checkpoint": "docs/RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_IMPLEMENTATION_2026-09-13.md",
+    "latest_operational_tooling_checkpoint": "docs/V01_HOLDOUT_PROGRESSIVE_REVEAL_RUNNER_IMPLEMENTATION_2026-09-13.md",
     "project_current_state": "docs/CURRENT_RESEARCH_STATE.json",
     "operational_queue": "research_queue/QUEUE.json",
     "workstream_state": "docs/0700_WORKSTREAM_STATE.json",
@@ -59,7 +60,9 @@
       "docs/0700_Q1_ORIGIN_CONTEXT_REPLICATION_2026-09-12.md",
       "docs/0700_Q3_DISTINCT_INFORMATION_CROSS_PERIOD_2026-09-12.md",
       "docs/0700_Q4_H4_CONSUMED_SHAPE_CROSS_PERIOD_2026-09-12.md",
-      "docs/RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_IMPLEMENTATION_2026-09-13.md"
+      "docs/RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_IMPLEMENTATION_2026-09-13.md",
+      "docs/V01_HOLDOUT_PROGRESSIVE_REVEAL_RUNNER_CONTRACT_FREEZE_2026-09-13.md",
+      "docs/V01_HOLDOUT_PROGRESSIVE_REVEAL_RUNNER_IMPLEMENTATION_2026-09-13.md"
     ]
   },
   "provenance_guard": {
@@ -128,7 +131,8 @@
   },
   "next_steps": [
     "Keep V0.1 holdout outcome scoring disabled.",
-    "At or after 2026-09-14T07:00:00+07:00, begin only chronological progressive-reveal collection/label locking under RQ-011 if collection is intentionally resumed.",
+    "Before 2026-09-14T07:00:00+07:00, use only the holdout progressive-reveal runner status/validation path; ledger append remains forbidden.",
+    "At or after 2026-09-14T07:00:00+07:00, begin only chronological progressive-reveal collection/label locking through the frozen runner under RQ-011 if collection is intentionally resumed.",
     "Do not alter engine semantics, eligibility, target, horizon, tick handling, or activation identity while retaining this holdout identity.",
     "RQ-014 remains queued; do not promote it unless a future active scope actually requires PAT3."
   ],
@@ -245,7 +249,12 @@
     "research_queue/closed/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
     "docs/PROJECT_RESUME_POINTER_RECONCILIATION_2026-09-13.md",
     "docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md",
-    "docs/STATE_DRIFT_AUDIT_2026-09-13.md"
+    "docs/STATE_DRIFT_AUDIT_2026-09-13.md",
+    "docs/V01_HOLDOUT_PROGRESSIVE_REVEAL_RUNNER_CONTRACT_FREEZE_2026-09-13.md",
+    "docs/V01_HOLDOUT_PROGRESSIVE_REVEAL_RUNNER_IMPLEMENTATION_2026-09-13.md",
+    "src/nexus_xau/research/holdout_progressive_runner_v0.py",
+    "scripts/holdout_progressive_runner_v0.py",
+    "tests/test_holdout_progressive_runner_v0.py"
   ],
   "resume_instruction": "Project-current state: RQ-012 tooling is CLOSED; implementation commit 1d35ab3 and closure checkpoint commit 728c461 are already pushed. Activation boundary remains reserved for 2026-09-14T07:00:00+07:00 Asia/Bangkok, holdout outcomes remain unopened, and scoring remains disabled. No decision-critical RQ is active; RQ-014 remains queued until explicitly required.",
   "por_chon_1900_transcript_closure": {
@@ -971,7 +980,12 @@
     "holdout_open": false,
     "outcome_scoring_authorized": false,
     "implementation_contract_freeze": "docs/RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_IMPLEMENTATION_CONTRACT_FREEZE_2026-09-13.md",
-    "implementation_commit": "1d35ab3"
+    "implementation_commit": "1d35ab3",
+    "progressive_reveal_runner_contract_freeze": "docs/V01_HOLDOUT_PROGRESSIVE_REVEAL_RUNNER_CONTRACT_FREEZE_2026-09-13.md",
+    "progressive_reveal_runner_contract_commit": "ac8f278",
+    "progressive_reveal_runner_implementation": "docs/V01_HOLDOUT_PROGRESSIVE_REVEAL_RUNNER_IMPLEMENTATION_2026-09-13.md",
+    "progressive_reveal_runner_commit": "0556b6f",
+    "progressive_reveal_runner_status": "PRE_ACTIVATION_EXECUTION_GUARD_READY_UNSCORED"
   },
   "active_0700_workstream": {
     "status": "CLOSED_RQ015_GEOMETRY_DOMINATED_NO_REOPEN_TRIGGER",
@@ -996,7 +1010,7 @@
     "status": "RESERVED_OR_COLLECTION_READY_UNSCORED",
     "worksheet": "research_queue/closed/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
     "protocol": "docs/RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL_2026-09-09.md",
-    "note": "Exact engine/protocol freeze commits resolved and implementation contract frozen. Implement tooling next; outcome scoring remains unauthorized.",
+    "note": "RQ-012 ledger/activation tooling is complete. Progressive-reveal execution guard is also implemented and pushed; before the reserved boundary only status/validation is allowed. Outcome scoring remains unauthorized.",
     "implementation_contract_freeze": "docs/RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_IMPLEMENTATION_CONTRACT_FREEZE_2026-09-13.md"
   },
   "data_readiness_0700": {

@@ -111,6 +111,18 @@ def test_state_consistency_fails_on_holdout_identity_drift():
     assert result["reason"] == "HOLDOUT_ACTIVATION_IDENTITY_MISMATCH"
 
 
+def test_state_consistency_fails_on_stale_rq012_implementation_instruction():
+    parts = list(_fixtures())
+    parts[0] = deepcopy(parts[0])
+    parts[0]["rq012_holdout_state"] = {
+        "status": "RESERVED_OR_COLLECTION_READY_UNSCORED",
+        "note": "Implement tooling next; outcome scoring remains unauthorized.",
+    }
+    result = _validate(tuple(parts))
+    assert result["status"] == "FAIL"
+    assert result["reason"] == "RQ012_STALE_IMPLEMENTATION_INSTRUCTION"
+
+
 def test_state_consistency_fails_if_scoring_is_enabled():
     parts = list(_fixtures())
     parts[5] = deepcopy(parts[5])
