@@ -1,6 +1,6 @@
 # RQ-015 — 07:00 PATH_REMAINING Geometry Control
 
-Status: ACTIVE — GEOMETRY-NULL SPEC FROZEN / EXECUTION PENDING
+Status: ACTIVE — GEOMETRY-NULL IMPLEMENTATION FROZEN / EXECUTION PENDING
 
 ## Why this is active now
 
@@ -88,6 +88,10 @@ docs/0700_RQ015_GEOMETRY_NULL_ANALYSIS_FREEZE_2026-09-13.md
 
 This is not a pristine blind preregistration because V2 outcomes and the earlier exploratory one-variable geometry diagnostic were already observed. It freezes all further RQ-015 scoring before execution.
 
+## Implementation freeze
+
+`docs/0700_RQ015_GEOMETRY_NULL_IMPLEMENTATION_FREEZE_2026-09-13.md`
+
 ## Immediate next action
 
-Implement the frozen geometry-null analyzer, validate it on synthetic boundary cases, then execute unchanged on the existing Discovery and Replication artifacts.
+Execute the frozen analyzer unchanged on the existing Discovery and Replication artifacts, then reconcile the result without model or threshold tuning.
