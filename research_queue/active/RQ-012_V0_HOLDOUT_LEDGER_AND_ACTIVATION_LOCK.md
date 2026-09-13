@@ -1,6 +1,6 @@
 # RQ-012 — V0.1 Holdout Append-Only Ledger + Activation Lock
 
-Status: ACTIVE — implementation pending
+Status: ACTIVE — implementation contract frozen; code pending
 
 ## Resume note
 
@@ -18,7 +18,7 @@ Implement the audit tooling required by frozen RQ-011 before the V0.1 prospectiv
 
 - V0.1 engine freeze: `75866d2`
 - RQ-011 protocol: `docs/RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL_2026-09-09.md`
-- exact protocol freeze commit must be resolved from Git history before activation
+- RQ-011 protocol freeze commit: `43c29be`
 
 ## Required tooling
 
@@ -54,6 +54,15 @@ RQ-012 may reserve that boundary but must not inspect post-boundary outcomes.
 - checkpoint is committed and pushed;
 - holdout status is `RESERVED_OR_COLLECTION_READY / UNSCORED` only.
 
+## Implementation contract freeze
+
+`docs/RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_IMPLEMENTATION_CONTRACT_FREEZE_2026-09-13.md`
+
+Exact frozen identities:
+
+- engine: `75866d2`
+- protocol: `43c29be`
+
 ## Immediate next action
 
-Resolve the exact RQ-010 engine freeze commit and RQ-011 protocol freeze commit from Git history, then freeze the ledger/activation-lock implementation contract before writing code.
+Implement the frozen contract and tests without opening or scoring holdout outcomes.
