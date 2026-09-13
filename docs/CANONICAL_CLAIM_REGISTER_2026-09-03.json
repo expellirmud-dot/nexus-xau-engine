@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-13T05:40:00+07:00",
+  "updated_at": "2026-09-13T10:18:52+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -824,23 +824,28 @@
     },
     {
       "claim_id": "H4_0700_CONSUMED_STATE_RELATION",
-      "canonical_statement": "Under the frozen 07:00 historical research representations, H4 consumed/run-progress state at 07:00 shows a broad positive replicated relationship with PATH_REMAINING target-first ordering across discovery and replication. Q3 retained positive conditional information after controlling for age and recent MTF; Q4 preserved the positive relation after upper-tail removal but did not show strict monotonicity. This is a research relationship, not a threshold, instructor rule, trade win rate, or profitability claim.",
-      "status": "ACTIVE_RESEARCH_REPLICATED_RELATION_NO_THRESHOLD",
-      "engine_permission": "CARRY_AS_CONTINUOUS_FEATURE_IN_NEW_VERSIONED_0700_RESEARCH_ONLY",
+      "canonical_statement": "Under frozen 07:00 historical and V2.0 research representations, H4 consumed/run-progress state is reproducibly associated with PATH_REMAINING target-first ordering across Discovery and Replication. New V2.0 geometry control shows consumed is strongly entangled with the relative target/point-check distances created by the PATH_REMAINING scoring construction; after rank-residualizing against a scale-free geometry diagnostic, the positive residual relation does not persist in either period. Independent market-predictive information from consumed is therefore NOT ESTABLISHED. This remains a research association, not a threshold, teaching rule, trade Win Rate, or profitability claim.",
+      "status": "ACTIVE_RESEARCH_REPLICATED_ASSOCIATION_GEOMETRY_CONFOUNDED",
+      "engine_permission": "CARRY_AS_CONTINUOUS_RESEARCH_FEATURE_ONLY_WITH_EXPLICIT_GEOMETRY_CONTROL",
       "source_refs": [
         "docs/0700_Q2_CONTINUOUS_MTF_CROSS_PERIOD_2026-09-12.md",
         "docs/0700_Q3_DISTINCT_INFORMATION_CROSS_PERIOD_2026-09-12.md",
         "docs/0700_Q4_H4_CONSUMED_SHAPE_CROSS_PERIOD_2026-09-12.md",
-        "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md"
+        "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
+        "docs/0700_MINIMAL_V2_DISCOVERY_FIRST_OUTCOME_2026-09-13.md",
+        "docs/0700_MINIMAL_V2_REPLICATION_GEOMETRY_CONTROL_2026-09-13.md"
       ],
       "risk_flags": [
         "NO_CONSUMED_THRESHOLD",
         "Q4_TOP_BIN_NOT_SYSTEM_WIN_RATE",
         "H1_DOES_NOT_SHARE_THE_SAME_REPLICATED_RELATION",
         "HISTORICAL_PAT2_BODY_PROXY",
-        "NO_TRADE_PNL_MODEL"
+        "NO_TRADE_PNL_MODEL",
+        "TARGET_POINT_GEOMETRY_CONFOUND",
+        "INDEPENDENT_EFFECT_NOT_ESTABLISHED",
+        "Q3_AGE_MTF_CONTROL_DID_NOT_CONTROL_TARGET_POINT_GEOMETRY"
       ],
-      "provenance_note": "Outcome-derived research relationship. It cannot upgrade source provenance or create a teaching rule."
+      "provenance_note": "Historical Q3/Q4 remain valid association evidence, but the current interpretation is narrowed by V2.0 geometry falsification control. Do not describe consumed as an established independent market signal until RQ-015 resolves the geometry-null question."
     },
     {
       "claim_id": "0700_PATH_REMAINING_RESEARCH_RELATION",
