@@ -18,6 +18,23 @@ Do not duplicate a working external utility inside this repository merely for di
 
 ## Registered tools
 
+### Desktop Commander
+
+Canonical role:
+
+- primary local filesystem plane;
+- bulk read/write/search/edit for repository files;
+- ordinary local commands and ordinary local processes.
+
+Routing / fallback:
+
+- prefer Desktop Commander for normal local filesystem work;
+- if Desktop Commander is unavailable in the current session, use IE Coder Connect as the fallback filesystem/process plane;
+- do not interpret a Desktop Commander remote device/workspace OFFLINE state as proof that the local repository is unavailable; probe actual local tool availability before declaring a blocker;
+- use nexus-durable-work instead when long work must survive disconnect/restart with persisted progress;
+- use the IE Coder image bridge when NEXUS needs local JPEG/PNG as agent-vision image content.
+
+
 
 ### NEXUS Durable Work / Resume Ledger
 

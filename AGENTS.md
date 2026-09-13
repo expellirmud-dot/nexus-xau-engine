@@ -184,6 +184,9 @@ Reuse before building.
 
 Current important tooling includes:
 
+- Desktop Commander is the primary local filesystem plane for bulk read/write/search/edit and ordinary local commands/processes;
+- if Desktop Commander is unavailable in the current session, fall back to IE Coder Connect before declaring a local-access blocker;
+- a Desktop Commander remote device/workspace OFFLINE state is not proof that the local repository is unavailable; probe actual local tool availability first;
 - `agent-browser` for browser/YouTube transcript, metadata, timestamps, and headed CDP visual evidence;
 - `D:\tools\nexus-video-evidence` for local video/frame evidence;
 - IE Coder image bridge for agent vision over local images.
