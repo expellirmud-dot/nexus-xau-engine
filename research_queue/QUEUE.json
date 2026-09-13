@@ -5,18 +5,18 @@
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
   "active": {
-    "id": "RQ-013",
-    "title": "07:00 Existing-Knowledge Re-anchor and Minimal V2 Freeze",
-    "worksheet": "research_queue/active/RQ-013_0700_EXISTING_KNOWLEDGE_REANCHOR.md",
-    "status": "ACTIVE_MINIMAL_V2_DISCOVERY_RESULT_READY_UNOPENED",
-    "latest_checkpoint": "docs/GLOBAL_PROJECT_CONTINUITY_BOOTSTRAP_2026-09-13.md",
+    "id": "RQ-015",
+    "title": "07:00 PATH_REMAINING Geometry Control",
+    "worksheet": "research_queue/active/RQ-015_0700_PATH_REMAINING_GEOMETRY_CONTROL.md",
+    "status": "ACTIVE_GEOMETRY_CONFOUND_FALSIFICATION",
+    "latest_checkpoint": "docs/0700_MINIMAL_V2_REPLICATION_GEOMETRY_CONTROL_2026-09-13.md",
     "governing_objective_ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
-    "current_summary": "Global compact continuity is integrated. Frozen V2.0 150-day durable replay is DONE and its result exists, but outcomes remain unopened. Next: inspect persisted result once and record failure/unknown map without tuning.",
-    "durable_job_id": "XAU-0700-MINIMAL-V2-DISCOVERY-20260913"
+    "current_summary": "V2.0 unchanged-code replication is complete. Consumed association replicates, but geometry control shows strong target/point-distance confounding and no positive residual relation after geometry adjustment. Freeze/test geometry-null control next."
   },
   "priority_order": [
     "RQ-013",
     "RQ-012",
+    "RQ-015",
     "RQ-014"
   ],
   "items": [
@@ -258,7 +258,7 @@
       "id": "RQ-013",
       "title": "07:00 Existing-Knowledge Re-anchor and Minimal V2 Freeze",
       "type": "RESEARCH_RECONCILIATION",
-      "status": "ACTIVE_MINIMAL_V2_DISCOVERY_RESULT_READY_UNOPENED",
+      "status": "CLOSED_V2_REANCHOR_DISCOVERY_REPLICATION_COMPLETE",
       "why_now": "Central restart state was stale and caused duplicate source work. Existing Q1-Q4 plus 2026-09-13 source closures indicate a narrow H4/PAT2-only 07:00 V2 may be calculable without further broad YouTube review.",
       "depends_on": [],
       "blocks": [
@@ -267,11 +267,13 @@
         "new V2 rerun using current PAT2 source geometry"
       ],
       "preferred_method": "Existing repository evidence -> chronology/reconciliation -> structured-state repair -> freeze minimal V2 -> targeted computation; no broad new source search unless a named blocker remains.",
-      "worksheet": "research_queue/active/RQ-013_0700_EXISTING_KNOWLEDGE_REANCHOR.md",
+      "worksheet": "research_queue/closed/RQ-013_0700_EXISTING_KNOWLEDGE_REANCHOR.md",
       "checkpoint_ref": "docs/GLOBAL_PROJECT_CONTINUITY_BOOTSTRAP_2026-09-13.md",
       "current_summary": "Compact global reconnect is active. Durable V2.0 Discovery is DONE_RESULT_UNOPENED; consume persisted result next without rerun or semantic tuning.",
       "governing_objective_ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
-      "durable_job_id": "XAU-0700-MINIMAL-V2-DISCOVERY-20260913"
+      "durable_job_id": "XAU-0700-MINIMAL-V2-DISCOVERY-20260913",
+      "closure_ref": "docs/0700_MINIMAL_V2_REPLICATION_GEOMETRY_CONTROL_2026-09-13.md",
+      "closure_summary": "07:00 state was re-anchored, V2.0 frozen, Discovery interpreted, unchanged-code Replication completed, and geometry confounding identified. Follow-up moved to RQ-015."
     },
     {
       "id": "RQ-014",
@@ -289,6 +291,25 @@
       "worksheet": "research_queue/queued/RQ-014_0700_PAT3_COMBINED_GEOMETRY.md",
       "checkpoint_ref": "docs/0700_PAT3_COMBINED_GEOMETRY_REVIEW_START_2026-09-13.md",
       "current_summary": "Queued source gap. Do not resume until minimal V2 requires PAT3 or scope is intentionally broadened."
+    },
+    {
+      "id": "RQ-015",
+      "title": "07:00 PATH_REMAINING Geometry Control",
+      "type": "RESEARCH_FALSIFICATION",
+      "status": "ACTIVE_GEOMETRY_CONFOUND_FALSIFICATION",
+      "why_now": "V2.0 Discovery and Replication reproduce consumed association, but explicit control shows strong confounding with target/point-check geometry and no positive residual rank relation.",
+      "depends_on": [
+        "RQ-013"
+      ],
+      "blocks": [
+        "independent interpretation of H4 consumed/run-progress",
+        "future threshold/model use of consumed",
+        "safe expansion of 07:00 scoring logic"
+      ],
+      "preferred_method": "Freeze geometry-null representation -> preserve all outcome states -> compare Discovery and Replication -> distinguish scoring geometry from market information; no threshold optimization.",
+      "worksheet": "research_queue/active/RQ-015_0700_PATH_REMAINING_GEOMETRY_CONTROL.md",
+      "checkpoint_ref": "docs/0700_MINIMAL_V2_REPLICATION_GEOMETRY_CONTROL_2026-09-13.md",
+      "current_summary": "Active bounded falsification. Independent consumed effect is not established."
     }
   ],
   "conditional_infrastructure": [
@@ -309,7 +330,7 @@
   ],
   "promotion_rule": "On active closure, first re-rank remaining items using the new evidence. Then promote the highest-value unblocked item; do not blindly increment the numeric ID if the dependency picture changed.",
   "guard": "The queue organizes research; it does not grant permission to invent thresholds, upgrade provenance from outcomes, or treat historical proxy results as canonical rules.",
-  "queue_state": "ACTIVE_0700_REANCHOR_MINIMAL_V2_PREP",
+  "queue_state": "ACTIVE_0700_PATH_REMAINING_GEOMETRY_CONTROL",
   "queue_exhaustion_ref": null,
   "reopen_rule": "Create/reopen a bounded research item only when new source evidence, new labeled examples, a frozen execution specification, or a genuinely untouched holdout materially resolves a named blocker.",
   "reopened_from_exhaustion_ref": "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
