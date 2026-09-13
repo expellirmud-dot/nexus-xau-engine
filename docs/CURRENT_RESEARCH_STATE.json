@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T06:41:51+07:00",
+  "updated_at": "2026-09-13T10:20:12+07:00",
   "project": "NEXUS XAU Research Engine",
-  "mode": "RESTART_SAFE_0700_REANCHOR_MINIMAL_V2_PREP",
-  "completed_checkpoint": "GLOBAL_COMPACT_CONTINUITY_BOOTSTRAP_INTEGRATED",
+  "mode": "RESTART_SAFE_0700_GEOMETRY_CONTROL",
+  "completed_checkpoint": "0700_MINIMAL_V2_REPLICATION_GEOMETRY_CONTROL_CHECKPOINTED",
   "project_objective": {
     "authority": "OWNER_DIRECT",
     "ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
@@ -39,7 +39,7 @@
       "docs/0700_HISTORICAL_DATA_READINESS_AND_TEST_STRATEGY_2026-09-13.md",
       "docs/SOURCE_COVERAGE_LEDGER.json",
       "research_queue/QUEUE.json",
-      "research_queue/active/RQ-013_0700_EXISTING_KNOWLEDGE_REANCHOR.md",
+      "research_queue/active/RQ-015_0700_PATH_REMAINING_GEOMETRY_CONTROL.md",
       "docs/0700_PAT50_DENOMINATOR_SOURCE_CLOSURE_2026-09-13.md",
       "docs/0700_D1_DAY_RUN_SOURCE_REREVIEW_2026-09-13.md",
       "docs/0700_DAILY_FRAME_SR_SELECTOR_SOURCE_CLOSURE_2026-09-13.md",
@@ -113,10 +113,11 @@
     "structured_state_reanchor": "PASSED"
   },
   "next_steps": [
-    "Use the compact global continuity capsule on reconnect; do not bulk-load the docs tree.",
-    "Inspect the existing persisted V2 discovery REPORT.json; do not rerun the completed durable job.",
-    "Interpret the 150-day failure/unknown-state map only under the frozen V2.0 spec and pre-outcome checkpoint.",
-    "Checkpoint/push Discovery before unchanged 60-day replication."
+    "Use the compact global continuity capsule on reconnect; do not rerun V2.0 Discovery or Replication.",
+    "Load the V2.0 replication/geometry-control checkpoint and active RQ-015.",
+    "Freeze a geometry-null analysis specification before further scoring.",
+    "Test whether consumed retains stable residual information after geometry control in both periods.",
+    "Do not promote consumed thresholds, PAT3 expansion, or trade-level claims before resolving the geometry confound."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -609,15 +610,15 @@
   },
   "operational_research_queue": {
     "source_ref": "research_queue/QUEUE.json",
-    "active_id": "RQ-012",
-    "active_worksheet": "research_queue/active/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
+    "active_id": "RQ-015",
+    "active_worksheet": "research_queue/active/RQ-015_0700_PATH_REMAINING_GEOMETRY_CONTROL.md",
     "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
     "selection_rule": "NEXUS owns worksheet creation, prioritization, promotion, and method choice. Promote the highest-value unblocked item after each closure; re-rank when new evidence changes dependencies.",
     "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
     "guard": "Do not require the project owner to know which tool, video, formula, or dataset to request in advance.",
     "last_closed_id": "RQ-011",
     "last_closure_ref": "docs/RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL_2026-09-09.md",
-    "queue_state": "ACTIVE_HOLDOUT_LEDGER_TOOLING_NO_OUTCOME_SCORE"
+    "queue_state": "ACTIVE_0700_PATH_REMAINING_GEOMETRY_CONTROL"
   },
   "post_sig_lifecycle_source_visual_closure": {
     "status": "SOURCE_SUPPORTS_OTHER_EXPLICIT_LIFECYCLE",
@@ -963,13 +964,13 @@
   },
   "active_0700_workstream": {
     "status": "ACTIVE",
-    "active_rq": "RQ-013",
-    "worksheet": "research_queue/active/RQ-013_0700_EXISTING_KNOWLEDGE_REANCHOR.md",
+    "active_rq": "RQ-015",
+    "worksheet": "research_queue/active/RQ-015_0700_PATH_REMAINING_GEOMETRY_CONTROL.md",
     "dashboard": "docs/0700_WORKSTREAM_STATE.json",
     "audit": "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
     "source_map": "docs/0700_YOUTUBE_SOURCE_GAP_MAP_2026-09-13.md",
-    "current_goal": "Freeze a narrow H4/PAT2-only 07:00 V2 from existing evidence before any broad new YouTube review.",
-    "current_assessment": "Existing work is sufficient for a narrow signal/run V2. H4 consumed/run-progress is the strongest replicated state lead, but no consumed threshold or 100% system win-rate claim is established.",
+    "current_goal": "Resolve whether H4 consumed/run-progress contains information beyond PATH_REMAINING target/point-check geometry.",
+    "current_assessment": "V2.0 unchanged-code Replication reproduces the broad consumed association, but a new falsification control shows strong geometry confounding. Independent market-predictive information from consumed is not established.",
     "historical_guards": [
       "Q1-Q4 used PAT2 BODY midpoint as an explicit historical research proxy; current PAT2 source authority is FULL RANGE and requires a new version.",
       "Legacy pre-reanchor Daily Frame side support is not current confirmation.",
@@ -977,7 +978,7 @@
     ],
     "operating_philosophy": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
     "method": "Build a restart-safe 07:00 state engine: use all knowable pre-07:00 context, allow PASS on unknown/unsupported states, learn from replay failures, use synthetic data for controlled logic tests and real data for market evidence.",
-    "latest_checkpoint": "docs/0700_HISTORICAL_DATA_READINESS_AND_TEST_STRATEGY_2026-09-13.md",
+    "latest_checkpoint": "docs/0700_MINIMAL_V2_REPLICATION_GEOMETRY_CONTROL_2026-09-13.md",
     "data_assessment": "Existing real history is sufficient for minimal V2 development, failure discovery, same-code historical replication, and MT5 engineering stress tests. Synthetic data is approved for controlled logic/boundary tests only. No current period is a pristine final confirmation set."
   },
   "rq012_holdout_state": {
@@ -1011,26 +1012,52 @@
   },
   "minimal_v2": {
     "version": "0700_MINIMAL_V2.0",
-    "status": "IMPLEMENTATION_FROZEN_SYNTHETIC_PASS_REAL_OUTCOME_UNOPENED",
+    "status": "IMPLEMENTATION_FROZEN_DISCOVERY_REPLICATION_INTERPRETED_GEOMETRY_CONFOUND_IDENTIFIED",
     "spec": "docs/0700_MINIMAL_V2_FROZEN_SPEC_2026-09-13.md",
     "scope": "H4-only origin/run; PAT2 FULL-RANGE; M5 confirmation; existing Daily Frame; PATH_REMAINING; no consumed threshold; action lane fail-closed on unresolved location geometry.",
-    "next": "Implement V2 contract and synthetic tests without opening/summarizing discovery outcomes until synthetic suite passes.",
+    "next": "Freeze and execute RQ-015 geometry-null control without semantic tuning or thresholds.",
     "implementation": "src/nexus_xau/research/minimal_v2_0700.py",
     "tests": "tests/test_minimal_v2_0700.py",
     "implementation_checkpoint": "docs/0700_MINIMAL_V2_PRE_OUTCOME_IMPLEMENTATION_FREEZE_2026-09-13.md",
     "synthetic_contract": "16_PASS",
     "full_pytest": "EXIT_CODE_0",
-    "real_discovery_opened": false,
-    "real_discovery_execution_status": "DONE_RESULT_UNOPENED"
+    "real_discovery_opened": true,
+    "real_discovery_execution_status": "DONE_RESULT_INTERPRETED",
+    "discovery_checkpoint": "docs/0700_MINIMAL_V2_DISCOVERY_FIRST_OUTCOME_2026-09-13.md",
+    "discovery_summary": {
+      "days": 150,
+      "candidate_days": 67,
+      "candidate_rows": 84,
+      "resolved_rows": 82,
+      "target_first": 44,
+      "point_check_first": 38,
+      "neither": 2,
+      "consumed_rho_0700": 0.5131
+    },
+    "real_replication_opened": true,
+    "real_replication_execution_status": "DONE_RESULT_INTERPRETED",
+    "replication_checkpoint": "docs/0700_MINIMAL_V2_REPLICATION_GEOMETRY_CONTROL_2026-09-13.md",
+    "replication_summary": {
+      "days": 60,
+      "candidate_days": 33,
+      "candidate_rows": 42,
+      "resolved_rows": 39,
+      "target_first": 16,
+      "point_check_first": 23,
+      "neither": 2,
+      "ambiguous_same_bar": 1,
+      "consumed_rho_0700": 0.5033,
+      "geometry_rho_outcome": 0.6855,
+      "partial_consumed_rho_given_geometry": -0.1578
+    }
   },
   "active_durable_job": {
-    "job_id": "XAU-0700-MINIMAL-V2-DISCOVERY-20260913",
-    "job_path": "D:\\tools\\nexus-durable-work\\_agent\\jobs\\XAU-0700-MINIMAL-V2-DISCOVERY-20260913\\job.json",
-    "status": "DONE_RESULT_UNOPENED",
+    "job_id": "XAU-0700-MINIMAL-V2-REPLICATION-20260913",
+    "job_path": "D:\\tools\\nexus-durable-work\\_agent\\jobs\\XAU-0700-MINIMAL-V2-REPLICATION-20260913\\job.json",
+    "status": "DONE_RESULT_INTERPRETED",
     "execution_layer": "D:/tools/nexus-durable-work Local Work Agent",
-    "success_probe": "results/0700_MINIMAL_V2/DISCOVERY_2022_09_TO_2023_03/REPORT.json",
-    "timeout_checkpoint": "docs/0700_MINIMAL_V2_FIRST_DISCOVERY_TIMEOUT_2026-09-13.md",
-    "restart_rule": "Do not rerun. Inspect the persisted result next. Deep-load only the frozen V2 spec/checkpoint needed for outcome interpretation.",
+    "success_probe": "results/0700_MINIMAL_V2/REPLICATION_2023_09_TO_2023_11_23/REPORT.json",
+    "restart_rule": "Do not rerun Discovery or Replication. Resume RQ-015 from the geometry-control checkpoint.",
     "live_status_verified": "DONE",
     "result_exists_nonempty": true
   },
@@ -1041,5 +1068,22 @@
     "default_reconnect": "py -3 D:/tools/nexus-project-continuity/continuity.py resume --project xau",
     "boot_rule": "COMPACT_FIRST_DEEP_LOAD_ON_DEMAND",
     "purpose": "Recover project/git/workstream/version/next-action/live durable-job/tool capability state without bulk-loading project documents."
+  },
+  "geometry_control": {
+    "status": "ACTIVE_RQ015_FREEZE_NEXT",
+    "checkpoint": "docs/0700_MINIMAL_V2_REPLICATION_GEOMETRY_CONTROL_2026-09-13.md",
+    "discovery": {
+      "rho_consumed_outcome": 0.5131,
+      "rho_geometry_outcome": 0.6148,
+      "rho_consumed_geometry": 0.8668,
+      "partial_consumed_given_geometry": -0.0502
+    },
+    "replication": {
+      "rho_consumed_outcome": 0.5033,
+      "rho_geometry_outcome": 0.6855,
+      "rho_consumed_geometry": 0.8282,
+      "partial_consumed_given_geometry": -0.1578
+    },
+    "safe_interpretation": "REPLICATED_ASSOCIATION_GEOMETRY_CONFOUNDED_INDEPENDENT_EFFECT_NOT_ESTABLISHED"
   }
 }
