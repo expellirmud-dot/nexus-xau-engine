@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T11:18:00+07:00",
+  "updated_at": "2026-09-13T16:49:00+07:00",
   "project": "NEXUS XAU Research Engine",
-  "mode": "RESTART_SAFE_0700_GEOMETRY_CONTROL",
-  "completed_checkpoint": "0700_RQ015_GEOMETRY_NULL_IMPLEMENTATION_FROZEN",
+  "mode": "RESTART_SAFE_RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK",
+  "completed_checkpoint": "0700_RQ015_GEOMETRY_NULL_RESULT_CLOSED",
   "project_objective": {
     "authority": "OWNER_DIRECT",
     "ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
@@ -39,7 +39,7 @@
       "docs/0700_HISTORICAL_DATA_READINESS_AND_TEST_STRATEGY_2026-09-13.md",
       "docs/SOURCE_COVERAGE_LEDGER.json",
       "research_queue/QUEUE.json",
-      "research_queue/active/RQ-015_0700_PATH_REMAINING_GEOMETRY_CONTROL.md",
+      "research_queue/active/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
       "docs/0700_PAT50_DENOMINATOR_SOURCE_CLOSURE_2026-09-13.md",
       "docs/0700_D1_DAY_RUN_SOURCE_REREVIEW_2026-09-13.md",
       "docs/0700_DAILY_FRAME_SR_SELECTOR_SOURCE_CLOSURE_2026-09-13.md",
@@ -113,11 +113,10 @@
     "structured_state_reanchor": "PASSED"
   },
   "next_steps": [
-    "Use the compact global continuity capsule on reconnect; do not rerun V2.0 Discovery or Replication.",
-    "Load the V2.0 replication/geometry-control checkpoint and active RQ-015.",
-    "Freeze a geometry-null analysis specification before further scoring.",
-    "Test whether consumed retains stable residual information after geometry control in both periods.",
-    "Do not promote consumed thresholds, PAT3 expansion, or trade-level claims before resolving the geometry confound."
+    "Do not rerun V2.0 Discovery, Replication, or RQ-015 geometry-null scoring.",
+    "Resolve exact RQ-010 engine freeze commit and RQ-011 protocol freeze commit from Git history.",
+    "Freeze the RQ-012 append-only ledger and activation-lock implementation contract before code changes.",
+    "Implement and validate ledger chain, verifier, and activation lock while keeping holdout outcome scoring disabled."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -242,7 +241,7 @@
     "research_queue/closed/RQ-011_PRISTINE_V0_HOLDOUT_PROTOCOL.md",
     "research_queue/active/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md"
   ],
-  "resume_instruction": "Resume RQ-013 from docs/0700_WORKSTREAM_STATE.json and docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md. Do not start broad YouTube review. Finish central-state reconciliation, freeze 0700_MINIMAL_V2 from existing evidence, then version/rerun the existing V1 pipeline.",
+  "resume_instruction": "Resume RQ-012 from research_queue/active/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md. RQ-015 is closed with CONSUMED_ASSOCIATION_EXPLAINED_OR_DOMINATED_BY_GEOMETRY. Resolve exact RQ-010/RQ-011 freeze commits, freeze the ledger/activation-lock contract, then implement without opening holdout outcomes.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -538,7 +537,7 @@
         "crossed_events": 20,
         "expected_target_first": 0.7777777777777778,
         "crossed_target_first": 0.7,
-        "expected_reach": 1.0,
+        "expected_reach": 1,
         "crossed_reach": 0.95
       }
     },
@@ -610,17 +609,17 @@
   },
   "operational_research_queue": {
     "source_ref": "research_queue/QUEUE.json",
-    "active_id": "RQ-015",
-    "active_worksheet": "research_queue/active/RQ-015_0700_PATH_REMAINING_GEOMETRY_CONTROL.md",
+    "active_id": "RQ-012",
+    "active_worksheet": "research_queue/active/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
     "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
     "selection_rule": "NEXUS owns worksheet creation, prioritization, promotion, and method choice. Promote the highest-value unblocked item after each closure; re-rank when new evidence changes dependencies.",
     "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
     "guard": "Do not require the project owner to know which tool, video, formula, or dataset to request in advance.",
-    "last_closed_id": "RQ-011",
-    "last_closure_ref": "docs/RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL_2026-09-09.md",
-    "queue_state": "ACTIVE_0700_GEOMETRY_NULL_IMPLEMENTATION_FROZEN",
-    "active_status": "ACTIVE_GEOMETRY_NULL_IMPLEMENTATION_FROZEN_EXECUTION_PENDING",
-    "latest_checkpoint": "docs/0700_RQ015_GEOMETRY_NULL_IMPLEMENTATION_FREEZE_2026-09-13.md"
+    "last_closed_id": "RQ-015",
+    "last_closure_ref": "docs/0700_RQ015_GEOMETRY_NULL_RESULT_2026-09-13.md",
+    "queue_state": "ACTIVE_RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_NO_OUTCOME_SCORE",
+    "active_status": "ACTIVE_IMPLEMENTATION_PENDING_NO_OUTCOME_SCORE",
+    "latest_checkpoint": "docs/0700_RQ015_GEOMETRY_NULL_RESULT_2026-09-13.md"
   },
   "post_sig_lifecycle_source_visual_closure": {
     "status": "SOURCE_SUPPORTS_OTHER_EXPLICIT_LIFECYCLE",
@@ -957,22 +956,22 @@
     "administrative_horizon": "30 calendar days per eligible event; research convention"
   },
   "rq012_v0_holdout_ledger_activation": {
-    "status": "ACTIVE_TOOLING_NO_OUTCOME_SCORE",
+    "status": "ACTIVE_IMPLEMENTATION_PENDING_NO_OUTCOME_SCORE",
     "worksheet": "research_queue/active/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
     "engine_freeze_commit": "75866d2",
-    "protocol_freeze_commit": "PENDING_THIS_CHECKPOINT_PUSH",
+    "protocol_freeze_commit": "PENDING_EXACT_GIT_HISTORY_RESOLUTION",
     "holdout_open": false,
     "outcome_scoring_authorized": false
   },
   "active_0700_workstream": {
-    "status": "ACTIVE",
-    "active_rq": "RQ-015",
-    "worksheet": "research_queue/active/RQ-015_0700_PATH_REMAINING_GEOMETRY_CONTROL.md",
+    "status": "CLOSED_RQ015_GEOMETRY_DOMINATED_NO_REOPEN_TRIGGER",
+    "active_rq": "NONE_0700",
+    "worksheet": "research_queue/closed/RQ-015_0700_PATH_REMAINING_GEOMETRY_CONTROL.md",
     "dashboard": "docs/0700_WORKSTREAM_STATE.json",
     "audit": "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
     "source_map": "docs/0700_YOUTUBE_SOURCE_GAP_MAP_2026-09-13.md",
-    "current_goal": "Resolve whether H4 consumed/run-progress contains information beyond PATH_REMAINING target/point-check geometry.",
-    "current_assessment": "RQ-015 geometry-null specification and analyzer are frozen and validated; real-artifact execution is pending.",
+    "current_goal": "07:00 bounded geometry-control question is closed; no reopen without valid new evidence or representation trigger.",
+    "current_assessment": "RQ-015 frozen geometry-null analysis closed with CONSUMED_ASSOCIATION_EXPLAINED_OR_DOMINATED_BY_GEOMETRY.",
     "historical_guards": [
       "Q1-Q4 used PAT2 BODY midpoint as an explicit historical research proxy; current PAT2 source authority is FULL RANGE and requires a new version.",
       "Legacy pre-reanchor Daily Frame side support is not current confirmation.",
@@ -980,14 +979,14 @@
     ],
     "operating_philosophy": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
     "method": "Build a restart-safe 07:00 state engine: use all knowable pre-07:00 context, allow PASS on unknown/unsupported states, learn from replay failures, use synthetic data for controlled logic tests and real data for market evidence.",
-    "latest_checkpoint": "docs/0700_RQ015_GEOMETRY_NULL_IMPLEMENTATION_FREEZE_2026-09-13.md",
+    "latest_checkpoint": "docs/0700_RQ015_GEOMETRY_NULL_RESULT_2026-09-13.md",
     "data_assessment": "Existing real history is sufficient for minimal V2 development, failure discovery, same-code historical replication, and MT5 engineering stress tests. Synthetic data is approved for controlled logic/boundary tests only. No current period is a pristine final confirmation set."
   },
   "rq012_holdout_state": {
-    "status": "QUEUED_FROZEN_PROTOCOL_NO_OUTCOME_SCORE",
-    "worksheet": "research_queue/queued/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
+    "status": "ACTIVE_IMPLEMENTATION_PENDING_NO_OUTCOME_SCORE",
+    "worksheet": "research_queue/active/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
     "protocol": "docs/RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL_2026-09-09.md",
-    "note": "Paused while owner-prioritized 07:00 workstream is re-anchored. Frozen V0.1 identities remain unchanged and outcome scoring is not authorized."
+    "note": "Resumed after RQ-015 closure. Resolve exact frozen RQ-010/RQ-011 commits, freeze implementation contract, then implement; outcome scoring remains unauthorized."
   },
   "data_readiness_0700": {
     "status": "SUFFICIENT_FOR_MINIMAL_V2_DEVELOPMENT_NOT_PRISTINE_CONFIRMATION",
@@ -1014,10 +1013,10 @@
   },
   "minimal_v2": {
     "version": "0700_MINIMAL_V2.0",
-    "status": "IMPLEMENTATION_FROZEN_DISCOVERY_REPLICATION_INTERPRETED_GEOMETRY_CONFOUND_IDENTIFIED",
+    "status": "IMPLEMENTATION_FROZEN_DISCOVERY_REPLICATION_RQ015_CLOSED_GEOMETRY_DOMINATED",
     "spec": "docs/0700_MINIMAL_V2_FROZEN_SPEC_2026-09-13.md",
     "scope": "H4-only origin/run; PAT2 FULL-RANGE; M5 confirmation; existing Daily Frame; PATH_REMAINING; no consumed threshold; action lane fail-closed on unresolved location geometry.",
-    "next": "Execute the frozen RQ-015 geometry-null analyzer unchanged on checkpointed Discovery and Replication event artifacts.",
+    "next": "Do not reopen or retune from current outcomes. Operational work resumes RQ-012 holdout tooling.",
     "implementation": "src/nexus_xau/research/minimal_v2_0700.py",
     "tests": "tests/test_minimal_v2_0700.py",
     "implementation_checkpoint": "docs/0700_MINIMAL_V2_PRE_OUTCOME_IMPLEMENTATION_FREEZE_2026-09-13.md",
@@ -1059,7 +1058,7 @@
     "status": "DONE_RESULT_INTERPRETED",
     "execution_layer": "D:/tools/nexus-durable-work Local Work Agent",
     "success_probe": "results/0700_MINIMAL_V2/REPLICATION_2023_09_TO_2023_11_23/REPORT.json",
-    "restart_rule": "Do not rerun Discovery or Replication. Resume RQ-015 from the geometry-control checkpoint.",
+    "restart_rule": "Do not rerun Discovery, Replication, or RQ-015 scoring. Resume RQ-012 holdout ledger/activation-lock work.",
     "live_status_verified": "DONE",
     "result_exists_nonempty": true
   },
@@ -1072,7 +1071,7 @@
     "purpose": "Recover project/git/workstream/version/next-action/live durable-job/tool capability state without bulk-loading project documents."
   },
   "geometry_control": {
-    "status": "IMPLEMENTATION_FROZEN_EXECUTION_PENDING",
+    "status": "CLOSED_CONSUMED_ASSOCIATION_EXPLAINED_OR_DOMINATED_BY_GEOMETRY",
     "checkpoint": "docs/0700_MINIMAL_V2_REPLICATION_GEOMETRY_CONTROL_2026-09-13.md",
     "discovery": {
       "rho_consumed_outcome": 0.5131,
@@ -1086,8 +1085,9 @@
       "rho_consumed_geometry": 0.8282,
       "partial_consumed_given_geometry": -0.1578
     },
-    "safe_interpretation": "REPLICATED_ASSOCIATION_GEOMETRY_CONFOUNDED_INDEPENDENT_EFFECT_NOT_ESTABLISHED",
+    "safe_interpretation": "CONSUMED_ASSOCIATION_EXPLAINED_OR_DOMINATED_BY_GEOMETRY",
     "freeze_checkpoint": "docs/0700_RQ015_GEOMETRY_NULL_ANALYSIS_FREEZE_2026-09-13.md",
-    "implementation_freeze_checkpoint": "docs/0700_RQ015_GEOMETRY_NULL_IMPLEMENTATION_FREEZE_2026-09-13.md"
+    "implementation_freeze_checkpoint": "docs/0700_RQ015_GEOMETRY_NULL_IMPLEMENTATION_FREEZE_2026-09-13.md",
+    "result_checkpoint": "docs/0700_RQ015_GEOMETRY_NULL_RESULT_2026-09-13.md"
   }
 }

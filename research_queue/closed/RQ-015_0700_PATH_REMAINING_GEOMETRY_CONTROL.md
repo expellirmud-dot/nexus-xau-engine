@@ -1,6 +1,6 @@
 # RQ-015 — 07:00 PATH_REMAINING Geometry Control
 
-Status: ACTIVE — GEOMETRY-NULL IMPLEMENTATION FROZEN / EXECUTION PENDING
+Status: CLOSED — CONSUMED_ASSOCIATION_EXPLAINED_OR_DOMINATED_BY_GEOMETRY
 
 ## Why this is active now
 
@@ -92,6 +92,21 @@ This is not a pristine blind preregistration because V2 outcomes and the earlier
 
 `docs/0700_RQ015_GEOMETRY_NULL_IMPLEMENTATION_FREEZE_2026-09-13.md`
 
-## Immediate next action
+## Result / closure
 
-Execute the frozen analyzer unchanged on the existing Discovery and Replication artifacts, then reconcile the result without model or threshold tuning.
+Closure checkpoint:
+
+`docs/0700_RQ015_GEOMETRY_NULL_RESULT_2026-09-13.md`
+
+Frozen primary partial-rank residuals:
+
+- Discovery: `-0.0181`
+- Replication: `-0.1009`
+
+The frozen cross-period classification is:
+
+`CONSUMED_ASSOCIATION_EXPLAINED_OR_DOMINATED_BY_GEOMETRY`
+
+Historical consumed association evidence remains preserved, but consumed is not established as an independent market predictor under the current PATH_REMAINING representation. No threshold, trade Win Rate, or profitability claim is promoted.
+
+RQ-015 is closed. Reopen only with a valid new-evidence or representation trigger.

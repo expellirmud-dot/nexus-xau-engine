@@ -824,16 +824,17 @@
     },
     {
       "claim_id": "H4_0700_CONSUMED_STATE_RELATION",
-      "canonical_statement": "Under frozen 07:00 historical and V2.0 research representations, H4 consumed/run-progress state is reproducibly associated with PATH_REMAINING target-first ordering across Discovery and Replication. New V2.0 geometry control shows consumed is strongly entangled with the relative target/point-check distances created by the PATH_REMAINING scoring construction; after rank-residualizing against a scale-free geometry diagnostic, the positive residual relation does not persist in either period. Independent market-predictive information from consumed is therefore NOT ESTABLISHED. This remains a research association, not a threshold, teaching rule, trade Win Rate, or profitability claim.",
-      "status": "ACTIVE_RESEARCH_REPLICATED_ASSOCIATION_GEOMETRY_CONFOUNDED",
-      "engine_permission": "CARRY_AS_CONTINUOUS_RESEARCH_FEATURE_ONLY_WITH_EXPLICIT_GEOMETRY_CONTROL",
+      "canonical_statement": "Under frozen 07:00 historical and V2.0 research representations, H4 consumed/run-progress state is reproducibly associated with PATH_REMAINING target-first ordering across Discovery and Replication. RQ-015 froze and executed a geometry-null analysis preserving all outcome states and controlling relative target/point-check geometry, absolute boundary scale, and remaining horizon. The primary consumed residual was non-positive in both periods (-0.0181 Discovery, -0.1009 Replication), so the frozen classification is CONSUMED_ASSOCIATION_EXPLAINED_OR_DOMINATED_BY_GEOMETRY. Independent market-predictive information from consumed is not established. This remains a research association, not a threshold, teaching rule, trade Win Rate, or profitability claim.",
+      "status": "ACTIVE_RESEARCH_ASSOCIATION_EXPLAINED_OR_DOMINATED_BY_GEOMETRY",
+      "engine_permission": "DO_NOT_USE_AS_INDEPENDENT_PREDICTOR; RETAIN_ONLY_AS_VERSIONED_RESEARCH_STATE_WITH_GEOMETRY_CONTEXT",
       "source_refs": [
         "docs/0700_Q2_CONTINUOUS_MTF_CROSS_PERIOD_2026-09-12.md",
         "docs/0700_Q3_DISTINCT_INFORMATION_CROSS_PERIOD_2026-09-12.md",
         "docs/0700_Q4_H4_CONSUMED_SHAPE_CROSS_PERIOD_2026-09-12.md",
         "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
         "docs/0700_MINIMAL_V2_DISCOVERY_FIRST_OUTCOME_2026-09-13.md",
-        "docs/0700_MINIMAL_V2_REPLICATION_GEOMETRY_CONTROL_2026-09-13.md"
+        "docs/0700_MINIMAL_V2_REPLICATION_GEOMETRY_CONTROL_2026-09-13.md",
+        "docs/0700_RQ015_GEOMETRY_NULL_RESULT_2026-09-13.md"
       ],
       "risk_flags": [
         "NO_CONSUMED_THRESHOLD",
@@ -845,7 +846,7 @@
         "INDEPENDENT_EFFECT_NOT_ESTABLISHED",
         "Q3_AGE_MTF_CONTROL_DID_NOT_CONTROL_TARGET_POINT_GEOMETRY"
       ],
-      "provenance_note": "Historical Q3/Q4 remain valid association evidence, but the current interpretation is narrowed by V2.0 geometry falsification control. Do not describe consumed as an established independent market signal until RQ-015 resolves the geometry-null question."
+      "provenance_note": "Historical Q3/Q4 remain valid association evidence. RQ-015 is now closed: the frozen geometry-null analysis classified the current consumed association as explained or dominated by target/point-check geometry. The analysis was not a pristine blind holdout because earlier outcomes and an exploratory geometry diagnostic were already known; no alternate post-result model or threshold was selected."
     },
     {
       "claim_id": "0700_PATH_REMAINING_RESEARCH_RELATION",
