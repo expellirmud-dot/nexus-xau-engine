@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-13T16:49:00+07:00",
+  "updated_at": "2026-09-13T17:40:32+07:00",
   "workstream": "0700_METHOD_COMPLETION",
   "status": "RQ015_CLOSED_GEOMETRY_DOMINATED_NO_0700_REOPEN_TRIGGER",
   "purpose": "Single restart-safe dashboard for the 07:00 research workstream. It points to current authority, frozen historical representations, open gaps, and the next bounded task so a new agent does not restart research from zero.",
@@ -13,7 +13,7 @@
     "worksheet": "research_queue/closed/RQ-015_0700_PATH_REMAINING_GEOMETRY_CONTROL.md",
     "question": "Does H4 consumed/run-progress retain stable information after a frozen target-vs-point-check geometry baseline is accounted for?",
     "result": "CONSUMED_ASSOCIATION_EXPLAINED_OR_DOMINATED_BY_GEOMETRY",
-    "next_action": "Operational research queue resumes RQ-012. Reopen 07:00 only with a valid new-evidence or representation trigger.",
+    "next_action": "RQ-012 tooling is closed with the holdout reserved/UNSCORED. Reopen 07:00 only with a valid new-evidence or representation trigger.",
     "replication_checkpoint": "docs/0700_MINIMAL_V2_REPLICATION_GEOMETRY_CONTROL_2026-09-13.md",
     "freeze_checkpoint": "docs/0700_RQ015_GEOMETRY_NULL_ANALYSIS_FREEZE_2026-09-13.md",
     "implementation_freeze_checkpoint": "docs/0700_RQ015_GEOMETRY_NULL_IMPLEMENTATION_FREEZE_2026-09-13.md",
@@ -130,7 +130,7 @@
   "frozen_history_guards": [
     "Q1-Q4 used an explicitly labeled PAT2 BODY-midpoint research proxy. PAT2 FULL_RANGE source closure on 2026-09-13 does not retroactively rewrite those results.",
     "RQ-010 V0.1 and RQ-011 holdout protocol remain frozen historical identities. New 07:00 research must not silently alter their semantics.",
-    "RQ-012 holdout ledger/activation tooling is active again after RQ-015 closure; holdout outcome scoring remains disabled under the frozen RQ-011 protocol."
+    "RQ-012 holdout ledger/activation tooling is closed and reserved after RQ-015 closure; holdout outcome scoring remains disabled under the frozen RQ-011 protocol."
   ],
   "open_gaps_priority": [
     {
@@ -283,7 +283,7 @@
     "status": "DONE_RESULT_INTERPRETED",
     "execution_layer": "D:/tools/nexus-durable-work Local Work Agent",
     "success_probe": "results/0700_MINIMAL_V2/REPLICATION_2023_09_TO_2023_11_23/REPORT.json",
-    "restart_rule": "Do not rerun Discovery or Replication. Use checkpointed results; active work is RQ-015 geometry-null control.",
+    "restart_rule": "Do not rerun Discovery, Replication, or RQ-015 scoring. The 07:00 lane is closed; RQ-012 tooling is also closed with holdout outcomes unopened and scoring disabled.",
     "live_status_verified": "DONE"
   },
   "continuity_tool": {
