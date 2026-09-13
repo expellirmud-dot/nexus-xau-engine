@@ -2,6 +2,8 @@
 
 Status: VALIDATED / RESTART-SAFE INFRASTRUCTURE
 
+> Historical snapshot notice: this checkpoint records the bootstrap validation state on 2026-09-09. References below to `RQ-009` being active are intentionally preserved chronology, not current workflow authority. For current status, use `docs/CURRENT_RESEARCH_STATE.json` + `research_queue/QUEUE.json` under `docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md`.
+
 ## Objective
 
 Make the repository sufficient for a new AI/agent with no chat memory to discover the current project state, avoid repeating already-reviewed source work, follow the evidence discipline, and continue the active research question without inventing missing rules.

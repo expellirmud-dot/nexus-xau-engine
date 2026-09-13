@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-13T16:59:26+07:00",
+  "updated_at": "2026-09-13T19:51:00+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
@@ -241,7 +241,7 @@
       "preferred_method": "Canonical JSON + SHA256 record chain + verifier + activation lock with exact engine/protocol commits and prospective 07:00 boundary; full tests before activation; outcome scoring remains disabled.",
       "worksheet": "research_queue/closed/RQ-012_V0_HOLDOUT_LEDGER_AND_ACTIVATION_LOCK.md",
       "checkpoint_ref": "docs/0700_RQ015_GEOMETRY_NULL_RESULT_2026-09-13.md",
-      "current_summary": "Promoted after RQ-015 closure. Resolve exact frozen commits, freeze the ledger/activation-lock implementation contract, implement and test without opening holdout outcomes.",
+      "current_summary": "CLOSED: ledger/hash-chain verifier and activation lock are implemented and validated. Activation boundary is reserved for 2026-09-14 07:00 Asia/Bangkok; holdout outcomes remain unopened and scoring disabled.",
       "closure_ref": "docs/RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_IMPLEMENTATION_2026-09-13.md",
       "closure_summary": "Append-only ledger/hash-chain verifier and activation lock implemented and pushed at 1d35ab3. Prospective boundary reserved for 2026-09-14 07:00 Asia/Bangkok. Outcomes remain unopened and scoring disabled."
     },

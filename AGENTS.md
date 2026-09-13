@@ -73,6 +73,19 @@ If the compact capsule cannot answer enough to locate the correct evidence, esca
 
 ## 2. Current authority hierarchy
 
+### Workflow/status scope - do not mix these layers
+
+For where the project is now, use this state chain and require agreement:
+
+1. `docs/CURRENT_RESEARCH_STATE.json` = project-current workflow state and next steps.
+2. `research_queue/QUEUE.json` = operational active RQ/worksheet; `active: null` means there is no active decision-critical worksheet.
+3. `docs/0700_WORKSTREAM_STATE.json` = current state of the 07:00 lane only; its lane checkpoint does not override the project-current checkpoint.
+4. dated RQ/closure/checkpoint documents = historical snapshots at their recorded time.
+
+The machine-readable scope contract is `docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md`. If project-current files disagree, treat that as `STATE_DRIFT`: do not choose whichever file is convenient; run preflight, reconcile the conflict, preserve chronology, then checkpoint the repair.
+
+For what the project currently knows/accepts, use the evidence/claim hierarchy below.
+
 Use the following authority order when documents disagree:
 
 1. direct user clarification / owner-confirmed project rule;

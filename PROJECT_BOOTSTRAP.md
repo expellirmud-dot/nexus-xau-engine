@@ -73,8 +73,9 @@ Use these files for different kinds of project memory:
 
 - `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json` = what the project currently knows/accepts.
 - `docs/SOURCE_COVERAGE_LEDGER.json` = which source windows/checks have already been reviewed, what they established, and when they may be reopened.
-- `docs/CURRENT_RESEARCH_STATE.json` = where the project is now and what should happen next.
-- active workstream dashboard = compact current authority for the presently active research stream, including what is already closed, what was superseded, and what not to repeat.
+- `docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md` = scope contract separating project-current workflow state, workstream-current state, and historical snapshots.
+- `docs/CURRENT_RESEARCH_STATE.json` = project-current workflow state: where the project is now and what should happen next.
+- active workstream dashboard = scoped authority for that workstream only; it may preserve an older lane checkpoint than the project-current checkpoint and must not override `CURRENT_RESEARCH_STATE`/`QUEUE` for global workflow status.
 - `research_queue/QUEUE.json` = which research worksheet is operationally active.
 - RQ/checkpoint documents = detailed evidence chronology and reasoning trail.
 - `TOOLS.md` = reusable tools and evidence-access paths.
@@ -107,5 +108,7 @@ If the source does not establish it, keep it unresolved.
 A coherent project checkpoint is not complete until the intended durable files are updated, structured files validate, `git diff --check` passes, unintended media/secrets/temp files are excluded, and the checkpoint is committed/pushed to the existing branch when available.
 
 ## Current-state warning
+
+State documents have different scopes. Never infer a contradiction solely because a dated historical checkpoint names an old active RQ. First classify the source as `PROJECT_CURRENT`, `WORKSTREAM_CURRENT`, or `HISTORICAL_SNAPSHOT` using `docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md`. A real drift exists when project-current pointers disagree with each other.
 
 This bootstrap intentionally does not hardcode the active RQ, latest commit, or open blockers. Those change over time. Read the machine-readable current state and queue every session.
