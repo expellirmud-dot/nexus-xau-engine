@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-13T10:20:12+07:00",
+  "updated_at": "2026-09-13T11:18:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "mode": "RESTART_SAFE_0700_GEOMETRY_CONTROL",
-  "completed_checkpoint": "0700_MINIMAL_V2_REPLICATION_GEOMETRY_CONTROL_CHECKPOINTED",
+  "completed_checkpoint": "0700_RQ015_GEOMETRY_NULL_ANALYSIS_SPEC_FROZEN",
   "project_objective": {
     "authority": "OWNER_DIRECT",
     "ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
@@ -618,7 +618,9 @@
     "guard": "Do not require the project owner to know which tool, video, formula, or dataset to request in advance.",
     "last_closed_id": "RQ-011",
     "last_closure_ref": "docs/RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL_2026-09-09.md",
-    "queue_state": "ACTIVE_0700_PATH_REMAINING_GEOMETRY_CONTROL"
+    "queue_state": "ACTIVE_0700_GEOMETRY_NULL_SPEC_FROZEN",
+    "active_status": "ACTIVE_GEOMETRY_NULL_SPEC_FROZEN_EXECUTION_PENDING",
+    "latest_checkpoint": "docs/0700_RQ015_GEOMETRY_NULL_ANALYSIS_FREEZE_2026-09-13.md"
   },
   "post_sig_lifecycle_source_visual_closure": {
     "status": "SOURCE_SUPPORTS_OTHER_EXPLICIT_LIFECYCLE",
@@ -970,7 +972,7 @@
     "audit": "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
     "source_map": "docs/0700_YOUTUBE_SOURCE_GAP_MAP_2026-09-13.md",
     "current_goal": "Resolve whether H4 consumed/run-progress contains information beyond PATH_REMAINING target/point-check geometry.",
-    "current_assessment": "V2.0 unchanged-code Replication reproduces the broad consumed association, but a new falsification control shows strong geometry confounding. Independent market-predictive information from consumed is not established.",
+    "current_assessment": "RQ-015 geometry-null representation is now frozen before further scoring; execution is pending. Earlier exploratory geometry results remain historical and this is not pristine blind preregistration.",
     "historical_guards": [
       "Q1-Q4 used PAT2 BODY midpoint as an explicit historical research proxy; current PAT2 source authority is FULL RANGE and requires a new version.",
       "Legacy pre-reanchor Daily Frame side support is not current confirmation.",
@@ -978,7 +980,7 @@
     ],
     "operating_philosophy": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
     "method": "Build a restart-safe 07:00 state engine: use all knowable pre-07:00 context, allow PASS on unknown/unsupported states, learn from replay failures, use synthetic data for controlled logic tests and real data for market evidence.",
-    "latest_checkpoint": "docs/0700_MINIMAL_V2_REPLICATION_GEOMETRY_CONTROL_2026-09-13.md",
+    "latest_checkpoint": "docs/0700_RQ015_GEOMETRY_NULL_ANALYSIS_FREEZE_2026-09-13.md",
     "data_assessment": "Existing real history is sufficient for minimal V2 development, failure discovery, same-code historical replication, and MT5 engineering stress tests. Synthetic data is approved for controlled logic/boundary tests only. No current period is a pristine final confirmation set."
   },
   "rq012_holdout_state": {
@@ -1015,7 +1017,7 @@
     "status": "IMPLEMENTATION_FROZEN_DISCOVERY_REPLICATION_INTERPRETED_GEOMETRY_CONFOUND_IDENTIFIED",
     "spec": "docs/0700_MINIMAL_V2_FROZEN_SPEC_2026-09-13.md",
     "scope": "H4-only origin/run; PAT2 FULL-RANGE; M5 confirmation; existing Daily Frame; PATH_REMAINING; no consumed threshold; action lane fail-closed on unresolved location geometry.",
-    "next": "Freeze and execute RQ-015 geometry-null control without semantic tuning or thresholds.",
+    "next": "Execute the frozen RQ-015 geometry-null control unchanged on existing Discovery and Replication artifacts; no semantic tuning or thresholds.",
     "implementation": "src/nexus_xau/research/minimal_v2_0700.py",
     "tests": "tests/test_minimal_v2_0700.py",
     "implementation_checkpoint": "docs/0700_MINIMAL_V2_PRE_OUTCOME_IMPLEMENTATION_FREEZE_2026-09-13.md",
@@ -1070,7 +1072,7 @@
     "purpose": "Recover project/git/workstream/version/next-action/live durable-job/tool capability state without bulk-loading project documents."
   },
   "geometry_control": {
-    "status": "ACTIVE_RQ015_FREEZE_NEXT",
+    "status": "SPEC_FROZEN_EXECUTION_PENDING",
     "checkpoint": "docs/0700_MINIMAL_V2_REPLICATION_GEOMETRY_CONTROL_2026-09-13.md",
     "discovery": {
       "rho_consumed_outcome": 0.5131,
@@ -1084,6 +1086,7 @@
       "rho_consumed_geometry": 0.8282,
       "partial_consumed_given_geometry": -0.1578
     },
-    "safe_interpretation": "REPLICATED_ASSOCIATION_GEOMETRY_CONFOUNDED_INDEPENDENT_EFFECT_NOT_ESTABLISHED"
+    "safe_interpretation": "REPLICATED_ASSOCIATION_GEOMETRY_CONFOUNDED_INDEPENDENT_EFFECT_NOT_ESTABLISHED",
+    "freeze_checkpoint": "docs/0700_RQ015_GEOMETRY_NULL_ANALYSIS_FREEZE_2026-09-13.md"
   }
 }
