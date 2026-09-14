@@ -205,6 +205,28 @@ Phase 1 impact:
 
 State/path reconstruction may have longer usable OHLC history than realistic execution-cost reconstruction from broker ticks.
 
+
+### 2026-09-14 — Historical access route interpretation
+
+Confirmed route:
+
+- historical bars and historical Bid/Ask ticks are retrievable through the connected MT5 terminal using the MetaTrader5 Python API.
+
+Not established:
+
+- a separate direct Exness historical-data endpoint/API that the Project can query independently of the terminal.
+
+Working interpretation:
+
+The Project should treat the MT5 terminal/API path as the confirmed historical access route. Whether the terminal is satisfying a request from local cache, broker-server synchronization, or both is an implementation detail that has not yet been separately demonstrated for each interval.
+
+Engineering consequence:
+
+- build the history-coverage map against the route we can actually test;
+- do not design around an unverified direct-server interface;
+- forward collection should be restart-safe and attempt historical gap recovery after restart;
+- any interval that cannot be recovered must be recorded explicitly rather than silently filled.
+
 ## Phase 1 Impact
 
 Confirmed useful MT5 inputs now include:
