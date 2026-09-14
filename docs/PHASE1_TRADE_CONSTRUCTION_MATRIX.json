@@ -1,0 +1,98 @@
+{
+  "schema_version": "PHASE1_TRADE_CONSTRUCTION_MATRIX_V0.1",
+  "updated_at": "2026-09-14T13:52:39+07:00",
+  "scope": "Phase 1 H4/PAT2/M5 lane",
+  "authority_boundary": "Classifications distinguish source-backed semantics from project engineering conventions. No market outcomes were inspected.",
+  "fields": [
+    {
+      "field": "pre_0700_context",
+      "classification": "SOURCE_BACKED",
+      "current": "Earlier H1/H4/D run context and remaining-run state may feed the 07:00 decision snapshot when legitimately knowable.",
+      "blocking_for_project_replay": false,
+      "blocking_for_source_faithful_proof": false
+    },
+    {
+      "field": "0700_role",
+      "classification": "SOURCE_BACKED_PROJECT_CONFIRMED",
+      "current": "07:00 Asia/Bangkok is a preparation/assessment checkpoint, not an automatic order time.",
+      "blocking_for_project_replay": false,
+      "blocking_for_source_faithful_proof": false
+    },
+    {
+      "field": "post_0700_signal_timing",
+      "classification": "SOURCE_BACKED_NARROW_LANE",
+      "current": "Phase 1 waits for post-07:00 confirmation; current minimal lane uses completed M5 PAT2 confirmation.",
+      "blocking_for_project_replay": false,
+      "blocking_for_source_faithful_proof": false
+    },
+    {
+      "field": "exact_execution_fill",
+      "classification": "ENGINEERING_CONVENTION_ALLOWED",
+      "current": "Source closes signal knowledge timing but not one universal exact fill. A separately labeled executable fill convention may be frozen for project replay.",
+      "blocking_for_project_replay": false,
+      "blocking_for_source_faithful_proof": true
+    },
+    {
+      "field": "sl_or_loss_invalidation",
+      "classification": "PARTIAL_SOURCE_BACKED_ENGINEERING_CONVENTION_REQUIRED",
+      "current": "Point-check/post-SIG destruction is structural invalidation; demonstrated SL references exist, but one universal exact stop/buffer is not source-closed.",
+      "blocking_for_project_replay": false,
+      "blocking_for_source_faithful_proof": true
+    },
+    {
+      "field": "tp_or_exit",
+      "classification": "SOURCE_OBJECTIVE_PLUS_ENGINEERING_EXIT_CONVENTION",
+      "current": "Remaining inherited run is the source-backed objective. Exact position-closing mechanics at that objective are a replay convention.",
+      "blocking_for_project_replay": false,
+      "blocking_for_source_faithful_proof": true
+    },
+    {
+      "field": "replacement_reentry",
+      "classification": "SOURCE_LIFECYCLE_PARTIAL_ENGINEERING_CONVENTION_ALLOWED",
+      "current": "Destroyed instance stops and re-evaluation/new SIG is source-backed; exact trade re-entry accounting is not universally fixed.",
+      "blocking_for_project_replay": false,
+      "blocking_for_source_faithful_proof": true
+    },
+    {
+      "field": "broker_runtime_metadata",
+      "classification": "REQUIRED_RUNTIME_INPUT",
+      "current": "Captured Exness demo metadata is valid only for that environment; target runtime must be verified rather than hard-coded.",
+      "blocking_for_project_replay": false,
+      "blocking_for_source_faithful_proof": false
+    },
+    {
+      "field": "bid_ask_execution_data",
+      "classification": "BLOCKING_FOR_NET_ECONOMIC_PROOF",
+      "current": "Current main historical bars are Bid OHLC, not complete Bid+Ask execution ticks. Actual order-side prices are therefore not directly observed.",
+      "blocking_for_project_replay": false,
+      "blocking_for_source_faithful_proof": false
+    },
+    {
+      "field": "spread_slippage_cost",
+      "classification": "BLOCKING_FOR_NET_ECONOMIC_PROOF",
+      "current": "One observed spread is not representative. A declared model or historical execution-quality data is required before net expectancy/profitability claims.",
+      "blocking_for_project_replay": false,
+      "blocking_for_source_faithful_proof": false
+    },
+    {
+      "field": "same_bar_ordering",
+      "classification": "ENGINEERING_RULE_CLOSED",
+      "current": "If favorable and adverse levels occur in the same available OHLC bar, classify AMBIGUOUS_SAME_BAR unless finer data resolves order.",
+      "blocking_for_project_replay": false,
+      "blocking_for_source_faithful_proof": false
+    },
+    {
+      "field": "position_sizing_risk_cap",
+      "classification": "NON_BLOCKING_FOR_PER_TRADE_R_BLOCKING_FOR_ACCOUNT_PILOT",
+      "current": "Not required to study gross first-hit or per-trade R; required for account-level drawdown/cash outcome and supervised execution.",
+      "blocking_for_project_replay": false,
+      "blocking_for_source_faithful_proof": false
+    }
+  ],
+  "conclusions": {
+    "project_defined_trade_replay": "CONSTRUCTIBLE_AFTER_PREDECLARED_ENGINEERING_CONVENTIONS",
+    "source_faithful_exact_trade_proof": "NOT_FULLY_CLOSED",
+    "net_economic_proof": "BLOCKED_PENDING_EXECUTION_COST_DATA_OR_MODEL",
+    "account_level_pilot": "BLOCKED_PENDING_SIZING_RISK_AND_EXECUTION_LAYER"
+  }
+}

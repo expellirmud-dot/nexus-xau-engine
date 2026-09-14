@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-14T10:39:52+07:00",
+  "updated_at": "2026-09-14T13:52:39+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
@@ -297,6 +297,26 @@
       "worksheet": "research_queue/closed/RQ-015_0700_PATH_REMAINING_GEOMETRY_CONTROL.md",
       "closure_ref": "docs/0700_RQ015_GEOMETRY_NULL_RESULT_2026-09-13.md",
       "closure_summary": "Primary consumed residual was non-positive in both periods (-0.0181 Discovery, -0.1009 Replication) while geometry remained positively associated with target-first ordering. Frozen classification: CONSUMED_ASSOCIATION_EXPLAINED_OR_DOMINATED_BY_GEOMETRY. Consumed is not established as an independent market predictor under this PATH_REMAINING representation."
+    },
+    {
+      "id": "RQ-016",
+      "title": "Phase 1 Construction Boundary",
+      "type": "RESEARCH_RECONCILIATION",
+      "status": "CLOSED_PHASE1_CONSTRUCTION_BOUNDARY",
+      "why_now": "Classify the remaining Phase 1 construction fields before downstream evaluation.",
+      "depends_on": [
+        "RQ-007",
+        "RQ-009",
+        "RQ-013"
+      ],
+      "blocks": [
+        "Phase 1 downstream evaluation contract"
+      ],
+      "preferred_method": "Existing evidence audit only; no outcome review.",
+      "worksheet": "research_queue/closed/RQ-016_PHASE1_CONSTRUCTION_BOUNDARY.md",
+      "current_summary": "CLOSED: field boundary audit complete; see Phase 1 construction matrix.",
+      "closure_ref": "research_queue/closed/RQ-016_PHASE1_CONSTRUCTION_BOUNDARY.md",
+      "closure_summary": "Closed field boundary audit; see Phase 1 construction matrix."
     }
   ],
   "conditional_infrastructure": [
@@ -317,7 +337,7 @@
   ],
   "promotion_rule": "On active closure, first re-rank remaining items using the new evidence. Then promote the highest-value unblocked item; do not blindly increment the numeric ID if the dependency picture changed.",
   "guard": "The queue organizes research; it does not grant permission to invent thresholds, upgrade provenance from outcomes, or treat historical proxy results as canonical rules.",
-  "queue_state": "NO_ACTIVE_DECISION_CRITICAL_RQ_HOLDOUT_RESERVED_UNSCORED",
+  "queue_state": "NO_ACTIVE_DECISION_CRITICAL_RQ_RQ016_CLOSED",
   "queue_exhaustion_ref": null,
   "reopen_rule": "Create/reopen a bounded research item only when new source evidence, new labeled examples, a frozen execution specification, or a genuinely untouched holdout materially resolves a named blocker.",
   "reopened_from_exhaustion_ref": "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
@@ -328,5 +348,38 @@
     "admission_required_for_activation": true,
     "rule": "Any non-null decision-critical active RQ must have a valid prospective admission record in this Queue store. Legacy closed/queued RQs are not rewritten merely for migration."
   },
-  "admissions": {}
+  "admissions": {
+    "RQ-016": {
+      "schema_version": "WO055_RQ_ADMISSION_V0.1",
+      "rq_id": "RQ-016",
+      "rq_type": "RESEARCH_RECONCILIATION",
+      "newness_statement": "Narrow Phase 1 construction audit distinct from prior universal scope.",
+      "question": "Which required Phase 1 construction fields are established, conventional, or unresolved?",
+      "boundary": {
+        "in_scope": [
+          "Phase 1 construction fields"
+        ],
+        "out_of_scope": [
+          "outcome review"
+        ]
+      },
+      "expected_evidence": [
+        "existing project closures"
+      ],
+      "falsification_condition": "Any essential unresolved field remains blocking.",
+      "decision_consequence": {
+        "positive": "Freeze next engineering contract.",
+        "negative": "Keep downstream evaluation blocked.",
+        "unresolved": "Keep affected field unresolved."
+      },
+      "dependencies": [
+        "RQ-007",
+        "RQ-009",
+        "RQ-013"
+      ],
+      "stop_condition": "Classify all required fields and next action.",
+      "outcome_bearing": false,
+      "holdout_or_leakage_guard": null
+    }
+  }
 }
