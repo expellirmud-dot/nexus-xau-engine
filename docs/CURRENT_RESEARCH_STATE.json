@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T18:58:16+07:00",
+  "updated_at": "2026-09-14T19:35:40+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_MT5_FORWARD_COLLECTOR_IMPLEMENTATION_PILOT_2026-09-14.md"
+    "latest_progress_checkpoint": "docs/PHASE1_MT5_COLLECTOR_OBSERVABILITY_RECONCILIATION_2026-09-14.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -84,7 +84,9 @@
       "docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md",
       "docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1_2026-09-14.md",
       "docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1.json",
-      "docs/PHASE1_MT5_FORWARD_COLLECTOR_IMPLEMENTATION_PILOT_2026-09-14.md"
+      "docs/PHASE1_MT5_FORWARD_COLLECTOR_IMPLEMENTATION_PILOT_2026-09-14.md",
+      "docs/PHASE1_MT5_FORWARD_COLLECTOR_OPERATIONAL_START_2026-09-14.md",
+      "docs/PHASE1_MT5_COLLECTOR_OBSERVABILITY_RECONCILIATION_2026-09-14.md"
     ]
   },
   "provenance_guard": {
@@ -156,8 +158,9 @@
     "derived_authority_report": "PASS_WHEN_PRESENT_OPTIONAL_WHEN_ABSENT"
   },
   "next_steps": [
-    "Run a longer read-only MT5 collector observation through nexus-durable-work if continued forward capture is desired; keep ORDER SEND DISABLED.",
-    "Build the smallest human-readable collector status surface from results/mt5_collector/status.json and SQLite without coupling UI to trading execution.",
+    "Let XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914 continue under nexus-durable-work and inspect its persisted result before starting another collector.",
+    "Use the desktop corner status or local dashboard for observability; treat STALE/BLOCKED/ERROR as pipeline states, not trading signals.",
+    "Study docs/MT5_COLLECTOR_DASHBOARD_FIELD_GUIDE_2026-09-14.md for each field and keep infrastructure metrics separate from market-observation inputs.",
     "Decide the multi-year execution-quality data path separately: validated external feed versus explicitly declared residual execution model.",
     "Freeze the pre-outcome Phase 1 replay engineering contract before downstream outcome scoring.",
     "Keep V0.1 holdout outcome scoring disabled."
@@ -307,9 +310,12 @@
     "docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md",
     "docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1_2026-09-14.md",
     "docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1.json",
-    "docs/PHASE1_MT5_FORWARD_COLLECTOR_IMPLEMENTATION_PILOT_2026-09-14.md"
+    "docs/PHASE1_MT5_FORWARD_COLLECTOR_IMPLEMENTATION_PILOT_2026-09-14.md",
+    "docs/PHASE1_MT5_FORWARD_COLLECTOR_OPERATIONAL_START_2026-09-14.md",
+    "docs/PHASE1_MT5_COLLECTOR_OBSERVABILITY_RECONCILIATION_2026-09-14.md",
+    "docs/MT5_COLLECTOR_DASHBOARD_FIELD_GUIDE_2026-09-14.md"
   ],
-  "resume_instruction": "Phase 1 is current. Read docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md, docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1_2026-09-14.md, and docs/PHASE1_MT5_FORWARD_COLLECTOR_IMPLEMENTATION_PILOT_2026-09-14.md. Collector V0.1 is implemented and short Demo restart/backfill validated: 925 clean-pilot ticks, stable source identity, no clean-pilot gaps, SQLite integrity OK, READ-ONLY/ORDER SEND DISABLED. This is not indefinite 24/7 reliability proof. Next: longer durable forward capture/status surface as needed, resolve multi-year execution-data path, then freeze the pre-outcome replay engineering contract. Holdout scoring remains disabled.",
+  "resume_instruction": "Phase 1 is current. Collector V0.1 short restart/backfill pilot passed. The first 1-hour durable job later failed after 3 attempts because concurrent dashboard/status readers could trigger Windows PermissionError on atomic status.json replacement; failure is preserved in docs/PHASE1_MT5_COLLECTOR_OBSERVABILITY_RECONCILIATION_2026-09-14.md. Fix commit 14f3239 makes status writes retry/best-effort and adds stale-status detection. Replacement durable job XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914 is RUNNING read-only. Check durable job + status.json + SQLite before starting another collector. Browser dashboard is optional; desktop corner launcher is scripts/START_MT5_COLLECTOR_CORNER.cmd. Automatic order execution and holdout scoring remain disabled.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1131,13 +1137,13 @@
     }
   },
   "active_durable_job": {
-    "job_id": "XAU-MT5-HISTORY-COVERAGE-DAILY-V02-20260914",
-    "job_path": "D:\\tools\\nexus-durable-work\\_agent\\jobs\\XAU-MT5-HISTORY-COVERAGE-DAILY-V02-20260914\\job.json",
-    "status": "DONE_RESULT_INTERPRETED",
+    "job_id": "XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914",
+    "job_path": "D:\\tools\\nexus-durable-work\\_agent\\jobs\\XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914\\job.json",
+    "status": "RUNNING",
     "execution_layer": "D:/tools/nexus-durable-work Local Work Agent",
-    "success_probe": "results/mt5_coverage/daily_2026-02-01_2026-09-13.summary.json",
-    "restart_rule": "Do not rerun the weekly/daily coverage scans unless MT5 terminal configuration/source availability changes or a documented reopen trigger exists. Continue from the coverage-map checkpoint.",
-    "live_status_verified": "DONE",
+    "success_probe": null,
+    "restart_rule": "Inspect this live durable job plus results/mt5_collector/status.json and SQLite before starting another collector. Do not run two collectors against the same store.",
+    "live_status_verified": "RUNNING_AFTER_STATUS_CONTENTION_FIX",
     "result_exists_nonempty": true
   },
   "continuity_tool": {
@@ -1255,7 +1261,7 @@
     "remaining_gap": "Indefinite collector reliability; full intraday/every-tick recoverability; multi-year execution-quality Bid/Ask data; broker/server M1 depth beyond terminal Max Bars; transaction-cost/slippage truth.",
     "direct_broker_server_api": "NOT_ESTABLISHED",
     "confirmed_route": "MT5_TERMINAL_HISTORY_ENVIRONMENT_TO_METATRADER5_PYTHON_API",
-    "forward_collector": "IMPLEMENTED_SHORT_DEMO_RESTART_VALIDATED",
+    "forward_collector": "DURABLE_READONLY_V02_RUNNING_AFTER_STATUS_CONTENTION_FIX",
     "restart_recovery_rule": "Persist last tick timestamp; on restart request missing interval from MT5 history and record unrecoverable gaps explicitly.",
     "coverage_map_ref": "docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md",
     "tick_accessible_start_utc": "2026-03-12T00:00:00.255+00:00",
@@ -1283,6 +1289,19 @@
       "source_identity": "STABLE_ACROSS_3_RUNTIME_SNAPSHOTS",
       "duplicate_boundary_check": "PASS",
       "order_send": "ABSENT"
+    },
+    "collector_operational_start_ref": "docs/PHASE1_MT5_FORWARD_COLLECTOR_OPERATIONAL_START_2026-09-14.md",
+    "collector_dashboard": "http://127.0.0.1:8765/",
+    "collector_observability_reconciliation_ref": "docs/PHASE1_MT5_COLLECTOR_OBSERVABILITY_RECONCILIATION_2026-09-14.md",
+    "collector_field_guide": "docs/MT5_COLLECTOR_DASHBOARD_FIELD_GUIDE_2026-09-14.md",
+    "collector_corner_launcher": "scripts/START_MT5_COLLECTOR_CORNER.cmd",
+    "collector_observability_failure_history": {
+      "failed_job": "XAU-MT5-FORWARD-COLLECTOR-1H-20260914",
+      "status": "FAILED_AFTER_3_ATTEMPTS",
+      "cause": "WINDOWS_STATUS_JSON_REPLACE_PERMISSION_ERROR_DURING_CONCURRENT_READERS",
+      "market_data_db_corruption": "NOT_OBSERVED",
+      "fix_commit": "14f3239",
+      "replacement_job": "XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914"
     }
   },
   "project_self_audit_2026_09_14": {
