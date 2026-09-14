@@ -330,3 +330,35 @@ Boundary:
 - archive object availability does not prove tick-level continuity;
 - do not treat archive pricing as exactly identical to the current Exness Demo / MT5 server;
 - do not infer slippage, fills, profitability, or a universal spread from this mapper.
+
+
+### Exness XAUUSDm Tick Archive Downloader / Validator V0.1
+
+Implementation:
+- `src/nexus_xau/data/exness_tick_archive_download.py`
+- `scripts/exness_tick_archive_download.py`
+- `tests/test_exness_tick_archive_download.py`
+
+Checkpoint:
+- `docs/PHASE1_EXNESS_TICK_ARCHIVE_DOWNLOADER_V0.1_2026-09-14.md`
+
+Purpose:
+- download only months already classified `AVAILABLE` by the coverage mapper;
+- resume partial transfers when the server supports HTTP Range;
+- verify expected size, SHA-256, ZIP integrity, CSV schema, chronology, Bid/Ask sanity, and duplicate counters;
+- append fsynced per-month validation records;
+- reuse already-validated local months instead of downloading them again.
+
+Representative validation batch before bulk history:
+- 2015-08 = earliest AVAILABLE month;
+- 2021-03 = midpoint AVAILABLE month;
+- 2026-08 = recent month for later MT5 overlap comparison.
+
+Local storage:
+- `data/raw/exness_tick_history/archive/XAUUSDm/YYYY/`
+- `results/exness_tick_archive/download_validation_manifest.jsonl`
+
+Boundary:
+- READ-ONLY EXTERNAL DATA / ORDER SEND DISABLED;
+- validated archive data remains a separate feed identity from the current Exness Demo / MT5 route;
+- internal consistency does not prove every expected market tick, broker fills, slippage, commissions, profitability, or universal spread.
