@@ -1,0 +1,30 @@
+{
+  "schema_version": "PHASE1_EXNESS_ARCHIVE_GAP_LEDGER_V0.1",
+  "updated_at": "2026-09-15T04:23:00+07:00",
+  "symbol": "XAUUSDm",
+  "scope": "CURRENT_FROZEN_2015_2026_ARCHIVE_COVERAGE",
+  "continuity_claim": "KNOWN_GAPS_ENFORCED_FULL_CONTINUITY_NOT_PROVEN",
+  "coverage_boundaries": {
+    "earliest_observed_tick_utc": "2015-08-10T00:00:00Z",
+    "latest_observed_tick_utc": "2026-09-13T23:59:59.824000Z"
+  },
+  "boundary_gap_candidates": [
+    {
+      "gap_id": "XAUUSDM_2016_MAR_APR_BOUNDARY_001",
+      "status": "UNRESOLVED_BOUNDARY_GAP_CANDIDATE",
+      "last_observed_before_gap": "2016-03-25T00:00:00Z",
+      "first_observed_after_gap": "2016-04-01T06:52:51Z",
+      "interval_semantics": "OPEN_BETWEEN_OBSERVED_ENDPOINTS",
+      "replay_policy": "EXCLUDE_REQUEST_WINDOWS_INTERSECTING_OPEN_INTERVAL",
+      "evidence_refs": [
+        "docs/PHASE1_EXNESS_YEAR_2016_VALIDATION_2026-09-15.md",
+        "docs/PHASE1_EXNESS_ARCHIVE_ACQUISITION_RECONCILIATION_2015_2026_2026-09-15.md"
+      ]
+    }
+  ],
+  "notes": [
+    "No missing ticks are fabricated.",
+    "Absence from this ledger is not proof of continuous tick coverage.",
+    "2015-08 and 2026-09 are partial coverage boundaries in the current snapshot."
+  ]
+}

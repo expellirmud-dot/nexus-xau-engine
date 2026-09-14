@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-15T04:19:45+07:00",
+  "updated_at": "2026-09-15T04:23:59+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_TICK_REPLAY_ENGINEERING_IMPLEMENTATION_V0.1_2026-09-15.md"
+    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_ARCHIVE_WINDOW_ADAPTER_CONTRACT_V0.1_2026-09-15.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -105,7 +105,9 @@
       "docs/PHASE1_EXNESS_YEAR_2026_VALIDATION_2026-09-15.md",
       "docs/PHASE1_EXNESS_ARCHIVE_ACQUISITION_RECONCILIATION_2015_2026_2026-09-15.md",
       "docs/PHASE1_TICK_REPLAY_ENGINEERING_CONTRACT_V0.1_2026-09-15.md",
-      "docs/PHASE1_TICK_REPLAY_ENGINEERING_IMPLEMENTATION_V0.1_2026-09-15.md"
+      "docs/PHASE1_TICK_REPLAY_ENGINEERING_IMPLEMENTATION_V0.1_2026-09-15.md",
+      "docs/PHASE1_EXNESS_ARCHIVE_WINDOW_ADAPTER_CONTRACT_V0.1_2026-09-15.md",
+      "docs/PHASE1_EXNESS_ARCHIVE_GAP_LEDGER_V0.1.json"
     ]
   },
   "provenance_guard": {
@@ -180,12 +182,13 @@
     "exness_archive_acquisition": "CURRENT_COVERAGE_COMPLETE_134_OF_134_AVAILABLE_MONTHS",
     "tick_replay_contract": "FROZEN_PRE_OUTCOME_V0.1_REFERENCE_REPLAY",
     "tick_replay_implementation": "V0.1_SYNTHETIC_10_PASS_FULL_SUITE_PASS_ENGINEERING_SMOKE_PASS",
+    "archive_window_adapter_contract": "FROZEN_PRE_IMPLEMENTATION_V0.1_HALF_OPEN_KNOWN_GAP_MASK",
     "exness_mt5_overlap": "DESCRIPTIVELY_CONSISTENT_EXACT_FEED_EQUIVALENCE_NOT_CLAIMED"
   },
   "next_steps": [
-    "Tick replay reference primitives V0.1 are implemented; synthetic contract is 10/10 PASS, broader Ruff/full pytest pass, and a 2026-08 already-inspected engineering smoke passed without opening strategy outcomes.",
-    "Build a reusable archive-window adapter and explicit gap-mask layer that can stream only the requested Bid/Ask window with provenance/raw ordinal preserved; do not silently deduplicate or interpolate.",
-    "Validate the archive-window adapter with synthetic fixtures and already-inspected engineering windows before any broad multi-year tick-level outcome replay.",
+    "Archive-window adapter contract V0.1 is frozen pre-implementation with UTC half-open windows, current-validator manifest gating, raw ordinal/provenance preservation and an explicit known boundary-gap ledger.",
+    "Implement the reusable streaming archive-window adapter without network download, extraction, deduplication or interpolation; enforce current-validator manifest and known-gap gates.",
+    "Add and pass synthetic adapter tests before an already-inspected real-archive engineering smoke; do not open strategy outcomes.",
     "Keep archive identity separate from the current Exness Demo MT5 route; 2026-08 overlap is descriptively consistent but exact feed/server equivalence is not established.",
     "Keep automatic order sending and V0.1 holdout outcome scoring disabled until explicitly activated under existing governance."
   ],
