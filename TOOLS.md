@@ -291,3 +291,13 @@ Status:
 - restart-safe SQLite state
 - restart/backfill short Demo pilot validated
 - do not treat this as 24/7 reliability or multi-year execution-data proof
+
+
+Operator visibility:
+- field guide: `docs/MT5_COLLECTOR_DASHBOARD_FIELD_GUIDE_2026-09-14.md`
+- browser dashboard: `scripts/mt5_collector_dashboard.py`
+- desktop corner status: `scripts/mt5_collector_corner.py`
+- double-click launcher: `scripts/START_MT5_COLLECTOR_CORNER.cmd`
+
+The corner status reads local status.json + SQLite directly; the browser is optional.
+Closing the corner widget does not stop the collector.

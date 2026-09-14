@@ -91,7 +91,12 @@ def utc_now_iso() -> str:
     return datetime.now(UTC).isoformat(timespec="milliseconds")
 
 
-def atomic_write_json(path: str | Path, payload: Mapping[str, Any]) -> None:
+def atomic_write_json(
+    path: str | Path,
+    payload: Mapping[str, Any],
+    *,
+    replace_retries: int = 40,
+) -> None:
     target = Path(path)
     target.parent.mkdir(parents=True, exist_ok=True)
     fd, temp_name = tempfile.mkstemp(
@@ -105,10 +110,30 @@ def atomic_write_json(path: str | Path, payload: Mapping[str, Any]) -> None:
             handle.write("\n")
             handle.flush()
             os.fsync(handle.fileno())
-        os.replace(temp_name, target)
+
+        for attempt in range(replace_retries):
+            try:
+                os.replace(temp_name, target)
+                return
+            except PermissionError:
+                if attempt + 1 >= replace_retries:
+                    raise
+                # Windows readers may briefly hold the destination without
+                # delete sharing. Vary the delay to avoid phase-locking with
+                # 1-second dashboard/corner refresh loops.
+                time.sleep(min(0.005 * (attempt + 1), 0.05))
     finally:
         if os.path.exists(temp_name):
             os.unlink(temp_name)
+
+
+def write_status_json(path: str | Path, payload: Mapping[str, Any]) -> bool:
+    """Best-effort observability: status-file contention must not kill collection."""
+    try:
+        atomic_write_json(path, payload)
+        return True
+    except OSError:
+        return False
 
 
 def init_db(path: str | Path) -> sqlite3.Connection:
@@ -584,7 +609,7 @@ def run_live_collector(
             try:
                 validate_source_identity(state, source_identity)
             except RuntimeError as exc:
-                atomic_write_json(
+                write_status_json(
                     status_path,
                     build_status(
                         state_name="BLOCKED",
@@ -611,7 +636,7 @@ def run_live_collector(
             now_tick = mt5.symbol_info_tick(symbol)
             if now_tick is None:
                 code, message = mt5.last_error()
-                atomic_write_json(
+                write_status_json(
                     status_path,
                     build_status(
                         state_name="ERROR",
@@ -654,7 +679,7 @@ def run_live_collector(
                         mt5_error_code=int(code),
                         mt5_error_message=str(message),
                     )
-                    atomic_write_json(
+                    write_status_json(
                         status_path,
                         build_status(
                             state_name="ERROR",
@@ -700,7 +725,7 @@ def run_live_collector(
                     # On restart the durable last-tick boundary is queried again.
                     cursor_msc = chunk_end_msc + 1
 
-                atomic_write_json(
+                write_status_json(
                     status_path,
                     build_status(
                         state_name=(
@@ -743,7 +768,7 @@ def run_live_collector(
             last_successful_commit_utc=final_state.last_successful_commit_utc,
             gaps=gap_counts(conn),
         )
-        atomic_write_json(status_path, status)
+        write_status_json(status_path, status)
         return status
     finally:
         if conn is not None:

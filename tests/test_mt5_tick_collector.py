@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pytest
 
+import nexus_xau.data.mt5_tick_collector as collector_module
 from nexus_xau.data.mt5_tick_collector import (
     READ_ONLY_MODE,
     TickRow,
@@ -18,6 +19,7 @@ from nexus_xau.data.mt5_tick_collector import (
     run_live_collector,
     tick_count,
     validate_source_identity,
+    write_status_json,
 )
 
 
@@ -335,3 +337,35 @@ def test_live_api_error_persists_gap_and_error_status(tmp_path: Path) -> None:
     payload = json.loads(status.read_text(encoding="utf-8"))
     assert payload["state"] == "ERROR"
     assert "copy failed" in payload["last_error"]
+
+
+def test_atomic_status_write_retries_windows_replace_contention(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    path = tmp_path / "status.json"
+    real_replace = collector_module.os.replace
+    attempts = {"count": 0}
+
+    def flaky_replace(src, dst):
+        attempts["count"] += 1
+        if attempts["count"] < 4:
+            raise PermissionError("simulated Windows reader lock")
+        return real_replace(src, dst)
+
+    monkeypatch.setattr(collector_module.os, "replace", flaky_replace)
+    collector_module.atomic_write_json(path, {"state": "RUNNING"})
+
+    assert attempts["count"] == 4
+    assert json.loads(path.read_text(encoding="utf-8"))["state"] == "RUNNING"
+
+
+def test_status_write_failure_is_nonfatal(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def always_locked(src, dst):
+        raise PermissionError("locked")
+
+    monkeypatch.setattr(collector_module.os, "replace", always_locked)
+    assert write_status_json(tmp_path / "status.json", {"state": "RUNNING"}) is False
