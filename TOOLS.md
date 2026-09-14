@@ -268,3 +268,26 @@ Existing modules: `src/nexus_xau/data/mt5_export.py` and `src/nexus_xau/data/mt5
 Current evidence: `docs/PHASE1_MT5_CAPABILITY_REPORT_2026-09-14.md`.
 
 Use for read-only terminal/account metadata, XAUUSDm specification, live/historical Bid/Ask, OHLC, account history, and calculation-only margin/profit. Map tick and OHLC coverage separately; do not add order execution to data-acquisition tooling.
+
+
+### MT5 Forward Tick Collector V0.1
+
+Implementation:
+- `src/nexus_xau/data/mt5_tick_collector.py`
+- `scripts/mt5_tick_collector.py`
+
+Contract:
+- `docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1_2026-09-14.md`
+
+Pilot evidence:
+- `docs/PHASE1_MT5_FORWARD_COLLECTOR_IMPLEMENTATION_PILOT_2026-09-14.md`
+
+Local data:
+- `data/raw/mt5/XAUUSDm_ticks.sqlite3`
+- `results/mt5_collector/status.json`
+
+Status:
+- READ-ONLY DATA / ORDER SEND DISABLED
+- restart-safe SQLite state
+- restart/backfill short Demo pilot validated
+- do not treat this as 24/7 reliability or multi-year execution-data proof

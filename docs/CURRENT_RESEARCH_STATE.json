@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T18:24:00+07:00",
+  "updated_at": "2026-09-14T18:58:16+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1_2026-09-14.md"
+    "latest_progress_checkpoint": "docs/PHASE1_MT5_FORWARD_COLLECTOR_IMPLEMENTATION_PILOT_2026-09-14.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -83,7 +83,8 @@
       "skills/nexus-xau-mt5-data/SKILL.md",
       "docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md",
       "docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1_2026-09-14.md",
-      "docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1.json"
+      "docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1.json",
+      "docs/PHASE1_MT5_FORWARD_COLLECTOR_IMPLEMENTATION_PILOT_2026-09-14.md"
     ]
   },
   "provenance_guard": {
@@ -155,9 +156,8 @@
     "derived_authority_report": "PASS_WHEN_PRESENT_OPTIONAL_WHEN_ABSENT"
   },
   "next_steps": [
-    "Implement the smallest Phase 1 MT5 forward collector V0.1 against the frozen read-only contract.",
-    "Validate transactional tick+state persistence, repeated-row preservation, multiplicity-aware restart overlap handling, chronology, gap ledger, source mismatch, and atomic status output.",
-    "Run a short supervised Demo collection and restart/recovery test; keep ORDER SEND DISABLED.",
+    "Run a longer read-only MT5 collector observation through nexus-durable-work if continued forward capture is desired; keep ORDER SEND DISABLED.",
+    "Build the smallest human-readable collector status surface from results/mt5_collector/status.json and SQLite without coupling UI to trading execution.",
     "Decide the multi-year execution-quality data path separately: validated external feed versus explicitly declared residual execution model.",
     "Freeze the pre-outcome Phase 1 replay engineering contract before downstream outcome scoring.",
     "Keep V0.1 holdout outcome scoring disabled."
@@ -306,9 +306,10 @@
     "docs/PHASE1_PROGRESS_CHECKPOINT_MT5_DATA_ROUTE_2026-09-14.md",
     "docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md",
     "docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1_2026-09-14.md",
-    "docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1.json"
+    "docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1.json",
+    "docs/PHASE1_MT5_FORWARD_COLLECTOR_IMPLEMENTATION_PILOT_2026-09-14.md"
   ],
-  "resume_instruction": "Phase 1 is current. Read docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md, docs/PHASE1_MT5_CAPABILITY_REPORT_2026-09-14.md, and docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1_2026-09-14.md. Current-route ticks begin at 2026-03-12T00:00:00.255Z; current M1 depth is terminal-maxbars limited. Forward collector V0.1 contract is frozen: all observed/recoverable raw ticks, SQLite transactional state, restart backfill, explicit gap ledger, READ-ONLY/ORDER SEND DISABLED. Next implement and validate the collector, then run a short Demo pilot. Holdout scoring remains disabled.",
+  "resume_instruction": "Phase 1 is current. Read docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md, docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1_2026-09-14.md, and docs/PHASE1_MT5_FORWARD_COLLECTOR_IMPLEMENTATION_PILOT_2026-09-14.md. Collector V0.1 is implemented and short Demo restart/backfill validated: 925 clean-pilot ticks, stable source identity, no clean-pilot gaps, SQLite integrity OK, READ-ONLY/ORDER SEND DISABLED. This is not indefinite 24/7 reliability proof. Next: longer durable forward capture/status surface as needed, resolve multi-year execution-data path, then freeze the pre-outcome replay engineering contract. Holdout scoring remains disabled.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1251,10 +1252,10 @@
     "account_history": "CONFIRMED",
     "margin_profit_calculation": "CONFIRMED",
     "market_book": "UNAVAILABLE_FOR_XAUUSDM_CURRENT_ACCOUNT",
-    "remaining_gap": "Full intraday/every-tick continuity within the accessible tick window; session/holiday classification for isolated weekday-empty probes; multi-year execution-quality Bid/Ask data; broker/server M1 depth beyond the terminal Max Bars window.",
+    "remaining_gap": "Indefinite collector reliability; full intraday/every-tick recoverability; multi-year execution-quality Bid/Ask data; broker/server M1 depth beyond terminal Max Bars; transaction-cost/slippage truth.",
     "direct_broker_server_api": "NOT_ESTABLISHED",
     "confirmed_route": "MT5_TERMINAL_HISTORY_ENVIRONMENT_TO_METATRADER5_PYTHON_API",
-    "forward_collector": "CONTRACT_FROZEN_V0.1_IMPLEMENTATION_NEXT",
+    "forward_collector": "IMPLEMENTED_SHORT_DEMO_RESTART_VALIDATED",
     "restart_recovery_rule": "Persist last tick timestamp; on restart request missing interval from MT5 history and record unrecoverable gaps explicitly.",
     "coverage_map_ref": "docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md",
     "tick_accessible_start_utc": "2026-03-12T00:00:00.255+00:00",
@@ -1264,7 +1265,25 @@
       "XAU-MT5-HISTORY-COVERAGE-DAILY-V02-20260914"
     ],
     "collector_contract_ref": "docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1_2026-09-14.md",
-    "collector_contract_machine_ref": "docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1.json"
+    "collector_contract_machine_ref": "docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1.json",
+    "collector_implementation_ref": "docs/PHASE1_MT5_FORWARD_COLLECTOR_IMPLEMENTATION_PILOT_2026-09-14.md",
+    "collector_code_commits": [
+      "57427dd",
+      "3824cfc",
+      "b7f6ad6"
+    ],
+    "collector_local_store": "data/raw/mt5/XAUUSDm_ticks.sqlite3",
+    "collector_status_surface": "results/mt5_collector/status.json",
+    "collector_pilot": {
+      "status": "IMPLEMENTED_SHORT_DEMO_RESTART_VALIDATED",
+      "clean_total_ticks": 925,
+      "restart_runs": 3,
+      "gap_ledger": "EMPTY_IN_CLEAN_PILOT",
+      "sqlite_integrity": "OK",
+      "source_identity": "STABLE_ACROSS_3_RUNTIME_SNAPSHOTS",
+      "duplicate_boundary_check": "PASS",
+      "order_send": "ABSENT"
+    }
   },
   "project_self_audit_2026_09_14": {
     "status": "RECONCILED",

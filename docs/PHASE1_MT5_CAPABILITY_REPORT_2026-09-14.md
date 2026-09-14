@@ -251,3 +251,23 @@ This history-depth question should be mapped before deciding whether an external
 ### 2026-09-14 — Coverage-map reconciliation
 
 Current authority: `docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md`. Exact current-route tick start is 2026-03-12T00:00:00.255Z. Current M1 Python-visible depth is bounded by terminal `maxbars=100000`; older M1 non-empty point probes are not valid interval-availability proof because MT5 can return out-of-request rows. Multi-year execution-quality Bid/Ask proof remains open.
+
+
+### 2026-09-14 — Forward collector implementation pilot
+
+Current checkpoint:
+
+- `docs/PHASE1_MT5_FORWARD_COLLECTOR_IMPLEMENTATION_PILOT_2026-09-14.md`
+
+Observed:
+
+- SQLite raw-tick persistence works on the current Demo route;
+- restart resumes from durable state;
+- a later restart backfilled the stopped interval;
+- prior millisecond boundaries were not duplicated;
+- clean pilot gap ledger remained empty;
+- SQLite integrity remained OK;
+- source identity stayed stable across three runtime snapshots;
+- mode remained `READ_ONLY_DATA_ORDER_SEND_DISABLED`.
+
+This validates the short Demo restart/backfill path only. It does not establish indefinite 24/7 reliability or multi-year execution-quality history.
