@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T19:35:40+07:00",
+  "updated_at": "2026-09-14T20:10:23+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_MT5_COLLECTOR_OBSERVABILITY_RECONCILIATION_2026-09-14.md"
+    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -86,7 +86,8 @@
       "docs/PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1.json",
       "docs/PHASE1_MT5_FORWARD_COLLECTOR_IMPLEMENTATION_PILOT_2026-09-14.md",
       "docs/PHASE1_MT5_FORWARD_COLLECTOR_OPERATIONAL_START_2026-09-14.md",
-      "docs/PHASE1_MT5_COLLECTOR_OBSERVABILITY_RECONCILIATION_2026-09-14.md"
+      "docs/PHASE1_MT5_COLLECTOR_OBSERVABILITY_RECONCILIATION_2026-09-14.md",
+      "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md"
     ]
   },
   "provenance_guard": {
@@ -158,12 +159,11 @@
     "derived_authority_report": "PASS_WHEN_PRESENT_OPTIONAL_WHEN_ABSENT"
   },
   "next_steps": [
-    "Let XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914 continue under nexus-durable-work and inspect its persisted result before starting another collector.",
-    "Use the desktop corner status or local dashboard for observability; treat STALE/BLOCKED/ERROR as pipeline states, not trading signals.",
-    "Study docs/MT5_COLLECTOR_DASHBOARD_FIELD_GUIDE_2026-09-14.md for each field and keep infrastructure metrics separate from market-observation inputs.",
-    "Decide the multi-year execution-quality data path separately: validated external feed versus explicitly declared residual execution model.",
-    "Freeze the pre-outcome Phase 1 replay engineering contract before downstream outcome scoring.",
-    "Keep V0.1 holdout outcome scoring disabled."
+    "Inspect persisted state/result of XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914 before starting another collector; at this checkpoint it was still RUNNING read-only.",
+    "Build/reuse a restart-safe coverage mapper for the Exness-branded XAUUSDm archive before any multi-year bulk download; map object availability, hashes, and provenance without assuming continuity.",
+    "Cross-validate an already-inspected overlapping 2026 interval between the external XAUUSDm archive and the current MT5 XAUUSDm tick route; keep feed/server identities separate.",
+    "Freeze the pre-outcome Phase 1 replay engineering contract including fill, stop, spread/cost and residual-slippage treatment before downstream outcome scoring.",
+    "Keep automatic order sending and V0.1 holdout outcome scoring disabled."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -313,9 +313,10 @@
     "docs/PHASE1_MT5_FORWARD_COLLECTOR_IMPLEMENTATION_PILOT_2026-09-14.md",
     "docs/PHASE1_MT5_FORWARD_COLLECTOR_OPERATIONAL_START_2026-09-14.md",
     "docs/PHASE1_MT5_COLLECTOR_OBSERVABILITY_RECONCILIATION_2026-09-14.md",
-    "docs/MT5_COLLECTOR_DASHBOARD_FIELD_GUIDE_2026-09-14.md"
+    "docs/MT5_COLLECTOR_DASHBOARD_FIELD_GUIDE_2026-09-14.md",
+    "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md"
   ],
-  "resume_instruction": "Phase 1 is current. Collector V0.1 short restart/backfill pilot passed. The first 1-hour durable job later failed after 3 attempts because concurrent dashboard/status readers could trigger Windows PermissionError on atomic status.json replacement; failure is preserved in docs/PHASE1_MT5_COLLECTOR_OBSERVABILITY_RECONCILIATION_2026-09-14.md. Fix commit 14f3239 makes status writes retry/best-effort and adds stale-status detection. Replacement durable job XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914 is RUNNING read-only. Check durable job + status.json + SQLite before starting another collector. Browser dashboard is optional; desktop corner launcher is scripts/START_MT5_COLLECTOR_CORNER.cmd. Automatic order execution and holdout scoring remain disabled.",
+  "resume_instruction": "Phase 1 is current. Before starting another collector, inspect durable job XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914 plus status.json and SQLite; at the 2026-09-14 Exness-archive checkpoint the job was still RUNNING read-only after the status-contention fix. A new external historical Bid/Ask route has been sample-validated: XAUUSDm archive listing exposes 2015-2026 and September 2022 contains 2,377,326 validated ticks. This does not yet prove full multi-year continuity or exact equivalence to the current Exness Demo/MT5 server. Next bounded data task is restart-safe archive coverage mapping and overlap cross-feed validation before any synthetic residual execution model. Automatic order execution and holdout scoring remain disabled.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1234,7 +1235,7 @@
     "policy": "research_findings/README.md",
     "role": "Anti-forgetting index for observations/reconciliations before or alongside canonical promotion. Never overrides canonical claim authority.",
     "first_dry_run": "docs/PHASE1_RESEARCH_FLOW_DRY_RUN_2026-09-14.md",
-    "current_findings": 1
+    "current_findings": 2
   },
   "phase1_completeness": {
     "status": "AUDITED_2026_09_14",
@@ -1248,7 +1249,7 @@
     "rq016_closure": "research_queue/closed/RQ-016_PHASE1_CONSTRUCTION_BOUNDARY.md"
   },
   "phase1_execution_data_probe": {
-    "status": "MT5_COVERAGE_MAP_ESTABLISHED_CURRENT_ROUTE_TICK_START_EXACT_M1_WINDOW_LIMIT_IDENTIFIED",
+    "status": "EXTERNAL_XAUUSDM_BID_ASK_ROUTE_SAMPLE_VALIDATED_MULTIYEAR_COVERAGE_MAPPING_PENDING",
     "ref": "docs/PHASE1_MT5_CAPABILITY_REPORT_2026-09-14.md",
     "prior_probe_ref": "docs/PHASE1_EXECUTION_DATA_ACQUISITION_PROBE_2026-09-14.md",
     "mt5_api": "AUTHORIZED_AND_CONNECTED",
@@ -1258,7 +1259,7 @@
     "account_history": "CONFIRMED",
     "margin_profit_calculation": "CONFIRMED",
     "market_book": "UNAVAILABLE_FOR_XAUUSDM_CURRENT_ACCOUNT",
-    "remaining_gap": "Indefinite collector reliability; full intraday/every-tick recoverability; multi-year execution-quality Bid/Ask data; broker/server M1 depth beyond terminal Max Bars; transaction-cost/slippage truth.",
+    "remaining_gap": "Indefinite forward-collector reliability; external XAUUSDm archive full month/year continuity; cross-server equivalence to current Exness Demo/MT5 runtime; full intraday/every-tick completeness; historical slippage/fill truth; transaction-cost treatment; replay fill/stop conventions.",
     "direct_broker_server_api": "NOT_ESTABLISHED",
     "confirmed_route": "MT5_TERMINAL_HISTORY_ENVIRONMENT_TO_METATRADER5_PYTHON_API",
     "forward_collector": "DURABLE_READONLY_V02_RUNNING_AFTER_STATUS_CONTENTION_FIX",
@@ -1302,6 +1303,33 @@
       "market_data_db_corruption": "NOT_OBSERVED",
       "fix_commit": "14f3239",
       "replacement_job": "XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914"
+    },
+    "external_execution_data_ref": "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md",
+    "external_historical_route": {
+      "archive_endpoint": "https://ticks.ex2archive.com/ticks/",
+      "symbol": "XAUUSDm",
+      "runtime_year_directories_observed": [
+        "2015",
+        "2016",
+        "2017",
+        "2018",
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "sample_period": "2022-09",
+      "sample_rows": 2377326,
+      "sample_zip_sha256": "42cb9465597f9ec6a330a93dbd093ad319d0afd51b8186a4824c0c7e21f3a828",
+      "sample_structural_validation": "PASS",
+      "sample_spread_p50": 0.2,
+      "sample_spread_p99": 0.6,
+      "provenance_status": "EXNESS_BRANDED_ARCHIVE_ENDPOINT_RUNTIME_VALIDATED_FIRST_PARTY_LINKAGE_NOT_RUNTIME_PROVEN_TARGET_SERVER_EQUIVALENCE_NOT_ESTABLISHED",
+      "coverage_status": "YEAR_DIRECTORIES_OBSERVED_FULL_MULTIYEAR_CONTINUITY_NOT_YET_MAPPED"
     }
   },
   "project_self_audit_2026_09_14": {

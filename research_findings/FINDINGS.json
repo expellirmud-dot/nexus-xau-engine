@@ -1,7 +1,7 @@
 {
   "schema_version": "PHASE1_FINDING_LEDGER_V0.1",
   "role": "NON_CANONICAL_RESEARCH_FINDING_INDEX",
-  "updated_at": "2026-09-14T13:31:00+07:00",
+  "updated_at": "2026-09-14T20:10:23+07:00",
   "authority_rule": "This ledger indexes research observations and reconciliations only. It cannot override canonical claims, queue authority, source evidence, or holdout governance.",
   "findings": [
     {
@@ -54,6 +54,60 @@
       "forbidden_uses": [
         "INDEPENDENT_PREDICTOR",
         "CONSUMED_THRESHOLD",
+        "SYSTEM_WIN_RATE",
+        "PROFITABILITY_CLAIM"
+      ],
+      "blocking": false
+    },
+    {
+      "finding_id": "FIND-0002",
+      "relation_key": "EXNESS_XAUUSDM_ARCHIVE__PHASE1_EXECUTION_DATA_ROUTE",
+      "title": "Exness-branded XAUUSDm historical Bid/Ask archive route",
+      "status": "OPEN",
+      "scope": "Phase 1",
+      "current_interpretation": "A machine-accessible Exness-branded XAUUSDm archive exposes 2015-2026 directories and a September 2022 full-month sample passed structural Bid/Ask validation. This closes sample acquisition availability, not multi-year continuity or exact equivalence to the current Exness Demo/MT5 server.",
+      "observations": [
+        {
+          "observation_id": "OBS-0003",
+          "statement": "The live archive listing exposed XAUUSDm years 2015 through 2026 and the September 2022 monthly ZIP was downloadable from the Owner machine.",
+          "representation": "Runtime archive listing and downloaded external historical file.",
+          "conditions": [
+            "XAUUSDm",
+            "September 2022 sample",
+            "no holdout scoring"
+          ],
+          "evidence_refs": [
+            "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md"
+          ]
+        },
+        {
+          "observation_id": "OBS-0004",
+          "statement": "The September 2022 CSV contained 2,377,326 ticks with millisecond UTC Timestamp, Bid and Ask; the full-month scan found zero symbol/source mismatches, Ask < Bid rows, non-finite prices, timestamp regressions, or consecutive exact duplicate rows.",
+          "representation": "Full-month streaming structural validation.",
+          "conditions": [
+            "XAUUSDm",
+            "2022-09",
+            "external archive sample"
+          ],
+          "evidence_refs": [
+            "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md"
+          ]
+        }
+      ],
+      "reconciliation": {
+        "type": "SUPERSEDES_PRIOR_ACQUISITION_AVAILABILITY_GAP_ONLY",
+        "statement": "The earlier MT5 authorization and Dukascopy network failures remain true historical observations. The new route supersedes only the earlier conclusion that a locally usable real Bid/Ask historical acquisition path had not yet been closed."
+      },
+      "canonical_claim_ref": null,
+      "allowed_uses": [
+        "DATA_ACQUISITION_RESEARCH",
+        "SPREAD_OBSERVATION",
+        "COVERAGE_MAPPING",
+        "CROSS_FEED_VALIDATION"
+      ],
+      "forbidden_uses": [
+        "UNIVERSAL_SPREAD_CONSTANT",
+        "EXACT_TARGET_SERVER_EQUIVALENCE",
         "SYSTEM_WIN_RATE",
         "PROFITABILITY_CLAIM"
       ],

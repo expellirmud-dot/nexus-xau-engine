@@ -127,3 +127,39 @@ REAL_BID_ASK_DATA_ROUTE_EXISTS_BUT_LOCAL_ACQUISITION_NOT_YET_CLOSED
 Do not invent a constant spread yet.
 
 Next technical step is to obtain one validated historical Bid/Ask tick sample through an authorized/working route, calculate observed spread statistics, and only then decide what execution-cost model is actually necessary.
+
+
+---
+
+## Superseding evidence — Exness XAUUSDm archive route
+
+Later on 2026-09-14, a separate Exness-branded historical archive route was runtime-validated without deleting the failures recorded above.
+
+Evidence checkpoint:
+
+`docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md`
+
+New observations:
+
+- machine-accessible `XAUUSDm` archive listing exposes years 2015–2026;
+- September 2022 monthly ZIP downloaded successfully;
+- ZIP integrity passed;
+- full-month CSV contains 2,377,326 rows with `Timestamp/Bid/Ask`;
+- no symbol/source mismatch, Ask < Bid, non-finite prices, or timestamp regression was observed in that full-month scan;
+- observed September 2022 spread distribution is recorded as an empirical sample, not a replay constant.
+
+The earlier MT5 authorization failure and Dukascopy network-path failure remain historical observations.
+
+The old conclusion `REAL_BID_ASK_DATA_ROUTE_EXISTS_BUT_LOCAL_ACQUISITION_NOT_YET_CLOSED` is superseded for external acquisition-route availability by:
+
+`EXTERNAL_XAUUSDM_BID_ASK_ROUTE_SAMPLE_VALIDATED_MULTIYEAR_COVERAGE_MAPPING_PENDING`
+
+Still unresolved:
+
+- full multi-year continuity;
+- exact archive-to-current Exness Demo/MT5 server equivalence;
+- slippage/fill truth;
+- transaction-cost treatment;
+- replay fill/stop conventions.
+
+Do not construct a constant spread from the one validated month.

@@ -1,6 +1,6 @@
 {
   "schema_version": "PHASE1_READINESS_MATRIX_V0.1",
-  "updated_at": "2026-09-14T18:19:25+07:00",
+  "updated_at": "2026-09-14T20:10:23+07:00",
   "scope": "Phase 1 / เฟสหนึ่ง",
   "naming_guard": "07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method name. Person/channel/system labels are source attribution only.",
   "overall": {
@@ -121,11 +121,12 @@
         "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
         "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
         "docs/PHASE1_MT5_CAPABILITY_REPORT_2026-09-14.md",
-        "docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md"
+        "docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md",
+        "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md"
       ],
       "missing": [
         "execution fill/replay convention",
-        "multi-year execution-quality Bid/Ask data beyond the current 2026-03-12+ MT5 tick window",
+        "multi-year XAUUSDm external-archive coverage/continuity mapping and cross-server equivalence to the target Exness Demo/MT5 runtime",
         "full intraday/every-tick continuity for broker-history use",
         "spread/slippage/cost treatment",
         "stop execution convention"
