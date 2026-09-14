@@ -32,6 +32,7 @@ Escalate to this file before:
 2. Read `docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md`.
 3. Read `docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md`.
 4. Read `skills/nexus-xau-research/SKILL.md`.
+   - For MT5/data acquisition, historical coverage, runtime metadata, or collector work, also read `skills/nexus-xau-mt5-data/SKILL.md`.
 5. Run the repository preflight:
 
    `.venv\Scripts\python.exe scripts\research_preflight.py`

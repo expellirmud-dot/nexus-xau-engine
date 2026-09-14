@@ -259,3 +259,12 @@ D:\tools\NEXUS-START\RESUME_WORK.cmd --project xau
 Use this before deep Project bootstrap on reconnect.
 
 Do not duplicate Project-specific resume logic in the repo when the central registry can describe it.
+
+
+### MT5 Read-Only Data Route
+
+Existing modules: `src/nexus_xau/data/mt5_export.py` and `src/nexus_xau/data/mt5_validate.py`.
+
+Current evidence: `docs/PHASE1_MT5_CAPABILITY_REPORT_2026-09-14.md`.
+
+Use for read-only terminal/account metadata, XAUUSDm specification, live/historical Bid/Ask, OHLC, account history, and calculation-only margin/profit. Map tick and OHLC coverage separately; do not add order execution to data-acquisition tooling.

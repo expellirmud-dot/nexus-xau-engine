@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T16:57:00+07:00",
+  "updated_at": "2026-09-14T18:01:36+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -77,7 +77,10 @@
       "docs/V01_HOLDOUT_PROGRESSIVE_REVEAL_RUNNER_CONTRACT_FREEZE_2026-09-13.md",
       "docs/V01_HOLDOUT_PROGRESSIVE_REVEAL_RUNNER_IMPLEMENTATION_2026-09-13.md",
       "docs/WO055_MINIMAL_GOVERNANCE_SCHEMA_FREEZE_2026-09-14.md",
-      "docs/WO055_COMPLETION_2026-09-14.md"
+      "docs/WO055_COMPLETION_2026-09-14.md",
+      "docs/PHASE1_PROGRESS_CHECKPOINT_MT5_DATA_ROUTE_2026-09-14.md",
+      "docs/PHASE1_MT5_CAPABILITY_REPORT_2026-09-14.md",
+      "skills/nexus-xau-mt5-data/SKILL.md"
     ]
   },
   "provenance_guard": {
@@ -1239,7 +1242,7 @@
     "prior_probe_ref": "docs/PHASE1_EXECUTION_DATA_ACQUISITION_PROBE_2026-09-14.md",
     "mt5_api": "AUTHORIZED_AND_CONNECTED",
     "live_bid_ask": "CONFIRMED",
-    "historical_bid_ask": "CONFIRMED_AT_LEAST_TO_2026_08_24",
+    "historical_bid_ask": "CONFIRMED_ON_MULTIPLE_DATES_BACK_TO_2026_06_15_CONTINUITY_NOT_ESTABLISHED",
     "ohlc_multitimeframe": "CONFIRMED_M1_M5_H1_H4_D1",
     "account_history": "CONFIRMED",
     "margin_profit_calculation": "CONFIRMED",
@@ -1249,5 +1252,34 @@
     "confirmed_route": "MT5_TERMINAL_HISTORY_ENVIRONMENT_TO_METATRADER5_PYTHON_API",
     "forward_collector": "SPECIFICATION_PENDING_AFTER_COVERAGE_MAP",
     "restart_recovery_rule": "Persist last tick timestamp; on restart request missing interval from MT5 history and record unrecoverable gaps explicitly."
+  },
+  "project_self_audit_2026_09_14": {
+    "status": "RECONCILED",
+    "fixed": [
+      "Tier-0 continuity next_action now reads project-current resume_instruction",
+      "MT5 data skill added and frozen in skill manifest",
+      "Current State load order includes MT5 progress/capability checkpoints and MT5 skill",
+      "AGENTS routes MT5/data work to the MT5 skill",
+      "TOOLS registers the MT5 read-only data route",
+      "PROJECT_BOOTSTRAP routes MT5/data tasks to the MT5 skill",
+      "Readiness and construction matrices reflect current MT5 Bid/Ask evidence while coverage remains open",
+      "Maintenance policy routing now matches Desktop Commander-first with IE Coder fallback",
+      "Core research skill now distinguishes runtime-observable values and provisional source guidance",
+      "Global durable-work registry now has machine-readable use_when triggers"
+    ],
+    "pending": [],
+    "bridge": "HEALTHY_DANGEROUS_MODE_REPO_RW_PLATFORM_SAFETY_CAN_STILL_BLOCK_SOME_MUTATIONS",
+    "historical_preserve": [
+      "PHASE1_EXECUTION_DATA_ACQUISITION_PROBE_2026-09-14.md",
+      "closed RQ/checkpoints"
+    ],
+    "tooling_recommendations": [
+      "MT5 historical tick/OHLC coverage mapper",
+      "MT5 tick exporter with millisecond Bid/Ask and provenance",
+      "restart-safe forward collector with durable checkpoint and gap ledger",
+      "small read-only collector status surface",
+      "Bridge exact-match text patch tool with hash precondition"
+    ],
+    "desktop_commander": "INSTALLED_AND_CONTINUITY_REGISTRY_OK_BUT_DIRECT_TOOL_NAMESPACE_NOT_EXPOSED_IN_THIS_CHAT_IE_CODER_FALLBACK_WORKING"
   }
 }

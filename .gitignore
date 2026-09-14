@@ -28,3 +28,6 @@ youtube/
 Thumbs.db
 .vscode/
 .idea/
+
+# Local agent cache
+.serena/

@@ -58,6 +58,12 @@ Valid reopen triggers:
 
 Do not reopen merely because the prior answer was `UNRESOLVED` or `INCONCLUSIVE`.
 
+## Unknown/source triage
+
+Do not treat a future runtime-observable value as a structural unknown when its acquisition method is known. Classify availability separately from decision impact.
+
+Source statements may remain provisional guidance when not contradicted and not decision-critical. Escalate when ambiguity changes a decision, exact implementation is required, or new evidence challenges the statement.
+
 ## Phase 2 — Freeze the question
 
 Write the exact question before reviewing outcomes or selecting numeric variants.

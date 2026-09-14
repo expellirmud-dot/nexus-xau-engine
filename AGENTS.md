@@ -54,6 +54,7 @@ Then use the zero-context evidence path:
 2. `docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md`
 3. `docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md`
 4. `skills/nexus-xau-research/SKILL.md`
+   - for MT5/data acquisition, history coverage, or collector work, also read `skills/nexus-xau-mt5-data/SKILL.md`;
 5. run `.venv\Scripts\python.exe scripts\research_preflight.py` and require `NEXUS_RESEARCH_PREFLIGHT=PASS`;
 6. read only the Current State / Workstream / Claim / Coverage / Queue pointers that are material to the active question;
 7. load the specific supporting checkpoint/source documents reached through those pointers.

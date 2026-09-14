@@ -2,7 +2,7 @@
 
 Status: USER-DIRECT OPERATING AUTHORIZATION
 Effective: 2026-09-03
-Updated: 2026-09-08
+Updated: 2026-09-14
 
 ## Ownership
 
@@ -25,7 +25,7 @@ The project owner authorizes NEXUS to choose the faster or more suitable executi
 Default operating preference:
 
 ```text
-local workspace through IE Coder / Bridge
+Desktop Commander for ordinary local filesystem/process work when available; IE Coder Connect for control-plane work and filesystem/process fallback
 -> inspect sources / files / media
 -> edit / run / test / analyze locally
 -> create coherent checkpoint
@@ -110,6 +110,6 @@ When a user clarification corrects an earlier STT interpretation, preserve the c
 
 ## Resume rule
 
-On a resumed or zero-context session, start from root `AGENTS.md` and `PROJECT_BOOTSTRAP.md`, read `skills/nexus-xau-research/SKILL.md`, and run `.venv\Scripts\python.exe scripts\research_preflight.py`. Require a PASS before new substantive work. Then read this policy together with `docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md`, `TOOLS.md`, `docs/CURRENT_RESEARCH_STATE.json`, `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json`, `docs/SOURCE_COVERAGE_LEDGER.json`, and `research_queue/QUEUE.json`; read the active worksheet only when `QUEUE.active` is non-null, plus the project-current latest checkpoint.
+On a resumed or zero-context session, start from the compact continuity capsule, then follow root `AGENTS.md` and `PROJECT_BOOTSTRAP.md`; read `skills/nexus-xau-research/SKILL.md` and, for MT5/data work, `skills/nexus-xau-mt5-data/SKILL.md`; then run `.venv\Scripts\python.exe scripts\research_preflight.py`. Require a PASS before new substantive work. Then read this policy together with `docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md`, `TOOLS.md`, `docs/CURRENT_RESEARCH_STATE.json`, `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json`, `docs/SOURCE_COVERAGE_LEDGER.json`, and `research_queue/QUEUE.json`; read the active worksheet only when `QUEUE.active` is non-null, plus the project-current latest checkpoint.
 
 The source coverage ledger is durable memory of what has already been reviewed. A closed or unresolved source window must not be re-researched from zero without a documented reopen trigger. If validated work from the prior session is still uncommitted/unpushed, complete repository maintenance before starting a new unrelated checkpoint when practical.

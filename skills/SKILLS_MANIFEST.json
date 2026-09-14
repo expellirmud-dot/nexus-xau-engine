@@ -1,15 +1,22 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-13T05:50:00+07:00",
+  "updated_at": "2026-09-14T18:01:19+07:00",
   "status": "FROZEN",
-  "policy": "One core project skill only. Skills store procedure; current research knowledge stays in structured project state and evidence records.",
+  "policy": "Small frozen skill set. Skills store stable procedure; current research knowledge stays in structured project state and evidence records.",
   "skills": [
     {
       "id": "nexus-xau-research",
       "path": "skills/nexus-xau-research/SKILL.md",
-      "sha256": "79026c3997742d30941aadf0ae7863da9d8a77f3ee4a2a313fb1fba990cf1ee8",
-      "status": "FROZEN_V1",
+      "sha256": "c6c325967bdd98df8034e009112a108f7a06eac4b17212b2b9c9820e465a0e75",
+      "status": "FROZEN_V2",
       "role": "restart-safe evidence-first research and checkpoint discipline"
+    },
+    {
+      "id": "nexus-xau-mt5-data",
+      "path": "skills/nexus-xau-mt5-data/SKILL.md",
+      "sha256": "e9d52af33f5f41b11f45d03580e29f4b08bd34c21768b54d7a462e66e36c44c4",
+      "status": "FROZEN_V1",
+      "role": "read-only MT5 data acquisition, coverage mapping, restart-safe collection, and data-gap discipline"
     }
   ],
   "routing": {

@@ -1,14 +1,15 @@
 # NEXUS XAU Project Skills
 
-Status: FROZEN CORE SKILL SET
+Status: FROZEN SMALL SKILL SET
 
-The project intentionally keeps the skill set small.
+The project intentionally keeps the skill set small and non-overlapping.
 
-## Active project skill
+## Active project skills
 
 - `nexus-xau-research/SKILL.md`
+- `nexus-xau-mt5-data/SKILL.md`
 
-Role:
+Core research role:
 
 - restart-safe evidence-first research;
 - source review and provenance control;
@@ -16,6 +17,8 @@ Role:
 - canonical-state reconciliation;
 - checkpoint persistence;
 - anti-duplication / anti-backfit discipline.
+
+MT5/data role: read-only terminal/API inspection, historical coverage mapping, restart-safe collection, gap ledgers, and collector observability.
 
 ## Important boundary
 
@@ -34,7 +37,7 @@ Current knowledge belongs in:
 
 This separation prevents the skill and the research record from drifting into two competing versions of truth.
 
-## Why there is only one skill now
+## Why the skill set stays small
 
 The current bottleneck is not lack of instructions.
 

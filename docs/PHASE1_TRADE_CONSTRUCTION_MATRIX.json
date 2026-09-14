@@ -1,6 +1,6 @@
 {
   "schema_version": "PHASE1_TRADE_CONSTRUCTION_MATRIX_V0.1",
-  "updated_at": "2026-09-14T13:52:39+07:00",
+  "updated_at": "2026-09-14T18:01:42+07:00",
   "scope": "Phase 1 H4/PAT2/M5 lane",
   "authority_boundary": "Classifications distinguish source-backed semantics from project engineering conventions. No market outcomes were inspected.",
   "fields": [
@@ -63,14 +63,14 @@
     {
       "field": "bid_ask_execution_data",
       "classification": "BLOCKING_FOR_NET_ECONOMIC_PROOF",
-      "current": "Current main historical bars are Bid OHLC, not complete Bid+Ask execution ticks. Actual order-side prices are therefore not directly observed.",
+      "current": "Historical Bid/Ask ticks are directly observed from MT5 on tested intervals, while continuity/depth is not yet mapped; older multi-year state datasets remain primarily Bid OHLC.",
       "blocking_for_project_replay": false,
       "blocking_for_source_faithful_proof": false
     },
     {
       "field": "spread_slippage_cost",
       "classification": "BLOCKING_FOR_NET_ECONOMIC_PROOF",
-      "current": "One observed spread is not representative. A declared model or historical execution-quality data is required before net expectancy/profitability claims.",
+      "current": "Observed MT5 Bid/Ask ticks now provide empirical spread on tested intervals, but history coverage and broader spread/slippage/transaction-cost treatment remain incomplete for net economic proof.",
       "blocking_for_project_replay": false,
       "blocking_for_source_faithful_proof": false
     },
