@@ -258,3 +258,80 @@ def test_zero_tick_live_observation_does_not_create_gap(tmp_path: Path) -> None:
     finally:
         conn.close()
     assert result["mode"] == READ_ONLY_MODE
+
+
+class _ChangedSourceMT5(_EmptyTickMT5):
+    def account_info(self):
+        return _Obj(
+            company="Different Broker",
+            server="Demo",
+            trade_mode=0,
+            currency="USD",
+            leverage=500,
+        )
+
+
+class _ApiErrorMT5(_EmptyTickMT5):
+    def last_error(self):
+        return (-7, "copy failed")
+
+    def copy_ticks_range(self, symbol, start_dt, end_dt, mode):
+        return None
+
+
+def test_live_source_mismatch_writes_blocked_status(tmp_path: Path) -> None:
+    db = tmp_path / "ticks.sqlite3"
+    status = tmp_path / "status.json"
+    run_live_collector(
+        mt5=_EmptyTickMT5(),
+        symbol="XAUUSDm",
+        db_path=db,
+        status_path=status,
+        explicit_start_msc=1000,
+        duration_seconds=0,
+        poll_seconds=0.01,
+        chunk_seconds=1,
+    )
+
+    with pytest.raises(RuntimeError, match="BLOCKED_SOURCE_IDENTITY_MISMATCH"):
+        run_live_collector(
+            mt5=_ChangedSourceMT5(),
+            symbol="XAUUSDm",
+            db_path=db,
+            status_path=status,
+            explicit_start_msc=None,
+            duration_seconds=0,
+            poll_seconds=0.01,
+            chunk_seconds=1,
+        )
+
+    payload = json.loads(status.read_text(encoding="utf-8"))
+    assert payload["state"] == "BLOCKED"
+    assert "BLOCKED_SOURCE_IDENTITY_MISMATCH" in payload["last_error"]
+
+
+def test_live_api_error_persists_gap_and_error_status(tmp_path: Path) -> None:
+    db = tmp_path / "ticks.sqlite3"
+    status = tmp_path / "status.json"
+
+    with pytest.raises(RuntimeError, match="MT5 copy_ticks_range failed"):
+        run_live_collector(
+            mt5=_ApiErrorMT5(),
+            symbol="XAUUSDm",
+            db_path=db,
+            status_path=status,
+            explicit_start_msc=1000,
+            duration_seconds=0,
+            poll_seconds=0.01,
+            chunk_seconds=1,
+        )
+
+    conn = init_db(db)
+    try:
+        assert gap_counts(conn) == {"API_ERROR": 1}
+    finally:
+        conn.close()
+
+    payload = json.loads(status.read_text(encoding="utf-8"))
+    assert payload["state"] == "ERROR"
+    assert "copy failed" in payload["last_error"]

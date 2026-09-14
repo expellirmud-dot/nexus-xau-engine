@@ -581,7 +581,24 @@ def run_live_collector(
                 runtime_snapshot_id=snapshot_id,
             )
         else:
-            validate_source_identity(state, source_identity)
+            try:
+                validate_source_identity(state, source_identity)
+            except RuntimeError as exc:
+                atomic_write_json(
+                    status_path,
+                    build_status(
+                        state_name="BLOCKED",
+                        symbol=symbol,
+                        source_identity=source_identity,
+                        latest_tick=None,
+                        rows_committed_session=0,
+                        last_committed_time_msc=state.last_committed_time_msc,
+                        last_successful_commit_utc=state.last_successful_commit_utc,
+                        gaps=gap_counts(conn),
+                        last_error=str(exc),
+                    ),
+                )
+                raise
 
         started = time.monotonic()
         first_cycle = True
@@ -637,7 +654,27 @@ def run_live_collector(
                         mt5_error_code=int(code),
                         mt5_error_message=str(message),
                     )
-                    break
+                    atomic_write_json(
+                        status_path,
+                        build_status(
+                            state_name="ERROR",
+                            symbol=symbol,
+                            source_identity=source_identity,
+                            latest_tick=latest_tick,
+                            rows_committed_session=rows_session,
+                            last_committed_time_msc=state.last_committed_time_msc,
+                            last_successful_commit_utc=state.last_successful_commit_utc,
+                            gaps=gap_counts(conn),
+                            current_backfill={
+                                "start_msc": cursor_msc,
+                                "end_msc": chunk_end_msc,
+                            },
+                            last_error=f"{code}: {message}",
+                        ),
+                    )
+                    raise RuntimeError(
+                        f"MT5 copy_ticks_range failed: {code} {message}"
+                    )
 
                 ticks = _rows_from_mt5_payload(payload)
                 if ticks:
