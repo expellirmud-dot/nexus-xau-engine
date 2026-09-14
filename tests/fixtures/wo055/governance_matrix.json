@@ -1,0 +1,628 @@
+{
+  "schema_version": "WO055_RED_FIXTURES_V0.1",
+  "note": "Synthetic governance fixtures only. No market/outcome data.",
+  "known_failure_cases": [
+    {
+      "id": "KF06",
+      "validator": "claims",
+      "expected_reason": "DUPLICATE_CANONICAL_CLAIM_ID",
+      "payload": {
+        "claims": [
+          {
+            "claim_id": "C1",
+            "canonical_statement": "A",
+            "status": "ACTIVE",
+            "engine_permission": "NONE",
+            "source_refs": [
+              "docs/a.md"
+            ],
+            "risk_flags": []
+          },
+          {
+            "claim_id": "C1",
+            "canonical_statement": "B",
+            "status": "ACTIVE",
+            "engine_permission": "NONE",
+            "source_refs": [
+              "docs/b.md"
+            ],
+            "risk_flags": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "KF07",
+      "validator": "claims",
+      "expected_reason": "CLAIM_AUTHORITY_OR_SOURCE_REF_MISSING",
+      "payload": {
+        "claims": [
+          {
+            "claim_id": "C1",
+            "canonical_statement": "A",
+            "status": "ACTIVE",
+            "engine_permission": "NONE",
+            "source_refs": [],
+            "risk_flags": [],
+            "governance": {
+              "schema_version": "WO055_CLAIM_GOVERNANCE_V0.1",
+              "authority_mode": "EXCLUSIVE",
+              "current_authority_refs": [],
+              "composite_compatibility_statement": null,
+              "validations": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KF08",
+      "validator": "claims",
+      "expected_reason": "ACTIVE_CLAIM_MARKED_SUPERSEDED",
+      "payload": {
+        "claims": [
+          {
+            "claim_id": "C1",
+            "canonical_statement": "A",
+            "status": "ACTIVE_SOURCE_BACKED",
+            "engine_permission": "NONE",
+            "source_refs": [
+              "docs/a.md"
+            ],
+            "risk_flags": [],
+            "superseded_by": "C2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "KF09",
+      "validator": "claims",
+      "expected_reason": "CLAIM_SUPERSESSION_CYCLE",
+      "payload": {
+        "claims": [
+          {
+            "claim_id": "C1",
+            "canonical_statement": "A",
+            "status": "SUPERSEDED",
+            "engine_permission": "NONE",
+            "source_refs": [
+              "docs/a.md"
+            ],
+            "risk_flags": [],
+            "superseded_by": "C2"
+          },
+          {
+            "claim_id": "C2",
+            "canonical_statement": "B",
+            "status": "SUPERSEDED",
+            "engine_permission": "NONE",
+            "source_refs": [
+              "docs/b.md"
+            ],
+            "risk_flags": [],
+            "superseded_by": "C1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "KF10",
+      "validator": "claims",
+      "expected_reason": "EXCLUSIVE_AUTHORITY_CARDINALITY_VIOLATION",
+      "payload": {
+        "claims": [
+          {
+            "claim_id": "C1",
+            "canonical_statement": "A",
+            "status": "ACTIVE",
+            "engine_permission": "NONE",
+            "source_refs": [
+              "docs/a.md",
+              "docs/b.md"
+            ],
+            "risk_flags": [],
+            "governance": {
+              "schema_version": "WO055_CLAIM_GOVERNANCE_V0.1",
+              "authority_mode": "EXCLUSIVE",
+              "current_authority_refs": [
+                "docs/a.md",
+                "docs/b.md"
+              ],
+              "composite_compatibility_statement": null,
+              "validations": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KF12",
+      "validator": "admission",
+      "expected_reason": "RQ_ADMISSION_NEWNESS_MISSING",
+      "payload": {
+        "schema_version": "WO055_RQ_ADMISSION_V0.1",
+        "rq_id": "RQ-900",
+        "rq_type": "RESEARCH",
+        "newness_statement": "",
+        "question": "Q?",
+        "boundary": {
+          "in_scope": [
+            "x"
+          ],
+          "out_of_scope": [
+            "y"
+          ]
+        },
+        "expected_evidence": [
+          "fixture"
+        ],
+        "falsification_condition": "F",
+        "decision_consequence": {
+          "positive": "P",
+          "negative": "N",
+          "unresolved": "U"
+        },
+        "dependencies": [],
+        "stop_condition": "S",
+        "outcome_bearing": false,
+        "holdout_or_leakage_guard": null
+      }
+    },
+    {
+      "id": "KF13",
+      "validator": "admission",
+      "expected_reason": "RQ_ADMISSION_BOUNDARY_MISSING",
+      "payload": {
+        "schema_version": "WO055_RQ_ADMISSION_V0.1",
+        "rq_id": "RQ-901",
+        "rq_type": "RESEARCH",
+        "newness_statement": "N",
+        "question": "Q?",
+        "boundary": {
+          "in_scope": [
+            "x"
+          ],
+          "out_of_scope": []
+        },
+        "expected_evidence": [
+          "fixture"
+        ],
+        "falsification_condition": "F",
+        "decision_consequence": {
+          "positive": "P",
+          "negative": "N",
+          "unresolved": "U"
+        },
+        "dependencies": [],
+        "stop_condition": "S",
+        "outcome_bearing": false,
+        "holdout_or_leakage_guard": null
+      }
+    },
+    {
+      "id": "KF14",
+      "validator": "admission",
+      "expected_reason": "RQ_ADMISSION_FALSIFICATION_MISSING",
+      "payload": {
+        "schema_version": "WO055_RQ_ADMISSION_V0.1",
+        "rq_id": "RQ-902",
+        "rq_type": "RESEARCH",
+        "newness_statement": "N",
+        "question": "Q?",
+        "boundary": {
+          "in_scope": [
+            "x"
+          ],
+          "out_of_scope": [
+            "y"
+          ]
+        },
+        "expected_evidence": [
+          "fixture"
+        ],
+        "falsification_condition": "",
+        "decision_consequence": {
+          "positive": "P",
+          "negative": "N",
+          "unresolved": "U"
+        },
+        "dependencies": [],
+        "stop_condition": "S",
+        "outcome_bearing": false,
+        "holdout_or_leakage_guard": null
+      }
+    },
+    {
+      "id": "KF15",
+      "validator": "admission",
+      "expected_reason": "RQ_ADMISSION_DECISION_CONSEQUENCE_MISSING",
+      "payload": {
+        "schema_version": "WO055_RQ_ADMISSION_V0.1",
+        "rq_id": "RQ-903",
+        "rq_type": "RESEARCH",
+        "newness_statement": "N",
+        "question": "Q?",
+        "boundary": {
+          "in_scope": [
+            "x"
+          ],
+          "out_of_scope": [
+            "y"
+          ]
+        },
+        "expected_evidence": [
+          "fixture"
+        ],
+        "falsification_condition": "F",
+        "decision_consequence": {
+          "positive": "P",
+          "negative": "",
+          "unresolved": "U"
+        },
+        "dependencies": [],
+        "stop_condition": "S",
+        "outcome_bearing": false,
+        "holdout_or_leakage_guard": null
+      }
+    },
+    {
+      "id": "KF16",
+      "validator": "admission",
+      "expected_reason": "RQ_ADMISSION_HOLDOUT_GUARD_MISSING",
+      "payload": {
+        "schema_version": "WO055_RQ_ADMISSION_V0.1",
+        "rq_id": "RQ-904",
+        "rq_type": "RESEARCH",
+        "newness_statement": "N",
+        "question": "Q?",
+        "boundary": {
+          "in_scope": [
+            "x"
+          ],
+          "out_of_scope": [
+            "y"
+          ]
+        },
+        "expected_evidence": [
+          "fixture"
+        ],
+        "falsification_condition": "F",
+        "decision_consequence": {
+          "positive": "P",
+          "negative": "N",
+          "unresolved": "U"
+        },
+        "dependencies": [],
+        "stop_condition": "S",
+        "outcome_bearing": true,
+        "holdout_or_leakage_guard": null
+      }
+    },
+    {
+      "id": "KF17",
+      "validator": "claims",
+      "expected_reason": "VALIDATION_DIMENSION_COLLAPSED",
+      "payload": {
+        "claims": [
+          {
+            "claim_id": "C1",
+            "canonical_statement": "A",
+            "status": "ACTIVE",
+            "engine_permission": "NONE",
+            "source_refs": [
+              "docs/a.md"
+            ],
+            "risk_flags": [],
+            "governance": {
+              "schema_version": "WO055_CLAIM_GOVERNANCE_V0.1",
+              "authority_mode": "EXCLUSIVE",
+              "current_authority_refs": [
+                "docs/a.md"
+              ],
+              "composite_compatibility_statement": null,
+              "validations": [
+                {
+                  "dimension": "GENERIC",
+                  "outcome": "PASS",
+                  "evidence_refs": [
+                    "docs/a.md"
+                  ],
+                  "governance_role": "PROMOTION_ELIGIBLE"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KF18",
+      "validator": "claims",
+      "expected_reason": "HISTORICAL_EVIDENCE_USED_AS_CURRENT_AUTHORITY",
+      "payload": {
+        "claims": [
+          {
+            "claim_id": "C1",
+            "canonical_statement": "A",
+            "status": "ACTIVE",
+            "engine_permission": "NONE",
+            "source_refs": [
+              "docs/history.md"
+            ],
+            "risk_flags": [],
+            "governance": {
+              "schema_version": "WO055_CLAIM_GOVERNANCE_V0.1",
+              "authority_mode": "EXCLUSIVE",
+              "current_authority_refs": [
+                "docs/history.md"
+              ],
+              "composite_compatibility_statement": null,
+              "validations": [
+                {
+                  "dimension": "SOURCE_VALIDATION",
+                  "outcome": "UNKNOWN",
+                  "evidence_refs": [],
+                  "governance_role": "NO_PROMOTION_AUTHORITY"
+                },
+                {
+                  "dimension": "REPRESENTATION_VALIDATION",
+                  "outcome": "UNKNOWN",
+                  "evidence_refs": [],
+                  "governance_role": "NO_PROMOTION_AUTHORITY"
+                },
+                {
+                  "dimension": "IMPLEMENTATION_VALIDATION",
+                  "outcome": "UNKNOWN",
+                  "evidence_refs": [],
+                  "governance_role": "NO_PROMOTION_AUTHORITY"
+                },
+                {
+                  "dimension": "HISTORICAL_EVIDENCE",
+                  "outcome": "PASS",
+                  "evidence_refs": [
+                    "docs/history.md"
+                  ],
+                  "governance_role": "CONTEXT_ONLY"
+                },
+                {
+                  "dimension": "REPLICATION",
+                  "outcome": "UNKNOWN",
+                  "evidence_refs": [],
+                  "governance_role": "NO_PROMOTION_AUTHORITY"
+                },
+                {
+                  "dimension": "CONTROL",
+                  "outcome": "UNKNOWN",
+                  "evidence_refs": [],
+                  "governance_role": "NO_PROMOTION_AUTHORITY"
+                },
+                {
+                  "dimension": "HOLDOUT",
+                  "outcome": "NOT_APPLICABLE",
+                  "evidence_refs": [],
+                  "governance_role": "NO_PROMOTION_AUTHORITY"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KF19",
+      "validator": "claims",
+      "expected_reason": "HOLDOUT_EVIDENCE_USED_FOR_DESIGN_TUNING",
+      "payload": {
+        "claims": [
+          {
+            "claim_id": "C1",
+            "canonical_statement": "A",
+            "status": "ACTIVE",
+            "engine_permission": "DESIGN_TUNING",
+            "source_refs": [
+              "docs/holdout.md"
+            ],
+            "risk_flags": [],
+            "governance": {
+              "schema_version": "WO055_CLAIM_GOVERNANCE_V0.1",
+              "authority_mode": "EXCLUSIVE",
+              "current_authority_refs": [
+                "docs/holdout.md"
+              ],
+              "composite_compatibility_statement": null,
+              "validations": [
+                {
+                  "dimension": "SOURCE_VALIDATION",
+                  "outcome": "UNKNOWN",
+                  "evidence_refs": [],
+                  "governance_role": "NO_PROMOTION_AUTHORITY"
+                },
+                {
+                  "dimension": "REPRESENTATION_VALIDATION",
+                  "outcome": "UNKNOWN",
+                  "evidence_refs": [],
+                  "governance_role": "NO_PROMOTION_AUTHORITY"
+                },
+                {
+                  "dimension": "IMPLEMENTATION_VALIDATION",
+                  "outcome": "UNKNOWN",
+                  "evidence_refs": [],
+                  "governance_role": "NO_PROMOTION_AUTHORITY"
+                },
+                {
+                  "dimension": "HISTORICAL_EVIDENCE",
+                  "outcome": "NOT_APPLICABLE",
+                  "evidence_refs": [],
+                  "governance_role": "NO_PROMOTION_AUTHORITY"
+                },
+                {
+                  "dimension": "REPLICATION",
+                  "outcome": "UNKNOWN",
+                  "evidence_refs": [],
+                  "governance_role": "NO_PROMOTION_AUTHORITY"
+                },
+                {
+                  "dimension": "CONTROL",
+                  "outcome": "UNKNOWN",
+                  "evidence_refs": [],
+                  "governance_role": "NO_PROMOTION_AUTHORITY"
+                },
+                {
+                  "dimension": "HOLDOUT",
+                  "outcome": "PASS",
+                  "evidence_refs": [
+                    "docs/holdout.md"
+                  ],
+                  "governance_role": "PROMOTION_ELIGIBLE"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KF20",
+      "validator": "report",
+      "expected_reason": "GENERATED_AUTHORITY_VIEW_MISMATCH",
+      "payload": {
+        "canonical": {
+          "claims": [
+            {
+              "claim_id": "C1",
+              "canonical_statement": "A",
+              "status": "ACTIVE",
+              "engine_permission": "NONE",
+              "source_refs": [
+                "docs/a.md"
+              ],
+              "risk_flags": []
+            }
+          ]
+        },
+        "generated": {
+          "schema_version": "WO055_AUTHORITY_REPORT_V0.1",
+          "claims": [
+            {
+              "claim_id": "C1",
+              "canonical_statement_sha256": "deadbeef"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "valid_cases": [
+    {
+      "id": "VC11",
+      "validator": "claims",
+      "expected_status": "PASS",
+      "payload": {
+        "claims": [
+          {
+            "claim_id": "C1",
+            "canonical_statement": "A",
+            "status": "ACTIVE",
+            "engine_permission": "NONE",
+            "source_refs": [
+              "docs/a.md",
+              "docs/b.md"
+            ],
+            "risk_flags": [],
+            "governance": {
+              "schema_version": "WO055_CLAIM_GOVERNANCE_V0.1",
+              "authority_mode": "COMPOSITE",
+              "current_authority_refs": [
+                "docs/a.md",
+                "docs/b.md"
+              ],
+              "composite_compatibility_statement": "Both authorities explicitly define compatible non-conflicting parts of the current claim.",
+              "validations": [
+                {
+                  "dimension": "SOURCE_VALIDATION",
+                  "outcome": "PASS",
+                  "evidence_refs": [
+                    "docs/a.md",
+                    "docs/b.md"
+                  ],
+                  "governance_role": "PROMOTION_ELIGIBLE"
+                },
+                {
+                  "dimension": "REPRESENTATION_VALIDATION",
+                  "outcome": "UNKNOWN",
+                  "evidence_refs": [],
+                  "governance_role": "NO_PROMOTION_AUTHORITY"
+                },
+                {
+                  "dimension": "IMPLEMENTATION_VALIDATION",
+                  "outcome": "UNKNOWN",
+                  "evidence_refs": [],
+                  "governance_role": "NO_PROMOTION_AUTHORITY"
+                },
+                {
+                  "dimension": "HISTORICAL_EVIDENCE",
+                  "outcome": "NOT_APPLICABLE",
+                  "evidence_refs": [],
+                  "governance_role": "NO_PROMOTION_AUTHORITY"
+                },
+                {
+                  "dimension": "REPLICATION",
+                  "outcome": "UNKNOWN",
+                  "evidence_refs": [],
+                  "governance_role": "NO_PROMOTION_AUTHORITY"
+                },
+                {
+                  "dimension": "CONTROL",
+                  "outcome": "UNKNOWN",
+                  "evidence_refs": [],
+                  "governance_role": "NO_PROMOTION_AUTHORITY"
+                },
+                {
+                  "dimension": "HOLDOUT",
+                  "outcome": "NOT_APPLICABLE",
+                  "evidence_refs": [],
+                  "governance_role": "NO_PROMOTION_AUTHORITY"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "VC_ADMISSION",
+      "validator": "admission",
+      "expected_status": "ADMISSIBLE",
+      "payload": {
+        "schema_version": "WO055_RQ_ADMISSION_V0.1",
+        "rq_id": "RQ-999",
+        "rq_type": "RESEARCH_FALSIFICATION",
+        "newness_statement": "Tests a genuinely new bounded relationship.",
+        "question": "Does X retain association after Y control?",
+        "boundary": {
+          "in_scope": [
+            "X vs Y"
+          ],
+          "out_of_scope": [
+            "profitability",
+            "rule tuning"
+          ]
+        },
+        "expected_evidence": [
+          "synthetic governance fixture"
+        ],
+        "falsification_condition": "Association disappears or reverses under the frozen control.",
+        "decision_consequence": {
+          "positive": "Permit a later preregistered follow-up only.",
+          "negative": "Close the hypothesis without promotion.",
+          "unresolved": "Retain UNKNOWN and do not promote."
+        },
+        "dependencies": [],
+        "stop_condition": "Run the frozen bounded fixture once.",
+        "outcome_bearing": false,
+        "holdout_or_leakage_guard": null
+      }
+    }
+  ]
+}
