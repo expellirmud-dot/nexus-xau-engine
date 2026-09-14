@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-15T02:23:30+07:00",
+  "updated_at": "2026-09-15T02:37:48+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_YEAR_2020_VALIDATION_2026-09-15.md"
+    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_YEAR_2021_VALIDATION_2026-09-15.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -96,7 +96,8 @@
       "docs/PHASE1_EXNESS_YEAR_2017_VALIDATION_2026-09-15.md",
       "docs/PHASE1_EXNESS_YEAR_2018_VALIDATION_2026-09-15.md",
       "docs/PHASE1_EXNESS_YEAR_2019_VALIDATION_2026-09-15.md",
-      "docs/PHASE1_EXNESS_YEAR_2020_VALIDATION_2026-09-15.md"
+      "docs/PHASE1_EXNESS_YEAR_2020_VALIDATION_2026-09-15.md",
+      "docs/PHASE1_EXNESS_YEAR_2021_VALIDATION_2026-09-15.md"
     ]
   },
   "provenance_guard": {
@@ -171,7 +172,7 @@
     "exness_mt5_overlap": "DESCRIPTIVELY_CONSISTENT_EXACT_FEED_EQUIVALENCE_NOT_CLAIMED"
   },
   "next_steps": [
-    "2020 annual archive batch is reconciled; run XAU-EXNESS-YEAR-2021-V02-20260915 next while preserving the unresolved 2016 March/April boundary gap candidate.",
+    "2021 annual archive batch is reconciled; run XAU-EXNESS-YEAR-2022-V02-20260915 next while preserving the unresolved 2016 March/April boundary gap candidate.",
     "For each year, acquire only coverage-map months with status AVAILABLE using validator V0.2 and append-only manifest records; validate/reconcile the completed year before submitting the next year.",
     "After each annual job, reconcile month-level validation/anomaly coverage and keep archive identity separate from the current Exness Demo MT5 route; 2026-08 overlap is descriptively consistent but not exact feed equivalence.",
     "Freeze the pre-outcome Phase 1 replay engineering contract including fill, stop, spread/cost and residual-slippage treatment before downstream outcome scoring.",
