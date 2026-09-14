@@ -5,8 +5,11 @@ from pathlib import Path
 import pytest
 
 from nexus_xau.governance.research_governance import (
+    AUTHORITY_REPORT_SCHEMA_VERSION,
     GOVERNANCE_SCHEMA_VERSION,
     RQ_ADMISSION_GOVERNANCE_SCHEMA_VERSION,
+    authority_report_bytes,
+    build_authority_report,
     build_legacy_claim_fingerprints,
     validate_claim_store,
     validate_fixture,
@@ -24,7 +27,7 @@ def _matrix() -> dict:
 
 @pytest.mark.parametrize(
     "case",
-    [case for case in _matrix()["known_failure_cases"] if case["validator"] != "report"],
+    _matrix()["known_failure_cases"],
     ids=lambda case: case["id"],
 )
 def test_frozen_governance_failure_reason_codes(case: dict) -> None:
@@ -158,3 +161,47 @@ def test_queue_admission_enforcement_accepts_valid_active_admission() -> None:
     }
     result = validate_queue_governance(queue)
     assert result == {"status": "PASS", "migrated": True, "active_rq": active_id}
+
+
+def test_current_authority_report_is_deterministic_sorted_and_legacy_unclassified() -> None:
+    store_path = ROOT / "docs" / "CANONICAL_CLAIM_REGISTER_2026-09-03.json"
+    store = json.loads(store_path.read_text(encoding="utf-8"))
+
+    first = build_authority_report(store)
+    second = build_authority_report(deepcopy(store))
+
+    assert first == second
+    assert first["schema_version"] == AUTHORITY_REPORT_SCHEMA_VERSION
+    assert first["status"] == "PASS"
+    assert first["claim_count"] == 45
+
+    claim_ids = [row["claim_id"] for row in first["claims"]]
+    assert claim_ids == sorted(claim_ids)
+    assert all(row["authority_mode"] == "LEGACY_UNCLASSIFIED" for row in first["claims"])
+    assert all(row["current_authority_refs"] == [] for row in first["claims"])
+    assert all(row["conflict_status"] == "LEGACY_UNCLASSIFIED" for row in first["claims"])
+
+
+def test_authority_report_delete_regenerate_is_byte_identical_and_source_unchanged(
+    tmp_path: Path,
+) -> None:
+    store_path = ROOT / "docs" / "CANONICAL_CLAIM_REGISTER_2026-09-03.json"
+    source_before = store_path.read_bytes()
+    store = json.loads(source_before.decode("utf-8"))
+
+    first = authority_report_bytes(store)
+    output = tmp_path / "research_authority.json"
+    output.write_bytes(first)
+    first_on_disk = output.read_bytes()
+
+    output.unlink()
+    assert not output.exists()
+
+    second = authority_report_bytes(
+        json.loads(store_path.read_text(encoding="utf-8"))
+    )
+    output.write_bytes(second)
+
+    assert first_on_disk == output.read_bytes()
+    assert first == second
+    assert store_path.read_bytes() == source_before

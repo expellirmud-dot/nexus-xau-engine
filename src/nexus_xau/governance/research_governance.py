@@ -10,6 +10,7 @@ GOVERNANCE_SCHEMA_VERSION = "WO055_RESEARCH_GOVERNANCE_V0.1"
 RQ_ADMISSION_SCHEMA_VERSION = "WO055_RQ_ADMISSION_V0.1"
 CLAIM_GOVERNANCE_SCHEMA_VERSION = "WO055_CLAIM_GOVERNANCE_V0.1"
 RQ_ADMISSION_GOVERNANCE_SCHEMA_VERSION = "WO055_RQ_ADMISSION_GOVERNANCE_V0.1"
+AUTHORITY_REPORT_SCHEMA_VERSION = "WO055_AUTHORITY_REPORT_V0.1"
 
 REQUIRED_VALIDATION_DIMENSIONS = {
     "SOURCE_VALIDATION",
@@ -521,6 +522,134 @@ def validate_queue_governance(queue: Mapping[str, Any]) -> dict[str, Any]:
     return _pass(migrated=True, active_rq=active_id)
 
 
+def _statement_summary(statement: str, *, limit: int = 240) -> str:
+    normalized = " ".join(statement.split())
+    if len(normalized) <= limit:
+        return normalized
+    return normalized[: limit - 3].rstrip() + "..."
+
+
+def build_authority_report(store: Mapping[str, Any]) -> dict[str, Any]:
+    validation = validate_claim_store(store)
+    if validation.get("status") != "PASS":
+        return {
+            "schema_version": AUTHORITY_REPORT_SCHEMA_VERSION,
+            "status": "BLOCKED",
+            "source_updated_at": store.get("updated_at"),
+            "source_governance_schema": (
+                store.get("governance", {}).get("schema_version")
+                if isinstance(store.get("governance"), Mapping)
+                else None
+            ),
+            "claims": [],
+            "blocking_reason": validation.get("reason"),
+        }
+
+    claims = store.get("claims", [])
+    rows: list[dict[str, Any]] = []
+    for claim in sorted(claims, key=lambda item: str(item.get("claim_id", ""))):
+        statement = str(claim.get("canonical_statement", ""))
+        governance = claim.get("governance")
+        if isinstance(governance, Mapping):
+            authority_mode = str(governance.get("authority_mode", "")).upper()
+            current_authority_refs = sorted(
+                str(ref) for ref in governance.get("current_authority_refs", [])
+            )
+            validations = governance.get("validations", [])
+            validation_summary = {
+                str(record["dimension"]): {
+                    "outcome": record.get("outcome"),
+                    "governance_role": record.get("governance_role"),
+                    "evidence_refs": sorted(
+                        str(ref) for ref in record.get("evidence_refs", [])
+                    ),
+                }
+                for record in sorted(
+                    validations,
+                    key=lambda item: str(item.get("dimension", "")),
+                )
+                if isinstance(record, Mapping) and "dimension" in record
+            }
+            conflict_status = "NONE"
+        else:
+            authority_mode = "LEGACY_UNCLASSIFIED"
+            current_authority_refs = []
+            validation_summary = {}
+            conflict_status = "LEGACY_UNCLASSIFIED"
+
+        supersedes = claim.get("supersedes", [])
+        if not isinstance(supersedes, list):
+            supersedes = []
+        supersession_state = {
+            "supersedes": sorted(str(value) for value in supersedes),
+            "superseded_by": (
+                str(claim["superseded_by"])
+                if _nonempty_text(claim.get("superseded_by"))
+                else None
+            ),
+            "superseded": bool(claim.get("superseded", False)),
+        }
+
+        rows.append(
+            {
+                "claim_id": str(claim.get("claim_id", "")),
+                "canonical_statement_sha256": hashlib.sha256(
+                    statement.encode("utf-8")
+                ).hexdigest(),
+                "canonical_statement_summary": _statement_summary(statement),
+                "lifecycle_status": claim.get("status"),
+                "authority_mode": authority_mode,
+                "current_authority_refs": current_authority_refs,
+                "engine_permission": claim.get("engine_permission"),
+                "validation_summary": validation_summary,
+                "source_refs": sorted(
+                    str(ref) for ref in claim.get("source_refs", [])
+                ),
+                "risk_flags": sorted(
+                    str(flag) for flag in claim.get("risk_flags", [])
+                ),
+                "supersession_state": supersession_state,
+                "conflict_status": conflict_status,
+            }
+        )
+
+    top_governance = store.get("governance")
+    source_governance_schema = (
+        top_governance.get("schema_version")
+        if isinstance(top_governance, Mapping)
+        else None
+    )
+    return {
+        "schema_version": AUTHORITY_REPORT_SCHEMA_VERSION,
+        "status": "PASS",
+        "source_updated_at": store.get("updated_at"),
+        "source_governance_schema": source_governance_schema,
+        "claim_count": len(rows),
+        "claims": rows,
+    }
+
+
+def authority_report_bytes(store: Mapping[str, Any]) -> bytes:
+    return _canonical_json_bytes(build_authority_report(store)) + b"\n"
+
+
+def validate_generated_authority_report(
+    canonical_store: Mapping[str, Any],
+    generated_report: Mapping[str, Any],
+) -> dict[str, Any]:
+    expected = build_authority_report(canonical_store)
+    if expected.get("status") != "PASS":
+        return _fail(
+            str(expected.get("blocking_reason") or "GENERATED_AUTHORITY_VIEW_BLOCKED")
+        )
+    if _canonical_json_bytes(expected) != _canonical_json_bytes(generated_report):
+        return _fail("GENERATED_AUTHORITY_VIEW_MISMATCH")
+    return _pass(
+        report_schema=AUTHORITY_REPORT_SCHEMA_VERSION,
+        claim_count=expected.get("claim_count"),
+    )
+
+
 def validate_fixture(kind: str, payload: Mapping[str, Any]) -> dict[str, Any]:
     normalized = str(kind).strip().lower()
     if normalized == "claims":
@@ -528,5 +657,9 @@ def validate_fixture(kind: str, payload: Mapping[str, Any]) -> dict[str, Any]:
     if normalized == "admission":
         return validate_rq_admission(payload)
     if normalized == "report":
-        return _fail("WO055_REPORT_VALIDATOR_NOT_IMPLEMENTED")
+        canonical = payload.get("canonical")
+        generated = payload.get("generated")
+        if not isinstance(canonical, Mapping) or not isinstance(generated, Mapping):
+            return _fail("GENERATED_AUTHORITY_VIEW_MISMATCH")
+        return validate_generated_authority_report(canonical, generated)
     return _fail("WO055_FIXTURE_VALIDATOR_UNKNOWN", validator=kind)

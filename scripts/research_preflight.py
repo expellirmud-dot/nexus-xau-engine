@@ -10,6 +10,7 @@ from typing import Any
 
 from nexus_xau.governance.research_governance import (
     validate_claim_store,
+    validate_generated_authority_report,
     validate_queue_governance,
 )
 
@@ -467,6 +468,19 @@ def build_manifest() -> dict[str, Any]:
     if queue_governance.get("status") != "PASS":
         return queue_governance
 
+    authority_report_path = ROOT / "results/governance/research_authority.json"
+    if authority_report_path.exists():
+        generated_authority = load_json(authority_report_path)
+        authority_report_validation = validate_generated_authority_report(
+            canonical,
+            generated_authority,
+        )
+        if authority_report_validation.get("status") != "PASS":
+            return authority_report_validation
+        authority_report_status = "PASS"
+    else:
+        authority_report_status = "NOT_GENERATED_DERIVED_VIEW_OPTIONAL"
+
     consistency = validate_state_consistency(
         state=state,
         queue=queue,
@@ -567,6 +581,7 @@ def build_manifest() -> dict[str, Any]:
         "state_reconciliation": (state.get("state_authority") or {}).get("latest_state_reconciliation"),
         "queue_state": queue.get("queue_state"),
         "queue_governance": queue_governance.get("status"),
+        "authority_report_status": authority_report_status,
         "last_closed_id": (state.get("operational_research_queue") or {}).get("last_closed_id"),
         "active_workstream": {
             "id": workstream.get("workstream"),
@@ -633,6 +648,7 @@ def print_text(manifest: dict[str, Any]) -> None:
     print(f"state_reconciliation={manifest.get('state_reconciliation')}")
     print(f"queue_state={manifest.get('queue_state')}")
     print(f"queue_governance={manifest.get('queue_governance')}")
+    print(f"authority_report_status={manifest.get('authority_report_status')}")
     print(f"last_closed_id={manifest.get('last_closed_id')}")
     print(
         "active_workstream="
