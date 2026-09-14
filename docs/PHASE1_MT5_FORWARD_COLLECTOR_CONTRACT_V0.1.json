@@ -1,0 +1,84 @@
+{
+  "schema_version": "PHASE1_MT5_FORWARD_COLLECTOR_CONTRACT_V0.1",
+  "status": "FROZEN_PRE_IMPLEMENTATION",
+  "scope": "Phase 1 / เฟสหนึ่ง",
+  "symbol": "XAUUSDm",
+  "mode": "READ_ONLY_DATA_ORDER_SEND_DISABLED",
+  "source_route": "MT5_TERMINAL_TO_METATRADER5_PYTHON_API",
+  "evidence_ref": "docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md",
+  "requirement": {
+    "state_research": "NON_BLOCKING",
+    "broker_specific_execution_evidence": "REQUIRED_LATER",
+    "reason": "Current MT5 tick history starts at 2026-03-12T00:00:00.255Z and is shorter than the multi-year research horizon."
+  },
+  "storage_scope": {
+    "mode": "ALL_OBSERVED_OR_RECOVERABLE_TICKS_WHILE_COLLECTOR_OPERATES",
+    "narrow_clock_window_frozen": false,
+    "reason": "Exact pre/post collection window is not source-established; wider storage does not expand Phase 1 decision scope."
+  },
+  "sqlite_path": "data/raw/mt5/XAUUSDm_ticks.sqlite3",
+  "status_path": "results/mt5_collector/status.json",
+  "journal_mode": "WAL",
+  "synchronous": "FULL",
+  "raw_tick_fields": [
+    "time",
+    "time_msc",
+    "bid",
+    "ask",
+    "last",
+    "volume",
+    "flags",
+    "volume_real"
+  ],
+  "global_unique_tick_constraint": false,
+  "checkpoint": {
+    "authority": "SQLITE_TRANSACTIONAL_STATE",
+    "fields": [
+      "schema_version",
+      "symbol",
+      "source_identity",
+      "last_committed_time_msc",
+      "last_boundary_multiset",
+      "last_successful_commit_utc",
+      "runtime_snapshot_ref"
+    ],
+    "inclusive_restart_boundary": true,
+    "multiplicity_aware_boundary_dedupe": true
+  },
+  "provenance": {
+    "persist_non_secret_runtime_snapshot": true,
+    "account_login_required": false,
+    "secrets_forbidden": true
+  },
+  "gap_statuses": [
+    "RECOVERED",
+    "PENDING_SESSION_CONTEXT",
+    "UNRECOVERABLE_CURRENT_ROUTE",
+    "API_ERROR"
+  ],
+  "prohibited": [
+    "order_send",
+    "position_mutation",
+    "pending_order_mutation",
+    "holdout_scoring",
+    "trading_decision_generation"
+  ],
+  "unresolved_implementation_parameters": [
+    "poll_interval",
+    "backfill_chunk_size"
+  ],
+  "validation_required": [
+    "schema_creation",
+    "preserve_repeated_identical_rows",
+    "atomic_tick_state_transaction",
+    "restart_shared_millisecond_boundary",
+    "multiplicity_aware_boundary_dedupe",
+    "chronology",
+    "timezone",
+    "empty_and_api_error",
+    "source_identity_mismatch",
+    "gap_ledger",
+    "atomic_status_write",
+    "no_order_send_behavior"
+  ]
+}
