@@ -149,8 +149,11 @@ class CollectorCorner:
         self._refresh()
 
     def _position_bottom_right(self) -> None:
-        width = 340
-        height = 190
+        # Size from the actual requested widget layout so status text cannot
+        # clip the Details / Close button row on Windows DPI/font variants.
+        self.root.update_idletasks()
+        width = max(340, self.root.winfo_reqwidth())
+        height = max(210, self.root.winfo_reqheight())
         screen_w = self.root.winfo_screenwidth()
         screen_h = self.root.winfo_screenheight()
         x = max(0, screen_w - width - 18)
