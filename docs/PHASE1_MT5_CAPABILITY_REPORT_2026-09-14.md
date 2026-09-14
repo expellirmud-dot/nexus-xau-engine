@@ -177,6 +177,34 @@ Observed:
 Interpretation:
 Do not assume Depth of Market is available for this symbol/account from the Python API.
 
+
+### 2026-09-14 — Additional history-depth survey
+
+Historical Bid/Ask tick probes:
+
+- 2026-07-01 00:00 UTC, one-minute window: 237 ticks
+- 2026-06-30 00:00 UTC, one-minute window: 460 ticks
+- 2026-06-15 00:00 UTC, one-minute window: 318 ticks
+- 2026-06-01 00:00 UTC, one-minute window: 0 ticks
+- 2026-06-01 12:00 UTC, one-minute window: 0 ticks
+
+Historical M1 bar probes:
+
+- 2026-04-01 12:00 UTC: data returned
+- 2025-09-15 12:00 UTC: data returned
+
+Interpretation:
+
+- MT5 historical OHLC depth is not the same thing as historical Bid/Ask tick depth.
+- Tick history is confirmed for multiple dates from at least mid-June 2026 onward, but a June 1 probe returned no ticks.
+- Older M1 bars can still be returned even when older execution ticks are unavailable or incomplete.
+- Do not infer continuous tick coverage from a successful probe on one date.
+- A proper coverage map must test date windows systematically and record missing intervals.
+
+Phase 1 impact:
+
+State/path reconstruction may have longer usable OHLC history than realistic execution-cost reconstruction from broker ticks.
+
 ## Phase 1 Impact
 
 Confirmed useful MT5 inputs now include:
@@ -190,8 +218,10 @@ Confirmed useful MT5 inputs now include:
 7. account order/deal history
 8. account-specific margin/profit calculations
 
-Primary unresolved data question:
+Primary unresolved data questions:
 
-- how far historical Bid/Ask ticks and bars remain available with acceptable completeness
+- what historical Bid/Ask tick intervals are actually present or missing
+- how far OHLC bars remain available with acceptable completeness
+- whether tick gaps require an external execution-data source or a residual model
 
 This history-depth question should be mapped before deciding whether an external execution-data source or synthetic residual model is still necessary.
