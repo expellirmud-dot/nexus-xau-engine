@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T18:01:36+07:00",
+  "updated_at": "2026-09-14T18:19:11+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_PROGRESS_CHECKPOINT_MT5_DATA_ROUTE_2026-09-14.md"
+    "latest_progress_checkpoint": "docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -80,7 +80,8 @@
       "docs/WO055_COMPLETION_2026-09-14.md",
       "docs/PHASE1_PROGRESS_CHECKPOINT_MT5_DATA_ROUTE_2026-09-14.md",
       "docs/PHASE1_MT5_CAPABILITY_REPORT_2026-09-14.md",
-      "skills/nexus-xau-mt5-data/SKILL.md"
+      "skills/nexus-xau-mt5-data/SKILL.md",
+      "docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md"
     ]
   },
   "provenance_guard": {
@@ -152,14 +153,14 @@
     "derived_authority_report": "PASS_WHEN_PRESENT_OPTIONAL_WHEN_ABSENT"
   },
   "next_steps": [
-    "Build a reproducible XAUUSDm historical coverage map: Bid/Ask ticks and OHLC must be mapped separately.",
-    "Use the coverage map to declare the exact forward-collection need and Phase 1 observation window.",
-    "Specify a restart-safe READ-ONLY MT5 collector with durable last-tick checkpoint, deduplication, chronology validation, and explicit gap ledger.",
-    "Inspect and reuse existing repository MT5/data tooling before implementing the collector or status UI.",
-    "Freeze a pre-outcome Phase 1 replay engineering contract before downstream outcome scoring.",
+    "Declare the exact Phase 1 forward-collection requirement and observation/storage window using docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md.",
+    "Freeze a restart-safe READ-ONLY MT5 collector contract with durable last-tick checkpoint, deduplication, chronology validation, provenance, explicit gap ledger, and restart backfill.",
+    "Implement the smallest collector/status surface only after the contract is frozen; keep ORDER SEND DISABLED.",
+    "Decide the multi-year execution-quality data path separately: validated external feed versus explicitly declared residual execution model.",
+    "Freeze the pre-outcome Phase 1 replay engineering contract before downstream outcome scoring.",
     "Keep V0.1 holdout outcome scoring disabled.",
-    "Do not treat direct broker-server history access as established until separately demonstrated.",
-    "Do not generalize one short spread sample across time/regimes."
+    "Do not treat the current M1 Max Bars boundary as broker/server retention depth.",
+    "Do not generalize short spread samples across time/regimes."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -302,9 +303,10 @@
     "research_queue/closed/RQ-016_PHASE1_CONSTRUCTION_BOUNDARY.md",
     "docs/PHASE1_EXECUTION_DATA_ACQUISITION_PROBE_2026-09-14.md",
     "docs/PHASE1_MT5_CAPABILITY_REPORT_2026-09-14.md",
-    "docs/PHASE1_PROGRESS_CHECKPOINT_MT5_DATA_ROUTE_2026-09-14.md"
+    "docs/PHASE1_PROGRESS_CHECKPOINT_MT5_DATA_ROUTE_2026-09-14.md",
+    "docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md"
   ],
-  "resume_instruction": "Phase 1 is current. Read docs/PHASE1_PROGRESS_CHECKPOINT_MT5_DATA_ROUTE_2026-09-14.md and docs/PHASE1_MT5_CAPABILITY_REPORT_2026-09-14.md first. MT5 read-only access and historical Bid/Ask retrieval are working; a separate direct broker-server API is not established. Next map tick/OHLC coverage separately, then specify a restart-safe read-only forward collector with checkpoint and gap ledger. Holdout scoring remains disabled.",
+  "resume_instruction": "Phase 1 is current. Read docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md and docs/PHASE1_MT5_CAPABILITY_REPORT_2026-09-14.md first. Current-route historical Bid/Ask ticks begin at 2026-03-12T00:00:00.255Z; full every-tick continuity is not yet proven. Current Python-visible M1 depth is bounded by terminal maxbars=100000 and is not broker-retention proof. Next declare the forward-collection requirement/window and freeze the restart-safe READ-ONLY collector contract. Holdout scoring remains disabled.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1126,12 +1128,12 @@
     }
   },
   "active_durable_job": {
-    "job_id": "XAU-0700-MINIMAL-V2-REPLICATION-20260913",
-    "job_path": "D:\\tools\\nexus-durable-work\\_agent\\jobs\\XAU-0700-MINIMAL-V2-REPLICATION-20260913\\job.json",
+    "job_id": "XAU-MT5-HISTORY-COVERAGE-DAILY-V02-20260914",
+    "job_path": "D:\\tools\\nexus-durable-work\\_agent\\jobs\\XAU-MT5-HISTORY-COVERAGE-DAILY-V02-20260914\\job.json",
     "status": "DONE_RESULT_INTERPRETED",
     "execution_layer": "D:/tools/nexus-durable-work Local Work Agent",
-    "success_probe": "results/0700_MINIMAL_V2/REPLICATION_2023_09_TO_2023_11_23/REPORT.json",
-    "restart_rule": "Do not rerun Discovery, Replication, or RQ-015 scoring. RQ-012 tooling is closed; keep holdout outcome scoring disabled and follow the current next_steps.",
+    "success_probe": "results/mt5_coverage/daily_2026-02-01_2026-09-13.summary.json",
+    "restart_rule": "Do not rerun the weekly/daily coverage scans unless MT5 terminal configuration/source availability changes or a documented reopen trigger exists. Continue from the coverage-map checkpoint.",
     "live_status_verified": "DONE",
     "result_exists_nonempty": true
   },
@@ -1237,21 +1239,28 @@
     "rq016_closure": "research_queue/closed/RQ-016_PHASE1_CONSTRUCTION_BOUNDARY.md"
   },
   "phase1_execution_data_probe": {
-    "status": "MT5_READONLY_ROUTE_CONFIRMED_HISTORICAL_TICKS_AVAILABLE",
+    "status": "MT5_COVERAGE_MAP_ESTABLISHED_CURRENT_ROUTE_TICK_START_EXACT_M1_WINDOW_LIMIT_IDENTIFIED",
     "ref": "docs/PHASE1_MT5_CAPABILITY_REPORT_2026-09-14.md",
     "prior_probe_ref": "docs/PHASE1_EXECUTION_DATA_ACQUISITION_PROBE_2026-09-14.md",
     "mt5_api": "AUTHORIZED_AND_CONNECTED",
     "live_bid_ask": "CONFIRMED",
-    "historical_bid_ask": "CONFIRMED_ON_MULTIPLE_DATES_BACK_TO_2026_06_15_CONTINUITY_NOT_ESTABLISHED",
-    "ohlc_multitimeframe": "CONFIRMED_M1_M5_H1_H4_D1",
+    "historical_bid_ask": "CURRENT_ROUTE_EARLIEST_ACCESSIBLE_TICK_2026-03-12T00:00:00.255Z_DAILY_NOON_PROBES_BROADLY_AVAILABLE_FULL_CONTINUITY_NOT_PROVEN",
+    "ohlc_multitimeframe": "RECENT_M1_M5_H1_H4_D1_CONFIRMED_M1_CURRENT_WINDOW_BOUNDED_BY_TERMINAL_MAXBARS_100000",
     "account_history": "CONFIRMED",
     "margin_profit_calculation": "CONFIRMED",
     "market_book": "UNAVAILABLE_FOR_XAUUSDM_CURRENT_ACCOUNT",
-    "remaining_gap": "Map historical depth/completeness before deciding whether external execution data or a residual model is still required.",
+    "remaining_gap": "Full intraday/every-tick continuity within the accessible tick window; session/holiday classification for isolated weekday-empty probes; multi-year execution-quality Bid/Ask data; broker/server M1 depth beyond the terminal Max Bars window.",
     "direct_broker_server_api": "NOT_ESTABLISHED",
     "confirmed_route": "MT5_TERMINAL_HISTORY_ENVIRONMENT_TO_METATRADER5_PYTHON_API",
-    "forward_collector": "SPECIFICATION_PENDING_AFTER_COVERAGE_MAP",
-    "restart_recovery_rule": "Persist last tick timestamp; on restart request missing interval from MT5 history and record unrecoverable gaps explicitly."
+    "forward_collector": "REQUIREMENT_DECLARATION_AND_CONTRACT_NEXT",
+    "restart_recovery_rule": "Persist last tick timestamp; on restart request missing interval from MT5 history and record unrecoverable gaps explicitly.",
+    "coverage_map_ref": "docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md",
+    "tick_accessible_start_utc": "2026-03-12T00:00:00.255+00:00",
+    "m1_current_window": "99999_M1_BARS_EARLIEST_2026-06-03T10:20:00+00:00_WITH_TERMINAL_MAXBARS_100000",
+    "coverage_jobs": [
+      "XAU-MT5-HISTORY-COVERAGE-V02-20260914",
+      "XAU-MT5-HISTORY-COVERAGE-DAILY-V02-20260914"
+    ]
   },
   "project_self_audit_2026_09_14": {
     "status": "RECONCILED",

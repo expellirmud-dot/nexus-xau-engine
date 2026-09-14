@@ -73,8 +73,8 @@ One tick is not a spread model.
 | Account metadata | CONFIRMED | balance/equity/margin/leverage/currency readable |
 | Symbol specification | CONFIRMED | price grid/contract/volume/swap/execution readable |
 | Live Bid/Ask | CONFIRMED | live tick returned |
-| Historical Bid/Ask ticks | CONFIRMED_PARTIAL | recent 5-min sample and 2026-08-24 history returned |
-| OHLC M1/M5/H1/H4/D1 | CONFIRMED | bars returned on all probed timeframes |
+| Historical Bid/Ask ticks | CONFIRMED_CURRENT_ROUTE_WINDOW | earliest accessible tick: 2026-03-12T00:00:00.255Z; full continuity not yet proven |
+| OHLC M1/M5/H1/H4/D1 | CONFIRMED_WITH_TERMINAL_WINDOW_LIMIT | recent bars confirmed; current M1 depth is bounded by terminal maxbars=100000 |
 | Historical spread distribution | CONFIRMED_PARTIAL | real Bid/Ask ticks allow derivation; long lookback not yet mapped |
 | Open positions | CONFIRMED | API returned current count |
 | Open/pending orders | CONFIRMED | API returned current count |
@@ -247,3 +247,7 @@ Primary unresolved data questions:
 - whether tick gaps require an external execution-data source or a residual model
 
 This history-depth question should be mapped before deciding whether an external execution-data source or synthetic residual model is still necessary.
+
+### 2026-09-14 — Coverage-map reconciliation
+
+Current authority: `docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md`. Exact current-route tick start is 2026-03-12T00:00:00.255Z. Current M1 Python-visible depth is bounded by terminal `maxbars=100000`; older M1 non-empty point probes are not valid interval-availability proof because MT5 can return out-of-request rows. Multi-year execution-quality Bid/Ask proof remains open.
