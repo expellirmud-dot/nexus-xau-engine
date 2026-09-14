@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-09-14T20:19:30+07:00",
+  "updated_at": "2026-09-15T00:37:28+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
     "contract": "docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md",
     "latest_state_reconciliation": "docs/STATE_DRIFT_AUDIT_2026-09-13.md",
     "project_current_research_checkpoint": "research_queue/closed/RQ-016_PHASE1_CONSTRUCTION_BOUNDARY.md",
-    "latest_operational_tooling_checkpoint": "docs/PHASE1_EXNESS_TICK_ARCHIVE_COVERAGE_MAPPER_2026-09-14.md",
+    "latest_operational_tooling_checkpoint": "docs/PHASE1_EXNESS_TICK_ARCHIVE_DOWNLOADER_V0.1_2026-09-14.md",
     "project_current_state": "docs/CURRENT_RESEARCH_STATE.json",
     "operational_queue": "research_queue/QUEUE.json",
     "workstream_state": "docs/0700_WORKSTREAM_STATE.json",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_TICK_ARCHIVE_COVERAGE_MAPPER_2026-09-14.md"
+    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_REPRESENTATIVE_AND_MT5_OVERLAP_VALIDATION_2026-09-14.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -88,7 +88,9 @@
       "docs/PHASE1_MT5_FORWARD_COLLECTOR_OPERATIONAL_START_2026-09-14.md",
       "docs/PHASE1_MT5_COLLECTOR_OBSERVABILITY_RECONCILIATION_2026-09-14.md",
       "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md",
-      "docs/PHASE1_EXNESS_TICK_ARCHIVE_COVERAGE_MAPPER_2026-09-14.md"
+      "docs/PHASE1_EXNESS_TICK_ARCHIVE_COVERAGE_MAPPER_2026-09-14.md",
+      "docs/PHASE1_EXNESS_TICK_ARCHIVE_DOWNLOADER_V0.1_2026-09-14.md",
+      "docs/PHASE1_EXNESS_REPRESENTATIVE_AND_MT5_OVERLAP_VALIDATION_2026-09-14.md"
     ]
   },
   "provenance_guard": {
@@ -158,12 +160,14 @@
     "canonical_governance": "PASS",
     "queue_governance": "PASS",
     "derived_authority_report": "PASS_WHEN_PRESENT_OPTIONAL_WHEN_ABSENT",
-    "exness_archive_mapper": "TARGETED_RUFF_PASS_4_TESTS_PASS_LIVE_SMOKE_RESTART_VALIDATED"
+    "exness_archive_mapper": "TARGETED_RUFF_PASS_4_TESTS_PASS_LIVE_SMOKE_RESTART_VALIDATED",
+    "exness_archive_downloader": "VALIDATOR_V0.2_REPRESENTATIVE_3_MONTHS_VALIDATED",
+    "exness_mt5_overlap": "DESCRIPTIVELY_CONSISTENT_EXACT_FEED_EQUIVALENCE_NOT_CLAIMED"
   },
   "next_steps": [
-    "Inspect persisted state/result of XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914 before starting another MT5 collector; never run duplicate collectors against the same SQLite store.",
-    "Run the committed restart-safe Exness XAUUSDm archive coverage mapper for 2015-2026 under nexus-durable-work and reconcile its persisted result before any bulk historical tick download.",
-    "After coverage mapping, validate representative archive files and cross-validate an already-inspected overlapping 2026 interval against the current MT5 XAUUSDm tick route while keeping feed/server identities separate.",
+    "Run Exness archive acquisition as one durable job per calendar year, starting with XAU-EXNESS-YEAR-2015-V02-20260915; never restart already validated months from zero.",
+    "For each year, acquire only coverage-map months with status AVAILABLE using validator V0.2 and append-only manifest records; validate/reconcile the completed year before submitting the next year.",
+    "After each annual job, reconcile month-level validation/anomaly coverage and keep archive identity separate from the current Exness Demo MT5 route; 2026-08 overlap is descriptively consistent but not exact feed equivalence.",
     "Freeze the pre-outcome Phase 1 replay engineering contract including fill, stop, spread/cost and residual-slippage treatment before downstream outcome scoring.",
     "Keep automatic order sending and V0.1 holdout outcome scoring disabled."
   ],

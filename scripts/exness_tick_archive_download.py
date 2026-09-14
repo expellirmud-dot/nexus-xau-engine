@@ -25,7 +25,14 @@ def build_parser() -> argparse.ArgumentParser:
         description="Download and stream-validate Exness-branded monthly XAUUSDm tick archives."
     )
     parser.add_argument("--symbol", default="XAUUSDm")
-    parser.add_argument("--month", dest="months", action="append", type=parse_month, required=True)
+    selection = parser.add_mutually_exclusive_group(required=True)
+    selection.add_argument("--month", dest="months", action="append", type=parse_month)
+    selection.add_argument("--year", type=int, help="Process AVAILABLE months in one year.")
+    selection.add_argument(
+        "--all-available",
+        action="store_true",
+        help="Process every AVAILABLE month in the coverage map, oldest first.",
+    )
     parser.add_argument(
         "--coverage-jsonl",
         type=Path,
@@ -48,9 +55,28 @@ def build_parser() -> argparse.ArgumentParser:
 def main() -> int:
     args = build_parser().parse_args()
     coverage = latest_records_by_month(load_existing_records(args.coverage_jsonl))
+    if args.all_available:
+        selected_months = sorted(
+            (year, month)
+            for (symbol, year, month), entry in coverage.items()
+            if symbol == args.symbol and entry.status == "AVAILABLE"
+        )
+    elif args.year is not None:
+        selected_months = sorted(
+            (year, month)
+            for (symbol, year, month), entry in coverage.items()
+            if symbol == args.symbol
+            and year == args.year
+            and entry.status == "AVAILABLE"
+        )
+        if not selected_months:
+            raise SystemExit(f"no AVAILABLE months for {args.symbol} in {args.year}")
+    else:
+        selected_months = list(args.months or [])
+
     results: list[dict[str, object]] = []
 
-    for year, month in args.months:
+    for year, month in selected_months:
         entry = coverage.get((args.symbol, year, month))
         if entry is None or entry.status != "AVAILABLE":
             raise SystemExit(f"{year:04d}-{month:02d} is not AVAILABLE in coverage map")
