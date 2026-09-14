@@ -86,6 +86,20 @@ The machine-readable scope contract is `docs/STATE_AUTHORITY_CONTRACT_2026-09-13
 
 For what the project currently knows/accepts, use the evidence/claim hierarchy below.
 
+### WO-055 research governance gate
+
+Before activating any new decision-critical RQ or changing canonical claim authority, follow `docs/WO055_MINIMAL_GOVERNANCE_SCHEMA_FREEZE_2026-09-14.md`.
+
+- A decision-critical RQ file existing on disk is not enough for activation. `research_queue/QUEUE.json` must contain a valid prospective admission record and `admission_required_for_activation=true`.
+- Existing pre-WO055 claims remain legacy-grandfathered only while their authority-sensitive fingerprint matches the migration baseline.
+- A new claim, or an authority-sensitive change to a legacy claim, requires explicit per-claim governance metadata.
+- `EXCLUSIVE` means exactly one current authority. `COMPOSITE` requires explicitly named compatible authorities plus a compatibility statement.
+- Validation dimensions remain separate: source, representation, implementation, historical evidence, replication, control, and holdout. PASS in one dimension never upgrades another.
+- Historical evidence cannot regain current authority merely because it exists.
+- Holdout evidence cannot become design/tuning promotion authority.
+- `results/governance/research_authority.json` is an optional generated view only. It may be deleted/regenerated; it must never be edited or read as the mutation source for authority.
+- Run `scripts/research_preflight.py` after claim/Queue governance changes. If a local authority report exists, preflight also requires it to reproduce from canonical claims.
+
 Use the following authority order when documents disagree:
 
 1. direct user clarification / owner-confirmed project rule;

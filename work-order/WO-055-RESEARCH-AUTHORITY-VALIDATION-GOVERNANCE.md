@@ -1,6 +1,7 @@
 # WO-055 — Research Authority and Validation Governance Hardening
 
-STATUS: PLAN_COMPLETE_NOT_IMPLEMENTED
+STATUS: IMPLEMENTED_VALIDATED_CLOSED
+ORIGINAL_PLAN_STATUS: PLAN_COMPLETE_NOT_IMPLEMENTED
 TYPE: CROSS_PROJECT_GOVERNANCE_HARDENING
 DATE: 2026-09-14
 REPOSITORY: `D:\nexus-xau-engine-repo`
@@ -385,12 +386,35 @@ Rollback must be possible by reverting only the WO-055 governance code/schema ch
 - Use one coherent checkpoint if/when implementation is later completed.
 - Commit/push are not part of this planning-file move and require the applicable controller/user authorization at execution time.
 
-## 19. Current planning status
+## 19. Current implementation status
 
-Planning file is complete.
+Original planning status: `PLAN_COMPLETE_NOT_IMPLEMENTED`.
 
-Implementation status: `NOT_STARTED`.
-Repository preflight observed during planning: `PASS`.
-Serena / CodeGraph: `NOT_REQUIRED` for this documentation-only move/refinement.
+Implementation status: `IMPLEMENTED_VALIDATED_CLOSED`.
 
-Next bounded action if activated: freeze the minimal admission/authority/validation schema and RED governance fixtures before modifying current canonical stores.
+Closure record:
+
+`docs/WO055_COMPLETION_2026-09-14.md`
+
+Implemented in the required dependency order:
+
+1. Phase A schema/fixture freeze before canonical-store mutation;
+2. Phase B governance validators and preflight integration;
+3. Phase C prospective RQ admission enforcement;
+4. Phase D canonical-claim authority/validation migration without speculative legacy authority assignment;
+5. Phase E deterministic derived authority report;
+6. Phase F bootstrap/state/contract reconciliation.
+
+Final validation executed before this status was promoted:
+
+- repository preflight PASS;
+- structured JSON parse PASS;
+- state-drift + frozen governance focused gate PASS;
+- full repository pytest PASS / exit code 0;
+- Ruff PASS;
+- generated authority report check PASS;
+- git diff check PASS;
+- holdout identity unchanged and outcome scoring disabled;
+- no holdout outcome was inspected or scored by WO-055.
+
+WO-055 is closed. Future governance changes must use the frozen admission/authority/validation contract rather than bypassing it.

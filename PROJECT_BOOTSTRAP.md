@@ -71,12 +71,14 @@ Use these files for different kinds of project memory:
 
 - `docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md` = owner-direct definition of what the 07:00 system is, what success means, how unknown states are handled, and how real versus synthetic data may be used.
 
-- `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json` = what the project currently knows/accepts.
+- `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json` = what the project currently knows/accepts. WO-055 governance metadata in this existing store protects legacy claim fingerprints and explicit authority transitions.
+- `docs/WO055_MINIMAL_GOVERNANCE_SCHEMA_FREEZE_2026-09-14.md` = prospective contract for RQ admission, EXCLUSIVE/COMPOSITE claim authority, separated validation dimensions, and derived authority reporting. Read it before admitting a decision-critical RQ or changing canonical claim authority.
 - `docs/SOURCE_COVERAGE_LEDGER.json` = which source windows/checks have already been reviewed, what they established, and when they may be reopened.
 - `docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md` = scope contract separating project-current workflow state, workstream-current state, and historical snapshots.
 - `docs/CURRENT_RESEARCH_STATE.json` = project-current workflow state: where the project is now and what should happen next.
 - active workstream dashboard = scoped authority for that workstream only; it may preserve an older lane checkpoint than the project-current checkpoint and must not override `CURRENT_RESEARCH_STATE`/`QUEUE` for global workflow status.
-- `research_queue/QUEUE.json` = which research worksheet is operationally active.
+- `research_queue/QUEUE.json` = which research worksheet is operationally active. After WO-055, any non-null decision-critical active RQ must also have a valid admission record in this same Queue store.
+- `results/governance/research_authority.json` = optional generated/derived authority view. It is reproducible and disposable; it is not project memory or an authority mutation source.
 - RQ/checkpoint documents = detailed evidence chronology and reasoning trail.
 - `TOOLS.md` = reusable tools and evidence-access paths.
 

@@ -80,3 +80,84 @@ When drift is found:
 - repair only project-current pointers or add explicit scope labels;
 - validate JSON, preflight, tests, Ruff, and git diff;
 - commit/push one coherent reconciliation checkpoint.
+
+## WO-055 governance extension — 2026-09-14
+
+This extension adds machine-checkable research-governance semantics without changing the original workflow/status scope model.
+
+### RQ_ADMISSION_AUTHORITY
+
+`research_queue/QUEUE.json` remains the single operational queue.
+
+After WO-055 migration:
+
+- `governance.admission_required_for_activation=true`;
+- a non-null decision-critical `active` RQ requires a matching valid record under `admissions`;
+- closed/queued legacy RQs are not rewritten merely to satisfy the new prospective schema;
+- admission validates newness, bounded question scope, falsification, decision consequences, dependencies, stop condition, and an outcome/leakage guard when applicable;
+- admission never overrides the one-active-decision-critical-RQ policy.
+
+### CLAIM_AUTHORITY
+
+`docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json` remains the single current claim store.
+
+Pre-WO055 claims are grandfathered only while deterministic authority-sensitive fingerprints match the migration baseline.
+
+A new claim or authority-sensitive change to a grandfathered claim requires explicit per-claim governance:
+
+- `EXCLUSIVE`: exactly one current authority reference;
+- `COMPOSITE`: at least two explicitly compatible current authority references plus a compatibility statement;
+- source references remain mandatory;
+- active+superseded contradictions and supersession cycles fail closed.
+
+No EXCLUSIVE/COMPOSITE mode is inferred for unchanged legacy claims.
+
+### VALIDATION_AUTHORITY
+
+Governed claims keep validation dimensions separate:
+
+1. `SOURCE_VALIDATION`;
+2. `REPRESENTATION_VALIDATION`;
+3. `IMPLEMENTATION_VALIDATION`;
+4. `HISTORICAL_EVIDENCE`;
+5. `REPLICATION`;
+6. `CONTROL`;
+7. `HOLDOUT`.
+
+A PASS in one dimension has no authority in another dimension.
+
+Historical evidence is context/no-promotion authority. Holdout evidence is confirmatory/no-promotion authority and cannot be used for design/tuning promotion.
+
+`UNKNOWN` and `NOT_APPLICABLE` remain valid first-class outcomes.
+
+### DERIVED_AUTHORITY_VIEW
+
+`results/governance/research_authority.json` is an optional derived view with schema `WO055_AUTHORITY_REPORT_V0.1`.
+
+It is not a canonical store and cannot mutate authority.
+
+Rules:
+
+- deleting it does not change project state;
+- regeneration must be deterministic from the canonical claim register;
+- unchanged legacy claims render as `LEGACY_UNCLASSIFIED`, not guessed authority;
+- if a local generated view exists, preflight compares it with a fresh normalized derivation and fails with `GENERATED_AUTHORITY_VIEW_MISMATCH` on divergence;
+- absence of the derived file is allowed.
+
+### Additional preflight invariants
+
+WO-055 adds fail-closed checks for:
+
+- duplicate canonical claim IDs;
+- missing claim authority/source references;
+- active+superseded contradictions;
+- supersession cycles;
+- EXCLUSIVE/COMPOSITE authority cardinality and compatibility;
+- collapsed validation dimensions;
+- historical evidence promoted as current authority;
+- holdout evidence used for design/tuning authority;
+- migrated legacy claim fingerprint drift without explicit governance;
+- active RQ without valid admission;
+- generated authority-report mismatch when the local view exists.
+
+These checks extend the original state-drift contract; they do not weaken or replace any existing project-current, workstream, or holdout invariant.
