@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-15T02:37:48+07:00",
+  "updated_at": "2026-09-15T02:41:03+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -172,7 +172,7 @@
     "exness_mt5_overlap": "DESCRIPTIVELY_CONSISTENT_EXACT_FEED_EQUIVALENCE_NOT_CLAIMED"
   },
   "next_steps": [
-    "2021 annual archive batch is reconciled; run XAU-EXNESS-YEAR-2022-V02-20260915 next while preserving the unresolved 2016 March/April boundary gap candidate.",
+    "2021 annual archive batch is reconciled; XAU-EXNESS-YEAR-2022-V02-20260915 is the current durable annual job. Reuse its persisted state and preserve the unresolved 2016 March/April boundary gap candidate.",
     "For each year, acquire only coverage-map months with status AVAILABLE using validator V0.2 and append-only manifest records; validate/reconcile the completed year before submitting the next year.",
     "After each annual job, reconcile month-level validation/anomaly coverage and keep archive identity separate from the current Exness Demo MT5 route; 2026-08 overlap is descriptively consistent but not exact feed equivalence.",
     "Freeze the pre-outcome Phase 1 replay engineering contract including fill, stop, spread/cost and residual-slippage treatment before downstream outcome scoring.",
