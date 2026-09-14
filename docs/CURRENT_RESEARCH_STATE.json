@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_YEAR_2015_VALIDATION_2026-09-15.md"
+    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_YEAR_2016_VALIDATION_2026-09-15.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -91,7 +91,8 @@
       "docs/PHASE1_EXNESS_TICK_ARCHIVE_COVERAGE_MAPPER_2026-09-14.md",
       "docs/PHASE1_EXNESS_TICK_ARCHIVE_DOWNLOADER_V0.1_2026-09-14.md",
       "docs/PHASE1_EXNESS_REPRESENTATIVE_AND_MT5_OVERLAP_VALIDATION_2026-09-14.md",
-      "docs/PHASE1_EXNESS_YEAR_2015_VALIDATION_2026-09-15.md"
+      "docs/PHASE1_EXNESS_YEAR_2015_VALIDATION_2026-09-15.md",
+      "docs/PHASE1_EXNESS_YEAR_2016_VALIDATION_2026-09-15.md"
     ]
   },
   "provenance_guard": {
@@ -166,7 +167,7 @@
     "exness_mt5_overlap": "DESCRIPTIVELY_CONSISTENT_EXACT_FEED_EQUIVALENCE_NOT_CLAIMED"
   },
   "next_steps": [
-    "2015 annual archive batch is reconciled; inspect/reuse durable job XAU-EXNESS-YEAR-2016-V02-20260915. If RUNNING do not duplicate it; if DONE reconcile 2016 before submitting 2017.",
+    "2016 annual archive batch is reconciled with an unresolved March/April boundary gap candidate; run XAU-EXNESS-YEAR-2017-V02-20260915 next without treating the 2016 anomaly as resolved.",
     "For each year, acquire only coverage-map months with status AVAILABLE using validator V0.2 and append-only manifest records; validate/reconcile the completed year before submitting the next year.",
     "After each annual job, reconcile month-level validation/anomaly coverage and keep archive identity separate from the current Exness Demo MT5 route; 2026-08 overlap is descriptively consistent but not exact feed equivalence.",
     "Freeze the pre-outcome Phase 1 replay engineering contract including fill, stop, spread/cost and residual-slippage treatment before downstream outcome scoring.",
