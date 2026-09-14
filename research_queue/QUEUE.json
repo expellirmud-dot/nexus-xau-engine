@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-13T19:51:00+07:00",
+  "updated_at": "2026-09-14T10:39:52+07:00",
   "policy": "ONE_DECISION_CRITICAL_ACTIVE_WORKSHEET",
   "selection_principle": "Promote the highest-value unblocked item that reduces decision-critical uncertainty, blocks downstream work, and can be investigated from available evidence without inventing rules.",
   "method_default": "SOURCE_FIRST_VISUAL_FIRST_THEN_TARGETED_COMPUTATION",
@@ -321,5 +321,12 @@
   "queue_exhaustion_ref": null,
   "reopen_rule": "Create/reopen a bounded research item only when new source evidence, new labeled examples, a frozen execution specification, or a genuinely untouched holdout materially resolves a named blocker.",
   "reopened_from_exhaustion_ref": "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
-  "reopen_reason": "Project owner prioritized the narrow 07:00 method and requested an audit of existing work before any new YouTube review. Audit found stale central state and enough existing evidence to prepare a minimal H4/PAT2-only V2."
+  "reopen_reason": "Project owner prioritized the narrow 07:00 method and requested an audit of existing work before any new YouTube review. Audit found stale central state and enough existing evidence to prepare a minimal H4/PAT2-only V2.",
+  "governance": {
+    "schema_version": "WO055_RQ_ADMISSION_GOVERNANCE_V0.1",
+    "migration_baseline_commit": "5ae33c5",
+    "admission_required_for_activation": true,
+    "rule": "Any non-null decision-critical active RQ must have a valid prospective admission record in this Queue store. Legacy closed/queued RQs are not rewritten merely for migration."
+  },
+  "admissions": {}
 }

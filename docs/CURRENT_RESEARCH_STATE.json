@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-13T23:46:00+07:00",
+  "updated_at": "2026-09-14T10:39:52+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -1114,5 +1114,18 @@
     "freeze_checkpoint": "docs/0700_RQ015_GEOMETRY_NULL_ANALYSIS_FREEZE_2026-09-13.md",
     "implementation_freeze_checkpoint": "docs/0700_RQ015_GEOMETRY_NULL_IMPLEMENTATION_FREEZE_2026-09-13.md",
     "result_checkpoint": "docs/0700_RQ015_GEOMETRY_NULL_RESULT_2026-09-13.md"
+  },
+  "wo055_governance": {
+    "status": "PHASE_C_D_STORES_MIGRATED_REPORT_PENDING",
+    "work_order": "work-order/WO-055-RESEARCH-AUTHORITY-VALIDATION-GOVERNANCE.md",
+    "schema_freeze": "docs/WO055_MINIMAL_GOVERNANCE_SCHEMA_FREEZE_2026-09-14.md",
+    "phase_a_checkpoint": "docs/WO055_PHASE_A_SCHEMA_FREEZE_RED_CHECKPOINT_2026-09-14.md",
+    "phase_b_checkpoint": "docs/WO055_PHASE_B_GOVERNANCE_VALIDATOR_CHECKPOINT_2026-09-14.md",
+    "validator_module": "src/nexus_xau/governance/research_governance.py",
+    "claim_legacy_fingerprint_count": 45,
+    "rq_admission_enforcement": true,
+    "active_decision_critical_rq": null,
+    "authority_report_status": "PENDING_PHASE_E",
+    "holdout_impact": "NONE_OUTCOMES_NOT_USED_BY_WO055"
   }
 }
