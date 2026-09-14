@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T12:38:00+07:00",
+  "updated_at": "2026-09-14T13:31:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -28,10 +28,10 @@
     "decision_doctrine_ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
     "phase_name": "Phase 1 / เฟสหนึ่ง",
     "naming_guard": "Phase 1 is the first bounded Project stage. It is not price/run distance. 07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method or phase name.",
-    "source_backed_system_name": "ระบบเทรดแม่ปลาปากกาเขียว",
     "summary": "Phase 1 studies a bounded XAU decision process using the 07:00 Asia/Bangkok checkpoint. Use all legitimately knowable pre-checkpoint evidence; otherwise PASS/NO TRADE/STUDY. Do not broaden to all-day trading or other decision checkpoints without a separately authorized later phase.",
     "success_definition": "Maximize process completeness, traceability, deterministic handling of known states, safe handling of blocking/non-blocking unknowns, and multi-year falsification before supervised pilot use. Do not manufacture certainty or a target market win rate.",
-    "data_policy": "Real historical/forward data tests market behavior; synthetic data tests logic, invariants, and controlled edge cases. Synthetic data cannot establish market frequency or profitability."
+    "data_policy": "Real historical/forward data tests market behavior; synthetic data tests logic, invariants, and controlled edge cases. Synthetic data cannot establish market frequency or profitability.",
+    "source_attribution_boundary": "Person/channel/system labels in source records are provenance labels only. They do not name Phase 1 or the Project method."
   },
   "validated_dataset": {
     "symbol": "XAUUSDm",
@@ -51,6 +51,8 @@
     "operating_rule": "Resume from the current 07:00 workstream dashboard and source coverage before opening sources or running tests. Do not repeat closed/unresolved checks. Prefer a narrow existing-evidence V2 before broader source hunting.",
     "load_order": [
       "PROJECT_BOOTSTRAP.md",
+      "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
+      "research_findings/FINDINGS.json",
       "skills/nexus-xau-research/SKILL.md",
       "docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md",
       "docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md",
@@ -284,9 +286,14 @@
     "tests/fixtures/wo055/governance_matrix.json",
     "scripts/report_research_authority.py",
     "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
-    "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md"
+    "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
+    "research_findings/README.md",
+    "research_findings/FINDINGS.json",
+    "docs/PHASE1_RESEARCH_FLOW_DRY_RUN_2026-09-14.md",
+    "docs/PHASE1_COMPLETENESS_AUDIT_2026-09-14.md",
+    "docs/PHASE1_READINESS_MATRIX.json"
   ],
-  "resume_instruction": "Project-current scope is Phase 1 / เฟสหนึ่ง. The source-backed system name is ระบบเทรดแม่ปลาปากกาเขียว; 07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method name. RQ-012 tooling remains closed, the reserved prospective boundary has passed but does not authorize outcome access, holdout scoring remains disabled, no decision-critical RQ is active, and RQ-014 remains queued.",
+  "resume_instruction": "Project-current scope is Phase 1 / เฟสหนึ่ง. 07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method name. Person/channel/system labels are source attribution only. Before reopening a relation, check research_findings/FINDINGS.json. RQ-012 tooling remains closed; holdout scoring remains disabled; no decision-critical RQ is active; RQ-014 remains queued.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1197,5 +1204,23 @@
       "supervised pilot use"
     ],
     "later_scope_rule": "Broader trading times/strategies require separate owner authorization and are not implied by Phase 1."
+  },
+  "research_findings": {
+    "status": "NON_CANONICAL_INDEX_ACTIVE",
+    "schema_version": "PHASE1_FINDING_LEDGER_V0.1",
+    "ledger": "research_findings/FINDINGS.json",
+    "policy": "research_findings/README.md",
+    "role": "Anti-forgetting index for observations/reconciliations before or alongside canonical promotion. Never overrides canonical claim authority.",
+    "first_dry_run": "docs/PHASE1_RESEARCH_FLOW_DRY_RUN_2026-09-14.md",
+    "current_findings": 1
+  },
+  "phase1_completeness": {
+    "status": "AUDITED_2026_09_14",
+    "audit": "docs/PHASE1_COMPLETENESS_AUDIT_2026-09-14.md",
+    "research_core": "ADVANCED",
+    "multi_year_evaluation": "PARTIAL",
+    "trade_level_economic_proof": "NOT_READY",
+    "supervised_pilot": "NOT_READY",
+    "readiness_matrix": "docs/PHASE1_READINESS_MATRIX.json"
   }
 }

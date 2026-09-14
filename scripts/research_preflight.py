@@ -21,6 +21,9 @@ CORE_PATHS = [
     Path("PROJECT_BOOTSTRAP.md"),
     Path("docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md"),
     Path("docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md"),
+    Path("research_findings/README.md"),
+    Path("research_findings/FINDINGS.json"),
+    Path("docs/PHASE1_READINESS_MATRIX.json"),
     Path("docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md"),
     Path("skills/README.md"),
     Path("skills/SKILLS_MANIFEST.json"),
@@ -42,6 +45,262 @@ def load_json(path: Path) -> dict[str, Any]:
     if not isinstance(data, dict):
         raise TypeError(f"Expected JSON object: {path}")
     return data
+
+
+
+def validate_finding_ledger(
+    ledger: dict[str, Any],
+    canonical: dict[str, Any],
+) -> dict[str, Any]:
+    if ledger.get("schema_version") != "PHASE1_FINDING_LEDGER_V0.1":
+        return {"status": "FAIL", "reason": "FINDING_LEDGER_SCHEMA_MISMATCH"}
+    if ledger.get("role") != "NON_CANONICAL_RESEARCH_FINDING_INDEX":
+        return {"status": "FAIL", "reason": "FINDING_LEDGER_ROLE_INVALID"}
+
+    findings = ledger.get("findings")
+    if not isinstance(findings, list):
+        return {"status": "FAIL", "reason": "FINDING_LEDGER_ITEMS_INVALID"}
+
+    canonical_ids = {
+        item.get("claim_id")
+        for item in (canonical.get("claims") or [])
+        if isinstance(item, dict) and item.get("claim_id")
+    }
+    allowed_statuses = {
+        "OPEN",
+        "RECONCILED",
+        "CONTRADICTED",
+        "SUPERSEDED",
+        "PROMOTED",
+        "REJECTED",
+    }
+    finding_ids: set[str] = set()
+    relation_keys: set[str] = set()
+    observation_ids: set[str] = set()
+
+    for finding in findings:
+        if not isinstance(finding, dict):
+            return {"status": "FAIL", "reason": "FINDING_RECORD_INVALID"}
+        for field in (
+            "finding_id",
+            "relation_key",
+            "title",
+            "status",
+            "scope",
+            "current_interpretation",
+        ):
+            if not isinstance(finding.get(field), str) or not finding.get(field):
+                return {
+                    "status": "FAIL",
+                    "reason": "FINDING_REQUIRED_FIELD_MISSING",
+                    "field": field,
+                }
+
+        finding_id = finding["finding_id"]
+        relation_key = finding["relation_key"]
+        if finding_id in finding_ids:
+            return {
+                "status": "FAIL",
+                "reason": "DUPLICATE_FINDING_ID",
+                "finding_id": finding_id,
+            }
+        if relation_key in relation_keys:
+            return {
+                "status": "FAIL",
+                "reason": "DUPLICATE_FINDING_RELATION_KEY",
+                "relation_key": relation_key,
+            }
+        finding_ids.add(finding_id)
+        relation_keys.add(relation_key)
+
+        if finding["status"] not in allowed_statuses:
+            return {
+                "status": "FAIL",
+                "reason": "FINDING_STATUS_INVALID",
+                "finding_id": finding_id,
+            }
+        if not isinstance(finding.get("blocking"), bool):
+            return {
+                "status": "FAIL",
+                "reason": "FINDING_BLOCKING_FLAG_INVALID",
+                "finding_id": finding_id,
+            }
+        if finding["status"] == "CONTRADICTED" and finding.get("blocking") is not True:
+            return {
+                "status": "FAIL",
+                "reason": "FINDING_CONTRADICTION_NOT_BLOCKING",
+                "finding_id": finding_id,
+            }
+        for field in ("allowed_uses", "forbidden_uses"):
+            value = finding.get(field)
+            if not isinstance(value, list) or not value or not all(
+                isinstance(item, str) and item for item in value
+            ):
+                return {
+                    "status": "FAIL",
+                    "reason": "FINDING_USE_BOUNDARY_INVALID",
+                    "finding_id": finding_id,
+                    "field": field,
+                }
+
+        observations = finding.get("observations")
+        if not isinstance(observations, list) or not observations:
+            return {
+                "status": "FAIL",
+                "reason": "FINDING_OBSERVATIONS_MISSING",
+                "finding_id": finding_id,
+            }
+        for observation in observations:
+            if not isinstance(observation, dict):
+                return {
+                    "status": "FAIL",
+                    "reason": "FINDING_OBSERVATION_INVALID",
+                    "finding_id": finding_id,
+                }
+            for field in ("observation_id", "statement", "representation"):
+                if not isinstance(observation.get(field), str) or not observation.get(field):
+                    return {
+                        "status": "FAIL",
+                        "reason": "FINDING_OBSERVATION_INVALID",
+                        "finding_id": finding_id,
+                        "field": field,
+                    }
+            observation_id = observation["observation_id"]
+            if observation_id in observation_ids:
+                return {
+                    "status": "FAIL",
+                    "reason": "DUPLICATE_FINDING_OBSERVATION_ID",
+                    "observation_id": observation_id,
+                }
+            observation_ids.add(observation_id)
+            conditions = observation.get("conditions")
+            if not isinstance(conditions, list) or not conditions or not all(
+                isinstance(item, str) and item for item in conditions
+            ):
+                return {
+                    "status": "FAIL",
+                    "reason": "FINDING_CONDITIONS_MISSING",
+                    "observation_id": observation_id,
+                }
+            evidence_refs = observation.get("evidence_refs")
+            if not isinstance(evidence_refs, list) or not evidence_refs:
+                return {
+                    "status": "FAIL",
+                    "reason": "FINDING_EVIDENCE_REFS_MISSING",
+                    "observation_id": observation_id,
+                }
+            for ref in evidence_refs:
+                if not isinstance(ref, str) or not ref or not (ROOT / ref).exists():
+                    return {
+                        "status": "FAIL",
+                        "reason": "FINDING_EVIDENCE_REF_NOT_FOUND",
+                        "observation_id": observation_id,
+                        "ref": ref,
+                    }
+
+        if finding["status"] == "RECONCILED":
+            reconciliation = finding.get("reconciliation")
+            if not isinstance(reconciliation, dict) or not all(
+                isinstance(reconciliation.get(field), str)
+                and reconciliation.get(field)
+                for field in ("type", "statement")
+            ):
+                return {
+                    "status": "FAIL",
+                    "reason": "FINDING_RECONCILIATION_MISSING",
+                    "finding_id": finding_id,
+                }
+
+        canonical_ref = finding.get("canonical_claim_ref")
+        if finding["status"] == "PROMOTED" and canonical_ref is None:
+            return {
+                "status": "FAIL",
+                "reason": "FINDING_PROMOTION_WITHOUT_CANONICAL_REF",
+                "finding_id": finding_id,
+            }
+        if canonical_ref is not None and canonical_ref not in canonical_ids:
+            return {
+                "status": "FAIL",
+                "reason": "FINDING_CANONICAL_REF_UNKNOWN",
+                "finding_id": finding_id,
+                "canonical_claim_ref": canonical_ref,
+            }
+
+    return {
+        "status": "PASS",
+        "finding_count": len(findings),
+        "observation_count": len(observation_ids),
+    }
+
+
+
+def validate_phase1_readiness_matrix(matrix: dict[str, Any]) -> dict[str, Any]:
+    if matrix.get("schema_version") != "PHASE1_READINESS_MATRIX_V0.1":
+        return {"status": "FAIL", "reason": "PHASE1_READINESS_SCHEMA_MISMATCH"}
+    if matrix.get("scope") != "Phase 1 / เฟสหนึ่ง":
+        return {"status": "FAIL", "reason": "PHASE1_READINESS_SCOPE_MISMATCH"}
+
+    overall = matrix.get("overall")
+    if not isinstance(overall, dict):
+        return {"status": "FAIL", "reason": "PHASE1_READINESS_OVERALL_INVALID"}
+
+    components = matrix.get("components")
+    if not isinstance(components, list) or not components:
+        return {"status": "FAIL", "reason": "PHASE1_READINESS_COMPONENTS_MISSING"}
+
+    allowed_statuses = {"READY", "READY_RESEARCH_LEVEL", "PARTIAL", "BLOCKING"}
+    component_ids: set[str] = set()
+    blocking_count = 0
+
+    for component in components:
+        if not isinstance(component, dict):
+            return {"status": "FAIL", "reason": "PHASE1_READINESS_COMPONENT_INVALID"}
+        for field in ("id", "component", "status"):
+            if not isinstance(component.get(field), str) or not component.get(field):
+                return {
+                    "status": "FAIL",
+                    "reason": "PHASE1_READINESS_FIELD_MISSING",
+                    "field": field,
+                }
+        component_id = component["id"]
+        if component_id in component_ids:
+            return {
+                "status": "FAIL",
+                "reason": "DUPLICATE_PHASE1_READINESS_COMPONENT_ID",
+                "component_id": component_id,
+            }
+        component_ids.add(component_id)
+
+        if component["status"] not in allowed_statuses:
+            return {
+                "status": "FAIL",
+                "reason": "PHASE1_READINESS_STATUS_INVALID",
+                "component_id": component_id,
+            }
+        if component["status"] == "BLOCKING":
+            blocking_count += 1
+
+        refs = component.get("evidence_refs")
+        if not isinstance(refs, list) or not refs:
+            return {
+                "status": "FAIL",
+                "reason": "PHASE1_READINESS_EVIDENCE_MISSING",
+                "component_id": component_id,
+            }
+        for ref in refs:
+            if not isinstance(ref, str) or not ref or not (ROOT / ref).exists():
+                return {
+                    "status": "FAIL",
+                    "reason": "PHASE1_READINESS_EVIDENCE_NOT_FOUND",
+                    "component_id": component_id,
+                    "ref": ref,
+                }
+
+    return {
+        "status": "PASS",
+        "component_count": len(components),
+        "blocking_count": blocking_count,
+    }
 
 
 def parse_iso_datetime(value: object) -> datetime | None:
@@ -457,6 +716,8 @@ def build_manifest() -> dict[str, Any]:
     ledger_path = ROOT / "docs/SOURCE_COVERAGE_LEDGER.json"
     workstream_path = ROOT / "docs/0700_WORKSTREAM_STATE.json"
     skill_manifest_path = ROOT / "skills/SKILLS_MANIFEST.json"
+    finding_ledger_path = ROOT / "research_findings/FINDINGS.json"
+    readiness_matrix_path = ROOT / "docs/PHASE1_READINESS_MATRIX.json"
 
     state = load_json(state_path)
     queue = load_json(queue_path)
@@ -464,6 +725,8 @@ def build_manifest() -> dict[str, Any]:
     ledger = load_json(ledger_path)
     workstream = load_json(workstream_path)
     skill_manifest = load_json(skill_manifest_path)
+    finding_ledger = load_json(finding_ledger_path)
+    readiness_matrix = load_json(readiness_matrix_path)
 
     rq012_state = state.get("rq012_v0_holdout_ledger_activation") or {}
     activation_lock: dict[str, Any] | None = None
@@ -475,6 +738,14 @@ def build_manifest() -> dict[str, Any]:
     skill_freeze = validate_skill_freeze(skill_manifest)
     if skill_freeze.get("status") != "PASS":
         return skill_freeze
+
+    readiness_validation = validate_phase1_readiness_matrix(readiness_matrix)
+    if readiness_validation.get("status") != "PASS":
+        return readiness_validation
+
+    finding_validation = validate_finding_ledger(finding_ledger, canonical)
+    if finding_validation.get("status") != "PASS":
+        return finding_validation
 
     claim_governance = validate_claim_store(canonical)
     if claim_governance.get("status") != "PASS":
@@ -598,6 +869,8 @@ def build_manifest() -> dict[str, Any]:
         "queue_state": queue.get("queue_state"),
         "queue_governance": queue_governance.get("status"),
         "authority_report_status": authority_report_status,
+        "finding_ledger": finding_validation,
+        "phase1_readiness": readiness_validation,
         "last_closed_id": (state.get("operational_research_queue") or {}).get("last_closed_id"),
         "active_workstream": {
             "id": workstream.get("workstream"),
@@ -635,6 +908,8 @@ def build_manifest() -> dict[str, Any]:
             "State the active 07:00 workstream and active RQ/worksheet.",
             "State the latest checkpoint.",
             "State relevant canonical facts and residual unknowns.",
+            "Check the Research Finding Ledger for prior observations/contradictions before reopening a relation.",
+            "State the Phase 1 readiness blockers relevant to the requested evaluation level.",
             "Check source coverage before reopening a source/window.",
             "State whether full-system Win/Loss is currently claimable.",
         ],
@@ -665,6 +940,18 @@ def print_text(manifest: dict[str, Any]) -> None:
     print(f"queue_state={manifest.get('queue_state')}")
     print(f"queue_governance={manifest.get('queue_governance')}")
     print(f"authority_report_status={manifest.get('authority_report_status')}")
+    finding_ledger = manifest.get("finding_ledger") or {}
+    print(
+        "finding_ledger="
+        f"{finding_ledger.get('status')} | {finding_ledger.get('finding_count')} findings | "
+        f"{finding_ledger.get('observation_count')} observations"
+    )
+    phase1_readiness = manifest.get("phase1_readiness") or {}
+    print(
+        "phase1_readiness="
+        f"{phase1_readiness.get('status')} | {phase1_readiness.get('component_count')} components | "
+        f"{phase1_readiness.get('blocking_count')} blocking"
+    )
     print(f"last_closed_id={manifest.get('last_closed_id')}")
     print(
         "active_workstream="

@@ -72,6 +72,8 @@ Use these files for different kinds of project memory:
 
 - `docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md` = current owner-directed Phase 1 scope authority. Phase 1 is the bounded project stage; 07:00 Asia/Bangkok is a checkpoint inside it, not the method name or a run-distance label.
 - `docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md` = document-age/scope reconciliation preventing older broad roadmaps from silently re-expanding current scope.
+- `research_findings/FINDINGS.json` = non-canonical anti-forgetting index for observations, relation identity, contradictions, and reconciliations. Search it before reopening a materially similar relationship; it never overrides the canonical claim register.
+- `docs/PHASE1_READINESS_MATRIX.json` = machine-readable Phase 1 readiness map separating research-core readiness from multi-year, economic-proof, and pilot blockers.
 - `docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md` = owner-direct definition of what the 07:00 system is, what success means, how unknown states are handled, and how real versus synthetic data may be used.
 
 - `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json` = what the project currently knows/accepts. WO-055 governance metadata in this existing store protects legacy claim fingerprints and explicit authority transitions.
@@ -91,7 +93,7 @@ Do not merge these responsibilities into one giant document. The active workstre
 
 `UNRESOLVED`, `INCONCLUSIVE`, `NOT_SUPPORTED`, and `NOT_TESTABLE` are durable knowledge states.
 
-Do not repeat an identical source check or experiment just because the prior result was not positive. Reopen only for a documented reason such as new primary evidence, clearer synchronized audio/visual evidence, a direct clarification, a contradiction, or a discovered source-mapping error.
+Before reopening a materially similar relation or experiment, check `research_findings/FINDINGS.json` as well as canonical/current state. Do not repeat an identical source check or experiment just because the prior result was not positive. Reopen only for a documented reason such as new primary evidence, clearer synchronized audio/visual evidence, a direct clarification, a contradiction, or a discovered source-mapping error.
 
 ## Core anti-invention rule
 

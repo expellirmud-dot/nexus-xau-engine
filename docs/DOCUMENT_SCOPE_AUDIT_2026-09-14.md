@@ -43,11 +43,9 @@ is OBSOLETE_BY_SCOPE for current planning unless explicitly reopened by the owne
 
 The document remains preserved as history.
 
-## Current system-name and clock rule
+## Source-attribution and clock rule
 
-Source-backed system name used by the Project:
-
-ระบบเทรดแม่ปลาปากกาเขียว
+Person/channel/system labels appearing in source records are provenance labels only. They are not the name of our Phase 1 plan or our Project method.
 
 Current canonical research/replay checkpoint inside Phase 1:
 
@@ -55,7 +53,7 @@ Current canonical research/replay checkpoint inside Phase 1:
 
 `Phase 1 / เฟสหนึ่ง` is the Project-stage name. It does not mean price/run distance, and 07:00 is not the method name.
 
-Do not invent a different formal method name unless source evidence establishes it.
+Use neutral Project naming unless a name is needed specifically to identify the source/provenance.
 
 ## Current delivery target
 

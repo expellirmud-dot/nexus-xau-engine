@@ -35,6 +35,10 @@ Priority is not based on popularity or convenience. Prefer work that:
 
 Do not invent a numeric score if the evidence does not justify one. `QUEUE.json` keeps an explicit ordered list and the reason for that order.
 
+## Anti-duplicate finding check
+
+Before creating or promoting a materially similar relationship question, check `research_findings/FINDINGS.json`. A prior INCONCLUSIVE, negative, reconciled, or superseded finding is durable knowledge and must not be silently rediscovered under a new worksheet name.
+
 ## Method order for each research worksheet
 
 Default method is source-first / visual-first:

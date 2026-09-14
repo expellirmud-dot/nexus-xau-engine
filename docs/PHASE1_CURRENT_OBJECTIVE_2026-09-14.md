@@ -12,11 +12,17 @@ The current Project scope is called **Phase 1 / เฟสหนึ่ง**.
 - 07:00 is not the name of the method and not the name of Phase 1.
 - Do not invent a formal method name unless source evidence establishes it.
 
-Source-backed system name currently used by the Project: **ระบบเทรดแม่ปลาปากกาเขียว**.
+## Source-attribution naming boundary
+
+Person/channel/system labels found in source material are **source attribution only**.
+
+They are not the name of Phase 1, not the name of this Project's method, and must not be used to imply that the Project is a personal plan belonging to the instructor/source.
+
+Where source records themselves use a teaching label, preserve that wording only when identifying provenance. For Project planning and research, use neutral names such as `Phase 1`, the active research question, or the specific state/relationship being studied.
 
 ## Phase 1 objective
 
-Build, understand, and validate the bounded XAU decision process currently studied from the Mae Pla Green Pen teaching, using the project-confirmed 07:00 Asia/Bangkok checkpoint.
+Build, understand, and validate the bounded XAU decision process reconstructed from the current teaching/source corpus, using the project-confirmed 07:00 Asia/Bangkok checkpoint.
 
 Phase 1 is intentionally narrow. It is not currently trying to solve all trading hours, all markets, every possible profitable strategy, or continuous 24/7 trading.
 

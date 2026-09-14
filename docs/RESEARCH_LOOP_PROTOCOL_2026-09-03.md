@@ -8,14 +8,16 @@ Purpose: allow NEXUS to continue useful research while the project owner is busy
 
 Before new work, read in this order:
 
-1. `docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md`
-2. `TOOLS.md`
-3. `docs/CURRENT_RESEARCH_STATE.json`
-4. `research_queue/QUEUE.json`
-5. the worksheet currently under `research_queue/active/`
-6. `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json`
-7. the latest checkpoint relevant to the selected puzzle
-8. original/closest available source evidence for any claim being changed
+1. `docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md`
+2. `docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md`
+3. `TOOLS.md`
+4. `docs/CURRENT_RESEARCH_STATE.json`
+5. `research_queue/QUEUE.json`
+6. the worksheet currently under `research_queue/active/`
+7. `research_findings/FINDINGS.json`
+8. `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json`
+9. the latest checkpoint relevant to the selected puzzle
+10. original/closest available source evidence for any claim being changed
 
 Historical files are evidence/history, not automatically the current project position.
 
@@ -29,6 +31,7 @@ LOAD STATE
 -> RECOVER / REVIEW evidence
 -> SPLIT source fact from interpretation
 -> CHECK provenance / ASR / STT risk
+-> CHECK prior relation/finding identity in Research Finding Ledger
 -> COMPARE against canonical claim register
 -> RESOLVE if evidence is sufficient
    OR parameterize/quarantine if insufficient

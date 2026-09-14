@@ -122,6 +122,14 @@ Historical documents are evidence chronology, not automatically current truth.
 
 Never erase old findings merely because newer evidence narrows or supersedes them. Preserve the old checkpoint and add an explicit reconciliation/supersession trail.
 
+### Research Finding Ledger — pre-canonical anti-forgetting layer
+
+- `research_findings/FINDINGS.json` records observations/reconciliations that must remain findable even when they are not canonical claims.
+- It is NON-CANONICAL and must never override `CANONICAL_CLAIM_REGISTER`.
+- Before opening a materially similar relationship test, search by relation identity / involved variables / canonical claim reference.
+- Preserve representation and conditions for apparently conflicting observations; do not choose a winner until claim identity and conditioning are checked.
+- Preflight validates finding identity, evidence references, and canonical references.
+
 ## 3. Knowledge-state rule: do not re-research from zero
 
 Before re-opening a video, transcript, timestamp window, formula, or historical test:

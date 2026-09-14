@@ -2,6 +2,22 @@
 
 Status: RE-ANCHOR AUDIT / EXISTING REPOSITORY EVIDENCE FIRST / NO NEW YOUTUBE REQUIRED FOR THIS CHECKPOINT
 
+## Later authority correction — 2026-09-13 RQ-015
+
+This document is a historical sufficiency snapshot taken before the later geometry-null closure.
+
+Do not treat its wording that H4 consumed/run-progress was the strongest independent lead as current authority.
+
+Later frozen RQ-015 geometry control found the primary consumed residual non-positive in both Discovery and Replication and closed the current interpretation as:
+
+`CONSUMED_ASSOCIATION_EXPLAINED_OR_DOMINATED_BY_GEOMETRY`
+
+Current authority:
+- `docs/0700_RQ015_GEOMETRY_NULL_RESULT_2026-09-13.md`
+- canonical claim `H4_0700_CONSUMED_STATE_RELATION`
+
+The earlier positive association evidence remains valid history. The independent-predictor interpretation does not.
+
 ## Why this exists
 
 The project already had substantial 07:00 work, but CURRENT_RESEARCH_STATE, SOURCE_COVERAGE_LEDGER, and QUEUE stopped being maintained around 2026-09-09 while 07:00 work continued through 2026-09-12/13.
