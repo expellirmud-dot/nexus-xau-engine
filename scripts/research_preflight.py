@@ -8,6 +8,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from nexus_xau.governance.research_governance import validate_claim_store
+
 ROOT = Path(__file__).resolve().parents[1]
 
 CORE_PATHS = [
@@ -454,6 +456,10 @@ def build_manifest() -> dict[str, Any]:
     if skill_freeze.get("status") != "PASS":
         return skill_freeze
 
+    claim_governance = validate_claim_store(canonical)
+    if claim_governance.get("status") != "PASS":
+        return claim_governance
+
     consistency = validate_state_consistency(
         state=state,
         queue=queue,
@@ -573,6 +579,7 @@ def build_manifest() -> dict[str, Any]:
             "updated_at": canonical.get("updated_at"),
             "total_claims": len(claims),
             "active_claims": len(active_claims),
+            "governance_status": claim_governance.get("status"),
         },
         "coverage": {
             "updated_at": ledger.get("updated_at"),
@@ -629,6 +636,7 @@ def print_text(manifest: dict[str, Any]) -> None:
         "canonical_claims="
         f"{canonical.get('active_claims')} active / {canonical.get('total_claims')} total"
     )
+    print(f"canonical_governance={canonical.get('governance_status')}")
     print(
         "source_coverage="
         f"{coverage.get('entries')} entries | {coverage.get('status_counts')}"
