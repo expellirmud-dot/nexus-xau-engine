@@ -1,3 +1,8 @@
+---
+name: nexus-xau-research
+description: "Use for restart-safe, evidence-first XAU research: source review, rule decoding, formula verification, replay research, hypothesis testing, canonical-state reconciliation, and checkpoint persistence."
+---
+
 # Skill: NEXUS XAU Evidence-First Research
 
 Use this skill for source review, rule decoding, formula verification, replay research, hypothesis testing, checkpoint reconciliation, and any work that may change the project’s current understanding of the trading framework.

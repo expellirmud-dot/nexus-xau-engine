@@ -9,6 +9,19 @@ The project intentionally keeps the skill set small and non-overlapping.
 - `nexus-xau-research/SKILL.md`
 - `nexus-xau-mt5-data/SKILL.md`
 
+## Skill file format
+
+Each `SKILL.md` begins with YAML front matter so the skill is machine-discoverable:
+
+```yaml
+---
+name: <stable-skill-id>
+description: "<when to use this skill>"
+---
+```
+
+Keep `name` stable and keep `description` focused on routing/trigger conditions. Detailed project knowledge remains in the canonical project stores, not in front matter.
+
 Core research role:
 
 - restart-safe evidence-first research;

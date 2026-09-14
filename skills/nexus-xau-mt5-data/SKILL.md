@@ -1,3 +1,8 @@
+---
+name: nexus-xau-mt5-data
+description: "Use for read-only MT5 data engineering, historical coverage, tick collection, restart-safe recovery, provenance, gap tracking, and collector observability."
+---
+
 # Skill: NEXUS XAU MT5 Data Engineering
 
 Use this skill for MT5/MetaTrader5 data acquisition, capability discovery, historical coverage mapping, runtime metadata capture, forward data collection, data-gap recovery, and small observability/status tooling.
