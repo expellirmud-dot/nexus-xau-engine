@@ -10,9 +10,11 @@ def _fixtures():
         "updated_at": "2026-09-13T19:51:00+07:00",
         "state_authority": {
             "scope": "PROJECT_CURRENT",
+            "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
             "project_current_research_checkpoint": "docs/rq012.md",
             "latest_state_reconciliation": "docs/state_drift.md",
         },
+        "project_objective": {"ref": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md"},
         "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
         "operational_research_queue": {
             "active_id": None,
@@ -49,6 +51,7 @@ def _fixtures():
     workstream = {
         "updated_at": "2026-09-13T19:51:00+07:00",
         "scope": "WORKSTREAM_CURRENT_0700_ONLY",
+        "phase1_scope_ref": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
         "project_active_rq": None,
         "project_queue_state": "NO_ACTIVE_DECISION_CRITICAL_RQ_HOLDOUT_RESERVED_UNSCORED",
         "project_current_checkpoint": "docs/rq012.md",
@@ -130,3 +133,12 @@ def test_state_consistency_fails_if_scoring_is_enabled():
     result = _validate(tuple(parts))
     assert result["status"] == "FAIL"
     assert result["reason"] == "HOLDOUT_SCORING_ENABLED"
+
+
+def test_state_consistency_fails_on_phase1_scope_pointer_drift():
+    parts = list(_fixtures())
+    parts[4] = deepcopy(parts[4])
+    parts[4]["phase1_scope_ref"] = "docs/old_scope.md"
+    result = _validate(tuple(parts))
+    assert result["status"] == "FAIL"
+    assert result["reason"] == "PHASE1_SCOPE_POINTER_MISMATCH"

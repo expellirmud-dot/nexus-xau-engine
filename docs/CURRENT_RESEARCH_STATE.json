@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T10:49:08+07:00",
+  "updated_at": "2026-09-14T12:38:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -16,15 +16,21 @@
     "latest_governance_checkpoint": "docs/WO055_COMPLETION_2026-09-14.md",
     "knowledge_governance_contract": "docs/WO055_MINIMAL_GOVERNANCE_SCHEMA_FREEZE_2026-09-14.md",
     "derived_authority_report": "results/governance/research_authority.json",
-    "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY"
+    "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
+    "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
+    "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ012_HOLDOUT_LEDGER_ACTIVATION_TOOLING_IMPLEMENTED_RESERVED_UNSCORED",
   "project_objective": {
     "authority": "OWNER_DIRECT",
-    "ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
-    "summary": "Selective evidence-driven 07:00 decision system, not a generic always-trading EA. Use all relevant pre-07:00 evidence; act only when the current version understands the state sufficiently; otherwise PASS/NO TRADE/STUDY and record the novel state.",
-    "success_definition": "Maximize process completeness, traceability, deterministic handling of known states, and safe fail-closed behavior. Do not require or manufacture a target market win rate.",
+    "ref": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
+    "decision_doctrine_ref": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
+    "phase_name": "Phase 1 / เฟสหนึ่ง",
+    "naming_guard": "Phase 1 is the first bounded Project stage. It is not price/run distance. 07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method or phase name.",
+    "source_backed_system_name": "ระบบเทรดแม่ปลาปากกาเขียว",
+    "summary": "Phase 1 studies a bounded XAU decision process using the 07:00 Asia/Bangkok checkpoint. Use all legitimately knowable pre-checkpoint evidence; otherwise PASS/NO TRADE/STUDY. Do not broaden to all-day trading or other decision checkpoints without a separately authorized later phase.",
+    "success_definition": "Maximize process completeness, traceability, deterministic handling of known states, safe handling of blocking/non-blocking unknowns, and multi-year falsification before supervised pilot use. Do not manufacture certainty or a target market win rate.",
     "data_policy": "Real historical/forward data tests market behavior; synthetic data tests logic, invariants, and controlled edge cases. Synthetic data cannot establish market frequency or profitability."
   },
   "validated_dataset": {
@@ -144,7 +150,8 @@
     "The reserved prospective boundary 2026-09-14T07:00:00+07:00 has passed; this does not itself authorize outcome access. If collection is intentionally resumed, use only chronological progressive-reveal collection/label locking through the frozen RQ-011 runner.",
     "Do not alter engine semantics, eligibility, target, horizon, tick handling, or activation identity while retaining this holdout identity.",
     "RQ-014 remains queued; do not promote it unless a future active scope actually requires PAT3.",
-    "For any future decision-critical RQ activation or new/authority-sensitive canonical claim change, satisfy WO-055 admission and claim-governance validation. The generated authority report remains derived-only."
+    "For any future decision-critical RQ activation or new/authority-sensitive canonical claim change, satisfy WO-055 admission and claim-governance validation. The generated authority report remains derived-only.",
+    "Keep current work bounded to Phase 1; treat 07:00 Asia/Bangkok as a checkpoint inside the phase, not as the method name, and do not broaden scope without separate owner authorization."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -275,9 +282,11 @@
     "src/nexus_xau/governance/research_governance.py",
     "tests/test_research_governance.py",
     "tests/fixtures/wo055/governance_matrix.json",
-    "scripts/report_research_authority.py"
+    "scripts/report_research_authority.py",
+    "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
+    "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md"
   ],
-  "resume_instruction": "Project-current state: RQ-012 tooling is CLOSED; implementation commit 1d35ab3 and closure checkpoint commit 728c461 are already pushed. Activation boundary remains reserved for 2026-09-14T07:00:00+07:00 Asia/Bangkok, holdout outcomes remain unopened, and scoring remains disabled. No decision-critical RQ is active; RQ-014 remains queued until explicitly required.",
+  "resume_instruction": "Project-current scope is Phase 1 / เฟสหนึ่ง. The source-backed system name is ระบบเทรดแม่ปลาปากกาเขียว; 07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method name. RQ-012 tooling remains closed, the reserved prospective boundary has passed but does not authorize outcome access, holdout scoring remains disabled, no decision-critical RQ is active, and RQ-014 remains queued.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1169,5 +1178,24 @@
       "outcome_scoring_enabled": false,
       "holdout_outcomes_used_by_wo055": false
     }
+  },
+  "phase1_scope": {
+    "status": "CURRENT_ACTIVE_PROJECT_SCOPE",
+    "name": "Phase 1 / เฟสหนึ่ง",
+    "authority_ref": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
+    "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
+    "checkpoint_local": "07:00 Asia/Bangkok",
+    "checkpoint_role": "OBSERVATION_PREPARATION_DECISION_CHECKPOINT_INSIDE_PHASE1",
+    "naming_rule": "07:00 is not the method name. Phase 1 does not mean run/price distance.",
+    "delivery_path": [
+      "reconstruct knowable state at checkpoint",
+      "freeze representation",
+      "multi-year historical replay",
+      "classify defects/gaps/contradictions",
+      "bounded versioned correction",
+      "separated revalidation",
+      "supervised pilot use"
+    ],
+    "later_scope_rule": "Broader trading times/strategies require separate owner authorization and are not implied by Phase 1."
   }
 }

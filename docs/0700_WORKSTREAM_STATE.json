@@ -323,5 +323,7 @@
     "geometry_rho_outcome": 0.6855,
     "partial_consumed_rho_given_geometry": -0.1578,
     "interpretation": "REPLICATED_ASSOCIATION_GEOMETRY_CONFOUNDED_INDEPENDENT_EFFECT_NOT_ESTABLISHED"
-  }
+  },
+  "phase1_scope_ref": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
+  "phase1_naming_guard": "This 07:00 workstream is a lane/checkpoint inside Phase 1. 07:00 is not the method name; Phase 1 does not mean price/run distance."
 }

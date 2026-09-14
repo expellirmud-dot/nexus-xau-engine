@@ -51,11 +51,12 @@ Only enter the deep bootstrap when the next action requires changing or interpre
 Then use the zero-context evidence path:
 
 1. `PROJECT_BOOTSTRAP.md`
-2. `docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md`
-3. `skills/nexus-xau-research/SKILL.md`
-4. run `.venv\Scripts\python.exe scripts\research_preflight.py` and require `NEXUS_RESEARCH_PREFLIGHT=PASS`;
-5. read only the Current State / Workstream / Claim / Coverage / Queue pointers that are material to the active question;
-6. load the specific supporting checkpoint/source documents reached through those pointers.
+2. `docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md`
+3. `docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md`
+4. `skills/nexus-xau-research/SKILL.md`
+5. run `.venv\Scripts\python.exe scripts\research_preflight.py` and require `NEXUS_RESEARCH_PREFLIGHT=PASS`;
+6. read only the Current State / Workstream / Claim / Coverage / Queue pointers that are material to the active question;
+7. load the specific supporting checkpoint/source documents reached through those pointers.
 
 Do **not** read the entire `docs/` tree on every session.
 
@@ -70,6 +71,14 @@ Before substantive work, the agent must still be able to answer:
 - What claim is currently prohibited?
 
 If the compact capsule cannot answer enough to locate the correct evidence, escalate to Tier 1 rather than guessing.
+
+### Phase 1 naming invariant
+
+- The current bounded project stage is **Phase 1 / เฟสหนึ่ง**.
+- `07:00 Asia/Bangkok` is a checkpoint inside Phase 1; it is not the method name and not the Phase name.
+- `Phase 1 / ระยะแรก` means the first Project stage, not price/run/target distance.
+- Read `docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md` before interpreting older 07:00 roadmaps or opening a new research scope.
+- Older broad roadmap wording does not override current Phase 1 scope; use `docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md` for document-age/scope classification.
 
 ## 2. Current authority hierarchy
 
@@ -284,6 +293,6 @@ A new agent/session must continue from the repository state, not from conversati
 
 Minimum restart invariant:
 
-`AGENTS.md -> PROJECT_BOOTSTRAP.md -> 07:00 Project Objective/Decision Doctrine -> nexus-xau-research SKILL -> preflight PASS -> Maintenance Policy -> TOOLS -> Current State -> Active Workstream Dashboard -> Canonical Claims -> Source Coverage -> Queue -> Active RQ -> Latest Checkpoint`
+`AGENTS.md -> PROJECT_BOOTSTRAP.md -> Phase 1 Current Objective -> 07:00 Decision Doctrine -> nexus-xau-research SKILL -> preflight PASS -> Maintenance Policy -> TOOLS -> Current State -> Active Workstream Dashboard -> Canonical Claims -> Source Coverage -> Queue -> Active RQ -> Latest Checkpoint`
 
 Only after this chain is loaded should new research begin.

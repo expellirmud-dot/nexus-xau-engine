@@ -29,13 +29,14 @@ Escalate to this file before:
 ## Mandatory deep entry sequence
 
 1. Read `AGENTS.md`.
-2. Read `docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md`.
-3. Read `skills/nexus-xau-research/SKILL.md`.
-4. Run the repository preflight:
+2. Read `docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md`.
+3. Read `docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md`.
+4. Read `skills/nexus-xau-research/SKILL.md`.
+5. Run the repository preflight:
 
    `.venv\Scripts\python.exe scripts\research_preflight.py`
 
-5. Read only the structured pointers material to the active question:
+6. Read only the structured pointers material to the active question:
    - `docs/CURRENT_RESEARCH_STATE.json`
    - active workstream dashboard;
    - relevant canonical claims;
@@ -43,7 +44,7 @@ Escalate to this file before:
    - `research_queue/QUEUE.json`;
    - active worksheet/latest checkpoint.
 
-6. Load only the specific supporting checkpoint/source documents reached through those pointers.
+7. Load only the specific supporting checkpoint/source documents reached through those pointers.
 
 Do not read the entire `docs/` tree on every session.
 
@@ -69,6 +70,8 @@ If the agent cannot answer these from the repository, context loading is incompl
 
 Use these files for different kinds of project memory:
 
+- `docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md` = current owner-directed Phase 1 scope authority. Phase 1 is the bounded project stage; 07:00 Asia/Bangkok is a checkpoint inside it, not the method name or a run-distance label.
+- `docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md` = document-age/scope reconciliation preventing older broad roadmaps from silently re-expanding current scope.
 - `docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md` = owner-direct definition of what the 07:00 system is, what success means, how unknown states are handled, and how real versus synthetic data may be used.
 
 - `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json` = what the project currently knows/accepts. WO-055 governance metadata in this existing store protects legacy claim fingerprints and explicit authority transitions.

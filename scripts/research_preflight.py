@@ -19,6 +19,8 @@ ROOT = Path(__file__).resolve().parents[1]
 CORE_PATHS = [
     Path("AGENTS.md"),
     Path("PROJECT_BOOTSTRAP.md"),
+    Path("docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md"),
+    Path("docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md"),
     Path("docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md"),
     Path("skills/README.md"),
     Path("skills/SKILLS_MANIFEST.json"),
@@ -66,6 +68,20 @@ def validate_state_consistency(
             "status": "FAIL",
             "reason": "PROJECT_STATE_SCOPE_UNDECLARED",
             "scope": authority.get("scope") if isinstance(authority, dict) else None,
+        }
+
+    expected_phase1_ref = "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md"
+    phase1_pointers = {
+        "state_authority": authority.get("current_scope_authority"),
+        "project_objective": (state.get("project_objective") or {}).get("ref"),
+        "workstream": workstream.get("phase1_scope_ref"),
+    }
+    if any(value != expected_phase1_ref for value in phase1_pointers.values()):
+        return {
+            "status": "FAIL",
+            "reason": "PHASE1_SCOPE_POINTER_MISMATCH",
+            "expected": expected_phase1_ref,
+            "pointers": phase1_pointers,
         }
 
     active_raw = queue.get("active")
@@ -615,7 +631,7 @@ def build_manifest() -> dict[str, Any]:
         "required_files": manifest_files,
         "missing": missing_dynamic,
         "comprehension_gate": [
-            "State the 07:00 project objective and unknown-state/PASS doctrine.",
+            "State the Phase 1 objective, explain that 07:00 Asia/Bangkok is a checkpoint inside Phase 1, and state the unknown-state/PASS doctrine.",
             "State the active 07:00 workstream and active RQ/worksheet.",
             "State the latest checkpoint.",
             "State relevant canonical facts and residual unknowns.",
