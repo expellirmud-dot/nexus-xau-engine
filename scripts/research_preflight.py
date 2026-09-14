@@ -8,7 +8,10 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from nexus_xau.governance.research_governance import validate_claim_store
+from nexus_xau.governance.research_governance import (
+    validate_claim_store,
+    validate_queue_governance,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -460,6 +463,10 @@ def build_manifest() -> dict[str, Any]:
     if claim_governance.get("status") != "PASS":
         return claim_governance
 
+    queue_governance = validate_queue_governance(queue)
+    if queue_governance.get("status") != "PASS":
+        return queue_governance
+
     consistency = validate_state_consistency(
         state=state,
         queue=queue,
@@ -559,6 +566,7 @@ def build_manifest() -> dict[str, Any]:
         "state_scope": (state.get("state_authority") or {}).get("scope"),
         "state_reconciliation": (state.get("state_authority") or {}).get("latest_state_reconciliation"),
         "queue_state": queue.get("queue_state"),
+        "queue_governance": queue_governance.get("status"),
         "last_closed_id": (state.get("operational_research_queue") or {}).get("last_closed_id"),
         "active_workstream": {
             "id": workstream.get("workstream"),
@@ -624,6 +632,7 @@ def print_text(manifest: dict[str, Any]) -> None:
     print(f"state_scope={manifest.get('state_scope')}")
     print(f"state_reconciliation={manifest.get('state_reconciliation')}")
     print(f"queue_state={manifest.get('queue_state')}")
+    print(f"queue_governance={manifest.get('queue_governance')}")
     print(f"last_closed_id={manifest.get('last_closed_id')}")
     print(
         "active_workstream="

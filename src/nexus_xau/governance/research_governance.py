@@ -9,6 +9,7 @@ from typing import Any
 GOVERNANCE_SCHEMA_VERSION = "WO055_RESEARCH_GOVERNANCE_V0.1"
 RQ_ADMISSION_SCHEMA_VERSION = "WO055_RQ_ADMISSION_V0.1"
 CLAIM_GOVERNANCE_SCHEMA_VERSION = "WO055_CLAIM_GOVERNANCE_V0.1"
+RQ_ADMISSION_GOVERNANCE_SCHEMA_VERSION = "WO055_RQ_ADMISSION_GOVERNANCE_V0.1"
 
 REQUIRED_VALIDATION_DIMENSIONS = {
     "SOURCE_VALIDATION",
@@ -327,26 +328,49 @@ def validate_claim_store(store: Mapping[str, Any]) -> dict[str, Any]:
         return _fail("CLAIM_SUPERSESSION_CYCLE")
 
     top_governance = store.get("governance")
-    if isinstance(top_governance, Mapping):
+    if top_governance is not None:
+        if not isinstance(top_governance, Mapping):
+            return _fail("LEGACY_CLAIM_FINGERPRINT_BASELINE_INVALID")
+        if top_governance.get("schema_version") != GOVERNANCE_SCHEMA_VERSION:
+            return _fail(
+                "CLAIM_GOVERNANCE_SCHEMA_INVALID",
+                schema_version=top_governance.get("schema_version"),
+            )
         baseline = top_governance.get("legacy_claim_fingerprints")
-        if baseline is not None:
-            if not isinstance(baseline, Mapping):
-                return _fail("LEGACY_CLAIM_FINGERPRINT_BASELINE_INVALID")
-            for claim in claims:
-                claim_id = str(claim["claim_id"])
-                expected = baseline.get(claim_id)
-                if expected is None:
-                    continue
-                if "governance" in claim:
-                    continue
-                actual = legacy_claim_fingerprint(claim)
-                if expected != actual:
-                    return _fail(
-                        "LEGACY_CLAIM_CHANGED_WITHOUT_GOVERNANCE",
-                        claim_id=claim_id,
-                        expected_fingerprint=expected,
-                        actual_fingerprint=actual,
-                    )
+        if not isinstance(baseline, Mapping):
+            return _fail("LEGACY_CLAIM_FINGERPRINT_BASELINE_INVALID")
+
+        known_ids = set(claim_ids)
+        orphaned = sorted({str(key) for key in baseline} - known_ids)
+        if orphaned:
+            return _fail(
+                "LEGACY_CLAIM_BASELINE_ORPHANED",
+                claim_ids=orphaned,
+            )
+
+        for claim in claims:
+            claim_id = str(claim["claim_id"])
+            if "governance" in claim:
+                continue
+            expected = baseline.get(claim_id)
+            if expected is None:
+                return _fail(
+                    "UNGOVERNED_CLAIM_NOT_IN_LEGACY_BASELINE",
+                    claim_id=claim_id,
+                )
+            if not isinstance(expected, str) or len(expected) != 64:
+                return _fail(
+                    "LEGACY_CLAIM_FINGERPRINT_BASELINE_INVALID",
+                    claim_id=claim_id,
+                )
+            actual = legacy_claim_fingerprint(claim)
+            if expected != actual:
+                return _fail(
+                    "LEGACY_CLAIM_CHANGED_WITHOUT_GOVERNANCE",
+                    claim_id=claim_id,
+                    expected_fingerprint=expected,
+                    actual_fingerprint=actual,
+                )
 
     return _pass(claim_count=len(claims))
 
@@ -436,6 +460,65 @@ def validate_rq_admission(
         "admission_result": "ADMISSIBLE",
         "rq_id": rq_id,
     }
+
+
+def validate_queue_governance(queue: Mapping[str, Any]) -> dict[str, Any]:
+    governance = queue.get("governance")
+    if governance is None:
+        return _pass(migrated=False)
+    if not isinstance(governance, Mapping):
+        return _fail("RQ_ADMISSION_GOVERNANCE_INVALID")
+    if governance.get("schema_version") != RQ_ADMISSION_GOVERNANCE_SCHEMA_VERSION:
+        return _fail(
+            "RQ_ADMISSION_GOVERNANCE_SCHEMA_INVALID",
+            schema_version=governance.get("schema_version"),
+        )
+    if governance.get("admission_required_for_activation") is not True:
+        return _fail("RQ_ADMISSION_ENFORCEMENT_DISABLED")
+
+    admissions = queue.get("admissions")
+    if not isinstance(admissions, Mapping):
+        return _fail("RQ_ADMISSION_STORE_INVALID")
+
+    active = queue.get("active")
+    if active is None:
+        return _pass(migrated=True, active_rq=None)
+    if not isinstance(active, Mapping):
+        return _fail("QUEUE_ACTIVE_INVALID")
+
+    active_id = active.get("id")
+    if not _nonempty_text(active_id):
+        return _fail("QUEUE_ACTIVE_INVALID")
+    active_id = str(active_id)
+
+    admission = admissions.get(active_id)
+    if not isinstance(admission, Mapping):
+        return _fail(
+            "RQ_ADMISSION_MISSING_FOR_ACTIVE_RQ",
+            rq_id=active_id,
+        )
+    if admission.get("rq_id") != active_id:
+        return _fail(
+            "RQ_ADMISSION_ACTIVE_ID_MISMATCH",
+            active_rq=active_id,
+            admission_rq=admission.get("rq_id"),
+        )
+
+    items = queue.get("items")
+    if not isinstance(items, list):
+        return _fail("QUEUE_ITEMS_INVALID")
+    other_ids = {
+        str(item.get("id"))
+        for item in items
+        if isinstance(item, Mapping)
+        and _nonempty_text(item.get("id"))
+        and str(item.get("id")) != active_id
+    }
+    result = validate_rq_admission(admission, existing_rq_ids=other_ids)
+    if result.get("status") != "ADMISSIBLE":
+        return result
+
+    return _pass(migrated=True, active_rq=active_id)
 
 
 def validate_fixture(kind: str, payload: Mapping[str, Any]) -> dict[str, Any]:
