@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-15T03:46:36+07:00",
+  "updated_at": "2026-09-15T04:04:30+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_YEAR_2025_VALIDATION_2026-09-15.md"
+    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_ARCHIVE_ACQUISITION_RECONCILIATION_2015_2026_2026-09-15.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -101,7 +101,9 @@
       "docs/PHASE1_EXNESS_YEAR_2022_VALIDATION_2026-09-15.md",
       "docs/PHASE1_EXNESS_YEAR_2023_VALIDATION_2026-09-15.md",
       "docs/PHASE1_EXNESS_YEAR_2024_VALIDATION_2026-09-15.md",
-      "docs/PHASE1_EXNESS_YEAR_2025_VALIDATION_2026-09-15.md"
+      "docs/PHASE1_EXNESS_YEAR_2025_VALIDATION_2026-09-15.md",
+      "docs/PHASE1_EXNESS_YEAR_2026_VALIDATION_2026-09-15.md",
+      "docs/PHASE1_EXNESS_ARCHIVE_ACQUISITION_RECONCILIATION_2015_2026_2026-09-15.md"
     ]
   },
   "provenance_guard": {
@@ -172,15 +174,16 @@
     "queue_governance": "PASS",
     "derived_authority_report": "PASS_WHEN_PRESENT_OPTIONAL_WHEN_ABSENT",
     "exness_archive_mapper": "TARGETED_RUFF_PASS_4_TESTS_PASS_LIVE_SMOKE_RESTART_VALIDATED",
-    "exness_archive_downloader": "VALIDATOR_V0.2_REPRESENTATIVE_3_MONTHS_VALIDATED",
+    "exness_archive_downloader": "VALIDATOR_V0.2_ALL_134_AVAILABLE_MONTHS_VALIDATED",
+    "exness_archive_acquisition": "CURRENT_COVERAGE_COMPLETE_134_OF_134_AVAILABLE_MONTHS",
     "exness_mt5_overlap": "DESCRIPTIVELY_CONSISTENT_EXACT_FEED_EQUIVALENCE_NOT_CLAIMED"
   },
   "next_steps": [
-    "2025 annual archive batch is reconciled with preserved raw equal-timestamp/exact-duplicate observations; XAU-EXNESS-YEAR-2026-V02-20260915 is the current and final annual archive job for the present coverage map. Reuse its persisted state and preserve the unresolved 2016 March/April boundary gap candidate.",
-    "For each year, acquire only coverage-map months with status AVAILABLE using validator V0.2 and append-only manifest records; validate/reconcile the completed year before submitting the next year.",
-    "After each annual job, reconcile month-level validation/anomaly coverage and keep archive identity separate from the current Exness Demo MT5 route; 2026-08 overlap is descriptively consistent but not exact feed equivalence.",
-    "Freeze the pre-outcome Phase 1 replay engineering contract including fill, stop, spread/cost and residual-slippage treatment before downstream outcome scoring.",
-    "Keep automatic order sending and V0.1 holdout outcome scoring disabled."
+    "Current Exness archive acquisition is complete for the frozen 2015-2026 coverage snapshot: 134/134 AVAILABLE months are Validator V0.2 VALIDATED; preserve partial-month, boundary-gap, equal-timestamp and raw-duplicate observations.",
+    "Freeze the pre-outcome Phase 1 replay engineering contract before historical outcome scoring, explicitly separating raw archive representation from replay representation and defining duplicate/equal-timestamp handling, fill, stop, spread/cost, residual slippage and provenance treatment.",
+    "After the replay contract is frozen, validate replay mechanics with invariant/synthetic tests before exposing protected historical outcomes; do not choose replay rules from outcome performance.",
+    "Keep archive identity separate from the current Exness Demo MT5 route; 2026-08 overlap is descriptively consistent but exact feed/server equivalence is not established.",
+    "Keep automatic order sending and V0.1 holdout outcome scoring disabled until explicitly activated under existing governance."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
