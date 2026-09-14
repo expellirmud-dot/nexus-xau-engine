@@ -301,3 +301,32 @@ Operator visibility:
 
 The corner status reads local status.json + SQLite directly; the browser is optional.
 Closing the corner widget does not stop the collector.
+
+
+### Exness XAUUSDm Tick Archive Coverage Mapper V0.1
+
+Implementation:
+- `src/nexus_xau/data/exness_tick_archive.py`
+- `scripts/exness_tick_archive_coverage.py`
+- `tests/test_exness_tick_archive.py`
+
+Checkpoint:
+- `docs/PHASE1_EXNESS_TICK_ARCHIVE_COVERAGE_MAPPER_2026-09-14.md`
+
+Purpose:
+- map month-level object availability for the Exness-branded XAUUSDm historical tick archive;
+- keep archive metadata acquisition separate from market-outcome scoring;
+- preserve append-only JSONL observations and retry only acquisition `ERROR` records;
+- support durable multi-year coverage scans without re-probing terminal month observations.
+
+Validated behavior:
+- targeted Ruff PASS;
+- 4 targeted tests PASS;
+- live 2022-09/2022-10 smoke returned 2 AVAILABLE months;
+- immediate rerun left JSONL at exactly 2 records, validating terminal-observation resume behavior.
+
+Boundary:
+- READ-ONLY EXTERNAL METADATA / ORDER SEND DISABLED;
+- archive object availability does not prove tick-level continuity;
+- do not treat archive pricing as exactly identical to the current Exness Demo / MT5 server;
+- do not infer slippage, fills, profitability, or a universal spread from this mapper.

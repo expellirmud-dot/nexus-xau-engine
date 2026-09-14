@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-09-14T20:10:23+07:00",
+  "updated_at": "2026-09-14T20:19:30+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
     "contract": "docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md",
     "latest_state_reconciliation": "docs/STATE_DRIFT_AUDIT_2026-09-13.md",
     "project_current_research_checkpoint": "research_queue/closed/RQ-016_PHASE1_CONSTRUCTION_BOUNDARY.md",
-    "latest_operational_tooling_checkpoint": "docs/V01_HOLDOUT_PROGRESSIVE_REVEAL_RUNNER_IMPLEMENTATION_2026-09-13.md",
+    "latest_operational_tooling_checkpoint": "docs/PHASE1_EXNESS_TICK_ARCHIVE_COVERAGE_MAPPER_2026-09-14.md",
     "project_current_state": "docs/CURRENT_RESEARCH_STATE.json",
     "operational_queue": "research_queue/QUEUE.json",
     "workstream_state": "docs/0700_WORKSTREAM_STATE.json",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md"
+    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_TICK_ARCHIVE_COVERAGE_MAPPER_2026-09-14.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -87,7 +87,8 @@
       "docs/PHASE1_MT5_FORWARD_COLLECTOR_IMPLEMENTATION_PILOT_2026-09-14.md",
       "docs/PHASE1_MT5_FORWARD_COLLECTOR_OPERATIONAL_START_2026-09-14.md",
       "docs/PHASE1_MT5_COLLECTOR_OBSERVABILITY_RECONCILIATION_2026-09-14.md",
-      "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md"
+      "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md",
+      "docs/PHASE1_EXNESS_TICK_ARCHIVE_COVERAGE_MAPPER_2026-09-14.md"
     ]
   },
   "provenance_guard": {
@@ -156,12 +157,13 @@
     "wo055_governance": "PASS_IMPLEMENTED_VALIDATED_CLOSED",
     "canonical_governance": "PASS",
     "queue_governance": "PASS",
-    "derived_authority_report": "PASS_WHEN_PRESENT_OPTIONAL_WHEN_ABSENT"
+    "derived_authority_report": "PASS_WHEN_PRESENT_OPTIONAL_WHEN_ABSENT",
+    "exness_archive_mapper": "TARGETED_RUFF_PASS_4_TESTS_PASS_LIVE_SMOKE_RESTART_VALIDATED"
   },
   "next_steps": [
-    "Inspect persisted state/result of XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914 before starting another collector; at this checkpoint it was still RUNNING read-only.",
-    "Build/reuse a restart-safe coverage mapper for the Exness-branded XAUUSDm archive before any multi-year bulk download; map object availability, hashes, and provenance without assuming continuity.",
-    "Cross-validate an already-inspected overlapping 2026 interval between the external XAUUSDm archive and the current MT5 XAUUSDm tick route; keep feed/server identities separate.",
+    "Inspect persisted state/result of XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914 before starting another MT5 collector; never run duplicate collectors against the same SQLite store.",
+    "Run the committed restart-safe Exness XAUUSDm archive coverage mapper for 2015-2026 under nexus-durable-work and reconcile its persisted result before any bulk historical tick download.",
+    "After coverage mapping, validate representative archive files and cross-validate an already-inspected overlapping 2026 interval against the current MT5 XAUUSDm tick route while keeping feed/server identities separate.",
     "Freeze the pre-outcome Phase 1 replay engineering contract including fill, stop, spread/cost and residual-slippage treatment before downstream outcome scoring.",
     "Keep automatic order sending and V0.1 holdout outcome scoring disabled."
   ],
@@ -314,9 +316,10 @@
     "docs/PHASE1_MT5_FORWARD_COLLECTOR_OPERATIONAL_START_2026-09-14.md",
     "docs/PHASE1_MT5_COLLECTOR_OBSERVABILITY_RECONCILIATION_2026-09-14.md",
     "docs/MT5_COLLECTOR_DASHBOARD_FIELD_GUIDE_2026-09-14.md",
-    "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md"
+    "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md",
+    "docs/PHASE1_EXNESS_TICK_ARCHIVE_COVERAGE_MAPPER_2026-09-14.md"
   ],
-  "resume_instruction": "Phase 1 is current. Before starting another collector, inspect durable job XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914 plus status.json and SQLite; at the 2026-09-14 Exness-archive checkpoint the job was still RUNNING read-only after the status-contention fix. A new external historical Bid/Ask route has been sample-validated: XAUUSDm archive listing exposes 2015-2026 and September 2022 contains 2,377,326 validated ticks. This does not yet prove full multi-year continuity or exact equivalence to the current Exness Demo/MT5 server. Next bounded data task is restart-safe archive coverage mapping and overlap cross-feed validation before any synthetic residual execution model. Automatic order execution and holdout scoring remain disabled.",
+  "resume_instruction": "Phase 1 is current. The Exness-branded XAUUSDm archive sample route is validated and a restart-safe month-level coverage mapper is implemented/live-smoke validated in docs/PHASE1_EXNESS_TICK_ARCHIVE_COVERAGE_MAPPER_2026-09-14.md. Before starting another MT5 collector, inspect durable job XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914 plus status.json and SQLite; do not duplicate collectors. Next bounded data task is to run the committed archive mapper for 2015-2026 under nexus-durable-work, reconcile the result, then perform representative file and overlap cross-feed validation. Archive availability does not prove tick continuity or exact equivalence to the current Exness Demo/MT5 server. Automatic order execution and holdout scoring remain disabled.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1329,7 +1332,19 @@
       "sample_spread_p50": 0.2,
       "sample_spread_p99": 0.6,
       "provenance_status": "EXNESS_BRANDED_ARCHIVE_ENDPOINT_RUNTIME_VALIDATED_FIRST_PARTY_LINKAGE_NOT_RUNTIME_PROVEN_TARGET_SERVER_EQUIVALENCE_NOT_ESTABLISHED",
-      "coverage_status": "YEAR_DIRECTORIES_OBSERVED_FULL_MULTIYEAR_CONTINUITY_NOT_YET_MAPPED"
+      "coverage_status": "YEAR_DIRECTORIES_OBSERVED_FULL_MULTIYEAR_CONTINUITY_NOT_YET_MAPPED",
+      "coverage_mapper_ref": "docs/PHASE1_EXNESS_TICK_ARCHIVE_COVERAGE_MAPPER_2026-09-14.md",
+      "coverage_mapper_module": "src/nexus_xau/data/exness_tick_archive.py",
+      "coverage_mapper_cli": "scripts/exness_tick_archive_coverage.py",
+      "coverage_mapper_status": "IMPLEMENTED_LIVE_SMOKE_RESTART_VALIDATED",
+      "smoke_validation": {
+        "scope": "XAUUSDm 2022-09 and 2022-10",
+        "available_months": 2,
+        "reported_zip_bytes": 45100622,
+        "errors": 0,
+        "resume_jsonl_lines_before": 2,
+        "resume_jsonl_lines_after": 2
+      }
     }
   },
   "project_self_audit_2026_09_14": {
