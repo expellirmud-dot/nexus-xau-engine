@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-15T04:04:30+07:00",
+  "updated_at": "2026-09-15T04:11:21+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_ARCHIVE_ACQUISITION_RECONCILIATION_2015_2026_2026-09-15.md"
+    "latest_progress_checkpoint": "docs/PHASE1_TICK_REPLAY_ENGINEERING_CONTRACT_V0.1_2026-09-15.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -103,7 +103,8 @@
       "docs/PHASE1_EXNESS_YEAR_2024_VALIDATION_2026-09-15.md",
       "docs/PHASE1_EXNESS_YEAR_2025_VALIDATION_2026-09-15.md",
       "docs/PHASE1_EXNESS_YEAR_2026_VALIDATION_2026-09-15.md",
-      "docs/PHASE1_EXNESS_ARCHIVE_ACQUISITION_RECONCILIATION_2015_2026_2026-09-15.md"
+      "docs/PHASE1_EXNESS_ARCHIVE_ACQUISITION_RECONCILIATION_2015_2026_2026-09-15.md",
+      "docs/PHASE1_TICK_REPLAY_ENGINEERING_CONTRACT_V0.1_2026-09-15.md"
     ]
   },
   "provenance_guard": {
@@ -176,12 +177,13 @@
     "exness_archive_mapper": "TARGETED_RUFF_PASS_4_TESTS_PASS_LIVE_SMOKE_RESTART_VALIDATED",
     "exness_archive_downloader": "VALIDATOR_V0.2_ALL_134_AVAILABLE_MONTHS_VALIDATED",
     "exness_archive_acquisition": "CURRENT_COVERAGE_COMPLETE_134_OF_134_AVAILABLE_MONTHS",
+    "tick_replay_contract": "FROZEN_PRE_OUTCOME_V0.1_REFERENCE_REPLAY",
     "exness_mt5_overlap": "DESCRIPTIVELY_CONSISTENT_EXACT_FEED_EQUIVALENCE_NOT_CLAIMED"
   },
   "next_steps": [
-    "Current Exness archive acquisition is complete for the frozen 2015-2026 coverage snapshot: 134/134 AVAILABLE months are Validator V0.2 VALIDATED; preserve partial-month, boundary-gap, equal-timestamp and raw-duplicate observations.",
-    "Freeze the pre-outcome Phase 1 replay engineering contract before historical outcome scoring, explicitly separating raw archive representation from replay representation and defining duplicate/equal-timestamp handling, fill, stop, spread/cost, residual slippage and provenance treatment.",
-    "After the replay contract is frozen, validate replay mechanics with invariant/synthetic tests before exposing protected historical outcomes; do not choose replay rules from outcome performance.",
+    "Tick replay engineering contract V0.1 is frozen pre-outcome; implement only the deterministic reference-replay primitives defined by that contract and do not alter V2 signal semantics.",
+    "Add and pass synthetic/invariant tests for duplicate idempotence, equal-timestamp ambiguity, first-post-confirmation Bid/Ask reference entry, conditional supplied-level triggers, gap exclusion, provenance and slippage-not-zero handling before opening new tick-level historical outcomes.",
+    "After synthetic replay tests pass, use an already-inspected bounded interval for engineering smoke/cross-feed validation before any broader multi-year tick replay; preserve protected holdout scoring lock.",
     "Keep archive identity separate from the current Exness Demo MT5 route; 2026-08 overlap is descriptively consistent but exact feed/server equivalence is not established.",
     "Keep automatic order sending and V0.1 holdout outcome scoring disabled until explicitly activated under existing governance."
   ],

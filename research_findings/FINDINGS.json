@@ -1,7 +1,7 @@
 {
   "schema_version": "PHASE1_FINDING_LEDGER_V0.1",
   "role": "NON_CANONICAL_RESEARCH_FINDING_INDEX",
-  "updated_at": "2026-09-14T20:10:23+07:00",
+  "updated_at": "2026-09-15T04:11:21+07:00",
   "authority_rule": "This ledger indexes research observations and reconciliations only. It cannot override canonical claims, queue authority, source evidence, or holdout governance.",
   "findings": [
     {
@@ -65,7 +65,7 @@
       "title": "Exness-branded XAUUSDm historical Bid/Ask archive route",
       "status": "OPEN",
       "scope": "Phase 1",
-      "current_interpretation": "A machine-accessible Exness-branded XAUUSDm archive exposes 2015-2026 directories and a September 2022 full-month sample passed structural Bid/Ask validation. This closes sample acquisition availability, not multi-year continuity or exact equivalence to the current Exness Demo/MT5 server.",
+      "current_interpretation": "The current frozen Exness-branded XAUUSDm archive coverage contains 134 AVAILABLE months from 2015-08 through 2026-09, and every AVAILABLE month has a latest Validator V0.2 VALIDATED record. This closes the current acquisition/structural-validation coverage task, while tick continuity, duplicate representation, and exact equivalence to the current Exness Demo/MT5 server remain separate residual questions.",
       "observations": [
         {
           "observation_id": "OBS-0003",
@@ -91,6 +91,20 @@
           ],
           "evidence_refs": [
             "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md"
+          ]
+        },
+        {
+          "observation_id": "OBS-0005",
+          "statement": "The frozen 2015-2026 coverage snapshot contains 134 AVAILABLE months and the latest Validator V0.2 manifest contains 134 matching validated months with 379,942,589 ticks and 3,430,625,119 ZIP bytes; provider mismatch, symbol mismatch, Ask < Bid, non-finite Bid/Ask and timestamp regression counts are all zero. Equal timestamps, exact duplicate rows, partial-month boundaries and the unresolved 2016 March/April boundary-gap candidate are preserved rather than silently repaired.",
+          "representation": "Current-coverage acquisition reconciliation using the latest V0.2 record per AVAILABLE month.",
+          "conditions": [
+            "XAUUSDm",
+            "2015-08 through 2026-09 current coverage snapshot",
+            "134 AVAILABLE months",
+            "no holdout outcome scoring"
+          ],
+          "evidence_refs": [
+            "docs/PHASE1_EXNESS_ARCHIVE_ACQUISITION_RECONCILIATION_2015_2026_2026-09-15.md"
           ]
         }
       ],

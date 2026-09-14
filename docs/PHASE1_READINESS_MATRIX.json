@@ -1,6 +1,6 @@
 {
   "schema_version": "PHASE1_READINESS_MATRIX_V0.1",
-  "updated_at": "2026-09-14T20:10:23+07:00",
+  "updated_at": "2026-09-15T04:11:21+07:00",
   "scope": "Phase 1 / เฟสหนึ่ง",
   "naming_guard": "07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method name. Person/channel/system labels are source attribution only.",
   "overall": {
@@ -95,8 +95,10 @@
         "docs/0700_HISTORICAL_DATA_READINESS_AND_TEST_STRATEGY_2026-09-13.md",
         "docs/PHASE1_COMPLETENESS_AUDIT_2026-09-14.md",
         "docs/PHASE1_PROGRESS_CHECKPOINT_MT5_DATA_ROUTE_2026-09-14.md",
-        "docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md"
-      ]
+        "docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md",
+        "docs/PHASE1_EXNESS_ARCHIVE_ACQUISITION_RECONCILIATION_2015_2026_2026-09-15.md"
+      ],
+      "note": "Current archive acquisition is complete for 134/134 AVAILABLE months, but strong multi-year robustness still requires gap-aware replay eligibility, preserved anomaly handling and unchanged-representation evaluation."
     },
     {
       "id": "P1-09",
@@ -122,14 +124,16 @@
         "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
         "docs/PHASE1_MT5_CAPABILITY_REPORT_2026-09-14.md",
         "docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md",
-        "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md"
+        "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md",
+        "docs/PHASE1_EXNESS_ARCHIVE_ACQUISITION_RECONCILIATION_2015_2026_2026-09-15.md",
+        "docs/PHASE1_TICK_REPLAY_ENGINEERING_CONTRACT_V0.1_2026-09-15.md"
       ],
       "missing": [
-        "execution fill/replay convention",
-        "multi-year XAUUSDm external-archive coverage/continuity mapping and cross-server equivalence to the target Exness Demo/MT5 runtime",
-        "full intraday/every-tick continuity for broker-history use",
-        "spread/slippage/cost treatment",
-        "stop execution convention"
+        "window-level archive continuity/gap eligibility for each scored replay interval",
+        "exact cross-server/feed equivalence to the target Exness Demo/MT5 runtime",
+        "historical/current-runtime fill slippage evidence sufficient for economic claims",
+        "commission/fee/swap treatment where material for economic P&L",
+        "source-compatible trade stop geometry for trade-level P&L"
       ]
     },
     {
