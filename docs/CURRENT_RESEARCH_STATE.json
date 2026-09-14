@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T13:52:39+07:00",
+  "updated_at": "2026-09-14T14:24:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -148,11 +148,10 @@
     "derived_authority_report": "PASS_WHEN_PRESENT_OPTIONAL_WHEN_ABSENT"
   },
   "next_steps": [
-    "Freeze a pre-outcome Phase 1 replay engineering contract before any downstream outcome scoring.",
+    "Obtain one validated historical Bid/Ask tick sample through an authorized/working route before freezing any spread/execution-cost model.",
+    "Freeze a pre-outcome Phase 1 replay engineering contract before downstream outcome scoring.",
     "Keep V0.1 holdout outcome scoring disabled.",
     "The reserved prospective boundary passage does not itself authorize outcome access.",
-    "Do not alter frozen holdout engine semantics, eligibility, target, horizon, tick handling, or activation identity while retaining that holdout identity.",
-    "Acquire or define a defensible execution/cost data contract before stronger net economic evaluation.",
     "Position sizing/risk cap remains a later account/pilot requirement.",
     "RQ-014 remains queued and is not required for the current PAT2-only Phase 1 scope.",
     "Any new decision-critical RQ activation or authority-sensitive canonical claim change must satisfy WO-055 governance."
@@ -295,7 +294,8 @@
     "docs/PHASE1_COMPLETENESS_AUDIT_2026-09-14.md",
     "docs/PHASE1_READINESS_MATRIX.json",
     "docs/PHASE1_TRADE_CONSTRUCTION_MATRIX.json",
-    "research_queue/closed/RQ-016_PHASE1_CONSTRUCTION_BOUNDARY.md"
+    "research_queue/closed/RQ-016_PHASE1_CONSTRUCTION_BOUNDARY.md",
+    "docs/PHASE1_EXECUTION_DATA_ACQUISITION_PROBE_2026-09-14.md"
   ],
   "resume_instruction": "Phase 1 is current. RQ-016 is closed. Use docs/PHASE1_TRADE_CONSTRUCTION_MATRIX.json before downstream replay work. 07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method name. Source labels are attribution only. Check research_findings/FINDINGS.json before reopening a relation. Holdout scoring remains disabled.",
   "por_chon_1900_transcript_closure": {
@@ -1228,5 +1228,12 @@
     "readiness_matrix": "docs/PHASE1_READINESS_MATRIX.json",
     "construction_boundary": "docs/PHASE1_TRADE_CONSTRUCTION_MATRIX.json",
     "rq016_closure": "research_queue/closed/RQ-016_PHASE1_CONSTRUCTION_BOUNDARY.md"
+  },
+  "phase1_execution_data_probe": {
+    "status": "REAL_BID_ASK_DATA_ROUTE_EXISTS_BUT_LOCAL_ACQUISITION_NOT_YET_CLOSED",
+    "ref": "docs/PHASE1_EXECUTION_DATA_ACQUISITION_PROBE_2026-09-14.md",
+    "mt5_probe": "TERMINAL_AUTHORIZATION_FAILED",
+    "dukascopy_direct_probe": "NETWORK_PATH_FAILED",
+    "rule": "Do not invent a constant spread before attempting observed Bid/Ask acquisition through an authorized/working route."
   }
 }
