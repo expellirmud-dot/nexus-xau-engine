@@ -18,8 +18,8 @@ from nexus_xau.data.exness_tick_archive_download import (
 def _write_zip(path: Path) -> None:
     rows = [
         ["Exness", "Symbol", "Timestamp", "Bid", "Ask"],
-        ["Exness", "XAUUSDm", "2026-08-01T00:00:00.100Z", "100.0", "100.2"],
-        ["Exness", "XAUUSDm", "2026-08-01T00:00:00.200Z", "100.1", "100.3"],
+        ["exness", "XAUUSDm", "2026-08-01T00:00:00.100Z", "100.0", "100.2"],
+        ["exness", "XAUUSDm", "2026-08-01T00:00:00.200Z", "100.1", "100.3"],
     ]
     buf = io.StringIO(newline="")
     writer = csv.writer(buf)

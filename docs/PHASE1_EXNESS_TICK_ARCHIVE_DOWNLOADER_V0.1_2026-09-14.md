@@ -106,3 +106,18 @@ If all three validate, cross-compare the 2026-08 archive with an overlapping cur
 
 Automatic order sending remains disabled.
 Protected holdout scoring remains disabled.
+
+
+## Validator correction — V0.2
+
+Representative validation exposed that the CSV header uses `Exness` while data rows use provider value `exness` in the inspected 2015, 2021, 2022, and 2026 files.
+
+V0.1 incorrectly compared provider values case-sensitively, causing every row to be counted as a provider mismatch even though the raw provider token was semantically the same.
+
+Correction:
+- provider comparison is now case-insensitive via `casefold()`;
+- validator identity is now `EXNESS_ARCHIVE_VALIDATOR_V0.2`;
+- manifest reuse requires the current validator version;
+- older V0.1 manifest records remain preserved as historical observations and are superseded by appended V0.2 revalidation records rather than deleted.
+
+This correction changes validation bookkeeping only. It does not change market data values or trading/research semantics.

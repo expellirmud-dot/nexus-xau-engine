@@ -14,6 +14,8 @@ from urllib.request import Request, urlopen
 
 from nexus_xau.data.exness_tick_archive import BASE_URL, USER_AGENT, expected_month_filename
 
+VALIDATOR_VERSION = "EXNESS_ARCHIVE_VALIDATOR_V0.2"
+
 
 @dataclass(frozen=True)
 class DownloadValidationRecord:
@@ -40,6 +42,7 @@ class DownloadValidationRecord:
     consecutive_exact_duplicate: int
     status: str
     validated_at_utc: str
+    validator_version: str = VALIDATOR_VERSION
 
 
 def month_url(symbol: str, year: int, month: int, *, base_url: str = BASE_URL) -> str:
@@ -136,7 +139,7 @@ def validate_zip(path: Path, *, symbol: str) -> dict[str, object]:
                     first_timestamp = ts.isoformat().replace("+00:00", "Z")
                 last_timestamp = ts.isoformat().replace("+00:00", "Z")
                 dates.add(ts.date().isoformat())
-                provider_mismatch += provider != "Exness"
+                provider_mismatch += provider.casefold() != "exness"
                 symbol_mismatch += row_symbol != symbol
                 finite = math.isfinite(bid) and math.isfinite(ask)
                 non_finite += not finite
@@ -202,7 +205,11 @@ def download_and_validate_month(
     latest = load_manifest(manifest_path)
     key = (symbol, year, month)
     prior = latest.get(key)
-    if prior and prior.get("status") == "VALIDATED":
+    if (
+        prior
+        and prior.get("status") == "VALIDATED"
+        and prior.get("validator_version") == VALIDATOR_VERSION
+    ):
         prior_path = Path(str(prior["local_path"]))
         if prior_path.exists() and prior_path.stat().st_size == int(prior["actual_size"]):
             return DownloadValidationRecord(**prior)
