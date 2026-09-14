@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-15T00:37:28+07:00",
+  "updated_at": "2026-09-15T00:46:08+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_REPRESENTATIVE_AND_MT5_OVERLAP_VALIDATION_2026-09-14.md"
+    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_YEAR_2015_VALIDATION_2026-09-15.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -90,7 +90,8 @@
       "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md",
       "docs/PHASE1_EXNESS_TICK_ARCHIVE_COVERAGE_MAPPER_2026-09-14.md",
       "docs/PHASE1_EXNESS_TICK_ARCHIVE_DOWNLOADER_V0.1_2026-09-14.md",
-      "docs/PHASE1_EXNESS_REPRESENTATIVE_AND_MT5_OVERLAP_VALIDATION_2026-09-14.md"
+      "docs/PHASE1_EXNESS_REPRESENTATIVE_AND_MT5_OVERLAP_VALIDATION_2026-09-14.md",
+      "docs/PHASE1_EXNESS_YEAR_2015_VALIDATION_2026-09-15.md"
     ]
   },
   "provenance_guard": {
@@ -165,7 +166,7 @@
     "exness_mt5_overlap": "DESCRIPTIVELY_CONSISTENT_EXACT_FEED_EQUIVALENCE_NOT_CLAIMED"
   },
   "next_steps": [
-    "Run Exness archive acquisition as one durable job per calendar year, starting with XAU-EXNESS-YEAR-2015-V02-20260915; never restart already validated months from zero.",
+    "2015 annual archive batch is reconciled; run XAU-EXNESS-YEAR-2016-V02-20260915 next and never restart already validated months from zero.",
     "For each year, acquire only coverage-map months with status AVAILABLE using validator V0.2 and append-only manifest records; validate/reconcile the completed year before submitting the next year.",
     "After each annual job, reconcile month-level validation/anomaly coverage and keep archive identity separate from the current Exness Demo MT5 route; 2026-08 overlap is descriptively consistent but not exact feed equivalence.",
     "Freeze the pre-outcome Phase 1 replay engineering contract including fill, stop, spread/cost and residual-slippage treatment before downstream outcome scoring.",
