@@ -15,6 +15,7 @@ from nexus_xau.data.mt5_tick_collector import (
     load_state,
     persist_tick_batch,
     record_gap,
+    run_live_collector,
     tick_count,
     validate_source_identity,
 )
@@ -186,3 +187,74 @@ def test_module_contains_no_order_send_call() -> None:
     text = module_path.read_text(encoding="utf-8")
     forbidden = "order" + "_send("
     assert forbidden not in text
+
+
+class _Obj:
+    def __init__(self, **kwargs):
+        self.__dict__.update(kwargs)
+
+
+class _EmptyTickMT5:
+    COPY_TICKS_ALL = 0
+
+    def initialize(self):
+        return True
+
+    def shutdown(self):
+        return None
+
+    def symbol_select(self, symbol, selected):
+        return True
+
+    def last_error(self):
+        return (1, "Success")
+
+    def terminal_info(self):
+        return _Obj(build=6182)
+
+    def account_info(self):
+        return _Obj(
+            company="Exness Technologies Ltd",
+            server="Demo",
+            trade_mode=0,
+            currency="USD",
+            leverage=500,
+        )
+
+    def symbol_info(self, symbol):
+        return _Obj(
+            digits=3,
+            point=0.001,
+            trade_contract_size=100.0,
+            volume_min=0.01,
+            volume_max=200.0,
+            volume_step=0.01,
+            trade_exemode=2,
+        )
+
+    def symbol_info_tick(self, symbol):
+        return _Obj(time_msc=2000, bid=4300.0, ask=4300.2)
+
+    def copy_ticks_range(self, symbol, start_dt, end_dt, mode):
+        return []
+
+
+def test_zero_tick_live_observation_does_not_create_gap(tmp_path: Path) -> None:
+    db = tmp_path / "ticks.sqlite3"
+    status = tmp_path / "status.json"
+    result = run_live_collector(
+        mt5=_EmptyTickMT5(),
+        symbol="XAUUSDm",
+        db_path=db,
+        status_path=status,
+        explicit_start_msc=1000,
+        duration_seconds=0,
+        poll_seconds=0.01,
+        chunk_seconds=1,
+    )
+    conn = init_db(db)
+    try:
+        assert gap_counts(conn) == {}
+    finally:
+        conn.close()
+    assert result["mode"] == READ_ONLY_MODE

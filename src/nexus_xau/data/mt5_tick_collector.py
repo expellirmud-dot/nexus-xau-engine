@@ -658,14 +658,9 @@ def run_live_collector(
                         state.last_committed_time_msc,
                     )
                 else:
-                    record_gap(
-                        conn,
-                        requested_start_msc=cursor_msc,
-                        requested_end_msc=chunk_end_msc,
-                        source_identity=source_identity,
-                        status="PENDING_SESSION_CONTEXT",
-                        note="MT5 returned zero ticks for requested interval.",
-                    )
+                    # Zero ticks is an observation, not proof of a data gap.
+                    # Advance only the in-memory scan cursor for this cycle.
+                    # On restart the durable last-tick boundary is queried again.
                     cursor_msc = chunk_end_msc + 1
 
                 atomic_write_json(
