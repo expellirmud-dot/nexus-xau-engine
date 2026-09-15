@@ -332,17 +332,13 @@ def _target_price_from_confirmation(
     return confirmation_close - distance
 
 
-def build_minimal_v2(
+def _build_minimal_v2_core(
     *,
-    m1_path: str | Path,
-    metadata_path: str | Path | None = None,
+    active_m1: pd.DataFrame,
+    source_descriptor: str,
+    source_metadata_descriptor: str | None,
+    source_sha256: str | None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, dict[str, object]]:
-    m1 = load_ohlc_csv(m1_path)
-    active_m1 = m1[m1["volume"] > 0].copy() if "volume" in m1.columns else m1.copy()
-    if active_m1.empty:
-        raise ValueError("no active M1 rows")
-
-    metadata = _load_metadata(metadata_path)
     h4 = resample_ohlc(active_m1, "H4")
     m5 = resample_ohlc(active_m1, "M5")
     h4_events = detect_pat2_full_range(h4, "H4")
@@ -581,9 +577,9 @@ def build_minimal_v2(
     report: dict[str, object] = {
         "version": "0700_MINIMAL_V2.0",
         "research_status": "FROZEN_SPEC_IMPLEMENTATION_SIGNAL_RUN_ONLY",
-        "source_m1": str(m1_path),
-        "source_metadata": str(metadata_path) if metadata_path else None,
-        "source_sha256": metadata.get("sha256") or _sha256(m1_path),
+        "source_m1": source_descriptor,
+        "source_metadata": source_metadata_descriptor,
+        "source_sha256": source_sha256,
         "time_mapping": "07:00 Asia/Bangkok = 00:00 UTC",
         "rows": {
             "days": len(days_df),
@@ -611,6 +607,79 @@ def build_minimal_v2(
     }
     return days_df, origins_df, events_df, report
 
+
+
+def _normalize_m1_frame(m1: pd.DataFrame) -> pd.DataFrame:
+    required = ("open", "high", "low", "close")
+    missing = [column for column in required if column not in m1.columns]
+    if missing:
+        raise ValueError(f"Missing required columns: {missing}")
+    if not isinstance(m1.index, pd.DatetimeIndex) or m1.index.tz is None:
+        raise ValueError("M1 input index must be a timezone-aware DatetimeIndex")
+
+    frame = m1.copy(deep=True)
+    frame.index = frame.index.tz_convert("UTC")
+    frame = frame.sort_index(kind="stable")
+    if frame.index.duplicated().any():
+        raise ValueError("Duplicate timestamps found in M1 frame")
+
+    numeric_columns = [
+        column
+        for column in ("open", "high", "low", "close", "volume")
+        if column in frame.columns
+    ]
+    frame[numeric_columns] = frame[numeric_columns].apply(pd.to_numeric, errors="raise")
+
+    invalid = (
+        (frame["high"] < frame[["open", "close", "low"]].max(axis=1))
+        | (frame["low"] > frame[["open", "close", "high"]].min(axis=1))
+    )
+    if invalid.any():
+        raise ValueError(f"Invalid OHLC rows found: {int(invalid.sum())}")
+    return frame
+
+
+def build_minimal_v2_from_frame(
+    *,
+    m1: pd.DataFrame,
+    source_descriptor: str,
+    source_metadata_descriptor: str | None = None,
+    source_sha256: str | None = None,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, dict[str, object]]:
+    """Run the frozen V2 state machinery from an in-memory normalized M1 frame."""
+
+    frame = _normalize_m1_frame(m1)
+    active_m1 = (
+        frame[frame["volume"] > 0].copy()
+        if "volume" in frame.columns
+        else frame.copy()
+    )
+    if active_m1.empty:
+        raise ValueError("no active M1 rows")
+
+    return _build_minimal_v2_core(
+        active_m1=active_m1,
+        source_descriptor=source_descriptor,
+        source_metadata_descriptor=source_metadata_descriptor,
+        source_sha256=source_sha256,
+    )
+
+
+def build_minimal_v2(
+    *,
+    m1_path: str | Path,
+    metadata_path: str | Path | None = None,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, dict[str, object]]:
+    """Backward-compatible file-based entry point for the frozen V2 engine."""
+
+    m1 = load_ohlc_csv(m1_path)
+    metadata = _load_metadata(metadata_path)
+    return build_minimal_v2_from_frame(
+        m1=m1,
+        source_descriptor=str(m1_path),
+        source_metadata_descriptor=str(metadata_path) if metadata_path else None,
+        source_sha256=metadata.get("sha256") or _sha256(m1_path),
+    )
 
 def summarize_report(
     days: pd.DataFrame,

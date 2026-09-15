@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-09-15T15:45:43+07:00",
+  "updated_at": "2026-09-15T15:54:42+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
     "contract": "docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md",
     "latest_state_reconciliation": "docs/STATE_DRIFT_AUDIT_2026-09-15.md",
     "project_current_research_checkpoint": "research_queue/closed/RQ-016_PHASE1_CONSTRUCTION_BOUNDARY.md",
-    "latest_operational_tooling_checkpoint": "docs/PHASE1_ARCHIVE_TICK_TO_BAR_IMPLEMENTATION_V0.1_2026-09-15.md",
+    "latest_operational_tooling_checkpoint": "docs/PHASE1_ARCHIVE_V2_INTEGRATION_IMPLEMENTATION_V0.2_2026-09-15.md",
     "project_current_state": "docs/CURRENT_RESEARCH_STATE.json",
     "operational_queue": "research_queue/QUEUE.json",
     "workstream_state": "docs/0700_WORKSTREAM_STATE.json",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_ARCHIVE_V2_INTEGRATION_CONTRACT_V0.2_2026-09-15.md"
+    "latest_progress_checkpoint": "docs/PHASE1_ARCHIVE_V2_INTEGRATION_IMPLEMENTATION_V0.2_2026-09-15.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -113,7 +113,8 @@
       "docs/PHASE1_ARCHIVE_TICK_TO_BAR_IMPLEMENTATION_V0.1_2026-09-15.md",
       "docs/STATE_DRIFT_AUDIT_2026-09-15.md",
       "docs/PHASE1_ARCHIVE_V2_INTEGRATION_CONTRACT_V0.1_2026-09-15.md",
-      "docs/PHASE1_ARCHIVE_V2_INTEGRATION_CONTRACT_V0.2_2026-09-15.md"
+      "docs/PHASE1_ARCHIVE_V2_INTEGRATION_CONTRACT_V0.2_2026-09-15.md",
+      "docs/PHASE1_ARCHIVE_V2_INTEGRATION_IMPLEMENTATION_V0.2_2026-09-15.md"
     ]
   },
   "provenance_guard": {
@@ -194,14 +195,15 @@
     "archive_tick_to_bar_contract": "FROZEN_PRE_IMPLEMENTATION_V0.1_BID_M1_UTC_LEFT_CLOSED",
     "archive_tick_to_bar_implementation": "V0.1_TARGETED_12_PASS_FULL_SUITE_PASS_REAL_PARITY_SMOKE_PASS",
     "state_and_replay_audit_2026_09_15": "PASS_PROJECT_CURRENT_RECONCILED_RAW_ORDINAL_DEFECT_FIXED_FULL_SUITE_PASS",
-    "archive_v2_integration_contract": "V0.2_SUPERSEDES_V0.1_PRE_IMPLEMENTATION_H4_ALIGNED_PROVENANCE_GATED_UNSEEDED_REAL_WINDOW_FAIL_CLOSED"
+    "archive_v2_integration_contract": "V0.2_SUPERSEDES_V0.1_PRE_IMPLEMENTATION_H4_ALIGNED_PROVENANCE_GATED_UNSEEDED_REAL_WINDOW_FAIL_CLOSED",
+    "archive_v2_integration_implementation": "V0.2_SYNTHETIC_14_PASS_EXISTING_V2_16_PASS_FULL_SUITE_PASS_REAL_PREP_SMOKE_PASS_UNSEEDED_REAL_STATE_BLOCK_VERIFIED"
   },
   "next_steps": [
-    "Archive -> 0700 Minimal V2 integration contract V0.2 supersedes V0.1 pre-outcome. Canonical integration windows must be exact 4-hour UTC boundaries and observed M1 provenance must match the source-month envelope.",
-    "Finish the behaviorally compatible frame-based V2 entry point and archive integration wrapper, then rerun synthetic integration invariants with the V0.2 boundary/provenance gates.",
-    "Keep UNSEEDED_REAL_WINDOW blocked from canonical V2 state. No fixed warmup duration is allowed because H4 origins have no frozen expiry.",
-    "After synthetic/full regression passes, run only engineering preparation/resample smoke on an already-inspected archive month using a 4-hour-aligned window; do not run canonical real-window V2 state.",
-    "Keep automatic order sending and V0.1 holdout outcome scoring disabled."
+    "Archive -> V2 integration V0.2 is implemented: synthetic integration 14/14 PASS, existing Minimal V2 16/16 PASS, broader Ruff/full pytest PASS, and real 4-hour engineering preparation smoke PASS.",
+    "Audit existing local historical coverage before 2015-08-10 and prior state/replay tooling for a defensible initial H4-origin state seed; do not invent a fixed warmup.",
+    "If a pre-archive source is considered for initialization, keep source/feed identity explicit and test whether cross-feed representation differences can change origin state before using it as a seed.",
+    "Design continuation checkpoints only after an initial seed route is justified; a checkpoint cannot solve an unknown initial state by itself.",
+    "Keep UNSEEDED_REAL_WINDOW fail-closed, automatic order sending disabled, and protected holdout scoring disabled."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -355,7 +357,7 @@
     "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md",
     "docs/PHASE1_EXNESS_TICK_ARCHIVE_COVERAGE_MAPPER_2026-09-14.md"
   ],
-  "resume_instruction": "Phase 1 is current. Exness-branded XAUUSDm archive acquisition is complete for the frozen current coverage snapshot: 134/134 months classified AVAILABLE are Validator V0.2 VALIDATED. The bounded archive-window adapter and archive Bid->M1 reconstruction V0.1 are implemented and regression-tested. No durable job is currently active. Next bounded action is to freeze the provenance-preserving integration contract from archive-derived M1 through the existing higher-timeframe resample into frozen 0700_MINIMAL_V2.0 state machinery, validate engineering-only on already-inspected windows, and only then consider broader historical replay. Exact archive-to-current Exness Demo/MT5 feed equivalence, full every-tick continuity, trade-stop geometry, historical slippage and account-specific economic costs remain unresolved. Automatic order execution and holdout outcome scoring remain disabled.",
+  "resume_instruction": "Phase 1 archive acquisition and replay engineering are current. The frozen current Exness archive coverage is 134/134 AVAILABLE months validated. Archive windowing, Bid->M1 reconstruction, frame-based Minimal V2 entry, and Archive->V2 integration V0.2 are implemented/regression-tested. Real archive engineering preparation works on exact 4-hour UTC windows, but canonical real-window V2 state is intentionally blocked as DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED because H4 origins have no frozen expiry and no finite warmup is proven sufficient. Next bounded action is to audit existing pre-2015-08 local historical sources/state paths for a defensible origin-history initialization route, while preserving explicit cross-feed provenance and without claiming exact archive/MT5 identity. No durable job is active. Automatic order execution and holdout outcome scoring remain disabled.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",

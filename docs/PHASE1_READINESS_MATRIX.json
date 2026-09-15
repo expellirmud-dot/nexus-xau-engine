@@ -1,6 +1,6 @@
 {
   "schema_version": "PHASE1_READINESS_MATRIX_V0.1",
-  "updated_at": "2026-09-15T15:45:43+07:00",
+  "updated_at": "2026-09-15T15:54:42+07:00",
   "scope": "Phase 1 / เฟสหนึ่ง",
   "naming_guard": "07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method name. Person/channel/system labels are source attribution only.",
   "overall": {
@@ -98,9 +98,10 @@
         "docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md",
         "docs/PHASE1_EXNESS_ARCHIVE_ACQUISITION_RECONCILIATION_2015_2026_2026-09-15.md",
         "docs/PHASE1_ARCHIVE_V2_INTEGRATION_CONTRACT_V0.1_2026-09-15.md",
-        "docs/PHASE1_ARCHIVE_V2_INTEGRATION_CONTRACT_V0.2_2026-09-15.md"
+        "docs/PHASE1_ARCHIVE_V2_INTEGRATION_CONTRACT_V0.2_2026-09-15.md",
+        "docs/PHASE1_ARCHIVE_V2_INTEGRATION_IMPLEMENTATION_V0.2_2026-09-15.md"
       ],
-      "note": "Archive acquisition, gap-aware windowing and Bid->M1 are implemented. V0.2 integration now also blocks truncated M5/H4 request-edge bars via 4-hour UTC request alignment, but canonical real-window V2 replay remains origin-history unseeded because active H4 origins have no frozen expiry."
+      "note": "Archive->V2 integration V0.2 is implemented with 4-hour boundary/provenance gates and real-window fail-closed seed handling. Strong canonical multi-year V2 replay remains partial because the initial active-H4-origin state before a bounded real archive window is not yet defensibly seeded."
     },
     {
       "id": "P1-09",
