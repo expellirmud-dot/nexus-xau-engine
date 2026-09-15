@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-15T14:48:00+07:00",
+  "updated_at": "2026-09-15T15:37:16+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/STATE_DRIFT_AUDIT_2026-09-15.md"
+    "latest_progress_checkpoint": "docs/PHASE1_ARCHIVE_V2_INTEGRATION_CONTRACT_V0.1_2026-09-15.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -111,7 +111,8 @@
       "docs/PHASE1_EXNESS_ARCHIVE_WINDOW_ADAPTER_IMPLEMENTATION_V0.1_2026-09-15.md",
       "docs/PHASE1_ARCHIVE_TICK_TO_BAR_CONTRACT_V0.1_2026-09-15.md",
       "docs/PHASE1_ARCHIVE_TICK_TO_BAR_IMPLEMENTATION_V0.1_2026-09-15.md",
-      "docs/STATE_DRIFT_AUDIT_2026-09-15.md"
+      "docs/STATE_DRIFT_AUDIT_2026-09-15.md",
+      "docs/PHASE1_ARCHIVE_V2_INTEGRATION_CONTRACT_V0.1_2026-09-15.md"
     ]
   },
   "provenance_guard": {
@@ -191,14 +192,15 @@
     "archive_window_adapter_implementation": "V0.1_TARGETED_11_PASS_FULL_SUITE_PASS_REAL_ARCHIVE_SMOKE_PASS",
     "archive_tick_to_bar_contract": "FROZEN_PRE_IMPLEMENTATION_V0.1_BID_M1_UTC_LEFT_CLOSED",
     "archive_tick_to_bar_implementation": "V0.1_TARGETED_12_PASS_FULL_SUITE_PASS_REAL_PARITY_SMOKE_PASS",
-    "state_and_replay_audit_2026_09_15": "PASS_PROJECT_CURRENT_RECONCILED_RAW_ORDINAL_DEFECT_FIXED_FULL_SUITE_PASS"
+    "state_and_replay_audit_2026_09_15": "PASS_PROJECT_CURRENT_RECONCILED_RAW_ORDINAL_DEFECT_FIXED_FULL_SUITE_PASS",
+    "archive_v2_integration_contract": "FROZEN_PRE_IMPLEMENTATION_V0.1_FRAME_ENTRY_PROVENANCE_UNSEEDED_REAL_WINDOW_FAIL_CLOSED"
   },
   "next_steps": [
-    "Archive tick-to-bar V0.1 is implemented; targeted synthetic tests are 12/12 PASS, broader Ruff/full pytest pass, and the frozen one-hour MT5 parity smoke reproduces pre-freeze observations.",
-    "Freeze the integration contract that feeds archive-derived M1 bars through existing higher-timeframe resample and frozen 0700_MINIMAL_V2.0 state machinery while preserving provenance and data-exclusion states.",
-    "Validate that integration engineering-only on already-inspected windows before any broad historical outcome replay.",
-    "Keep archive identity separate from the current Exness Demo MT5 route; exact price-feed equivalence is not established and no tolerance is inferred.",
-    "Keep automatic order sending and V0.1 holdout outcome scoring disabled until explicitly activated under existing governance."
+    "Archive -> 0700 Minimal V2 integration contract V0.1 is frozen pre-implementation. Current V2 consumes M5 and H4 derived from M1; no H1/D1 dependency is invented.",
+    "Implement a behaviorally compatible frame-based V2 entry point plus archive integration envelope. Preserve file-based behavior and fail closed for UNSEEDED_REAL_WINDOW.",
+    "Add synthetic integration invariants for file/frame parity, provenance propagation, M5/H4 resample identity, no-data exclusion and unseeded real-window blocking before any real V2 state run.",
+    "Do not invent a fixed warmup horizon: active H4 origins have no frozen expiry, so canonical window-start state remains structurally unseeded until a compatible continuation checkpoint or complete history initialization is closed.",
+    "Keep automatic order sending and V0.1 holdout outcome scoring disabled."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
