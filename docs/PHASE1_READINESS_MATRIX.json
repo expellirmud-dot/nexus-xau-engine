@@ -1,6 +1,6 @@
 {
   "schema_version": "PHASE1_READINESS_MATRIX_V0.1",
-  "updated_at": "2026-09-15T04:19:45+07:00",
+  "updated_at": "2026-09-15T08:46:04+07:00",
   "scope": "Phase 1 / เฟสหนึ่ง",
   "naming_guard": "07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method name. Person/channel/system labels are source attribution only.",
   "overall": {
@@ -127,7 +127,8 @@
         "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md",
         "docs/PHASE1_EXNESS_ARCHIVE_ACQUISITION_RECONCILIATION_2015_2026_2026-09-15.md",
         "docs/PHASE1_TICK_REPLAY_ENGINEERING_CONTRACT_V0.1_2026-09-15.md",
-        "docs/PHASE1_TICK_REPLAY_ENGINEERING_IMPLEMENTATION_V0.1_2026-09-15.md"
+        "docs/PHASE1_TICK_REPLAY_ENGINEERING_IMPLEMENTATION_V0.1_2026-09-15.md",
+        "docs/PHASE1_EXNESS_ARCHIVE_WINDOW_ADAPTER_IMPLEMENTATION_V0.1_2026-09-15.md"
       ],
       "missing": [
         "window-level archive continuity/gap eligibility for each scored replay interval",
@@ -135,7 +136,8 @@
         "historical/current-runtime fill slippage evidence sufficient for economic claims",
         "commission/fee/swap treatment where material for economic P&L",
         "source-compatible trade stop geometry for trade-level P&L"
-      ]
+      ],
+      "note": "Current archive acquisition, frozen reference tick primitives, and bounded archive-window adapter are implemented. Economic/trade readiness still requires bar-reconstruction parity, explicit trade-stop geometry, cost/slippage closure for the intended claim, and unchanged-representation evaluation."
     },
     {
       "id": "P1-11",
