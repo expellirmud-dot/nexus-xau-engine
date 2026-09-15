@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-15T18:29:53+07:00",
+  "updated_at": "2026-09-15T19:12:58+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_ORIGIN_HISTORY_INITIALIZATION_AUDIT_2026-09-15.md"
+    "latest_progress_checkpoint": "docs/PHASE1_V2_ORIGIN_STATE_CARRY_CONTRACT_V0.1_2026-09-15.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -197,14 +197,15 @@
     "state_and_replay_audit_2026_09_15": "PASS_PROJECT_CURRENT_RECONCILED_RAW_ORDINAL_DEFECT_FIXED_FULL_SUITE_PASS",
     "archive_v2_integration_contract": "V0.2_SUPERSEDES_V0.1_PRE_IMPLEMENTATION_H4_ALIGNED_PROVENANCE_GATED_UNSEEDED_REAL_WINDOW_FAIL_CLOSED",
     "archive_v2_integration_implementation": "V0.2_SYNTHETIC_14_PASS_EXISTING_V2_16_PASS_FULL_SUITE_PASS_REAL_PREP_SMOKE_PASS_UNSEEDED_REAL_STATE_BLOCK_VERIFIED",
-    "origin_history_initialization_audit": "PRE2015_DUKASCOPY_ROUTE_RUNTIME_PROVEN_CANONICAL_SEED_NOT_PROVEN_FAIL_CLOSED"
+    "origin_history_initialization_audit": "PRE2015_DUKASCOPY_ROUTE_RUNTIME_PROVEN_CANONICAL_SEED_NOT_PROVEN_FAIL_CLOSED",
+    "v2_origin_state_carry_contract": "FROZEN_PRE_IMPLEMENTATION_V0.1_COMPLETE_SEED_REQUIRED_UNKNOWN_PREHISTORY_MONOTONIC_FAIL_CLOSED"
   },
   "next_steps": [
-    "Pre-2015 source/tooling audit is complete: existing Dukascopy XAUUSD BID M1 acquisition/decoding is runtime-proven on bounded dates back to 2003-06-02; this proves source availability, not canonical origin-state completeness or Exness feed identity.",
-    "Next bounded action is to design/falsify a provenance-compatible origin-state initialization/state-carry representation that does not assume a clean historical boundary and does not invent a fixed warmup.",
-    "If Dukascopy cross-feed initialization remains a candidate, freeze a bounded overlap sensitivity contract first and test whether Dukascopy-vs-Exness representation differences change H4 PAT detection, origin anchors, or active-origin state.",
-    "Implement continuation checkpoints only after a defensible initial state route is justified; checkpointing cannot solve unknown prehistory by itself.",
-    "Keep UNSEEDED_REAL_WINDOW fail-closed, automatic order sending disabled, and protected holdout scoring disabled."
+    "V2 origin-state carry contract V0.1 is frozen pre-implementation. It defines a finite candidate continuation state after a complete seed, pending synthetic split-vs-unsplit falsification; checkpointing alone cannot cure unknown prehistory.",
+    "Implement the minimal serialized carry object plus synthetic split-vs-unsplit parity harness using active-origin state, an exact observed 8-hour detector bridge, provenance/version guards, and seed-completeness monotonicity.",
+    "Keep real Exness continuation blocked unless seed_completeness is independently COMPLETE; UNKNOWN_PREHISTORY must remain DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED through ordinary forward checkpoints.",
+    "After synthetic carry parity passes, separately freeze a Dukascopy-vs-Exness overlap sensitivity contract before considering any cross-feed initialization transition.",
+    "Automatic order sending and protected holdout outcome scoring remain disabled."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -357,9 +358,10 @@
     "docs/MT5_COLLECTOR_DASHBOARD_FIELD_GUIDE_2026-09-14.md",
     "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md",
     "docs/PHASE1_EXNESS_TICK_ARCHIVE_COVERAGE_MAPPER_2026-09-14.md",
-    "docs/PHASE1_ORIGIN_HISTORY_INITIALIZATION_AUDIT_2026-09-15.md"
+    "docs/PHASE1_ORIGIN_HISTORY_INITIALIZATION_AUDIT_2026-09-15.md",
+    "docs/PHASE1_V2_ORIGIN_STATE_CARRY_CONTRACT_V0.1_2026-09-15.md"
   ],
-  "resume_instruction": "Phase 1 archive acquisition and replay engineering remain current. Exness archive coverage is 134/134 AVAILABLE months validated and Archive->V2 integration V0.2 is implemented/regression-tested. The pre-2015 initialization audit is complete: the existing Dukascopy XAUUSD BID M1 route is runtime-proven on bounded dates back to 2003-06-02, but this does not establish a clean initial H4-origin state and must not be silently concatenated with Exness as one feed. Canonical real-window V2 state therefore remains fail-closed as DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED. Next bounded action is to design/falsify a provenance-compatible origin-state initialization/state-carry representation without assuming a clean boundary or arbitrary warmup; if Dukascopy is considered, first freeze and run bounded cross-feed H4 PAT/origin-state sensitivity on overlap. No durable job is active. Automatic order execution and protected holdout outcome scoring remain disabled.",
+  "resume_instruction": "Phase 1 archive/replay engineering remains current at 0700_MINIMAL_V2.0. The pre-2015 source audit is closed and V2 origin-state carry contract V0.1 is now frozen pre-implementation. Derived candidate: finite restart-safe continuation should be representable after a complete seed by carrying active-origin state plus an exact observed 8-hour detector bridge; this remains pending synthetic split-vs-unsplit falsification, while Daily Frame itself is cutoff-local. Critical invariant: UNKNOWN_PREHISTORY cannot become COMPLETE merely by forwarding data or writing checkpoints, so current real Exness V2 remains fail-closed as DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED. Next bounded action is to implement serialized carry state and synthetic split-vs-unsplit parity only. Cross-feed Dukascopy->Exness initialization remains unauthorized pending a separately frozen overlap sensitivity contract. No durable job is active. Automatic order execution and protected holdout scoring remain disabled.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1460,5 +1462,13 @@
     "arbitrary_warmup": "FORBIDDEN",
     "holdout_scoring": "DISABLED",
     "order_send": "DISABLED"
+  },
+  "v2_origin_state_carry": {
+    "status": "FROZEN_PRE_IMPLEMENTATION_V0.1",
+    "checkpoint": "docs/PHASE1_V2_ORIGIN_STATE_CARRY_CONTRACT_V0.1_2026-09-15.md",
+    "complete_seed_required": true,
+    "unknown_prehistory_forward_promotion": "FORBIDDEN",
+    "detector_bridge_hours": 8,
+    "real_exness_authorized": false
   }
 }
