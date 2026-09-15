@@ -332,19 +332,55 @@ def _target_price_from_confirmation(
     return confirmation_close - distance
 
 
+def _origin_state_with_floor(
+    *,
+    active_m1: pd.DataFrame,
+    origin: H4Origin,
+    at: pd.Timestamp,
+    consumed_floor: float = 0.0,
+) -> tuple[str, float, float, pd.Timestamp | None]:
+    state, consumed, _, touch = origin_state_at(
+        active_m1=active_m1,
+        origin=origin,
+        at=at,
+    )
+    consumed = max(float(consumed_floor), consumed)
+    remaining = max(0.0, H4_RUN_POINTS - consumed)
+    if state == "ACTIVE" and remaining <= 0:
+        state = "RUN_COMPLETE"
+    return state, consumed, remaining, touch
+
+
 def _build_minimal_v2_core(
     *,
     active_m1: pd.DataFrame,
     source_descriptor: str,
     source_metadata_descriptor: str | None,
     source_sha256: str | None,
+    initial_origins: list[H4Origin] | None = None,
+    consumed_floor_by_origin: dict[str, float] | None = None,
+    output_start: pd.Timestamp | None = None,
+    detected_origin_after: pd.Timestamp | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, dict[str, object]]:
     h4 = resample_ohlc(active_m1, "H4")
     m5 = resample_ohlc(active_m1, "M5")
     h4_events = detect_pat2_full_range(h4, "H4")
     m5_events = detect_pat2_full_range(m5, "M5")
-    origins = build_h4_origins(h4, h4_events)
+    detected_origins = build_h4_origins(h4, h4_events)
+    if detected_origin_after is not None:
+        detected_origins = [
+            origin
+            for origin in detected_origins
+            if origin.origin_known_at > detected_origin_after
+        ]
+    origins = [*(initial_origins or []), *detected_origins]
+    origins.sort(key=lambda origin: (origin.origin_known_at, origin.origin_id))
+    if len({origin.origin_id for origin in origins}) != len(origins):
+        raise ValueError("duplicate H4 origin_id in V2 core input")
+    consumed_floors = consumed_floor_by_origin or {}
     cutoffs = _cutoffs(active_m1)
+    if output_start is not None:
+        cutoffs = [cutoff for cutoff in cutoffs if cutoff >= output_start]
 
     day_rows: list[dict[str, object]] = []
     origin_rows: list[dict[str, object]] = []
@@ -357,10 +393,11 @@ def _build_minimal_v2_core(
         eligible: list[tuple[H4Origin, float, float]] = []
 
         for origin in known_origins:
-            state, consumed, remaining, touch = origin_state_at(
+            state, consumed, remaining, touch = _origin_state_with_floor(
                 active_m1=active_m1,
                 origin=origin,
                 at=cutoff,
+                consumed_floor=consumed_floors.get(origin.origin_id, 0.0),
             )
             if state != "ACTIVE":
                 continue
@@ -442,10 +479,11 @@ def _build_minimal_v2_core(
                 event_rows.append(base)
                 continue
 
-            pre_state, _, _, pre_touch = origin_state_at(
+            pre_state, consumed_confirmation, _, pre_touch = _origin_state_with_floor(
                 active_m1=active_m1,
                 origin=origin,
                 at=confirmation.known_at,
+                consumed_floor=consumed_floors.get(origin.origin_id, 0.0),
             )
             base.update(
                 {
@@ -482,13 +520,6 @@ def _build_minimal_v2_core(
                 event_rows.append(base)
                 continue
 
-            consumed_confirmation = favorable_consumed_points(
-                active_m1=active_m1,
-                side=origin.side,
-                anchor=origin.anchor_price,
-                start=origin.origin_known_at,
-                end=confirmation.known_at,
-            )
             remaining_confirmation = H4_RUN_POINTS - consumed_confirmation
             if remaining_confirmation <= 0:
                 base["candidate_state"] = "PASS_RUN_COMPLETED_BEFORE_CONFIRMATION"
