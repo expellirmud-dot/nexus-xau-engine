@@ -1,6 +1,6 @@
 {
   "schema_version": "PHASE1_READINESS_MATRIX_V0.1",
-  "updated_at": "2026-09-16T04:57:21+07:00",
+  "updated_at": "2026-09-16T05:08:55+07:00",
   "scope": "Phase 1 / เฟสหนึ่ง",
   "naming_guard": "07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method name. Person/channel/system labels are source attribution only.",
   "overall": {
@@ -104,11 +104,13 @@
         "docs/PHASE1_V2_ORIGIN_STATE_CARRY_REQUIREMENT_MATRIX_V0.1_2026-09-16.md",
         "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_CONTRACT_V0.1_2026-09-16.md",
         "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_IMPLEMENTATION_V0.1_2026-09-16.md",
-        "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_RESULT_V0.2_2026-09-16.md"
+        "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_RESULT_V0.2_2026-09-16.md",
+        "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_CONTRACT_V0.1_2026-09-16.md",
+        "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_RESULT_V0.1_2026-09-16.md"
       ],
-      "note": "Archive-to-V2 integration V0.2 and V2 carry V0.1 are implemented. Cross-feed exact state seeding was falsified by the frozen Dukascopy-vs-Exness V0.2 overlap checks. Canonical multi-year replay remains partial because the real archive boundary lacks a defensible COMPLETE active-H4-origin seed; the next route is an Exness-only lifecycle-derived prehistory closure, with continuity/gap eligibility still fail-closed.",
+      "note": "Archive-to-V2 integration and V2 carry are implemented. Exact cross-feed seeding is not supported, and finite Exness-only forward warmup is mathematically falsified as a COMPLETE-seed mechanism under literal-contact/no-expiry semantics. Canonical replay remains blocked unless current evidence supplies same-source earlier history or an independently justified finite pre-start anchor domain.",
       "missing": [
-        "defensible Exness-only proof that unknown prehistory is eliminated before declaring COMPLETE seed state",
+        "same-source earlier history or independently justified finite domain containing every possible active pre-start Exness H4 anchor",
         "window-level continuity/gap eligibility for every canonical replay interval"
       ]
     },
