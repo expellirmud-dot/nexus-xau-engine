@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-16T02:24:43+07:00",
+  "updated_at": "2026-09-16T02:39:41+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_V2_ORIGIN_STATE_CARRY_IMPLEMENTATION_V0.1_2026-09-16.md"
+    "latest_progress_checkpoint": "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_CONTRACT_V0.1_2026-09-16.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -118,7 +118,8 @@
       "docs/PHASE1_ORIGIN_HISTORY_INITIALIZATION_AUDIT_2026-09-15.md",
       "docs/PHASE1_V2_ORIGIN_STATE_CARRY_CONTRACT_V0.1_2026-09-15.md",
       "docs/PHASE1_V2_ORIGIN_STATE_CARRY_REQUIREMENT_MATRIX_V0.1_2026-09-16.md",
-      "docs/PHASE1_V2_ORIGIN_STATE_CARRY_IMPLEMENTATION_V0.1_2026-09-16.md"
+      "docs/PHASE1_V2_ORIGIN_STATE_CARRY_IMPLEMENTATION_V0.1_2026-09-16.md",
+      "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_CONTRACT_V0.1_2026-09-16.md"
     ]
   },
   "provenance_guard": {
@@ -203,13 +204,14 @@
     "archive_v2_integration_implementation": "V0.2_SYNTHETIC_14_PASS_EXISTING_V2_16_PASS_FULL_SUITE_PASS_REAL_PREP_SMOKE_PASS_UNSEEDED_REAL_STATE_BLOCK_VERIFIED",
     "origin_history_initialization_audit": "PRE2015_DUKASCOPY_ROUTE_RUNTIME_PROVEN_CANONICAL_SEED_NOT_PROVEN_FAIL_CLOSED",
     "v2_origin_state_carry_contract": "FROZEN_V0.1_REQUIREMENT_MATRIX_14_OF_14_EXPLICIT_SYNTHETIC_EVIDENCE",
-    "v2_origin_state_carry_implementation": "V0.1_TARGETED_59_PASS_FULL_REPO_363_PASS_BROAD_RUFF_PASS_REAL_EXNESS_FAIL_CLOSED"
+    "v2_origin_state_carry_implementation": "V0.1_TARGETED_59_PASS_FULL_REPO_363_PASS_BROAD_RUFF_PASS_REAL_EXNESS_FAIL_CLOSED",
+    "dukascopy_exness_overlap_sensitivity_contract": "FROZEN_PRE_IMPLEMENTATION_V0.1_NO_TOLERANCE_NO_OUTCOME_SELECTION"
   },
   "next_steps": [
-    "V2 origin-state carry V0.1 is implemented and synthetic logic/invariant validation is complete; this does not create a real COMPLETE seed.",
-    "Freeze a Dukascopy-vs-Exness overlap-sensitivity contract before any cross-feed initialization transition.",
-    "Use bounded overlap to compare feed effects on H4 PAT detection, origin anchor, terminal/active state, and carried consumed progress while preserving source identity and avoiding outcome-based representation selection.",
-    "Keep real Exness V2 blocked as DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED until an independently evidenced COMPLETE seed exists.",
+    "Dukascopy-vs-Exness overlap-sensitivity contract V0.1 is frozen before real comparison outcomes are opened.",
+    "Implement the comparison runner and synthetic classification tests using existing Dukascopy cache/export plus Exness archive-window and Bid-M1 tooling.",
+    "Run only the frozen windows 2022-09, 2023-09, and 2026-08-24; exclude 2024/2025 V0.1 windows because existing Dukascopy cache metadata records missing September dates.",
+    "Keep source families separate and keep real Exness V2 DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED regardless of sensitivity result.",
     "Automatic order sending and protected holdout outcome scoring remain disabled."
   ],
   "blocked_from_claiming": [
@@ -366,9 +368,10 @@
     "docs/PHASE1_ORIGIN_HISTORY_INITIALIZATION_AUDIT_2026-09-15.md",
     "docs/PHASE1_V2_ORIGIN_STATE_CARRY_CONTRACT_V0.1_2026-09-15.md",
     "docs/PHASE1_V2_ORIGIN_STATE_CARRY_REQUIREMENT_MATRIX_V0.1_2026-09-16.md",
-    "docs/PHASE1_V2_ORIGIN_STATE_CARRY_IMPLEMENTATION_V0.1_2026-09-16.md"
+    "docs/PHASE1_V2_ORIGIN_STATE_CARRY_IMPLEMENTATION_V0.1_2026-09-16.md",
+    "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_CONTRACT_V0.1_2026-09-16.md"
   ],
-  "resume_instruction": "Phase 1 archive/replay engineering remains current at 0700_MINIMAL_V2.0. V2 origin-state carry V0.1 is implemented and synthetic split-vs-unsplit plus guard validation passed; the 14 frozen contract requirements have explicit traceability. This does not solve unknown prehistory: real Exness V2 remains fail-closed as DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED until a defensible independently evidenced COMPLETE seed exists. Next bounded action is to freeze and falsify a Dukascopy-vs-Exness overlap-sensitivity contract before any cross-feed initialization transition, comparing feed effects on H4 PAT/origin anchor/terminal-active state without selecting representations from outcomes. Dukascopy and Exness remain separate provenance families. No durable job is active. Automatic order execution and protected holdout scoring remain disabled.",
+  "resume_instruction": "Phase 1 archive/replay engineering remains current at 0700_MINIMAL_V2.0. V2 origin-state carry V0.1 is implemented and validated synthetically. The Dukascopy-vs-Exness overlap-sensitivity contract V0.1 is now frozen pre-implementation using availability-selected windows 2022-09, 2023-09, and 2026-08-24 with no invented tolerance and no outcome-based selection. Next bounded action is to implement the comparison runner plus synthetic classification tests and then execute only those frozen real windows. Dukascopy and Exness remain separate provenance families; sensitivity cannot promote seed completeness by itself. Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED. Automatic order execution and protected holdout scoring remain disabled.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1497,5 +1500,27 @@
     "historical_preserve": [
       "prior P1-10 wording that broad replay still required provenance-preserving V2 integration is retained in the implementation checkpoint as superseded chronology"
     ]
+  },
+  "dukascopy_exness_overlap_sensitivity": {
+    "status": "FROZEN_PRE_IMPLEMENTATION_V0.1",
+    "contract": "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_CONTRACT_V0.1_2026-09-16.md",
+    "windows": [
+      [
+        "2022-09-01T00:00:00Z",
+        "2022-10-01T00:00:00Z"
+      ],
+      [
+        "2023-09-01T00:00:00Z",
+        "2023-10-01T00:00:00Z"
+      ],
+      [
+        "2026-08-24T00:00:00Z",
+        "2026-08-25T00:00:00Z"
+      ]
+    ],
+    "comparison_tolerance": null,
+    "outcome_based_window_selection": "FORBIDDEN",
+    "cross_feed_transition_authorized": false,
+    "real_exness_seed_status": "DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED"
   }
 }
