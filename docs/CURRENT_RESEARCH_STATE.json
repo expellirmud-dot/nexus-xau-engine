@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-09-15T08:56:53+07:00",
+  "updated_at": "2026-09-15T14:48:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
     "contract": "docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md",
-    "latest_state_reconciliation": "docs/STATE_DRIFT_AUDIT_2026-09-13.md",
+    "latest_state_reconciliation": "docs/STATE_DRIFT_AUDIT_2026-09-15.md",
     "project_current_research_checkpoint": "research_queue/closed/RQ-016_PHASE1_CONSTRUCTION_BOUNDARY.md",
-    "latest_operational_tooling_checkpoint": "docs/PHASE1_EXNESS_TICK_ARCHIVE_DOWNLOADER_V0.1_2026-09-14.md",
+    "latest_operational_tooling_checkpoint": "docs/PHASE1_ARCHIVE_TICK_TO_BAR_IMPLEMENTATION_V0.1_2026-09-15.md",
     "project_current_state": "docs/CURRENT_RESEARCH_STATE.json",
     "operational_queue": "research_queue/QUEUE.json",
     "workstream_state": "docs/0700_WORKSTREAM_STATE.json",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_ARCHIVE_TICK_TO_BAR_IMPLEMENTATION_V0.1_2026-09-15.md"
+    "latest_progress_checkpoint": "docs/STATE_DRIFT_AUDIT_2026-09-15.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -110,7 +110,8 @@
       "docs/PHASE1_EXNESS_ARCHIVE_GAP_LEDGER_V0.1.json",
       "docs/PHASE1_EXNESS_ARCHIVE_WINDOW_ADAPTER_IMPLEMENTATION_V0.1_2026-09-15.md",
       "docs/PHASE1_ARCHIVE_TICK_TO_BAR_CONTRACT_V0.1_2026-09-15.md",
-      "docs/PHASE1_ARCHIVE_TICK_TO_BAR_IMPLEMENTATION_V0.1_2026-09-15.md"
+      "docs/PHASE1_ARCHIVE_TICK_TO_BAR_IMPLEMENTATION_V0.1_2026-09-15.md",
+      "docs/STATE_DRIFT_AUDIT_2026-09-15.md"
     ]
   },
   "provenance_guard": {
@@ -184,12 +185,13 @@
     "exness_archive_downloader": "VALIDATOR_V0.2_ALL_134_AVAILABLE_MONTHS_VALIDATED",
     "exness_archive_acquisition": "CURRENT_COVERAGE_COMPLETE_134_OF_134_AVAILABLE_MONTHS",
     "tick_replay_contract": "FROZEN_PRE_OUTCOME_V0.1_REFERENCE_REPLAY",
-    "tick_replay_implementation": "V0.1_SYNTHETIC_10_PASS_FULL_SUITE_PASS_ENGINEERING_SMOKE_PASS",
+    "tick_replay_implementation": "V0.1_SYNTHETIC_12_PASS_FULL_SUITE_PASS_ENGINEERING_SMOKE_PASS_SOURCE_RAW_ORDINAL_DEFECT_FIXED",
     "archive_window_adapter_contract": "FROZEN_PRE_IMPLEMENTATION_V0.1_HALF_OPEN_KNOWN_GAP_MASK",
     "exness_mt5_overlap": "DESCRIPTIVELY_CONSISTENT_EXACT_FEED_EQUIVALENCE_NOT_CLAIMED",
     "archive_window_adapter_implementation": "V0.1_TARGETED_11_PASS_FULL_SUITE_PASS_REAL_ARCHIVE_SMOKE_PASS",
     "archive_tick_to_bar_contract": "FROZEN_PRE_IMPLEMENTATION_V0.1_BID_M1_UTC_LEFT_CLOSED",
-    "archive_tick_to_bar_implementation": "V0.1_TARGETED_12_PASS_FULL_SUITE_PASS_REAL_PARITY_SMOKE_PASS"
+    "archive_tick_to_bar_implementation": "V0.1_TARGETED_12_PASS_FULL_SUITE_PASS_REAL_PARITY_SMOKE_PASS",
+    "state_and_replay_audit_2026_09_15": "PASS_PROJECT_CURRENT_RECONCILED_RAW_ORDINAL_DEFECT_FIXED_FULL_SUITE_PASS"
   },
   "next_steps": [
     "Archive tick-to-bar V0.1 is implemented; targeted synthetic tests are 12/12 PASS, broader Ruff/full pytest pass, and the frozen one-hour MT5 parity smoke reproduces pre-freeze observations.",
@@ -350,7 +352,7 @@
     "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md",
     "docs/PHASE1_EXNESS_TICK_ARCHIVE_COVERAGE_MAPPER_2026-09-14.md"
   ],
-  "resume_instruction": "Phase 1 is current. The Exness-branded XAUUSDm archive sample route is validated and a restart-safe month-level coverage mapper is implemented/live-smoke validated in docs/PHASE1_EXNESS_TICK_ARCHIVE_COVERAGE_MAPPER_2026-09-14.md. Before starting another MT5 collector, inspect durable job XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914 plus status.json and SQLite; do not duplicate collectors. Next bounded data task is to run the committed archive mapper for 2015-2026 under nexus-durable-work, reconcile the result, then perform representative file and overlap cross-feed validation. Archive availability does not prove tick continuity or exact equivalence to the current Exness Demo/MT5 server. Automatic order execution and holdout scoring remain disabled.",
+  "resume_instruction": "Phase 1 is current. Exness-branded XAUUSDm archive acquisition is complete for the frozen current coverage snapshot: 134/134 months classified AVAILABLE are Validator V0.2 VALIDATED. The bounded archive-window adapter and archive Bid->M1 reconstruction V0.1 are implemented and regression-tested. No durable job is currently active. Next bounded action is to freeze the provenance-preserving integration contract from archive-derived M1 through the existing higher-timeframe resample into frozen 0700_MINIMAL_V2.0 state machinery, validate engineering-only on already-inspected windows, and only then consider broader historical replay. Exact archive-to-current Exness Demo/MT5 feed equivalence, full every-tick continuity, trade-stop geometry, historical slippage and account-specific economic costs remain unresolved. Automatic order execution and holdout outcome scoring remain disabled.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1172,14 +1174,17 @@
     }
   },
   "active_durable_job": {
-    "job_id": "XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914",
-    "job_path": "D:\\tools\\nexus-durable-work\\_agent\\jobs\\XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914\\job.json",
-    "status": "RUNNING",
+    "job_id": null,
+    "job_path": null,
+    "status": "NONE",
     "execution_layer": "D:/tools/nexus-durable-work Local Work Agent",
     "success_probe": null,
-    "restart_rule": "Inspect this live durable job plus results/mt5_collector/status.json and SQLite before starting another collector. Do not run two collectors against the same store.",
-    "live_status_verified": "RUNNING_AFTER_STATUS_CONTENTION_FIX",
-    "result_exists_nonempty": true
+    "restart_rule": "No active durable job. Inspect the durable registry before starting any new long-running work.",
+    "live_status_verified": "NONE_ACTIVE",
+    "result_exists_nonempty": false,
+    "last_completed_collector_job": "XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914",
+    "last_completed_collector_status": "DONE_EXIT_0_STATUS_SURFACE_STOPPED",
+    "last_completed_archive_job": "XAU-EXNESS-YEAR-2026-V02-20260915"
   },
   "continuity_tool": {
     "scope": "GLOBAL_SHARED_INFRASTRUCTURE",
@@ -1283,7 +1288,7 @@
     "rq016_closure": "research_queue/closed/RQ-016_PHASE1_CONSTRUCTION_BOUNDARY.md"
   },
   "phase1_execution_data_probe": {
-    "status": "EXTERNAL_XAUUSDM_BID_ASK_ROUTE_SAMPLE_VALIDATED_MULTIYEAR_COVERAGE_MAPPING_PENDING",
+    "status": "EXTERNAL_XAUUSDM_ARCHIVE_CURRENT_COVERAGE_COMPLETE_REPLAY_ENGINEERING_IN_PROGRESS",
     "ref": "docs/PHASE1_MT5_CAPABILITY_REPORT_2026-09-14.md",
     "prior_probe_ref": "docs/PHASE1_EXECUTION_DATA_ACQUISITION_PROBE_2026-09-14.md",
     "mt5_api": "AUTHORIZED_AND_CONNECTED",
@@ -1293,10 +1298,10 @@
     "account_history": "CONFIRMED",
     "margin_profit_calculation": "CONFIRMED",
     "market_book": "UNAVAILABLE_FOR_XAUUSDM_CURRENT_ACCOUNT",
-    "remaining_gap": "Indefinite forward-collector reliability; external XAUUSDm archive full month/year continuity; cross-server equivalence to current Exness Demo/MT5 runtime; full intraday/every-tick completeness; historical slippage/fill truth; transaction-cost treatment; replay fill/stop conventions.",
+    "remaining_gap": "Full every-tick continuity beyond the explicit known-gap ledger; exact archive-to-current Exness Demo/MT5 feed equivalence; historical broker fill/slippage truth; account-specific commission/fee/swap treatment for economic claims; exact trade-stop geometry; continuous forward-collector mode/process guard.",
     "direct_broker_server_api": "NOT_ESTABLISHED",
     "confirmed_route": "MT5_TERMINAL_HISTORY_ENVIRONMENT_TO_METATRADER5_PYTHON_API",
-    "forward_collector": "DURABLE_READONLY_V02_RUNNING_AFTER_STATUS_CONTENTION_FIX",
+    "forward_collector": "DURABLE_READONLY_V02_ONE_HOUR_RUN_DONE_STATUS_STOPPED_CONTINUOUS_MODE_NOT_IMPLEMENTED",
     "restart_recovery_rule": "Persist last tick timestamp; on restart request missing interval from MT5 history and record unrecoverable gaps explicitly.",
     "coverage_map_ref": "docs/PHASE1_MT5_HISTORY_COVERAGE_MAP_2026-09-14.md",
     "tick_accessible_start_utc": "2026-03-12T00:00:00.255+00:00",
@@ -1338,7 +1343,7 @@
       "fix_commit": "14f3239",
       "replacement_job": "XAU-MT5-FORWARD-COLLECTOR-1H-V02-20260914"
     },
-    "external_execution_data_ref": "docs/PHASE1_EXNESS_XAUUSDM_TICK_ARCHIVE_SAMPLE_VALIDATION_2026-09-14.md",
+    "external_execution_data_ref": "docs/PHASE1_EXNESS_ARCHIVE_ACQUISITION_RECONCILIATION_2015_2026_2026-09-15.md",
     "external_historical_route": {
       "archive_endpoint": "https://ticks.ex2archive.com/ticks/",
       "symbol": "XAUUSDm",
@@ -1363,7 +1368,7 @@
       "sample_spread_p50": 0.2,
       "sample_spread_p99": 0.6,
       "provenance_status": "EXNESS_BRANDED_ARCHIVE_ENDPOINT_RUNTIME_VALIDATED_FIRST_PARTY_LINKAGE_NOT_RUNTIME_PROVEN_TARGET_SERVER_EQUIVALENCE_NOT_ESTABLISHED",
-      "coverage_status": "YEAR_DIRECTORIES_OBSERVED_FULL_MULTIYEAR_CONTINUITY_NOT_YET_MAPPED",
+      "coverage_status": "CURRENT_COVERAGE_134_OF_134_AVAILABLE_MONTHS_VALIDATED_FULL_TICK_CONTINUITY_NOT_PROVEN",
       "coverage_mapper_ref": "docs/PHASE1_EXNESS_TICK_ARCHIVE_COVERAGE_MAPPER_2026-09-14.md",
       "coverage_mapper_module": "src/nexus_xau/data/exness_tick_archive.py",
       "coverage_mapper_cli": "scripts/exness_tick_archive_coverage.py",
@@ -1375,7 +1380,12 @@
         "errors": 0,
         "resume_jsonl_lines_before": 2,
         "resume_jsonl_lines_after": 2
-      }
+      },
+      "coverage_reconciliation_ref": "docs/PHASE1_EXNESS_ARCHIVE_ACQUISITION_RECONCILIATION_2015_2026_2026-09-15.md",
+      "archive_window_adapter_ref": "docs/PHASE1_EXNESS_ARCHIVE_WINDOW_ADAPTER_IMPLEMENTATION_V0.1_2026-09-15.md",
+      "archive_tick_to_bar_ref": "docs/PHASE1_ARCHIVE_TICK_TO_BAR_IMPLEMENTATION_V0.1_2026-09-15.md",
+      "archive_acquisition_status": "COMPLETE_FOR_FROZEN_CURRENT_COVERAGE",
+      "replay_representation_status": "ARCHIVE_WINDOW_AND_BID_M1_V0.1_IMPLEMENTED_PRE_OUTCOME"
     }
   },
   "project_self_audit_2026_09_14": {
@@ -1406,5 +1416,29 @@
       "Bridge exact-match text patch tool with hash precondition"
     ],
     "desktop_commander": "INSTALLED_AND_CONTINUITY_REGISTRY_OK_BUT_DIRECT_TOOL_NAMESPACE_NOT_EXPOSED_IN_THIS_CHAT_IE_CODER_FALLBACK_WORKING"
+  },
+  "project_self_audit_2026_09_15": {
+    "status": "RECONCILED",
+    "scope": "PROJECT_CURRENT_STATE_PLUS_PRE_OUTCOME_REPLAY_ENGINEERING",
+    "fixed": [
+      "resume_instruction no longer points to the already-completed archive mapper task",
+      "active durable collector pointer reconciled from stale RUNNING to no active job using durable receipt DONE and collector status STOPPED",
+      "execution-data status reconciled from multi-year coverage mapping pending to 134/134 AVAILABLE months validated",
+      "external archive coverage status updated while preserving full-continuity and exact-feed-equivalence residuals",
+      "reference replay raw_ordinal now preserves archive source raw-row ordinal when supplied",
+      "trade construction matrix execution-data and same-timestamp wording reconciled to current tick replay evidence",
+      "finding ledger extended with bounded archive-derived M1 versus MT5 M1 parity observation"
+    ],
+    "historical_preserve": [
+      "dated 2026-09-14 acquisition/collector checkpoints retain their original then-current wording",
+      "07:00 workstream lane history remains separate from project-current workflow state"
+    ],
+    "pending": [
+      "provenance-preserving integration contract into frozen V2 state machinery",
+      "full continuity classification beyond known-gap ledger",
+      "exact archive-to-current MT5 feed equivalence",
+      "trade-stop geometry and historical execution economics"
+    ],
+    "audit_ref": "docs/STATE_DRIFT_AUDIT_2026-09-15.md"
   }
 }

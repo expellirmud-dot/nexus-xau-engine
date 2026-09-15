@@ -1,6 +1,6 @@
 {
   "schema_version": "PHASE1_TRADE_CONSTRUCTION_MATRIX_V0.1",
-  "updated_at": "2026-09-14T18:19:36+07:00",
+  "updated_at": "2026-09-15T14:36:38+07:00",
   "scope": "Phase 1 H4/PAT2/M5 lane",
   "authority_boundary": "Classifications distinguish source-backed semantics from project engineering conventions. No market outcomes were inspected.",
   "fields": [
@@ -28,7 +28,7 @@
     {
       "field": "exact_execution_fill",
       "classification": "ENGINEERING_CONVENTION_ALLOWED",
-      "current": "Source closes signal knowledge timing but not one universal exact fill. A separately labeled executable fill convention may be frozen for project replay.",
+      "current": "Reference-execution convention is frozen pre-outcome: first archive tick strictly after confirmation known_at; BUY uses Ask and SELL uses Bid, marked REFERENCE_NOT_BROKER_FILL with slippage unmodeled. Exact broker fill remains unresolved.",
       "blocking_for_project_replay": false,
       "blocking_for_source_faithful_proof": true
     },
@@ -63,21 +63,21 @@
     {
       "field": "bid_ask_execution_data",
       "classification": "BLOCKING_FOR_NET_ECONOMIC_PROOF",
-      "current": "Current MT5 route exposes Bid/Ask ticks from 2026-03-12T00:00:00.255Z onward; daily noon probes are broadly available after that boundary, but full intraday continuity and multi-year coverage are not established.",
+      "current": "The frozen current Exness-branded archive snapshot has recorded Bid/Ask for 134/134 months classified AVAILABLE from 2015-08 through 2026-09. Validator V0.2 structural checks pass for all AVAILABLE months. Full every-tick continuity and exact equivalence to the current Exness Demo/MT5 feed are not established.",
       "blocking_for_project_replay": false,
       "blocking_for_source_faithful_proof": false
     },
     {
       "field": "spread_slippage_cost",
       "classification": "BLOCKING_FOR_NET_ECONOMIC_PROOF",
-      "current": "Observed Bid/Ask ticks support empirical spread measurement inside the current 2026-03-12+ accessible window. Multi-year spread/slippage/transaction-cost truth remains incomplete and still blocks net economic proof.",
+      "current": "Per-row spread is derivable as Ask-Bid throughout the validated archive coverage and is already embedded in executable-side reference quotes. Historical broker fill slippage plus account-specific commission/fee/swap truth remain unresolved and block net economic proof; no zero-cost assumption is allowed.",
       "blocking_for_project_replay": false,
       "blocking_for_source_faithful_proof": false
     },
     {
       "field": "same_bar_ordering",
       "classification": "ENGINEERING_RULE_CLOSED",
-      "current": "If favorable and adverse levels occur in the same available OHLC bar, classify AMBIGUOUS_SAME_BAR unless finer data resolves order.",
+      "current": "When tick timestamps establish first touch, tick replay may resolve bar-level ordering. If conflicting stop/target or target/invalidation touches occur on distinct rows sharing the same timestamp, classify AMBIGUOUS_SAME_TIMESTAMP because source row order is not promoted to physical micro-order. Bar-only cases without finer data remain AMBIGUOUS_SAME_BAR.",
       "blocking_for_project_replay": false,
       "blocking_for_source_faithful_proof": false
     },
@@ -94,5 +94,12 @@
     "source_faithful_exact_trade_proof": "NOT_FULLY_CLOSED",
     "net_economic_proof": "BLOCKED_PENDING_EXECUTION_COST_DATA_OR_MODEL",
     "account_level_pilot": "BLOCKED_PENDING_SIZING_RISK_AND_EXECUTION_LAYER"
-  }
+  },
+  "current_execution_evidence_refs": [
+    "docs/PHASE1_EXNESS_ARCHIVE_ACQUISITION_RECONCILIATION_2015_2026_2026-09-15.md",
+    "docs/PHASE1_TICK_REPLAY_ENGINEERING_CONTRACT_V0.1_2026-09-15.md",
+    "docs/PHASE1_TICK_REPLAY_ENGINEERING_IMPLEMENTATION_V0.1_2026-09-15.md",
+    "docs/PHASE1_EXNESS_ARCHIVE_WINDOW_ADAPTER_IMPLEMENTATION_V0.1_2026-09-15.md",
+    "docs/PHASE1_ARCHIVE_TICK_TO_BAR_IMPLEMENTATION_V0.1_2026-09-15.md"
+  ]
 }

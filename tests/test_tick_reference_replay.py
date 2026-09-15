@@ -209,3 +209,37 @@ def test_replay_primitives_do_not_mutate_raw_frame_or_expose_pnl_fields() -> Non
     pd.testing.assert_frame_equal(ticks, before)
     assert "pnl" not in fill.__dataclass_fields__
     assert "win_rate" not in fill.__dataclass_fields__
+
+
+def test_reference_entry_preserves_archive_source_raw_ordinal() -> None:
+    ticks = _ticks(
+        [
+            ("2026-01-01T00:00:00Z", 100.0, 100.2),
+            ("2026-01-01T00:00:01Z", 100.1, 100.3),
+        ]
+    )
+    ticks["raw_ordinal"] = [40, 41]
+    fill = first_reference_entry(
+        ticks, known_at="2026-01-01T00:00:00Z", side="BUY", source_id="archive"
+    )
+    assert fill.raw_ordinal == 41
+
+
+def test_supplied_level_outcome_preserves_archive_source_raw_ordinal() -> None:
+    ticks = _ticks(
+        [
+            ("2026-01-01T00:00:01Z", 100.0, 100.2),
+            ("2026-01-01T00:00:02Z", 101.2, 101.4),
+        ]
+    )
+    ticks["raw_ordinal"] = [900, 901]
+    outcome = evaluate_supplied_levels(
+        ticks,
+        start_after="2026-01-01T00:00:00Z",
+        side="BUY",
+        stop_level=99.0,
+        target_level=101.0,
+        source_id="archive",
+    )
+    assert outcome.outcome == "TARGET_FIRST"
+    assert outcome.raw_ordinal == 901

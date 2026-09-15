@@ -100,13 +100,14 @@ def first_reference_entry(
     bid = float(row["bid"])
     ask = float(row["ask"])
     price = ask if side == "BUY" else bid
+    source_raw_ordinal = int(row["raw_ordinal"]) if "raw_ordinal" in row.index else pos
     return ReferenceFill(
         timestamp=ticks.index[pos],
         side=side,
         price=price,
         bid=bid,
         ask=ask,
-        raw_ordinal=pos,
+        raw_ordinal=source_raw_ordinal,
         source_id=source_id,
     )
 
@@ -131,7 +132,8 @@ def evaluate_supplied_levels(
     if side == "SELL" and target_level >= stop_level:
         raise ValueError("SELL supplied target level must be below supplied stop level")
 
-    working = ticks.assign(_raw_ordinal=range(len(ticks)))
+    ordinal_column = "raw_ordinal" if "raw_ordinal" in ticks.columns else "_replay_ordinal"
+    working = ticks.assign(_replay_ordinal=range(len(ticks)))
     eligible = working.loc[working.index > cutoff]
     for timestamp, group in eligible.groupby(level=0, sort=False):
         if side == "BUY":
@@ -160,7 +162,7 @@ def evaluate_supplied_levels(
                 outcome="TARGET_FIRST",
                 timestamp=timestamp,
                 price=float(first_match[executable_column]),
-                raw_ordinal=int(first_match["_raw_ordinal"]),
+                raw_ordinal=int(first_match[ordinal_column]),
                 source_id=source_id,
             )
 
@@ -170,7 +172,7 @@ def evaluate_supplied_levels(
                 outcome="STOP_FIRST",
                 timestamp=timestamp,
                 price=float(first_match[executable_column]),
-                raw_ordinal=int(first_match["_raw_ordinal"]),
+                raw_ordinal=int(first_match[ordinal_column]),
                 source_id=source_id,
             )
 
