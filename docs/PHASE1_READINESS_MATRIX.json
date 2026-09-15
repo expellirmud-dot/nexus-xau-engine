@@ -1,6 +1,6 @@
 {
   "schema_version": "PHASE1_READINESS_MATRIX_V0.1",
-  "updated_at": "2026-09-15T08:46:04+07:00",
+  "updated_at": "2026-09-15T08:52:22+07:00",
   "scope": "Phase 1 / เฟสหนึ่ง",
   "naming_guard": "07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method name. Person/channel/system labels are source attribution only.",
   "overall": {
@@ -128,7 +128,8 @@
         "docs/PHASE1_EXNESS_ARCHIVE_ACQUISITION_RECONCILIATION_2015_2026_2026-09-15.md",
         "docs/PHASE1_TICK_REPLAY_ENGINEERING_CONTRACT_V0.1_2026-09-15.md",
         "docs/PHASE1_TICK_REPLAY_ENGINEERING_IMPLEMENTATION_V0.1_2026-09-15.md",
-        "docs/PHASE1_EXNESS_ARCHIVE_WINDOW_ADAPTER_IMPLEMENTATION_V0.1_2026-09-15.md"
+        "docs/PHASE1_EXNESS_ARCHIVE_WINDOW_ADAPTER_IMPLEMENTATION_V0.1_2026-09-15.md",
+        "docs/PHASE1_ARCHIVE_TICK_TO_BAR_CONTRACT_V0.1_2026-09-15.md"
       ],
       "missing": [
         "window-level archive continuity/gap eligibility for each scored replay interval",

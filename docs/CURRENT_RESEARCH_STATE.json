@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-15T08:46:04+07:00",
+  "updated_at": "2026-09-15T08:52:22+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_ARCHIVE_WINDOW_ADAPTER_IMPLEMENTATION_V0.1_2026-09-15.md"
+    "latest_progress_checkpoint": "docs/PHASE1_ARCHIVE_TICK_TO_BAR_CONTRACT_V0.1_2026-09-15.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -108,7 +108,8 @@
       "docs/PHASE1_TICK_REPLAY_ENGINEERING_IMPLEMENTATION_V0.1_2026-09-15.md",
       "docs/PHASE1_EXNESS_ARCHIVE_WINDOW_ADAPTER_CONTRACT_V0.1_2026-09-15.md",
       "docs/PHASE1_EXNESS_ARCHIVE_GAP_LEDGER_V0.1.json",
-      "docs/PHASE1_EXNESS_ARCHIVE_WINDOW_ADAPTER_IMPLEMENTATION_V0.1_2026-09-15.md"
+      "docs/PHASE1_EXNESS_ARCHIVE_WINDOW_ADAPTER_IMPLEMENTATION_V0.1_2026-09-15.md",
+      "docs/PHASE1_ARCHIVE_TICK_TO_BAR_CONTRACT_V0.1_2026-09-15.md"
     ]
   },
   "provenance_guard": {
@@ -185,13 +186,14 @@
     "tick_replay_implementation": "V0.1_SYNTHETIC_10_PASS_FULL_SUITE_PASS_ENGINEERING_SMOKE_PASS",
     "archive_window_adapter_contract": "FROZEN_PRE_IMPLEMENTATION_V0.1_HALF_OPEN_KNOWN_GAP_MASK",
     "exness_mt5_overlap": "DESCRIPTIVELY_CONSISTENT_EXACT_FEED_EQUIVALENCE_NOT_CLAIMED",
-    "archive_window_adapter_implementation": "V0.1_TARGETED_11_PASS_FULL_SUITE_PASS_REAL_ARCHIVE_SMOKE_PASS"
+    "archive_window_adapter_implementation": "V0.1_TARGETED_11_PASS_FULL_SUITE_PASS_REAL_ARCHIVE_SMOKE_PASS",
+    "archive_tick_to_bar_contract": "FROZEN_PRE_IMPLEMENTATION_V0.1_BID_M1_UTC_LEFT_CLOSED"
   },
   "next_steps": [
-    "Archive-window adapter V0.1 is implemented; targeted synthetic tests are 11/11 PASS, broader Ruff/full pytest pass, and the already-inspected 2026-08 engineering smoke passed without opening strategy outcomes.",
-    "Freeze the tick-to-bar reconstruction/parity contract needed to feed archive Bid ticks into the existing 0700_MINIMAL_V2.0 bar/state machinery; do not choose bar semantics from strategy outcomes.",
-    "Validate deterministic archive-derived bar construction against already-inspected overlapping MT5/bar evidence before broad historical replay.",
-    "Keep archive identity separate from the current Exness Demo MT5 route; exact feed/server equivalence is not established.",
+    "Archive tick-to-bar contract V0.1 is frozen pre-implementation: Bid geometry, UTC minute-aligned half-open M1 bars, no synthetic empty bars, no outcome-derived tolerance.",
+    "Implement deterministic archive Bid tick -> M1 OHLC reconstruction with archive_tick_count/provenance and aligned-boundary rejection.",
+    "Add and pass synthetic tick-to-bar tests, then repeat bounded descriptive parity against already-inspected MT5 M1 overlap without opening strategy outcomes.",
+    "Keep archive identity separate from the current Exness Demo MT5 route; 60/60 bounded minute timestamps aligned but exact OHLC equivalence was not established.",
     "Keep automatic order sending and V0.1 holdout outcome scoring disabled until explicitly activated under existing governance."
   ],
   "blocked_from_claiming": [
