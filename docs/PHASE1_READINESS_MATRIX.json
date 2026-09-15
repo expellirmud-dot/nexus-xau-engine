@@ -1,6 +1,6 @@
 {
   "schema_version": "PHASE1_READINESS_MATRIX_V0.1",
-  "updated_at": "2026-09-15T15:54:42+07:00",
+  "updated_at": "2026-09-16T02:24:43+07:00",
   "scope": "Phase 1 / เฟสหนึ่ง",
   "naming_guard": "07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method name. Person/channel/system labels are source attribution only.",
   "overall": {
@@ -99,9 +99,15 @@
         "docs/PHASE1_EXNESS_ARCHIVE_ACQUISITION_RECONCILIATION_2015_2026_2026-09-15.md",
         "docs/PHASE1_ARCHIVE_V2_INTEGRATION_CONTRACT_V0.1_2026-09-15.md",
         "docs/PHASE1_ARCHIVE_V2_INTEGRATION_CONTRACT_V0.2_2026-09-15.md",
-        "docs/PHASE1_ARCHIVE_V2_INTEGRATION_IMPLEMENTATION_V0.2_2026-09-15.md"
+        "docs/PHASE1_ARCHIVE_V2_INTEGRATION_IMPLEMENTATION_V0.2_2026-09-15.md",
+        "docs/PHASE1_V2_ORIGIN_STATE_CARRY_IMPLEMENTATION_V0.1_2026-09-16.md",
+        "docs/PHASE1_V2_ORIGIN_STATE_CARRY_REQUIREMENT_MATRIX_V0.1_2026-09-16.md"
       ],
-      "note": "Archive->V2 integration V0.2 is implemented with 4-hour boundary/provenance gates and real-window fail-closed seed handling. Strong canonical multi-year V2 replay remains partial because the initial active-H4-origin state before a bounded real archive window is not yet defensibly seeded."
+      "note": "Archive-to-V2 integration V0.2 and V2 carry V0.1 synthetic logic are implemented. Canonical multi-year replay remains partial because the real archive boundary still lacks a defensible complete active-H4-origin seed and canonical replay intervals remain subject to fail-closed continuity/gap eligibility.",
+      "missing": [
+        "defensible complete active-H4-origin seed for the real archive boundary",
+        "window-level continuity/gap eligibility for every canonical replay interval"
+      ]
     },
     {
       "id": "P1-09",
@@ -133,16 +139,22 @@
         "docs/PHASE1_TICK_REPLAY_ENGINEERING_IMPLEMENTATION_V0.1_2026-09-15.md",
         "docs/PHASE1_EXNESS_ARCHIVE_WINDOW_ADAPTER_IMPLEMENTATION_V0.1_2026-09-15.md",
         "docs/PHASE1_ARCHIVE_TICK_TO_BAR_CONTRACT_V0.1_2026-09-15.md",
-        "docs/PHASE1_ARCHIVE_TICK_TO_BAR_IMPLEMENTATION_V0.1_2026-09-15.md"
+        "docs/PHASE1_ARCHIVE_TICK_TO_BAR_IMPLEMENTATION_V0.1_2026-09-15.md",
+        "docs/PHASE1_ARCHIVE_V2_INTEGRATION_IMPLEMENTATION_V0.2_2026-09-15.md",
+        "docs/PHASE1_V2_ORIGIN_STATE_CARRY_CONTRACT_V0.1_2026-09-15.md",
+        "docs/PHASE1_V2_ORIGIN_STATE_CARRY_REQUIREMENT_MATRIX_V0.1_2026-09-16.md",
+        "docs/PHASE1_V2_ORIGIN_STATE_CARRY_IMPLEMENTATION_V0.1_2026-09-16.md"
       ],
       "missing": [
-        "window-level archive continuity/gap eligibility for each scored replay interval",
-        "exact cross-server/feed equivalence to the target Exness Demo/MT5 runtime",
+        "exact cross-server/feed equivalence to the target Exness Demo/MT5 runtime where required for execution claims",
         "historical/current-runtime fill slippage evidence sufficient for economic claims",
         "commission/fee/swap treatment where material for economic P&L",
         "source-compatible trade stop geometry for trade-level P&L"
       ],
-      "note": "Current archive acquisition, reference tick primitives, bounded archive-window adapter, and archive Bid->M1 reconstruction are implemented. Broad replay still requires provenance-preserving integration into frozen V2 state machinery plus unresolved trade-economics inputs."
+      "note": "Archive-to-V2 integration V0.2 is implemented and tested. Remaining P1-10 blockers are execution economics and execution-representation evidence; multi-year replay readiness is tracked separately under P1-08.",
+      "history": [
+        "2026-09-15 prior note preserved: broad replay was described as still requiring provenance-preserving integration into frozen V2 state machinery plus unresolved trade-economics inputs."
+      ]
     },
     {
       "id": "P1-11",
