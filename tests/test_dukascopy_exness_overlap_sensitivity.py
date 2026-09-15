@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import inspect
+import json
 
 import pandas as pd
+import pytest
 
 from nexus_xau.research.dukascopy_exness_overlap_sensitivity import (
     DUKASCOPY_SOURCE,
@@ -11,7 +13,9 @@ from nexus_xau.research.dukascopy_exness_overlap_sensitivity import (
     INCOMPARABLE_INPUT_GAP,
     STATE_DIVERGENCE_OBSERVED,
     STRUCTURAL_STATE_EQUIVALENCE_NUMERIC_DIVERGENCE,
+    OverlapSensitivityError,
     compare_overlap_frames,
+    load_dukascopy_window,
 )
 
 START = pd.Timestamp("2026-01-01T00:00:00Z")
@@ -162,3 +166,87 @@ def test_no_trade_performance_or_execution_claim_fields_are_produced() -> None:
     assert report["guards"]["economic_scoring"] == "DISABLED"
     assert report["guards"]["holdout_scoring"] == "DISABLED"
     assert report["guards"]["order_send"] == "DISABLED"
+
+def test_zero_volume_dukascopy_rows_do_not_change_state_representation() -> None:
+    exn = _frame()
+    duk = exn.copy()
+    duk["volume"] = 1.0
+    zero_at = pd.Timestamp("2026-01-01T06:30:00Z")
+    duk.loc[zero_at, ["open", "high", "low", "close"]] = 999.0
+    duk.loc[zero_at, "volume"] = 0.0
+
+    report = _compare(duk, exn)
+    assert report["classification"] == EXACT_OBSERVED_STATE_EQUIVALENCE
+    assert report["m1"]["dukascopy_raw_rows"] == len(duk)
+    assert report["m1"]["dukascopy_active_rows"] == len(duk) - 1
+    assert report["m1"]["dukascopy_excluded_nonpositive_volume_rows"] == 1
+
+
+def test_positive_volume_weekend_row_remains_active() -> None:
+    start = pd.Timestamp("2026-01-03T00:00:00Z")
+    end = pd.Timestamp("2026-01-03T04:00:00Z")
+    duk = _expand_h4_bar(
+        start.isoformat(),
+        open_price=110.0,
+        high_price=112.0,
+        low_price=109.0,
+        close_price=111.0,
+    )
+    duk["volume"] = 0.0
+    active_at = pd.Timestamp("2026-01-03T00:30:00Z")
+    duk.loc[active_at, "volume"] = 1.0
+    exn = duk.loc[[active_at], ["open", "high", "low", "close"]].copy()
+
+    report = compare_overlap_frames(
+        dukascopy_m1=duk,
+        exness_m1=exn,
+        start=start,
+        end=end,
+        dukascopy_provenance=_duk_provenance(),
+        exness_provenance=_exn_provenance(),
+        window_id="SYNTHETIC_WEEKEND",
+    )
+    assert report["m1"]["dukascopy_active_rows"] == 1
+    assert report["m1"]["dukascopy_excluded_nonpositive_volume_rows"] == len(duk) - 1
+
+
+def test_real_dukascopy_loader_requires_volume(tmp_path) -> None:
+    source = tmp_path / "duk.csv"
+    metadata = tmp_path / "duk.meta.json"
+    frame = _frame().iloc[:2].reset_index(names="timestamp")
+    frame.to_csv(source, index=False)
+    metadata.write_text(
+        json.dumps({"symbol": "XAUUSD", "side": "BID"}),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(OverlapSensitivityError) as exc:
+        load_dukascopy_window(
+            repo_root=tmp_path,
+            csv_path=source.name,
+            metadata_path=metadata.name,
+            start=START,
+            end=END,
+        )
+    assert exc.value.code == "DUKASCOPY_VOLUME_REQUIRED"
+
+
+def test_report_records_raw_active_and_excluded_counts() -> None:
+    exn = _frame()
+    duk = exn.copy()
+    duk["volume"] = 1.0
+    excluded = [
+        pd.Timestamp("2026-01-01T06:30:00Z"),
+        pd.Timestamp("2026-01-02T06:30:00Z"),
+    ]
+    duk.loc[excluded[0], "volume"] = 0.0
+    duk.loc[excluded[1], "volume"] = -1.0
+
+    report = _compare(duk, exn)
+    m1 = report["m1"]
+    assert m1["dukascopy_raw_rows"] == len(duk)
+    assert m1["dukascopy_active_rows"] == len(duk) - 2
+    assert m1["dukascopy_excluded_nonpositive_volume_rows"] == 2
+    assert m1["exness_raw_rows"] == len(exn)
+    assert m1["exness_active_rows"] == len(exn)
+    assert m1["exness_excluded_nonpositive_volume_rows"] == 0

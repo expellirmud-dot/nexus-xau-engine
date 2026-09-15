@@ -22,7 +22,7 @@ from nexus_xau.research.minimal_v2_0700 import (
     origin_state_at,
 )
 
-CONTRACT = "PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_V0.1"
+CONTRACT = "PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_V0.2"
 DUKASCOPY_SOURCE = "DUKASCOPY_BID_M1"
 EXNESS_SOURCE = "EXNESS_BRANDED_ARCHIVE"
 
@@ -128,6 +128,29 @@ def _normalize_window_frame(
             "source M1 contains rows outside the frozen half-open window",
         )
     return normalized
+
+
+def _active_m1(
+    frame: pd.DataFrame, *, require_volume: bool = False
+) -> tuple[pd.DataFrame, dict[str, int]]:
+    raw_rows = len(frame)
+    if "volume" not in frame.columns:
+        if require_volume:
+            raise OverlapSensitivityError(
+                "DUKASCOPY_VOLUME_REQUIRED",
+                "frozen Dukascopy input must preserve volume for V0.2 active-M1 normalization",
+            )
+        active = frame.copy()
+        excluded = 0
+    else:
+        mask = frame["volume"] > 0
+        active = frame.loc[mask].copy()
+        excluded = int((~mask).sum())
+    return active, {
+        "raw_rows": raw_rows,
+        "active_rows": len(active),
+        "excluded_nonpositive_volume_rows": excluded,
+    }
 
 
 def _difference_stats(
@@ -236,9 +259,9 @@ def compare_overlap_frames(
             "source families must remain distinct",
         )
 
-    duk = _normalize_window_frame(dukascopy_m1, start=start_ts, end=end_ts)
-    exn = _normalize_window_frame(exness_m1, start=start_ts, end=end_ts)
-    if duk.empty or exn.empty:
+    duk_raw = _normalize_window_frame(dukascopy_m1, start=start_ts, end=end_ts)
+    exn_raw = _normalize_window_frame(exness_m1, start=start_ts, end=end_ts)
+    if duk_raw.empty or exn_raw.empty:
         return _incomparable_report(
             window_id=window_id,
             start=start_ts,
@@ -246,6 +269,18 @@ def compare_overlap_frames(
             dukascopy_provenance=dukascopy_provenance,
             exness_provenance=exness_provenance,
             reason="EMPTY_SOURCE_FRAME",
+        )
+
+    duk, duk_counts = _active_m1(duk_raw)
+    exn, exn_counts = _active_m1(exn_raw)
+    if duk.empty or exn.empty:
+        return _incomparable_report(
+            window_id=window_id,
+            start=start_ts,
+            end=end_ts,
+            dukascopy_provenance=dukascopy_provenance,
+            exness_provenance=exness_provenance,
+            reason="EMPTY_ACTIVE_SOURCE_FRAME",
         )
 
     common_m1 = duk.index.intersection(exn.index)
@@ -341,6 +376,16 @@ def compare_overlap_frames(
         "m1": {
             "dukascopy_rows": len(duk),
             "exness_rows": len(exn),
+            "dukascopy_raw_rows": duk_counts["raw_rows"],
+            "dukascopy_active_rows": duk_counts["active_rows"],
+            "dukascopy_excluded_nonpositive_volume_rows": duk_counts[
+                "excluded_nonpositive_volume_rows"
+            ],
+            "exness_raw_rows": exn_counts["raw_rows"],
+            "exness_active_rows": exn_counts["active_rows"],
+            "exness_excluded_nonpositive_volume_rows": exn_counts[
+                "excluded_nonpositive_volume_rows"
+            ],
             "common_timestamp_count": len(common_m1),
             "dukascopy_only_timestamp_count": len(duk_only_m1),
             "exness_only_timestamp_count": len(exn_only_m1),
@@ -469,6 +514,11 @@ def load_dukascopy_window(
         )
 
     frame = load_ohlc_csv(source)
+    if "volume" not in frame.columns:
+        raise OverlapSensitivityError(
+            "DUKASCOPY_VOLUME_REQUIRED",
+            "frozen Dukascopy input must include volume for V0.2 active-M1 normalization",
+        )
     frame = frame.loc[(frame.index >= start_ts) & (frame.index < end_ts)].copy()
     provenance: dict[str, object] = {
         "source_family": DUKASCOPY_SOURCE,
@@ -477,6 +527,7 @@ def load_dukascopy_window(
         "csv_path": csv_path,
         "metadata_path": metadata_path,
         "sha256": actual_sha,
+        "active_m1_rule": "volume>0",
     }
     return frame, provenance
 
@@ -511,6 +562,7 @@ def load_exness_window(
         "gap_ledger_path": str(gap_ledger_path.relative_to(repo_root)),
         "continuity_status": window.continuity_status,
         "window_status": window.status,
+        "active_m1_rule": "all_observed_tick_derived_m1",
         "source_months": [
             {
                 "year": month.year,
