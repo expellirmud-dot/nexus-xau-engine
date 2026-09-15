@@ -1,6 +1,6 @@
 {
   "schema_version": "PHASE1_READINESS_MATRIX_V0.1",
-  "updated_at": "2026-09-16T03:25:19+07:00",
+  "updated_at": "2026-09-16T04:57:21+07:00",
   "scope": "Phase 1 / เฟสหนึ่ง",
   "naming_guard": "07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method name. Person/channel/system labels are source attribution only.",
   "overall": {
@@ -103,11 +103,12 @@
         "docs/PHASE1_V2_ORIGIN_STATE_CARRY_IMPLEMENTATION_V0.1_2026-09-16.md",
         "docs/PHASE1_V2_ORIGIN_STATE_CARRY_REQUIREMENT_MATRIX_V0.1_2026-09-16.md",
         "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_CONTRACT_V0.1_2026-09-16.md",
-        "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_IMPLEMENTATION_V0.1_2026-09-16.md"
+        "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_IMPLEMENTATION_V0.1_2026-09-16.md",
+        "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_RESULT_V0.2_2026-09-16.md"
       ],
-      "note": "Archive-to-V2 integration V0.2 and V2 carry V0.1 synthetic logic are implemented. Canonical multi-year replay remains partial because the real archive boundary still lacks a defensible complete active-H4-origin seed and canonical replay intervals remain subject to fail-closed continuity/gap eligibility.",
+      "note": "Archive-to-V2 integration V0.2 and V2 carry V0.1 are implemented. Cross-feed exact state seeding was falsified by the frozen Dukascopy-vs-Exness V0.2 overlap checks. Canonical multi-year replay remains partial because the real archive boundary lacks a defensible COMPLETE active-H4-origin seed; the next route is an Exness-only lifecycle-derived prehistory closure, with continuity/gap eligibility still fail-closed.",
       "missing": [
-        "defensible complete active-H4-origin seed for the real archive boundary",
+        "defensible Exness-only proof that unknown prehistory is eliminated before declaring COMPLETE seed state",
         "window-level continuity/gap eligibility for every canonical replay interval"
       ]
     },

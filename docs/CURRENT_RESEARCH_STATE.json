@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-09-16T04:16:18+07:00",
+  "updated_at": "2026-09-16T04:57:21+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
     "contract": "docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md",
     "latest_state_reconciliation": "docs/STATE_DRIFT_AUDIT_2026-09-15.md",
     "project_current_research_checkpoint": "research_queue/closed/RQ-016_PHASE1_CONSTRUCTION_BOUNDARY.md",
-    "latest_operational_tooling_checkpoint": "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_IMPLEMENTATION_V0.2_2026-09-16.md",
+    "latest_operational_tooling_checkpoint": "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_RESULT_V0.2_2026-09-16.md",
     "project_current_state": "docs/CURRENT_RESEARCH_STATE.json",
     "operational_queue": "research_queue/QUEUE.json",
     "workstream_state": "docs/0700_WORKSTREAM_STATE.json",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_IMPLEMENTATION_V0.2_2026-09-16.md"
+    "latest_progress_checkpoint": "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_RESULT_V0.2_2026-09-16.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -123,7 +123,8 @@
       "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_IMPLEMENTATION_V0.1_2026-09-16.md",
       "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_V01_OBSERVATION_DEFECT_2026-09-16.md",
       "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_CONTRACT_V0.2_2026-09-16.md",
-      "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_IMPLEMENTATION_V0.2_2026-09-16.md"
+      "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_IMPLEMENTATION_V0.2_2026-09-16.md",
+      "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_RESULT_V0.2_2026-09-16.md"
     ]
   },
   "provenance_guard": {
@@ -211,14 +212,15 @@
     "v2_origin_state_carry_implementation": "V0.1_TARGETED_59_PASS_FULL_REPO_363_PASS_BROAD_RUFF_PASS_REAL_EXNESS_FAIL_CLOSED",
     "dukascopy_exness_overlap_sensitivity_contract": "V0.2_FROZEN_ACTIVE_M1_SEMANTIC_CORRECTION_NO_TOLERANCE_NO_OUTCOME_SELECTION",
     "dukascopy_exness_overlap_sensitivity_implementation": "V0.2_PRE_REAL_RERUN_TARGETED_11_PASS_RELEVANT_70_PASS_FULL_REPO_374_PASS_BROAD_RUFF_PASS",
-    "dukascopy_exness_overlap_sensitivity_v01_observation_defect": "PRESERVED_HISTORY_ZERO_VOLUME_DUKASCOPY_ROWS_MISMATCHED_FROZEN_V2_ACTIVE_M1_SEMANTIC"
+    "dukascopy_exness_overlap_sensitivity_v01_observation_defect": "PRESERVED_HISTORY_ZERO_VOLUME_DUKASCOPY_ROWS_MISMATCHED_FROZEN_V2_ACTIVE_M1_SEMANTIC",
+    "dukascopy_exness_overlap_sensitivity_result_v02": "ALL_3_FROZEN_WINDOWS_STATE_DIVERGENCE_OBSERVED_DIRECT_EXACT_CROSS_FEED_STATE_TRANSFER_NOT_SUPPORTED"
   },
   "next_steps": [
-    "V0.2 overlap-sensitivity implementation is frozen pre-real-rerun with the active-M1 correction only; targeted 11/11, relevant regression 70/70, full repository 374/374 and broad Ruff all pass.",
-    "Commit and push the V0.2 implementation checkpoint before reopening real overlap observations.",
-    "Rerun only frozen windows W2022_09, W2023_09, and W2026_08_24 through durable jobs into a V0.2 result namespace.",
-    "Interpret V0.2 classifications without changing windows, tolerances or classification categories; preserve V0.1 results as superseded historical evidence.",
-    "Keep Dukascopy and Exness provenance separate; V0.2 sensitivity results alone cannot create a COMPLETE Exness seed. Automatic order sending and protected holdout outcome scoring remain disabled."
+    "V0.2 frozen overlap reruns completed successfully on W2022_09, W2023_09, and W2026_08_24; all three classify STATE_DIVERGENCE_OBSERVED under the pre-frozen exact comparison contract.",
+    "Treat DIRECT_EXACT_DUKASCOPY_STATE_AS_EXNESS_SEED as NOT_SUPPORTED for canonical initialization; preserve Dukascopy only as a separate-provenance research representation.",
+    "Design and falsify an Exness-only lifecycle-derived uncertainty/closure representation that can determine when unknown prehistory is provably eliminated without arbitrary warmup.",
+    "Do not infer COMPLETE seed state until that Exness-only closure is proven; real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED.",
+    "Automatic order sending and protected holdout outcome scoring remain disabled."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -379,9 +381,10 @@
     "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_IMPLEMENTATION_V0.1_2026-09-16.md",
     "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_V01_OBSERVATION_DEFECT_2026-09-16.md",
     "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_CONTRACT_V0.2_2026-09-16.md",
-    "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_IMPLEMENTATION_V0.2_2026-09-16.md"
+    "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_IMPLEMENTATION_V0.2_2026-09-16.md",
+    "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_RESULT_V0.2_2026-09-16.md"
   ],
-  "resume_instruction": "Phase 1 archive/replay engineering remains current at 0700_MINIMAL_V2.0. V2 carry V0.1 is implemented. Overlap-sensitivity V0.1 real observations are preserved but superseded for decision use because of the Dukascopy active-M1 mismatch. V0.2 now implements only the pre-existing frozen-V2 active-M1 correction: Dukascopy volume > 0, Exness observed tick-derived M1 active; the three windows, exact classification categories, no-tolerance rule and no-outcome-selection rule remain unchanged. Validation before real rerun is targeted 11/11 PASS, relevant regression 70/70 PASS, full repository durable pytest 374/374 PASS and broad Ruff PASS. Next bounded action is to commit/push this implementation checkpoint, then rerun only W2022_09, W2023_09, and W2026_08_24 via durable jobs into a V0.2 result namespace and interpret without tuning. Dukascopy and Exness remain separate provenance families; real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED unless a separate defensible COMPLETE seed is established. Automatic order execution and protected holdout scoring remain disabled.",
+  "resume_instruction": "Phase 1 archive/replay engineering remains current at 0700_MINIMAL_V2.0. V2 carry V0.1 is implemented. Dukascopy-vs-Exness overlap-sensitivity V0.2 reran the original three frozen windows after restoring the pre-existing active-M1 semantic. All three durable runs completed exit 0 and remain STATE_DIVERGENCE_OBSERVED: PAT/origin identity differs in every window, and W2022 also has a matched origin with a different terminal lifecycle category. Therefore direct exact Dukascopy state relabeling as an Exness seed is not supported. Dukascopy remains separate provenance and must not be concatenated or silently transferred as canonical Exness state. Next bounded action is to derive and falsify an Exness-only lifecycle uncertainty/closure representation that can prove unknown prehistory eliminated without arbitrary warmup. Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED. Automatic order execution and protected holdout scoring remain disabled.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1512,7 +1515,7 @@
     ]
   },
   "dukascopy_exness_overlap_sensitivity": {
-    "status": "IMPLEMENTED_V0.2_PRE_REAL_RERUN_FROZEN",
+    "status": "V0.2_REAL_FROZEN_WINDOWS_COMPLETE_STATE_DIVERGENCE_OBSERVED",
     "contract": "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_CONTRACT_V0.2_2026-09-16.md",
     "windows": [
       [
@@ -1541,6 +1544,23 @@
     "contract_tests": "11_OF_11_PASS",
     "relevant_regression": "70_OF_70_PASS",
     "full_repo_pytest": "374_PASS_DURABLE_EXIT_0",
-    "broader_ruff": "PASS_DURABLE_EXIT_0"
+    "broader_ruff": "PASS_DURABLE_EXIT_0",
+    "result_checkpoint": "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_RESULT_V0.2_2026-09-16.md",
+    "frozen_window_results": {
+      "W2022_09": "STATE_DIVERGENCE_OBSERVED",
+      "W2023_09": "STATE_DIVERGENCE_OBSERVED",
+      "W2026_08_24": "STATE_DIVERGENCE_OBSERVED"
+    },
+    "direct_exact_dukascopy_state_as_exness_seed": "NOT_SUPPORTED"
+  },
+  "origin_history_initialization_next": {
+    "status": "EXNESS_ONLY_LIFECYCLE_CLOSURE_DESIGN_REQUIRED",
+    "reason": "Exact cross-feed state transfer falsified on frozen overlap windows; unknown prehistory still cannot be declared complete.",
+    "prohibited_shortcuts": [
+      "arbitrary warmup duration",
+      "silent Dukascopy-to-Exness state relabeling",
+      "invented origin expiry",
+      "missing-bar fabrication"
+    ]
   }
 }
