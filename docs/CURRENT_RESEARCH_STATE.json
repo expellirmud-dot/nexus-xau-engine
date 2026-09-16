@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-17T04:06:07+07:00",
+  "updated_at": "2026-09-17T04:08:46+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_PILOT_OPERATIONS_RUNTIME_SMOKE_2026-09-17.md"
+    "latest_progress_checkpoint": "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -133,7 +133,8 @@
       "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_IMPLEMENTATION_V0.1_2026-09-17.md",
       "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_CONTRACT_V0.1_2026-09-17.md",
       "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_IMPLEMENTATION_V0.1_2026-09-17.md",
-      "docs/PHASE1_PILOT_OPERATIONS_RUNTIME_SMOKE_2026-09-17.md"
+      "docs/PHASE1_PILOT_OPERATIONS_RUNTIME_SMOKE_2026-09-17.md",
+      "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md"
     ]
   },
   "provenance_guard": {
@@ -230,14 +231,15 @@
     "unknown_classification_enforcement_implementation": "V0.1_MACHINE_ENFORCED_14_OF_14_CURRENT_GAPS_COVERED_TARGETED_18_PASS_FULL_REPO_390_PASS_BROAD_RUFF_PASS",
     "pilot_operations_scaffold_contract": "FROZEN_PRE_IMPLEMENTATION_V0.1_NON_EXECUTING",
     "pilot_operations_scaffold_implementation": "V0.1_IMPLEMENTED_CONTRACT_10_PASS_GOVERNANCE_28_PASS_FULL_REPO_400_PASS_BROAD_RUFF_PASS",
-    "pilot_operations_runtime_smoke": "CLEAN_SYNCED_COMMIT_74A9B34_GOVERNANCE_IDENTITY_PASS_LIVE_IDENTITY_PASS_LIVE_HEALTH_UNKNOWN_STOPPED_COLLECTOR"
+    "pilot_operations_runtime_smoke": "CLEAN_SYNCED_COMMIT_74A9B34_GOVERNANCE_IDENTITY_PASS_LIVE_IDENTITY_PASS_LIVE_HEALTH_UNKNOWN_STOPPED_COLLECTOR",
+    "mt5_cost_treatment_evidence_contract": "FROZEN_PRE_PROBE_V0.1_READ_ONLY_NO_ECONOMIC_SCORING"
   },
   "next_steps": [
-    "Pilot operations clean-tree runtime smoke passed on synced commit 74a9b34; governance and live snapshots both have version identity PASS, while live collector STOPPED remains health UNKNOWN by design.",
-    "Next non-blocked evidence loop: freeze a P1-10 runtime cost-treatment evidence contract for commission/fee/swap metadata and deal-schema observability only.",
-    "Do not calculate profitability/expectancy/P&L, infer fills/slippage, open protected holdout outcomes, or send orders in the cost-treatment loop.",
-    "Keep U-P1-10-COST-TREATMENT OPEN until the bounded runtime evidence representation and acquisition method are implemented and validated.",
-    "Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED; automatic order sending remains disabled."
+    "P1-10 MT5 cost-treatment evidence contract V0.1 is frozen before runtime cost/schema observation.",
+    "Implement the read-only evidence probe and synthetic tests exactly as frozen: swap_* symbol metadata, account deal cost-field schema, XAUUSDm commission/fee/swap summaries only, source identity, no trade outcomes.",
+    "Run tests and validation before the runtime probe; then execute one bounded current-runtime observation and persist the evidence result.",
+    "Do not mark historical replay cost treatment known from current metadata; reconcile the registry to the remaining historical requirement after evidence is observed.",
+    "No profitability/expectancy/P&L, fill/slippage inference, protected holdout access, or order sending is authorized."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -408,9 +410,10 @@
     "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_IMPLEMENTATION_V0.1_2026-09-17.md",
     "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_CONTRACT_V0.1_2026-09-17.md",
     "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_IMPLEMENTATION_V0.1_2026-09-17.md",
-    "docs/PHASE1_PILOT_OPERATIONS_RUNTIME_SMOKE_2026-09-17.md"
+    "docs/PHASE1_PILOT_OPERATIONS_RUNTIME_SMOKE_2026-09-17.md",
+    "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md"
   ],
-  "resume_instruction": "P1-09 classification enforcement and P1-13 pilot operations scaffold are implemented. A clean synced runtime smoke on commit 74a9b34 produced identity PASS in both governance and live modes; governance health is NOT_APPLICABLE, live collector state is STOPPED and therefore health remains explicitly UNKNOWN without an invented freshness threshold; operational gate remains FAIL_CLOSED due current readiness blockers. The next non-blocked evidence task is U-P1-10-COST-TREATMENT (RUNTIME_OBSERVABLE / REQUIRED_LATER): freeze a bounded contract to inventory current commission/fee/swap metadata and existing deal-schema observability without calculating trade economics, inferring fill/slippage, opening holdout outcomes, or sending orders. Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED and automatic order execution remains disabled.",
+  "resume_instruction": "P1-09 classification enforcement and P1-13 pilot operations scaffold are implemented. The current non-blocked evidence loop is U-P1-10-COST-TREATMENT. Contract PHASE1_MT5_COST_TREATMENT_EVIDENCE_V0.1 is frozen pre-probe: capture current runtime swap_* symbol fields and read-only account-deal commission/fee/swap schema/observations for XAUUSDm while excluding trade profit/price/direction from evidence output. Current runtime evidence must remain separate from historical replay cost schedule; no zero-cost assumption, economic scoring, fill/slippage inference, holdout access, or order send is allowed. Implement/tests first, then one bounded runtime probe, then reconcile the registry according to what remains unknown.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1625,5 +1628,13 @@
     "live_snapshot_sha256": "cbb1a905e030f7e88e7d4259377391beb9157828c355e0be20a3cb7061abf859",
     "clean_identity_status": "PASS",
     "live_health_status": "UNKNOWN_COLLECTOR_STOPPED_NO_FRESHNESS_THRESHOLD_INVENTED"
+  },
+  "mt5_cost_treatment_evidence": {
+    "status": "FROZEN_PRE_PROBE_V0.1",
+    "contract": "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md",
+    "target_registry_entry": "U-P1-10-COST-TREATMENT",
+    "order_send": "DISABLED",
+    "holdout_scoring": "DISABLED",
+    "economic_scoring": "DISABLED"
   }
 }
