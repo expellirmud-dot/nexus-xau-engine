@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-16T05:08:55+07:00",
+  "updated_at": "2026-09-17T03:38:11+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_RESULT_V0.1_2026-09-16.md"
+    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_ORIGIN_SEED_EVIDENCE_ROUTE_CLOSURE_2026-09-17.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -126,7 +126,8 @@
       "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_IMPLEMENTATION_V0.2_2026-09-16.md",
       "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_RESULT_V0.2_2026-09-16.md",
       "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_CONTRACT_V0.1_2026-09-16.md",
-      "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_RESULT_V0.1_2026-09-16.md"
+      "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_RESULT_V0.1_2026-09-16.md",
+      "docs/PHASE1_EXNESS_ORIGIN_SEED_EVIDENCE_ROUTE_CLOSURE_2026-09-17.md"
     ]
   },
   "provenance_guard": {
@@ -217,14 +218,15 @@
     "dukascopy_exness_overlap_sensitivity_v01_observation_defect": "PRESERVED_HISTORY_ZERO_VOLUME_DUKASCOPY_ROWS_MISMATCHED_FROZEN_V2_ACTIVE_M1_SEMANTIC",
     "dukascopy_exness_overlap_sensitivity_result_v02": "ALL_3_FROZEN_WINDOWS_STATE_DIVERGENCE_OBSERVED_DIRECT_EXACT_CROSS_FEED_STATE_TRANSFER_NOT_SUPPORTED",
     "exness_prehistory_forward_closure_contract": "FROZEN_PRE_FALSIFICATION_V0.1_NO_WARMUP_NO_EXPIRY_NO_ANCHOR_BOUND_ASSUMED",
-    "exness_prehistory_forward_closure_result": "HYPOTHESIS_FALSIFIED_5_OF_5_PASS_RELEVANT_64_PASS_FULL_REPO_379_PASS_BROAD_RUFF_PASS"
+    "exness_prehistory_forward_closure_result": "HYPOTHESIS_FALSIFIED_5_OF_5_PASS_RELEVANT_64_PASS_FULL_REPO_379_PASS_BROAD_RUFF_PASS",
+    "origin_seed_evidence_route_closure": "CURRENT_PROVEN_ROUTES_EXHAUSTED_STRUCTURAL_BLOCKER_NO_COMPLETE_SEED"
   },
   "next_steps": [
-    "Finite forward-only Exness replay without an independent anchor domain is falsified as a COMPLETE-seed mechanism under frozen literal-contact/no-expiry semantics.",
-    "Do not use arbitrary warmup duration, invented origin expiry, absence of failures, or assumed continuity across the unobserved archive boundary as initialization evidence.",
-    "Inspect already-audited same-source Exness/MT5 history routes and existing broker/instrument constraints for any independently justified pre-start anchor-domain bound; do not repeat closed acquisition work.",
-    "If no same-source earlier history or hard anchor-domain constraint exists in current evidence, classify origin-history initialization as STRUCTURAL_BLOCKING under the current frozen lifecycle and stop manufacturing continuation rules.",
-    "Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED; automatic order sending and protected holdout outcome scoring remain disabled."
+    "Origin-history initialization is a structural blocker under current evidence; do not spend further compute on finite post-2015 warmup or exact cross-feed seed transfer.",
+    "Next non-blocked engineering loop: close P1-09 Unknown-value classification enforcement so unresolved dependencies carry both epistemic class and blocking axis in machine-readable state/preflight validation.",
+    "Reuse the project unknown classes KNOWN_NOW, DERIVABLE, RUNTIME_OBSERVABLE, STRUCTURAL_UNKNOWN, and IRREDUCIBLE_OR_NOT_YET_REDUCIBLE plus the orthogonal axes BLOCKING, NON_BLOCKING, REQUIRED_LATER, and IRRELEVANT; do not invent market thresholds.",
+    "Keep real Exness V2 fail-closed as DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED; reopen the seed route only on genuinely new evidence or an authorized source-backed lifecycle change.",
+    "Automatic order sending and protected holdout outcome scoring remain disabled."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -388,9 +390,10 @@
     "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_IMPLEMENTATION_V0.2_2026-09-16.md",
     "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_RESULT_V0.2_2026-09-16.md",
     "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_CONTRACT_V0.1_2026-09-16.md",
-    "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_RESULT_V0.1_2026-09-16.md"
+    "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_RESULT_V0.1_2026-09-16.md",
+    "docs/PHASE1_EXNESS_ORIGIN_SEED_EVIDENCE_ROUTE_CLOSURE_2026-09-17.md"
   ],
-  "resume_instruction": "Phase 1 archive/replay engineering remains current at 0700_MINIMAL_V2.0. Direct exact Dukascopy-to-Exness state seeding is NOT_SUPPORTED by frozen overlap V0.2. Exness-only finite forward closure is now also falsified: for any finite observed path, valid hypothetical pre-start BUY/SELL anchors can be constructed just outside finite extrema and remain ACTIVE under literal-contact/no-expiry semantics. The proof tests pass 5/5, relevant regression 64/64, full repo 379/379, broad Ruff PASS. Therefore arbitrary warmup cannot create a COMPLETE seed. Next action is a bounded evidence audit only: reuse existing Exness/MT5 coverage and broker/instrument constraints to determine whether any same-source earlier history or independently justified finite pre-start anchor domain already exists. If not, origin-history initialization is STRUCTURAL/BLOCKING under the current lifecycle and requires new evidence or a separately authorized semantic change. Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED. Automatic order execution and protected holdout scoring remain disabled.",
+  "resume_instruction": "Phase 1 archive/replay engineering remains current at 0700_MINIMAL_V2.0. Origin-history initialization is closed as a CURRENT-EVIDENCE STRUCTURAL BLOCKER under the frozen lifecycle: exact Dukascopy-to-Exness state transfer is NOT_SUPPORTED, finite forward Exness warmup is falsified as a COMPLETE-seed mechanism, proven same-source Exness history begins at 2015-08-10, and current broker/runtime metadata exposes price-grid resolution but no finite historical anchor domain. Real Exness V2 therefore remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED. Do not spend more compute on that closed route without new evidence. Next non-blocked engineering action is P1-09 Unknown-value classification enforcement: make epistemic class and blocking axis machine-required in current state/preflight so STRUCTURAL_UNKNOWN is not conflated with runtime-observable or derivable unknowns. Automatic order execution and protected holdout scoring remain disabled.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1560,13 +1563,18 @@
     "direct_exact_dukascopy_state_as_exness_seed": "NOT_SUPPORTED"
   },
   "origin_history_initialization_next": {
-    "status": "FINITE_FORWARD_CLOSURE_FALSIFIED_ANCHOR_DOMAIN_OR_SAME_SOURCE_HISTORY_REQUIRED",
-    "contract": "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_CONTRACT_V0.1_2026-09-16.md",
-    "result": "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_RESULT_V0.1_2026-09-16.md",
-    "hypothesis": "FINITE_FORWARD_EXNESS_CAN_CLOSE_UNBOUNDED_UNKNOWN_PREHISTORY",
-    "hypothesis_result": "FALSIFIED",
-    "unknown_classification": "STRUCTURAL_UNKNOWN_BLOCKING_UNLESS_ANCHOR_DOMAIN_OR_SAME_SOURCE_HISTORY_EXISTS",
-    "arbitrary_warmup_authorized": false,
-    "origin_expiry_authorized": false
+    "status": "STRUCTURAL_BLOCKER_CURRENT_EVIDENCE_ROUTES_EXHAUSTED",
+    "closure": "docs/PHASE1_EXNESS_ORIGIN_SEED_EVIDENCE_ROUTE_CLOSURE_2026-09-17.md",
+    "real_exness_state": "DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED",
+    "same_source_pre_2015_history": "NOT_ESTABLISHED_IN_PROVEN_PROJECT_ROUTES",
+    "finite_historical_anchor_domain": "NOT_ESTABLISHED",
+    "finite_forward_warmup": "FALSIFIED_AS_COMPLETE_SEED_MECHANISM",
+    "direct_cross_feed_exact_state_transfer": "NOT_SUPPORTED",
+    "blocking": true,
+    "reopen_conditions": [
+      "verified same-source Exness history before 2015-08-10",
+      "independently justified finite historical anchor domain covering every possible active pre-start origin",
+      "separately authorized source-backed lifecycle semantic change"
+    ]
   }
 }

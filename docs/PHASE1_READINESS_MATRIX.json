@@ -1,6 +1,6 @@
 {
   "schema_version": "PHASE1_READINESS_MATRIX_V0.1",
-  "updated_at": "2026-09-16T05:08:55+07:00",
+  "updated_at": "2026-09-17T03:38:11+07:00",
   "scope": "Phase 1 / เฟสหนึ่ง",
   "naming_guard": "07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method name. Person/channel/system labels are source attribution only.",
   "overall": {
@@ -87,7 +87,7 @@
     {
       "id": "P1-08",
       "component": "Broader multi-year clean/gap-aware replay coverage",
-      "status": "PARTIAL",
+      "status": "BLOCKING",
       "blocks": [
         "STRONG_MULTI_YEAR_ROBUSTNESS_CLAIM"
       ],
@@ -106,12 +106,13 @@
         "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_IMPLEMENTATION_V0.1_2026-09-16.md",
         "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_RESULT_V0.2_2026-09-16.md",
         "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_CONTRACT_V0.1_2026-09-16.md",
-        "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_RESULT_V0.1_2026-09-16.md"
+        "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_RESULT_V0.1_2026-09-16.md",
+        "docs/PHASE1_EXNESS_ORIGIN_SEED_EVIDENCE_ROUTE_CLOSURE_2026-09-17.md"
       ],
-      "note": "Archive-to-V2 integration and V2 carry are implemented. Exact cross-feed seeding is not supported, and finite Exness-only forward warmup is mathematically falsified as a COMPLETE-seed mechanism under literal-contact/no-expiry semantics. Canonical replay remains blocked unless current evidence supplies same-source earlier history or an independently justified finite pre-start anchor domain.",
+      "note": "Archive-to-V2 integration and V2 carry are implemented, but canonical real replay is structurally blocked at the initial origin state under current evidence. Exact cross-feed seeding is not supported; finite forward warmup is falsified; proven same-source Exness history does not predate 2015-08-10; and no independently justified finite historical anchor domain is established. Reopen only with new evidence or a separately authorized lifecycle semantic change.",
       "missing": [
-        "same-source earlier history or independently justified finite domain containing every possible active pre-start Exness H4 anchor",
-        "window-level continuity/gap eligibility for every canonical replay interval"
+        "new evidence satisfying a reopen condition for pre-2015 origin-state completeness",
+        "window-level continuity/gap eligibility for every later canonical replay interval if the seed blocker is ever closed"
       ]
     },
     {
