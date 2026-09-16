@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-17T03:54:30+07:00",
+  "updated_at": "2026-09-17T03:57:15+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_IMPLEMENTATION_V0.1_2026-09-17.md"
+    "latest_progress_checkpoint": "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_CONTRACT_V0.1_2026-09-17.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -130,7 +130,8 @@
       "docs/PHASE1_EXNESS_ORIGIN_SEED_EVIDENCE_ROUTE_CLOSURE_2026-09-17.md",
       "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_CONTRACT_V0.1_2026-09-17.md",
       "docs/PHASE1_UNKNOWN_CLASSIFICATION_REGISTRY_V0.1.json",
-      "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_IMPLEMENTATION_V0.1_2026-09-17.md"
+      "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_IMPLEMENTATION_V0.1_2026-09-17.md",
+      "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_CONTRACT_V0.1_2026-09-17.md"
     ]
   },
   "provenance_guard": {
@@ -224,13 +225,14 @@
     "exness_prehistory_forward_closure_result": "HYPOTHESIS_FALSIFIED_5_OF_5_PASS_RELEVANT_64_PASS_FULL_REPO_379_PASS_BROAD_RUFF_PASS",
     "origin_seed_evidence_route_closure": "CURRENT_PROVEN_ROUTES_EXHAUSTED_STRUCTURAL_BLOCKER_NO_COMPLETE_SEED",
     "unknown_classification_enforcement_contract": "FROZEN_PRE_IMPLEMENTATION_V0.1",
-    "unknown_classification_enforcement_implementation": "V0.1_MACHINE_ENFORCED_14_OF_14_CURRENT_GAPS_COVERED_TARGETED_18_PASS_FULL_REPO_390_PASS_BROAD_RUFF_PASS"
+    "unknown_classification_enforcement_implementation": "V0.1_MACHINE_ENFORCED_14_OF_14_CURRENT_GAPS_COVERED_TARGETED_18_PASS_FULL_REPO_390_PASS_BROAD_RUFF_PASS",
+    "pilot_operations_scaffold_contract": "FROZEN_PRE_IMPLEMENTATION_V0.1_NON_EXECUTING"
   },
   "next_steps": [
-    "P1-09 unknown-classification enforcement V0.1 is implemented and machine-enforced; 14/14 current PARTIAL/BLOCKING readiness gaps are classified on both epistemic and blocking axes.",
-    "Next non-blocked engineering loop: address P1-13 DERIVABLE/NON_BLOCKING pilot-operations dependencies only — pilot-facing reason/audit output, data/feed health behavior, and rollback/version identity workflow.",
-    "Freeze that P1-13 operations contract before implementation; do not resolve final decision version from holdout outcomes and do not invent trade/risk conventions.",
-    "P1-08 origin seed, P1-10 execution economics, P1-11 sizing/risk, and P1-12 holdout confirmation remain blocked/required-later according to the registry.",
+    "P1-13 pilot operations scaffold contract V0.1 is frozen pre-implementation and limited to DERIVABLE/NON_BLOCKING dependencies.",
+    "Implement a deterministic non-executing operations snapshot that composes current state, readiness, unknown registry, preflight, collector/archive health inputs, and Git/checkpoint identity.",
+    "Do not resolve final decision version, position sizing, risk cap, trade/stop conventions, execution economics, or holdout confirmation in this loop.",
+    "Add contract tests for fail-closed governance/data health, distinct unknown classes, reference-only rollback, deterministic identity, and prohibited performance/execution fields.",
     "Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED; automatic order sending and protected holdout scoring remain disabled."
   ],
   "blocked_from_claiming": [
@@ -399,9 +401,10 @@
     "docs/PHASE1_EXNESS_ORIGIN_SEED_EVIDENCE_ROUTE_CLOSURE_2026-09-17.md",
     "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_CONTRACT_V0.1_2026-09-17.md",
     "docs/PHASE1_UNKNOWN_CLASSIFICATION_REGISTRY_V0.1.json",
-    "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_IMPLEMENTATION_V0.1_2026-09-17.md"
+    "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_IMPLEMENTATION_V0.1_2026-09-17.md",
+    "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_CONTRACT_V0.1_2026-09-17.md"
   ],
-  "resume_instruction": "Origin-history initialization remains a current-evidence structural blocker. P1-09 Unknown-value Classification Enforcement V0.1 is now implemented and machine-enforced: every current PARTIAL/BLOCKING readiness missing item maps exactly once to an OPEN registry entry carrying epistemic class, blocking axis, evidence, and class-specific resolution metadata; generic UNKNOWN is rejected. Current preflight coverage is 14/14 gaps, targeted governance regression 18/18 PASS, full repo 390/390 PASS, and broad Ruff PASS. Next non-blocked engineering action is P1-13 operations scaffolding limited to DERIVABLE/NON_BLOCKING dependencies: pilot-facing reason/audit output, data/feed health behavior, and rollback/version identity workflow. Freeze an operations contract before implementation. Do not infer final decision version from holdout outcomes and do not invent trade/risk conventions. Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED; automatic order execution and protected holdout scoring remain disabled.",
+  "resume_instruction": "P1-09 unknown-classification enforcement is implemented and machine-enforced. The next non-blocked loop is P1-13 Pilot Operations Scaffold V0.1, now frozen pre-implementation. Scope is limited to pilot-facing reason/audit output, explicit data/feed health behavior, and non-destructive rollback/version identity. Reuse current state, readiness, unknown registry, research preflight, existing MT5 collector/archive guards, and Git identity; do not create a parallel canonical state system or new market-data plane. This loop must not resolve final decision version from outcomes, invent trade/risk conventions, open protected holdout results, or enable order execution. Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1594,5 +1597,16 @@
     "current_required_readiness_gaps": 14,
     "generic_unknown_allowed": false,
     "preflight_enforced": true
+  },
+  "pilot_operations_scaffold": {
+    "status": "FROZEN_PRE_IMPLEMENTATION_V0.1",
+    "contract": "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_CONTRACT_V0.1_2026-09-17.md",
+    "resolves_only": [
+      "pilot-facing reason/audit output",
+      "data/feed health behavior",
+      "rollback/version identity workflow"
+    ],
+    "order_send": "DISABLED",
+    "holdout_scoring": "DISABLED"
   }
 }
