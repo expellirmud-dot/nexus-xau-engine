@@ -1,0 +1,218 @@
+{
+  "schema_version": "PHASE1_UNKNOWN_CLASSIFICATION_REGISTRY_V0.1",
+  "updated_at": "2026-09-17T03:50:00+07:00",
+  "scope": "Phase 1 readiness unresolved dependencies",
+  "allowed_epistemic_classes": [
+    "KNOWN_NOW",
+    "DERIVABLE",
+    "RUNTIME_OBSERVABLE",
+    "STRUCTURAL_UNKNOWN",
+    "IRREDUCIBLE_OR_NOT_YET_REDUCIBLE"
+  ],
+  "allowed_blocking_axes": [
+    "BLOCKING",
+    "NON_BLOCKING",
+    "REQUIRED_LATER",
+    "IRRELEVANT"
+  ],
+  "allowed_statuses": [
+    "OPEN",
+    "RESOLVED",
+    "SUPERSEDED"
+  ],
+  "entries": [
+    {
+      "id": "U-P1-08-ORIGIN-SEED-REOPEN",
+      "readiness_component_id": "P1-08",
+      "readiness_missing": "new evidence satisfying a reopen condition for pre-2015 origin-state completeness",
+      "status": "OPEN",
+      "epistemic_class": "STRUCTURAL_UNKNOWN",
+      "blocking_axis": "BLOCKING",
+      "resolution_basis": "Current evidence routes are exhausted: exact cross-feed transfer is not supported, finite forward warmup is falsified, same-source Exness history before 2015-08-10 is not established, and no finite historical anchor domain is established.",
+      "reopen_condition": "Verified same-source Exness history before 2015-08-10, an independently justified finite domain covering every possible active pre-start origin anchor, or a separately authorized source-backed lifecycle semantic change.",
+      "evidence_refs": [
+        "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_RESULT_V0.1_2026-09-16.md",
+        "docs/PHASE1_EXNESS_ORIGIN_SEED_EVIDENCE_ROUTE_CLOSURE_2026-09-17.md"
+      ]
+    },
+    {
+      "id": "U-P1-08-CANONICAL-WINDOW-CONTINUITY",
+      "readiness_component_id": "P1-08",
+      "readiness_missing": "window-level continuity/gap eligibility for every later canonical replay interval if the seed blocker is ever closed",
+      "status": "OPEN",
+      "epistemic_class": "RUNTIME_OBSERVABLE",
+      "blocking_axis": "REQUIRED_LATER",
+      "resolution_basis": "Eligibility is determined per requested interval from archive manifest, gap ledger, and half-open window validation rather than from a universal continuity assumption.",
+      "observation_method": "Run the existing archive-window/gap guards for each future canonical replay interval and persist its eligibility/provenance result.",
+      "evidence_refs": [
+        "docs/PHASE1_EXNESS_ARCHIVE_WINDOW_ADAPTER_IMPLEMENTATION_V0.1_2026-09-15.md",
+        "docs/PHASE1_EXNESS_ARCHIVE_GAP_LEDGER_V0.1.json"
+      ]
+    },
+    {
+      "id": "U-P1-10-CROSS-SERVER-FEED-EQUIVALENCE",
+      "readiness_component_id": "P1-10",
+      "readiness_missing": "exact cross-server/feed equivalence to the target Exness Demo/MT5 runtime where required for execution claims",
+      "status": "OPEN",
+      "epistemic_class": "IRREDUCIBLE_OR_NOT_YET_REDUCIBLE",
+      "blocking_axis": "BLOCKING",
+      "resolution_basis": "Archive-vs-current-runtime overlap is descriptive and the frozen Dukascopy/Exness sensitivity work demonstrates that exact feed-state relabeling cannot be assumed.",
+      "reduction_condition": "Obtain direct broker/server identity evidence or a same-feed execution-quality historical route that removes the cross-server/feed ambiguity for the intended execution claim.",
+      "evidence_refs": [
+        "docs/PHASE1_EXNESS_REPRESENTATIVE_AND_MT5_OVERLAP_VALIDATION_2026-09-14.md",
+        "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_RESULT_V0.2_2026-09-16.md"
+      ]
+    },
+    {
+      "id": "U-P1-10-FILL-SLIPPAGE",
+      "readiness_component_id": "P1-10",
+      "readiness_missing": "historical/current-runtime fill slippage evidence sufficient for economic claims",
+      "status": "OPEN",
+      "epistemic_class": "IRREDUCIBLE_OR_NOT_YET_REDUCIBLE",
+      "blocking_axis": "BLOCKING",
+      "resolution_basis": "Historical market ticks do not by themselves establish actual order fills/slippage; current-runtime fill evidence has not yet been collected under a frozen supervised execution protocol.",
+      "reduction_condition": "Acquire execution/deal evidence under a separately authorized supervised protocol and explicitly define any residual historical execution uncertainty; do not infer fills from Bid-chart contact alone.",
+      "evidence_refs": [
+        "docs/PHASE1_MT5_CAPABILITY_REPORT_2026-09-14.md",
+        "docs/RQ009_BROKER_FEED_NORMALIZATION_BOUNDARY_2026-09-09.md"
+      ]
+    },
+    {
+      "id": "U-P1-10-COST-TREATMENT",
+      "readiness_component_id": "P1-10",
+      "readiness_missing": "commission/fee/swap treatment where material for economic P&L",
+      "status": "OPEN",
+      "epistemic_class": "RUNTIME_OBSERVABLE",
+      "blocking_axis": "REQUIRED_LATER",
+      "resolution_basis": "Current symbol metadata exposes swap fields and account deal history is readable, but representative trade-level cost treatment has not been frozen.",
+      "observation_method": "Use runtime symbol/account metadata and actual deal records under the authorized environment, then freeze the economic-cost representation before any profitability claim.",
+      "evidence_refs": [
+        "docs/PHASE1_MT5_CAPABILITY_REPORT_2026-09-14.md",
+        "docs/BROKER_METADATA_EXNESS_MT5TRIAL6_XAUUSDM_2026-09-02.md"
+      ]
+    },
+    {
+      "id": "U-P1-10-STOP-GEOMETRY",
+      "readiness_component_id": "P1-10",
+      "readiness_missing": "source-compatible trade stop geometry for trade-level P&L",
+      "status": "OPEN",
+      "epistemic_class": "STRUCTURAL_UNKNOWN",
+      "blocking_axis": "BLOCKING",
+      "resolution_basis": "Current frozen research lifecycle has chart-state point-check/terminal semantics but no source-backed universal trade stop geometry for realized P&L.",
+      "reopen_condition": "Freeze a source-backed or explicit user-direct trade invalidation/stop convention before outcome scoring; do not derive it from favorable backtests.",
+      "evidence_refs": [
+        "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
+        "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md"
+      ]
+    },
+    {
+      "id": "U-P1-11-POSITION-SIZING",
+      "readiness_component_id": "P1-11",
+      "readiness_missing": "frozen position sizing convention",
+      "status": "OPEN",
+      "epistemic_class": "STRUCTURAL_UNKNOWN",
+      "blocking_axis": "BLOCKING",
+      "resolution_basis": "Position sizing is a risk/policy convention and is not defined by current source evidence.",
+      "reopen_condition": "Receive and freeze an explicit user-direct or separately justified risk-sizing convention before any supervised execution pilot.",
+      "evidence_refs": [
+        "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md"
+      ]
+    },
+    {
+      "id": "U-P1-11-RISK-CAP",
+      "readiness_component_id": "P1-11",
+      "readiness_missing": "risk cap",
+      "status": "OPEN",
+      "epistemic_class": "STRUCTURAL_UNKNOWN",
+      "blocking_axis": "BLOCKING",
+      "resolution_basis": "No canonical user-direct or engineering risk cap is currently frozen.",
+      "reopen_condition": "Receive and freeze an explicit risk-cap convention before any supervised execution pilot.",
+      "evidence_refs": [
+        "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md"
+      ]
+    },
+    {
+      "id": "U-P1-12-PRISTINE-CONFIRMATION",
+      "readiness_component_id": "P1-12",
+      "readiness_missing": "authorized pristine/future confirmation under frozen version",
+      "status": "OPEN",
+      "epistemic_class": "RUNTIME_OBSERVABLE",
+      "blocking_axis": "REQUIRED_LATER",
+      "resolution_basis": "Holdout tooling and activation locks exist; the future/pristine confirmation is intentionally not yet opened or scored.",
+      "observation_method": "Observe only through the frozen holdout activation protocol when authorization conditions are satisfied; boundary passage alone does not authorize access.",
+      "evidence_refs": [
+        "docs/RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL_2026-09-09.md",
+        "docs/RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_IMPLEMENTATION_2026-09-13.md"
+      ]
+    },
+    {
+      "id": "U-P1-13-FINAL-DECISION-VERSION",
+      "readiness_component_id": "P1-13",
+      "readiness_missing": "final frozen decision version",
+      "status": "OPEN",
+      "epistemic_class": "DERIVABLE",
+      "blocking_axis": "REQUIRED_LATER",
+      "resolution_basis": "Version identity can be frozen from governed project state after upstream decision-critical blockers are closed.",
+      "derivation_method": "Derive the final version identity from canonical state, contracts, and implementation checkpoints before pilot activation; do not select it from holdout outcomes.",
+      "evidence_refs": [
+        "docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md",
+        "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md"
+      ]
+    },
+    {
+      "id": "U-P1-13-PILOT-REASON-AUDIT",
+      "readiness_component_id": "P1-13",
+      "readiness_missing": "pilot-facing reason/audit output",
+      "status": "OPEN",
+      "epistemic_class": "DERIVABLE",
+      "blocking_axis": "NON_BLOCKING",
+      "resolution_basis": "The project already records deterministic state/provenance; pilot-facing presentation can be engineered without inventing market semantics.",
+      "derivation_method": "Build the reason/audit output from frozen decision state, provenance, fail-closed reasons, and version identity.",
+      "evidence_refs": [
+        "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
+        "docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md"
+      ]
+    },
+    {
+      "id": "U-P1-13-DATA-FEED-HEALTH",
+      "readiness_component_id": "P1-13",
+      "readiness_missing": "data/feed health behavior",
+      "status": "OPEN",
+      "epistemic_class": "DERIVABLE",
+      "blocking_axis": "NON_BLOCKING",
+      "resolution_basis": "Existing collectors, manifests, gap ledgers, and provenance guards already expose the inputs needed for fail-closed health behavior.",
+      "derivation_method": "Compose pilot-facing health states from existing collector status, manifest validation, continuity/gap eligibility, and provenance mismatch guards.",
+      "evidence_refs": [
+        "docs/PHASE1_MT5_COLLECTOR_OBSERVABILITY_RECONCILIATION_2026-09-14.md",
+        "docs/PHASE1_EXNESS_ARCHIVE_GAP_LEDGER_V0.1.json"
+      ]
+    },
+    {
+      "id": "U-P1-13-TRADE-RISK-CONVENTIONS",
+      "readiness_component_id": "P1-13",
+      "readiness_missing": "trade/risk conventions if executing",
+      "status": "OPEN",
+      "epistemic_class": "STRUCTURAL_UNKNOWN",
+      "blocking_axis": "REQUIRED_LATER",
+      "resolution_basis": "Execution risk conventions are intentionally not inferred from research outcomes and remain undefined until execution is separately authorized.",
+      "reopen_condition": "Freeze explicit trade/risk conventions, including sizing and risk cap dependencies, before supervised execution.",
+      "evidence_refs": [
+        "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md"
+      ]
+    },
+    {
+      "id": "U-P1-13-ROLLBACK-VERSION",
+      "readiness_component_id": "P1-13",
+      "readiness_missing": "rollback/version identity workflow",
+      "status": "OPEN",
+      "epistemic_class": "DERIVABLE",
+      "blocking_axis": "NON_BLOCKING",
+      "resolution_basis": "Git/checkpoint/version identity infrastructure already exists; pilot rollback workflow can be composed from it.",
+      "derivation_method": "Bind pilot state to immutable version/checkpoint identifiers and define rollback to the prior verified checkpoint without rewriting history.",
+      "evidence_refs": [
+        "docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md",
+        "docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md"
+      ]
+    }
+  ]
+}

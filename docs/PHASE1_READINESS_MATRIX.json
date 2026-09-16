@@ -1,6 +1,6 @@
 {
   "schema_version": "PHASE1_READINESS_MATRIX_V0.1",
-  "updated_at": "2026-09-17T03:38:11+07:00",
+  "updated_at": "2026-09-17T03:54:30+07:00",
   "scope": "Phase 1 / เฟสหนึ่ง",
   "naming_guard": "07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method name. Person/channel/system labels are source attribution only.",
   "overall": {
@@ -118,12 +118,16 @@
     {
       "id": "P1-09",
       "component": "Unknown-value classification enforcement",
-      "status": "PARTIAL",
+      "status": "READY_RESEARCH_LEVEL",
       "blocks": [],
       "evidence_refs": [
-        "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md"
+        "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
+        "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_CONTRACT_V0.1_2026-09-17.md",
+        "docs/PHASE1_UNKNOWN_CLASSIFICATION_REGISTRY_V0.1.json",
+        "tests/test_unknown_classification_registry.py",
+        "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_IMPLEMENTATION_V0.1_2026-09-17.md"
       ],
-      "note": "Doctrine exists, but not every unresolved dependency is machine-required to carry a DERIVABLE/NON_BLOCKING/BLOCKING/etc. field."
+      "note": "Machine enforcement is active through the Phase 1 unknown-classification registry and research preflight. Every current PARTIAL/BLOCKING readiness missing item maps exactly once to an OPEN entry carrying epistemic class, blocking axis, evidence, and class-specific resolution metadata; generic UNKNOWN and mapping drift fail closed."
     },
     {
       "id": "P1-10",
@@ -188,7 +192,10 @@
         "docs/RQ011_PRISTINE_V0_HOLDOUT_PROTOCOL_2026-09-09.md",
         "docs/RQ012_HOLDOUT_LEDGER_ACTIVATION_LOCK_IMPLEMENTATION_2026-09-13.md"
       ],
-      "note": "Holdout tooling exists; scoring remains disabled and boundary passage alone does not authorize outcome access."
+      "note": "Holdout tooling exists; scoring remains disabled and boundary passage alone does not authorize outcome access.",
+      "missing": [
+        "authorized pristine/future confirmation under frozen version"
+      ]
     },
     {
       "id": "P1-13",

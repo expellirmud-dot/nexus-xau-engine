@@ -24,6 +24,7 @@ CORE_PATHS = [
     Path("research_findings/README.md"),
     Path("research_findings/FINDINGS.json"),
     Path("docs/PHASE1_READINESS_MATRIX.json"),
+    Path("docs/PHASE1_UNKNOWN_CLASSIFICATION_REGISTRY_V0.1.json"),
     Path("docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md"),
     Path("skills/README.md"),
     Path("skills/SKILLS_MANIFEST.json"),
@@ -300,6 +301,245 @@ def validate_phase1_readiness_matrix(matrix: dict[str, Any]) -> dict[str, Any]:
         "status": "PASS",
         "component_count": len(components),
         "blocking_count": blocking_count,
+    }
+
+
+UNKNOWN_EPISTEMIC_CLASSES = {
+    "KNOWN_NOW",
+    "DERIVABLE",
+    "RUNTIME_OBSERVABLE",
+    "STRUCTURAL_UNKNOWN",
+    "IRREDUCIBLE_OR_NOT_YET_REDUCIBLE",
+}
+UNKNOWN_BLOCKING_AXES = {
+    "BLOCKING",
+    "NON_BLOCKING",
+    "REQUIRED_LATER",
+    "IRRELEVANT",
+}
+UNKNOWN_ENTRY_STATUSES = {"OPEN", "RESOLVED", "SUPERSEDED"}
+
+
+def validate_unknown_classification_registry(
+    registry: dict[str, Any],
+    readiness_matrix: dict[str, Any],
+    *,
+    root: Path = ROOT,
+) -> dict[str, Any]:
+    if registry.get("schema_version") != "PHASE1_UNKNOWN_CLASSIFICATION_REGISTRY_V0.1":
+        return {"status": "FAIL", "reason": "UNKNOWN_REGISTRY_SCHEMA_MISMATCH"}
+    if registry.get("scope") != "Phase 1 readiness unresolved dependencies":
+        return {"status": "FAIL", "reason": "UNKNOWN_REGISTRY_SCOPE_MISMATCH"}
+
+    declared_epistemic = registry.get("allowed_epistemic_classes")
+    declared_axes = registry.get("allowed_blocking_axes")
+    declared_statuses = registry.get("allowed_statuses")
+    if not isinstance(declared_epistemic, list) or set(declared_epistemic) != UNKNOWN_EPISTEMIC_CLASSES:
+        return {"status": "FAIL", "reason": "UNKNOWN_REGISTRY_EPISTEMIC_ENUM_DRIFT"}
+    if not isinstance(declared_axes, list) or set(declared_axes) != UNKNOWN_BLOCKING_AXES:
+        return {"status": "FAIL", "reason": "UNKNOWN_REGISTRY_BLOCKING_ENUM_DRIFT"}
+    if not isinstance(declared_statuses, list) or set(declared_statuses) != UNKNOWN_ENTRY_STATUSES:
+        return {"status": "FAIL", "reason": "UNKNOWN_REGISTRY_STATUS_ENUM_DRIFT"}
+
+    components_raw = readiness_matrix.get("components")
+    if not isinstance(components_raw, list):
+        return {"status": "FAIL", "reason": "UNKNOWN_REGISTRY_READINESS_COMPONENTS_INVALID"}
+    components = {
+        component.get("id"): component
+        for component in components_raw
+        if isinstance(component, dict) and isinstance(component.get("id"), str)
+    }
+
+    entries = registry.get("entries")
+    if not isinstance(entries, list):
+        return {"status": "FAIL", "reason": "UNKNOWN_REGISTRY_ENTRIES_INVALID"}
+
+    entry_ids: set[str] = set()
+    open_mappings: dict[tuple[str, str], str] = {}
+    open_count = 0
+
+    for entry in entries:
+        if not isinstance(entry, dict):
+            return {"status": "FAIL", "reason": "UNKNOWN_REGISTRY_ENTRY_INVALID"}
+        required_string_fields = (
+            "id",
+            "readiness_component_id",
+            "readiness_missing",
+            "status",
+            "epistemic_class",
+            "blocking_axis",
+        )
+        for field in required_string_fields:
+            if not isinstance(entry.get(field), str) or not entry.get(field):
+                return {
+                    "status": "FAIL",
+                    "reason": "UNKNOWN_REGISTRY_FIELD_MISSING",
+                    "field": field,
+                    "entry_id": entry.get("id"),
+                }
+
+        entry_id = entry["id"]
+        if entry_id in entry_ids:
+            return {
+                "status": "FAIL",
+                "reason": "UNKNOWN_REGISTRY_DUPLICATE_ENTRY_ID",
+                "entry_id": entry_id,
+            }
+        entry_ids.add(entry_id)
+
+        status = entry["status"]
+        epistemic_class = entry["epistemic_class"]
+        blocking_axis = entry["blocking_axis"]
+        if status not in UNKNOWN_ENTRY_STATUSES:
+            return {
+                "status": "FAIL",
+                "reason": "UNKNOWN_REGISTRY_STATUS_INVALID",
+                "entry_id": entry_id,
+            }
+        if epistemic_class not in UNKNOWN_EPISTEMIC_CLASSES:
+            return {
+                "status": "FAIL",
+                "reason": "UNKNOWN_REGISTRY_EPISTEMIC_CLASS_INVALID",
+                "entry_id": entry_id,
+            }
+        if blocking_axis not in UNKNOWN_BLOCKING_AXES:
+            return {
+                "status": "FAIL",
+                "reason": "UNKNOWN_REGISTRY_BLOCKING_AXIS_INVALID",
+                "entry_id": entry_id,
+            }
+
+        refs = entry.get("evidence_refs")
+        if not isinstance(refs, list) or not refs:
+            return {
+                "status": "FAIL",
+                "reason": "UNKNOWN_REGISTRY_EVIDENCE_MISSING",
+                "entry_id": entry_id,
+            }
+        for ref in refs:
+            if not isinstance(ref, str) or not ref or Path(ref).is_absolute():
+                return {
+                    "status": "FAIL",
+                    "reason": "UNKNOWN_REGISTRY_EVIDENCE_REF_INVALID",
+                    "entry_id": entry_id,
+                    "ref": ref,
+                }
+            if not (root / ref).exists():
+                return {
+                    "status": "FAIL",
+                    "reason": "UNKNOWN_REGISTRY_EVIDENCE_NOT_FOUND",
+                    "entry_id": entry_id,
+                    "ref": ref,
+                }
+
+        if status != "OPEN":
+            continue
+
+        open_count += 1
+        if epistemic_class == "KNOWN_NOW":
+            return {
+                "status": "FAIL",
+                "reason": "UNKNOWN_REGISTRY_OPEN_KNOWN_NOW_INVALID",
+                "entry_id": entry_id,
+            }
+        if not isinstance(entry.get("resolution_basis"), str) or not entry.get("resolution_basis"):
+            return {
+                "status": "FAIL",
+                "reason": "UNKNOWN_REGISTRY_RESOLUTION_BASIS_MISSING",
+                "entry_id": entry_id,
+            }
+
+        method_field = {
+            "DERIVABLE": "derivation_method",
+            "RUNTIME_OBSERVABLE": "observation_method",
+            "STRUCTURAL_UNKNOWN": "reopen_condition",
+            "IRREDUCIBLE_OR_NOT_YET_REDUCIBLE": "reduction_condition",
+        }.get(epistemic_class)
+        if method_field and (
+            not isinstance(entry.get(method_field), str) or not entry.get(method_field)
+        ):
+            return {
+                "status": "FAIL",
+                "reason": "UNKNOWN_REGISTRY_CLASS_METHOD_MISSING",
+                "entry_id": entry_id,
+                "field": method_field,
+            }
+
+        component_id = entry["readiness_component_id"]
+        missing_text = entry["readiness_missing"]
+        component = components.get(component_id)
+        if not isinstance(component, dict):
+            return {
+                "status": "FAIL",
+                "reason": "UNKNOWN_REGISTRY_DANGLING_COMPONENT",
+                "entry_id": entry_id,
+                "component_id": component_id,
+            }
+        if component.get("status") not in {"PARTIAL", "BLOCKING"}:
+            return {
+                "status": "FAIL",
+                "reason": "UNKNOWN_REGISTRY_OPEN_ENTRY_ON_READY_COMPONENT",
+                "entry_id": entry_id,
+                "component_id": component_id,
+            }
+        missing_items = component.get("missing")
+        if not isinstance(missing_items, list) or not missing_items:
+            return {
+                "status": "FAIL",
+                "reason": "UNKNOWN_REGISTRY_READINESS_MISSING_ARRAY_REQUIRED",
+                "component_id": component_id,
+            }
+        if missing_text not in missing_items:
+            return {
+                "status": "FAIL",
+                "reason": "UNKNOWN_REGISTRY_DANGLING_MISSING_MAPPING",
+                "entry_id": entry_id,
+                "component_id": component_id,
+            }
+
+        mapping = (component_id, missing_text)
+        if mapping in open_mappings:
+            return {
+                "status": "FAIL",
+                "reason": "UNKNOWN_REGISTRY_DUPLICATE_OPEN_MAPPING",
+                "component_id": component_id,
+                "readiness_missing": missing_text,
+                "entry_ids": [open_mappings[mapping], entry_id],
+            }
+        open_mappings[mapping] = entry_id
+
+    required_missing_count = 0
+    for component_id, component in components.items():
+        if component.get("status") not in {"PARTIAL", "BLOCKING"}:
+            continue
+        missing_items = component.get("missing")
+        if not isinstance(missing_items, list) or not missing_items:
+            return {
+                "status": "FAIL",
+                "reason": "UNKNOWN_REGISTRY_READINESS_MISSING_ARRAY_REQUIRED",
+                "component_id": component_id,
+            }
+        for missing_text in missing_items:
+            if not isinstance(missing_text, str) or not missing_text:
+                return {
+                    "status": "FAIL",
+                    "reason": "UNKNOWN_REGISTRY_READINESS_MISSING_TEXT_INVALID",
+                    "component_id": component_id,
+                }
+            required_missing_count += 1
+            if (component_id, missing_text) not in open_mappings:
+                return {
+                    "status": "FAIL",
+                    "reason": "UNKNOWN_REGISTRY_COVERAGE_MISSING",
+                    "component_id": component_id,
+                    "readiness_missing": missing_text,
+                }
+
+    return {
+        "status": "PASS",
+        "entry_count": len(entries),
+        "open_count": open_count,
+        "required_missing_count": required_missing_count,
     }
 
 
@@ -718,6 +958,7 @@ def build_manifest() -> dict[str, Any]:
     skill_manifest_path = ROOT / "skills/SKILLS_MANIFEST.json"
     finding_ledger_path = ROOT / "research_findings/FINDINGS.json"
     readiness_matrix_path = ROOT / "docs/PHASE1_READINESS_MATRIX.json"
+    unknown_registry_path = ROOT / "docs/PHASE1_UNKNOWN_CLASSIFICATION_REGISTRY_V0.1.json"
 
     state = load_json(state_path)
     queue = load_json(queue_path)
@@ -727,6 +968,7 @@ def build_manifest() -> dict[str, Any]:
     skill_manifest = load_json(skill_manifest_path)
     finding_ledger = load_json(finding_ledger_path)
     readiness_matrix = load_json(readiness_matrix_path)
+    unknown_registry = load_json(unknown_registry_path)
 
     rq012_state = state.get("rq012_v0_holdout_ledger_activation") or {}
     activation_lock: dict[str, Any] | None = None
@@ -742,6 +984,14 @@ def build_manifest() -> dict[str, Any]:
     readiness_validation = validate_phase1_readiness_matrix(readiness_matrix)
     if readiness_validation.get("status") != "PASS":
         return readiness_validation
+
+    unknown_validation = validate_unknown_classification_registry(
+        unknown_registry,
+        readiness_matrix,
+        root=ROOT,
+    )
+    if unknown_validation.get("status") != "PASS":
+        return unknown_validation
 
     finding_validation = validate_finding_ledger(finding_ledger, canonical)
     if finding_validation.get("status") != "PASS":
@@ -871,6 +1121,7 @@ def build_manifest() -> dict[str, Any]:
         "authority_report_status": authority_report_status,
         "finding_ledger": finding_validation,
         "phase1_readiness": readiness_validation,
+        "unknown_classification": unknown_validation,
         "last_closed_id": (state.get("operational_research_queue") or {}).get("last_closed_id"),
         "active_workstream": {
             "id": workstream.get("workstream"),
@@ -951,6 +1202,13 @@ def print_text(manifest: dict[str, Any]) -> None:
         "phase1_readiness="
         f"{phase1_readiness.get('status')} | {phase1_readiness.get('component_count')} components | "
         f"{phase1_readiness.get('blocking_count')} blocking"
+    )
+    unknown_classification = manifest.get("unknown_classification") or {}
+    print(
+        "unknown_classification="
+        f"{unknown_classification.get('status')} | "
+        f"{unknown_classification.get('open_count')} open | "
+        f"{unknown_classification.get('required_missing_count')} readiness gaps covered"
     )
     print(f"last_closed_id={manifest.get('last_closed_id')}")
     print(
