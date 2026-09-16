@@ -1,6 +1,6 @@
 {
   "schema_version": "PHASE1_UNKNOWN_CLASSIFICATION_REGISTRY_V0.1",
-  "updated_at": "2026-09-17T03:50:00+07:00",
+  "updated_at": "2026-09-17T04:04:40+07:00",
   "scope": "Phase 1 readiness unresolved dependencies",
   "allowed_epistemic_classes": [
     "KNOWN_NOW",
@@ -163,7 +163,7 @@
       "id": "U-P1-13-PILOT-REASON-AUDIT",
       "readiness_component_id": "P1-13",
       "readiness_missing": "pilot-facing reason/audit output",
-      "status": "OPEN",
+      "status": "RESOLVED",
       "epistemic_class": "DERIVABLE",
       "blocking_axis": "NON_BLOCKING",
       "resolution_basis": "The project already records deterministic state/provenance; pilot-facing presentation can be engineered without inventing market semantics.",
@@ -171,13 +171,15 @@
       "evidence_refs": [
         "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
         "docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md"
-      ]
+      ],
+      "resolved_at": "2026-09-17T04:04:40+07:00",
+      "resolved_by": "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_IMPLEMENTATION_V0.1_2026-09-17.md"
     },
     {
       "id": "U-P1-13-DATA-FEED-HEALTH",
       "readiness_component_id": "P1-13",
       "readiness_missing": "data/feed health behavior",
-      "status": "OPEN",
+      "status": "RESOLVED",
       "epistemic_class": "DERIVABLE",
       "blocking_axis": "NON_BLOCKING",
       "resolution_basis": "Existing collectors, manifests, gap ledgers, and provenance guards already expose the inputs needed for fail-closed health behavior.",
@@ -185,7 +187,9 @@
       "evidence_refs": [
         "docs/PHASE1_MT5_COLLECTOR_OBSERVABILITY_RECONCILIATION_2026-09-14.md",
         "docs/PHASE1_EXNESS_ARCHIVE_GAP_LEDGER_V0.1.json"
-      ]
+      ],
+      "resolved_at": "2026-09-17T04:04:40+07:00",
+      "resolved_by": "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_IMPLEMENTATION_V0.1_2026-09-17.md"
     },
     {
       "id": "U-P1-13-TRADE-RISK-CONVENTIONS",
@@ -204,7 +208,7 @@
       "id": "U-P1-13-ROLLBACK-VERSION",
       "readiness_component_id": "P1-13",
       "readiness_missing": "rollback/version identity workflow",
-      "status": "OPEN",
+      "status": "RESOLVED",
       "epistemic_class": "DERIVABLE",
       "blocking_axis": "NON_BLOCKING",
       "resolution_basis": "Git/checkpoint/version identity infrastructure already exists; pilot rollback workflow can be composed from it.",
@@ -212,7 +216,9 @@
       "evidence_refs": [
         "docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md",
         "docs/NEXUS_PROJECT_MAINTENANCE_POLICY.md"
-      ]
+      ],
+      "resolved_at": "2026-09-17T04:04:40+07:00",
+      "resolved_by": "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_IMPLEMENTATION_V0.1_2026-09-17.md"
     }
   ]
 }

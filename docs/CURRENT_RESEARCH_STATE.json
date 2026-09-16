@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-09-17T03:57:15+07:00",
+  "updated_at": "2026-09-17T04:04:40+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
     "contract": "docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md",
     "latest_state_reconciliation": "docs/STATE_DRIFT_AUDIT_2026-09-15.md",
     "project_current_research_checkpoint": "research_queue/closed/RQ-016_PHASE1_CONSTRUCTION_BOUNDARY.md",
-    "latest_operational_tooling_checkpoint": "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_IMPLEMENTATION_V0.1_2026-09-17.md",
+    "latest_operational_tooling_checkpoint": "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_IMPLEMENTATION_V0.1_2026-09-17.md",
     "project_current_state": "docs/CURRENT_RESEARCH_STATE.json",
     "operational_queue": "research_queue/QUEUE.json",
     "workstream_state": "docs/0700_WORKSTREAM_STATE.json",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_CONTRACT_V0.1_2026-09-17.md"
+    "latest_progress_checkpoint": "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_IMPLEMENTATION_V0.1_2026-09-17.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -131,7 +131,8 @@
       "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_CONTRACT_V0.1_2026-09-17.md",
       "docs/PHASE1_UNKNOWN_CLASSIFICATION_REGISTRY_V0.1.json",
       "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_IMPLEMENTATION_V0.1_2026-09-17.md",
-      "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_CONTRACT_V0.1_2026-09-17.md"
+      "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_CONTRACT_V0.1_2026-09-17.md",
+      "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_IMPLEMENTATION_V0.1_2026-09-17.md"
     ]
   },
   "provenance_guard": {
@@ -226,14 +227,15 @@
     "origin_seed_evidence_route_closure": "CURRENT_PROVEN_ROUTES_EXHAUSTED_STRUCTURAL_BLOCKER_NO_COMPLETE_SEED",
     "unknown_classification_enforcement_contract": "FROZEN_PRE_IMPLEMENTATION_V0.1",
     "unknown_classification_enforcement_implementation": "V0.1_MACHINE_ENFORCED_14_OF_14_CURRENT_GAPS_COVERED_TARGETED_18_PASS_FULL_REPO_390_PASS_BROAD_RUFF_PASS",
-    "pilot_operations_scaffold_contract": "FROZEN_PRE_IMPLEMENTATION_V0.1_NON_EXECUTING"
+    "pilot_operations_scaffold_contract": "FROZEN_PRE_IMPLEMENTATION_V0.1_NON_EXECUTING",
+    "pilot_operations_scaffold_implementation": "V0.1_IMPLEMENTED_CONTRACT_10_PASS_GOVERNANCE_28_PASS_FULL_REPO_400_PASS_BROAD_RUFF_PASS"
   },
   "next_steps": [
-    "P1-13 pilot operations scaffold contract V0.1 is frozen pre-implementation and limited to DERIVABLE/NON_BLOCKING dependencies.",
-    "Implement a deterministic non-executing operations snapshot that composes current state, readiness, unknown registry, preflight, collector/archive health inputs, and Git/checkpoint identity.",
-    "Do not resolve final decision version, position sizing, risk cap, trade/stop conventions, execution economics, or holdout confirmation in this loop.",
-    "Add contract tests for fail-closed governance/data health, distinct unknown classes, reference-only rollback, deterministic identity, and prohibited performance/execution fields.",
-    "Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED; automatic order sending and protected holdout scoring remain disabled."
+    "P1-13 pilot operations scaffold V0.1 is implemented; reason/audit output, data/feed health behavior, and rollback/version identity are resolved in the unknown registry.",
+    "After commit/push, run governance-mode and live-mode snapshots from a clean synced tree to verify identity PASS on the exact commit and preserve live collector STOPPED as health UNKNOWN without inventing a staleness threshold.",
+    "Persist that runtime smoke as a separate checkpoint; P1-13 must remain PARTIAL because final decision version and trade/risk conventions are still open.",
+    "Then select the next non-blocked evidence task from the registry; do not open holdout outcomes or enable execution.",
+    "Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED; automatic order sending remains disabled."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -402,9 +404,10 @@
     "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_CONTRACT_V0.1_2026-09-17.md",
     "docs/PHASE1_UNKNOWN_CLASSIFICATION_REGISTRY_V0.1.json",
     "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_IMPLEMENTATION_V0.1_2026-09-17.md",
-    "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_CONTRACT_V0.1_2026-09-17.md"
+    "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_CONTRACT_V0.1_2026-09-17.md",
+    "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_IMPLEMENTATION_V0.1_2026-09-17.md"
   ],
-  "resume_instruction": "P1-09 unknown-classification enforcement is implemented and machine-enforced. The next non-blocked loop is P1-13 Pilot Operations Scaffold V0.1, now frozen pre-implementation. Scope is limited to pilot-facing reason/audit output, explicit data/feed health behavior, and non-destructive rollback/version identity. Reuse current state, readiness, unknown registry, research preflight, existing MT5 collector/archive guards, and Git identity; do not create a parallel canonical state system or new market-data plane. This loop must not resolve final decision version from outcomes, invent trade/risk conventions, open protected holdout results, or enable order execution. Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED.",
+  "resume_instruction": "P1-09 unknown classification is machine-enforced. P1-13 Pilot Operations Scaffold V0.1 is now implemented and validated: deterministic reason/audit composition, explicit data/feed health without invented thresholds, and reference-only Git/checkpoint rollback identity. Contract tests pass 10/10, combined governance regression 28/28, full repo 400/400, broad Ruff PASS. Three registry dependencies are resolved, but P1-13 remains PARTIAL because final frozen decision version and trade/risk conventions remain open. Next action after commit/push is a clean-tree governance/live runtime smoke on the exact synced commit, followed by a separate smoke checkpoint. Do not open protected holdout outcomes or enable order execution. Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1599,14 +1602,19 @@
     "preflight_enforced": true
   },
   "pilot_operations_scaffold": {
-    "status": "FROZEN_PRE_IMPLEMENTATION_V0.1",
+    "status": "IMPLEMENTED_V0.1_NON_EXECUTING",
     "contract": "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_CONTRACT_V0.1_2026-09-17.md",
-    "resolves_only": [
-      "pilot-facing reason/audit output",
-      "data/feed health behavior",
-      "rollback/version identity workflow"
+    "implementation": "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_IMPLEMENTATION_V0.1_2026-09-17.md",
+    "core": "src/nexus_xau/reporting/pilot_operations.py",
+    "cli": "scripts/pilot_operations_snapshot.py",
+    "tests": "tests/test_pilot_operations.py",
+    "resolved_registry_entries": [
+      "U-P1-13-DATA-FEED-HEALTH",
+      "U-P1-13-PILOT-REASON-AUDIT",
+      "U-P1-13-ROLLBACK-VERSION"
     ],
     "order_send": "DISABLED",
-    "holdout_scoring": "DISABLED"
+    "holdout_scoring": "DISABLED",
+    "economic_scoring": "DISABLED"
   }
 }

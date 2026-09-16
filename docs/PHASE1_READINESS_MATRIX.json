@@ -1,6 +1,6 @@
 {
   "schema_version": "PHASE1_READINESS_MATRIX_V0.1",
-  "updated_at": "2026-09-17T03:54:30+07:00",
+  "updated_at": "2026-09-17T04:04:40+07:00",
   "scope": "Phase 1 / เฟสหนึ่ง",
   "naming_guard": "07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method name. Person/channel/system labels are source attribution only.",
   "overall": {
@@ -206,15 +206,16 @@
       ],
       "evidence_refs": [
         "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
-        "docs/PHASE1_COMPLETENESS_AUDIT_2026-09-14.md"
+        "docs/PHASE1_COMPLETENESS_AUDIT_2026-09-14.md",
+        "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_CONTRACT_V0.1_2026-09-17.md",
+        "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_IMPLEMENTATION_V0.1_2026-09-17.md",
+        "tests/test_pilot_operations.py"
       ],
       "missing": [
         "final frozen decision version",
-        "pilot-facing reason/audit output",
-        "data/feed health behavior",
-        "trade/risk conventions if executing",
-        "rollback/version identity workflow"
-      ]
+        "trade/risk conventions if executing"
+      ],
+      "note": "Pilot reason/audit output, data/feed health behavior, and rollback/version identity workflow are implemented as a non-executing scaffold. P1-13 remains PARTIAL because final decision version is required later and trade/risk conventions remain structurally unresolved for any future execution."
     }
   ]
 }
