@@ -1,0 +1,110 @@
+{
+  "schema_version": "PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.1",
+  "updated_at": "2026-09-17T04:25:53+07:00",
+  "source_registry": "docs/PHASE1_UNKNOWN_CLASSIFICATION_REGISTRY_V0.1.json",
+  "allowed_actionability": [
+    "ACTIONABLE_NOW",
+    "CONDITIONAL_ON_NEW_EVIDENCE",
+    "CONDITIONAL_ON_FUTURE_RUNTIME",
+    "CONDITIONAL_ON_USER_OR_EXECUTION_AUTHORIZATION",
+    "DOWNSTREAM_ONLY"
+  ],
+  "current_summary": {
+    "open_dependency_count": 12,
+    "actionable_now_count": 0,
+    "conclusion": "NO_CURRENT_ACTIONABLE_DEPENDENCY_WITHOUT_NEW_TRIGGER"
+  },
+  "entries": [
+    {
+      "id": "U-P1-08-ORIGIN-SEED-REOPEN",
+      "actionability": "CONDITIONAL_ON_NEW_EVIDENCE",
+      "trigger": "Verified same-source Exness history before 2015-08-10, an independently justified finite anchor domain, or an authorized source-backed lifecycle semantic change.",
+      "reason": "Current evidence routes were exhausted and finite forward warmup was falsified as a COMPLETE-seed mechanism."
+    },
+    {
+      "id": "U-P1-08-CANONICAL-WINDOW-CONTINUITY",
+      "actionability": "DOWNSTREAM_ONLY",
+      "trigger": "Origin-seed blocker is closed and a canonical replay interval is actually selected.",
+      "reason": "The acquisition/validation method already exists, but running interval continuity checks before canonical seed eligibility would not unlock replay."
+    },
+    {
+      "id": "U-P1-10-CROSS-SERVER-FEED-EQUIVALENCE",
+      "actionability": "CONDITIONAL_ON_NEW_EVIDENCE",
+      "trigger": "Direct broker/server identity evidence or a same-feed execution-quality historical route becomes available.",
+      "reason": "Current overlap evidence does not support exact cross-feed/server equivalence."
+    },
+    {
+      "id": "U-P1-10-FILL-SLIPPAGE",
+      "actionability": "CONDITIONAL_ON_USER_OR_EXECUTION_AUTHORIZATION",
+      "secondary_conditions": [
+        "New evidence would still be required for historical fill/slippage coverage."
+      ],
+      "trigger": "A separately authorized supervised execution protocol is frozen and permitted to collect execution/deal evidence.",
+      "reason": "Market ticks alone do not reveal actual fills/slippage, and automatic order sending remains disabled."
+    },
+    {
+      "id": "U-P1-10-STOP-GEOMETRY",
+      "actionability": "CONDITIONAL_ON_USER_OR_EXECUTION_AUTHORIZATION",
+      "secondary_conditions": [
+        "A source-backed stop/invalidation rule would also satisfy the evidence trigger without user policy invention."
+      ],
+      "trigger": "A source-backed or explicit user-direct trade stop/invalidation convention is frozen before outcome scoring.",
+      "reason": "Current chart-state point-check semantics are not equivalent to trade stop geometry."
+    },
+    {
+      "id": "U-P1-11-POSITION-SIZING",
+      "actionability": "CONDITIONAL_ON_USER_OR_EXECUTION_AUTHORIZATION",
+      "trigger": "An explicit user-direct or separately justified risk-sizing convention is provided and frozen.",
+      "reason": "Position sizing is a policy/risk convention and is not derivable from current research outcomes."
+    },
+    {
+      "id": "U-P1-11-RISK-CAP",
+      "actionability": "CONDITIONAL_ON_USER_OR_EXECUTION_AUTHORIZATION",
+      "trigger": "An explicit risk-cap convention is provided and frozen.",
+      "reason": "No canonical risk cap currently exists and it must not be inferred from backtest outcomes."
+    },
+    {
+      "id": "U-P1-12-PRISTINE-CONFIRMATION",
+      "actionability": "CONDITIONAL_ON_FUTURE_RUNTIME",
+      "secondary_conditions": [
+        "Frozen holdout activation authorization must also be satisfied."
+      ],
+      "trigger": "The pristine/future confirmation becomes eligible under the existing holdout activation protocol and authorization conditions.",
+      "reason": "The holdout is intentionally reserved/unscored; boundary passage alone does not authorize opening outcomes."
+    },
+    {
+      "id": "U-P1-13-FINAL-DECISION-VERSION",
+      "actionability": "DOWNSTREAM_ONLY",
+      "trigger": "Upstream decision-critical blockers are closed and the governed version can be frozen before pilot activation.",
+      "reason": "The version is derivable from governed state, but selecting it now would be premature and must not depend on holdout outcomes."
+    },
+    {
+      "id": "U-P1-13-TRADE-RISK-CONVENTIONS",
+      "actionability": "CONDITIONAL_ON_USER_OR_EXECUTION_AUTHORIZATION",
+      "trigger": "Execution is separately authorized and explicit trade/risk conventions, including sizing and risk cap dependencies, are frozen.",
+      "reason": "Execution risk policy remains intentionally undefined and cannot be inferred from research outcomes."
+    },
+    {
+      "id": "U-P1-10-HISTORICAL-COST-SCHEDULE",
+      "actionability": "CONDITIONAL_ON_NEW_EVIDENCE",
+      "trigger": "Verified historical broker/account commission, fee, and financing schedules covering the intended replay intervals become available, or a separately justified economic claim boundary is frozen.",
+      "reason": "Current runtime swap metadata and deal schema do not reconstruct exact historical account-specific cost schedules."
+    },
+    {
+      "id": "U-P1-10-XAU-DEAL-COST-SAMPLES",
+      "actionability": "CONDITIONAL_ON_FUTURE_RUNTIME",
+      "secondary_conditions": [
+        "Supervised execution must be separately authorized if new trades are needed; naturally occurring XAUUSDm deals may be observed read-only if they exist."
+      ],
+      "trigger": "Authorized or naturally occurring XAUUSDm account deals become available for read-only commission/fee/swap observation.",
+      "reason": "Current account history exposed the cost schema but contained zero XAUUSDm deal samples."
+    }
+  ],
+  "guards": {
+    "real_exness_v2": "DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED",
+    "protected_holdout_scoring": "DISABLED",
+    "automatic_order_send": "DISABLED",
+    "economic_scoring": "DISABLED",
+    "profitability_expectancy_claims": "DISABLED"
+  }
+}

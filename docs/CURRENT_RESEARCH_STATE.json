@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-17T04:24:08+07:00",
+  "updated_at": "2026-09-17T04:25:53+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_RESULT_V0.1_2026-09-17.md"
+    "latest_progress_checkpoint": "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_AUDIT_2026-09-17.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -135,7 +135,9 @@
       "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_IMPLEMENTATION_V0.1_2026-09-17.md",
       "docs/PHASE1_PILOT_OPERATIONS_RUNTIME_SMOKE_2026-09-17.md",
       "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md",
-      "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_RESULT_V0.1_2026-09-17.md"
+      "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_RESULT_V0.1_2026-09-17.md",
+      "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.1.json",
+      "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_AUDIT_2026-09-17.md"
     ]
   },
   "provenance_guard": {
@@ -234,14 +236,15 @@
     "pilot_operations_scaffold_implementation": "V0.1_IMPLEMENTED_CONTRACT_10_PASS_GOVERNANCE_28_PASS_FULL_REPO_400_PASS_BROAD_RUFF_PASS",
     "pilot_operations_runtime_smoke": "CLEAN_SYNCED_COMMIT_74A9B34_GOVERNANCE_IDENTITY_PASS_LIVE_IDENTITY_PASS_LIVE_HEALTH_UNKNOWN_STOPPED_COLLECTOR",
     "mt5_cost_treatment_evidence_contract": "FROZEN_PRE_PROBE_V0.1_READ_ONLY_NO_ECONOMIC_SCORING",
-    "mt5_cost_treatment_evidence_result": "V0.1_CURRENT_RUNTIME_OBSERVABILITY_ESTABLISHED_COST_11_PASS_GOVERNANCE_39_PASS_FULL_REPO_411_PASS_BROAD_RUFF_PASS"
+    "mt5_cost_treatment_evidence_result": "V0.1_CURRENT_RUNTIME_OBSERVABILITY_ESTABLISHED_COST_11_PASS_GOVERNANCE_39_PASS_FULL_REPO_411_PASS_BROAD_RUFF_PASS",
+    "remaining_dependency_actionability": "V0.1_12_OPEN_0_ACTIONABLE_NOW_GENUINE_EXTERNAL_TRIGGER_BOUNDARY"
   },
   "next_steps": [
-    "P1-10 current-runtime cost observability V0.1 is complete: swap metadata and commission/fee/swap deal schema are observable, but zero XAUUSDm deal-cost samples were present and exact historical replay cost schedules remain unresolved.",
-    "Run a bounded remaining-dependency actionability audit over the OPEN unknown registry so each residual is marked actionable now vs requires new evidence, future runtime, or explicit user/authorization input; do not create market rules to fill gaps.",
-    "Do not attempt to solve U-P1-10-HISTORICAL-COST-SCHEDULE by extrapolating current swap values or empty XAUUSDm samples backward in time.",
-    "Keep protected holdout scoring, economic scoring, profitability/expectancy claims, fill/slippage inference, and automatic order sending disabled.",
-    "Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED."
+    "No current OPEN dependency is ACTIONABLE_NOW under existing evidence and authorization; do not continue compute merely to avoid stopping.",
+    "Resume engineering only when a concrete trigger arrives: new source/broker evidence, future runtime observation, explicit user-direct trade/risk convention, supervised-execution authorization, holdout activation authorization, or upstream blocker closure.",
+    "On any trigger, rerun RESUME_WORK and use the actionability matrix plus unknown registry to select only the dependency whose trigger was satisfied.",
+    "Do not repeat finite Exness warmup, exact cross-feed seed transfer, current-cost-to-historical extrapolation, or downstream canonical replay while their blockers remain open.",
+    "Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED; protected holdout scoring, economic scoring, and automatic order sending remain disabled."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -414,9 +417,11 @@
     "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_IMPLEMENTATION_V0.1_2026-09-17.md",
     "docs/PHASE1_PILOT_OPERATIONS_RUNTIME_SMOKE_2026-09-17.md",
     "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md",
-    "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_RESULT_V0.1_2026-09-17.md"
+    "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_RESULT_V0.1_2026-09-17.md",
+    "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.1.json",
+    "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_AUDIT_2026-09-17.md"
   ],
-  "resume_instruction": "P1-09 unknown classification and P1-13 pilot operations scaffold are implemented. P1-10 MT5 cost-treatment evidence V0.1 is also complete for current-runtime observability: current Trial17 source identity matches the existing collector source identity; swap_* metadata and deal commission/fee/swap schema are observable; no XAUUSDm deal-cost sample was present. The old generic cost gap was superseded by an IRREDUCIBLE_OR_NOT_YET_REDUCIBLE/BLOCKING historical cost-schedule residual and a RUNTIME_OBSERVABLE/REQUIRED_LATER future XAUUSDm deal-cost-sample residual. Full repo 411/411 and broad Ruff passed. Next bounded loop is a remaining-dependency actionability audit; do not extrapolate current costs into historical replay, open holdout outcomes, infer fills/slippage, or enable order execution. Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED.",
+  "resume_instruction": "The current continuous engineering loop has reached a genuine external-trigger boundary. P1-09 unknown classification, P1-13 pilot operations scaffold, and P1-10 current-runtime cost observability are implemented and validated. The remaining registry has 12 OPEN dependencies and the actionability audit classifies ACTIONABLE_NOW=0. Do not invent work or rerun closed evidence routes. Resume only when a concrete trigger is present: new source/broker evidence; a future runtime observation with an existing acquisition method; explicit user-direct trade/risk conventions; separate supervised-execution authorization; holdout activation authorization; or closure of an upstream blocker. Use docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.1.json to route the trigger to the correct residual. Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED; protected holdout scoring, economic scoring, profitability/expectancy claims, and automatic order execution remain disabled.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1665,5 +1670,21 @@
     "order_send": "DISABLED",
     "holdout_scoring": "DISABLED",
     "economic_scoring": "DISABLED"
+  },
+  "remaining_dependency_actionability": {
+    "status": "NO_CURRENT_ACTIONABLE_DEPENDENCY_WITHOUT_NEW_TRIGGER",
+    "audit": "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_AUDIT_2026-09-17.md",
+    "matrix": "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.1.json",
+    "open_dependencies": 12,
+    "actionable_now": 0,
+    "stop_boundary": true,
+    "valid_trigger_types": [
+      "new source or broker evidence",
+      "future runtime observation through an already-defined acquisition method",
+      "explicit user-direct trade or risk convention",
+      "separate supervised execution authorization",
+      "holdout activation authorization under the frozen protocol",
+      "upstream blocker closure enabling downstream validation"
+    ]
   }
 }
