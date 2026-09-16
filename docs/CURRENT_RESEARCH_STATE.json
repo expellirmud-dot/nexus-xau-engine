@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-17T03:38:11+07:00",
+  "updated_at": "2026-09-17T03:45:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_EXNESS_ORIGIN_SEED_EVIDENCE_ROUTE_CLOSURE_2026-09-17.md"
+    "latest_progress_checkpoint": "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_CONTRACT_V0.1_2026-09-17.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -127,7 +127,8 @@
       "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_RESULT_V0.2_2026-09-16.md",
       "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_CONTRACT_V0.1_2026-09-16.md",
       "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_RESULT_V0.1_2026-09-16.md",
-      "docs/PHASE1_EXNESS_ORIGIN_SEED_EVIDENCE_ROUTE_CLOSURE_2026-09-17.md"
+      "docs/PHASE1_EXNESS_ORIGIN_SEED_EVIDENCE_ROUTE_CLOSURE_2026-09-17.md",
+      "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_CONTRACT_V0.1_2026-09-17.md"
     ]
   },
   "provenance_guard": {
@@ -219,14 +220,15 @@
     "dukascopy_exness_overlap_sensitivity_result_v02": "ALL_3_FROZEN_WINDOWS_STATE_DIVERGENCE_OBSERVED_DIRECT_EXACT_CROSS_FEED_STATE_TRANSFER_NOT_SUPPORTED",
     "exness_prehistory_forward_closure_contract": "FROZEN_PRE_FALSIFICATION_V0.1_NO_WARMUP_NO_EXPIRY_NO_ANCHOR_BOUND_ASSUMED",
     "exness_prehistory_forward_closure_result": "HYPOTHESIS_FALSIFIED_5_OF_5_PASS_RELEVANT_64_PASS_FULL_REPO_379_PASS_BROAD_RUFF_PASS",
-    "origin_seed_evidence_route_closure": "CURRENT_PROVEN_ROUTES_EXHAUSTED_STRUCTURAL_BLOCKER_NO_COMPLETE_SEED"
+    "origin_seed_evidence_route_closure": "CURRENT_PROVEN_ROUTES_EXHAUSTED_STRUCTURAL_BLOCKER_NO_COMPLETE_SEED",
+    "unknown_classification_enforcement_contract": "FROZEN_PRE_IMPLEMENTATION_V0.1"
   },
   "next_steps": [
-    "Origin-history initialization is a structural blocker under current evidence; do not spend further compute on finite post-2015 warmup or exact cross-feed seed transfer.",
-    "Next non-blocked engineering loop: close P1-09 Unknown-value classification enforcement so unresolved dependencies carry both epistemic class and blocking axis in machine-readable state/preflight validation.",
-    "Reuse the project unknown classes KNOWN_NOW, DERIVABLE, RUNTIME_OBSERVABLE, STRUCTURAL_UNKNOWN, and IRREDUCIBLE_OR_NOT_YET_REDUCIBLE plus the orthogonal axes BLOCKING, NON_BLOCKING, REQUIRED_LATER, and IRRELEVANT; do not invent market thresholds.",
-    "Keep real Exness V2 fail-closed as DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED; reopen the seed route only on genuinely new evidence or an authorized source-backed lifecycle change.",
-    "Automatic order sending and protected holdout outcome scoring remain disabled."
+    "P1-09 unknown-classification enforcement contract V0.1 is frozen pre-implementation.",
+    "Create the Phase 1 unknown-classification registry covering every current PARTIAL/BLOCKING readiness missing item with epistemic class, blocking axis, evidence, and class-specific resolution metadata.",
+    "Extend research preflight to fail closed on missing/invalid/duplicate/dangling registry coverage and add targeted validator tests.",
+    "Move P1-09 to READY_RESEARCH_LEVEL only after registry coverage, targeted tests, full regression, broad Ruff, structured JSON validation, and research preflight pass.",
+    "Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED; holdout scoring and automatic order sending remain disabled."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -391,9 +393,10 @@
     "docs/PHASE1_DUKASCOPY_EXNESS_OVERLAP_SENSITIVITY_RESULT_V0.2_2026-09-16.md",
     "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_CONTRACT_V0.1_2026-09-16.md",
     "docs/PHASE1_EXNESS_PREHISTORY_FORWARD_CLOSURE_RESULT_V0.1_2026-09-16.md",
-    "docs/PHASE1_EXNESS_ORIGIN_SEED_EVIDENCE_ROUTE_CLOSURE_2026-09-17.md"
+    "docs/PHASE1_EXNESS_ORIGIN_SEED_EVIDENCE_ROUTE_CLOSURE_2026-09-17.md",
+    "docs/PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_CONTRACT_V0.1_2026-09-17.md"
   ],
-  "resume_instruction": "Phase 1 archive/replay engineering remains current at 0700_MINIMAL_V2.0. Origin-history initialization is closed as a CURRENT-EVIDENCE STRUCTURAL BLOCKER under the frozen lifecycle: exact Dukascopy-to-Exness state transfer is NOT_SUPPORTED, finite forward Exness warmup is falsified as a COMPLETE-seed mechanism, proven same-source Exness history begins at 2015-08-10, and current broker/runtime metadata exposes price-grid resolution but no finite historical anchor domain. Real Exness V2 therefore remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED. Do not spend more compute on that closed route without new evidence. Next non-blocked engineering action is P1-09 Unknown-value classification enforcement: make epistemic class and blocking axis machine-required in current state/preflight so STRUCTURAL_UNKNOWN is not conflated with runtime-observable or derivable unknowns. Automatic order execution and protected holdout scoring remain disabled.",
+  "resume_instruction": "Origin-history initialization is closed as a structural blocker under current evidence. The next non-blocked engineering loop is P1-09 Unknown-value classification enforcement. Contract PHASE1_UNKNOWN_CLASSIFICATION_ENFORCEMENT_V0.1 is frozen pre-implementation: every current PARTIAL/BLOCKING readiness missing item must map exactly once to an OPEN registry entry carrying epistemic class plus blocking axis and evidence; preflight must fail closed on drift. Do not mark P1-09 ready until registry, validator tests, full regression, Ruff, JSON validation, and research preflight pass. Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED; protected holdout scoring and automatic order execution remain disabled.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
