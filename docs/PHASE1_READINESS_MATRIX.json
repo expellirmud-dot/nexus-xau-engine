@@ -1,6 +1,6 @@
 {
   "schema_version": "PHASE1_READINESS_MATRIX_V0.1",
-  "updated_at": "2026-09-17T04:04:40+07:00",
+  "updated_at": "2026-09-17T04:24:08+07:00",
   "scope": "Phase 1 / เฟสหนึ่ง",
   "naming_guard": "07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method name. Person/channel/system labels are source attribution only.",
   "overall": {
@@ -153,17 +153,21 @@
         "docs/PHASE1_ARCHIVE_V2_INTEGRATION_IMPLEMENTATION_V0.2_2026-09-15.md",
         "docs/PHASE1_V2_ORIGIN_STATE_CARRY_CONTRACT_V0.1_2026-09-15.md",
         "docs/PHASE1_V2_ORIGIN_STATE_CARRY_REQUIREMENT_MATRIX_V0.1_2026-09-16.md",
-        "docs/PHASE1_V2_ORIGIN_STATE_CARRY_IMPLEMENTATION_V0.1_2026-09-16.md"
+        "docs/PHASE1_V2_ORIGIN_STATE_CARRY_IMPLEMENTATION_V0.1_2026-09-16.md",
+        "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md",
+        "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_RESULT_V0.1_2026-09-17.md"
       ],
       "missing": [
         "exact cross-server/feed equivalence to the target Exness Demo/MT5 runtime where required for execution claims",
         "historical/current-runtime fill slippage evidence sufficient for economic claims",
-        "commission/fee/swap treatment where material for economic P&L",
+        "historical account-specific commission/fee/swap schedule sufficient for replayed economic P&L",
+        "current/future XAUUSDm account-deal commission/fee/swap samples under an authorized supervised environment",
         "source-compatible trade stop geometry for trade-level P&L"
       ],
-      "note": "Archive-to-V2 integration V0.2 is implemented and tested. Remaining P1-10 blockers are execution economics and execution-representation evidence; multi-year replay readiness is tracked separately under P1-08.",
+      "note": "Archive-to-V2 integration V0.2 is implemented and tested. Current MT5 cost observability is now split from historical replay economics: swap metadata and commission/fee/swap deal fields are observable, but exact historical account-specific cost schedules remain blocking and no current XAUUSDm deal-cost sample has yet been observed. Cross-feed equivalence, fill/slippage, and stop geometry remain separately unresolved.",
       "history": [
-        "2026-09-15 prior note preserved: broad replay was described as still requiring provenance-preserving integration into frozen V2 state machinery plus unresolved trade-economics inputs."
+        "2026-09-15 prior note preserved: broad replay was described as still requiring provenance-preserving integration into frozen V2 state machinery plus unresolved trade-economics inputs.",
+        "2026-09-17 cost-treatment evidence V0.1 preserved current-runtime observability separately from historical replay economics: the generic commission/fee/swap gap was superseded by a blocking historical-cost-schedule residual plus a required-later current/future XAUUSDm deal-cost-sample residual."
       ]
     },
     {

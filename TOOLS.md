@@ -303,6 +303,32 @@ The corner status reads local status.json + SQLite directly; the browser is opti
 Closing the corner widget does not stop the collector.
 
 
+### MT5 Cost-Treatment Evidence Probe V0.1
+
+Implementation:
+- `src/nexus_xau/data/mt5_cost_evidence.py`
+- `scripts/mt5_cost_evidence.py`
+- `tests/test_mt5_cost_evidence.py`
+
+Contract:
+- `docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md`
+
+Result:
+- `docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_RESULT_V0.1_2026-09-17.md`
+
+Purpose:
+- read current `swap_*` symbol metadata;
+- inspect account-deal commission/fee/swap field observability in read-only mode;
+- summarize only XAUUSDm commission/fee/swap samples when they actually exist;
+- preserve source identity and keep current-runtime observations separate from historical replay-cost schedules.
+
+Boundary:
+- READ-ONLY DATA / ORDER SEND DISABLED;
+- no zero-cost assumption from empty or zero-valued samples;
+- no profitability, expectancy, trade P&L, fill/slippage inference, or holdout scoring;
+- current runtime metadata is not a historical commission/fee/swap schedule.
+
+
 ### Exness XAUUSDm Tick Archive Coverage Mapper V0.1
 
 Implementation:

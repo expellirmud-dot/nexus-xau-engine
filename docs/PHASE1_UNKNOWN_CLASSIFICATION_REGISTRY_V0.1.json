@@ -1,6 +1,6 @@
 {
   "schema_version": "PHASE1_UNKNOWN_CLASSIFICATION_REGISTRY_V0.1",
-  "updated_at": "2026-09-17T04:04:40+07:00",
+  "updated_at": "2026-09-17T04:19:17+07:00",
   "scope": "Phase 1 readiness unresolved dependencies",
   "allowed_epistemic_classes": [
     "KNOWN_NOW",
@@ -81,14 +81,21 @@
       "id": "U-P1-10-COST-TREATMENT",
       "readiness_component_id": "P1-10",
       "readiness_missing": "commission/fee/swap treatment where material for economic P&L",
-      "status": "OPEN",
+      "status": "SUPERSEDED",
       "epistemic_class": "RUNTIME_OBSERVABLE",
       "blocking_axis": "REQUIRED_LATER",
       "resolution_basis": "Current symbol metadata exposes swap fields and account deal history is readable, but representative trade-level cost treatment has not been frozen.",
       "observation_method": "Use runtime symbol/account metadata and actual deal records under the authorized environment, then freeze the economic-cost representation before any profitability claim.",
       "evidence_refs": [
         "docs/PHASE1_MT5_CAPABILITY_REPORT_2026-09-14.md",
-        "docs/BROKER_METADATA_EXNESS_MT5TRIAL6_XAUUSDM_2026-09-02.md"
+        "docs/BROKER_METADATA_EXNESS_MT5TRIAL6_XAUUSDM_2026-09-02.md",
+        "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md",
+        "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_RESULT_V0.1_2026-09-17.md"
+      ],
+      "superseded_at": "2026-09-17T04:19:17+07:00",
+      "superseded_by": [
+        "U-P1-10-HISTORICAL-COST-SCHEDULE",
+        "U-P1-10-XAU-DEAL-COST-SAMPLES"
       ]
     },
     {
@@ -219,6 +226,35 @@
       ],
       "resolved_at": "2026-09-17T04:04:40+07:00",
       "resolved_by": "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_IMPLEMENTATION_V0.1_2026-09-17.md"
+    },
+    {
+      "id": "U-P1-10-HISTORICAL-COST-SCHEDULE",
+      "readiness_component_id": "P1-10",
+      "readiness_missing": "historical account-specific commission/fee/swap schedule sufficient for replayed economic P&L",
+      "status": "OPEN",
+      "epistemic_class": "IRREDUCIBLE_OR_NOT_YET_REDUCIBLE",
+      "blocking_axis": "BLOCKING",
+      "resolution_basis": "Current MT5 runtime exposes swap metadata and deal cost fields, but these observations do not reconstruct exact historical account-specific commission, fee, or financing schedules across replay periods; the frozen replay contract forbids a zero-cost assumption.",
+      "reduction_condition": "Obtain independently verified historical broker/account cost schedules covering the replayed intervals, or freeze a separately justified economic claim boundary that does not require an exact multi-year historical cost schedule.",
+      "evidence_refs": [
+        "docs/PHASE1_TICK_REPLAY_ENGINEERING_CONTRACT_V0.1_2026-09-15.md",
+        "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md",
+        "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_RESULT_V0.1_2026-09-17.md"
+      ]
+    },
+    {
+      "id": "U-P1-10-XAU-DEAL-COST-SAMPLES",
+      "readiness_component_id": "P1-10",
+      "readiness_missing": "current/future XAUUSDm account-deal commission/fee/swap samples under an authorized supervised environment",
+      "status": "OPEN",
+      "epistemic_class": "RUNTIME_OBSERVABLE",
+      "blocking_axis": "REQUIRED_LATER",
+      "resolution_basis": "The current account history API exposes commission, fee, and swap fields, but the bounded read-only probe returned zero XAUUSDm deal records. Future authorized supervised observations can provide account-specific samples without being treated as historical schedule truth.",
+      "observation_method": "When supervised execution or naturally occurring XAUUSDm account deals are separately authorized/available, read the existing MT5 deal history fields commission, fee, and swap and persist provenance-preserving summaries without inferring historical schedule equivalence.",
+      "evidence_refs": [
+        "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md",
+        "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_RESULT_V0.1_2026-09-17.md"
+      ]
     }
   ]
 }

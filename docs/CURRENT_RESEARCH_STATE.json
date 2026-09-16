@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-09-17T04:08:46+07:00",
+  "updated_at": "2026-09-17T04:24:08+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
     "contract": "docs/STATE_AUTHORITY_CONTRACT_2026-09-13.md",
     "latest_state_reconciliation": "docs/STATE_DRIFT_AUDIT_2026-09-15.md",
     "project_current_research_checkpoint": "research_queue/closed/RQ-016_PHASE1_CONSTRUCTION_BOUNDARY.md",
-    "latest_operational_tooling_checkpoint": "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_IMPLEMENTATION_V0.1_2026-09-17.md",
+    "latest_operational_tooling_checkpoint": "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_RESULT_V0.1_2026-09-17.md",
     "project_current_state": "docs/CURRENT_RESEARCH_STATE.json",
     "operational_queue": "research_queue/QUEUE.json",
     "workstream_state": "docs/0700_WORKSTREAM_STATE.json",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md"
+    "latest_progress_checkpoint": "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_RESULT_V0.1_2026-09-17.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -134,7 +134,8 @@
       "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_CONTRACT_V0.1_2026-09-17.md",
       "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_IMPLEMENTATION_V0.1_2026-09-17.md",
       "docs/PHASE1_PILOT_OPERATIONS_RUNTIME_SMOKE_2026-09-17.md",
-      "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md"
+      "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md",
+      "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_RESULT_V0.1_2026-09-17.md"
     ]
   },
   "provenance_guard": {
@@ -232,14 +233,15 @@
     "pilot_operations_scaffold_contract": "FROZEN_PRE_IMPLEMENTATION_V0.1_NON_EXECUTING",
     "pilot_operations_scaffold_implementation": "V0.1_IMPLEMENTED_CONTRACT_10_PASS_GOVERNANCE_28_PASS_FULL_REPO_400_PASS_BROAD_RUFF_PASS",
     "pilot_operations_runtime_smoke": "CLEAN_SYNCED_COMMIT_74A9B34_GOVERNANCE_IDENTITY_PASS_LIVE_IDENTITY_PASS_LIVE_HEALTH_UNKNOWN_STOPPED_COLLECTOR",
-    "mt5_cost_treatment_evidence_contract": "FROZEN_PRE_PROBE_V0.1_READ_ONLY_NO_ECONOMIC_SCORING"
+    "mt5_cost_treatment_evidence_contract": "FROZEN_PRE_PROBE_V0.1_READ_ONLY_NO_ECONOMIC_SCORING",
+    "mt5_cost_treatment_evidence_result": "V0.1_CURRENT_RUNTIME_OBSERVABILITY_ESTABLISHED_COST_11_PASS_GOVERNANCE_39_PASS_FULL_REPO_411_PASS_BROAD_RUFF_PASS"
   },
   "next_steps": [
-    "P1-10 MT5 cost-treatment evidence contract V0.1 is frozen before runtime cost/schema observation.",
-    "Implement the read-only evidence probe and synthetic tests exactly as frozen: swap_* symbol metadata, account deal cost-field schema, XAUUSDm commission/fee/swap summaries only, source identity, no trade outcomes.",
-    "Run tests and validation before the runtime probe; then execute one bounded current-runtime observation and persist the evidence result.",
-    "Do not mark historical replay cost treatment known from current metadata; reconcile the registry to the remaining historical requirement after evidence is observed.",
-    "No profitability/expectancy/P&L, fill/slippage inference, protected holdout access, or order sending is authorized."
+    "P1-10 current-runtime cost observability V0.1 is complete: swap metadata and commission/fee/swap deal schema are observable, but zero XAUUSDm deal-cost samples were present and exact historical replay cost schedules remain unresolved.",
+    "Run a bounded remaining-dependency actionability audit over the OPEN unknown registry so each residual is marked actionable now vs requires new evidence, future runtime, or explicit user/authorization input; do not create market rules to fill gaps.",
+    "Do not attempt to solve U-P1-10-HISTORICAL-COST-SCHEDULE by extrapolating current swap values or empty XAUUSDm samples backward in time.",
+    "Keep protected holdout scoring, economic scoring, profitability/expectancy claims, fill/slippage inference, and automatic order sending disabled.",
+    "Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -411,9 +413,10 @@
     "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_CONTRACT_V0.1_2026-09-17.md",
     "docs/PHASE1_PILOT_OPERATIONS_SCAFFOLD_IMPLEMENTATION_V0.1_2026-09-17.md",
     "docs/PHASE1_PILOT_OPERATIONS_RUNTIME_SMOKE_2026-09-17.md",
-    "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md"
+    "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md",
+    "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_RESULT_V0.1_2026-09-17.md"
   ],
-  "resume_instruction": "P1-09 classification enforcement and P1-13 pilot operations scaffold are implemented. The current non-blocked evidence loop is U-P1-10-COST-TREATMENT. Contract PHASE1_MT5_COST_TREATMENT_EVIDENCE_V0.1 is frozen pre-probe: capture current runtime swap_* symbol fields and read-only account-deal commission/fee/swap schema/observations for XAUUSDm while excluding trade profit/price/direction from evidence output. Current runtime evidence must remain separate from historical replay cost schedule; no zero-cost assumption, economic scoring, fill/slippage inference, holdout access, or order send is allowed. Implement/tests first, then one bounded runtime probe, then reconcile the registry according to what remains unknown.",
+  "resume_instruction": "P1-09 unknown classification and P1-13 pilot operations scaffold are implemented. P1-10 MT5 cost-treatment evidence V0.1 is also complete for current-runtime observability: current Trial17 source identity matches the existing collector source identity; swap_* metadata and deal commission/fee/swap schema are observable; no XAUUSDm deal-cost sample was present. The old generic cost gap was superseded by an IRREDUCIBLE_OR_NOT_YET_REDUCIBLE/BLOCKING historical cost-schedule residual and a RUNTIME_OBSERVABLE/REQUIRED_LATER future XAUUSDm deal-cost-sample residual. Full repo 411/411 and broad Ruff passed. Next bounded loop is a remaining-dependency actionability audit; do not extrapolate current costs into historical replay, open holdout outcomes, infer fills/slippage, or enable order execution. Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1630,9 +1633,35 @@
     "live_health_status": "UNKNOWN_COLLECTOR_STOPPED_NO_FRESHNESS_THRESHOLD_INVENTED"
   },
   "mt5_cost_treatment_evidence": {
-    "status": "FROZEN_PRE_PROBE_V0.1",
+    "status": "CURRENT_RUNTIME_OBSERVABILITY_ESTABLISHED_HISTORICAL_SCHEDULE_UNRESOLVED",
     "contract": "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md",
-    "target_registry_entry": "U-P1-10-COST-TREATMENT",
+    "result": "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_RESULT_V0.1_2026-09-17.md",
+    "implementation": "src/nexus_xau/data/mt5_cost_evidence.py",
+    "cli": "scripts/mt5_cost_evidence.py",
+    "tests": "tests/test_mt5_cost_evidence.py",
+    "runtime_result_local": "results/mt5_cost_evidence/current_runtime_v01.json",
+    "runtime_result_sha256": "5b822f40c50f771e06f1a1d5e4c532ae6e06437469180551bf3c068fc36b848d",
+    "observed_at_utc": "2026-09-16T21:18:21+00:00",
+    "source_identity": "2017aa577e132c4e84ba5b15462e668b438f8aa0e0f96859737e855a7fe48818",
+    "current_server": "Exness-MT5Trial17",
+    "collector_source_identity_match": true,
+    "swap_fields_observed": {
+      "swap_long": -547.6,
+      "swap_short": 0.0,
+      "swap_mode": 1,
+      "swap_rollover3days": 3
+    },
+    "deal_schema_fields_observed": [
+      "commission",
+      "fee",
+      "swap"
+    ],
+    "xauusdm_deal_sample_count": 0,
+    "old_generic_registry_entry": "U-P1-10-COST-TREATMENT:SUPERSEDED",
+    "residual_registry_entries": [
+      "U-P1-10-HISTORICAL-COST-SCHEDULE",
+      "U-P1-10-XAU-DEAL-COST-SAMPLES"
+    ],
     "order_send": "DISABLED",
     "holdout_scoring": "DISABLED",
     "economic_scoring": "DISABLED"
