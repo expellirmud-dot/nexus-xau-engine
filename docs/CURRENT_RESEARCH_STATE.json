@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-08T03:05:00+07:00",
+  "updated_at": "2026-10-08T03:08:16+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_RESULT_V0.1_2026-10-08.md"
+    "latest_progress_checkpoint": "docs/0700_MINIMAL_V2_1_FIXED_ORIGIN_TARGET_CONTRACT_2026-10-08.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -143,7 +143,8 @@
       "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_CONTRACT_V0.1_2026-10-08.md",
       "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.2.json",
       "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_RESULT_V0.1_2026-10-08.md",
-      "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.3.json"
+      "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.3.json",
+      "docs/0700_MINIMAL_V2_1_FIXED_ORIGIN_TARGET_CONTRACT_2026-10-08.md"
     ]
   },
   "provenance_guard": {
@@ -247,14 +248,16 @@
     "project_review_master_todo": "REVIEWED_2026_10_07_MACHINE_STATE_C0FD686_12_OPEN_0_ACTIONABLE_NOW_NAVIGATION_ONLY",
     "video_trade_geometry_reanchor_contract": "FROZEN_PRE_IMPLEMENTATION_NEW_FIRST_PARTY_SOURCE_TRIGGER_STOP_GEOMETRY_ACTIONABLE_NOW",
     "nexus_cli_worker_integration": "REGISTERED_8_TESTS_PASS_CONTINUITY_SELFTEST_PASS_RESUME_DISCOVERY_PASS_LONGCAT25_LIVE_NOT_YET_PROVEN",
-    "video_trade_geometry_reanchor_result": "V0.1_SOURCE_RECONCILED_FIXED_ORIGIN_TARGET_AUTHORITY_STOP_RESIDUAL_NARROWED_PRE_NEW_OUTCOME"
+    "video_trade_geometry_reanchor_result": "V0.1_SOURCE_RECONCILED_FIXED_ORIGIN_TARGET_AUTHORITY_STOP_RESIDUAL_NARROWED_PRE_NEW_OUTCOME",
+    "minimal_v2_1_fixed_origin_target_contract": "FROZEN_PRE_IMPLEMENTATION_PRE_NEW_OUTCOME_13_REQUIREMENTS"
   },
   "next_steps": [
-    "Video/source trade-geometry re-anchor V0.1 is closed pre-new-outcome: fixed post-SIG/origin target level is current source authority; V2.0 PATH_REMAINING remains historical only.",
-    "Freeze a new pre-outcome research-version contract that changes only V2.0 target anchoring to the fixed post-SIG/origin target while preserving V2.0 reproducibility and lifecycle/data guards.",
-    "Implement and synthetic-falsify the new fixed-origin target version before inspecting any new historical/holdout outcome distribution.",
-    "Keep U-P1-10-STOP-PRICE-ROUTING open: structural Mode-2 stop reference is known, but exact numeric buffer/context routing for trade P&L remains unresolved and must not be outcome-fitted.",
-    "Protected holdout scoring, economic scoring, profitability/expectancy claims, and automatic order sending remain disabled; real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED."
+    "V2.1 fixed-origin-target contract is frozen pre-implementation/pre-new-outcome with 13 explicit synthetic/regression requirements.",
+    "Implement the narrow internal candidate-target mode while preserving V2.0 as the default public/carry/archive semantics.",
+    "Add V2.1 public frame/file entry points and explicit fixed-origin output fields; do not reuse path_remaining field names for the new target.",
+    "Map every frozen V2.1 requirement to explicit synthetic/regression tests before any new historical/holdout outcome inspection.",
+    "Run targeted V2.1 + V2.0 + carry + archive regression, Ruff, full repo tests if code changes, preflight/JSON/diff, then checkpoint/commit/push.",
+    "Keep U-P1-10-STOP-PRICE-ROUTING open; holdout/economic scoring/profitability/expectancy/order send remain disabled; real Exness remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -436,9 +439,10 @@
     "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.2.json",
     "docs/NEXUS_CLI_WORKER_INTEGRATION_2026-10-08.md",
     "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_RESULT_V0.1_2026-10-08.md",
-    "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.3.json"
+    "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.3.json",
+    "docs/0700_MINIMAL_V2_1_FIXED_ORIGIN_TARGET_CONTRACT_2026-10-08.md"
   ],
-  "resume_instruction": "The 2026-10-08 first-party video trade-geometry re-anchor is now source-reconciled. Prior RQ-007/RQ-009 plus the new hashed videos map the confirmed wick/check to the existing SIG Entry Mode-2 post-SIG point-check and establish the run target as a fixed post-SIG/origin target level. PATH_REMAINING_AT_CONFIRMATION is preserved only as the historical Q1/V2.0 research representation; outcome ranking did not define teacher intent. The old broad stop-geometry unknown was superseded by U-P1-10-STOP-PRICE-ROUTING: structural stop reference is source-backed, exact deterministic buffer/frame routing for P&L is still open. Next bounded action is to freeze and implement a new pre-outcome fixed-origin-target research version without mutating V2.0 or opening holdout/economic outcomes. Order send remains disabled.",
+  "resume_instruction": "Source re-anchor is closed and 0700_MINIMAL_V2.1_FIXED_ORIGIN_TARGET contract is now frozen pre-implementation/pre-new-outcome. Implement only the candidate target-anchor change: fixed post-SIG/origin H4 target, while preserving V2.0 default outputs/semantics, point-check lifecycle, carry/archive behavior and all data guards. The contract freezes 13 requirements including BUY/SELL fixed target, confirmation-price invariance, retracement distinction, terminal races, multi-origin independence, V2.0/carry/archive regressions and no economic/execution fields. Do not inspect new historical or holdout outcome distributions. U-P1-10-STOP-PRICE-ROUTING remains open; order send remains disabled.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1746,5 +1750,16 @@
       "resume_discovery": "nexus_cli_worker:OK"
     },
     "research_semantics_changed": false
+  },
+  "minimal_v2_1_fixed_origin_target": {
+    "version": "0700_MINIMAL_V2.1_FIXED_ORIGIN_TARGET",
+    "status": "CONTRACT_FROZEN_PRE_IMPLEMENTATION",
+    "contract": "docs/0700_MINIMAL_V2_1_FIXED_ORIGIN_TARGET_CONTRACT_2026-10-08.md",
+    "source_authority": "SIG_RUN_FIXED_ORIGIN_TARGET_LEVEL",
+    "v2_0_immutable": true,
+    "new_historical_outcome_inspection": "DISABLED",
+    "holdout_scoring": "DISABLED",
+    "economic_scoring": "DISABLED",
+    "order_send": "DISABLED"
   }
 }
