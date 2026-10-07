@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-17T04:25:53+07:00",
+  "updated_at": "2026-10-07T23:17:30+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_AUDIT_2026-09-17.md"
+    "latest_progress_checkpoint": "docs/PROJECT_REVIEW_AND_MASTER_TODO_2026-10-07.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -137,7 +137,8 @@
       "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md",
       "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_RESULT_V0.1_2026-09-17.md",
       "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.1.json",
-      "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_AUDIT_2026-09-17.md"
+      "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_AUDIT_2026-09-17.md",
+      "docs/PROJECT_REVIEW_AND_MASTER_TODO_2026-10-07.md"
     ]
   },
   "provenance_guard": {
@@ -237,13 +238,14 @@
     "pilot_operations_runtime_smoke": "CLEAN_SYNCED_COMMIT_74A9B34_GOVERNANCE_IDENTITY_PASS_LIVE_IDENTITY_PASS_LIVE_HEALTH_UNKNOWN_STOPPED_COLLECTOR",
     "mt5_cost_treatment_evidence_contract": "FROZEN_PRE_PROBE_V0.1_READ_ONLY_NO_ECONOMIC_SCORING",
     "mt5_cost_treatment_evidence_result": "V0.1_CURRENT_RUNTIME_OBSERVABILITY_ESTABLISHED_COST_11_PASS_GOVERNANCE_39_PASS_FULL_REPO_411_PASS_BROAD_RUFF_PASS",
-    "remaining_dependency_actionability": "V0.1_12_OPEN_0_ACTIONABLE_NOW_GENUINE_EXTERNAL_TRIGGER_BOUNDARY"
+    "remaining_dependency_actionability": "V0.1_12_OPEN_0_ACTIONABLE_NOW_GENUINE_EXTERNAL_TRIGGER_BOUNDARY",
+    "project_review_master_todo": "REVIEWED_2026_10_07_MACHINE_STATE_C0FD686_12_OPEN_0_ACTIONABLE_NOW_NAVIGATION_ONLY"
   },
   "next_steps": [
-    "No current OPEN dependency is ACTIONABLE_NOW under existing evidence and authorization; do not continue compute merely to avoid stopping.",
-    "Resume engineering only when a concrete trigger arrives: new source/broker evidence, future runtime observation, explicit user-direct trade/risk convention, supervised-execution authorization, holdout activation authorization, or upstream blocker closure.",
-    "On any trigger, rerun RESUME_WORK and use the actionability matrix plus unknown registry to select only the dependency whose trigger was satisfied.",
-    "Do not repeat finite Exness warmup, exact cross-feed seed transfer, current-cost-to-historical extrapolation, or downstream canonical replay while their blockers remain open.",
+    "Use docs/PROJECT_REVIEW_AND_MASTER_TODO_2026-10-07.md as the human-readable project map, but use Current State, readiness, unknown registry, actionability matrix, and later machine evidence as canonical workflow authority.",
+    "No current OPEN dependency is ACTIONABLE_NOW under existing evidence/authorization; do not start new replay/source/execution work merely to avoid waiting.",
+    "Resume only when a concrete trigger satisfies one of the 12 OPEN dependencies: new evidence, future runtime observation, explicit owner trade/risk convention, supervised-execution authorization, holdout authorization, or upstream blocker closure.",
+    "When a trigger arrives, route it through PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.1.json and PHASE1_UNKNOWN_CLASSIFICATION_REGISTRY_V0.1.json before changing code or semantics.",
     "Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED; protected holdout scoring, economic scoring, and automatic order sending remain disabled."
   ],
   "blocked_from_claiming": [
@@ -419,9 +421,10 @@
     "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md",
     "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_RESULT_V0.1_2026-09-17.md",
     "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.1.json",
-    "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_AUDIT_2026-09-17.md"
+    "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_AUDIT_2026-09-17.md",
+    "docs/PROJECT_REVIEW_AND_MASTER_TODO_2026-10-07.md"
   ],
-  "resume_instruction": "The current continuous engineering loop has reached a genuine external-trigger boundary. P1-09 unknown classification, P1-13 pilot operations scaffold, and P1-10 current-runtime cost observability are implemented and validated. The remaining registry has 12 OPEN dependencies and the actionability audit classifies ACTIONABLE_NOW=0. Do not invent work or rerun closed evidence routes. Resume only when a concrete trigger is present: new source/broker evidence; a future runtime observation with an existing acquisition method; explicit user-direct trade/risk conventions; separate supervised-execution authorization; holdout activation authorization; or closure of an upstream blocker. Use docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.1.json to route the trigger to the correct residual. Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED; protected holdout scoring, economic scoring, profitability/expectancy claims, and automatic order execution remain disabled.",
+  "resume_instruction": "A complete human-readable project review and Master To-Do/Trigger Map was refreshed on 2026-10-07 at docs/PROJECT_REVIEW_AND_MASTER_TODO_2026-10-07.md. It summarizes the project objective, source-backed rules, Minimal V2 pipeline, historical lessons, data/replay engineering, structural origin-seed blocker, governance, execution boundaries, and all 12 OPEN dependencies. This review is navigation/anti-forgetting only and does not override canonical machine authority. Current actionability remains 12 OPEN / 0 ACTIONABLE_NOW. Resume substantive work only when a concrete trigger satisfies an actionability entry. Real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED; protected holdout scoring, economic scoring, profitability/expectancy claims, and automatic order execution remain disabled.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1686,5 +1689,13 @@
       "holdout activation authorization under the frozen protocol",
       "upstream blocker closure enabling downstream validation"
     ]
+  },
+  "project_review_master_todo": {
+    "status": "CURRENT_HUMAN_READABLE_NAVIGATION_AND_ANTI_FORGETTING",
+    "ref": "docs/PROJECT_REVIEW_AND_MASTER_TODO_2026-10-07.md",
+    "reviewed_against_git": "c0fd68696780f7444b50dcdbdc6b45cf4ed64894",
+    "open_dependencies": 12,
+    "actionable_now": 0,
+    "authority_boundary": "Does not replace canonical claim/readiness/registry/actionability authority."
   }
 }
