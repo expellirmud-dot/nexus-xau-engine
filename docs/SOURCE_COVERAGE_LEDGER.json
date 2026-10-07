@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-13T05:18:16+07:00",
+  "updated_at": "2026-10-08T00:29:19+07:00",
   "purpose": "Durable source-review memory. Records which source windows/topics have already been screened or reviewed, what they established, what remains unresolved, and when a review may be reopened. This ledger prevents future agents from restarting source research from zero.",
   "rules": {
     "closed_windows_are_not_researched_from_zero_without_reopen_trigger": true,
@@ -870,6 +870,38 @@
         "MATERIALLY_NEW_QUESTION_NOT_COVERED_BY_PRIOR_REVIEW"
       ],
       "last_reviewed_at": "2026-09-13"
+    },
+    {
+      "coverage_id": "LOCAL_VIDEO_SL_TP_WICK_20260912_REVIEW_20261008",
+      "source_id": "LOCAL_VIDEO_PAIR_SHA256:8ad37be9...aeca17c|056594f6...1c2293",
+      "source_title": "Owner-supplied 2026-09-12 teaching videos: H1 wick/check SL and wick-anchored TP",
+      "topic": "Buy-side confirmed wick/check, lower-TF reversal entry, SL reference/buffer example, and H1/H4/Day wick-anchored TP distances",
+      "window": "164004 ~00:14-00:44; 163822 ~00:10-01:31",
+      "reviewed_modalities": [
+        "OWNER_TIMESTAMPED_TRANSCRIPT",
+        "LOCAL_MP4_HASH_MATCH",
+        "DIRECT_VISUAL_REVIEW"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Direct Buy-side teaching evidence identifies the confirmed parent-timeframe wick/check as an SL/invalidation reference, gives one explicit 100-point-below-local-low SL example, and measures H1/H4/Day profit targets from the wick reference at 1,000/1,500/5,000 project points respectively. This materially favors a fixed wick/origin target level over resetting PATH_REMAINING from the later confirmation close as teacher intent.",
+      "residual_unknowns": [
+        "UNIVERSAL_SL_BUFFER_SEMANTICS",
+        "SELL_SIDE_MIRROR_GEOMETRY",
+        "EXACT_EQUIVALENCE_CONFIRMED_CHECK_WICK_VS_EXISTING_POST_SIG_ANCHOR",
+        "DAY_5000_TO_10000_STAGE_TRANSITION"
+      ],
+      "claim_ids": [],
+      "checkpoint_refs": [
+        "docs/VIDEO_SOURCE_EVIDENCE_SL_TP_WICK_REANCHOR_2026-10-08.md",
+        "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_CONTRACT_V0.1_2026-10-08.md"
+      ],
+      "reopen_triggers": [
+        "DIRECT_SELL_SIDE_TEACHING_EXAMPLE",
+        "DIRECT_INSTRUCTOR_SL_BUFFER_CLARIFICATION",
+        "SOURCE_MAPPING_ERROR",
+        "NEW_PRIMARY_SOURCE_WITH_EXACT_CHECK_WICK_TO_POST_SIG_MAPPING"
+      ],
+      "last_reviewed_at": "2026-10-08"
     }
   ],
   "coverage_scope": "PARTIAL_SEED_RQ009_CURRENT_RESEARCH_WINDOWS",
