@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-14T10:39:52+07:00",
+  "updated_at": "2026-10-08T03:05:00+07:00",
   "purpose": "Machine-readable active-claim index. Historical documents remain preserved, but only ACTIVE claims in this register may be treated as the current project position without a fresh provenance check.",
   "rules": {
     "historical_docs_are_not_canonical_by_default": true,
@@ -850,12 +850,17 @@
     },
     {
       "claim_id": "0700_PATH_REMAINING_RESEARCH_RELATION",
-      "canonical_statement": "For the frozen Q1 07:00 proxy/scoring representation, PATH_REMAINING_AT_CONFIRMATION ranked above absolute ORIGIN_TARGET_LEVEL on resolved target-vs-point-check ordering in both discovery and replication. This aligns with direct project guidance that a 07:00 entry participates in an inherited remaining run rather than resetting a fresh full target, but Q1 itself is not instructor-intent proof.",
-      "status": "ACTIVE_USER_GUIDANCE_PLUS_REPLICATED_RESEARCH_REPRESENTATION",
-      "engine_permission": "USE_PATH_REMAINING_AS_VERSIONED_RESEARCH_TARGET_NO_TRADE_WIN_CLAIM",
+      "canonical_statement": "Under the frozen Q1/V2.0 historical scoring representations, PATH_REMAINING_AT_CONFIRMATION ranked above absolute ORIGIN_TARGET_LEVEL on resolved target-vs-point-check ordering in discovery/replication. This remains valid historical evidence about that representation only. Source reconciliation now establishes that the SIG run objective is anchored to the post-SIG/origin reference; a later entry participates in the unfinished inherited run without re-anchoring the absolute target to candidate/confirmation close. PATH_REMAINING may reproduce historical versions but must not be used as teacher-intent authority for new source-faithful target construction.",
+      "status": "HISTORICAL_VERSIONED_RESEARCH_REPRESENTATION",
+      "engine_permission": "HISTORICAL_REPRODUCTION_ONLY_NO_TEACHER_INTENT_AUTHORITY",
       "source_refs": [
         "docs/DIRECT_RELATIVE_REMAINING_SIG_RUN_DAILY_FRAME_2026-09-03.md",
-        "docs/0700_Q1_ORIGIN_CONTEXT_REPLICATION_2026-09-12.md"
+        "docs/0700_Q1_ORIGIN_CONTEXT_REPLICATION_2026-09-12.md",
+        "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_RESULT_V0.1_2026-10-08.md",
+        "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_CONTRACT_V0.1_2026-10-08.md",
+        "docs/VIDEO_SOURCE_EVIDENCE_SL_TP_WICK_REANCHOR_2026-10-08.md",
+        "docs/RQ007_ENTRY_SL_INVALIDATION_SOURCE_CLOSURE_2026-09-08.md",
+        "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md"
       ],
       "risk_flags": [
         "NOT_TRADE_WIN_RATE",
@@ -863,7 +868,67 @@
         "EXACT_ENTRY_FILL_OPEN",
         "DO_NOT_RESET_FRESH_FULL_RUN_FROM_0700_ENTRY"
       ],
-      "provenance_note": "Direct project guidance supplies remaining-run semantics; Q1 provides representation-level empirical support."
+      "provenance_note": "Direct project guidance supplies remaining-run semantics; Q1 provides representation-level empirical support.",
+      "superseded_by": "SIG_RUN_FIXED_ORIGIN_TARGET_LEVEL",
+      "supersession_note": "Superseded only as current teacher-intent target authority; historical Q1/V2.0 representation and outcomes remain preserved.",
+      "governance": {
+        "schema_version": "WO055_CLAIM_GOVERNANCE_V0.1",
+        "authority_mode": "EXCLUSIVE",
+        "current_authority_refs": [
+          "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_RESULT_V0.1_2026-10-08.md"
+        ],
+        "validations": [
+          {
+            "dimension": "SOURCE_VALIDATION",
+            "outcome": "PASS",
+            "governance_role": "PROMOTION_ELIGIBLE",
+            "evidence_refs": [
+              "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_RESULT_V0.1_2026-10-08.md"
+            ]
+          },
+          {
+            "dimension": "REPRESENTATION_VALIDATION",
+            "outcome": "PASS",
+            "governance_role": "PROMOTION_ELIGIBLE",
+            "evidence_refs": [
+              "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_RESULT_V0.1_2026-10-08.md",
+              "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_CONTRACT_V0.1_2026-10-08.md"
+            ]
+          },
+          {
+            "dimension": "IMPLEMENTATION_VALIDATION",
+            "outcome": "NOT_APPLICABLE",
+            "governance_role": "NO_PROMOTION_AUTHORITY",
+            "evidence_refs": []
+          },
+          {
+            "dimension": "HISTORICAL_EVIDENCE",
+            "outcome": "PASS",
+            "governance_role": "CONTEXT_ONLY",
+            "evidence_refs": [
+              "docs/0700_Q1_ORIGIN_CONTEXT_REPLICATION_2026-09-12.md"
+            ]
+          },
+          {
+            "dimension": "REPLICATION",
+            "outcome": "NOT_APPLICABLE",
+            "governance_role": "NO_PROMOTION_AUTHORITY",
+            "evidence_refs": []
+          },
+          {
+            "dimension": "CONTROL",
+            "outcome": "NOT_APPLICABLE",
+            "governance_role": "NO_PROMOTION_AUTHORITY",
+            "evidence_refs": []
+          },
+          {
+            "dimension": "HOLDOUT",
+            "outcome": "NOT_APPLICABLE",
+            "governance_role": "NO_PROMOTION_AUTHORITY",
+            "evidence_refs": []
+          }
+        ]
+      }
     },
     {
       "claim_id": "0700_OWNER_DECISION_SYSTEM_OBJECTIVE",
@@ -881,6 +946,89 @@
         "NO_PRECOMMITTED_WIN_RATE_CLAIM"
       ],
       "provenance_note": "Direct owner clarification recorded 2026-09-13. Highest project authority for interpreting the purpose and success criteria of the narrow 07:00 workstream."
+    },
+    {
+      "claim_id": "SIG_RUN_FIXED_ORIGIN_TARGET_LEVEL",
+      "canonical_statement": "For source-faithful SIG run geometry, the confirmed post-SIG/origin reference is the run-count anchor and the timeframe objective is an absolute target level fixed from that reference rather than re-anchored to a later entry/confirmation price. H1 uses a 1,000-project-point primary run and H4 uses a 1,500-project-point primary run. The supplied 2026-09-12 Buy teaching video also directly demonstrates a Day 5,000-point target from the wick reference, while the broader D1 5,000-10,000 stage/set transition remains unresolved. A later 07:00/Daily-Frame entry may participate in the unfinished inherited run; remaining nominal run-progress state and the later entry-to-fixed-target price distance are distinct quantities and can differ after retracement.",
+      "status": "ACTIVE_SOURCE_BACKED_REANCHORED_FIXED_ORIGIN_TARGET",
+      "engine_permission": "CANONICAL_SIG_RUN_TARGET_GEOMETRY_RESEARCH_ONLY_NO_TRADE_PNL",
+      "source_refs": [
+        "docs/RQ007_ENTRY_SL_INVALIDATION_SOURCE_CLOSURE_2026-09-08.md",
+        "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
+        "docs/DIRECT_RELATIVE_REMAINING_SIG_RUN_DAILY_FRAME_2026-09-03.md",
+        "docs/VIDEO_SOURCE_EVIDENCE_SL_TP_WICK_REANCHOR_2026-10-08.md",
+        "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_CONTRACT_V0.1_2026-10-08.md",
+        "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_RESULT_V0.1_2026-10-08.md",
+        "docs/0700_D1_DAY_RUN_SOURCE_REREVIEW_2026-09-13.md"
+      ],
+      "supersedes": [
+        "0700_PATH_REMAINING_RESEARCH_RELATION"
+      ],
+      "supersession_note": "Supersedes PATH_REMAINING only as current source-faithful target-anchor authority; does not erase historical representation results.",
+      "governance": {
+        "schema_version": "WO055_CLAIM_GOVERNANCE_V0.1",
+        "authority_mode": "COMPOSITE",
+        "current_authority_refs": [
+          "docs/RQ007_ENTRY_SL_INVALIDATION_SOURCE_CLOSURE_2026-09-08.md",
+          "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
+          "docs/VIDEO_SOURCE_EVIDENCE_SL_TP_WICK_REANCHOR_2026-10-08.md",
+          "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_RESULT_V0.1_2026-10-08.md"
+        ],
+        "validations": [
+          {
+            "dimension": "SOURCE_VALIDATION",
+            "outcome": "PASS",
+            "governance_role": "PROMOTION_ELIGIBLE",
+            "evidence_refs": [
+              "docs/RQ007_ENTRY_SL_INVALIDATION_SOURCE_CLOSURE_2026-09-08.md",
+              "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
+              "docs/VIDEO_SOURCE_EVIDENCE_SL_TP_WICK_REANCHOR_2026-10-08.md"
+            ]
+          },
+          {
+            "dimension": "REPRESENTATION_VALIDATION",
+            "outcome": "PASS",
+            "governance_role": "PROMOTION_ELIGIBLE",
+            "evidence_refs": [
+              "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_CONTRACT_V0.1_2026-10-08.md",
+              "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_RESULT_V0.1_2026-10-08.md"
+            ]
+          },
+          {
+            "dimension": "IMPLEMENTATION_VALIDATION",
+            "outcome": "NOT_APPLICABLE",
+            "governance_role": "NO_PROMOTION_AUTHORITY",
+            "evidence_refs": []
+          },
+          {
+            "dimension": "HISTORICAL_EVIDENCE",
+            "outcome": "PASS",
+            "governance_role": "CONTEXT_ONLY",
+            "evidence_refs": [
+              "docs/0700_Q1_ORIGIN_CONTEXT_REPLICATION_2026-09-12.md"
+            ]
+          },
+          {
+            "dimension": "REPLICATION",
+            "outcome": "NOT_APPLICABLE",
+            "governance_role": "NO_PROMOTION_AUTHORITY",
+            "evidence_refs": []
+          },
+          {
+            "dimension": "CONTROL",
+            "outcome": "NOT_APPLICABLE",
+            "governance_role": "NO_PROMOTION_AUTHORITY",
+            "evidence_refs": []
+          },
+          {
+            "dimension": "HOLDOUT",
+            "outcome": "NOT_APPLICABLE",
+            "governance_role": "NO_PROMOTION_AUTHORITY",
+            "evidence_refs": []
+          }
+        ],
+        "composite_compatibility_statement": "Prior RQ-007/RQ-009 source closure and the new hashed owner-supplied teaching videos identify the same post-SIG/point-check structural object and compatible wick-anchored run-target semantics."
+      }
     }
   ],
   "governance": {

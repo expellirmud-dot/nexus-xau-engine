@@ -1,6 +1,6 @@
 {
   "schema_version": "PHASE1_UNKNOWN_CLASSIFICATION_REGISTRY_V0.1",
-  "updated_at": "2026-09-17T04:19:17+07:00",
+  "updated_at": "2026-10-08T03:05:00+07:00",
   "scope": "Phase 1 readiness unresolved dependencies",
   "allowed_epistemic_classes": [
     "KNOWN_NOW",
@@ -102,15 +102,20 @@
       "id": "U-P1-10-STOP-GEOMETRY",
       "readiness_component_id": "P1-10",
       "readiness_missing": "source-compatible trade stop geometry for trade-level P&L",
-      "status": "OPEN",
+      "status": "SUPERSEDED",
       "epistemic_class": "STRUCTURAL_UNKNOWN",
       "blocking_axis": "BLOCKING",
       "resolution_basis": "Current frozen research lifecycle has chart-state point-check/terminal semantics but no source-backed universal trade stop geometry for realized P&L.",
       "reopen_condition": "Freeze a source-backed or explicit user-direct trade invalidation/stop convention before outcome scoring; do not derive it from favorable backtests.",
       "evidence_refs": [
         "docs/0700_EXISTING_KNOWLEDGE_SUFFICIENCY_AUDIT_2026-09-13.md",
-        "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md"
-      ]
+        "docs/RQ008_FULL_SYSTEM_PROOF_READINESS_CLOSURE_2026-09-08.md",
+        "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
+        "docs/VIDEO_SOURCE_EVIDENCE_SL_TP_WICK_REANCHOR_2026-10-08.md",
+        "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_RESULT_V0.1_2026-10-08.md"
+      ],
+      "superseded_by": "U-P1-10-STOP-PRICE-ROUTING",
+      "resolution_note": "New source evidence plus prior RQ-009 closes the structural SIG Entry Mode-2 stop reference. The remaining unresolved item is narrower: exact stop-price/buffer/context routing for trade-level P&L."
     },
     {
       "id": "U-P1-11-POSITION-SIZING",
@@ -254,6 +259,22 @@
       "evidence_refs": [
         "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_CONTRACT_V0.1_2026-09-17.md",
         "docs/PHASE1_MT5_COST_TREATMENT_EVIDENCE_RESULT_V0.1_2026-09-17.md"
+      ]
+    },
+    {
+      "id": "U-P1-10-STOP-PRICE-ROUTING",
+      "readiness_component_id": "P1-10",
+      "readiness_missing": "deterministic stop-price/buffer/context routing for the selected trade family sufficient for trade-level P&L",
+      "status": "OPEN",
+      "epistemic_class": "STRUCTURAL_UNKNOWN",
+      "blocking_axis": "BLOCKING",
+      "resolution_basis": "SIG Entry Mode-2 structural stop reference is source-backed at the confirmed post-SIG point-check wick, with context-specific nearby-frame routing. Exact deterministic stop price, numeric buffer and context routing sufficient for trade-level P&L are not source-closed; one 100-point Buy example cannot be universalized.",
+      "reopen_condition": "Obtain direct source evidence that closes the relevant stop buffer/frame-routing convention for the selected trade family, or freeze an explicit owner-direct project stop convention before any outcome/economic scoring. Do not derive the convention from favorable backtests.",
+      "evidence_refs": [
+        "docs/RQ007_ENTRY_SL_INVALIDATION_SOURCE_CLOSURE_2026-09-08.md",
+        "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
+        "docs/VIDEO_SOURCE_EVIDENCE_SL_TP_WICK_REANCHOR_2026-10-08.md",
+        "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_RESULT_V0.1_2026-10-08.md"
       ]
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-08T02:52:56+07:00",
+  "updated_at": "2026-10-08T03:05:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_CONTRACT_V0.1_2026-10-08.md"
+    "latest_progress_checkpoint": "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_RESULT_V0.1_2026-10-08.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -141,7 +141,9 @@
       "docs/PROJECT_REVIEW_AND_MASTER_TODO_2026-10-07.md",
       "docs/VIDEO_SOURCE_EVIDENCE_SL_TP_WICK_REANCHOR_2026-10-08.md",
       "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_CONTRACT_V0.1_2026-10-08.md",
-      "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.2.json"
+      "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.2.json",
+      "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_RESULT_V0.1_2026-10-08.md",
+      "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.3.json"
     ]
   },
   "provenance_guard": {
@@ -244,14 +246,15 @@
     "remaining_dependency_actionability": "V0.1_12_OPEN_0_ACTIONABLE_NOW_GENUINE_EXTERNAL_TRIGGER_BOUNDARY",
     "project_review_master_todo": "REVIEWED_2026_10_07_MACHINE_STATE_C0FD686_12_OPEN_0_ACTIONABLE_NOW_NAVIGATION_ONLY",
     "video_trade_geometry_reanchor_contract": "FROZEN_PRE_IMPLEMENTATION_NEW_FIRST_PARTY_SOURCE_TRIGGER_STOP_GEOMETRY_ACTIONABLE_NOW",
-    "nexus_cli_worker_integration": "REGISTERED_8_TESTS_PASS_CONTINUITY_SELFTEST_PASS_RESUME_DISCOVERY_PASS_LONGCAT25_LIVE_NOT_YET_PROVEN"
+    "nexus_cli_worker_integration": "REGISTERED_8_TESTS_PASS_CONTINUITY_SELFTEST_PASS_RESUME_DISCOVERY_PASS_LONGCAT25_LIVE_NOT_YET_PROVEN",
+    "video_trade_geometry_reanchor_result": "V0.1_SOURCE_RECONCILED_FIXED_ORIGIN_TARGET_AUTHORITY_STOP_RESIDUAL_NARROWED_PRE_NEW_OUTCOME"
   },
   "next_steps": [
-    "New first-party video evidence has satisfied the U-P1-10-STOP-GEOMETRY trigger; source re-anchor V0.1 is frozen before implementation/outcome.",
-    "Reconcile the video confirmed-wick/check object against existing Point #1 and PAT/post-SIG anchor semantics; do not assume they are identical until source mapping is explicit.",
-    "Re-anchor target intent: evaluate fixed wick/origin target levels against the historical PATH_REMAINING_AT_CONFIRMATION representation using source logic only, not prior outcomes.",
-    "Keep the explicit 100-point Buy SL wording as example evidence until universal buffer semantics and Sell geometry are independently closed.",
-    "Do not mutate V2.0; any semantic correction requires a new version. Holdout scoring, economic scoring, and automatic order sending remain disabled."
+    "Video/source trade-geometry re-anchor V0.1 is closed pre-new-outcome: fixed post-SIG/origin target level is current source authority; V2.0 PATH_REMAINING remains historical only.",
+    "Freeze a new pre-outcome research-version contract that changes only V2.0 target anchoring to the fixed post-SIG/origin target while preserving V2.0 reproducibility and lifecycle/data guards.",
+    "Implement and synthetic-falsify the new fixed-origin target version before inspecting any new historical/holdout outcome distribution.",
+    "Keep U-P1-10-STOP-PRICE-ROUTING open: structural Mode-2 stop reference is known, but exact numeric buffer/context routing for trade P&L remains unresolved and must not be outcome-fitted.",
+    "Protected holdout scoring, economic scoring, profitability/expectancy claims, and automatic order sending remain disabled; real Exness V2 remains DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -431,9 +434,11 @@
     "docs/VIDEO_SOURCE_EVIDENCE_SL_TP_WICK_REANCHOR_2026-10-08.md",
     "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_CONTRACT_V0.1_2026-10-08.md",
     "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.2.json",
-    "docs/NEXUS_CLI_WORKER_INTEGRATION_2026-10-08.md"
+    "docs/NEXUS_CLI_WORKER_INTEGRATION_2026-10-08.md",
+    "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_RESULT_V0.1_2026-10-08.md",
+    "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.3.json"
   ],
-  "resume_instruction": "New owner-supplied first-party teaching videos dated 2026-09-12 have reactivated engineering work. Raw files were hash-matched and preserved. The videos directly discuss Buy-side wick/check SL reference and H1/H4/Day TP distances measured from the wick. PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_V0.1 is frozen pre-implementation. U-P1-10-STOP-GEOMETRY is now ACTIONABLE_NOW. Critical source issue: the videos favor fixed wick/origin target levels, which may supersede PATH_REMAINING_AT_CONFIRMATION as teacher-intent representation while leaving V2.0 historical results untouched. Reconcile source geometry first; do not use outcomes, do not universalize the one 100-point Buy example, and do not infer Sell symmetry. Holdout/economic scoring and order execution remain disabled.",
+  "resume_instruction": "The 2026-10-08 first-party video trade-geometry re-anchor is now source-reconciled. Prior RQ-007/RQ-009 plus the new hashed videos map the confirmed wick/check to the existing SIG Entry Mode-2 post-SIG point-check and establish the run target as a fixed post-SIG/origin target level. PATH_REMAINING_AT_CONFIRMATION is preserved only as the historical Q1/V2.0 research representation; outcome ranking did not define teacher intent. The old broad stop-geometry unknown was superseded by U-P1-10-STOP-PRICE-ROUTING: structural stop reference is source-backed, exact deterministic buffer/frame routing for P&L is still open. Next bounded action is to freeze and implement a new pre-outcome fixed-origin-target research version without mutating V2.0 or opening holdout/economic outcomes. Order send remains disabled.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1684,13 +1689,12 @@
     "economic_scoring": "DISABLED"
   },
   "remaining_dependency_actionability": {
-    "status": "NEW_SOURCE_TRIGGER_RECEIVED",
+    "status": "SOURCE_TRIGGER_CONSUMED_NO_READINESS_DEPENDENCY_ACTIONABLE_NOW",
     "audit": "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_AUDIT_2026-09-17.md",
-    "matrix": "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.2.json",
+    "matrix": "docs/PHASE1_REMAINING_DEPENDENCY_ACTIONABILITY_V0.3.json",
     "open_dependencies": 12,
-    "actionable_now": 1,
-    "active_dependency": "U-P1-10-STOP-GEOMETRY",
-    "trigger": "docs/VIDEO_SOURCE_EVIDENCE_SL_TP_WICK_REANCHOR_2026-10-08.md"
+    "actionable_now": 0,
+    "note": "Readiness blockers require external/new triggers; separate pre-outcome research engineering remains actionable for the fixed-origin target re-anchor."
   },
   "project_review_master_todo": {
     "status": "CURRENT_HUMAN_READABLE_NAVIGATION_AND_ANTI_FORGETTING",
@@ -1701,14 +1705,14 @@
     "authority_boundary": "Does not replace canonical claim/readiness/registry/actionability authority."
   },
   "video_trade_geometry_reanchor": {
-    "status": "FROZEN_PRE_IMPLEMENTATION_V0.1",
+    "status": "SOURCE_RECONCILED_RESULT_V0.1_PRE_NEW_VERSION_IMPLEMENTATION",
     "evidence": "docs/VIDEO_SOURCE_EVIDENCE_SL_TP_WICK_REANCHOR_2026-10-08.md",
     "contract": "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_CONTRACT_V0.1_2026-10-08.md",
-    "source_video_sha256": {
-      "VID_20260912_164004 (1).mp4": "8ad37be975a4f204e6e0f53f113124081c5e15c2bcc85a012247631d1aeca17c",
-      "VID_20260912_163822 (1).mp4": "056594f6faa4ff44f47f621892eb420cfd65090426ec7ca04423e184cf1c2293"
-    },
-    "target_dependency": "U-P1-10-STOP-GEOMETRY",
+    "result": "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_RESULT_V0.1_2026-10-08.md",
+    "target_authority": "SIG_RUN_FIXED_ORIGIN_TARGET_LEVEL",
+    "historical_v2_0_target_representation": "PATH_REMAINING_AT_CONFIRMATION_PRESERVED_HISTORICAL_ONLY",
+    "stop_structural_reference": "SIG_ENTRY_MODE_2_CONFIRMED_POST_SIG_POINT_CHECK_WICK_SOURCE_BACKED",
+    "stop_residual_unknown": "U-P1-10-STOP-PRICE-ROUTING",
     "v2_0_mutation_authorized": false,
     "holdout_scoring": "DISABLED",
     "order_send": "DISABLED"

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-08T00:29:19+07:00",
+  "updated_at": "2026-10-08T03:05:00+07:00",
   "purpose": "Durable source-review memory. Records which source windows/topics have already been screened or reviewed, what they established, what remains unresolved, and when a review may be reopened. This ledger prevents future agents from restarting source research from zero.",
   "rules": {
     "closed_windows_are_not_researched_from_zero_without_reopen_trigger": true,
@@ -883,23 +883,25 @@
         "DIRECT_VISUAL_REVIEW"
       ],
       "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
-      "finding": "Direct Buy-side teaching evidence identifies the confirmed parent-timeframe wick/check as an SL/invalidation reference, gives one explicit 100-point-below-local-low SL example, and measures H1/H4/Day profit targets from the wick reference at 1,000/1,500/5,000 project points respectively. This materially favors a fixed wick/origin target level over resetting PATH_REMAINING from the later confirmation close as teacher intent.",
+      "finding": "Direct Buy-side teaching evidence, reconciled with prior RQ-007/RQ-009 source closure, maps the confirmed wick/check to the existing SIG Entry Mode-2 post-SIG point-check object, closes fixed wick/origin target anchoring for H1/H4 and a bounded Day-5,000 example, and narrows SL uncertainty to exact stop-price/buffer/context routing.",
       "residual_unknowns": [
-        "UNIVERSAL_SL_BUFFER_SEMANTICS",
-        "SELL_SIDE_MIRROR_GEOMETRY",
-        "EXACT_EQUIVALENCE_CONFIRMED_CHECK_WICK_VS_EXISTING_POST_SIG_ANCHOR",
+        "DETERMINISTIC_STOP_PRICE_BUFFER_CONTEXT_ROUTING",
         "DAY_5000_TO_10000_STAGE_TRANSITION"
       ],
-      "claim_ids": [],
+      "claim_ids": [
+        "SIG_RUN_FIXED_ORIGIN_TARGET_LEVEL",
+        "SIG_ENTRY_TWO_MODES",
+        "D1_RUN_FAMILY_0700"
+      ],
       "checkpoint_refs": [
         "docs/VIDEO_SOURCE_EVIDENCE_SL_TP_WICK_REANCHOR_2026-10-08.md",
-        "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_CONTRACT_V0.1_2026-10-08.md"
+        "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_CONTRACT_V0.1_2026-10-08.md",
+        "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_RESULT_V0.1_2026-10-08.md"
       ],
       "reopen_triggers": [
-        "DIRECT_SELL_SIDE_TEACHING_EXAMPLE",
-        "DIRECT_INSTRUCTOR_SL_BUFFER_CLARIFICATION",
+        "DIRECT_INSTRUCTOR_SL_BUFFER_OR_FRAME_ROUTING_CLARIFICATION",
         "SOURCE_MAPPING_ERROR",
-        "NEW_PRIMARY_SOURCE_WITH_EXACT_CHECK_WICK_TO_POST_SIG_MAPPING"
+        "NEW_PRIMARY_SOURCE_CONTRADICTING_FIXED_POST_SIG_TARGET_ANCHOR"
       ],
       "last_reviewed_at": "2026-10-08"
     }

@@ -46,14 +46,24 @@ def test_frozen_valid_governance_cases(case: dict) -> None:
     assert result["status"] == case["expected_status"]
 
 
-def test_current_canonical_claim_store_remains_valid_before_migration() -> None:
+def test_current_canonical_claim_store_remains_valid_with_governed_reanchor() -> None:
     store = json.loads(
         (ROOT / "docs" / "CANONICAL_CLAIM_REGISTER_2026-09-03.json").read_text(
             encoding="utf-8"
         )
     )
     result = validate_claim_store(store)
-    assert result == {"status": "PASS", "claim_count": 45}
+    assert result == {"status": "PASS", "claim_count": 46}
+
+    governed_ids = {
+        claim["claim_id"]
+        for claim in store["claims"]
+        if "governance" in claim
+    }
+    assert governed_ids == {
+        "0700_PATH_REMAINING_RESEARCH_RELATION",
+        "SIG_RUN_FIXED_ORIGIN_TARGET_LEVEL",
+    }
 
 
 def test_legacy_fingerprint_baseline_detects_silent_authority_sensitive_change() -> None:
@@ -163,7 +173,7 @@ def test_queue_admission_enforcement_accepts_valid_active_admission() -> None:
     assert result == {"status": "PASS", "migrated": True, "active_rq": active_id}
 
 
-def test_current_authority_report_is_deterministic_sorted_and_legacy_unclassified() -> None:
+def test_current_authority_report_is_deterministic_sorted_and_governed_reanchor_visible() -> None:
     store_path = ROOT / "docs" / "CANONICAL_CLAIM_REGISTER_2026-09-03.json"
     store = json.loads(store_path.read_text(encoding="utf-8"))
 
@@ -173,13 +183,35 @@ def test_current_authority_report_is_deterministic_sorted_and_legacy_unclassifie
     assert first == second
     assert first["schema_version"] == AUTHORITY_REPORT_SCHEMA_VERSION
     assert first["status"] == "PASS"
-    assert first["claim_count"] == 45
+    assert first["claim_count"] == 46
 
     claim_ids = [row["claim_id"] for row in first["claims"]]
     assert claim_ids == sorted(claim_ids)
-    assert all(row["authority_mode"] == "LEGACY_UNCLASSIFIED" for row in first["claims"])
-    assert all(row["current_authority_refs"] == [] for row in first["claims"])
-    assert all(row["conflict_status"] == "LEGACY_UNCLASSIFIED" for row in first["claims"])
+
+    by_id = {row["claim_id"]: row for row in first["claims"]}
+    assert by_id["0700_PATH_REMAINING_RESEARCH_RELATION"]["authority_mode"] == "EXCLUSIVE"
+    assert by_id["SIG_RUN_FIXED_ORIGIN_TARGET_LEVEL"]["authority_mode"] == "COMPOSITE"
+    assert (
+        by_id["0700_PATH_REMAINING_RESEARCH_RELATION"]["supersession_state"]["superseded_by"]
+        == "SIG_RUN_FIXED_ORIGIN_TARGET_LEVEL"
+    )
+    assert by_id["SIG_RUN_FIXED_ORIGIN_TARGET_LEVEL"]["supersession_state"]["supersedes"] == [
+        "0700_PATH_REMAINING_RESEARCH_RELATION"
+    ]
+
+    legacy_rows = [
+        row
+        for row in first["claims"]
+        if row["claim_id"]
+        not in {
+            "0700_PATH_REMAINING_RESEARCH_RELATION",
+            "SIG_RUN_FIXED_ORIGIN_TARGET_LEVEL",
+        }
+    ]
+    assert len(legacy_rows) == 44
+    assert all(row["authority_mode"] == "LEGACY_UNCLASSIFIED" for row in legacy_rows)
+    assert all(row["current_authority_refs"] == [] for row in legacy_rows)
+    assert all(row["conflict_status"] == "LEGACY_UNCLASSIFIED" for row in legacy_rows)
 
 
 def test_authority_report_delete_regenerate_is_byte_identical_and_source_unchanged(

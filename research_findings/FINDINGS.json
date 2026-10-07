@@ -1,7 +1,7 @@
 {
   "schema_version": "PHASE1_FINDING_LEDGER_V0.1",
   "role": "NON_CANONICAL_RESEARCH_FINDING_INDEX",
-  "updated_at": "2026-09-15T14:36:38+07:00",
+  "updated_at": "2026-10-08T03:05:00+07:00",
   "authority_rule": "This ledger indexes research observations and reconciliations only. It cannot override canonical claims, queue authority, source evidence, or holdout governance.",
   "findings": [
     {
@@ -136,6 +136,62 @@
       "forbidden_uses": [
         "UNIVERSAL_SPREAD_CONSTANT",
         "EXACT_TARGET_SERVER_EQUIVALENCE",
+        "SYSTEM_WIN_RATE",
+        "PROFITABILITY_CLAIM"
+      ],
+      "blocking": false
+    },
+    {
+      "finding_id": "FIND-0003",
+      "relation_key": "PATH_REMAINING_SCORING__FIXED_ORIGIN_TARGET_SOURCE_INTENT",
+      "title": "Historical PATH_REMAINING scoring versus source-faithful fixed-origin target",
+      "status": "RECONCILED",
+      "scope": "Phase 1",
+      "current_interpretation": "PATH_REMAINING_AT_CONFIRMATION remains a valid historical scoring representation that ranked well under the frozen Q1/V2.0 design, while current source authority places the run objective at a fixed post-SIG/origin target level. Outcome ranking does not determine instructor/source intent.",
+      "observations": [
+        {
+          "observation_id": "OBS-0007",
+          "statement": "Frozen historical Q1 work ranked PATH_REMAINING_AT_CONFIRMATION above absolute ORIGIN_TARGET_LEVEL on the then-defined target-vs-point-check ordering.",
+          "representation": "Historical frozen Q1/V2.0 research representation.",
+          "conditions": [
+            "07:00 checkpoint",
+            "historical outcome scoring",
+            "no teacher-intent promotion from outcome"
+          ],
+          "evidence_refs": [
+            "docs/0700_Q1_ORIGIN_CONTEXT_REPLICATION_2026-09-12.md"
+          ]
+        },
+        {
+          "observation_id": "OBS-0008",
+          "statement": "Prior RQ-007/RQ-009 source closure plus the new hashed owner-supplied teaching videos identify the post-SIG/confirmed wick as the run-count/point-check reference and measure timeframe TP from that reference.",
+          "representation": "Source semantic reconciliation, pre-new-outcome.",
+          "conditions": [
+            "SIG run geometry",
+            "post-SIG/point-check reference",
+            "no new outcome inspection"
+          ],
+          "evidence_refs": [
+            "docs/RQ007_ENTRY_SL_INVALIDATION_SOURCE_CLOSURE_2026-09-08.md",
+            "docs/RQ009_SIG_ENTRY_SOURCE_VISUAL_CHECKPOINT_2026-09-09.md",
+            "docs/VIDEO_SOURCE_EVIDENCE_SL_TP_WICK_REANCHOR_2026-10-08.md",
+            "docs/PHASE1_VIDEO_TRADE_GEOMETRY_REANCHOR_RESULT_V0.1_2026-10-08.md"
+          ]
+        }
+      ],
+      "reconciliation": {
+        "type": "OUTCOME_UTILITY_DOES_NOT_DEFINE_SOURCE_INTENT",
+        "statement": "The historical representation can be operationally useful without being the teacher-intended target anchor. Current source authority uses fixed origin target geometry; historical PATH_REMAINING results remain preserved for their version."
+      },
+      "canonical_claim_ref": "SIG_RUN_FIXED_ORIGIN_TARGET_LEVEL",
+      "allowed_uses": [
+        "HISTORICAL_CONTEXT",
+        "REPRESENTATION_COMPARISON",
+        "SOURCE_REANCHOR_RATIONALE"
+      ],
+      "forbidden_uses": [
+        "TEACHER_INTENT_FROM_BACKTEST",
+        "FRESH_TARGET_FROM_LATE_ENTRY",
         "SYSTEM_WIN_RATE",
         "PROFITABILITY_CLAIM"
       ],
