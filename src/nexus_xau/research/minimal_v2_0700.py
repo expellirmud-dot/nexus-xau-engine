@@ -18,6 +18,8 @@ PROJECT_POINT_SIZE = 0.01
 H4_RUN_POINTS = 1500.0
 H4_DELTA = timedelta(hours=4)
 M5_DELTA = timedelta(minutes=5)
+TARGET_MODE_PATH_REMAINING_V2_0 = "PATH_REMAINING_AT_CONFIRMATION_V2_0"
+TARGET_MODE_FIXED_ORIGIN_V2_1 = "FIXED_ORIGIN_TARGET_V2_1"
 
 
 @dataclass(frozen=True, slots=True)
@@ -329,7 +331,51 @@ def _target_price_from_confirmation(
     distance = remaining_points * PROJECT_POINT_SIZE
     if side == "BUY":
         return confirmation_close + distance
-    return confirmation_close - distance
+    if side == "SELL":
+        return confirmation_close - distance
+    raise ValueError(f"unsupported side: {side}")
+
+
+def fixed_origin_target_price(*, side: str, anchor_price: float) -> float:
+    distance = H4_RUN_POINTS * PROJECT_POINT_SIZE
+    if side == "BUY":
+        return anchor_price + distance
+    if side == "SELL":
+        return anchor_price - distance
+    raise ValueError(f"unsupported side: {side}")
+
+
+def directional_distance_points(
+    *, side: str, from_price: float, target_price: float
+) -> float:
+    if side == "BUY":
+        distance = target_price - from_price
+    elif side == "SELL":
+        distance = from_price - target_price
+    else:
+        raise ValueError(f"unsupported side: {side}")
+    return distance / PROJECT_POINT_SIZE
+
+
+def _candidate_target_price(
+    *,
+    target_mode: str,
+    origin: H4Origin,
+    confirmation_close: float,
+    remaining_points: float,
+) -> float:
+    if target_mode == TARGET_MODE_PATH_REMAINING_V2_0:
+        return _target_price_from_confirmation(
+            side=origin.side,
+            confirmation_close=confirmation_close,
+            remaining_points=remaining_points,
+        )
+    if target_mode == TARGET_MODE_FIXED_ORIGIN_V2_1:
+        return fixed_origin_target_price(
+            side=origin.side,
+            anchor_price=origin.anchor_price,
+        )
+    raise ValueError(f"unsupported candidate target mode: {target_mode}")
 
 
 def _origin_state_with_floor(
@@ -361,7 +407,14 @@ def _build_minimal_v2_core(
     consumed_floor_by_origin: dict[str, float] | None = None,
     output_start: pd.Timestamp | None = None,
     detected_origin_after: pd.Timestamp | None = None,
+    candidate_target_mode: str = TARGET_MODE_PATH_REMAINING_V2_0,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, dict[str, object]]:
+    if candidate_target_mode not in {
+        TARGET_MODE_PATH_REMAINING_V2_0,
+        TARGET_MODE_FIXED_ORIGIN_V2_1,
+    }:
+        raise ValueError(f"unsupported candidate target mode: {candidate_target_mode}")
+
     h4 = resample_ohlc(active_m1, "H4")
     m5 = resample_ohlc(active_m1, "M5")
     h4_events = detect_pat2_full_range(h4, "H4")
@@ -533,8 +586,9 @@ def _build_minimal_v2_core(
                 lower=float(day["daily_frame_lower"]),
                 upper=float(day["daily_frame_upper"]),
             )
-            target_price = _target_price_from_confirmation(
-                side=origin.side,
+            target_price = _candidate_target_price(
+                target_mode=candidate_target_mode,
+                origin=origin,
                 confirmation_close=confirmation.close,
                 remaining_points=remaining_confirmation,
             )
@@ -565,18 +619,52 @@ def _build_minimal_v2_core(
                     "confirmation_reference": "M5_PAT2_CLOSE_RESEARCH_CONVENTION",
                     "consumed_points_at_confirmation": consumed_confirmation,
                     "remaining_points_at_confirmation": remaining_confirmation,
-                    "path_remaining_target_price": target_price,
-                    "path_remaining_first_hit": hit.first_hit,
-                    "path_remaining_target_at": (
-                        hit.target_at.isoformat() if hit.target_at is not None else None
-                    ),
-                    "path_remaining_point_check_at": (
-                        hit.point_check_at.isoformat()
-                        if hit.point_check_at is not None
-                        else None
-                    ),
                 }
             )
+            if candidate_target_mode == TARGET_MODE_PATH_REMAINING_V2_0:
+                base.update(
+                    {
+                        "path_remaining_target_price": target_price,
+                        "path_remaining_first_hit": hit.first_hit,
+                        "path_remaining_target_at": (
+                            hit.target_at.isoformat()
+                            if hit.target_at is not None
+                            else None
+                        ),
+                        "path_remaining_point_check_at": (
+                            hit.point_check_at.isoformat()
+                            if hit.point_check_at is not None
+                            else None
+                        ),
+                    }
+                )
+            elif candidate_target_mode == TARGET_MODE_FIXED_ORIGIN_V2_1:
+                base.update(
+                    {
+                        "target_representation": TARGET_MODE_FIXED_ORIGIN_V2_1,
+                        "fixed_origin_target_price": target_price,
+                        "confirmation_to_fixed_target_points": directional_distance_points(
+                            side=origin.side,
+                            from_price=confirmation.close,
+                            target_price=target_price,
+                        ),
+                        "fixed_origin_first_hit": hit.first_hit,
+                        "fixed_origin_target_at": (
+                            hit.target_at.isoformat()
+                            if hit.target_at is not None
+                            else None
+                        ),
+                        "fixed_origin_point_check_at": (
+                            hit.point_check_at.isoformat()
+                            if hit.point_check_at is not None
+                            else None
+                        ),
+                    }
+                )
+            else:
+                raise ValueError(
+                    f"unsupported candidate target mode: {candidate_target_mode}"
+                )
             event_rows.append(base)
             day_candidate_count += 1
 
@@ -636,6 +724,23 @@ def _build_minimal_v2_core(
             "This module does not rewrite historical V1/Q1-Q4 results.",
         ],
     }
+    if candidate_target_mode == TARGET_MODE_FIXED_ORIGIN_V2_1:
+        report["version"] = "0700_MINIMAL_V2.1_FIXED_ORIGIN_TARGET"
+        report["research_status"] = (
+            "FROZEN_CONTRACT_IMPLEMENTATION_SIGNAL_RUN_ONLY_PRE_NEW_OUTCOME"
+        )
+        report["candidate_target_representation"] = TARGET_MODE_FIXED_ORIGIN_V2_1
+        report["guards"] = [
+            *report["guards"],
+            (
+                "Candidate target is fixed at origin/post-SIG anchor +/- nominal "
+                "H4 run; it is not re-anchored to M5 confirmation close."
+            ),
+            (
+                "Remaining nominal progress and confirmation-to-fixed-target "
+                "distance are distinct state quantities."
+            ),
+        ]
     return days_df, origins_df, events_df, report
 
 

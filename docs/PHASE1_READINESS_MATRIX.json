@@ -1,6 +1,6 @@
 {
   "schema_version": "PHASE1_READINESS_MATRIX_V0.1",
-  "updated_at": "2026-10-08T03:05:00+07:00",
+  "updated_at": "2026-10-08T03:31:00+07:00",
   "scope": "Phase 1 / เฟสหนึ่ง",
   "naming_guard": "07:00 Asia/Bangkok is a checkpoint inside Phase 1, not the method name. Person/channel/system labels are source attribution only.",
   "overall": {
@@ -62,8 +62,13 @@
       "blocks": [],
       "evidence_refs": [
         "docs/0700_MINIMAL_V2_FROZEN_SPEC_2026-09-13.md",
-        "docs/0700_MINIMAL_V2_PRE_OUTCOME_IMPLEMENTATION_FREEZE_2026-09-13.md"
-      ]
+        "docs/0700_MINIMAL_V2_PRE_OUTCOME_IMPLEMENTATION_FREEZE_2026-09-13.md",
+        "docs/0700_MINIMAL_V2_1_FIXED_ORIGIN_TARGET_CONTRACT_2026-10-08.md",
+        "docs/0700_MINIMAL_V2_1_FIXED_ORIGIN_TARGET_REQUIREMENT_MATRIX_2026-10-08.md",
+        "docs/0700_MINIMAL_V2_1_FIXED_ORIGIN_TARGET_IMPLEMENTATION_2026-10-08.md",
+        "tests/test_minimal_v21_0700.py"
+      ],
+      "note": "2026-10-08 V2.1 adds a source-reanchored fixed-origin candidate-target version with V2.0 defaults preserved; validation is synthetic/regression only and does not authorize new historical/holdout outcome scoring."
     },
     {
       "id": "P1-06",
@@ -72,7 +77,11 @@
       "blocks": [],
       "evidence_refs": [
         "docs/0700_HISTORICAL_DATA_READINESS_AND_TEST_STRATEGY_2026-09-13.md",
-        "tests/test_minimal_v2_0700.py"
+        "tests/test_minimal_v2_0700.py",
+        "docs/0700_MINIMAL_V2_1_FIXED_ORIGIN_TARGET_CONTRACT_2026-10-08.md",
+        "docs/0700_MINIMAL_V2_1_FIXED_ORIGIN_TARGET_REQUIREMENT_MATRIX_2026-10-08.md",
+        "docs/0700_MINIMAL_V2_1_FIXED_ORIGIN_TARGET_IMPLEMENTATION_2026-10-08.md",
+        "tests/test_minimal_v21_0700.py"
       ]
     },
     {

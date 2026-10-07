@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-14T13:52:39+07:00",
+  "updated_at": "2026-10-08T03:31:00+07:00",
   "workstream": "0700_METHOD_COMPLETION",
   "scope": "WORKSTREAM_CURRENT_0700_ONLY",
   "project_current_state_ref": "docs/CURRENT_RESEARCH_STATE.json",
@@ -229,7 +229,9 @@
     "docs/0700_D1_DAY_RUN_SOURCE_REREVIEW_2026-09-13.md",
     "docs/0700_DAILY_FRAME_SR_SELECTOR_SOURCE_CLOSURE_2026-09-13.md",
     "docs/0700_PAT50_DENOMINATOR_SOURCE_CLOSURE_2026-09-13.md",
-    "docs/0700_Q4_H4_CONSUMED_SHAPE_CROSS_PERIOD_2026-09-12.md"
+    "docs/0700_Q4_H4_CONSUMED_SHAPE_CROSS_PERIOD_2026-09-12.md",
+    "docs/0700_MINIMAL_V2_1_FIXED_ORIGIN_TARGET_CONTRACT_2026-10-08.md",
+    "docs/0700_MINIMAL_V2_1_FIXED_ORIGIN_TARGET_IMPLEMENTATION_2026-10-08.md"
   ],
   "operating_philosophy": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
   "success_definition": {
@@ -322,5 +324,20 @@
     "interpretation": "REPLICATED_ASSOCIATION_GEOMETRY_CONFOUNDED_INDEPENDENT_EFFECT_NOT_ESTABLISHED"
   },
   "phase1_scope_ref": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
-  "phase1_naming_guard": "This 07:00 workstream is a lane/checkpoint inside Phase 1. 07:00 is not the method name; Phase 1 does not mean price/run distance."
+  "phase1_naming_guard": "This 07:00 workstream is a lane/checkpoint inside Phase 1. 07:00 is not the method name; Phase 1 does not mean price/run distance.",
+  "minimal_v21_fixed_origin_target": {
+    "version": "0700_MINIMAL_V2.1_FIXED_ORIGIN_TARGET",
+    "status": "IMPLEMENTED_SYNTHETIC_AND_REGRESSION_VALIDATED_PRE_NEW_HISTORICAL_OUTCOME",
+    "contract": "docs/0700_MINIMAL_V2_1_FIXED_ORIGIN_TARGET_CONTRACT_2026-10-08.md",
+    "requirement_matrix": "docs/0700_MINIMAL_V2_1_FIXED_ORIGIN_TARGET_REQUIREMENT_MATRIX_2026-10-08.md",
+    "implementation": "src/nexus_xau/research/minimal_v21_0700.py",
+    "tests": "tests/test_minimal_v21_0700.py",
+    "checkpoint": "docs/0700_MINIMAL_V2_1_FIXED_ORIGIN_TARGET_IMPLEMENTATION_2026-10-08.md",
+    "source_authority": "SIG_RUN_FIXED_ORIGIN_TARGET_LEVEL",
+    "v2_0_history_preserved": true,
+    "new_historical_outcomes_opened": false,
+    "holdout_scoring": "DISABLED",
+    "economic_scoring": "DISABLED",
+    "order_send": "DISABLED"
+  }
 }
