@@ -421,3 +421,28 @@ Boundary:
 - operational epoch completeness is a Project engineering convention, not source-pure historical completeness;
 - no Win Rate, expectancy, profitability, broker fill, slippage, sizing, risk cap or automatic order send;
 - current 2026-10-08 MT5 runtime is authorization-blocked and local October input is absent, so no current-day packet is fabricated.
+
+
+### Exness Intraday Daily Archive -> 07:00 State Packet
+
+Runner:
+- `scripts/exness_intraday_state_packet_0700.py`
+
+Checkpoint:
+- `docs/0700_CURRENT_DAY_INPUT_ROUTE_2026-10-08.md`
+
+Purpose:
+- use the existing Exness-branded archive family daily subdirectories when the monthly ZIP lags the current day;
+- validate daily ZIPs with the existing archive validator;
+- preserve raw same-timestamp ticks and existing archive provenance semantics;
+- build archive BID M1 with the existing replay bar builder;
+- feed observed M1 into `0700_STATE_PACKET_H4_V0`;
+- fail closed with `BOUNDARY_MINUTE_NOT_AVAILABLE` until the checkpoint day has an observed tick inside the 00:00 UTC minute.
+
+Boundary:
+- READ-ONLY DATA / ORDER SEND DISABLED;
+- current-day operational epoch is explicit Project engineering convention, not source-pure historical completeness;
+- do not infer a boundary price from the previous day's last tick;
+- do not fabricate absent current-day ticks or bars;
+- keep Exness archive identity distinct from the expired MT5 Trial17 execution stream;
+- protected holdout/economic scoring remain disabled.

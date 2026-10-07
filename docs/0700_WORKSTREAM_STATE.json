@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-08T05:27:05+07:00",
+  "updated_at": "2026-10-08T06:25:45+07:00",
   "workstream": "0700_METHOD_COMPLETION",
   "scope": "WORKSTREAM_CURRENT_0700_ONLY",
   "project_current_state_ref": "docs/CURRENT_RESEARCH_STATE.json",
@@ -234,7 +234,8 @@
     "docs/0700_MINIMAL_V2_1_FIXED_ORIGIN_TARGET_IMPLEMENTATION_2026-10-08.md",
     "docs/0700_STATE_PACKET_H4_V0_CONTRACT_2026-10-08.md",
     "docs/0700_STATE_PACKET_H4_V0_REQUIREMENT_MATRIX_2026-10-08.md",
-    "docs/0700_STATE_PACKET_H4_V0_IMPLEMENTATION_2026-10-08.md"
+    "docs/0700_STATE_PACKET_H4_V0_IMPLEMENTATION_2026-10-08.md",
+    "docs/0700_CURRENT_DAY_INPUT_ROUTE_2026-10-08.md"
   ],
   "operating_philosophy": "docs/0700_OPERATING_PHILOSOPHY_AND_SUCCESS_CRITERIA_2026-09-13.md",
   "success_definition": {
@@ -343,7 +344,7 @@
     "economic_scoring": "DISABLED",
     "order_send": "DISABLED"
   },
-  "latest_progress_checkpoint": "docs/0700_STATE_PACKET_H4_V0_IMPLEMENTATION_2026-10-08.md",
+  "latest_progress_checkpoint": "docs/0700_CURRENT_DAY_INPUT_ROUTE_2026-10-08.md",
   "state_packet_h4_v0": {
     "version": "0700_STATE_PACKET_H4_V0",
     "status": "IMPLEMENTED_STATE_CALCULATOR_READY_CURRENT_DAY_INPUT_BLOCKED",
@@ -355,11 +356,13 @@
     "broad_ruff": "PASS",
     "operational_real_smoke": "2026-09-01_0700_BULLISH_CONTEXT_WAIT_POST_0700_CONFIRMATION_ONE_ACTIVE_BUY",
     "source_pure_real_smoke": "UNKNOWN_PASS_INITIALIZATION_UNKNOWN",
-    "current_day_input": "BLOCKED_MT5_AUTHORIZATION_FAILED_NO_LOCAL_2026_10_DATA",
+    "current_day_input": "READY_WAITING_FOR_2026_10_08_0000Z_BOUNDARY_TICK_EXNESS_INTRADAY_DAILY_ARCHIVE",
     "canonical_origin_seed": "DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED",
     "holdout_scoring": "DISABLED",
     "economic_scoring": "DISABLED",
     "order_send": "DISABLED",
-    "checkpoint_boundary_semantics": "OPEN_ONLY_HLCV_SANITIZED_NOT_KNOWABLE_AT_BOUNDARY"
+    "checkpoint_boundary_semantics": "OPEN_ONLY_HLCV_SANITIZED_NOT_KNOWABLE_AT_BOUNDARY",
+    "current_day_runner": "scripts/exness_intraday_state_packet_0700.py",
+    "current_day_checkpoint": "docs/0700_CURRENT_DAY_INPUT_ROUTE_2026-10-08.md"
   }
 }

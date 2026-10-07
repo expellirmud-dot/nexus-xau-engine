@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-08T05:27:05+07:00",
+  "updated_at": "2026-10-08T06:25:45+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -19,7 +19,7 @@
     "derived_authority_report_role": "OPTIONAL_DERIVED_VIEW_NOT_MUTATION_AUTHORITY",
     "current_scope_authority": "docs/PHASE1_CURRENT_OBJECTIVE_2026-09-14.md",
     "document_scope_audit": "docs/DOCUMENT_SCOPE_AUDIT_2026-09-14.md",
-    "latest_progress_checkpoint": "docs/0700_STATE_PACKET_H4_V0_IMPLEMENTATION_2026-10-08.md"
+    "latest_progress_checkpoint": "docs/0700_CURRENT_DAY_INPUT_ROUTE_2026-10-08.md"
   },
   "mode": "RESTART_SAFE_HOLDOUT_RESERVED_UNSCORED_NO_ACTIVE_RQ",
   "completed_checkpoint": "RQ016_PHASE1_CONSTRUCTION_BOUNDARY_CLOSED",
@@ -149,7 +149,8 @@
       "docs/0700_MINIMAL_V2_1_FIXED_ORIGIN_TARGET_IMPLEMENTATION_2026-10-08.md",
       "docs/0700_STATE_PACKET_H4_V0_CONTRACT_2026-10-08.md",
       "docs/0700_STATE_PACKET_H4_V0_REQUIREMENT_MATRIX_2026-10-08.md",
-      "docs/0700_STATE_PACKET_H4_V0_IMPLEMENTATION_2026-10-08.md"
+      "docs/0700_STATE_PACKET_H4_V0_IMPLEMENTATION_2026-10-08.md",
+      "docs/0700_CURRENT_DAY_INPUT_ROUTE_2026-10-08.md"
     ]
   },
   "provenance_guard": {
@@ -258,14 +259,14 @@
     "minimal_v2_1_fixed_origin_target_implementation": "IMPLEMENTED_13_OF_13_REQUIREMENTS_MAPPED_V21_13_PASS_COMBINED_72_PASS_FULL_REPO_424_PASS_BROAD_RUFF_PASS_NO_NEW_HISTORICAL_OUTCOME",
     "state_packet_h4_v0_contract": "FROZEN_PRE_IMPLEMENTATION_18_REQUIREMENTS",
     "state_packet_h4_v0_implementation": "IMPLEMENTED_TARGETED_19_PASS_REAL_MT5_ENGINEERING_STATE_SMOKE_PASS_SOURCE_PURE_FAIL_CLOSED_PARITY_FULL_REPO_443_PASS_BROAD_RUFF_PASS",
-    "state_packet_full_pytest_environment_history": "PLAIN_RUNS_HIT_WINDOWS_TEMP_ACCESS_DENIED_REPO_LOCAL_BASETEMP_RERUN_PASS"
+    "state_packet_full_pytest_environment_history": "PLAIN_RUNS_HIT_WINDOWS_TEMP_ACCESS_DENIED_REPO_LOCAL_BASETEMP_RERUN_PASS",
+    "exness_intraday_0700_input_route": "PRE_CHECKPOINT_DRY_RUN_FAIL_CLOSED_EXPECTED_BOUNDARY_MINUTE_NOT_AVAILABLE_RUFF_PASS"
   },
   "next_steps": [
-    "0700_STATE_PACKET_H4_V0 is implemented and can deterministically calculate H4 origin/lifecycle/fixed-target/conflict/Daily-Frame-context state at the 07:00 Asia/Bangkok checkpoint from verified M1 input without using post-checkpoint outcomes.",
-    "Current 2026-10-08 07:00 runtime input is not available on the machine: MetaTrader5 initialize returned Terminal: Authorization failed; local forward collector stops at 2026-09-14T13:33:06.991Z and local Exness monthly archive currently ends at 2026-09. Do not fabricate missing October data.",
-    "SOURCE_PURE remains fail-closed as DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED; OPERATIONAL_EXPLICIT_EPOCH is an owner-direct Project engineering convention and must never be relabeled as historical/source completeness.",
-    "Post-07:00 M1/M5 universal routing and exact Daily Frame action qualification remain unresolved; execution economics, stop routing, fill/slippage, sizing, risk cap and P&L remain downstream and do not block the 07:00 state snapshot.",
-    "Protected holdout scoring, economic scoring, profitability/expectancy claims and automatic order sending remain disabled."
+    "At/after 2026-10-08 07:00 Asia/Bangkok, refresh Exness intraday daily archive and require an observed tick in the 00:00 UTC boundary minute.",
+    "Run scripts/exness_intraday_state_packet_0700.py with operational epoch 2026-10-01T00:00:00Z and checkpoint 2026-10-08T00:00:00Z; if boundary data is still absent, remain BOUNDARY_MINUTE_NOT_AVAILABLE rather than fabricate.",
+    "Preserve SOURCE_PURE as fail-closed DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED; current-day operational calculation does not solve canonical prehistory.",
+    "Holdout scoring, economic scoring, profitability/expectancy claims and automatic order send remain disabled."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -458,9 +459,11 @@
     "docs/0700_STATE_PACKET_H4_V0_IMPLEMENTATION_2026-10-08.md",
     "src/nexus_xau/research/state_packet_0700.py",
     "scripts/state_packet_0700.py",
-    "tests/test_state_packet_0700.py"
+    "tests/test_state_packet_0700.py",
+    "docs/0700_CURRENT_DAY_INPUT_ROUTE_2026-10-08.md",
+    "scripts/exness_intraday_state_packet_0700.py"
   ],
-  "resume_instruction": "0700_STATE_PACKET_H4_V0 is implemented. Contract/matrix were frozen before implementation. Targeted state-packet tests are 19/19 PASS; full repository tests are 443 PASS using a repository-local pytest basetemp after the machine default pytest temp root returned WinError 5; broad Ruff passes. A real MT5 engineering-data smoke at 2026-09-01 07:00 Asia/Bangkok produced BULLISH_CONTEXT with one active BUY H4 origin and WAIT_POST_0700_CONFIRMATION under OPERATIONAL_EXPLICIT_EPOCH beginning 2026-05-26T00:00:00Z. The same input under SOURCE_PURE remains UNKNOWN/PASS_INITIALIZATION_UNKNOWN because DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED is still canonical. Current-day 2026-10-08 calculation is input-blocked, not logic-blocked: MT5 authorization currently fails, the local collector ends 2026-09-14, and local Exness monthly archive ends 2026-09. No October data may be fabricated. Holdout/economic scoring and order send remain disabled.",
+  "resume_instruction": "Current goal is the 2026-10-08 07:00 Asia/Bangkok State Packet. Calculator logic is ready. MT5 is currently invalid-account authorization blocked on Exness-MT5Trial17. A fresher same-family Exness daily archive route was discovered and runner scripts/exness_intraday_state_packet_0700.py was added. Pre-07:00 acquisition validates daily archives through 2026-10-07 and correctly fails closed because the 2026-10-08 boundary minute has not occurred/appeared yet. Operational epoch is 2026-10-01T00:00:00Z. After 07:00 Thailand, refresh daily archives and calculate only when a validated 2026-10-08 snapshot contains a tick inside 00:00 UTC minute. No fabrication, holdout/economic scoring, or order send.",
   "por_chon_1900_transcript_closure": {
     "source": "User-supplied YouTube Show transcript for UNLOCK TRADER lesson on Por Chon frame and half/swing retrace.",
     "source_status": "PRIMARY_ATTRIBUTABLE_TRANSCRIPT_WITH_ASR_RISK",
@@ -1876,11 +1879,14 @@
     },
     "current_day_input": {
       "requested_checkpoint_thailand": "2026-10-08T07:00:00+07:00",
-      "status": "BLOCKED_INPUT_NOT_AVAILABLE",
-      "mt5_runtime": "AUTHORIZATION_FAILED",
-      "mt5_error": "Terminal: Authorization failed",
-      "local_collector_latest_tick_utc": "2026-09-14T13:33:06.991000+00:00",
-      "local_exness_archive_latest_month": "2026-09",
+      "requested_checkpoint_utc": "2026-10-08T00:00:00+00:00",
+      "status": "READY_WAITING_FOR_CHECKPOINT_DATA",
+      "mt5_runtime": "AUTHORIZATION_FAILED_INVALID_ACCOUNT",
+      "fallback_route": "EXNESS_XAUUSDM_INTRADAY_DAILY_ARCHIVE",
+      "operational_epoch_utc": "2026-10-01T00:00:00+00:00",
+      "runner": "scripts/exness_intraday_state_packet_0700.py",
+      "checkpoint": "docs/0700_CURRENT_DAY_INPUT_ROUTE_2026-10-08.md",
+      "pre_checkpoint_result": "BOUNDARY_MINUTE_NOT_AVAILABLE_EXPECTED",
       "fabrication": "FORBIDDEN"
     },
     "guards": {
