@@ -116,10 +116,15 @@ and a growing current-day file. Any option chosen has to survive rotation, and
 
 ## Standing notes
 
-- **No OS scheduler.** Contract section 11: the probe runs only when something
-  calls it — a chat session, the durable agent, or the owner. It therefore
-  guarantees freshness on demand and a durable trail, not unattended wall-clock
-  polling. A gap in this log means nobody called it, not that the route changed.
+- **Scheduled unattended since 2026-11-05 (contract section 11.1).** The owner
+  activated a Qoder Desktop Automations card whose first step is the expected
+  call `--once --cadence-minutes 25`, repeating about every 35 minutes; confirm
+  the cadence and `forced` value from the newest NDJSON line, not from this
+  note. Before that date the probe ran
+  only when something called it, so a gap in the earlier part of this log means
+  nobody called it, not that the route changed. A gap now means either the
+  device slept, the automation was disabled, or the run ended `NOT_YET_DUE` —
+  check `state.json` before reading a gap as absence.
 - **A non-zero tick count does not mean the checkpoint is satisfied.** It says
   rows exist in the scanned object for that minute. `0700_STATE_PACKET_H4_V0`
   was not computed, M1 was not rebuilt, and the archive validator has never been

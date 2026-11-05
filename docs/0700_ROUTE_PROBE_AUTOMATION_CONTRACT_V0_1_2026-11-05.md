@@ -1,6 +1,6 @@
 # 07:00 Route Probe Automation — Contract V0.1 (2026-11-05)
 
-Status: FROZEN_CONTRACT / OWNER_APPROVED_DESIGN / IMPLEMENTED_V0_1_ON_2026-11-05_FIRST_LIVE_ROUND_RECORDED / READ_ONLY_OBSERVER / NO_STATE_PACKET_COMPUTATION / ORDER_SEND_DISABLED
+Status: FROZEN_CONTRACT / OWNER_APPROVED_DESIGN / IMPLEMENTED_V0_1_ON_2026-11-05_FIRST_LIVE_ROUND_RECORDED / LEVEL_2_TRIGGER_ACTIVE_SEE_11_1 / READ_ONLY_OBSERVER / NO_STATE_PACKET_COMPUTATION / ORDER_SEND_DISABLED
 
 Approved by the owner on 2026-11-05 in the form **"Probe + log only"** and
 **"register with the durable supervisor first"** (no Windows scheduled task).
@@ -209,3 +209,49 @@ therefore guarantees **freshness on demand and a durable trail**, not unattended
 wall-clock polling. If the owner later wants true 24-hour polling, that is the
 Level-2 change (a scheduled task) and requires a separate explicit approval
 because it modifies the machine, not the repository.
+
+### 11.1 Amendment — Level-2 trigger activated by the owner on 2026-11-05
+
+The paragraph above is preserved as the original design statement and is no
+longer the current machine state.
+
+Source Fact (owner action, observed in the Qoder Desktop Automations screen on
+2026-11-05): the owner created the automation
+**"XAU-0700 Route Probe - Every 30 Minutes"**, enabled, with *Keep device awake*
+on, running the probe prompt in this repository as an independent task. The
+interval the app actually reports for the card is **35 minutes**.
+
+Consequences that a fresh session must respect:
+
+1. The lane **is** now polled unattended. Do not install a Windows Task
+   Scheduler entry, a cron job, a daemon, or a second poller for this question.
+   Section 3's "no OS-level scheduling" prohibition still holds; what was
+   approved is an application-level scheduler owned by the owner, not a
+   machine-level scheduled task written by an agent.
+2. The trigger interval (35 min) is deliberately longer than the probe's own
+   cadence gate, so every scheduled round passes `compute_due` and no scheduled
+   round is wasted. The scheduled invocation is the prompt text handed to the
+   owner in this session: `--once --cadence-minutes 25 --watch-dir
+   "D:/tools/nexus-0700-watch"`, with **no** `--force`. That is an *expected*
+   reading until the first unattended round appends its own line — the NDJSON
+   `next_run_at` minus `at_utc` gap confirms the actual cadence, and `forced`
+   confirms the flag. Cadence authority still lives in
+   `D:\tools\nexus-0700-watch\state.json`, exactly as section 4 requires.
+3. The automation runs a chat task, not the script alone. Its prompt restricts
+   it to one bounded round plus, on a `MATERIAL_TRANSITION` hint, one appended
+   block under `## Rounds` in `docs/0700_ROUTE_PROBE_LOG.md` — and that block is
+   committed and pushed as the task's only repository write. The probe process
+   itself still never writes or commits the log (section 5 is unchanged);
+   promotion remains a deliberate act by whatever calls the probe, and the
+   automation prompt is the owner's chosen way of making that act repeatable.
+   If the owner prefers report-only promotion, the change is one step in the
+   automation prompt, not a change to this contract.
+4. Because polling is now unattended, `SUSPENDED` after three consecutive error
+   runs is the mechanism that prevents a broken observer from generating a
+   round every 35 minutes forever. It stays human-owned: clearing it is an owner
+   or chat decision, never an automation step.
+5. Verification at amendment time: the last observation line in
+   `D:\tools\nexus-0700-watch\observations.ndjson` is still the 12:32:01Z
+   `NOT_YET_DUE` gate check, so no scheduled round had fired yet. The first
+   scheduled round is therefore still an unverified fact and must be read from
+   the NDJSON, not assumed.

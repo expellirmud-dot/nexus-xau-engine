@@ -486,6 +486,15 @@ Reuse rule:
   Cadence lives in `state.json`, not the OS: `local_work_agent.py` has no
   due-date semantics, so a fresh session should call `--once` when
   `now >= next_run_at` rather than inventing a scheduler.
+- **this lane is already scheduled.** Since 2026-11-05 the owner runs it
+  unattended from a Qoder Desktop Automations card ("XAU-0700 Route Probe",
+  app-reported interval 35 minutes, *Keep device awake* on) whose first step is
+  `.venv\Scripts\python.exe scripts/exness_0700_route_probe.py --once --cadence-minutes 25 --watch-dir "D:/tools/nexus-0700-watch"`.
+  Do not add a Windows scheduled task, a daemon, or another poller; see contract
+  section 11.1, and confirm the live flags from the newest NDJSON line rather
+  than trusting this note. Manual checks should reuse the same command **without**
+  `--force` so the due gate stays honest — `--force` is for a deliberate
+  manual round only.
 
 Boundary:
 - READ-ONLY DATA / no State Packet, no M1 rebuild, no archive validation, no
