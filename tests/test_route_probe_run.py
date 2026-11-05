@@ -12,6 +12,7 @@ import pytest
 
 from exness_0700_route_probe import (
     MONTH_ALLOWED,
+    NOT_PROBED,
     SUSPEND_AFTER_CONSECUTIVE_ERRORS,
     ProbeConfig,
     _resolve_checkpoint_day,
@@ -378,3 +379,22 @@ def test_main_live_round_prints_status(tmp_path: Path, capsys: pytest.CaptureFix
     assert "status=" in printed
     assert "next_run_at=" in printed
     assert (tmp_path / "observations.ndjson").exists()
+
+
+def test_not_probed_is_never_a_material_transition(tmp_path: Path) -> None:
+    """A skipped round says nothing about the world, so it cannot be a flip.
+
+    The first live round exposed this: a NOT_YET_DUE run printed
+    `daily_route PRESENT -> NOT_PROBED`, which reads like the route disappeared.
+    """
+    probed = {"daily_route": "PRESENT", "month_route": "PRESENT_CHANGED", "inbox": "NO_NEW_FILES"}
+    skipped = {
+        "daily_route": NOT_PROBED,
+        "month_route": NOT_PROBED,
+        "inbox": NOT_PROBED,
+    }
+    assert transition_hints(probed, skipped) == []
+    assert transition_hints(skipped, probed) == []
+    # A real flip still reports, even when the neighbour field stayed unprobed.
+    after = dict(skipped, daily_route="ABSENT")
+    assert transition_hints(probed, after) == ["MATERIAL_TRANSITION: daily_route PRESENT -> ABSENT"]

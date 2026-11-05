@@ -356,8 +356,13 @@ def transition_hints(
     for field in TRANSITION_FIELDS:
         before = previous.get(field)
         after = observation.get(field)
-        if isinstance(before, str) and isinstance(after, str) and before != after:
-            hints.append(f"MATERIAL_TRANSITION: {field} {before} -> {after}")
+        if not (isinstance(before, str) and isinstance(after, str)):
+            continue
+        # NOT_PROBED records that a run stopped before reaching the check; it is
+        # not a statement about the route, so it must never read as a flip.
+        if before == NOT_PROBED or after == NOT_PROBED or before == after:
+            continue
+        hints.append(f"MATERIAL_TRANSITION: {field} {before} -> {after}")
     return hints
 
 
