@@ -10,11 +10,14 @@ research authority. See contract section 3.
 
 from __future__ import annotations
 
+import csv
+import io
 import json
 import os
 import tempfile
+import zipfile
 from dataclasses import dataclass
-from datetime import UTC, date, datetime
+from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
 from nexus_xau.data.exness_tick_archive import (  # noqa: F401  (used from Task 4)
@@ -192,3 +195,74 @@ def validate_status(field: str, value: str) -> str:
     if allowed is None or value not in allowed:
         raise ValueError(f"VOCABULARY: {field}={value!r} is not an allowed status")
     return value
+
+
+def boundary_minute_bounds(day: date) -> tuple[str, str]:
+    start = datetime(day.year, day.month, day.day, tzinfo=UTC)
+    return (
+        start.strftime("%Y-%m-%d %H:%M"),
+        (start + timedelta(minutes=1)).strftime("%Y-%m-%d %H:%M"),
+    )
+
+
+def _tick_minute(raw: str) -> str:
+    text = raw.strip()
+    head = text[:16]
+    if len(head) != 16 or head[10] != " " or head[13] != ":":
+        raise ValueError(f"ARCHIVE_CSV_ROW_INVALID: unparseable timestamp {raw!r}")
+    return head
+
+
+def count_boundary_ticks(zip_path: Path, day: date, symbol: str = DEFAULT_SYMBOL) -> int:
+    """Count rows of ``symbol`` whose timestamp falls in the boundary minute.
+
+    Deliberately not ``nexus_xau.replay.archive_window._read_month_window``: that
+    helper runs replay admission and the gap ledger, which contract section 3
+    forbids inside the observer. A malformed row raises instead of being skipped,
+    so a silent format change cannot read as an empty minute.
+    """
+    lower, upper = boundary_minute_bounds(day)
+    with zipfile.ZipFile(zip_path) as archive:
+        csv_members = [name for name in archive.namelist() if name.lower().endswith(".csv")]
+        if len(csv_members) != 1:
+            raise ValueError(f"ARCHIVE_CSV_AMBIGUOUS: {csv_members}")
+        with archive.open(csv_members[0], "r") as raw:
+            text = io.TextIOWrapper(raw, encoding="utf-8-sig", newline="")
+            reader = csv.reader(text)
+            header = next(reader, None)
+            normalized = [cell.strip() for cell in (header or [])]
+            if normalized != ["Exness", "Symbol", "Timestamp", "Bid", "Ask"]:
+                raise ValueError(f"ARCHIVE_CSV_HEADER_INVALID: {header}")
+            count = 0
+            for row in reader:
+                if len(row) != 5:
+                    raise ValueError(f"ARCHIVE_CSV_ROW_INVALID: {row}")
+                if row[1].strip() != symbol:
+                    continue
+                if lower <= _tick_minute(row[2]) < upper:
+                    count += 1
+            return count
+
+
+def scan_inbox(directory: Path, previous_newest: str | None) -> tuple[str, str | None, int]:
+    """Report whether the owner inbox gained a file since the last run.
+
+    Only top-level files count; dated subdirectories are intake structure, not
+    new source material.
+    """
+    if not directory.is_dir():
+        return ("DIR_MISSING", None, 0)
+    newest: str | None = None
+    count = 0
+    for child in sorted(directory.iterdir()):
+        if not child.is_file():
+            continue
+        count += 1
+        modified = iso_utc(datetime.fromtimestamp(child.stat().st_mtime, tz=UTC))
+        if newest is None or modified > newest:
+            newest = modified
+    if newest is None:
+        return ("NO_NEW_FILES", None, 0)
+    if previous_newest is None or newest > previous_newest:
+        return ("NEW_FILES", newest, count)
+    return ("NO_NEW_FILES", newest, count)
