@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import json
 import os
 import zipfile
 from datetime import UTC, date, datetime, timedelta
@@ -10,6 +11,7 @@ from zoneinfo import ZoneInfo
 
 import pytest
 
+import exness_0700_route_probe as probe
 from exness_0700_route_probe import (
     MONTH_ALLOWED,
     NOT_PROBED,
@@ -19,6 +21,7 @@ from exness_0700_route_probe import (
     build_parser,
     load_state,
     main,
+    prior_baseline,
     run_probe,
     save_state,
     transition_hints,
@@ -398,3 +401,132 @@ def test_not_probed_is_never_a_material_transition(tmp_path: Path) -> None:
     # A real flip still reports, even when the neighbour field stayed unprobed.
     after = dict(skipped, daily_route="ABSENT")
     assert transition_hints(probed, after) == ["MATERIAL_TRANSITION: daily_route PRESENT -> ABSENT"]
+
+
+def test_gate_blocked_round_does_not_blind_the_next_round(tmp_path: Path) -> None:
+    """A round that never probed must not become the comparison baseline.
+
+    The second live round exposed this: the 12:32Z NOT_YET_DUE line was the last
+    NDJSON record, so the first scheduled round compared against NOT_PROBED and
+    printed no hint even though month_route really had moved
+    PRESENT_CHANGED -> PRESENT_UNCHANGED. A peek that got gated silently blinded
+    the observer for the next round.
+    """
+    probed = {
+        "checkpoint_day": "2026-11-05",
+        "daily_route": "PRESENT",
+        "month_route": "PRESENT_CHANGED",
+        "inbox": "NEW_FILES",
+    }
+    blocked = {
+        "checkpoint_day": "2026-11-05",
+        "daily_route": NOT_PROBED,
+        "month_route": NOT_PROBED,
+        "inbox": NOT_PROBED,
+    }
+    current = {
+        "checkpoint_day": "2026-11-05",
+        "daily_route": "PRESENT",
+        "month_route": "PRESENT_UNCHANGED",
+        "inbox": "NEW_FILES",
+    }
+
+    hints = transition_hints(prior_baseline([probed, blocked], "2026-11-05"), current)
+    assert hints == ["MATERIAL_TRANSITION: month_route PRESENT_CHANGED -> PRESENT_UNCHANGED"]
+
+
+def test_baseline_takes_the_newest_probed_value_for_each_field_separately() -> None:
+    """Fields rotate independently, so the baseline is per field, not per row."""
+    first = {
+        "checkpoint_day": "2026-11-05",
+        "daily_route": "PRESENT",
+        "month_route": "PRESENT_CHANGED",
+        "inbox": "NO_NEW_FILES",
+    }
+    second = {
+        "checkpoint_day": "2026-11-05",
+        "daily_route": NOT_PROBED,
+        "month_route": "ABSENT",
+        "inbox": NOT_PROBED,
+    }
+
+    assert prior_baseline([first, second], "2026-11-05") == {
+        "daily_route": "PRESENT",
+        "month_route": "ABSENT",
+        "inbox": "NO_NEW_FILES",
+    }
+
+
+def test_baseline_never_crosses_a_checkpoint_day_rollover() -> None:
+    """Day 05 PRESENT against day 06 ABSENT is a different question, not a flip.
+
+    The checkpoint day is the Bangkok calendar date, so it changes every day at
+    07:00 and the new day's directory legitimately does not exist yet for a
+    while. Comparing across that boundary would make the observer report a route
+    disappearance each morning and have the automation commit it.
+    """
+    yesterday = {
+        "checkpoint_day": "2026-11-05",
+        "daily_route": "PRESENT",
+        "month_route": "PRESENT_UNCHANGED",
+        "inbox": "NO_NEW_FILES",
+    }
+    current = {
+        "checkpoint_day": "2026-11-06",
+        "daily_route": "ABSENT",
+        "month_route": "PRESENT_UNCHANGED",
+        "inbox": "NO_NEW_FILES",
+    }
+
+    assert prior_baseline([yesterday], "2026-11-06") is None
+    assert transition_hints(prior_baseline([yesterday], "2026-11-06"), current) == []
+    # Same day still compares normally.
+    assert prior_baseline([yesterday], "2026-11-05") == {
+        "daily_route": "PRESENT",
+        "month_route": "PRESENT_UNCHANGED",
+        "inbox": "NO_NEW_FILES",
+    }
+
+
+def test_baseline_is_none_when_no_prior_round_ever_probed() -> None:
+    """Only gate-blocked history means there is nothing to compare against yet."""
+    blocked = {
+        "checkpoint_day": "2026-11-05",
+        "daily_route": NOT_PROBED,
+        "month_route": NOT_PROBED,
+        "inbox": NOT_PROBED,
+    }
+    current = {"daily_route": "PRESENT", "month_route": "PRESENT_CHANGED", "inbox": "NEW_FILES"}
+
+    assert prior_baseline([blocked], "2026-11-05") is None
+    assert prior_baseline([], "2026-11-05") is None
+    assert transition_hints(prior_baseline([blocked], "2026-11-05"), current) == []
+
+
+def test_main_promotes_a_flip_that_follows_a_gate_blocked_round(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    """The wiring, not just the helper: main must compare against prior_baseline.
+
+    Reverting main to `prior[-1]` makes this fail, because the last NDJSON line
+    is the gate-blocked round and its NOT_PROBED values swallow the daily flip.
+    """
+    day = _resolve_checkpoint_day(None).isoformat()
+    seeded = [
+        {"checkpoint_day": day, "daily_route": "PRESENT", "month_route": "PRESENT_CHANGED",
+         "inbox": "NO_NEW_FILES"},
+        {"checkpoint_day": day, "daily_route": NOT_PROBED, "month_route": NOT_PROBED,
+         "inbox": NOT_PROBED},
+    ]
+    lines = "\n".join(json.dumps(record) for record in seeded)
+    (tmp_path / "observations.ndjson").write_text(lines + "\n", encoding="utf-8")
+    monkeypatch.setattr(probe, "fetch_listing", static_listing_fetcher(month_only_listing()))
+    monkeypatch.setattr(probe, "download_zip", downloader_for([]))
+
+    code = main(["--once", "--force", "--watch-dir", str(tmp_path), "--inbox", str(tmp_path)])
+    printed = capsys.readouterr().out
+
+    assert code == 0
+    assert "MATERIAL_TRANSITION: daily_route PRESENT -> ABSENT" in printed

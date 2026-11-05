@@ -89,6 +89,58 @@ Defect found by this round and fixed in commit
 `MATERIAL_TRANSITION: daily_route PRESENT -> NOT_PROBED`. `NOT_PROBED` records
 that the run stopped before the check, so it must never be reported as a flip.
 
+### Rounds 3–7 — first unattended rounds (no transition promoted)
+
+```
+at_utc: 14:27:48  15:02:48  15:37:46  16:12:50  16:47:44 (2026-11-05, UTC)
+status: DUE (all five)        forced: false (all five)   error_class: null (all five)
+daily_route: PRESENT          month_route: PRESENT_UNCHANGED   inbox: NO_NEW_FILES
+boundary_minute_tick_count: null (all five)
+```
+
+Trigger: the owner's Qoder Desktop Automations card, ~every 35 minutes, cadence
+gate 25 minutes. `next_run_at` was always exactly `at_utc + 25 min`, which is
+the on-disk proof of the cadence value.
+
+`boundary_minute_tick_count: null` on every round is **not** an absence claim.
+The month ZIP fingerprint stayed `9255481:Thu, 05 Nov 2026 01:41:16 GMT` from
+Round 1 onward, so safety rail 2 skipped the fetch and scan each time. The
+boundary minute for the checkpoint day has therefore not been re-examined by the
+probe since 12:30Z; it will be scanned only when that fingerprint moves.
+
+Defect found by these rounds and fixed under contract amendment 11.2: `main`
+compared each round against the *literal last NDJSON line*. Round 2's
+`NOT_YET_DUE` line was therefore the baseline for Round 3, and because
+`NOT_PROBED` may never read as a flip, **both** genuine movements
+(`month_route PRESENT_CHANGED -> PRESENT_UNCHANGED`,
+`inbox NEW_FILES -> NO_NEW_FILES`) were suppressed and nothing was promotable.
+The fix compares each field against the newest round that actually probed it, so
+an early manual peek can no longer blind the next scheduled round. Note that the
+two suppressed values were themselves low-information (a ZIP that stopped
+growing, and a first-run inbox artifact); the defect, not the data, was the
+problem.
+
+### Round 8 — checkpoint day rolls to 2026-11-06 (first proof of the baseline fix)
+
+```
+at_utc: 2026-11-05T17:07:00+00:00   status: DUE   forced: true   error_class: null
+checkpoint_day: 2026-11-06
+daily_route: ABSENT   month_route: PRESENT_UNCHANGED   inbox: NO_NEW_FILES
+boundary_minute_tick_count: null
+```
+
+`daily_route` moved from the `PRESENT` that every 2026-11-05 round recorded to
+`ABSENT`, and **no** `MATERIAL_TRANSITION` was printed. That silence is the
+correct result: the checkpoint day is the Bangkok calendar date, it rolled at
+17:00Z, and the provider had not created the `06` directory yet at the moment of
+this round. Comparing across that boundary would have reported a route
+disappearance every morning and the automation would have committed it.
+
+`ABSENT` here is a statement about the month listing read at 17:07Z, not a
+prediction about the day path later today. The next round that probes
+`2026-11-06` compares against this one, so a genuine `ABSENT -> PRESENT`
+within the same checkpoint day will still be reported.
+
 ### Manual verification companion to Round 1 (not produced by the probe)
 
 One deliberate read-only check, done by hand on 2026-11-05T12:31 UTC because the
@@ -131,6 +183,10 @@ and a growing current-day file. Any option chosen has to survive rotation, and
   run on the bytes behind a probe observation.
 - **Absence requires a readable listing.** `LISTING_UNREADABLE` is a transport
   or parse fact, never a missing-data claim; `NOT_PROBED` is a skipped check.
+  A transition compares a field against the newest round **on the same
+  checkpoint day** that actually probed it — a `NOT_PROBED` round and a
+  previous-day round are both excluded, so neither a manual peek nor the daily
+  07:00 rollover can hide or invent a flip.
 - **`SUSPENDED` is human-owned.** Three consecutive error runs stop the probe.
   Clearing it means editing `status` in
   `D:\tools\nexus-0700-watch\state.json` by hand — `--force` deliberately cannot

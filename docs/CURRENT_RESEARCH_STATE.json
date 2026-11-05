@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-05T20:59:35+07:00",
+  "updated_at": "2026-11-06T00:07:55+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -1936,7 +1936,7 @@
     "observation_log": "docs/0700_ROUTE_PROBE_LOG.md",
     "observed_at_utc": "2026-11-05T12:30:00Z",
     "first_round_reading": "daily_route=PRESENT month_route=PRESENT_CHANGED inbox=NEW_FILES boundary_minute_tick_count=0 error_class=null; the November month ZIP stopped at 2026-11-04 23:59:59.831Z while the day subdirectory 05 existed with mtime 12:21:19 GMT.",
-    "scheduling_2026_11_05": "Owner activated the Level-2 trigger: Qoder Desktop Automations card 'XAU-0700 Route Probe - Every 30 Minutes' (app-reported interval 35 min, Keep device awake on) whose expected first step is --once --cadence-minutes 25 with no --force. Contract section 11.1 records the amendment. At 13:59Z the newest NDJSON line was still the 12:32:01Z NOT_YET_DUE gate check, so no scheduled round had fired yet; the cadence and forced flag must be confirmed from the first unattended observation line.",
+    "scheduling_2026_11_05": "Owner activated the Level-2 trigger: Qoder Desktop Automations card 'XAU-0700 Route Probe' (interval 35 min, Keep device awake on) calling --once --cadence-minutes 25 with no --force. Verified from the NDJSON: five unattended rounds 14:27:48Z-16:47:44Z, all status=DUE, forced=false, error_class=null, next_run_at = at_utc + 25 min. Contract sections 11.1-11.2 record the amendment and the transition-baseline defect those rounds exposed: main compared against the literal last NDJSON line, so a NOT_YET_DUE round silently swallowed real flips. Fixed by prior_baseline (per field, newest non-NOT_PROBED value on the same checkpoint day); the same-day rule was proven live at 17:07:00Z when checkpoint day rolled to 2026-11-06 and daily_route PRESENT->ABSENT correctly printed no transition.",
     "prohibited": "Observer only: no State Packet, no M1 rebuild, no archive validation on probe bytes, no route implementation, no holdout/economic scoring, no Win/Loss, no order send, no credentials. Existence evidence is never route authority, so the a/b/c input-route decision still belongs to the owner."
   }
 }

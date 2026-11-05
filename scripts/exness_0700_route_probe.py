@@ -366,6 +366,27 @@ def transition_hints(
     return hints
 
 
+def prior_baseline(
+    prior: list[dict[str, object]], checkpoint_day: str
+) -> dict[str, object] | None:
+    """Newest probed value per field, within one checkpoint day.
+
+    NOT_PROBED says nothing about the route and a different checkpoint day is a
+    different question, so neither may be the baseline: otherwise a gate-blocked
+    round hides a real flip, and the daily 07:00 rollover invents one.
+    """
+    baseline: dict[str, object] = {}
+    for field in TRANSITION_FIELDS:
+        for record in reversed(prior):
+            if record.get("checkpoint_day") != checkpoint_day:
+                continue
+            value = record.get(field)
+            if isinstance(value, str) and value != NOT_PROBED:
+                baseline[field] = value
+                break
+    return baseline or None
+
+
 def next_error_streak(state: dict[str, object], observation: dict[str, object]) -> int:
     if observation.get("error_class"):
         previous = state.get("error_streak")
@@ -540,7 +561,9 @@ def main(argv: list[str] | None = None) -> int:
     )
 
     prior = read_observations(watch_dir / "observations.ndjson")[:-1]
-    for hint in transition_hints(prior[-1] if prior else None, observation):
+    for hint in transition_hints(
+        prior_baseline(prior, str(observation["checkpoint_day"])), observation
+    ):
         print(hint)
     print(
         "status={status} daily_route={daily_route} month_route={month_route} "

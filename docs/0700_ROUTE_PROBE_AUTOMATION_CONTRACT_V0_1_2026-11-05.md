@@ -91,6 +91,14 @@ vocabulary differs from the previous run's, it prints a one-line
 `docs/0700_ROUTE_PROBE_LOG.md` is a deliberate act by a human or a chat session,
 so no process can silently accumulate repository commits from a background loop.
 
+"Previous run" means the most recent observation **that actually probed that
+field, on the same checkpoint day**, evaluated per field, not the last line in
+the NDJSON. A gate-blocked or failed round records `NOT_PROBED`, which says
+nothing about the route, so it can be neither a transition nor a baseline: using
+it as the baseline would let a human peek blind the next scheduled round to a
+real flip. A round from a different checkpoint day asks a different question, so
+the daily 07:00 rollover must never read as a route change (amendment 11.2).
+
 Reused, not rebuilt: the remote path conventions and URL builders in
 `scripts/exness_intraday_state_packet_0700.py` (`BASE_URL`,
 `_month_directory_url`, `_day_directory_url`, `_daily_filename`), and the existing
@@ -232,10 +240,11 @@ Consequences that a fresh session must respect:
    cadence gate, so every scheduled round passes `compute_due` and no scheduled
    round is wasted. The scheduled invocation is the prompt text handed to the
    owner in this session: `--once --cadence-minutes 25 --watch-dir
-   "D:/tools/nexus-0700-watch"`, with **no** `--force`. That is an *expected*
-   reading until the first unattended round appends its own line — the NDJSON
-   `next_run_at` minus `at_utc` gap confirms the actual cadence, and `forced`
-   confirms the flag. Cadence authority still lives in
+   "D:/tools/nexus-0700-watch"`, with **no** `--force`. **Verified 2026-11-05
+   from the NDJSON**, not inferred: the rounds at 14:27:48Z, 15:02:48Z,
+   15:37:46Z, 16:12:50Z and 16:47:44Z each carry `forced: false`, `status=DUE`,
+   and a `next_run_at` exactly 25 minutes after `at_utc`, and consecutive rounds
+   are ~35 minutes apart. Cadence authority still lives in
    `D:\tools\nexus-0700-watch\state.json`, exactly as section 4 requires.
 3. The automation runs a chat task, not the script alone. Its prompt restricts
    it to one bounded round plus, on a `MATERIAL_TRANSITION` hint, one appended
@@ -251,7 +260,46 @@ Consequences that a fresh session must respect:
    round every 35 minutes forever. It stays human-owned: clearing it is an owner
    or chat decision, never an automation step.
 5. Verification at amendment time: the last observation line in
-   `D:\tools\nexus-0700-watch\observations.ndjson` is still the 12:32:01Z
-   `NOT_YET_DUE` gate check, so no scheduled round had fired yet. The first
-   scheduled round is therefore still an unverified fact and must be read from
-   the NDJSON, not assumed.
+   `D:\tools\nexus-0700-watch\observations.ndjson` was still the 12:32:01Z
+   `NOT_YET_DUE` gate check, so no scheduled round had fired yet. Five
+   unattended rounds had fired by 16:47:44Z, all `error_class: null`,
+   `error_streak: 0`.
+
+### 11.2 Amendment — the gate-blocked round blinded the observer (fixed 2026-11-05)
+
+Running the lane unattended exposed a defect that 60 offline tests had not:
+`main` compared each new observation against `prior[-1]`, the literal last
+NDJSON line. Because section 6 forbids `NOT_PROBED` from reading as a
+transition, a `NOT_YET_DUE` line as baseline suppressed **every** field
+comparison instead of only the `NOT_PROBED` one.
+
+Evidence (Source Fact, from the NDJSON): the 12:30:00Z round recorded
+`month_route=PRESENT_CHANGED` and `inbox=NEW_FILES`; the 12:32:01Z gate check
+recorded `NOT_PROBED` for all three fields; the first unattended round at
+14:27:48Z recorded `PRESENT_UNCHANGED` / `NO_NEW_FILES` — both fields had
+genuinely moved since the last round that probed them, yet no transition was
+promoted (`git log -- docs/0700_ROUTE_PROBE_LOG.md` gained no probe commit), and
+the task reported no `MATERIAL_TRANSITION` line. Reverting the wiring inside the
+test suite reproduces that silence exactly.
+
+Consequence: any early manual call — which section 4 advertises as free, and
+which TOOLS.md actively recommends — silently disabled transition detection for
+the next scheduled round. The most interesting moment was the one most likely to
+be missed.
+
+Fix: `prior_baseline()` selects, per field, the newest value that is not
+`NOT_PROBED` **and comes from the same `checkpoint_day`**, and `main` compares
+against that. `NOT_PROBED` therefore remains neither a transition nor a
+baseline. Vocabulary, schema, network rails, the cadence gate and the
+`SUSPENDED` rule are unchanged; the promotion rule in section 5 is unchanged
+apart from this clarification.
+
+The checkpoint-day half of the rule was found while fixing the first half. The
+checkpoint day is the Bangkok calendar date, so it rolls over every day at
+07:00 and the new day's directory legitimately does not exist yet for a while.
+Comparing across that boundary would have turned the first morning round of
+every day into a reported `daily_route PRESENT -> ABSENT` — a route
+disappearance that is really just a new day — and the automation would have
+committed it. Verified live on 2026-11-05T17:07:00Z: with `checkpoint_day`
+rolled to 2026-11-06, the round recorded `daily_route=ABSENT` while the 2026-11-05
+rounds had recorded `PRESENT`, and printed **no** transition hint.
