@@ -8,13 +8,12 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-from research_preflight import build_manifest
-
 from nexus_xau.reporting.pilot_operations import (
     archive_health_check,
     build_pilot_operations_snapshot,
     collector_health_check,
 )
+from research_preflight import build_manifest
 
 
 def _load_json(path: Path) -> dict[str, Any]:
