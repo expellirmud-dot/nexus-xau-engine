@@ -15,12 +15,15 @@ import io
 import json
 import os
 import tempfile
+import time
 import zipfile
 from dataclasses import dataclass
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
+from urllib.error import URLError
+from urllib.request import Request, urlopen
 
-from nexus_xau.data.exness_tick_archive import (  # noqa: F401  (used from Task 4)
+from nexus_xau.data.exness_tick_archive import (
     USER_AGENT,
     ArchiveAcquisitionError,
     ArchiveEntry,
@@ -266,3 +269,201 @@ def scan_inbox(directory: Path, previous_newest: str | None) -> tuple[str, str |
     if previous_newest is None or newest > previous_newest:
         return ("NEW_FILES", newest, count)
     return ("NO_NEW_FILES", newest, count)
+
+
+SUSPEND_AFTER_CONSECUTIVE_ERRORS = 3
+TRANSITION_FIELDS = ("daily_route", "month_route", "inbox")
+STATUS_OK = "OK"
+
+
+@dataclass(frozen=True)
+class ProbeConfig:
+    symbol: str
+    checkpoint_day: date
+    cadence_minutes: int
+    watch_dir: Path
+    inbox_dir: Path
+    cache_dir: Path
+    timeout_seconds: float
+    force: bool
+
+
+def fetch_listing(url: str, timeout_seconds: float) -> list[ArchiveEntry]:
+    return fetch_directory(url, timeout_seconds=timeout_seconds)
+
+
+def download_zip(url: str, target: Path, timeout_seconds: float) -> Path:
+    target.parent.mkdir(parents=True, exist_ok=True)
+    request = Request(url, headers={"User-Agent": USER_AGENT})
+    temporary = target.with_suffix(".part")
+    with urlopen(request, timeout=timeout_seconds) as response, temporary.open("wb") as handle:
+        while True:
+            chunk = response.read(1024 * 1024)
+            if not chunk:
+                break
+            handle.write(chunk)
+    os.replace(temporary, target)
+    return target
+
+
+def month_zip_cache_path(config: ProbeConfig, zip_name: str) -> Path:
+    return config.cache_dir / config.symbol / f"{config.checkpoint_day.year:04d}" / zip_name
+
+
+def _state_string(state: dict[str, object], key: str) -> str | None:
+    value = state.get(key)
+    return value if isinstance(value, str) and value else None
+
+
+def _empty_observation(config: ProbeConfig, now: datetime, status: str) -> dict[str, object]:
+    return {
+        "at_utc": iso_utc(now),
+        "status": status,
+        "symbol": config.symbol,
+        "checkpoint_day": config.checkpoint_day.isoformat(),
+        "daily_route": NOT_PROBED,
+        "month_route": NOT_PROBED,
+        "inbox": NOT_PROBED,
+        "boundary_minute_tick_count": None,
+        "forced": config.force,
+        "error_class": None,
+        "elapsed_ms": 0,
+        "retry_count": 0,
+        "next_run_at": iso_utc(now + timedelta(minutes=config.cadence_minutes)),
+    }
+
+
+def _fetch_with_retry(url: str, timeout_seconds: float, fetcher):
+    """One attempt, one retry, never more (contract section 7.2)."""
+    try:
+        return fetcher(url, timeout_seconds), 0, None
+    except (ArchiveAcquisitionError, URLError, OSError):
+        try:
+            return fetcher(url, timeout_seconds), 1, None
+        except (ArchiveAcquisitionError, URLError, OSError) as second:
+            return [], 1, type(second).__name__
+
+
+def transition_hints(
+    previous: dict[str, object] | None, observation: dict[str, object]
+) -> list[str]:
+    if previous is None:
+        return []
+    hints: list[str] = []
+    for field in TRANSITION_FIELDS:
+        before = previous.get(field)
+        after = observation.get(field)
+        if isinstance(before, str) and isinstance(after, str) and before != after:
+            hints.append(f"MATERIAL_TRANSITION: {field} {before} -> {after}")
+    return hints
+
+
+def next_error_streak(state: dict[str, object], observation: dict[str, object]) -> int:
+    if observation.get("error_class"):
+        previous = state.get("error_streak")
+        return (previous if isinstance(previous, int) else 0) + 1
+    return 0
+
+
+def _probe_listing(
+    config: ProbeConfig,
+    state: dict[str, object],
+    observation: dict[str, object],
+    listing_fetcher,
+    zip_downloader,
+) -> None:
+    entries, retries, error_class = _fetch_with_retry(
+        month_directory_url(config.symbol, config.checkpoint_day),
+        config.timeout_seconds,
+        listing_fetcher,
+    )
+    observation["retry_count"] = retries
+    if error_class is not None:
+        # A transport failure is never an absence claim (contract section 7.3).
+        observation["daily_route"] = validate_status("daily_route", "LISTING_UNREADABLE")
+        observation["month_route"] = validate_status("month_route", "LISTING_UNREADABLE")
+        observation["error_class"] = error_class
+        return
+
+    facts = classify_listing(entries, config.symbol, config.checkpoint_day)
+    observation["daily_route"] = validate_status("daily_route", daily_route_status(facts))
+    fingerprint = fingerprint_of(facts.month_zip)
+    previous_fingerprint = _state_string(state, "month_zip_fingerprint")
+    observation["month_route"] = validate_status(
+        "month_route", month_zip_status(facts, fingerprint, previous_fingerprint)
+    )
+    if facts.month_zip is None or fingerprint is None:
+        return
+    state["month_zip_fingerprint"] = fingerprint
+    if observation["month_route"] != "PRESENT_CHANGED":
+        return
+
+    try:
+        downloaded = zip_downloader(
+            month_zip_url(config.symbol, config.checkpoint_day),
+            month_zip_cache_path(config, facts.month_zip.name),
+            config.timeout_seconds,
+        )
+        observation["boundary_minute_tick_count"] = count_boundary_ticks(
+            downloaded, config.checkpoint_day, config.symbol
+        )
+    except (OSError, ValueError, zipfile.BadZipFile) as exc:
+        observation["error_class"] = type(exc).__name__
+
+
+def run_probe(
+    config: ProbeConfig,
+    *,
+    now: datetime,
+    listing_fetcher,
+    zip_downloader,
+) -> dict[str, object]:
+    started = time.monotonic()
+    state_path = config.watch_dir / "state.json"
+    log_path = config.watch_dir / "observations.ndjson"
+    state = load_state(state_path)
+    due = compute_due(state, now, config.cadence_minutes)
+
+    # Suspension is checked before force: a routine call must not re-ignite a
+    # suspended observer, and resuming means a human editing state.json.
+    if due == STATUS_SUSPENDED:
+        observation = _empty_observation(config, now, STATUS_SUSPENDED)
+        observation["error_class"] = STATUS_SUSPENDED
+        observation["next_run_at"] = (
+            _state_string(state, "next_run_at") or observation["next_run_at"]
+        )
+        append_observation(log_path, observation)
+        return observation
+
+    if due == STATUS_NOT_YET_DUE and not config.force:
+        observation = _empty_observation(config, now, STATUS_NOT_YET_DUE)
+        observation["next_run_at"] = (
+            _state_string(state, "next_run_at") or observation["next_run_at"]
+        )
+        append_observation(log_path, observation)
+        return observation
+
+    observation = _empty_observation(config, now, STATUS_DUE)
+    _probe_listing(config, state, observation, listing_fetcher, zip_downloader)
+    # The inbox is scanned even when the market probe failed: the two facts stay
+    # independent, and a dead archive route must not blind the source lane.
+    inbox_status, inbox_newest, inbox_count = scan_inbox(
+        config.inbox_dir, _state_string(state, "inbox_newest")
+    )
+    observation["inbox"] = validate_status("inbox", inbox_status)
+    if inbox_newest is not None:
+        state["inbox_newest"] = inbox_newest
+    if inbox_count:
+        observation["inbox_file_count"] = inbox_count
+
+    observation["elapsed_ms"] = int((time.monotonic() - started) * 1000)
+    streak = next_error_streak(state, observation)
+    state["error_streak"] = streak
+    state["status"] = (
+        STATUS_SUSPENDED if streak >= SUSPEND_AFTER_CONSECUTIVE_ERRORS else STATUS_OK
+    )
+    state["last_run_at"] = observation["at_utc"]
+    state["next_run_at"] = observation["next_run_at"]
+    save_state(state_path, state)
+    append_observation(log_path, observation)
+    return observation
