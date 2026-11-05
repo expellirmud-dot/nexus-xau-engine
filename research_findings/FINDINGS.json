@@ -1,7 +1,7 @@
 {
   "schema_version": "PHASE1_FINDING_LEDGER_V0.1",
   "role": "NON_CANONICAL_RESEARCH_FINDING_INDEX",
-  "updated_at": "2026-10-08T03:05:00+07:00",
+  "updated_at": "2026-11-05T17:52:00+07:00",
   "authority_rule": "This ledger indexes research observations and reconciliations only. It cannot override canonical claims, queue authority, source evidence, or holdout governance.",
   "findings": [
     {
@@ -196,6 +196,68 @@
         "PROFITABILITY_CLAIM"
       ],
       "blocking": false
+    },
+    {
+      "finding_id": "FIND-0004",
+      "relation_key": "EXNESS_0700_INPUT_ROUTE__DAILY_TO_MONTH_LAYOUT_ROTATION",
+      "title": "Exness remote archive rotated from daily subdirectories to month-only ZIP",
+      "status": "OPEN",
+      "scope": "Phase 1",
+      "canonical_claim_ref": null,
+      "blocking": false,
+      "current_interpretation": "The 2026-10-08 current-day input route assumed Exness daily subdirectories would remain available alongside the monthly ZIP. On the 2026-11-05 recheck, every 2026-10 daily snapshot returned REMOTE_DAY_NOT_AVAILABLE while the month-only ZIP exists and contains the 2026-10-08 00:00 UTC boundary-minute ticks. The checkpoint data is observable, but only through a route the frozen daily runner does not use. Route choice is an open owner decision.",
+      "allowed_uses": [
+        "INPUT_ROUTE_AVAILABILITY_HISTORY",
+        "REOPEN_TRIGGER_EVIDENCE",
+        "FAIL_CLOSED_BEHAVIOR_CONFIRMATION"
+      ],
+      "forbidden_uses": [
+        "RETROACTIVE_OPERATIONAL_CHECKPOINT_CLAIM",
+        "STATE_PACKET_COMPUTED",
+        "HOLDOUT_OR_ECONOMIC_SCORING",
+        "PROFITABILITY_CLAIM"
+      ],
+      "observations": [
+        {
+          "observation_id": "OBS-0009",
+          "statement": "The unchanged daily-route runner re-run on 2026-11-05 returned BLOCKED / BOUNDARY_MINUTE_NOT_AVAILABLE with all snapshots 2026-10-01..2026-10-08 REMOTE_DAY_NOT_AVAILABLE, including days previously VALIDATED.",
+          "representation": "Frozen 2026-10-08 daily-archive acquisition route, unchanged.",
+          "conditions": [
+            "post-checkpoint recheck",
+            "no rule or representation change",
+            "fail-closed preserved"
+          ],
+          "evidence_refs": [
+            "docs/0700_CURRENT_DAY_INPUT_ROUTE_RECHECK_2026-11-05.md"
+          ]
+        },
+        {
+          "observation_id": "OBS-0010",
+          "statement": "Direct remote probes showed the 2026-10 month directory listing empty, daily paths 404, and the month ZIP Exness_XAUUSDm_2026_10.zip present at 55,936,122 bytes with a single month CSV entry.",
+          "representation": "HTTP directory/URL probe of ticks.ex2archive.com.",
+          "conditions": [
+            "observed 2026-11-05T10:42 UTC",
+            "same source family as the validated 2026-10-07 route"
+          ],
+          "evidence_refs": [
+            "docs/0700_CURRENT_DAY_INPUT_ROUTE_RECHECK_2026-11-05.md",
+            "docs/0700_CURRENT_DAY_INPUT_ROUTE_2026-10-08.md"
+          ]
+        },
+        {
+          "observation_id": "OBS-0011",
+          "statement": "Streaming the live October month ZIP found 269 ticks inside the 2026-10-08 00:00 UTC boundary minute, first tick 00:00:00.017Z Bid 4108.073.",
+          "representation": "Raw tick CSV scan of the month ZIP; no M1/state-packet computation performed.",
+          "conditions": [
+            "boundary-minute existence check only",
+            "no state packet computed",
+            "validator not re-run on month ZIP in this pass"
+          ],
+          "evidence_refs": [
+            "docs/0700_CURRENT_DAY_INPUT_ROUTE_RECHECK_2026-11-05.md"
+          ]
+        }
+      ]
     }
   ]
 }

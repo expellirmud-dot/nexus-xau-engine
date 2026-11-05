@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-08T06:25:45+07:00",
+  "updated_at": "2026-11-05T17:52:00+07:00",
   "workstream": "0700_METHOD_COMPLETION",
   "scope": "WORKSTREAM_CURRENT_0700_ONLY",
   "project_current_state_ref": "docs/CURRENT_RESEARCH_STATE.json",
@@ -364,5 +364,10 @@
     "checkpoint_boundary_semantics": "OPEN_ONLY_HLCV_SANITIZED_NOT_KNOWABLE_AT_BOUNDARY",
     "current_day_runner": "scripts/exness_intraday_state_packet_0700.py",
     "current_day_checkpoint": "docs/0700_CURRENT_DAY_INPUT_ROUTE_2026-10-08.md"
+  },
+  "current_day_input_route_recheck_2026_11_05": {
+    "status": "RECHECK_CLOSED_DAILY_ROUTE_OBSOLETE_AT_REMOTE_MONTH_ROUTE_DATA_PRESENT_OWNER_DECISION_REQUIRED",
+    "ref": "docs/0700_CURRENT_DAY_INPUT_ROUTE_RECHECK_2026-11-05.md",
+    "lane_checkpoint": "docs/0700_CURRENT_DAY_INPUT_ROUTE_2026-10-08.md remains the historical route snapshot; the 2026-11-05 recheck supersedes its remote-layout assumption only, not its validated daily-route history."
   }
 }

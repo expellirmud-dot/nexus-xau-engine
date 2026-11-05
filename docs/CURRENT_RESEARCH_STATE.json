@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-08T06:25:45+07:00",
+  "updated_at": "2026-11-05T17:52:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -263,9 +263,9 @@
     "exness_intraday_0700_input_route": "PRE_CHECKPOINT_DRY_RUN_FAIL_CLOSED_EXPECTED_BOUNDARY_MINUTE_NOT_AVAILABLE_RUFF_PASS"
   },
   "next_steps": [
-    "At/after 2026-10-08 07:00 Asia/Bangkok, refresh Exness intraday daily archive and require an observed tick in the 00:00 UTC boundary minute.",
-    "Run scripts/exness_intraday_state_packet_0700.py with operational epoch 2026-10-01T00:00:00Z and checkpoint 2026-10-08T00:00:00Z; if boundary data is still absent, remain BOUNDARY_MINUTE_NOT_AVAILABLE rather than fabricate.",
-    "Preserve SOURCE_PURE as fail-closed DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED; current-day operational calculation does not solve canonical prehistory.",
+    "Owner decision required: choose between (a) implementing/revalidating a month-ZIP input route for the 07:00 state packet, (b) defining a forward current-day checkpoint procedure tolerant of remote layout rotation, or (c) closing the 2026-10-08 current-day objective as DATA_ROUTE_OBSOLETE_BEFORE_POST_WINDOW_RUN.",
+    "Until decided, the 2026-10-08 objective remains blocked at the input-route layer; calculator logic status is unchanged (0700_STATE_PACKET_H4_V0 remains IMPLEMENTED with the same status).",
+    "Preserve SOURCE_PURE as fail-closed DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED.",
     "Holdout scoring, economic scoring, profitability/expectancy claims and automatic order send remain disabled."
   ],
   "blocked_from_claiming": [
@@ -1898,5 +1898,14 @@
     },
     "checkpoint_boundary_semantics": "OPEN_ONLY_HLCV_SANITIZED_NOT_KNOWABLE_AT_BOUNDARY",
     "temporal_leak_fix": "CHECKPOINT_HLCV_SANITIZED_TO_OPEN_ONLY_NO_OUTCOME_SELECTION"
+  },
+  "current_day_input_route_recheck_2026_11_05": {
+    "status": "RECHECK_CLOSED_DAILY_ROUTE_OBSOLETE_AT_REMOTE_MONTH_ROUTE_DATA_PRESENT_OWNER_DECISION_REQUIRED",
+    "ref": "docs/0700_CURRENT_DAY_INPUT_ROUTE_RECHECK_2026-11-05.md",
+    "finding_ref": "FIND-0004",
+    "durable_job": "XAU-0700-STATEPACKET-RECHECK-20261105-R1",
+    "observed_at_utc": "2026-11-05T10:42:00Z",
+    "result": "BLOCKED BOUNDARY_MINUTE_NOT_AVAILABLE via frozen daily route; month ZIP contains 269 boundary-minute ticks for 2026-10-08 00:00 UTC",
+    "prohibited": "No State Packet computed; retroactive current-day checkpoint computation and route change are owner decisions. Holdout/economic scoring and order send remain disabled."
   }
 }
