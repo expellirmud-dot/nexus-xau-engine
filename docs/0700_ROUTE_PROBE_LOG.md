@@ -196,9 +196,11 @@ and a growing current-day file. Any option chosen has to survive rotation, and
 
 ## How to promote
 
-1. Run the probe: `.venv\Scripts\python.exe scripts/exness_0700_route_probe.py
-   --once --watch-dir "D:/tools/nexus-0700-watch"` (add `--force` only for a
-   deliberate manual round).
+1. Run the probe with forward slashes (Git Bash eats unquoted backslashes):
+   `D:/nexus-xau-engine-repo/.venv/Scripts/python.exe
+   scripts/exness_0700_route_probe.py --once --cadence-minutes 25 --watch-dir
+   "D:/tools/nexus-0700-watch"` (add `--force` only for a deliberate manual
+   round).
 2. If the run prints `MATERIAL_TRANSITION: <field> <old> -> <new>`, copy that
    line and the printed `status=` line into a new block under `Rounds`, with the
    exact command and the observation's `at_utc`.

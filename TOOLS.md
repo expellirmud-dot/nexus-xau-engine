@@ -465,9 +465,14 @@ Role:
   satisfied.
 
 Invocation (one bounded round; the due gate makes repeat calls free):
-- `.venv\Scripts\python.exe scripts/exness_0700_route_probe.py --once`
-- add `--force` for a deliberate manual round; `--cadence-minutes`, `--symbol`,
-  `--checkpoint-day`, `--watch-dir`, `--inbox`, `--cache-dir` and
+- `D:/nexus-xau-engine-repo/.venv/Scripts/python.exe scripts/exness_0700_route_probe.py --once --cadence-minutes 25 --watch-dir "D:/tools/nexus-0700-watch"`
+- **use forward slashes in every path.** The agent shell here is Git Bash, which
+  eats unquoted backslashes: the scheduled task was observed burning a retry on
+  `D:\nexus-xau-engine-repo\.venv\Scripts\python.exe` before re-running it
+  quoted. Forward slashes work for both bash and Windows Python, so copy the
+  form above into any prompt handed to another session or an automation.
+- add `--force` only for a deliberate manual round; `--cadence-minutes`,
+  `--symbol`, `--checkpoint-day`, `--watch-dir`, `--inbox`, `--cache-dir` and
   `--timeout-seconds` are optional overrides.
 
 Paths:
@@ -488,8 +493,8 @@ Reuse rule:
   `now >= next_run_at` rather than inventing a scheduler.
 - **this lane is already scheduled.** Since 2026-11-05 the owner runs it
   unattended from a Qoder Desktop Automations card ("XAU-0700 Route Probe",
-  interval 35 minutes, *Keep device awake* on) whose first step is
-  `.venv\Scripts\python.exe scripts/exness_0700_route_probe.py --once --cadence-minutes 25 --watch-dir "D:/tools/nexus-0700-watch"`.
+  interval 35 minutes, *Keep device awake* on) whose first step is the
+  slash-form command at the top of this entry.
   Verified from the NDJSON (five rounds 14:27Z–16:47Z: `forced: false`,
   `status=DUE`, `next_run_at` = `at_utc` + 25 min). Do not add a Windows
   scheduled task, a daemon, or another poller; see contract sections 11.1–11.2.
