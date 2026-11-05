@@ -13,8 +13,16 @@ from __future__ import annotations
 import json
 import os
 import tempfile
-from datetime import UTC, datetime
+from dataclasses import dataclass
+from datetime import UTC, date, datetime
 from pathlib import Path
+
+from nexus_xau.data.exness_tick_archive import (  # noqa: F401  (used from Task 4)
+    USER_AGENT,
+    ArchiveAcquisitionError,
+    ArchiveEntry,
+    fetch_directory,
+)
 
 DAILY_ALLOWED = frozenset({"PRESENT", "ABSENT", "LISTING_UNREADABLE", "NOT_PROBED"})
 MONTH_ALLOWED = frozenset(
@@ -108,3 +116,79 @@ def read_observations(path: Path) -> list[dict[str, object]]:
         if isinstance(payload, dict):
             records.append(payload)
     return records
+
+
+BASE_URL = "https://ticks.ex2archive.com/ticks"
+
+
+@dataclass(frozen=True)
+class ListingFacts:
+    day_directory_present: bool
+    month_zip: ArchiveEntry | None
+
+
+def month_directory_url(symbol: str, day: date) -> str:
+    return f"{BASE_URL}/{symbol}/{day.year:04d}/{day.month:02d}/"
+
+
+def day_directory_url(symbol: str, day: date) -> str:
+    return f"{BASE_URL}/{symbol}/{day.year:04d}/{day.month:02d}/{day.day:02d}/"
+
+
+def month_zip_name(symbol: str, day: date) -> str:
+    return f"Exness_{symbol}_{day.year:04d}_{day.month:02d}.zip"
+
+
+def month_zip_url(symbol: str, day: date) -> str:
+    return month_directory_url(symbol, day) + month_zip_name(symbol, day)
+
+
+def day_zip_url(symbol: str, day: date) -> str:
+    return day_directory_url(symbol, day) + (
+        f"Exness_{symbol}_{day.year:04d}_{day.month:02d}_{day.day:02d}.zip"
+    )
+
+
+def classify_listing(
+    entries: list[ArchiveEntry],
+    symbol: str,
+    day: date,
+) -> ListingFacts:
+    named = {entry.name: entry for entry in entries}
+    return ListingFacts(
+        day_directory_present=f"{day.day:02d}" in named,
+        month_zip=named.get(month_zip_name(symbol, day)),
+    )
+
+
+def daily_route_status(facts: ListingFacts) -> str:
+    return "PRESENT" if facts.day_directory_present else "ABSENT"
+
+
+def fingerprint_of(entry: ArchiveEntry | None) -> str | None:
+    if entry is None or entry.size is None or not entry.mtime:
+        return None
+    return f"{entry.size}:{entry.mtime}"
+
+
+def month_zip_status(
+    facts: ListingFacts,
+    fingerprint: str | None,
+    previous: str | None,
+) -> str:
+    if facts.month_zip is None:
+        return "ABSENT"
+    if fingerprint is None or previous is None:
+        return "PRESENT_CHANGED"
+    return "PRESENT_UNCHANGED" if fingerprint == previous else "PRESENT_CHANGED"
+
+
+def validate_status(field: str, value: str) -> str:
+    allowed = {
+        "daily_route": DAILY_ALLOWED,
+        "month_route": MONTH_ALLOWED,
+        "inbox": INBOX_ALLOWED,
+    }.get(field)
+    if allowed is None or value not in allowed:
+        raise ValueError(f"VOCABULARY: {field}={value!r} is not an allowed status")
+    return value
