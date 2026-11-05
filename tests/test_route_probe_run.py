@@ -1,16 +1,23 @@
 from __future__ import annotations
 
 import csv
+import os
 import zipfile
 from datetime import UTC, date, datetime, timedelta
 from io import StringIO
 from pathlib import Path
+from zoneinfo import ZoneInfo
+
+import pytest
 
 from exness_0700_route_probe import (
     MONTH_ALLOWED,
     SUSPEND_AFTER_CONSECUTIVE_ERRORS,
     ProbeConfig,
+    _resolve_checkpoint_day,
+    build_parser,
     load_state,
+    main,
     run_probe,
     save_state,
     transition_hints,
@@ -321,3 +328,53 @@ def test_corrupt_zip_becomes_error_class_without_stopping_inbox_check(tmp_path: 
     assert observation["error_class"] == "BadZipFile"
     assert observation["boundary_minute_tick_count"] is None
     assert observation["inbox"] == "NEW_FILES"
+
+
+def test_parser_defaults_match_the_contract(tmp_path: Path) -> None:
+    args = build_parser().parse_args(["--once", "--watch-dir", str(tmp_path)])
+    assert args.once is True
+    assert args.cadence_minutes == 30
+    assert args.symbol == "XAUUSDm"
+    assert args.force is False
+    assert args.checkpoint_day is None
+    assert args.timeout_seconds == 30.0
+
+
+def test_parser_requires_the_once_flag(tmp_path: Path) -> None:
+    with pytest.raises(SystemExit):
+        build_parser().parse_args(["--watch-dir", str(tmp_path)])
+
+
+def test_checkpoint_day_is_parsed_as_iso_date() -> None:
+    assert _resolve_checkpoint_day("2026-11-05") == date(2026, 11, 5)
+
+
+def test_checkpoint_day_defaults_to_thailand_today() -> None:
+    assert _resolve_checkpoint_day(None) == datetime.now(ZoneInfo("Asia/Bangkok")).date()
+
+
+def test_main_returns_two_and_writes_nothing_when_state_is_corrupt(tmp_path: Path) -> None:
+    (tmp_path / "state.json").write_text("{broken", encoding="utf-8")
+    assert main(["--once", "--watch-dir", str(tmp_path)]) == 2
+    assert not (tmp_path / "observations.ndjson").exists()
+
+
+def test_main_returns_two_for_non_positive_cadence(tmp_path: Path) -> None:
+    assert main(["--once", "--watch-dir", str(tmp_path), "--cadence-minutes", "0"]) == 2
+
+
+def test_main_returns_two_for_non_positive_timeout(tmp_path: Path) -> None:
+    assert main(["--once", "--watch-dir", str(tmp_path), "--timeout-seconds", "0"]) == 2
+
+
+@pytest.mark.skipif(
+    os.environ.get("NEXUS_PROBE_ALLOW_NETWORK") != "1",
+    reason="offline by contract section 8; the single live round runs in Task 6 Step 1",
+)
+def test_main_live_round_prints_status(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+    code = main(["--once", "--force", "--watch-dir", str(tmp_path), "--inbox", str(tmp_path)])
+    printed = capsys.readouterr().out
+    assert code in (0, 1)
+    assert "status=" in printed
+    assert "next_run_at=" in printed
+    assert (tmp_path / "observations.ndjson").exists()

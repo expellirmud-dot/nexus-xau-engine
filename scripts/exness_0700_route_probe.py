@@ -10,10 +10,12 @@ research authority. See contract section 3.
 
 from __future__ import annotations
 
+import argparse
 import csv
 import io
 import json
 import os
+import sys
 import tempfile
 import time
 import zipfile
@@ -22,6 +24,7 @@ from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 from urllib.error import URLError
 from urllib.request import Request, urlopen
+from zoneinfo import ZoneInfo
 
 from nexus_xau.data.exness_tick_archive import (
     USER_AGENT,
@@ -467,3 +470,80 @@ def run_probe(
     save_state(state_path, state)
     append_observation(log_path, observation)
     return observation
+
+
+DEFAULT_CACHE_DIR = Path("data/raw/exness_tick_history/current_month_probe")
+ZONE = "Asia/Bangkok"
+
+
+def _resolve_checkpoint_day(raw: str | None) -> date:
+    if raw:
+        return date.fromisoformat(raw)
+    return datetime.now(ZoneInfo(ZONE)).date()
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        description="Decision-neutral 07:00 route availability observer (contract V0.1)."
+    )
+    parser.add_argument("--once", action="store_true", required=True)
+    parser.add_argument("--force", action="store_true")
+    parser.add_argument("--cadence-minutes", type=int, default=DEFAULT_CADENCE_MINUTES)
+    parser.add_argument("--symbol", default=DEFAULT_SYMBOL)
+    parser.add_argument("--checkpoint-day", default=None)
+    parser.add_argument("--watch-dir", type=Path, default=DEFAULT_WATCH_DIR)
+    parser.add_argument("--inbox", type=Path, default=DEFAULT_INBOX_DIR)
+    parser.add_argument("--cache-dir", type=Path, default=DEFAULT_CACHE_DIR)
+    parser.add_argument("--timeout-seconds", type=float, default=30.0)
+    return parser
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = build_parser().parse_args(argv)
+    watch_dir: Path = args.watch_dir
+    if args.cadence_minutes <= 0:
+        print("PROBE_BLOCKED: cadence_minutes must be > 0", file=sys.stderr)
+        return 2
+    if args.timeout_seconds <= 0:
+        print("PROBE_BLOCKED: timeout_seconds must be > 0", file=sys.stderr)
+        return 2
+    # state.json is read a second time here, deliberately: this veto must happen
+    # before any network call and before run_probe appends an observation line,
+    # so a corrupt state produces no record at all.
+    try:
+        load_state(watch_dir / "state.json")
+        checkpoint_day = _resolve_checkpoint_day(args.checkpoint_day)
+    except ValueError as exc:
+        print(f"PROBE_BLOCKED: {exc}", file=sys.stderr)
+        return 2
+
+    config = ProbeConfig(
+        symbol=args.symbol,
+        checkpoint_day=checkpoint_day,
+        cadence_minutes=args.cadence_minutes,
+        watch_dir=watch_dir,
+        inbox_dir=args.inbox,
+        cache_dir=args.cache_dir,
+        timeout_seconds=args.timeout_seconds,
+        force=args.force,
+    )
+    observation = run_probe(
+        config,
+        now=datetime.now(UTC),
+        listing_fetcher=fetch_listing,
+        zip_downloader=download_zip,
+    )
+
+    prior = read_observations(watch_dir / "observations.ndjson")[:-1]
+    for hint in transition_hints(prior[-1] if prior else None, observation):
+        print(hint)
+    print(
+        "status={status} daily_route={daily_route} month_route={month_route} "
+        "inbox={inbox} boundary_minute_tick_count={boundary_minute_tick_count} "
+        "error_class={error_class} next_run_at={next_run_at}".format(**observation)
+    )
+    return 1 if observation["error_class"] else 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
