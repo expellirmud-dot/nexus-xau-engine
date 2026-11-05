@@ -1,7 +1,7 @@
 {
   "schema_version": "PHASE1_FINDING_LEDGER_V0.1",
   "role": "NON_CANONICAL_RESEARCH_FINDING_INDEX",
-  "updated_at": "2026-11-05T17:52:00+07:00",
+  "updated_at": "2026-11-05T18:48:00+07:00",
   "authority_rule": "This ledger indexes research observations and reconciliations only. It cannot override canonical claims, queue authority, source evidence, or holdout governance.",
   "findings": [
     {
@@ -255,6 +255,90 @@
           ],
           "evidence_refs": [
             "docs/0700_CURRENT_DAY_INPUT_ROUTE_RECHECK_2026-11-05.md"
+          ]
+        }
+      ]
+    },
+    {
+      "finding_id": "FIND-0005",
+      "relation_key": "LOCAL_VIDEO_PAIR_20260912__VERBATIM_ATTRIBUTION_AND_VISUAL_PATH_LIMIT",
+      "title": "Owner verbatim transcripts re-attribute the H4=1,500 statement and the visual path is closed for numerics",
+      "status": "OPEN",
+      "scope": "Phase 1",
+      "canonical_claim_ref": "SIG_RUN_FIXED_ORIGIN_TARGET_LEVEL",
+      "blocking": false,
+      "current_interpretation": "The 2026-11-05 owner-supplied verbatim transcripts bind to the 2026-09-12 intake hash pair (156353e5... / efc27e08...), which is byte-different from the '(1)' pair used by the 2026-10-08 visual review. Under that binding, the utterance transcribed as 'H4 1,500' belongs to VID_20260912_164004, while VID_20260912_163822 labels 1,500 as the TP2 extension of the same H1 round; the 2026-10-08 checkpoint attributed all three distances to 163822. The frozen H4_RUN_POINTS = 1500.0 keeps direct verbatim support, so no canonical value is invalidated, but the two readings are not reconciled here. Dense-frame review additionally establishes that this source contains no numeric text anywhere, so the visual escalation path cannot arbitrate timeframes, point distances, the stop buffer, or the '>50%' relation; those remain audio/transcript-only evidence. Resolving the remaining readings requires a better-audio pass or direct owner/instructor clarification, both decision-critical and requiring WO-055 admission before any canonical change.",
+      "allowed_uses": [
+        "SOURCE_PROVENANCE_AND_CLIP_ATTRIBUTION",
+        "ASR_AND_COLLOQUIAL_TERM_RISK_REDUCTION",
+        "VISUAL_EVIDENCE_PATH_AVAILABILITY_ASSESSMENT",
+        "REOPEN_TRIGGER_EVIDENCE",
+        "OWNER_QUESTION_FRAMING"
+      ],
+      "forbidden_uses": [
+        "CANONICAL_CLAIM_CHANGE",
+        "NEW_NUMERIC_THRESHOLD_OR_UNIT",
+        "PIPS_UNIT_OR_FOREIGN_SMC_VOCABULARY_IMPORT",
+        "PATH_REMAINING_REINTRODUCTION",
+        "WIN_RATE_OR_PROFITABILITY_SUPPORT",
+        "HOLDOUT_OR_ECONOMIC_SCORING",
+        "ORDER_SEND"
+      ],
+      "observations": [
+        {
+          "observation_id": "OBS-0012",
+          "statement": "Verbatim timestamps place the 'H1 1,000' and 'H4 1,500' readings inside VID_20260912_164004 (00:30-00:48), while VID_20260912_163822 gives 1,500 as the TP2 extension counted from the same point (01:15-01:31) and then states Day = 5,000 after an audible self-repair. The 2026-10-08 checkpoint itemises H1=1,000 / H4=1,500 / Day=5,000 under its 'Video 2 (163822)' heading.",
+          "representation": "Owner timestamped transcript text compared line-by-line against the 2026-10-08 per-video itemisation.",
+          "conditions": [
+            "transcripts bound by SHA-256 to the 2026-09-12 intake pair 156353e5.../efc27e08...",
+            "no canonical constant changed or re-derived",
+            "clip cited by file id and hash, not by 'Video 1/2' labelling"
+          ],
+          "evidence_refs": [
+            "docs/OWNER_TRANSCRIPT_PAIR_20261105_LOCAL_VIDEO_RECONCILIATION.md",
+            "docs/transcripts/OWNER_TRANSCRIPT_VID20260912_164004_2026-11-05.txt",
+            "docs/transcripts/OWNER_TRANSCRIPT_VID20260912_163822_2026-11-05.txt",
+            "docs/VIDEO_SOURCE_EVIDENCE_SL_TP_WICK_REANCHOR_2026-10-08.md"
+          ]
+        },
+        {
+          "observation_id": "OBS-0013",
+          "statement": "Sixty dense frames extracted 2026-11-05 from both clips show hand ballpoint drawing on paper inside a translucent plastic sleeve, with no charting application, timeframe toolbar, price axis, clock, numeral, or tally mark anywhere; the only text visible on the page is a handwritten 'SL' label, first appearing between 57.5 s and 60 s of VID_20260912_163822.",
+          "representation": "Burst frame extraction (spec.json and spec_r2.json manifests carrying per-frame capture times and source video hash); frames retained outside the repository per media policy.",
+          "conditions": [
+            "frames cut only from the 2026-09-12 hash pair bound to these transcripts",
+            "visual path closed for timeframe identity, point distances, stop buffer and the '>50%' relation",
+            "no audio cross-check performed in this pass"
+          ],
+          "evidence_refs": [
+            "docs/OWNER_TRANSCRIPT_PAIR_20261105_LOCAL_VIDEO_RECONCILIATION.md"
+          ]
+        },
+        {
+          "observation_id": "OBS-0014",
+          "statement": "At 0 s of VID_20260912_164004 the same sheet already carries the candle figure drawn in VID_20260912_163822 including its 'SL' label, so the pair is one continuous drawing session recorded in two clips, with 164004 recorded after 163822.",
+          "representation": "Frame-level cross-clip sheet-identity comparison.",
+          "conditions": [
+            "both clips from the same 2026-09-12 intake pair",
+            "structural ordering observation only; no rule inferred from clip sequence"
+          ],
+          "evidence_refs": [
+            "docs/OWNER_TRANSCRIPT_PAIR_20261105_LOCAL_VIDEO_RECONCILIATION.md"
+          ]
+        },
+        {
+          "observation_id": "OBS-0015",
+          "statement": "The owner-supplied colloquial-Thai glossary supplied the same day reduces ASR term risk for the spoken candle, stop-buffer and wick terms, and its spelling of the post-signal wick matches the 2026-11-05 transcript and the 2026-09-08 post-SIG closure document, making the 2026-10-08 variant spelling the weaker one. Its pip equivalence, foreign SMC/price-action term mappings, teacher-coined-origin claim, and unfinished-cycle completion reading were recorded as rejected imports.",
+          "representation": "Owner reference glossary treated as analyst-inference reference material, not primary teaching source.",
+          "conditions": [
+            "glossary states no rule and no condition from the teacher",
+            "no unit other than PROJECT_POINT_SIZE = 0.01 introduced",
+            "no external vocabulary mapped onto the source objects"
+          ],
+          "evidence_refs": [
+            "docs/transcripts/OWNER_GLOSSARY_COLLOQUIAL_THAI_TRADE_TERMS_2026-11-05.txt",
+            "docs/OWNER_TRANSCRIPT_PAIR_20261105_LOCAL_VIDEO_RECONCILIATION.md",
+            "docs/transcripts/OWNER_TRANSCRIPT_VID20260912_163822_2026-11-05.txt"
           ]
         }
       ]

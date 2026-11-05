@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-08T03:05:00+07:00",
+  "updated_at": "2026-11-05T18:48:00+07:00",
   "purpose": "Durable source-review memory. Records which source windows/topics have already been screened or reviewed, what they established, what remains unresolved, and when a review may be reopened. This ledger prevents future agents from restarting source research from zero.",
   "rules": {
     "closed_windows_are_not_researched_from_zero_without_reopen_trigger": true,
@@ -904,6 +904,46 @@
         "NEW_PRIMARY_SOURCE_CONTRADICTING_FIXED_POST_SIG_TARGET_ANCHOR"
       ],
       "last_reviewed_at": "2026-10-08"
+    },
+    {
+      "coverage_id": "LOCAL_VIDEO_PAIR_20260912_OWNER_VERBATIM_DENSE_20261105",
+      "source_id": "LOCAL_VIDEO_PAIR_SHA256:156353e5d19cb2f8...ce122c|efc27e0803a8126a...ffd5efc",
+      "source_title": "Owner-supplied verbatim transcripts, dense frames, and colloquial-Thai glossary for the 2026-09-12 phone teaching pair",
+      "topic": "Verbatim wording and clip attribution for the provisional and post-signal wick terms, check-SL, H1/H4/Day point distances, the '>50%' close relation, and whether the visual path can arbitrate numerics",
+      "window": "163822 00:00-01:31 (full clip); 164004 00:00-00:48 (full clip)",
+      "reviewed_modalities": [
+        "OWNER_TIMESTAMPED_VERBATIM_TRANSCRIPT",
+        "DENSE_LOCAL_FRAME_REVIEW",
+        "HASH_PAIR_PROVENANCE_CHECK",
+        "OWNER_COLLOQUIAL_GLOSSARY"
+      ],
+      "status": "SOURCE_CLOSED_WITH_RESIDUAL_OPEN",
+      "finding": "Transcripts and frames reconcile the teaching pair as one continuous paper-drawing session and confirm the medium carries no numeric text, so timeframe labels, the 1,000/1,500/5,000 distances, the 100-point buffer and the '>50%' relation are audio/transcript-only evidence. The verbatim re-attributes the H4=1,500 reading to 164004 and shows 163822 labelling 1,500 as TP2 of the same H1 round; the frozen fixed-origin target and H4_RUN_POINTS = 1500.0 remain verbatim-supported, so no canonical change was made. The colloquial glossary is accepted only as an ASR-risk reducer and its pip/SMC mappings are rejected imports.",
+      "residual_unknowns": [
+        "1500_H4_RUN_VERSUS_H1_TP2_READING",
+        "GT_50PCT_CLOSE_DENOMINATOR_OBJECT",
+        "100_POINT_SL_BUFFER_EXAMPLE_VERSUS_RULE",
+        "SECOND_SPEAKER_LINE_ATTRIBUTION_163822_53_80S",
+        "CROSS_HASH_PAIR_CONTENT_EQUIVALENCE"
+      ],
+      "claim_ids": [
+        "SIG_RUN_FIXED_ORIGIN_TARGET_LEVEL",
+        "SIG_ENTRY_TWO_MODES",
+        "D1_RUN_FAMILY_0700"
+      ],
+      "checkpoint_refs": [
+        "docs/OWNER_TRANSCRIPT_PAIR_20261105_LOCAL_VIDEO_RECONCILIATION.md",
+        "docs/transcripts/OWNER_TRANSCRIPT_VID20260912_163822_2026-11-05.txt",
+        "docs/transcripts/OWNER_TRANSCRIPT_VID20260912_164004_2026-11-05.txt",
+        "docs/transcripts/OWNER_GLOSSARY_COLLOQUIAL_THAI_TRADE_TERMS_2026-11-05.txt"
+      ],
+      "reopen_triggers": [
+        "DIRECT_OWNER_OR_INSTRUCTOR_CLARIFICATION_ON_1500_GT50_OR_BUFFER",
+        "BETTER_AUDIO_PASS_OVER_163822_53_80S",
+        "NEW_PRIMARY_SOURCE_WITH_NUMERIC_TEXT_ON_PAGE",
+        "PROVENANCE_RESOLUTION_BETWEEN_THE_TWO_HASH_PAIRS"
+      ],
+      "last_reviewed_at": "2026-11-05"
     }
   ],
   "coverage_scope": "PARTIAL_SEED_RQ009_CURRENT_RESEARCH_WINDOWS",

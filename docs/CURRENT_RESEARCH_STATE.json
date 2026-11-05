@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-05T17:52:00+07:00",
+  "updated_at": "2026-11-05T18:48:00+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -266,7 +266,8 @@
     "Owner decision required: choose between (a) implementing/revalidating a month-ZIP input route for the 07:00 state packet, (b) defining a forward current-day checkpoint procedure tolerant of remote layout rotation, or (c) closing the 2026-10-08 current-day objective as DATA_ROUTE_OBSOLETE_BEFORE_POST_WINDOW_RUN.",
     "Until decided, the 2026-10-08 objective remains blocked at the input-route layer; calculator logic status is unchanged (0700_STATE_PACKET_H4_V0 remains IMPLEMENTED with the same status).",
     "Preserve SOURCE_PURE as fail-closed DATA_EXCLUDED_ORIGIN_HISTORY_UNSEEDED.",
-    "Holdout scoring, economic scoring, profitability/expectancy claims and automatic order send remain disabled."
+    "Holdout scoring, economic scoring, profitability/expectancy claims and automatic order send remain disabled.",
+    "Source lane (independent of the route decision above): three owner/instructor clarifications are open on the 2026-09-12 teaching pair - whether 1,500 is the H4 run distance, the H1 TP2 extension, or both in different contexts; what the '>50%' close is measured against; and whether the 100-point stop buffer is example-only or a rule. Each is decision-critical and requires a WO-055 admitted RQ before any canonical change. See FIND-0005 and docs/OWNER_TRANSCRIPT_PAIR_20261105_LOCAL_VIDEO_RECONCILIATION.md."
   ],
   "blocked_from_claiming": [
     "canonical valid PAT count",
@@ -1907,5 +1908,22 @@
     "observed_at_utc": "2026-11-05T10:42:00Z",
     "result": "BLOCKED BOUNDARY_MINUTE_NOT_AVAILABLE via frozen daily route; month ZIP contains 269 boundary-minute ticks for 2026-10-08 00:00 UTC",
     "prohibited": "No State Packet computed; retroactive current-day checkpoint computation and route change are owner decisions. Holdout/economic scoring and order send remain disabled."
+  },
+  "owner_transcript_pair_reconciliation_2026_11_05": {
+    "status": "NEW_PRIMARY_TRANSCRIPT_RECONCILED_NO_CANONICAL_CHANGE",
+    "ref": "docs/OWNER_TRANSCRIPT_PAIR_20261105_LOCAL_VIDEO_RECONCILIATION.md",
+    "finding_ref": "FIND-0005",
+    "coverage_id": "LOCAL_VIDEO_PAIR_20260912_OWNER_VERBATIM_DENSE_20261105",
+    "source_pair": "SHA256 156353e5d19cb2f8...ce122c / efc27e0803a8126a...ffd5efc (2026-09-12 intake pair)",
+    "transcripts": [
+      "docs/transcripts/OWNER_TRANSCRIPT_VID20260912_163822_2026-11-05.txt",
+      "docs/transcripts/OWNER_TRANSCRIPT_VID20260912_164004_2026-11-05.txt"
+    ],
+    "glossary": "docs/transcripts/OWNER_GLOSSARY_COLLOQUIAL_THAI_TRADE_TERMS_2026-11-05.txt",
+    "statement_correction": "These clips were already machine-transcribed and visually reviewed on 2026-09-12 and 2026-10-08; an interim status picture calling them unopened was wrong.",
+    "provenance_rule": "A byte-different '(1)' hash pair carried the 2026-10-08 review. Cite frames by file id plus hash; mixed-pair citation is a provenance defect and cross-pair content equivalence is unproven.",
+    "visual_path_limit": "No numeric text exists anywhere on either clip, so timeframes, the 1,000/1,500/5,000 distances, the stop buffer and the '>50%' relation cannot be settled visually.",
+    "attribution_delta": "Verbatim puts H4=1,500 in 164004 and labels 1,500 as TP2 of the same H1 round in 163822; H4_RUN_POINTS = 1500.0 keeps verbatim support and was not changed.",
+    "prohibited": "No canonical claim, threshold, denominator, unit, or geometry changed. No RQ admitted. Pips and foreign SMC vocabulary from the glossary were rejected as imports. PATH_REMAINING stays historical-only. Holdout/economic scoring, Win/Loss and order send remain disabled."
   }
 }
