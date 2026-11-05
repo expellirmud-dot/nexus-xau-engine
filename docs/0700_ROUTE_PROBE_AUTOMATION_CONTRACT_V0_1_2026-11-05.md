@@ -1,6 +1,6 @@
 # 07:00 Route Probe Automation — Contract V0.1 (2026-11-05)
 
-Status: FROZEN_CONTRACT / OWNER_APPROVED_DESIGN / NOT_YET_IMPLEMENTED / READ_ONLY_OBSERVER / NO_STATE_PACKET_COMPUTATION / ORDER_SEND_DISABLED
+Status: FROZEN_CONTRACT / OWNER_APPROVED_DESIGN / IMPLEMENTED_V0_1_ON_2026-11-05_FIRST_LIVE_ROUND_RECORDED / READ_ONLY_OBSERVER / NO_STATE_PACKET_COMPUTATION / ORDER_SEND_DISABLED
 
 Approved by the owner on 2026-11-05 in the form **"Probe + log only"** and
 **"register with the durable supervisor first"** (no Windows scheduled task).

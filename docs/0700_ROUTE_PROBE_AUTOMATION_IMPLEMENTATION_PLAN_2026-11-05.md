@@ -57,7 +57,7 @@ Why four test files instead of one: each maps to one unit boundary (state, listi
 - Consumes: nothing (first task).
 - Produces: `DAILY_ALLOWED: frozenset[str]`, `MONTH_ALLOWED: frozenset[str]`, `INBOX_ALLOWED: frozenset[str]`, `NOT_PROBED = "NOT_PROBED"`, `STATUS_DUE = "DUE"`, `STATUS_NOT_YET_DUE = "NOT_YET_DUE"`, `STATUS_SUSPENDED = "SUSPENDED"`, `DEFAULT_CADENCE_MINUTES = 30`, `DEFAULT_SYMBOL = "XAUUSDm"`, `DEFAULT_WATCH_DIR: Path`, `DEFAULT_INBOX_DIR: Path`, `iso_utc(value: datetime) -> str`, `load_state(path: Path) -> dict[str, object]`, `save_state(path: Path, state: dict[str, object]) -> None`, `compute_due(state: dict[str, object], now: datetime, cadence_minutes: int) -> str`, `append_observation(path: Path, observation: dict[str, object]) -> None`, `read_observations(path: Path) -> list[dict[str, object]]`.
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 Create `tests/test_route_probe_state.py`:
 
@@ -173,12 +173,12 @@ def test_read_observations_on_missing_file_is_empty(tmp_path: Path) -> None:
     assert read_observations(tmp_path / "absent.ndjson") == []
 ```
 
-- [ ] **Step 2: Run the tests and verify they fail**
+- [x] **Step 2: Run the tests and verify they fail**
 
 Run: `.venv\Scripts\python.exe -m pytest tests/test_route_probe_state.py -v`
 Expected: collection error `ModuleNotFoundError: No module named 'exness_0700_route_probe'`.
 
-- [ ] **Step 3: Make the script importable from tests**
+- [x] **Step 3: Make the script importable from tests**
 
 In `pyproject.toml`, change the existing line inside `[tool.pytest.ini_options]` from `pythonpath = ["src"]` to:
 
@@ -186,7 +186,7 @@ In `pyproject.toml`, change the existing line inside `[tool.pytest.ini_options]`
 pythonpath = ["src", "scripts"]
 ```
 
-- [ ] **Step 4: Write the minimal implementation**
+- [x] **Step 4: Write the minimal implementation**
 
 Create `scripts/exness_0700_route_probe.py`. The module docstring must name the contract so a future reader cannot mistake this for a calculator:
 
@@ -308,7 +308,7 @@ def read_observations(path: Path) -> list[dict[str, object]]:
     return records
 ```
 
-- [ ] **Step 5: Run the tests and verify they pass**
+- [x] **Step 5: Run the tests and verify they pass**
 
 Run: `.venv\Scripts\python.exe -m pytest tests/test_route_probe_state.py -v`
 Expected: 13 passed.
@@ -316,7 +316,7 @@ Expected: 13 passed.
 Run: `.venv\Scripts\python.exe -m ruff check scripts/exness_0700_route_probe.py tests/test_route_probe_state.py`
 Expected: `All checks passed!`
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add scripts/exness_0700_route_probe.py tests/test_route_probe_state.py pyproject.toml
@@ -337,7 +337,7 @@ git commit -m "probe: add route observer state store and due gate"
 
 One month listing answers both existence questions, which is why `classify_listing` takes the month entries: it detects the day subdirectory (`name == "05"`) and the month ZIP entry in the same JSON payload that `fetch_directory` already parses. The day path is only probed further when `day_directory_present` is true, keeping the run inside the contract's one-listing budget.
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 Create `tests/test_route_probe_listing.py`:
 
@@ -470,12 +470,12 @@ def test_validate_status_rejects_invented_status_values() -> None:
         validate_status("unknown_field", "PRESENT")
 ```
 
-- [ ] **Step 2: Run the tests and verify they fail**
+- [x] **Step 2: Run the tests and verify they fail**
 
 Run: `.venv\Scripts\python.exe -m pytest tests/test_route_probe_listing.py -v`
 Expected: `ImportError: cannot import name 'classify_listing'`.
 
-- [ ] **Step 3: Write the implementation**
+- [x] **Step 3: Write the implementation**
 
 In `scripts/exness_0700_route_probe.py`, extend the stdlib datetime import to `from datetime import UTC, date, datetime`, add `from dataclasses import dataclass`, then append:
 
@@ -580,7 +580,7 @@ from nexus_xau.data.exness_tick_archive import (  # noqa: F401  (used from Task 
 
 and drop the `# noqa` comment in Task 4 Step 3 once every name is live.
 
-- [ ] **Step 4: Run the tests and verify they pass**
+- [x] **Step 4: Run the tests and verify they pass**
 
 Run: `.venv\Scripts\python.exe -m pytest tests/test_route_probe_listing.py tests/test_route_probe_state.py -v`
 Expected: 26 passed.
@@ -588,7 +588,7 @@ Expected: 26 passed.
 Run: `.venv\Scripts\python.exe -m ruff check scripts/exness_0700_route_probe.py tests/test_route_probe_listing.py`
 Expected: `All checks passed!`
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scripts/exness_0700_route_probe.py tests/test_route_probe_listing.py
@@ -609,7 +609,7 @@ git commit -m "probe: classify archive listing and month fingerprint"
 
 Why this scan is not `_read_month_window`: `nexus_xau.replay.archive_window._read_month_window` runs the replay admission and gap-ledger contract, which is exactly the validator work contract §3 forbids inside the observer. The count is an independent CSV minute-window match over rows of the declared symbol and nothing else.
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 Create `tests/test_route_probe_scan.py`:
 
@@ -738,12 +738,12 @@ def test_subdirectories_are_not_counted_as_source_files(tmp_path: Path) -> None:
     assert scan_inbox(tmp_path, None) == ("NO_NEW_FILES", None, 0)
 ```
 
-- [ ] **Step 2: Run the tests and verify they fail**
+- [x] **Step 2: Run the tests and verify they fail**
 
 Run: `.venv\Scripts\python.exe -m pytest tests/test_route_probe_scan.py -v`
 Expected: `ImportError: cannot import name 'boundary_minute_bounds'`.
 
-- [ ] **Step 3: Write the implementation**
+- [x] **Step 3: Write the implementation**
 
 In `scripts/exness_0700_route_probe.py`, add `import csv`, `import io`, `import zipfile` to the stdlib import block, then append:
 
@@ -807,7 +807,7 @@ def scan_inbox(directory: Path, previous_newest: str | None) -> tuple[str, str |
     return ("NO_NEW_FILES", newest, count)
 ```
 
-- [ ] **Step 4: Run the tests and verify they pass**
+- [x] **Step 4: Run the tests and verify they pass**
 
 Run: `.venv\Scripts\python.exe -m pytest tests/test_route_probe_scan.py tests/test_route_probe_listing.py tests/test_route_probe_state.py -v`
 Expected: 39 passed.
@@ -815,7 +815,7 @@ Expected: 39 passed.
 Run: `.venv\Scripts\python.exe -m ruff check scripts/exness_0700_route_probe.py tests/test_route_probe_scan.py`
 Expected: `All checks passed!`
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scripts/exness_0700_route_probe.py tests/test_route_probe_scan.py
@@ -834,7 +834,7 @@ git commit -m "probe: count boundary-minute ticks and scan owner inbox"
 - Consumes: Tasks 1–3 (`classify_listing`, `daily_route_status`, `month_zip_status`, `fingerprint_of`, `validate_status`, `count_boundary_ticks`, `scan_inbox`, `compute_due`, `load_state`, `save_state`, `append_observation`, `iso_utc`, `NOT_PROBED`, `STATUS_*`) and `fetch_directory` / `USER_AGENT` / `ArchiveAcquisitionError` / `ArchiveEntry`.
 - Produces: `ProbeConfig` frozen dataclass (`symbol: str`, `checkpoint_day: date`, `cadence_minutes: int`, `watch_dir: Path`, `inbox_dir: Path`, `cache_dir: Path`, `timeout_seconds: float`, `force: bool`), `SUSPEND_AFTER_CONSECUTIVE_ERRORS = 3`, `TRANSITION_FIELDS: tuple[str, str, str]`, `STATUS_OK = "OK"`, `fetch_listing(url: str, timeout_seconds: float) -> list[ArchiveEntry]`, `download_zip(url: str, target: Path, timeout_seconds: float) -> Path`, `month_zip_cache_path(config: ProbeConfig, zip_name: str) -> Path`, `run_probe(config: ProbeConfig, *, now: datetime, listing_fetcher, zip_downloader) -> dict[str, object]`, `transition_hints(previous: dict[str, object] | None, observation: dict[str, object]) -> list[str]`, `next_error_streak(state: dict[str, object], observation: dict[str, object]) -> int`.
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 Create `tests/test_route_probe_run.py`:
 
@@ -1166,12 +1166,12 @@ def test_corrupt_zip_becomes_error_class_without_stopping_inbox_check(tmp_path: 
     assert observation["inbox"] == "NEW_FILES"
 ```
 
-- [ ] **Step 2: Run the tests and verify they fail**
+- [x] **Step 2: Run the tests and verify they fail**
 
 Run: `.venv\Scripts\python.exe -m pytest tests/test_route_probe_run.py -v`
 Expected: `ImportError: cannot import name 'run_probe'`.
 
-- [ ] **Step 3: Write the orchestration**
+- [x] **Step 3: Write the orchestration**
 
 In `scripts/exness_0700_route_probe.py`, add `import time` and `from urllib.error import URLError` plus `from urllib.request import Request, urlopen` to the import block, remove the Task 2 `# noqa` comment, then append:
 
@@ -1371,7 +1371,7 @@ def run_probe(
 
 Two ordering rules the implementer must honour, both from the contract: the suspended short-circuit is checked **before** `force`, because a suspended observer must not be re-ignited by a routine call — resuming means a human editing `status` in `state.json` (§7.6); and the inbox check runs even after a listing or ZIP failure, because a failed market probe must not blind the source lane (§7.3 keeps them independent facts).
 
-- [ ] **Step 4: Run the tests and verify they pass**
+- [x] **Step 4: Run the tests and verify they pass**
 
 Run: `.venv\Scripts\python.exe -m pytest tests/test_route_probe_run.py -v`
 Expected: 13 passed.
@@ -1379,7 +1379,7 @@ Expected: 13 passed.
 Run: `.venv\Scripts\python.exe -m ruff check scripts/exness_0700_route_probe.py tests/test_route_probe_run.py`
 Expected: `All checks passed!`
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scripts/exness_0700_route_probe.py tests/test_route_probe_run.py
@@ -1398,7 +1398,7 @@ git commit -m "probe: orchestrate one bounded probe round with retry and suspens
 - Consumes: everything from Tasks 1–4.
 - Produces: `DEFAULT_CACHE_DIR: Path`, `ZONE = "Asia/Bangkok"`, `_resolve_checkpoint_day(raw: str | None) -> date`, `build_parser() -> argparse.ArgumentParser`, `main(argv: list[str] | None = None) -> int` returning `0` for a clean observation, `1` for a run that recorded an `error_class`, `2` for a blocked run that produced no observation.
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 Append to `tests/test_route_probe_run.py`:
 
@@ -1455,12 +1455,12 @@ def test_main_live_round_prints_status(tmp_path: Path, capsys) -> None:
 
 Add to the top of `tests/test_route_probe_run.py`: `import os`, `from zoneinfo import ZoneInfo`, and extend the existing `exness_0700_route_probe` import list with `build_parser`, `main`, `_resolve_checkpoint_day`.
 
-- [ ] **Step 2: Run the tests and verify they fail**
+- [x] **Step 2: Run the tests and verify they fail**
 
 Run: `.venv\Scripts\python.exe -m pytest tests/test_route_probe_run.py -v`
 Expected: `ImportError: cannot import name 'build_parser'`.
 
-- [ ] **Step 3: Write the CLI**
+- [x] **Step 3: Write the CLI**
 
 In `scripts/exness_0700_route_probe.py`, add `import argparse`, `import sys`, `from zoneinfo import ZoneInfo` to the import block, then append:
 
@@ -1541,7 +1541,7 @@ if __name__ == "__main__":
 
 `load_state` is read twice on a real run — once in `main` to veto a corrupt state before any network call, once inside `run_probe` as the authoritative read of the transaction. Keep both; the veto must not move inside `run_probe`, because `run_probe` appends an observation line and a corrupt state must produce none.
 
-- [ ] **Step 4: Run the whole offline suite**
+- [x] **Step 4: Run the whole offline suite**
 
 Run: `.venv\Scripts\python.exe -m pytest tests/test_route_probe_state.py tests/test_route_probe_listing.py tests/test_route_probe_scan.py tests/test_route_probe_run.py -v`
 Expected: all passed, with `test_main_live_round_prints_status` reported as skipped.
@@ -1552,7 +1552,7 @@ Expected: the pre-existing suite still passes — the probe must add no import-t
 Run: `.venv\Scripts\python.exe -m ruff check scripts/exness_0700_route_probe.py tests/test_route_probe_state.py tests/test_route_probe_listing.py tests/test_route_probe_scan.py tests/test_route_probe_run.py`
 Expected: `All checks passed!`
 
-- [ ] **Step 5: Verify no side effects on research authority**
+- [x] **Step 5: Verify no side effects on research authority**
 
 Run: `git status --short`
 Expected: only `scripts/exness_0700_route_probe.py`, the four `tests/test_route_probe_*.py` files, and `pyproject.toml`. `docs/CANONICAL_CLAIM_REGISTER_2026-09-03.json`, `docs/CURRENT_RESEARCH_STATE.json`, `docs/0700_WORKSTREAM_STATE.json`, `research_queue/QUEUE.json`, and `research_findings/FINDINGS.json` must not appear.
@@ -1560,7 +1560,7 @@ Expected: only `scripts/exness_0700_route_probe.py`, the four `tests/test_route_
 Run: `.venv\Scripts\python.exe scripts/research_preflight.py 2>&1 | grep NEXUS_RESEARCH_PREFLIGHT`
 Expected: `NEXUS_RESEARCH_PREFLIGHT=PASS`.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add scripts/exness_0700_route_probe.py tests/test_route_probe_run.py
@@ -1580,7 +1580,7 @@ git commit -m "probe: add CLI with due gate, transition hints, and exit codes"
 - Consumes: the finished CLI from Task 5.
 - Produces: the first real observation, the TOOLS.md entry, the supervisor job id, and the resume-visible pointer.
 
-- [ ] **Step 1: Create the watch directory and run one live forced round**
+- [x] **Step 1: Create the watch directory and run one live forced round**
 
 ```bash
 mkdir -p /d/tools/nexus-0700-watch
@@ -1590,7 +1590,7 @@ mkdir -p /d/tools/nexus-0700-watch
 
 Expected: exit 0 or 1, one `status=DUE ...` line printed, and `D:/tools/nexus-0700-watch/observations.ndjson` holding exactly one line. Record the printed values verbatim in the log document — they are Source Facts about the provider layout at that timestamp, not conclusions, and they are the first independent re-observation of the 2026-11-05 recheck finding.
 
-- [ ] **Step 2: Verify the due gate blocks a second immediate call**
+- [x] **Step 2: Verify the due gate blocks a second immediate call**
 
 ```bash
 .venv\Scripts\python.exe scripts/exness_0700_route_probe.py --once \
@@ -1599,7 +1599,7 @@ Expected: exit 0 or 1, one `status=DUE ...` line printed, and `D:/tools/nexus-07
 
 Expected: `status=NOT_YET_DUE` with `daily_route`, `month_route`, and `inbox` all `NOT_PROBED`, and no new bytes in the ZIP cache. This is contract acceptance criterion 2; if a request reached the network, the gate is broken — stop and fix before continuing.
 
-- [ ] **Step 3: Create `docs/0700_ROUTE_PROBE_LOG.md`**
+- [x] **Step 3: Create `docs/0700_ROUTE_PROBE_LOG.md`**
 
 Required sections, in this order:
 
@@ -1609,11 +1609,11 @@ Required sections, in this order:
 4. `Standing notes` — restate contract §11 (no OS scheduler means freshness on demand, not unattended polling) and the rule that a non-zero tick count does not mean the checkpoint is satisfied.
 5. `How to promote` — the two-line procedure: run the probe, then copy the printed `MATERIAL_TRANSITION` line into `Rounds`.
 
-- [ ] **Step 4: Register the tool in `TOOLS.md`**
+- [x] **Step 4: Register the tool in `TOOLS.md`**
 
 Add a `### 07:00 Route Probe` entry under `## Registered tools` containing: canonical role (decision-neutral availability observer, not a calculator), the invocation command, the three paths (watch dir, inbox, cache), exit codes 0/1/2, a pointer to the contract's closed vocabulary, the hard boundary sentence "no State Packet, no M1 rebuild, no archive validation, no scoring, no order send, no credentials", and the contract document path. The reuse-before-build rule at the top of `TOOLS.md` makes this entry the thing that stops a later session from writing a second poller.
 
-- [ ] **Step 5: Register the durable job**
+- [x] **Step 5: Register the durable job**
 
 ```bash
 py -3 D:/tools/nexus-durable-work/supervisor.py register \
@@ -1634,7 +1634,7 @@ py -3 D:/tools/nexus-project-continuity/continuity.py resume --project xau
 
 Expected: the capsule reports the probe job in live durable state, not only the repository pointer. If it reports `STALE_PROJECT_POINTER`, reconcile the live job before anything else, per AGENTS.md Tier 0.
 
-- [ ] **Step 6: Add the resume pointer and validate**
+- [x] **Step 6: Add the resume pointer and validate**
 
 In `docs/CURRENT_RESEARCH_STATE.json`, add one top-level key `route_probe_observer_2026_11_05` with `status: "IMPLEMENTED_OFFLINE_TESTED_FIRST_LIVE_ROUND_RECORDED"`, `contract`, `plan`, `tool`, `watch_dir`, `durable_job: "XAU-0700-ROUTE-PROBE-20261105"`, `observation_log`, and a `prohibited` sentence repeating contract §3. Set `updated_at` to the actual local timestamp at commit time — never a guessed future time. Edit no other key.
 
@@ -1647,7 +1647,7 @@ git status --short
 
 Expected: suite green, `PASS`, clean whitespace, and no `data/`, `*.ndjson`, `*.zip`, or media path staged.
 
-- [ ] **Step 7: Commit and push**
+- [x] **Step 7: Commit and push**
 
 ```bash
 git add docs/0700_ROUTE_PROBE_LOG.md TOOLS.md docs/CURRENT_RESEARCH_STATE.json \
@@ -1676,3 +1676,40 @@ Contract coverage (requirement → task):
 Placeholder scan: no TBD/TODO remains; every code step carries its code; every command carries an expected result.
 
 Type consistency across tasks: `ProbeConfig` fields match the Task 5 construction; `run_probe(config, *, now, listing_fetcher, zip_downloader)` is the single call shape used by Tasks 4, 5, and 6; `count_boundary_ticks(zip_path, day, symbol)` keeps the symbol parameter introduced in Task 3; `scan_inbox` returns the three-tuple consumed in Task 4; `iso_utc` (Task 1) is the only formatter in production code, with the test-local `iso` mirroring it for expectations.
+
+## Execution Record (2026-11-05)
+
+Executed inline, task by task, in this repository on `main`. Commits:
+`probe: add route observer state store and due gate`, `probe: classify archive
+listing and month fingerprint`, `probe: count boundary-minute ticks and scan
+owner inbox`, `probe: orchestrate one bounded probe round with retry and
+suspension`, `probe: add CLI with due gate, transition hints, and exit codes`,
+plus the deviation fix `probe: stop treating NOT_PROBED as a material transition`.
+Final offline suite for the lane: 60 passed, 1 skipped (the live round), `ruff`
+clean on the five probe files, whole repository suite 503 passed / 1 skipped,
+`NEXUS_RESEARCH_PREFLIGHT=PASS`.
+
+Four deviations from the code as written, none of them semantic:
+
+1. `save_state` uses `tempfile.mkstemp` + `os.fdopen` instead of
+   `NamedTemporaryFile(delete=False)`, so the handle is context-managed (ruff
+   SIM115). Same temp-then-`os.replace` atomicity.
+2. The wrong-shape `state.json` guard keeps `ValueError` with a targeted
+   `# noqa: TRY004`: corrupt file content is a data problem, not a caller passing
+   the wrong argument type, and `STATE_FILE_UNREADABLE` is what Task 1 tests pin.
+3. `pyproject.toml` gained `src = [".", "src", "scripts"]` under `[tool.ruff]` so
+   the `scripts` import in the new tests is first-party for isort (I001).
+   Task 1 Step 3 already authorised editing this file; the pythonpath change alone
+   was not sufficient.
+4. `download_zip` merges its two `with` clauses (ruff SIM117).
+
+One real defect the offline suite could not see, found by Task 6 Step 2: a
+`NOT_YET_DUE` round printed `MATERIAL_TRANSITION: daily_route PRESENT ->
+NOT_PROBED`, which reads as the route disappearing. `transition_hints` now skips
+any pair where either side is `NOT_PROBED` (contract §6), covered by
+`test_not_probed_is_never_a_material_transition`.
+
+Out-of-band note: the day-path content check in `docs/0700_ROUTE_PROBE_LOG.md`
+("Manual verification companion") was a deliberate human read of
+`Exness_XAUUSDm_2026_11_05.zip`. The probe itself never opens the day path, and
+this plan does not change that.

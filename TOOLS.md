@@ -446,3 +446,50 @@ Boundary:
 - do not fabricate absent current-day ticks or bars;
 - keep Exness archive identity distinct from the expired MT5 Trial17 execution stream;
 - protected holdout/economic scoring remain disabled.
+
+### 07:00 Route Probe
+
+Runner:
+- `scripts/exness_0700_route_probe.py`
+
+Contract:
+- `docs/0700_ROUTE_PROBE_AUTOMATION_CONTRACT_V0_1_2026-11-05.md`
+- plan: `docs/0700_ROUTE_PROBE_AUTOMATION_IMPLEMENTATION_PLAN_2026-11-05.md`
+- promoted transitions: `docs/0700_ROUTE_PROBE_LOG.md`
+
+Role:
+- decision-neutral availability observer, **not a calculator**. It records which
+  remote archive route exposes the checkpoint-day boundary minute, whether the
+  month ZIP fingerprint moved, and whether new owner source files appeared. It
+  does not decide the input route and does not make the 07:00 objective look
+  satisfied.
+
+Invocation (one bounded round; the due gate makes repeat calls free):
+- `.venv\Scripts\python.exe scripts/exness_0700_route_probe.py --once`
+- add `--force` for a deliberate manual round; `--cadence-minutes`, `--symbol`,
+  `--checkpoint-day`, `--watch-dir`, `--inbox`, `--cache-dir` and
+  `--timeout-seconds` are optional overrides.
+
+Paths:
+- watch/state/log (outside the repository): `D:\tools\nexus-0700-watch\state.json`, `D:\tools\nexus-0700-watch\observations.ndjson`;
+- owner source-drop inbox: `D:\tools\nexus-video-evidence\_incoming` (mtimes only, contents never read);
+- ZIP cache (already gitignored): `data\raw\exness_tick_history\current_month_probe\`.
+
+Exit codes:
+- `0` a clean observation was recorded;
+- `1` the run recorded an `error_class` (transport, ambiguous ZIP, invalid CSV header/row);
+- `2` blocked before writing anything (corrupt `state.json`, non-positive cadence or timeout).
+
+Reuse rule:
+- read the closed vocabulary in contract section 6 before interpreting any
+  status value, and re-use this observer instead of writing a second poller.
+  Cadence lives in `state.json`, not the OS: `local_work_agent.py` has no
+  due-date semantics, so a fresh session should call `--once` when
+  `now >= next_run_at` rather than inventing a scheduler.
+
+Boundary:
+- READ-ONLY DATA / no State Packet, no M1 rebuild, no archive validation, no
+  scoring, no order send, no credentials;
+- no write to the canonical claim register, workstream state, Queue, or findings
+  ledger;
+- `LISTING_UNREADABLE` is never absence, and `NOT_PROBED` is never a transition.

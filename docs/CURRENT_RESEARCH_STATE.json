@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-05T18:48:00+07:00",
+  "updated_at": "2026-11-05T19:35:46+07:00",
   "project": "NEXUS XAU Research Engine",
   "state_authority": {
     "scope": "PROJECT_CURRENT",
@@ -1925,5 +1925,17 @@
     "visual_path_limit": "No numeric text exists anywhere on either clip, so timeframes, the 1,000/1,500/5,000 distances, the stop buffer and the '>50%' relation cannot be settled visually.",
     "attribution_delta": "Verbatim puts H4=1,500 in 164004 and labels 1,500 as TP2 of the same H1 round in 163822; H4_RUN_POINTS = 1500.0 keeps verbatim support and was not changed.",
     "prohibited": "No canonical claim, threshold, denominator, unit, or geometry changed. No RQ admitted. Pips and foreign SMC vocabulary from the glossary were rejected as imports. PATH_REMAINING stays historical-only. Holdout/economic scoring, Win/Loss and order send remain disabled."
+  },
+  "route_probe_observer_2026_11_05": {
+    "status": "IMPLEMENTED_OFFLINE_TESTED_FIRST_LIVE_ROUND_RECORDED",
+    "contract": "docs/0700_ROUTE_PROBE_AUTOMATION_CONTRACT_V0_1_2026-11-05.md",
+    "plan": "docs/0700_ROUTE_PROBE_AUTOMATION_IMPLEMENTATION_PLAN_2026-11-05.md",
+    "tool": "scripts/exness_0700_route_probe.py",
+    "watch_dir": "D:/tools/nexus-0700-watch",
+    "durable_job": "XAU-0700-ROUTE-PROBE-20261105",
+    "observation_log": "docs/0700_ROUTE_PROBE_LOG.md",
+    "observed_at_utc": "2026-11-05T12:30:00Z",
+    "first_round_reading": "daily_route=PRESENT month_route=PRESENT_CHANGED inbox=NEW_FILES boundary_minute_tick_count=0 error_class=null; the November month ZIP stopped at 2026-11-04 23:59:59.831Z while the day subdirectory 05 existed with mtime 12:21:19 GMT.",
+    "prohibited": "Observer only: no State Packet, no M1 rebuild, no archive validation on probe bytes, no route implementation, no holdout/economic scoring, no Win/Loss, no order send, no credentials. Existence evidence is never route authority, so the a/b/c input-route decision still belongs to the owner."
   }
 }
