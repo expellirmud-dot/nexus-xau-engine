@@ -27,9 +27,12 @@ nexus-xau = "nexus_xau.cli:main"
 where = ["src"]
 
 [tool.pytest.ini_options]
-pythonpath = ["src"]
+pythonpath = ["src", "scripts"]
 addopts = "-q"
 
 [tool.ruff]
 target-version = "py312"
 line-length = 100
+# `scripts` is listed so modules imported by tests from the scripts directory
+# are treated as first-party by isort rules (I001), same as `src`.
+src = [".", "src", "scripts"]
