@@ -237,6 +237,66 @@ The November month ZIP was rebuilt at 01:41:14Z today, i.e. about 48 minutes
 before this round read it. Nothing here resolves the input-route decision; the
 a/b/c choice remains the owner's.
 
+#### Correction and added evidence for Round 10 (checked by hand 2026-11-06T03:47Z; not produced by the probe)
+
+The block above is left as the automation wrote it. Three items are corrected
+here, and one open question in it is now answered from the file itself.
+
+- **"about 48 minutes" is wrong.** `01:41:14Z -> 02:07:51Z` is **26 minutes
+  37 seconds**.
+- **"Machine record: ... last line" was line 29** at the time it was written.
+  It is no longer the last line, so the block should be read as pointing at
+  `observations.ndjson` line 29 (`at_utc 2026-11-06T02:07:51+00:00`).
+- **`Command as run` is not a literal transcript.** This block records the
+  backslash form (`D:\nexus-xau-engine-repo\...`), while Rounds 9 and 11 record
+  the forward-slash form documented in `TOOLS.md`. Treat the field as "which
+  command", not "what the shell received".
+
+**Why `boundary_minute_tick_count: 0` — resolved.** The month object the probe
+had just downloaded was opened directly
+(`data/raw/exness_tick_history/current_month_probe/XAUUSDm/2026/Exness_XAUUSDm_2026_11.zip`,
+13,371,903 bytes — equal to the size half of the fingerprint, so this is the
+object scanned at 02:07:51Z):
+
+- one CSV member, `Exness_XAUUSDm_2026_11.csv`, header exactly
+  `Exness, Symbol, Timestamp, Bid, Ask`, 1,419,556 rows, one symbol (`XAUUSDm`);
+- first row `2026-11-01 23:01:30.160Z`, **last row `2026-11-05 23:59:59.947Z`**;
+- rows per minute leading up to it: 23:50 `302`, 23:51 `311`, 23:52 `293`,
+  23:53 `269`, 23:54 `291`, 23:55 `238`, 23:56 `245`, 23:57 `250`, 23:58 `233`,
+  23:59 `250`;
+- no row anywhere in `2026-11-06 00:0x`.
+
+So the object **ended 53 milliseconds before the boundary minute began**. `0`
+is a coverage-lag artefact of the month route, not a statement that the 07:00
+boundary minute is empty, and not a contradiction of Round 1's `0`. The
+adjacent minutes are dense, so nothing upstream of the boundary is missing.
+
+Two supporting readings from the same file:
+
+- every timestamp carries a trailing `Z`, so the CSV is UTC and
+  `boundary_minute_bounds()` is comparing against the same clock the provider
+  writes;
+- the two observed rebuilds are `Thu, 05 Nov 2026 01:41:16 GMT` and
+  `Fri, 06 Nov 2026 01:41:14 GMT` — about 24 hours apart, and the 06 Nov
+  rebuild carried data only through the end of 05 Nov. On this reading the
+  month route can serve a boundary minute only after the day closes and the
+  ZIP is rebuilt again, i.e. roughly a day after 07:00 Bangkok.
+
+This is consistent with `FIND-0004 / OBS-0011`, where the *October* month ZIP —
+read long after 08 Oct closed — held 269 ticks inside the
+`2026-10-08 00:00` boundary minute. A closed day is present in the month
+object; the current day's boundary minute is not yet.
+
+**Falsifiable prediction.** The next fingerprint movement should report
+`boundary_minute_tick_count > 0` for `2026-11-06 00:00`. If it still reads `0`
+while the object's last row is past `2026-11-06 00:01Z`, this correction is
+wrong and the reading must be reopened.
+
+**Still unperformed.** Whether the day path `2026/11/06/` holds a day ZIP that
+already contains the boundary minute is outside this observer's contract
+(section 3), and nothing here checks it. That is exactly the asymmetry the
+open a/b/c input-route decision turns on, and it remains the owner's call.
+
 ### Round 11 — the month ZIP fingerprint did not move again (transition promoted)
 
 ```
