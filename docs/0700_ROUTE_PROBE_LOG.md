@@ -141,6 +141,52 @@ prediction about the day path later today. The next round that probes
 `2026-11-06` compares against this one, so a genuine `ABSENT -> PRESENT`
 within the same checkpoint day will still be reported.
 
+### Round 9 — `daily_route` appears for checkpoint day 2026-11-06 (transition promoted)
+
+```
+MATERIAL_TRANSITION: daily_route ABSENT -> PRESENT
+status=DUE daily_route=PRESENT month_route=PRESENT_UNCHANGED inbox=NO_NEW_FILES boundary_minute_tick_count=None error_class=None next_run_at=2026-11-06T00:47:48+00:00
+```
+
+```
+at_utc: 2026-11-06T00:22:48+00:00   status: DUE   forced: false   error_class: null
+checkpoint_day: 2026-11-06   symbol: XAUUSDm
+daily_route: PRESENT   month_route: PRESENT_UNCHANGED   inbox: NO_NEW_FILES
+boundary_minute_tick_count: null   inbox_file_count: 2
+elapsed_ms: 811   retry_count: 0   next_run_at: 2026-11-06T00:47:48+00:00
+```
+
+Command as run (from the repository root):
+
+```
+D:/nexus-xau-engine-repo/.venv/Scripts/python.exe scripts/exness_0700_route_probe.py \
+  --once --cadence-minutes 25 --watch-dir "D:/tools/nexus-0700-watch"
+```
+
+Machine record: `D:\tools\nexus-0700-watch\observations.ndjson`, line 26
+(`at_utc` and field values above read from that line; the preceding two lines,
+23:12:53Z and 23:47:48Z, both recorded `daily_route: ABSENT` for the same
+checkpoint day, which is the baseline this transition compares against).
+
+What this round observed, bounded to 2026-11-06T00:22:48Z:
+
+- The `06` subdirectory is now listed under `ticks/XAUUSDm/2026/11/`. The
+  previous comparable round on the same checkpoint day found it absent, so the
+  listing changed between 23:47:48Z and 00:22:48Z. Per the vocabulary table,
+  `PRESENT` is **not** evidence that a day ZIP exists inside it, and not
+  evidence about the boundary minute.
+- `month_route: PRESENT_UNCHANGED` — the month-ZIP fingerprint did not move
+  since the previous probing round, so safety rail 2 skipped the fetch and scan.
+  `boundary_minute_tick_count: null` is therefore "not scanned at this round",
+  not an absence claim.
+- `inbox: NO_NEW_FILES` (2 files, newest mtime unchanged from prior rounds) —
+  no new owner material appeared.
+- `error_class: null`, `retry_count: 0`, exit code 0: no suspension and no
+  transport failure to report.
+
+Nothing here resolves the input-route decision. November has day
+subdirectories and a month ZIP; the a/b/c choice remains the owner's.
+
 ### Manual verification companion to Round 1 (not produced by the probe)
 
 One deliberate read-only check, done by hand on 2026-11-05T12:31 UTC because the
