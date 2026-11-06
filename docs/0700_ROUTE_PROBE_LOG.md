@@ -237,6 +237,53 @@ The November month ZIP was rebuilt at 01:41:14Z today, i.e. about 48 minutes
 before this round read it. Nothing here resolves the input-route decision; the
 a/b/c choice remains the owner's.
 
+### Round 11 — the month ZIP fingerprint did not move again (transition promoted)
+
+```
+MATERIAL_TRANSITION: month_route PRESENT_CHANGED -> PRESENT_UNCHANGED
+status=DUE daily_route=PRESENT month_route=PRESENT_UNCHANGED inbox=NO_NEW_FILES boundary_minute_tick_count=None error_class=None next_run_at=2026-11-06T03:07:55+00:00
+```
+
+```
+at_utc: 2026-11-06T02:42:55+00:00   status: DUE   forced: false   error_class: null
+checkpoint_day: 2026-11-06   symbol: XAUUSDm
+daily_route: PRESENT   month_route: PRESENT_UNCHANGED   inbox: NO_NEW_FILES
+boundary_minute_tick_count: null   inbox_file_count: 2
+elapsed_ms: 765   retry_count: 0   next_run_at: 2026-11-06T03:07:55+00:00
+month_zip_fingerprint after: 13371903:Fri, 06 Nov 2026 01:41:14 GMT
+```
+
+Command as run (from the repository root):
+
+```
+D:/nexus-xau-engine-repo/.venv/Scripts/python.exe scripts/exness_0700_route_probe.py --once --cadence-minutes 25 --watch-dir "D:/tools/nexus-0700-watch"
+```
+
+Machine record: `D:\tools\nexus-0700-watch\observations.ndjson`, line 30
+(`at_utc` and field values above read from that line; `month_zip_fingerprint
+after` from `state.json` in the same directory).
+
+What this round observed, bounded to 2026-11-06T02:42:55Z:
+
+- `month_route` settled back to `PRESENT_UNCHANGED`: the fingerprint is still
+  `13371903:Fri, 06 Nov 2026 01:41:14 GMT`, the value Round 10 caught it move
+  to. The month ZIP has not been rebuilt again in the 35 minutes since.
+- `boundary_minute_tick_count: null` is a **skip**, not a scan. Safety rail 2
+  held the fetch because the fingerprint was unchanged, so the boundary minute
+  `2026-11-06 00:00` has not been re-examined since 02:07:51Z (where it read
+  `0`). No absence of data is claimed.
+- `daily_route: PRESENT` — the `06` subdirectory is still listed under
+  `ticks/XAUUSDm/2026/11/`, unchanged from Round 9 onward and therefore not a
+  transition.
+- `inbox: NO_NEW_FILES` (2 files, newest mtime still
+  `2026-09-12T10:49:32+00:00`) — no new owner material.
+- `error_class: null`, `retry_count: 0`, exit code 0: no suspension, no
+  transport failure.
+
+This is existence evidence about the provider listing and a ZIP fingerprint at
+one timestamp. It is not route authority, and it does not advance the owner's
+open a/b/c input-route decision.
+
 ### Manual verification companion to Round 1 (not produced by the probe)
 
 One deliberate read-only check, done by hand on 2026-11-05T12:31 UTC because the
