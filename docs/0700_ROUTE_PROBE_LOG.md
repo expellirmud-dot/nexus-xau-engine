@@ -187,6 +187,56 @@ What this round observed, bounded to 2026-11-06T00:22:48Z:
 Nothing here resolves the input-route decision. November has day
 subdirectories and a month ZIP; the a/b/c choice remains the owner's.
 
+### Round 10 — the month ZIP fingerprint moved, and the boundary minute was re-scanned (transition promoted)
+
+```
+MATERIAL_TRANSITION: month_route PRESENT_UNCHANGED -> PRESENT_CHANGED
+status=DUE daily_route=PRESENT month_route=PRESENT_CHANGED inbox=NO_NEW_FILES boundary_minute_tick_count=0 error_class=None next_run_at=2026-11-06T02:32:51+00:00
+```
+
+```
+at_utc: 2026-11-06T02:07:51+00:00   status: DUE   forced: false   error_class: null
+checkpoint_day: 2026-11-06   symbol: XAUUSDm
+daily_route: PRESENT   month_route: PRESENT_CHANGED   inbox: NO_NEW_FILES
+boundary_minute_tick_count: 0   inbox_file_count: 2
+elapsed_ms: 7655   retry_count: 0   next_run_at: 2026-11-06T02:32:51+00:00
+month_zip_fingerprint after: 13371903:Fri, 06 Nov 2026 01:41:14 GMT
+```
+
+Command as run (from the repository root):
+
+```
+D:\nexus-xau-engine-repo\.venv\Scripts\python.exe scripts/exness_0700_route_probe.py --once --cadence-minutes 25 --watch-dir "D:/tools/nexus-0700-watch"
+```
+
+Machine record: `D:\tools\nexus-0700-watch\observations.ndjson`, last line
+(`at_utc` and field values above read from that line; `month_zip_fingerprint
+after` from `state.json` in the same directory).
+
+What this round observed, bounded to 2026-11-06T02:07:51Z:
+
+- The month-ZIP fingerprint left `9255481:Thu, 05 Nov 2026 01:41:16 GMT`, the
+  value that had been frozen since Round 1, and is now `13371903:Fri, 06 Nov
+  2026 01:41:14 GMT`. That is the first fingerprint movement this log has
+  recorded from a scheduled round, and it is what re-opened the scan.
+- `boundary_minute_tick_count: 0` is a **performed** scan result, not a skip.
+  It says the boundary minute `2026-11-06 00:00` had no rows inside the month-ZIP
+  object as of 02:07:51Z. Per Round 1's note, the same value there meant the
+  same thing for a different lag; the two reads are consistent with the month
+  object trailing the live day.
+- `0` is **not** a statement that no 07:00 data exists anywhere. The probe never
+  opens the day path, and `daily_route: PRESENT` here only means the `06`
+  subdirectory is still listed under `ticks/XAUUSDm/2026/11/`. Whether a day ZIP
+  inside it holds the boundary minute is a separate, unperformed check.
+- `inbox: NO_NEW_FILES` (2 files, newest mtime still
+  `2026-09-12T10:49:32+00:00`) — no new owner material.
+- `error_class: null`, `retry_count: 0`, exit code 0: no suspension, no
+  transport failure.
+
+The November month ZIP was rebuilt at 01:41:14Z today, i.e. about 48 minutes
+before this round read it. Nothing here resolves the input-route decision; the
+a/b/c choice remains the owner's.
+
 ### Manual verification companion to Round 1 (not produced by the probe)
 
 One deliberate read-only check, done by hand on 2026-11-05T12:31 UTC because the
