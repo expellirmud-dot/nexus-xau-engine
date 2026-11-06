@@ -1,7 +1,7 @@
 {
   "schema_version": "PHASE1_FINDING_LEDGER_V0.1",
   "role": "NON_CANONICAL_RESEARCH_FINDING_INDEX",
-  "updated_at": "2026-11-05T18:48:00+07:00",
+  "updated_at": "2026-11-06T10:49:03+07:00",
   "authority_rule": "This ledger indexes research observations and reconciliations only. It cannot override canonical claims, queue authority, source evidence, or holdout governance.",
   "findings": [
     {
@@ -205,7 +205,7 @@
       "scope": "Phase 1",
       "canonical_claim_ref": null,
       "blocking": false,
-      "current_interpretation": "The 2026-10-08 current-day input route assumed Exness daily subdirectories would remain available alongside the monthly ZIP. On the 2026-11-05 recheck, every 2026-10 daily snapshot returned REMOTE_DAY_NOT_AVAILABLE while the month-only ZIP exists and contains the 2026-10-08 00:00 UTC boundary-minute ticks. The checkpoint data is observable, but only through a route the frozen daily runner does not use. Route choice is an open owner decision.",
+      "current_interpretation": "The 2026-10-08 current-day input route assumed Exness daily subdirectories would remain available alongside the monthly ZIP. On the 2026-11-05 recheck, every 2026-10 daily snapshot returned REMOTE_DAY_NOT_AVAILABLE while the month-only ZIP exists and contains the 2026-10-08 00:00 UTC boundary-minute ticks. The checkpoint data is observable, but only through a route the frozen daily runner does not use. Route choice is an open owner decision. OBS-0016 adds a timing constraint on the month route: the ZIP rebuilt at about 01:41Z carried data only through the previous day's final tick, so that day's own boundary minute was not in it yet, while a long-closed day's boundary minute is (OBS-0011). A month-only route therefore serves a 07:00 boundary roughly a day after it occurs, and whether the day path serves it sooner is a separate, unperformed check.",
       "allowed_uses": [
         "INPUT_ROUTE_AVAILABILITY_HISTORY",
         "REOPEN_TRIGGER_EVIDENCE",
@@ -254,6 +254,21 @@
             "validator not re-run on month ZIP in this pass"
           ],
           "evidence_refs": [
+            "docs/0700_CURRENT_DAY_INPUT_ROUTE_RECHECK_2026-11-05.md"
+          ]
+        },
+        {
+          "observation_id": "OBS-0016",
+          "statement": "The November month ZIP scanned by the 07:00 route observer at 2026-11-06T02:07:51Z (13,371,903 bytes, Last-Modified Fri 06 Nov 2026 01:41:14 GMT) held 1,419,556 XAUUSDm rows whose final timestamp was 2026-11-05 23:59:59.947Z, so the 2026-11-06 00:00 UTC boundary minute returned 0 ticks because the object ended 53 milliseconds before that minute began; the ten preceding minutes held 233-311 rows each and no row existed anywhere in 2026-11-06 00:0x.",
+          "representation": "Offline scan of the observer's own cached month ZIP, identical bytes to the recorded fingerprint, counting only the boundary-minute window; no M1 aggregation, state packet, or validator run.",
+          "conditions": [
+            "read about 26 minutes 37 seconds after the 06 Nov rebuild",
+            "CSV timestamps carry a trailing Z, so the file clock and the boundary-minute window are both UTC",
+            "rebuilds observed at 01:41:16Z on 05 Nov and 01:41:14Z on 06 Nov",
+            "the day path 2026/11/06 was never opened by this check"
+          ],
+          "evidence_refs": [
+            "docs/0700_ROUTE_PROBE_LOG.md",
             "docs/0700_CURRENT_DAY_INPUT_ROUTE_RECHECK_2026-11-05.md"
           ]
         }
