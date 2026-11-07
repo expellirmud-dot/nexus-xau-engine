@@ -296,7 +296,30 @@ A negative or inconclusive research result is valid project knowledge and must b
 
 The project objective is quality of sequential decisions under uncertainty, not merely profit/loss optimization.
 
-## 11. Restart invariant
+
+## 11. Goal-locked execution / completion-path rule
+
+For bounded, goal-directed work with a defined target outcome (for example migration, deployment, automation setup, integration, repair, or a specified deliverable), do not discover the plan one local step at a time during execution.
+
+Before the first mutation:
+
+1. establish the actual current state, including Git/worktree/branch status, relevant uncommitted or unmerged work, active jobs, pending checkpoints, and required documents;
+2. define the target end state and acceptance criteria;
+3. define the ordered completion path from the current state to that end state, including prerequisites, validation, cutover/rollback boundaries, and any Owner Gates;
+4. classify known issues/uncertainties as blocking or non-blocking;
+5. then execute against that path.
+
+During execution:
+
+- A non-blocking side issue must be recorded/deferred; it must not silently expand or redirect the current task.
+- A real blocker may justify a bounded prerequisite fix, after which execution returns to the original completion path.
+- A nearby improvement, cleanup, refactor, or newly discovered opportunity is not automatically part of the current task.
+- If new evidence invalidates the remaining path, explicitly revise the remaining completion path and explain why before continuing. Do not drift by chaining one improvised next step after another.
+- When the target requires a clean baseline, reconcile and checkpoint the relevant pending work first. Preserve unrelated evidence/work; do not delete, merge, or rewrite it merely to make the workspace look clean.
+
+This rule is not a ban on adaptive exploration. Open-ended research may change direction as evidence emerges, but it must still preserve the active question, evidence trail, and stop condition. When the target outcome is already known, completion-path planning is the default.
+
+## 12. Restart invariant
 
 A new agent/session must continue from the repository state, not from conversational memory alone.
 
