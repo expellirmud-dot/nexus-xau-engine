@@ -229,9 +229,12 @@ Reuse before building.
 
 Current important tooling includes:
 
-- Desktop Commander is the primary local filesystem plane for bulk read/write/search/edit and ordinary local commands/processes;
-- if Desktop Commander is unavailable in the current session, fall back to IE Coder Connect before declaring a local-access blocker;
-- a Desktop Commander remote device/workspace OFFLINE state is not proof that the local repository is unavailable; probe actual local tool availability first;
+- `agent-desktop` through IE Coder Connect is the primary local desktop GUI/UI plane for Windows apps and browser interaction; use the observe -> qualified ref -> action -> verify loop and default to headless semantic accessibility actions;
+- before first substantive Agent Desktop use in a fresh environment, run `agent-desktop status`, `agent-desktop skills get desktop`, and `agent-desktop skills get platform`; use `wait` instead of fixed sleeps and retry only when the tool reports retry as safe;
+- for related multi-step UI work, prefer Agent Desktop `batch` plus a stable session so Connect/process startup overhead is amortized rather than opening one CLI process for every tiny action;
+- IE Coder Connect remains the primary local filesystem/search/edit and ordinary command/process plane; Agent Desktop is for GUI interaction, not repository/file transport;
+- Remote Desktop Commander is a fallback when IE Coder Connect is unavailable or an independent remote relay is specifically required; do not prefer it over Connect -> Agent Desktop for normal local GUI work;
+- a Remote Desktop Commander OFFLINE state is not proof that the local repository is unavailable; probe actual local tool availability first;
 - `agent-browser` for browser/YouTube transcript, metadata, timestamps, and headed CDP visual evidence;
 - `D:\tools\nexus-video-evidence` for local video/frame evidence;
 - IE Coder image bridge for agent vision over local images.
